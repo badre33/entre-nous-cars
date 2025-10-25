@@ -8,9 +8,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { PartnerTestimonials } from "@/components/PartnerTestimonials";
 import { RevenueCalculator } from "@/components/RevenueCalculator";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-partners.jpg";
 
 const Partenaires = () => {
+  const { t } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const formRef = useRef<HTMLDivElement>(null);
   
@@ -46,30 +48,27 @@ const Partenaires = () => {
         
         <div className="container relative z-10 text-center text-white">
           <h1 className="text-5xl md:text-6xl mb-6 text-white drop-shadow-lg">
-            Vous possédez une flotte ? Gagnez plus.
+            {t('partners.heroTitle')}
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/95 font-medium">
-            Rejoignez Benatna pour recevoir des demandes qualifiées sans payer 
-            de frais de franchise internationale. Restez indépendant, gardez vos tarifs 
-            — nous vous apportons les clients.
+            {t('partners.heroSubtitle')}
           </p>
           <Button size="lg" className="rounded-full text-lg px-8" onClick={scrollToForm}>
-            Rejoindre Benatna
+            {t('partners.joinBenatna')}
           </Button>
         </div>
       </section>
 
-      {/* What We Offer */}
       <section className="py-20">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">Ce que Benatna vous apporte</h2>
+          <h2 className="text-4xl md:text-5xl text-center mb-16">{t('partners.whatWeOffer')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
               <CardContent className="pt-12 pb-8 text-center">
                 <TrendingUp className="w-12 h-12 mb-6 text-primary mx-auto" />
-                <h3 className="text-xl font-barlow font-semibold mb-4">Réservations supplémentaires</h3>
+                <h3 className="text-xl font-barlow font-semibold mb-4">{t('partners.bookingsTitle')}</h3>
                 <p className="text-muted-foreground text-sm">
-                  Accédez à de nouveaux clients sans effort commercial
+                  {t('partners.bookingsText')}
                 </p>
               </CardContent>
             </Card>
@@ -77,9 +76,9 @@ const Partenaires = () => {
             <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
               <CardContent className="pt-12 pb-8 text-center">
                 <Eye className="w-12 h-12 mb-6 text-secondary mx-auto" />
-                <h3 className="text-xl font-barlow font-semibold mb-4">Visibilité nationale</h3>
+                <h3 className="text-xl font-barlow font-semibold mb-4">{t('partners.visibilityTitle')}</h3>
                 <p className="text-muted-foreground text-sm">
-                  Votre agence visible partout au Maroc
+                  {t('partners.visibilityText')}
                 </p>
               </CardContent>
             </Card>
@@ -87,9 +86,9 @@ const Partenaires = () => {
             <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
               <CardContent className="pt-12 pb-8 text-center">
                 <FileText className="w-12 h-12 mb-6 text-accent mx-auto" />
-                <h3 className="text-xl font-barlow font-semibold mb-4">Image professionnelle</h3>
+                <h3 className="text-xl font-barlow font-semibold mb-4">{t('partners.imageTitle')}</h3>
                 <p className="text-muted-foreground text-sm">
-                  Présentation standardisée et moderne
+                  {t('partners.imageText')}
                 </p>
               </CardContent>
             </Card>
@@ -97,9 +96,9 @@ const Partenaires = () => {
             <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
               <CardContent className="pt-12 pb-8 text-center">
                 <Zap className="w-12 h-12 mb-6 text-primary mx-auto" />
-                <h3 className="text-xl font-barlow font-semibold mb-4">Processus digital</h3>
+                <h3 className="text-xl font-barlow font-semibold mb-4">{t('partners.processTitle')}</h3>
                 <p className="text-muted-foreground text-sm">
-                  Demandes, contrats et paiements simplifiés
+                  {t('partners.processText')}
                 </p>
               </CardContent>
             </Card>

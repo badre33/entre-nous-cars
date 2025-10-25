@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Star, Quote } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const testimonials = [
   {
@@ -66,13 +67,15 @@ const testimonials = [
 ];
 
 export const PartnerTestimonials = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-20 bg-card">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl mb-4">Nos partenaires témoignent</h2>
+          <h2 className="text-4xl md:text-5xl mb-4">{t('partners.testimonialsTitle')}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Découvrez ce que les agences partenaires pensent de Benatna
+            {t('partners.testimonialsSubtitle')}
           </p>
         </div>
 

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Car } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const FloatingCTA = () => {
+  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -32,7 +34,7 @@ export const FloatingCTA = () => {
           className="rounded-full shadow-2xl px-6 py-6 text-base font-semibold hover:scale-105 transition-transform flex items-center gap-2"
         >
           <Car className="w-5 h-5" />
-          Réserver maintenant
+          {t('common.bookNow')}
         </Button>
       </Link>
     </div>

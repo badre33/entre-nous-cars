@@ -3,8 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { TrendingUp, Car, Calendar, DollarSign } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export const RevenueCalculator = () => {
+  const { t } = useLanguage();
   const [vehicleCount, setVehicleCount] = useState([10]);
   const [averagePrice, setAveragePrice] = useState([400]);
   const [occupancyRate, setOccupancyRate] = useState([70]);
@@ -34,9 +36,9 @@ export const RevenueCalculator = () => {
     <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
       <div className="container max-w-6xl">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl mb-4">Simulez vos revenus potentiels</h2>
+          <h2 className="text-4xl md:text-5xl mb-4">{t('partners.revenueSimulator')}</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Estimez combien vous pourriez gagner en rejoignant Benatna
+            {t('partners.revenueSubtitle')}
           </p>
         </div>
 
@@ -46,7 +48,7 @@ export const RevenueCalculator = () => {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <TrendingUp className="w-6 h-6 text-primary" />
-                Paramètres de simulation
+                {t('partners.simulationParams')}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-8">
@@ -55,7 +57,7 @@ export const RevenueCalculator = () => {
                 <div className="flex justify-between items-center">
                   <Label className="flex items-center gap-2 text-base">
                     <Car className="w-5 h-5" />
-                    Nombre de véhicules
+                    {t('partners.vehicleCount')}
                   </Label>
                   <span className="text-2xl font-bold text-primary">{vehicleCount[0]}</span>
                 </div>
@@ -78,7 +80,7 @@ export const RevenueCalculator = () => {
                 <div className="flex justify-between items-center">
                   <Label className="flex items-center gap-2 text-base">
                     <DollarSign className="w-5 h-5" />
-                    Prix moyen par jour
+                    {t('partners.avgPrice')}
                   </Label>
                   <span className="text-2xl font-bold text-secondary">{averagePrice[0]} MAD</span>
                 </div>
@@ -101,7 +103,7 @@ export const RevenueCalculator = () => {
                 <div className="flex justify-between items-center">
                   <Label className="flex items-center gap-2 text-base">
                     <Calendar className="w-5 h-5" />
-                    Taux d'occupation
+                    {t('partners.occupancyRate')}
                   </Label>
                   <span className="text-2xl font-bold text-accent">{occupancyRate[0]}%</span>
                 </div>
@@ -128,30 +130,30 @@ export const RevenueCalculator = () => {
           <div className="space-y-4">
             <Card className="border-2 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5">
               <CardContent className="p-6">
-                <p className="text-sm text-muted-foreground mb-2">Chiffre d'affaires brut mensuel</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('partners.monthlyRevenue')}</p>
                 <p className="text-4xl font-bold text-primary mb-1">{formatMAD(totalMonthlyRevenue)}</p>
                 <p className="text-xs text-muted-foreground">
-                  Avant commission Benatna (15%)
+                  {t('partners.beforeCommission')}
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 rounded-2xl bg-gradient-to-br from-secondary/10 to-secondary/5">
               <CardContent className="p-6">
-                <p className="text-sm text-muted-foreground mb-2">Revenu net mensuel</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('partners.netMonthly')}</p>
                 <p className="text-4xl font-bold text-secondary mb-1">{formatMAD(netMonthlyRevenue)}</p>
                 <p className="text-xs text-muted-foreground">
-                  Après commission Benatna
+                  {t('partners.afterCommission')}
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-2 rounded-2xl bg-gradient-to-br from-accent/10 to-accent/5">
               <CardContent className="p-6">
-                <p className="text-sm text-muted-foreground mb-2">Revenu net annuel</p>
+                <p className="text-sm text-muted-foreground mb-2">{t('partners.netYearly')}</p>
                 <p className="text-4xl font-bold text-accent mb-1">{formatMAD(netYearlyRevenue)}</p>
                 <p className="text-xs text-muted-foreground">
-                  Sur 12 mois
+                  {t('partners.over12Months')}
                 </p>
               </CardContent>
             </Card>
@@ -160,24 +162,32 @@ export const RevenueCalculator = () => {
               <CardContent className="p-6">
                 <h4 className="font-semibold mb-3 flex items-center gap-2">
                   <TrendingUp className="w-5 h-5" />
-                  Ce qui est inclus :
+                  {t('partners.included')}
                 </h4>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-0.5">✓</span>
-                    <span>Visibilité nationale sur Benatna.ma</span>
+                    <span>{t('partners.internationalVisibility')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-0.5">✓</span>
-                    <span>Gestion automatisée des réservations</span>
+                    <span>{t('partners.marketingAcquisition')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-0.5">✓</span>
-                    <span>Support client 7j/7</span>
+                    <span>{t('partners.internationalClients')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary mt-0.5">✓</span>
-                    <span>Paiements sécurisés et rapides</span>
+                    <span>{t('partners.bookingManagement')}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-0.5">✓</span>
+                    <span>{t('partners.support247')}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-0.5">✓</span>
+                    <span>{t('partners.securePayments')}</span>
                   </li>
                 </ul>
               </CardContent>

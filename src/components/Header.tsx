@@ -1,9 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { LanguageSelector } from "@/components/LanguageSelector";
 import logo from "@/assets/logo-black.png";
 
 const Header = () => {
   const location = useLocation();
+  const { t } = useLanguage();
   
   const isActive = (path: string) => location.pathname === path;
   
@@ -22,7 +25,7 @@ const Header = () => {
               isActive('/') ? 'text-foreground' : 'text-muted-foreground'
             }`}
           >
-            Accueil
+            {t('common.home')}
           </Link>
           <Link 
             to="/louer" 
@@ -30,7 +33,7 @@ const Header = () => {
               isActive('/louer') ? 'text-foreground' : 'text-muted-foreground'
             }`}
           >
-            Louer une voiture
+            {t('common.rent')}
           </Link>
           <Link 
             to="/partenaires" 
@@ -38,7 +41,7 @@ const Header = () => {
               isActive('/partenaires') ? 'text-foreground' : 'text-muted-foreground'
             }`}
           >
-            Partenaires
+            {t('common.partners')}
           </Link>
           <Link 
             to="/a-propos" 
@@ -46,7 +49,7 @@ const Header = () => {
               isActive('/a-propos') ? 'text-foreground' : 'text-muted-foreground'
             }`}
           >
-            À propos
+            {t('common.about')}
           </Link>
           <Link 
             to="/blog" 
@@ -54,7 +57,7 @@ const Header = () => {
               isActive('/blog') ? 'text-foreground' : 'text-muted-foreground'
             }`}
           >
-            Blog
+            {t('common.blog')}
           </Link>
           <Link 
             to="/contact" 
@@ -62,15 +65,18 @@ const Header = () => {
               isActive('/contact') ? 'text-foreground' : 'text-muted-foreground'
             }`}
           >
-            Contact
+            {t('common.contact')}
           </Link>
         </nav>
         
-        <Link to="/louer">
-          <Button className="rounded-full">
-            Louer une voiture
-          </Button>
-        </Link>
+        <div className="flex items-center gap-2">
+          <LanguageSelector />
+          <Link to="/louer">
+            <Button className="rounded-full">
+              {t('common.rent')}
+            </Button>
+          </Link>
+        </div>
       </div>
     </header>
   );
