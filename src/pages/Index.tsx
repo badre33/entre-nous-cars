@@ -59,8 +59,8 @@ const Index = () => {
             La mobilité, entre nous.
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/95 font-medium">
-            La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. 
-            Prix transparents. Processus digital. Sans surprises.
+            Trouvez la voiture idéale auprès d'agences locales de confiance. 
+            Réservez en 3 clics, roulez en toute sérénité.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/louer">
