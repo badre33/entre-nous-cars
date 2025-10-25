@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { HeroSearchForm } from "@/components/HeroSearchForm";
 import { FloatingCTA } from "@/components/FloatingCTA";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -17,6 +18,7 @@ import cityAgadir from "@/assets/city-agadir.jpg";
 import cityFes from "@/assets/city-fes.jpg";
 
 const Index = () => {
+  const { t } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
   
   useEffect(() => {
@@ -58,11 +60,10 @@ const Index = () => {
         
         <div className="container relative z-10 text-center text-white px-4">
           <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-white drop-shadow-lg">
-            La mobilité, entre nous.
+            {t('home.heroTitle')}
           </h1>
           <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto text-white/95 font-medium">
-            Trouvez la voiture idéale auprès d'agences locales de confiance. 
-            Réservez en 3 clics, roulez en toute sérénité.
+            {t('home.heroSubtitle')}
           </p>
           
           {/* Search Form */}
@@ -71,7 +72,7 @@ const Index = () => {
           <div className="flex gap-4 justify-center flex-wrap mt-6">
             <Link to="/partenaires">
               <Button size="lg" variant="outline" className="rounded-full text-lg px-8 bg-white/10 backdrop-blur border-white/30 text-white hover:bg-white/20">
-                Devenir partenaire
+                {t('home.becomePartner')}
               </Button>
             </Link>
           </div>
@@ -88,9 +89,9 @@ const Index = () => {
                   <AnimatedCounter end={302} suffix="+" />
                 </span>
               </div>
-              <p className="text-xl font-semibold mb-2">Voitures disponibles</p>
+              <p className="text-xl font-semibold mb-2">{t('home.availableCars')}</p>
               <p className="text-sm text-muted-foreground">
-                Dans 6 villes du Maroc
+                {t('home.inCities')}
               </p>
             </div>
             
@@ -100,9 +101,9 @@ const Index = () => {
                   <AnimatedCounter end={24} suffix="+" />
                 </span>
               </div>
-              <p className="text-xl font-semibold mb-2">Agences partenaires</p>
+              <p className="text-xl font-semibold mb-2">{t('home.partnerAgencies')}</p>
               <p className="text-sm text-muted-foreground">
-                Vérifiées et de confiance
+                {t('home.verifiedTrusted')}
               </p>
             </div>
             
@@ -112,9 +113,9 @@ const Index = () => {
                   <AnimatedCounter end={1200} suffix="+" />
                 </span>
               </div>
-              <p className="text-xl font-semibold mb-2">Clients satisfaits</p>
+              <p className="text-xl font-semibold mb-2">{t('home.satisfiedClients')}</p>
               <p className="text-sm text-muted-foreground">
-                Depuis notre lancement
+                {t('home.sinceLaunch')}
               </p>
             </div>
           </div>
@@ -204,16 +205,16 @@ const Index = () => {
       {/* How It Works */}
       <section className="py-20 bg-card">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">Comment ça marche</h2>
+          <h2 className="text-4xl md:text-5xl text-center mb-16">{t('home.howItWorks')}</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
               <CardContent className="pt-12 pb-8 text-center">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-2xl font-bold">1</span>
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Choisissez votre ville et vos dates</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.step1Title')}</h3>
                 <p className="text-muted-foreground">
-                  Sélectionnez votre destination et la période de location en quelques clics
+                  {t('home.step1Text')}
                 </p>
               </CardContent>
             </Card>
@@ -223,9 +224,9 @@ const Index = () => {
                 <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="text-2xl font-bold">2</span>
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Choisissez votre véhicule</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.step2Title')}</h3>
                 <p className="text-muted-foreground">
-                  Parcourez notre sélection de voitures disponibles auprès d'agences vérifiées
+                  {t('home.step2Text')}
                 </p>
               </CardContent>
             </Card>
@@ -235,9 +236,9 @@ const Index = () => {
                 <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 text-white">
                   <span className="text-2xl font-bold">3</span>
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Récupérez votre véhicule</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.step3Title')}</h3>
                 <p className="text-muted-foreground">
-                  Sans paperasse ni attente – tout est déjà réglé en ligne
+                  {t('home.step3Text')}
                 </p>
               </CardContent>
             </Card>
@@ -248,14 +249,14 @@ const Index = () => {
       {/* Why Benatna */}
       <section className="py-20">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">Pourquoi Benatna</h2>
+          <h2 className="text-4xl md:text-5xl text-center mb-16">{t('home.whyBenatna')}</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl bg-card">
               <CardContent className="pt-12 pb-8">
                 <Shield className="w-12 h-12 mb-6 text-primary" />
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Transparence</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.transparencyTitle')}</h3>
                 <p className="text-muted-foreground">
-                  Pas de changement de prix de dernière minute. Ce que vous voyez, c'est ce que vous payez.
+                  {t('home.transparencyText')}
                 </p>
               </CardContent>
             </Card>
@@ -263,9 +264,9 @@ const Index = () => {
             <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl bg-card">
               <CardContent className="pt-12 pb-8">
                 <CheckCircle className="w-12 h-12 mb-6 text-secondary" />
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Simplicité</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.simplicityTitle')}</h3>
                 <p className="text-muted-foreground">
-                  Réservation 100% en ligne. Plus besoin de formulaires papier ni d'attente au comptoir.
+                  {t('home.simplicityText')}
                 </p>
               </CardContent>
             </Card>
@@ -273,9 +274,9 @@ const Index = () => {
             <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl bg-card">
               <CardContent className="pt-12 pb-8">
                 <MapPin className="w-12 h-12 mb-6 text-accent" />
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Confiance locale</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.trustTitle')}</h3>
                 <p className="text-muted-foreground">
-                  Uniquement des agences professionnelles vérifiées. Des acteurs marocains de confiance.
+                  {t('home.trustText')}
                 </p>
               </CardContent>
             </Card>
@@ -286,7 +287,7 @@ const Index = () => {
       {/* Popular Cities */}
       <section className="py-20 bg-muted/30">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-4">Villes populaires</h2>
+          <h2 className="text-4xl md:text-5xl text-center mb-4">{t('home.popularCities')}</h2>
           <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
             Découvrez notre sélection de véhicules dans les principales villes du Maroc
           </p>

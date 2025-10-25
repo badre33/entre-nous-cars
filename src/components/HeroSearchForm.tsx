@@ -4,24 +4,26 @@ import { Button } from "@/components/ui/button";
 import { Calendar } from "lucide-react";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
-
-const searchSchema = z.object({
-  city: z.string().min(1, { message: "Veuillez sélectionner une ville" }),
-  startDate: z.string().min(1, { message: "Veuillez sélectionner une date de début" }),
-  endDate: z.string().min(1, { message: "Veuillez sélectionner une date de fin" }),
-}).refine((data) => new Date(data.endDate) > new Date(data.startDate), {
-  message: "La date de fin doit être après la date de début",
-  path: ["endDate"],
-});
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const cities = ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"];
 
 export const HeroSearchForm = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const { toast } = useToast();
   const [city, setCity] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+
+  const searchSchema = z.object({
+    city: z.string().min(1, { message: t('common.selectCity') }),
+    startDate: z.string().min(1, { message: t('common.startDate') }),
+    endDate: z.string().min(1, { message: t('common.endDate') }),
+  }).refine((data) => new Date(data.endDate) > new Date(data.startDate), {
+    message: t('common.endDate'),
+    path: ["endDate"],
+  });
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ export const HeroSearchForm = () => {
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast({
-          title: "Erreur de validation",
+          title: "Erreur",
           description: error.errors[0].message,
           variant: "destructive",
         });
@@ -57,7 +59,7 @@ export const HeroSearchForm = () => {
         {/* City Selection */}
         <div className="flex flex-col">
           <label htmlFor="city" className="text-sm font-semibold text-gray-700 mb-2">
-            Ville
+            {t('common.city')}
           </label>
           <select
             id="city"
@@ -66,7 +68,7 @@ export const HeroSearchForm = () => {
             className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 bg-white"
             required
           >
-            <option value="" className="text-gray-500">Choisir une ville</option>
+            <option value="" className="text-gray-500">{t('common.selectCity')}</option>
             {cities.map((c) => (
               <option key={c} value={c} className="text-gray-900">
                 {c}
@@ -78,7 +80,7 @@ export const HeroSearchForm = () => {
         {/* Start Date */}
         <div className="flex flex-col">
           <label htmlFor="startDate" className="text-sm font-semibold text-gray-700 mb-2">
-            Date de début
+            {t('common.startDate')}
           </label>
           <div className="relative">
             <input
@@ -97,7 +99,7 @@ export const HeroSearchForm = () => {
         {/* End Date */}
         <div className="flex flex-col">
           <label htmlFor="endDate" className="text-sm font-semibold text-gray-700 mb-2">
-            Date de fin
+            {t('common.endDate')}
           </label>
           <div className="relative">
             <input
@@ -120,7 +122,7 @@ export const HeroSearchForm = () => {
             size="lg" 
             className="w-full py-3 rounded-lg text-base font-semibold"
           >
-            Rechercher
+            {t('common.search')}
           </Button>
         </div>
       </div>
