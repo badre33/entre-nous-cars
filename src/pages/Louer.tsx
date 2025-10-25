@@ -3762,11 +3762,20 @@ const Louer = () => {
   const [showComparison, setShowComparison] = useState(false);
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
 
-  // Lire le paramètre city de l'URL au chargement
+  // Lire les paramètres de l'URL au chargement
   useEffect(() => {
     const cityFromUrl = searchParams.get('city');
+    const startDateFromUrl = searchParams.get('startDate');
+    const endDateFromUrl = searchParams.get('endDate');
+    
     if (cityFromUrl) {
       setSelectedCity(cityFromUrl);
+    }
+    if (startDateFromUrl) {
+      setStartDate(new Date(startDateFromUrl));
+    }
+    if (endDateFromUrl) {
+      setEndDate(new Date(endDateFromUrl));
     }
   }, [searchParams]);
 

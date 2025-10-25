@@ -63,12 +63,12 @@ export const HeroSearchForm = () => {
             id="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+            className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 bg-white"
             required
           >
-            <option value="">Choisir une ville</option>
+            <option value="" className="text-gray-500">Choisir une ville</option>
             {cities.map((c) => (
-              <option key={c} value={c}>
+              <option key={c} value={c} className="text-gray-900">
                 {c}
               </option>
             ))}
@@ -87,10 +87,10 @@ export const HeroSearchForm = () => {
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               min={today}
-              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full"
+              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full text-gray-900 bg-white [color-scheme:light]"
               required
             />
-            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none hidden md:block" />
           </div>
         </div>
 
@@ -106,10 +106,10 @@ export const HeroSearchForm = () => {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               min={startDate || today}
-              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full"
+              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full text-gray-900 bg-white [color-scheme:light]"
               required
             />
-            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none hidden md:block" />
           </div>
         </div>
 
