@@ -86,6 +86,30 @@ import carHyundaiAccent from "@/assets/car-hyundai-accent.jpg";
 import carKiaStonic from "@/assets/car-kia-stonic.jpg";
 import carOpelMokka from "@/assets/car-opel-mokka.jpg";
 import carNissanNote from "@/assets/car-nissan-note.jpg";
+import carBmw3 from "@/assets/car-bmw-3.jpg";
+import carBmw5 from "@/assets/car-bmw-5.jpg";
+import carBmwX1 from "@/assets/car-bmw-x1.jpg";
+import carBmwX5 from "@/assets/car-bmw-x5.jpg";
+import carBmw1 from "@/assets/car-bmw-1.jpg";
+import carBmwX2 from "@/assets/car-bmw-x2.jpg";
+import carAudiA3 from "@/assets/car-audi-a3.jpg";
+import carAudiA6 from "@/assets/car-audi-a6.jpg";
+import carAudiQ3 from "@/assets/car-audi-q3.jpg";
+import carAudiQ5 from "@/assets/car-audi-q5.jpg";
+import carAudiQ7 from "@/assets/car-audi-q7.jpg";
+import carAudiA1 from "@/assets/car-audi-a1.jpg";
+import carMercedesA from "@/assets/car-mercedes-a.jpg";
+import carMercedesE from "@/assets/car-mercedes-e.jpg";
+import carMercedesGLA from "@/assets/car-mercedes-gla.jpg";
+import carMercedesGLC from "@/assets/car-mercedes-glc.jpg";
+import carMercedesGLE from "@/assets/car-mercedes-gle.jpg";
+import carMercedesCLA from "@/assets/car-mercedes-cla.jpg";
+import carMercedesGLB from "@/assets/car-mercedes-glb.jpg";
+import carVwJetta from "@/assets/car-vw-jetta.jpg";
+import carVwArteon from "@/assets/car-vw-arteon.jpg";
+import carVwTouareg from "@/assets/car-vw-touareg.jpg";
+import carVwTaigo from "@/assets/car-vw-taigo.jpg";
+import carVwID4 from "@/assets/car-vw-id4.jpg";
 
 const cars = [
   // Renault
@@ -1258,6 +1282,302 @@ const cars = [
     price: 445,
     priceDisplay: "445 MAD",
     conditions: ["Caution: 6000 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // BMW (nouveaux modèles premium)
+  {
+    id: 91,
+    image: carBmw3,
+    name: "BMW Série 3",
+    brand: "BMW",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 750,
+    priceDisplay: "750 MAD",
+    conditions: ["Caution: 9000 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 92,
+    image: carBmw5,
+    name: "BMW Série 5",
+    brand: "BMW",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 900,
+    priceDisplay: "900 MAD",
+    conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 93,
+    image: carBmwX1,
+    name: "BMW X1",
+    brand: "BMW",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 720,
+    priceDisplay: "720 MAD",
+    conditions: ["Caution: 8500 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 94,
+    image: carBmwX5,
+    name: "BMW X5",
+    brand: "BMW",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 1100,
+    priceDisplay: "1100 MAD",
+    conditions: ["Caution: 13000 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
+  },
+  {
+    id: 95,
+    image: carBmw1,
+    name: "BMW Série 1",
+    brand: "BMW",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 680,
+    priceDisplay: "680 MAD",
+    conditions: ["Caution: 8000 MAD", "380 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  {
+    id: 96,
+    image: carBmwX2,
+    name: "BMW X2",
+    brand: "BMW",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 780,
+    priceDisplay: "780 MAD",
+    conditions: ["Caution: 9200 MAD", "410 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  
+  // Audi (nouveaux modèles premium)
+  {
+    id: 97,
+    image: carAudiA3,
+    name: "Audi A3",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Rabat",
+    price: 720,
+    priceDisplay: "720 MAD",
+    conditions: ["Caution: 8600 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 98,
+    image: carAudiA6,
+    name: "Audi A6",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 920,
+    priceDisplay: "920 MAD",
+    conditions: ["Caution: 11500 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 99,
+    image: carAudiQ3,
+    name: "Audi Q3",
+    brand: "Audi",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 760,
+    priceDisplay: "760 MAD",
+    conditions: ["Caution: 9000 MAD", "410 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 100,
+    image: carAudiQ5,
+    name: "Audi Q5",
+    brand: "Audi",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 950,
+    priceDisplay: "950 MAD",
+    conditions: ["Caution: 11500 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 101,
+    image: carAudiQ7,
+    name: "Audi Q7",
+    brand: "Audi",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 1150,
+    priceDisplay: "1150 MAD",
+    conditions: ["Caution: 13500 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
+  },
+  {
+    id: 102,
+    image: carAudiA1,
+    name: "Audi A1",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Tanger",
+    price: 650,
+    priceDisplay: "650 MAD",
+    conditions: ["Caution: 7800 MAD", "370 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  
+  // Mercedes (nouveaux modèles premium)
+  {
+    id: 103,
+    image: carMercedesA,
+    name: "Mercedes Classe A",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 700,
+    priceDisplay: "700 MAD",
+    conditions: ["Caution: 8300 MAD", "390 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 104,
+    image: carMercedesE,
+    name: "Mercedes Classe E",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 1000,
+    priceDisplay: "1000 MAD",
+    conditions: ["Caution: 12000 MAD", "500 km/jour inclus", "Âge minimum: 29 ans"]
+  },
+  {
+    id: 105,
+    image: carMercedesGLA,
+    name: "Mercedes GLA",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 780,
+    priceDisplay: "780 MAD",
+    conditions: ["Caution: 9300 MAD", "420 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 106,
+    image: carMercedesGLC,
+    name: "Mercedes GLC",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 1020,
+    priceDisplay: "1020 MAD",
+    conditions: ["Caution: 12200 MAD", "480 km/jour inclus", "Âge minimum: 29 ans"]
+  },
+  {
+    id: 107,
+    image: carMercedesGLE,
+    name: "Mercedes GLE",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 1250,
+    priceDisplay: "1250 MAD",
+    conditions: ["Caution: 14000 MAD", "550 km/jour inclus", "Âge minimum: 30 ans"]
+  },
+  {
+    id: 108,
+    image: carMercedesCLA,
+    name: "Mercedes CLA",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 880,
+    priceDisplay: "880 MAD",
+    conditions: ["Caution: 10500 MAD", "440 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 109,
+    image: carMercedesGLB,
+    name: "Mercedes GLB",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 820,
+    priceDisplay: "820 MAD",
+    conditions: ["Caution: 9700 MAD", "430 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  
+  // Volkswagen (nouveaux modèles premium)
+  {
+    id: 110,
+    image: carVwJetta,
+    name: "Volkswagen Jetta",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 480,
+    priceDisplay: "480 MAD",
+    conditions: ["Caution: 6400 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 111,
+    image: carVwArteon,
+    name: "Volkswagen Arteon",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 750,
+    priceDisplay: "750 MAD",
+    conditions: ["Caution: 8900 MAD", "420 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 112,
+    image: carVwTouareg,
+    name: "Volkswagen Touareg",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 950,
+    priceDisplay: "950 MAD",
+    conditions: ["Caution: 11500 MAD", "480 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 113,
+    image: carVwTaigo,
+    name: "Volkswagen Taigo",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 520,
+    priceDisplay: "520 MAD",
+    conditions: ["Caution: 7000 MAD", "390 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 114,
+    image: carVwID4,
+    name: "Volkswagen ID.4",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 850,
+    priceDisplay: "850 MAD",
+    conditions: ["Caution: 10000 MAD", "450 km/jour inclus", "Âge minimum: 27 ans"]
   }
 ];
 
