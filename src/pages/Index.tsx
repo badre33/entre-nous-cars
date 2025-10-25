@@ -239,13 +239,129 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Blog Preview */}
+      <section className="py-20 bg-muted/30">
+        <div className="container max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl mb-4">Conseils & Guides</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Découvrez nos articles pour préparer votre location et profiter au mieux de votre séjour au Maroc
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <Link to="/blog" className="group">
+              <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop" 
+                    alt="Conseils de conduite au Maroc"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <span className="text-white font-medium text-sm bg-primary/90 px-3 py-1 rounded-full">
+                      Conduite
+                    </span>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
+                    10 conseils essentiels pour conduire au Maroc
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Les bonnes pratiques et règles à connaître pour rouler en toute sécurité
+                  </p>
+                  <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                    <span>Lire l'article</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link to="/blog" className="group">
+              <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop" 
+                    alt="Road trips au Maroc"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <span className="text-white font-medium text-sm bg-secondary/90 px-3 py-1 rounded-full">
+                      Tourisme
+                    </span>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
+                    Les plus beaux road trips au Maroc
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    De Marrakech à Merzouga, les itinéraires incontournables
+                  </p>
+                  <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                    <span>Lire l'article</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link to="/blog" className="group">
+              <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop" 
+                    alt="Assurance voiture au Maroc"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <span className="text-white font-medium text-sm bg-accent/90 px-3 py-1 rounded-full">
+                      Assurance
+                    </span>
+                  </div>
+                </div>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
+                    Comprendre l'assurance voiture
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4">
+                    Tout savoir sur l'assurance, la franchise et la protection
+                  </p>
+                  <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                    <span>Lire l'article</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </div>
+
+          <div className="text-center">
+            <Link to="/blog">
+              <Button size="lg" variant="outline" className="rounded-full group">
+                Voir tous les articles
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Our Mission */}
       <section className="py-20">
         <div className="container max-w-4xl">
           <h2 className="text-4xl md:text-5xl text-center mb-8">Notre mission</h2>
           <p className="text-xl text-center text-muted-foreground leading-relaxed">
             Le Maroc regorge d'agences locales sérieuses, mais la plupart restent invisibles. 
-            Benatna les réunit sur une seule plateforme digitale de confiance — une véritable 
+            Benatna les réunit sur une seule plateforme digitale de confiance, une véritable 
             alternative aux franchises internationales.
           </p>
           <div className="text-center mt-12">
