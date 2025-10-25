@@ -153,7 +153,7 @@ const cars = [
     city: "Casablanca",
     price: 350,
     priceDisplay: "350 MAD",
-    conditions: ["Caution: 5000 MAD", "300 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: ["Kilométrage illimité", "Âge minimum: 23 ans"]
   },
   {
     id: 2,
@@ -2249,7 +2249,11 @@ const Louer = () => {
                   </div>
                   
                   <div className="space-y-2 mb-6">
-                    {car.conditions.map((condition, idx) => (
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
+                      <span>Kilométrage illimité</span>
+                    </div>
+                    {car.conditions.filter(c => c.startsWith('Âge minimum')).map((condition, idx) => (
                       <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
                         <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
                         <span>{condition}</span>
@@ -2257,8 +2261,11 @@ const Louer = () => {
                     ))}
                   </div>
                   
-                  <Button className="w-full rounded-full">
-                    Demander cette voiture
+                  <Button 
+                    className="w-full rounded-full" 
+                    onClick={() => window.open(`https://wa.me/212699024526?text=Bonjour, je suis intéressé par ${car.name} à ${car.city} (${car.priceDisplay}/jour)`, '_blank')}
+                  >
+                    Contacter via WhatsApp
                   </Button>
                 </CardContent>
               </Card>
