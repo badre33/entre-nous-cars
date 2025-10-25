@@ -9,6 +9,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import { BackToTop } from "@/components/BackToTop";
+import { AIAssistant } from "@/components/AIAssistant";
 import { lazy, Suspense } from "react";
 import LoadingCar from "@/components/LoadingCar";
 
@@ -47,6 +48,7 @@ const App = () => (
                 </Routes>
               </Suspense>
               <WhatsAppButton />
+              <AIAssistant />
               <BackToTop />
             </ComparisonProvider>
           </LanguageProvider>
