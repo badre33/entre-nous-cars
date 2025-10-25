@@ -18,6 +18,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingCar from "@/components/LoadingCar";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
+import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
@@ -2657,10 +2658,43 @@ const Louer = () => {
                       <p className="text-sm text-muted-foreground">{car.category} • {car.type}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-primary">{car.priceDisplay}</p>
-                      <p className="text-xs text-muted-foreground">par jour</p>
+                      {(() => {
+                        const days = calculateDays(startDate, endDate);
+                        const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
+                        
+                        if (days > 0) {
+                          const totalPrice = calculateTotalPrice(basePrice, days);
+                          const dailyPrice = calculateDailyPrice(basePrice, days);
+                          const discount = days >= 7 ? Math.round((1 - dailyPrice / basePrice) * 100) : 0;
+                          
+                          return (
+                            <>
+                              <p className="text-2xl font-bold text-primary">{formatPrice(totalPrice)}</p>
+                              <p className="text-xs text-muted-foreground">{days} jour{days > 1 ? 's' : ''}</p>
+                              {discount > 0 && (
+                                <p className="text-xs text-secondary font-medium">-{discount}% appliqué</p>
+                              )}
+                            </>
+                          );
+                        }
+                        
+                        return (
+                          <>
+                            <p className="text-2xl font-bold text-primary">{car.priceDisplay}</p>
+                            <p className="text-xs text-muted-foreground">à partir de</p>
+                          </>
+                        );
+                      })()}
                     </div>
                   </div>
+                  
+                  {!startDate || !endDate ? (
+                    <div className="mb-4 p-3 bg-secondary/10 rounded-lg border border-secondary/20">
+                      <p className="text-xs text-muted-foreground text-center">
+                        💡 Prix dégressif pour location longue durée
+                      </p>
+                    </div>
+                  ) : null}
                   
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
                     <MapPin className="w-4 h-4" />
