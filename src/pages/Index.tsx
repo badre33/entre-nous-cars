@@ -250,7 +250,7 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <Link to="/blog" className="group">
+            <Link to="/blog/assurance-voiture-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -281,7 +281,7 @@ const Index = () => {
               </Card>
             </Link>
 
-            <Link to="/blog" className="group">
+            <Link to="/blog/conseils-conduite-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -312,7 +312,7 @@ const Index = () => {
               </Card>
             </Link>
 
-            <Link to="/blog" className="group">
+            <Link to="/blog/road-trips-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-48 overflow-hidden">
                   <img 
