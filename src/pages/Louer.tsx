@@ -129,6 +129,17 @@ import carBmwIX3 from "@/assets/car-bmw-ix3.jpg";
 import carPeugeotE2008 from "@/assets/car-peugeot-e2008.jpg";
 import carRenaultAustral from "@/assets/car-renault-austral.jpg";
 import carVwID3 from "@/assets/car-vw-id3.jpg";
+import carMaseratiGhibli from "@/assets/car-maserati-ghibli.jpg";
+import carMaseratiLevante from "@/assets/car-maserati-levante.jpg";
+import carMercedesECabrio from "@/assets/car-mercedes-e-cabrio.jpg";
+import carBmw4Cabrio from "@/assets/car-bmw-4-cabrio.jpg";
+import carAudiA5Cabrio from "@/assets/car-audi-a5-cabrio.jpg";
+import carPorscheMacan from "@/assets/car-porsche-macan.jpg";
+import carJaguarFPace from "@/assets/car-jaguar-fpace.jpg";
+import carRangeRoverEvoque from "@/assets/car-range-rover-evoque.jpg";
+import carLexusNX from "@/assets/car-lexus-nx.jpg";
+import carVolvoXC60 from "@/assets/car-volvo-xc60.jpg";
+import carBmwZ4 from "@/assets/car-bmw-z4.jpg";
 
 const cars = [
   // Renault
@@ -1853,6 +1864,152 @@ const cars = [
     price: 480,
     priceDisplay: "480 MAD",
     conditions: ["Caution: 6400 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  
+  // Véhicules de luxe
+  {
+    id: 136,
+    image: carMaseratiGhibli,
+    name: "Maserati Ghibli",
+    brand: "Maserati",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 1800,
+    priceDisplay: "1800 MAD",
+    conditions: ["Caution: 25000 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
+  },
+  {
+    id: 137,
+    image: carMaseratiLevante,
+    name: "Maserati Levante",
+    brand: "Maserati",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 2200,
+    priceDisplay: "2200 MAD",
+    conditions: ["Caution: 30000 MAD", "600 km/jour inclus", "Âge minimum: 30 ans"]
+  },
+  {
+    id: 138,
+    image: carMercedesECabrio,
+    name: "Mercedes Classe E Cabriolet",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "Cabriolet",
+    city: "Casablanca",
+    price: 1600,
+    priceDisplay: "1600 MAD",
+    conditions: ["Caution: 22000 MAD", "500 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 139,
+    image: carBmw4Cabrio,
+    name: "BMW Série 4 Cabriolet",
+    brand: "BMW",
+    type: "Automatique",
+    category: "Cabriolet",
+    city: "Marrakech",
+    price: 1400,
+    priceDisplay: "1400 MAD",
+    conditions: ["Caution: 20000 MAD", "500 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 140,
+    image: carAudiA5Cabrio,
+    name: "Audi A5 Cabriolet",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Cabriolet",
+    city: "Casablanca",
+    price: 1350,
+    priceDisplay: "1350 MAD",
+    conditions: ["Caution: 19000 MAD", "500 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 141,
+    image: carPorscheMacan,
+    name: "Porsche Macan",
+    brand: "Porsche",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 1900,
+    priceDisplay: "1900 MAD",
+    conditions: ["Caution: 28000 MAD", "550 km/jour inclus", "Âge minimum: 30 ans"]
+  },
+  {
+    id: 142,
+    image: carJaguarFPace,
+    name: "Jaguar F-Pace",
+    brand: "Jaguar",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 1500,
+    priceDisplay: "1500 MAD",
+    conditions: ["Caution: 21000 MAD", "550 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 143,
+    image: carRangeRoverEvoque,
+    name: "Range Rover Evoque",
+    brand: "Land Rover",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 1700,
+    priceDisplay: "1700 MAD",
+    conditions: ["Caution: 24000 MAD", "550 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 144,
+    image: carLexusNX,
+    name: "Lexus NX",
+    brand: "Lexus",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 1300,
+    priceDisplay: "1300 MAD",
+    conditions: ["Caution: 18000 MAD", "500 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 145,
+    image: carVolvoXC60,
+    name: "Volvo XC60",
+    brand: "Volvo",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 1250,
+    priceDisplay: "1250 MAD",
+    conditions: ["Caution: 17500 MAD", "500 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 146,
+    image: carBmwZ4,
+    name: "BMW Z4 Roadster",
+    brand: "BMW",
+    type: "Automatique",
+    category: "Cabriolet",
+    city: "Marrakech",
+    price: 1550,
+    priceDisplay: "1550 MAD",
+    conditions: ["Caution: 22000 MAD", "500 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 147,
+    image: carVwTiguan,
+    name: "Volkswagen Tiguan",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 650,
+    priceDisplay: "650 MAD",
+    conditions: ["Caution: 9000 MAD", "450 km/jour inclus", "Âge minimum: 25 ans"]
   }
 ];
 
@@ -1868,7 +2025,7 @@ const Louer = () => {
   
   // Toutes les marques de véhicules
   const brands = [
-    "Audi", "BMW", "Mercedes",
+    "Audi", "BMW", "Mercedes", "Maserati", "Porsche", "Jaguar", "Land Rover", "Lexus", "Volvo",
     "Renault", "Peugeot", "Citroën", "Dacia",
     "Toyota", "Nissan", "Honda", "Hyundai", "Kia", "Mazda", "Suzuki", "Mitsubishi",
     "Volkswagen", "Opel", "Ford", "Fiat", "Seat", "Skoda",
