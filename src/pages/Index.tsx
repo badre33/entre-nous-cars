@@ -333,9 +333,9 @@ const Index = () => {
       {/* For Whom */}
       <section className="py-20 bg-secondary/30">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-6">Pour qui ?</h2>
+          <h2 className="text-4xl md:text-5xl text-center mb-6">{t('forWho.title')}</h2>
           <p className="text-center text-xl text-muted-foreground mb-16 max-w-3xl mx-auto">
-            Benatna s'adapte à tous vos besoins de mobilité au Maroc, que vous soyez de passage ou résident
+            {t('forWho.subtitle')}
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -345,9 +345,9 @@ const Index = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <MapPin className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Voyageurs & expats</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('forWho.travelers')}</h3>
                 <p className="text-muted-foreground mb-6">
-                  Des voitures fiables dès votre arrivée, sans stress ni surprise
+                  {t('forWho.travelersText')}
                 </p>
                 
                 <div className="space-y-4 text-left flex-1">
@@ -399,9 +399,9 @@ const Index = () => {
                 <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Shield className="w-8 h-8 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Résidents</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('forWho.residents')}</h3>
                 <p className="text-muted-foreground mb-6">
-                  Louez quand vous voulez, sans engagement, pour tous vos déplacements
+                  {t('forWho.residentsText')}
                 </p>
                 
                 <div className="space-y-4 text-left flex-1">
@@ -453,9 +453,9 @@ const Index = () => {
                 <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <ArrowRight className="w-8 h-8 text-accent" />
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">Agences de location</h3>
+                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('forWho.agencies')}</h3>
                 <p className="text-muted-foreground mb-6">
-                  Plus de réservations, plus de visibilité, zéro franchise internationale
+                  {t('forWho.agenciesText')}
                 </p>
                 
                 <div className="space-y-4 text-left flex-1">
@@ -501,7 +501,7 @@ const Index = () => {
                 
                 <Link to="/partenaires" className="mt-4">
                   <Button variant="outline" size="sm" className="w-full group">
-                    Devenir partenaire
+                    {t('forWho.becomePartner')}
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>

@@ -9,7 +9,15 @@ import { blogArticles } from "@/data/blogArticles";
 
 const Blog = () => {
   const { t } = useLanguage();
-  const categories = ["Tous", "Conduite", "Tourisme", "Assurance", "Budget", "Pratique", "À propos"];
+  const categories = [
+    t('blog.all'), 
+    t('blog.driving'), 
+    t('blog.tourism'), 
+    t('blog.insurance'), 
+    t('blog.budget'), 
+    t('blog.practical'), 
+    t('blog.aboutCat')
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -79,7 +87,7 @@ const Blog = () => {
                       {article.excerpt}
                     </p>
                     <div className="flex items-center gap-2 text-primary font-medium">
-                      <span>Lire la suite</span>
+                      <span>{t('blog.readMore')}</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </CardContent>

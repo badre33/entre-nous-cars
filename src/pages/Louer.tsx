@@ -3749,6 +3749,7 @@ const cars = [
 ];
 
 const Louer = () => {
+  const { t } = useLanguage();
   const [searchParams] = useSearchParams();
   const [selectedCity, setSelectedCity] = useState<string>("all");
   const [startDate, setStartDate] = useState<Date>();
@@ -3892,7 +3893,7 @@ const Louer = () => {
         
         <div className="container relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl text-center mb-8 text-white drop-shadow-lg">
-            Trouvez votre voiture idéale
+            {t('rent.findIdealCar')}
           </h1>
           
           {/* Search Bar */}
@@ -3902,14 +3903,14 @@ const Louer = () => {
                 <div className="space-y-2">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <MapPin className="w-4 h-4" />
-                    Ville
+                    {t('common.city')}
                   </label>
                   <Select value={selectedCity} onValueChange={setSelectedCity}>
                     <SelectTrigger className="bg-secondary/20 border-0">
                       <SelectValue placeholder="Toutes les villes" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
-                      <SelectItem value="all">Toutes les villes</SelectItem>
+                      <SelectItem value="all">{t('rent.allCities')}</SelectItem>
                       {cities.map(city => (
                         <SelectItem key={city} value={city}>{city}</SelectItem>
                       ))}
@@ -3920,7 +3921,7 @@ const Louer = () => {
                 <div className="space-y-2">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <CalendarIcon className="w-4 h-4" />
-                    Date de début
+                    {t('common.startDate')}
                   </label>
                   <Popover>
                     <PopoverTrigger asChild>
@@ -3951,7 +3952,7 @@ const Louer = () => {
                 <div className="space-y-2">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <CalendarIcon className="w-4 h-4" />
-                    Date de fin
+                    {t('common.endDate')}
                   </label>
                   <Popover>
                     <PopoverTrigger asChild>
@@ -3984,14 +3985,14 @@ const Louer = () => {
                 <div className="space-y-2">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <Car className="w-4 h-4" />
-                    Marque
+                    {t('rent.brand')}
                   </label>
                   <Select value={selectedBrand} onValueChange={setSelectedBrand}>
                     <SelectTrigger className="bg-secondary/20 border-0">
                       <SelectValue placeholder="Toutes les marques" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
-                      <SelectItem value="all">Toutes les marques</SelectItem>
+                      <SelectItem value="all">{t('rent.allBrands')}</SelectItem>
                       {brands.map(brand => (
                         <SelectItem key={brand} value={brand}>{brand}</SelectItem>
                       ))}
@@ -4002,14 +4003,14 @@ const Louer = () => {
                 <div className="space-y-2">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <Car className="w-4 h-4" />
-                    Catégorie
+                    {t('rent.category')}
                   </label>
                   <Select value={selectedCategory} onValueChange={setSelectedCategory}>
                     <SelectTrigger className="bg-secondary/20 border-0">
                       <SelectValue placeholder="Toutes les catégories" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
-                      <SelectItem value="all">Toutes les catégories</SelectItem>
+                      <SelectItem value="all">{t('rent.allCategories')}</SelectItem>
                       {categories.map(category => (
                         <SelectItem key={category} value={category}>{category}</SelectItem>
                       ))}
@@ -4020,14 +4021,14 @@ const Louer = () => {
                 <div className="space-y-2">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <Car className="w-4 h-4" />
-                    Transmission
+                    {t('rent.transmission')}
                   </label>
                   <Select value={selectedType} onValueChange={setSelectedType}>
                     <SelectTrigger className="bg-secondary/20 border-0">
                       <SelectValue placeholder="Tous les types" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
-                      <SelectItem value="all">Tous les types</SelectItem>
+                      <SelectItem value="all">{t('rent.allTypes')}</SelectItem>
                       {types.map(type => (
                         <SelectItem key={type} value={type}>{type}</SelectItem>
                       ))}
@@ -4045,10 +4046,10 @@ const Louer = () => {
         <div className="container">
           <div className="mb-8">
             <h2 className="text-2xl font-barlow font-semibold mb-2">
-              {displayedCars.length} véhicule{displayedCars.length > 1 ? 's' : ''} disponible{displayedCars.length > 1 ? 's' : ''}
+              {displayedCars.length} {t('rent.vehicle')}{displayedCars.length > 1 ? 's' : ''} {t(displayedCars.length > 1 ? 'rent.availables' : 'rent.available')}
             </h2>
             <p className="text-muted-foreground">
-              Toutes les voitures proviennent d'agences professionnelles vérifiées
+              {t('rent.verifiedAgencies')}
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

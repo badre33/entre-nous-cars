@@ -33,7 +33,7 @@ const Contact = () => {
               <CardContent className="p-8 md:p-12">
                 <h2 className="text-3xl md:text-4xl mb-8">{t('contact.title')}</h2>
                 <p className="text-muted-foreground mb-6 text-center">
-                  Remplissez le formulaire ci-dessous et nous vous contacterons sur WhatsApp
+                  {t('contactForm.fillForm')}
                 </p>
                 <form 
                   className="space-y-6"
@@ -59,8 +59,8 @@ const Contact = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium mb-2">Téléphone / WhatsApp</label>
-                    <Input name="tel" type="tel" placeholder="+212 ..." className="rounded-lg" required />
+                    <label className="block text-sm font-medium mb-2">{t('contactForm.phoneLabel')}</label>
+                    <Input name="tel" type="tel" placeholder={t('contactForm.phonePlaceholder')} className="rounded-lg" required />
                   </div>
                   
                   <div>
@@ -79,7 +79,7 @@ const Contact = () => {
                   </div>
                   
                   <Button type="submit" size="lg" className="w-full rounded-full">
-                    Envoyer via WhatsApp
+                    {t('contactForm.sendWhatsApp')}
                   </Button>
                 </form>
               </CardContent>
@@ -94,9 +94,9 @@ const Contact = () => {
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-barlow font-semibold mb-2">WhatsApp / Téléphone</h3>
+                      <h3 className="text-xl font-barlow font-semibold mb-2">{t('contactForm.whatsAppPhone')}</h3>
                       <p className="text-muted-foreground mb-2">
-                        Contactez-nous directement pour une réponse rapide
+                        {t('contactForm.contactDirectly')}
                       </p>
                       <p className="text-lg font-medium text-foreground">+212 699 024 526</p>
                     </div>
@@ -111,9 +111,9 @@ const Contact = () => {
                       <Mail className="w-6 h-6 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-barlow font-semibold mb-2">Email</h3>
+                      <h3 className="text-xl font-barlow font-semibold mb-2">{t('contactForm.emailLabel')}</h3>
                       <p className="text-muted-foreground mb-2">
-                        Envoyez-nous un email, nous vous répondrons dans les plus brefs délais
+                        {t('contactForm.emailText')}
                       </p>
                       <p className="text-lg font-medium text-foreground">contact@benatna.ma</p>
                     </div>
@@ -123,10 +123,10 @@ const Contact = () => {
 
               <Card className="border-2 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-barlow font-semibold mb-4">Heures d'ouverture</h3>
+                  <h3 className="text-2xl font-barlow font-semibold mb-4">{t('contactForm.openingHours')}</h3>
                   <div className="space-y-2 text-muted-foreground">
-                    <p>Lundi - Samedi : 8h00 - 22h00</p>
-                    <p>Dimanche : Fermé</p>
+                    <p>{t('contactForm.mondayToSaturday')}</p>
+                    <p>{t('contactForm.sunday')}</p>
                   </div>
                 </CardContent>
               </Card>
