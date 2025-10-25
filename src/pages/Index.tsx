@@ -13,6 +13,9 @@ import { SEOLinks } from "@/components/SEOLinks";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { StructuredData } from "@/components/StructuredData";
+import { ExitIntentPopup } from "@/components/ExitIntentPopup";
+import { LoyaltyProgram } from "@/components/LoyaltyProgram";
+import { CustomerReviews } from "@/components/CustomerReviews";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -671,6 +674,12 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Customer Reviews */}
+      <CustomerReviews />
+
+      {/* Loyalty Program */}
+      <LoyaltyProgram />
+
       {/* SEO Links & Content */}
       <SEOLinks />
 
@@ -678,6 +687,9 @@ const Index = () => {
       
       {/* Floating CTA Button */}
       <FloatingCTA />
+      
+      {/* Exit Intent Popup */}
+      <ExitIntentPopup />
     </div>
   );
 };
