@@ -99,8 +99,20 @@ const Louer = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const cities = ["Casablanca", "Marrakech", "Tanger", "Rabat"];
-  const brands = Array.from(new Set(cars.map(car => car.brand)));
-  const categories = Array.from(new Set(cars.map(car => car.category)));
+  
+  // Toutes les marques de véhicules non-luxe
+  const brands = [
+    "Renault", "Peugeot", "Citroën", "Dacia",
+    "Toyota", "Nissan", "Honda", "Hyundai", "Kia", "Mazda", "Suzuki", "Mitsubishi",
+    "Volkswagen", "Opel", "Ford", "Fiat", "Seat", "Skoda",
+    "Chevrolet"
+  ].sort();
+  
+  // Toutes les catégories de véhicules
+  const categories = [
+    "Berline", "SUV", "Citadine", "Monospace", "4x4", "Break", "Utilitaire"
+  ].sort();
+  
   const types = ["Automatique", "Manuelle"];
 
   const filteredCars = cars.filter(car => {
