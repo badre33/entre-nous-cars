@@ -5,7 +5,7 @@ import { CheckCircle, Shield, MapPin, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/hero-home.jpg";
+import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 import cityRabat from "@/assets/city-rabat.jpg";
