@@ -142,6 +142,16 @@ import carRangeRoverEvoque from "@/assets/car-range-rover-evoque.jpg";
 import carLexusNX from "@/assets/car-lexus-nx.jpg";
 import carVolvoXC60 from "@/assets/car-volvo-xc60.jpg";
 import carBmwZ4 from "@/assets/car-bmw-z4.jpg";
+import carMercedesG from "@/assets/car-mercedes-g.jpg";
+import carAudiA7 from "@/assets/car-audi-a7.jpg";
+import carAudiA8 from "@/assets/car-audi-a8.jpg";
+import carAudiQ8 from "@/assets/car-audi-q8.jpg";
+import carPorscheCayenne from "@/assets/car-porsche-cayenne.jpg";
+import carPorschePanamera from "@/assets/car-porsche-panamera.jpg";
+import carPorsche911 from "@/assets/car-porsche-911.jpg";
+import carRangeRoverSport from "@/assets/car-range-rover-sport.jpg";
+import carRangeRoverVelar from "@/assets/car-range-rover-velar.jpg";
+import carAudiEtronGT from "@/assets/car-audi-etron-gt.jpg";
 
 const cars = [
   // Renault
@@ -2011,7 +2021,267 @@ const cars = [
     city: "Casablanca",
     price: 650,
     priceDisplay: "650 MAD",
-    conditions: ["Caution: 9000 MAD", "450 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: ["Âge minimum: 25 ans"]
+  },
+  
+  // Mercedes Classe G
+  {
+    id: 148,
+    image: carMercedesG,
+    name: "Mercedes Classe G",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 3500,
+    priceDisplay: "3500 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  {
+    id: 149,
+    image: carMercedesG,
+    name: "Mercedes Classe G",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 3600,
+    priceDisplay: "3600 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  
+  // Audi A7
+  {
+    id: 150,
+    image: carAudiA7,
+    name: "Audi A7 Sportback",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 1400,
+    priceDisplay: "1400 MAD",
+    conditions: ["Âge minimum: 27 ans"]
+  },
+  {
+    id: 151,
+    image: carAudiA7,
+    name: "Audi A7 Sportback",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 1380,
+    priceDisplay: "1380 MAD",
+    conditions: ["Âge minimum: 27 ans"]
+  },
+  
+  // Audi A8
+  {
+    id: 152,
+    image: carAudiA8,
+    name: "Audi A8",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 2200,
+    priceDisplay: "2200 MAD",
+    conditions: ["Âge minimum: 28 ans"]
+  },
+  {
+    id: 153,
+    image: carAudiA8,
+    name: "Audi A8",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 2150,
+    priceDisplay: "2150 MAD",
+    conditions: ["Âge minimum: 28 ans"]
+  },
+  
+  // Audi Q8
+  {
+    id: 154,
+    image: carAudiQ8,
+    name: "Audi Q8",
+    brand: "Audi",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 1850,
+    priceDisplay: "1850 MAD",
+    conditions: ["Âge minimum: 28 ans"]
+  },
+  {
+    id: 155,
+    image: carAudiQ8,
+    name: "Audi Q8",
+    brand: "Audi",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 1800,
+    priceDisplay: "1800 MAD",
+    conditions: ["Âge minimum: 28 ans"]
+  },
+  
+  // Audi e-tron GT
+  {
+    id: 156,
+    image: carAudiEtronGT,
+    name: "Audi e-tron GT",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 2800,
+    priceDisplay: "2800 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  {
+    id: 157,
+    image: carAudiEtronGT,
+    name: "Audi e-tron GT",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 2900,
+    priceDisplay: "2900 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  
+  // Porsche Cayenne
+  {
+    id: 158,
+    image: carPorscheCayenne,
+    name: "Porsche Cayenne",
+    brand: "Porsche",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 2500,
+    priceDisplay: "2500 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  {
+    id: 159,
+    image: carPorscheCayenne,
+    name: "Porsche Cayenne",
+    brand: "Porsche",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 2600,
+    priceDisplay: "2600 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  
+  // Porsche Panamera
+  {
+    id: 160,
+    image: carPorschePanamera,
+    name: "Porsche Panamera",
+    brand: "Porsche",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 2400,
+    priceDisplay: "2400 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  {
+    id: 161,
+    image: carPorschePanamera,
+    name: "Porsche Panamera",
+    brand: "Porsche",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 2450,
+    priceDisplay: "2450 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  
+  // Porsche 911
+  {
+    id: 162,
+    image: carPorsche911,
+    name: "Porsche 911 Carrera",
+    brand: "Porsche",
+    type: "Automatique",
+    category: "Coupé",
+    city: "Marrakech",
+    price: 3200,
+    priceDisplay: "3200 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  {
+    id: 163,
+    image: carPorsche911,
+    name: "Porsche 911 Carrera",
+    brand: "Porsche",
+    type: "Automatique",
+    category: "Coupé",
+    city: "Casablanca",
+    price: 3300,
+    priceDisplay: "3300 MAD",
+    conditions: ["Âge minimum: 30 ans"]
+  },
+  
+  // Range Rover Sport
+  {
+    id: 164,
+    image: carRangeRoverSport,
+    name: "Range Rover Sport",
+    brand: "Land Rover",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 2100,
+    priceDisplay: "2100 MAD",
+    conditions: ["Âge minimum: 28 ans"]
+  },
+  {
+    id: 165,
+    image: carRangeRoverSport,
+    name: "Range Rover Sport",
+    brand: "Land Rover",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 2200,
+    priceDisplay: "2200 MAD",
+    conditions: ["Âge minimum: 28 ans"]
+  },
+  
+  // Range Rover Velar
+  {
+    id: 166,
+    image: carRangeRoverVelar,
+    name: "Range Rover Velar",
+    brand: "Land Rover",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 1900,
+    priceDisplay: "1900 MAD",
+    conditions: ["Âge minimum: 28 ans"]
+  },
+  {
+    id: 167,
+    image: carRangeRoverVelar,
+    name: "Range Rover Velar",
+    brand: "Land Rover",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 1950,
+    priceDisplay: "1950 MAD",
+    conditions: ["Âge minimum: 28 ans"]
   }
 ];
 
@@ -2078,7 +2348,7 @@ const Louer = () => {
   
   // Toutes les catégories de véhicules
   const categories = [
-    "Berline", "SUV", "Citadine", "Monospace", "4x4", "Break", "Utilitaire", "Cabriolet"
+    "Berline", "SUV", "Citadine", "Monospace", "4x4", "Break", "Utilitaire", "Cabriolet", "Coupé"
   ].sort();
   
   const types = ["Automatique", "Manuelle"];
