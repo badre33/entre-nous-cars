@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar as CalendarIcon, MapPin, Car } from "lucide-react";
+import { Calendar as CalendarIcon, MapPin, Car, CalendarCheck } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -13,6 +13,7 @@ import confetti from "canvas-confetti";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingCar from "@/components/LoadingCar";
+import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
@@ -2318,6 +2319,8 @@ const Louer = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [showAvailability, setShowAvailability] = useState(false);
+  const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -2357,6 +2360,16 @@ const Louer = () => {
         '_blank'
       );
     }, 800);
+  };
+
+  const handleShowAvailability = (carName: string, city: string, priceDisplay: string) => {
+    setSelectedCar({ name: carName, city, price: priceDisplay });
+    setShowAvailability(true);
+  };
+
+  const handleSelectDates = (start: Date, end: Date) => {
+    setStartDate(start);
+    setEndDate(end);
   };
 
   const cities = ["Casablanca", "Marrakech", "Tanger", "Rabat"];
@@ -2623,12 +2636,22 @@ const Louer = () => {
                     ))}
                   </div>
                   
-                  <Button 
-                    className="w-full rounded-full" 
-                    onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
-                  >
-                    Contacter via WhatsApp
-                  </Button>
+                  <div className="space-y-2">
+                    <Button 
+                      variant="outline"
+                      className="w-full rounded-full" 
+                      onClick={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                    >
+                      <CalendarCheck className="w-4 h-4 mr-2" />
+                      Voir disponibilités
+                    </Button>
+                    <Button 
+                      className="w-full rounded-full" 
+                      onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                    >
+                      Contacter via WhatsApp
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -2645,7 +2668,20 @@ const Louer = () => {
         </div>
       </section>
 
+      {/* Availability Calendar Modal */}
+      {selectedCar && (
+        <AvailabilityCalendar
+          carName={selectedCar.name}
+          isOpen={showAvailability}
+          onClose={() => setShowAvailability(false)}
+          onSelectDates={handleSelectDates}
+        />
+      )}
+
       <Footer />
+      
+      {/* Loading animation */}
+      {isLoading && <LoadingCar />}
     </div>
   );
 };
