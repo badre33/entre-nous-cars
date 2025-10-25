@@ -21,11 +21,11 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <LanguageProvider>
-        <ComparisonProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
+      <BrowserRouter>
+        <LanguageProvider>
+          <ComparisonProvider>
+            <Toaster />
+            <Sonner />
             <ScrollToTop />
             <Routes>
               <Route path="/" element={<Index />} />
@@ -38,9 +38,9 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
             <WhatsAppButton />
-          </BrowserRouter>
-        </ComparisonProvider>
-      </LanguageProvider>
+          </ComparisonProvider>
+        </LanguageProvider>
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
