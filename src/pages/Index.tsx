@@ -289,7 +289,7 @@ const Index = () => {
         <div className="container">
           <h2 className="text-4xl md:text-5xl text-center mb-4">{t('home.popularCities')}</h2>
           <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
-            Découvrez notre sélection de véhicules dans les principales villes du Maroc
+            {t('home.popularCitiesSubtitle')}
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {popularCities.map((city) => (
@@ -310,7 +310,7 @@ const Index = () => {
                     <div className="absolute bottom-0 left-0 right-0 p-6">
                       <h3 className="text-2xl font-barlow font-bold text-white mb-1">{city.name}</h3>
                       <p className="text-white/90 text-sm font-medium">
-                        {city.vehicles} véhicules disponibles
+                        {city.vehicles} {t('common.vehicles')}
                       </p>
                     </div>
                   </div>
@@ -630,16 +630,14 @@ const Index = () => {
       {/* Our Mission */}
       <section className="py-20">
         <div className="container max-w-4xl">
-          <h2 className="text-4xl md:text-5xl text-center mb-8">Notre mission</h2>
+          <h2 className="text-4xl md:text-5xl text-center mb-8">{t('home.ourMission')}</h2>
           <p className="text-xl text-center text-muted-foreground leading-relaxed">
-            Le Maroc regorge d'agences locales sérieuses, mais la plupart restent invisibles. 
-            Benatna les réunit sur une seule plateforme digitale de confiance, une véritable 
-            alternative aux franchises internationales.
+            {t('home.missionText')}
           </p>
           <div className="text-center mt-12">
             <Link to="/louer">
               <Button size="lg" className="rounded-full group">
-                Découvrir les voitures disponibles
+                {t('home.discoverCars')}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>

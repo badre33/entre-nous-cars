@@ -4,9 +4,11 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, ArrowRight, MapPin, Car, Shield } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { blogArticles } from "@/data/blogArticles";
 
 const Blog = () => {
+  const { t } = useLanguage();
   const categories = ["Tous", "Conduite", "Tourisme", "Assurance", "Budget", "Pratique", "À propos"];
 
   return (
@@ -16,10 +18,9 @@ const Blog = () => {
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
         <div className="container text-center max-w-4xl">
-          <h1 className="text-5xl md:text-6xl mb-8">Conseils & Guides</h1>
+          <h1 className="text-5xl md:text-6xl mb-8">{t('blog.title')}</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Tout ce que vous devez savoir pour louer et conduire au Maroc en toute sérénité. 
-            Conseils pratiques, guides touristiques et bonnes pratiques locales.
+            {t('blog.subtitle')}
           </p>
         </div>
       </section>

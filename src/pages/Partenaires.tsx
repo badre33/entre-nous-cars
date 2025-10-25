@@ -109,15 +109,15 @@ const Partenaires = () => {
       {/* How It Works */}
       <section className="py-20 bg-secondary/30">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">Comment ça marche</h2>
+          <h2 className="text-4xl md:text-5xl text-center mb-16">{t('partners.howItWorks')}</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold">1</span>
               </div>
-              <h3 className="text-2xl font-barlow font-semibold mb-4">Ajoutez votre agence et véhicules</h3>
+              <h3 className="text-2xl font-barlow font-semibold mb-4">{t('partners.step1')}</h3>
               <p className="text-muted-foreground">
-                Créez votre profil et présentez votre flotte
+                {t('partners.step1Text')}
               </p>
             </div>
             
@@ -125,9 +125,9 @@ const Partenaires = () => {
               <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold">2</span>
               </div>
-              <h3 className="text-2xl font-barlow font-semibold mb-4">Nous vérifions votre profil professionnel</h3>
+              <h3 className="text-2xl font-barlow font-semibold mb-4">{t('partners.step2')}</h3>
               <p className="text-muted-foreground">
-                Validation rapide pour garantir la qualité
+                {t('partners.step2Text')}
               </p>
             </div>
             
@@ -135,9 +135,9 @@ const Partenaires = () => {
               <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 text-white">
                 <span className="text-2xl font-bold">3</span>
               </div>
-              <h3 className="text-2xl font-barlow font-semibold mb-4">Recevez vos demandes de réservation</h3>
+              <h3 className="text-2xl font-barlow font-semibold mb-4">{t('partners.step3')}</h3>
               <p className="text-muted-foreground">
-                Commencez à recevoir des clients qualifiés
+                {t('partners.step3Text')}
               </p>
             </div>
           </div>
@@ -155,7 +155,7 @@ const Partenaires = () => {
         <div className="container max-w-2xl">
           <Card className="border-2 rounded-2xl shadow-lg">
             <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl md:text-4xl text-center mb-8">Rejoindre Benatna</h2>
+              <h2 className="text-3xl md:text-4xl text-center mb-8">{t('partners.joinForm')}</h2>
               <form 
                 className="space-y-6"
                 onSubmit={(e) => {
@@ -181,32 +181,32 @@ const Partenaires = () => {
                 }}
               >
                 <div>
-                  <label className="block text-sm font-medium mb-2">Nom de l'agence</label>
+                  <label className="block text-sm font-medium mb-2">{t('partners.agencyName')}</label>
                   <Input name="agence" placeholder="Votre agence de location" className="rounded-lg" required />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Ville(s)</label>
+                  <label className="block text-sm font-medium mb-2">{t('partners.cities')}</label>
                   <Input name="villes" placeholder="Casablanca, Marrakech..." className="rounded-lg" required />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Taille de la flotte</label>
+                  <label className="block text-sm font-medium mb-2">{t('partners.fleetSize')}</label>
                   <Input name="flotte" type="number" placeholder="Nombre de véhicules" className="rounded-lg" required />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-2">WhatsApp / Téléphone</label>
+                  <label className="block text-sm font-medium mb-2">{t('partners.phone')}</label>
                   <Input name="tel" type="tel" placeholder="+212 ..." className="rounded-lg" required />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label className="block text-sm font-medium mb-2">{t('partners.email')}</label>
                   <Input name="email" type="email" placeholder="contact@votre-agence.ma" className="rounded-lg" required />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Message (optionnel)</label>
+                  <label className="block text-sm font-medium mb-2">{t('partners.message')}</label>
                   <Textarea 
                     name="message"
                     placeholder="Parlez-nous de votre agence..." 
@@ -215,7 +215,7 @@ const Partenaires = () => {
                 </div>
                 
                 <Button type="submit" size="lg" className="w-full rounded-full">
-                  Envoyer via WhatsApp
+                  {t('partners.sendWhatsApp')}
                 </Button>
               </form>
             </CardContent>

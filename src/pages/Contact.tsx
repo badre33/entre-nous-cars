@@ -5,8 +5,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -14,10 +17,9 @@ const Contact = () => {
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
         <div className="container text-center max-w-4xl">
-          <h1 className="text-5xl md:text-6xl mb-8">Parlons mobilité</h1>
+          <h1 className="text-5xl md:text-6xl mb-8">{t('contact.title')}</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Envie de louer une voiture ? Vous possédez une agence et souhaitez rejoindre Benatna ? 
-            Envoyez-nous un message ou contactez-nous directement sur WhatsApp.
+            {t('contact.subtitle')}
           </p>
         </div>
       </section>
@@ -29,7 +31,7 @@ const Contact = () => {
             {/* Form */}
             <Card className="border-2 rounded-2xl shadow-lg">
               <CardContent className="p-8 md:p-12">
-                <h2 className="text-3xl md:text-4xl mb-8">Envoyez-nous un message</h2>
+                <h2 className="text-3xl md:text-4xl mb-8">{t('contact.title')}</h2>
                 <p className="text-muted-foreground mb-6 text-center">
                   Remplissez le formulaire ci-dessous et nous vous contacterons sur WhatsApp
                 </p>
@@ -52,7 +54,7 @@ const Contact = () => {
                   }}
                 >
                   <div>
-                    <label className="block text-sm font-medium mb-2">Nom complet</label>
+                    <label className="block text-sm font-medium mb-2">{t('contact.name')}</label>
                     <Input name="nom" placeholder="Votre nom" className="rounded-lg" required />
                   </div>
                   
@@ -62,7 +64,7 @@ const Contact = () => {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium mb-2">Email</label>
+                    <label className="block text-sm font-medium mb-2">{t('contact.email')}</label>
                     <Input name="email" type="email" placeholder="votre@email.com" className="rounded-lg" required />
                   </div>
                   
