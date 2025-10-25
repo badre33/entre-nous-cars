@@ -6,6 +6,12 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-home.jpg";
+import cityCasablanca from "@/assets/city-casablanca.jpg";
+import cityMarrakech from "@/assets/city-marrakech.jpg";
+import cityRabat from "@/assets/city-rabat.jpg";
+import cityTanger from "@/assets/city-tanger.jpg";
+import cityAgadir from "@/assets/city-agadir.jpg";
+import cityFes from "@/assets/city-fes.jpg";
 
 const Index = () => {
   const [parallaxOffset, setParallaxOffset] = useState(0);
@@ -19,6 +25,15 @@ const Index = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const popularCities = [
+    { name: "Casablanca", image: cityCasablanca, vehicles: 52, slug: "Casablanca" },
+    { name: "Marrakech", image: cityMarrakech, vehicles: 43, slug: "Marrakech" },
+    { name: "Rabat", image: cityRabat, vehicles: 28, slug: "Rabat" },
+    { name: "Tanger", image: cityTanger, vehicles: 26, slug: "Tanger" },
+    { name: "Agadir", image: cityAgadir, vehicles: 12, slug: "Agadir" },
+    { name: "Fès", image: cityFes, vehicles: 15, slug: "Fès" },
+  ];
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -139,6 +154,52 @@ const Index = () => {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Cities */}
+      <section className="py-20 bg-muted/30">
+        <div className="container">
+          <h2 className="text-4xl md:text-5xl text-center mb-4">Villes populaires</h2>
+          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
+            Découvrez notre sélection de véhicules dans les principales villes du Maroc
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {popularCities.map((city) => (
+              <Link 
+                key={city.name}
+                to={`/louer?city=${encodeURIComponent(city.slug)}`}
+                className="group"
+              >
+                <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={city.image} 
+                      alt={`Location de voiture à ${city.name}`}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <h3 className="text-2xl font-barlow font-bold text-white mb-1">{city.name}</h3>
+                      <p className="text-white/90 text-sm font-medium">
+                        {city.vehicles} véhicules disponibles
+                      </p>
+                    </div>
+                  </div>
+                  <CardContent className="p-4">
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <MapPin className="w-4 h-4" />
+                        Explorer
+                      </span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
