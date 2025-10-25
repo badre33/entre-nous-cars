@@ -5,9 +5,11 @@ import { Calendar, ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { blogArticles } from "@/data/blogArticles";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const BlogArticle = () => {
   const { slug } = useParams();
+  const { t } = useLanguage();
   const article = blogArticles.find(a => a.slug === slug);
 
   if (!article) {
@@ -16,9 +18,9 @@ const BlogArticle = () => {
         <Header />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">Article non trouvé</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('blogArticle.notFound')}</h1>
             <Link to="/blog">
-              <Button>Retour au blog</Button>
+              <Button>{t('blogArticle.backToBlog')}</Button>
             </Link>
           </div>
         </div>
@@ -98,13 +100,13 @@ const BlogArticle = () => {
 
           {/* CTA */}
           <div className="mt-16 p-8 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl text-center">
-            <h3 className="text-2xl font-bold mb-4">Prêt à louer une voiture ?</h3>
+            <h3 className="text-2xl font-bold mb-4">{t('blogArticle.readyToRent')}</h3>
             <p className="text-muted-foreground mb-6">
-              Trouvez le véhicule idéal pour votre prochain voyage au Maroc
+              {t('blogArticle.findPerfectCar')}
             </p>
             <Link to="/louer">
               <Button size="lg" className="rounded-full">
-                Voir les voitures disponibles
+                {t('blogArticle.viewCars')}
               </Button>
             </Link>
           </div>
@@ -114,7 +116,7 @@ const BlogArticle = () => {
             <Link to="/blog">
               <Button variant="outline" className="rounded-full group">
                 <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
-                Retour aux articles
+                {t('blogArticle.backToArticles')}
               </Button>
             </Link>
           </div>

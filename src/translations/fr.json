@@ -152,5 +152,87 @@
     "privacy": "Politique de confidentialité",
     "followUs": "Suivez-nous",
     "rights": "Tous droits réservés."
+  },
+  "rent": {
+    "title": "Louer une voiture",
+    "subtitle": "Trouvez la voiture idéale pour votre voyage au Maroc",
+    "filters": "Filtres",
+    "category": "Catégorie",
+    "allCategories": "Toutes catégories",
+    "citadine": "Citadine",
+    "berline": "Berline",
+    "suv": "SUV",
+    "transmission": "Transmission",
+    "allTransmissions": "Toutes",
+    "automatic": "Automatique",
+    "manual": "Manuelle",
+    "priceRange": "Fourchette de prix",
+    "brand": "Marque",
+    "allBrands": "Toutes marques",
+    "resultsCount": "résultats trouvés",
+    "perDay": "jour",
+    "compare": "Comparer",
+    "unlimitedKm": "Kilométrage illimité",
+    "minAge": "Âge minimum",
+    "years": "ans",
+    "popular": "Populaire",
+    "availableNow": "Disponible immédiatement",
+    "luxury": "Luxe",
+    "sortBy": "Trier par",
+    "priceAsc": "Prix croissant",
+    "priceDesc": "Prix décroissant",
+    "nameAsc": "Nom A-Z",
+    "nameDesc": "Nom Z-A"
+  },
+  "forWho": {
+    "title": "Pour qui ?",
+    "travelers": "Voyageurs",
+    "travelersText": "Louez une voiture pour votre séjour",
+    "residents": "Résidents",
+    "residentsText": "Accédez à une voiture quand vous en avez besoin",
+    "professionals": "Professionnels",
+    "professionalsText": "Solutions de mobilité pour votre entreprise"
+  },
+  "guides": {
+    "title": "Conseils & Guides",
+    "subtitle": "Tout savoir pour réussir votre location"
+  },
+  "testimonials": {
+    "ahmed": "Depuis qu'on a rejoint Benatna, notre taux de réservation a augmenté de 40%. La plateforme est simple à utiliser et l'équipe est très réactive. On reçoit des clients de qualité qui recherchent vraiment un service local et authentique.",
+    "fatima": "Benatna nous a permis de nous développer sans investir dans du marketing coûteux. Les 15% de commission sont très raisonnables comparés aux 30-35% que prennent les grandes plateformes internationales. Et surtout, pas de frais cachés !",
+    "youssef": "Ce qui m'a convaincu avec Benatna, c'est leur approche humaine. On ne se sent pas comme un simple numéro. L'équipe comprend nos contraintes d'agence locale et travaille avec nous, pas contre nous. Les paiements sont toujours à l'heure.",
+    "karim": "J'étais sceptique au début, mais après 6 mois sur Benatna, on a rempli 25% de notre flotte grâce à la plateforme. Les clients viennent déjà informés et prêts à louer. Ça nous fait gagner un temps précieux sur la négociation.",
+    "nadia": "Benatna a transformé notre façon de travailler. Avant, on passait des heures à répondre à des demandes WhatsApp désorganisées. Maintenant, tout est centralisé, professionnel, et les clients nous trouvent facilement. Notre chiffre a augmenté de 35% en un an.",
+    "omar": "En tant que petite agence familiale, on ne pouvait pas rivaliser avec les grandes franchises. Benatna nous a donné une vitrine professionnelle et crédible. On est sur le même pied d'égalité que les gros acteurs, et nos clients apprécient le service personnalisé qu'on offre.",
+    "activeAgencies": "Agences partenaires actives",
+    "satisfactionRate": "Taux de satisfaction",
+    "averageGrowth": "Croissance moyenne du CA"
+  },
+  "calculator": {
+    "disclaimer": "Cette simulation est indicative et basée sur des moyennes du marché. Les revenus réels dépendent de nombreux facteurs : qualité de votre flotte, saisonnalité, localisation, etc.",
+    "vehicle": "véhicule",
+    "vehicles": "véhicules",
+    "daysRented": "jours loués par mois"
+  },
+  "blogArticle": {
+    "notFound": "Article non trouvé",
+    "backToBlog": "Retour au blog",
+    "readyToRent": "Prêt à louer une voiture ?",
+    "findPerfectCar": "Trouvez le véhicule idéal pour votre prochain voyage au Maroc",
+    "viewCars": "Voir les voitures disponibles",
+    "backToArticles": "Retour aux articles"
+  },
+  "contactForm": {
+    "fillForm": "Remplissez le formulaire ci-dessous",
+    "namePlaceholder": "Votre nom complet",
+    "emailPlaceholder": "votre@email.com",
+    "subjectPlaceholder": "Objet de votre message",
+    "messagePlaceholder": "Décrivez votre demande en détail...",
+    "sendWhatsApp": "Envoyer via WhatsApp",
+    "orContact": "Ou contactez-nous directement",
+    "availability": "Nous sommes disponibles",
+    "weekdays": "Du lundi au vendredi : 9h - 18h",
+    "weekend": "Samedi : 9h - 13h",
+    "responseTime": "Temps de réponse moyen : 2 heures"
   }
 }

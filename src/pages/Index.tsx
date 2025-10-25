@@ -515,9 +515,9 @@ const Index = () => {
       <section className="py-20 bg-muted/30">
         <div className="container max-w-6xl">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl mb-4">Conseils & Guides</h2>
+            <h2 className="text-4xl md:text-5xl mb-4">{t('guides.title')}</h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Découvrez nos articles pour préparer votre location et profiter au mieux de votre séjour au Maroc
+              {t('guides.subtitle')}
             </p>
           </div>
           

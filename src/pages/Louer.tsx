@@ -20,6 +20,7 @@ import Footer from "@/components/Footer";
 import LoadingCar from "@/components/LoadingCar";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";

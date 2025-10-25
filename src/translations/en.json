@@ -152,5 +152,87 @@
     "privacy": "Privacy policy",
     "followUs": "Follow us",
     "rights": "All rights reserved."
+  },
+  "rent": {
+    "title": "Rent a car",
+    "subtitle": "Find the perfect car for your trip in Morocco",
+    "filters": "Filters",
+    "category": "Category",
+    "allCategories": "All categories",
+    "citadine": "City car",
+    "berline": "Sedan",
+    "suv": "SUV",
+    "transmission": "Transmission",
+    "allTransmissions": "All",
+    "automatic": "Automatic",
+    "manual": "Manual",
+    "priceRange": "Price range",
+    "brand": "Brand",
+    "allBrands": "All brands",
+    "resultsCount": "results found",
+    "perDay": "day",
+    "compare": "Compare",
+    "unlimitedKm": "Unlimited mileage",
+    "minAge": "Minimum age",
+    "years": "years",
+    "popular": "Popular",
+    "availableNow": "Available now",
+    "luxury": "Luxury",
+    "sortBy": "Sort by",
+    "priceAsc": "Price ascending",
+    "priceDesc": "Price descending",
+    "nameAsc": "Name A-Z",
+    "nameDesc": "Name Z-A"
+  },
+  "forWho": {
+    "title": "For whom?",
+    "travelers": "Travelers",
+    "travelersText": "Rent a car for your stay",
+    "residents": "Residents",
+    "residentsText": "Access a car when you need it",
+    "professionals": "Professionals",
+    "professionalsText": "Mobility solutions for your business"
+  },
+  "guides": {
+    "title": "Tips & Guides",
+    "subtitle": "Everything you need to know for a successful rental"
+  },
+  "testimonials": {
+    "ahmed": "Since we joined Benatna, our booking rate has increased by 40%. The platform is easy to use and the team is very responsive. We receive quality customers who are genuinely looking for an authentic local service.",
+    "fatima": "Benatna has allowed us to grow without investing in expensive marketing. The 15% commission is very reasonable compared to the 30-35% charged by major international platforms. And above all, no hidden fees!",
+    "youssef": "What convinced me about Benatna is their human approach. We don't feel like just a number. The team understands our constraints as a local agency and works with us, not against us. Payments are always on time.",
+    "karim": "I was skeptical at first, but after 6 months on Benatna, we've filled 25% of our fleet thanks to the platform. Customers come already informed and ready to rent. It saves us precious time on negotiation.",
+    "nadia": "Benatna has transformed the way we work. Before, we spent hours responding to disorganized WhatsApp requests. Now everything is centralized, professional, and customers find us easily. Our revenue has increased by 35% in one year.",
+    "omar": "As a small family agency, we couldn't compete with the big franchises. Benatna gave us a professional and credible showcase. We're on equal footing with the big players, and our customers appreciate the personalized service we offer.",
+    "activeAgencies": "Active partner agencies",
+    "satisfactionRate": "Satisfaction rate",
+    "averageGrowth": "Average revenue growth"
+  },
+  "calculator": {
+    "disclaimer": "This simulation is indicative and based on market averages. Actual revenue depends on many factors: quality of your fleet, seasonality, location, etc.",
+    "vehicle": "vehicle",
+    "vehicles": "vehicles",
+    "daysRented": "days rented per month"
+  },
+  "blogArticle": {
+    "notFound": "Article not found",
+    "backToBlog": "Back to blog",
+    "readyToRent": "Ready to rent a car?",
+    "findPerfectCar": "Find the perfect vehicle for your next trip to Morocco",
+    "viewCars": "View available cars",
+    "backToArticles": "Back to articles"
+  },
+  "contactForm": {
+    "fillForm": "Fill out the form below",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "your@email.com",
+    "subjectPlaceholder": "Subject of your message",
+    "messagePlaceholder": "Describe your request in detail...",
+    "sendWhatsApp": "Send via WhatsApp",
+    "orContact": "Or contact us directly",
+    "availability": "We are available",
+    "weekdays": "Monday to Friday: 9am - 6pm",
+    "weekend": "Saturday: 9am - 1pm",
+    "responseTime": "Average response time: 2 hours"
   }
 }

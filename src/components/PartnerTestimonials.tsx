@@ -3,14 +3,14 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const testimonials = [
+const testimonials = (t: (key: string) => string) => [
   {
     id: 1,
     name: "Ahmed Bennani",
     agency: "Atlas Car Rental",
     city: "Marrakech",
     rating: 5,
-    text: "Depuis qu'on a rejoint Benatna, notre taux de réservation a augmenté de 40%. La plateforme est simple à utiliser et l'équipe est très réactive. On reçoit des clients de qualité qui recherchent vraiment un service local et authentique.",
+    text: t('testimonials.ahmed'),
     initials: "AB",
     color: "bg-primary"
   },
@@ -20,7 +20,7 @@ const testimonials = [
     agency: "Sahara Voyages Auto",
     city: "Casablanca",
     rating: 5,
-    text: "Benatna nous a permis de nous développer sans investir dans du marketing coûteux. Les 15% de commission sont très raisonnables comparés aux 30-35% que prennent les grandes plateformes internationales. Et surtout, pas de frais cachés !",
+    text: t('testimonials.fatima'),
     initials: "FA",
     color: "bg-secondary"
   },
@@ -30,7 +30,7 @@ const testimonials = [
     agency: "Imperial Rent",
     city: "Fès",
     rating: 5,
-    text: "Ce qui m'a convaincu avec Benatna, c'est leur approche humaine. On ne se sent pas comme un simple numéro. L'équipe comprend nos contraintes d'agence locale et travaille avec nous, pas contre nous. Les paiements sont toujours à l'heure.",
+    text: t('testimonials.youssef'),
     initials: "YT",
     color: "bg-accent"
   },
@@ -40,7 +40,7 @@ const testimonials = [
     agency: "Rabat Premium Cars",
     city: "Rabat",
     rating: 5,
-    text: "J'étais sceptique au début, mais après 6 mois sur Benatna, on a rempli 25% de notre flotte grâce à la plateforme. Les clients viennent déjà informés et prêts à louer. Ça nous fait gagner un temps précieux sur la négociation.",
+    text: t('testimonials.karim'),
     initials: "KF",
     color: "bg-primary"
   },
@@ -50,7 +50,7 @@ const testimonials = [
     agency: "Atlantic Location",
     city: "Agadir",
     rating: 5,
-    text: "Benatna a transformé notre façon de travailler. Avant, on passait des heures à répondre à des demandes WhatsApp désorganisées. Maintenant, tout est centralisé, professionnel, et les clients nous trouvent facilement. Notre chiffre a augmenté de 35% en un an.",
+    text: t('testimonials.nadia'),
     initials: "NC",
     color: "bg-secondary"
   },
@@ -60,7 +60,7 @@ const testimonials = [
     agency: "Mediterranean Auto",
     city: "Tanger",
     rating: 5,
-    text: "En tant que petite agence familiale, on ne pouvait pas rivaliser avec les grandes franchises. Benatna nous a donné une vitrine professionnelle et crédible. On est sur le même pied d'égalité que les gros acteurs, et nos clients apprécient le service personnalisé qu'on offre.",
+    text: t('testimonials.omar'),
     initials: "OB",
     color: "bg-accent"
   }
@@ -68,6 +68,7 @@ const testimonials = [
 
 export const PartnerTestimonials = () => {
   const { t } = useLanguage();
+  const testimonialsData = testimonials(t);
   
   return (
     <section className="py-20 bg-card">
@@ -80,7 +81,7 @@ export const PartnerTestimonials = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonials.map((testimonial) => (
+          {testimonialsData.map((testimonial) => (
             <Card key={testimonial.id} className="border-2 hover:shadow-lg transition-all rounded-2xl relative">
               <CardContent className="p-6">
                 {/* Quote Icon */}
@@ -121,15 +122,15 @@ export const PartnerTestimonials = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mt-16">
           <div className="text-center">
             <div className="text-4xl font-bold text-primary mb-2">24+</div>
-            <p className="text-sm text-muted-foreground">Agences partenaires actives</p>
+            <p className="text-sm text-muted-foreground">{t('testimonials.activeAgencies')}</p>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-secondary mb-2">98%</div>
-            <p className="text-sm text-muted-foreground">Taux de satisfaction</p>
+            <p className="text-sm text-muted-foreground">{t('testimonials.satisfactionRate')}</p>
           </div>
           <div className="text-center">
             <div className="text-4xl font-bold text-accent mb-2">+40%</div>
-            <p className="text-sm text-muted-foreground">Croissance moyenne du CA</p>
+            <p className="text-sm text-muted-foreground">{t('testimonials.averageGrowth')}</p>
           </div>
         </div>
       </div>

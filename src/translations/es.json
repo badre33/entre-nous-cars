@@ -152,5 +152,87 @@
     "privacy": "Política de privacidad",
     "followUs": "Síguenos",
     "rights": "Todos los derechos reservados."
+  },
+  "rent": {
+    "title": "Alquilar un coche",
+    "subtitle": "Encuentra el coche perfecto para tu viaje en Marruecos",
+    "filters": "Filtros",
+    "category": "Categoría",
+    "allCategories": "Todas las categorías",
+    "citadine": "Urbano",
+    "berline": "Sedán",
+    "suv": "SUV",
+    "transmission": "Transmisión",
+    "allTransmissions": "Todas",
+    "automatic": "Automático",
+    "manual": "Manual",
+    "priceRange": "Rango de precios",
+    "brand": "Marca",
+    "allBrands": "Todas las marcas",
+    "resultsCount": "resultados encontrados",
+    "perDay": "día",
+    "compare": "Comparar",
+    "unlimitedKm": "Kilometraje ilimitado",
+    "minAge": "Edad mínima",
+    "years": "años",
+    "popular": "Popular",
+    "availableNow": "Disponible ahora",
+    "luxury": "Lujo",
+    "sortBy": "Ordenar por",
+    "priceAsc": "Precio ascendente",
+    "priceDesc": "Precio descendente",
+    "nameAsc": "Nombre A-Z",
+    "nameDesc": "Nombre Z-A"
+  },
+  "forWho": {
+    "title": "¿Para quién?",
+    "travelers": "Viajeros",
+    "travelersText": "Alquila un coche para tu estancia",
+    "residents": "Residentes",
+    "residentsText": "Accede a un coche cuando lo necesites",
+    "professionals": "Profesionales",
+    "professionalsText": "Soluciones de movilidad para tu empresa"
+  },
+  "guides": {
+    "title": "Consejos y Guías",
+    "subtitle": "Todo lo que necesitas saber para un alquiler exitoso"
+  },
+  "testimonials": {
+    "ahmed": "Desde que nos unimos a Benatna, nuestra tasa de reservas ha aumentado un 40%. La plataforma es fácil de usar y el equipo es muy receptivo. Recibimos clientes de calidad que realmente buscan un servicio local auténtico.",
+    "fatima": "Benatna nos ha permitido crecer sin invertir en marketing costoso. La comisión del 15% es muy razonable comparada con el 30-35% que cobran las grandes plataformas internacionales. ¡Y sobre todo, sin tarifas ocultas!",
+    "youssef": "Lo que me convenció de Benatna es su enfoque humano. No nos sentimos como un simple número. El equipo entiende nuestras limitaciones como agencia local y trabaja con nosotros, no contra nosotros. Los pagos siempre llegan a tiempo.",
+    "karim": "Era escéptico al principio, pero después de 6 meses en Benatna, hemos llenado el 25% de nuestra flota gracias a la plataforma. Los clientes llegan ya informados y listos para alquilar. Nos ahorra un tiempo precioso en negociación.",
+    "nadia": "Benatna ha transformado nuestra forma de trabajar. Antes, pasábamos horas respondiendo a solicitudes desorganizadas de WhatsApp. Ahora todo está centralizado, profesional, y los clientes nos encuentran fácilmente. Nuestros ingresos han aumentado un 35% en un año.",
+    "omar": "Como pequeña agencia familiar, no podíamos competir con las grandes franquicias. Benatna nos dio un escaparate profesional y creíble. Estamos en igualdad de condiciones con los grandes actores, y nuestros clientes aprecian el servicio personalizado que ofrecemos.",
+    "activeAgencies": "Agencias asociadas activas",
+    "satisfactionRate": "Tasa de satisfacción",
+    "averageGrowth": "Crecimiento promedio de ingresos"
+  },
+  "calculator": {
+    "disclaimer": "Esta simulación es indicativa y se basa en promedios del mercado. Los ingresos reales dependen de muchos factores: calidad de su flota, estacionalidad, ubicación, etc.",
+    "vehicle": "vehículo",
+    "vehicles": "vehículos",
+    "daysRented": "días alquilados por mes"
+  },
+  "blogArticle": {
+    "notFound": "Artículo no encontrado",
+    "backToBlog": "Volver al blog",
+    "readyToRent": "¿Listo para alquilar un coche?",
+    "findPerfectCar": "Encuentra el vehículo ideal para tu próximo viaje a Marruecos",
+    "viewCars": "Ver coches disponibles",
+    "backToArticles": "Volver a los artículos"
+  },
+  "contactForm": {
+    "fillForm": "Rellena el formulario a continuación",
+    "namePlaceholder": "Tu nombre completo",
+    "emailPlaceholder": "tu@email.com",
+    "subjectPlaceholder": "Asunto de tu mensaje",
+    "messagePlaceholder": "Describe tu solicitud en detalle...",
+    "sendWhatsApp": "Enviar por WhatsApp",
+    "orContact": "O contáctanos directamente",
+    "availability": "Estamos disponibles",
+    "weekdays": "Lunes a viernes: 9h - 18h",
+    "weekend": "Sábado: 9h - 13h",
+    "responseTime": "Tiempo de respuesta promedio: 2 horas"
   }
 }

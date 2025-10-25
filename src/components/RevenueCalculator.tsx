@@ -70,8 +70,8 @@ export const RevenueCalculator = () => {
                   className="cursor-pointer"
                 />
                 <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>1 véhicule</span>
-                  <span>50 véhicules</span>
+                  <span>1 {t('calculator.vehicle')}</span>
+                  <span>50 {t('calculator.vehicles')}</span>
                 </div>
               </div>
 
@@ -120,7 +120,7 @@ export const RevenueCalculator = () => {
                   <span>95%</span>
                 </div>
                 <p className="text-sm text-muted-foreground italic">
-                  = {occupiedDays} jours loués par mois
+                  = {occupiedDays} {t('calculator.daysRented')}
                 </p>
               </div>
             </CardContent>
@@ -196,9 +196,7 @@ export const RevenueCalculator = () => {
         </div>
 
         <p className="text-center text-sm text-muted-foreground mt-8 max-w-2xl mx-auto">
-          * Cette simulation est indicative et basée sur des moyennes du marché. 
-          Les revenus réels dépendent de nombreux facteurs : qualité de votre flotte, 
-          saisonnalité, localisation, etc.
+          * {t('calculator.disclaimer')}
         </p>
       </div>
     </section>
