@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import { blogArticles } from "@/data/blogArticles";
 
 const Blog = () => {
-  const categories = ["Tous", "Conduite", "Tourisme", "Assurance", "Budget", "Pratique"];
+  const categories = ["Tous", "Conduite", "Tourisme", "Assurance", "Budget", "Pratique", "À propos"];
 
   return (
     <div className="min-h-screen flex flex-col">
