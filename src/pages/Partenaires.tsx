@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Helmet } from "react-helmet-async";
 import { TrendingUp, Eye, FileText, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
@@ -9,6 +10,7 @@ import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PartnerTestimonials } from "@/components/PartnerTestimonials";
 import { RevenueCalculator } from "@/components/RevenueCalculator";
+import { StructuredData } from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
@@ -41,6 +43,13 @@ const Partenaires = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Devenir Partenaire Benatna - Agence de Location de Voiture au Maroc</title>
+        <meta name="description" content="Rejoignez le réseau Benatna et boostez votre activité de location de voitures au Maroc. Visibilité nationale, réservations en ligne, outil de gestion gratuit." />
+        <meta name="keywords" content="partenaire location voiture maroc, agence location auto partenariat, devenir partenaire benatna, réseau location véhicule maroc" />
+        <link rel="canonical" href="https://benatna.ma/partenaires" />
+        <StructuredData type="partners" />
+      </Helmet>
       <Header />
       <Breadcrumbs />
       
@@ -63,7 +72,7 @@ const Partenaires = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/95 font-medium">
             {t('partners.heroSubtitle')}
           </p>
-          <Button size="lg" className="rounded-full text-lg px-8" onClick={scrollToForm}>
+          <Button size="lg" variant="partner" className="rounded-full text-lg px-8" onClick={scrollToForm}>
             {t('partners.joinBenatna')}
           </Button>
         </div>

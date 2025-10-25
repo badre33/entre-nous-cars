@@ -3,13 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Shield, MapPin, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { HeroSearchForm } from "@/components/HeroSearchForm";
 import { FloatingCTA } from "@/components/FloatingCTA";
+import { SEOLinks } from "@/components/SEOLinks";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { StructuredData } from "@/components/StructuredData";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -47,6 +50,17 @@ const Index = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Benatna - Location de Voiture au Maroc | Prix Transparents & Sans Surprises</title>
+        <meta name="description" content="Louez une voiture au Maroc avec Benatna. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Prix transparents, processus 100% digital, 300+ véhicules disponibles. Réservez maintenant !" />
+        <meta name="keywords" content="location voiture maroc, location auto casablanca, louer voiture marrakech, location véhicule rabat, rent car morocco, agence location voiture, voiture de tourisme maroc" />
+        <link rel="canonical" href="https://benatna.ma/" />
+        <meta property="og:title" content="Benatna - Location de Voiture au Maroc" />
+        <meta property="og:description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
+        <meta property="og:url" content="https://benatna.ma/" />
+        <meta property="og:type" content="website" />
+        <StructuredData type="home" />
+      </Helmet>
       <Header />
       
       {/* Hero Section with Parallax */}
@@ -78,7 +92,7 @@ const Index = () => {
           
           <div className="flex gap-4 justify-center flex-wrap mt-6 animate-fade-in [animation-delay:600ms]">
             <Link to="/partenaires">
-              <Button size="lg" variant="outline" className="rounded-full text-lg px-8 bg-white/10 backdrop-blur border-white/30 text-white hover:bg-white/20 hover:scale-110 transition-all duration-300">
+              <Button size="lg" variant="partner" className="rounded-full text-lg px-8 animate-pulse">
                 {t('home.becomePartner')}
               </Button>
             </Link>
@@ -656,6 +670,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* SEO Links & Content */}
+      <SEOLinks />
 
       <Footer />
       

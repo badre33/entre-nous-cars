@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +21,7 @@ import Footer from "@/components/Footer";
 import LoadingCar from "@/components/LoadingCar";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import LazyCarImage from "@/components/LazyCarImage";
+import { StructuredData } from "@/components/StructuredData";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -3878,6 +3880,13 @@ const Louer = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Location de Voiture au Maroc - 300+ Véhicules Disponibles | Benatna</title>
+        <meta name="description" content="Louez une voiture au Maroc dès 250 MAD/jour. Citadines, SUV, berlines. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Réservation rapide, prix transparents." />
+        <meta name="keywords" content="location voiture maroc, louer auto casablanca, rent car marrakech, voiture tourisme maroc, location véhicule rabat, agence location tanger" />
+        <link rel="canonical" href="https://benatna.ma/louer" />
+        <StructuredData type="rental" />
+      </Helmet>
       {isLoading && <LoadingCar />}
       <Header />
       <Breadcrumbs />
