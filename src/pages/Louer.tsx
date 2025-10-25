@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -3856,11 +3856,12 @@ const Louer = () => {
     return true;
   });
 
-  // Mélanger les voitures uniquement quand aucun filtre n'est appliqué
-  const displayedCars = (selectedCity === "all" && selectedType === "all" && 
-                         selectedBrand === "all" && selectedCategory === "all")
-    ? shuffleArray(filteredCars)
-    : filteredCars;
+  // Mélanger les voitures UNE SEULE FOIS quand les filtres changent
+  const displayedCars = useMemo(() => {
+    const noFiltersApplied = selectedCity === "all" && selectedType === "all" && 
+                             selectedBrand === "all" && selectedCategory === "all";
+    return noFiltersApplied ? shuffleArray(filteredCars) : filteredCars;
+  }, [selectedCity, selectedType, selectedBrand, selectedCategory]);
 
   return (
     <div className="min-h-screen flex flex-col">
