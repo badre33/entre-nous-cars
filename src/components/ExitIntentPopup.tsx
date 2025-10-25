@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { toast } from '@/hooks/use-toast';
+import { analytics } from '@/utils/analytics';
 
 export const ExitIntentPopup = () => {
   const { t } = useLanguage();
@@ -36,6 +37,7 @@ export const ExitIntentPopup = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
+      analytics.trackEmailSubscribed('exit_intent_popup');
       toast({
         title: "Code envoyé !",
         description: "Vérifiez votre email pour votre code de réduction.",

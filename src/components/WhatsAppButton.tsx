@@ -3,16 +3,23 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { analytics } from "@/utils/analytics";
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const whatsappNumber = "212699024526";
   
+  const handleOpen = () => {
+    setIsOpen(true);
+    analytics.trackChatOpened('whatsapp');
+  };
+  
   const sendMessage = () => {
     if (message.trim()) {
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       window.open(whatsappUrl, '_blank');
+      analytics.trackEvent('whatsapp_message_sent', { message_length: message.length });
       setMessage("");
       setIsOpen(false);
     }
@@ -82,8 +89,8 @@ const WhatsAppButton = () => {
 
       {/* Floating Button */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
+        onClick={handleOpen}
+        className="fixed bottom-24 left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
         aria-label="Ouvrir le chat WhatsApp"
       >
         {isOpen ? (

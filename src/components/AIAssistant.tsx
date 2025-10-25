@@ -5,12 +5,18 @@ import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useAIChat } from '@/hooks/useAIChat';
 import { cn } from '@/lib/utils';
+import { analytics } from '@/utils/analytics';
 
 export const AIAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const { messages, isLoading, sendMessage, clearMessages } = useAIChat();
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+    analytics.trackChatOpened('ai_assistant');
+  };
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -44,7 +50,7 @@ export const AIAssistant = () => {
       {/* Floating Button */}
       {!isOpen && (
         <Button
-          onClick={() => setIsOpen(true)}
+          onClick={handleOpen}
           className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:scale-110 transition-transform bg-primary hover:bg-primary/90 z-50"
           aria-label="Ouvrir l'assistant virtuel"
         >
