@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Calendar as CalendarIcon, MapPin, Car, CalendarCheck } from "lucide-react";
+import { useComparison } from "@/contexts/ComparisonContext";
+import ComparisonButton from "@/components/ComparisonButton";
+import ComparisonDialog from "@/components/ComparisonDialog";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -2321,6 +2325,8 @@ const Louer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showAvailability, setShowAvailability] = useState(false);
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
+  const [showComparison, setShowComparison] = useState(false);
+  const { addToComparison, removeFromComparison, isInComparison } = useComparison();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -2585,6 +2591,39 @@ const Louer = () => {
                     alt={car.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  {/* Comparison Checkbox */}
+                  <div className="absolute top-3 right-3 z-10">
+                    <div
+                      className={cn(
+                        "flex items-center gap-2 bg-background/95 backdrop-blur-sm px-3 py-2 rounded-full",
+                        "border-2 shadow-lg transition-all duration-200",
+                        isInComparison(car.id)
+                          ? "border-primary bg-primary/10"
+                          : "border-border hover:border-primary/50"
+                      )}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (isInComparison(car.id)) {
+                          removeFromComparison(car.id);
+                        } else {
+                          addToComparison(car);
+                        }
+                      }}
+                    >
+                      <Checkbox
+                        checked={isInComparison(car.id)}
+                        onCheckedChange={(checked) => {
+                          if (checked) {
+                            addToComparison(car);
+                          } else {
+                            removeFromComparison(car.id);
+                          }
+                        }}
+                        className="cursor-pointer"
+                      />
+                      <span className="text-xs font-medium">Comparer</span>
+                    </div>
+                  </div>
                   {car.badges && car.badges.length > 0 && (
                     <div className="absolute top-3 left-3 flex flex-col gap-2">
                       {car.badges.map((badge, idx) => (
@@ -2679,6 +2718,12 @@ const Louer = () => {
       )}
 
       <Footer />
+      
+      {/* Comparison Button */}
+      <ComparisonButton onClick={() => setShowComparison(true)} />
+      
+      {/* Comparison Dialog */}
+      <ComparisonDialog open={showComparison} onOpenChange={setShowComparison} />
       
       {/* Loading animation */}
       {isLoading && <LoadingCar />}
