@@ -56,6 +56,36 @@ import carNissanMicra from "@/assets/car-nissan-micra.jpg";
 import carNissanSunny from "@/assets/car-nissan-sunny.jpg";
 import carToyotaYaris from "@/assets/car-toyota-yaris.jpg";
 import carToyotaRAV4 from "@/assets/car-toyota-rav4.jpg";
+import carPeugeot2008 from "@/assets/car-peugeot-2008.jpg";
+import carClioWhite from "@/assets/car-clio-white.jpg";
+import carDusterGray from "@/assets/car-duster-gray.jpg";
+import carVwTroc from "@/assets/car-vw-troc.jpg";
+import carPeugeot208Red from "@/assets/car-peugeot-208-red.jpg";
+import carSanderoStepway from "@/assets/car-sandero-stepway.jpg";
+import carCapturOrange from "@/assets/car-captur-orange.jpg";
+import carCorollaSilver from "@/assets/car-corolla-silver.jpg";
+import carHyundaiKona from "@/assets/car-hyundai-kona.jpg";
+import carNissanJuke from "@/assets/car-nissan-juke.jpg";
+import carFordFiesta from "@/assets/car-ford-fiesta.jpg";
+import carKiaCeed from "@/assets/car-kia-ceed.jpg";
+import carVwPassat from "@/assets/car-vw-passat.jpg";
+import carOpelInsignia from "@/assets/car-opel-insignia.jpg";
+import carCitroenC4Cactus from "@/assets/car-citroen-c4-cactus.jpg";
+import carSeatLeon from "@/assets/car-seat-leon.jpg";
+import carSeatArona from "@/assets/car-seat-arona.jpg";
+import carFordKuga from "@/assets/car-ford-kuga.jpg";
+import carFiat500 from "@/assets/car-fiat-500.jpg";
+import carFiatPanda from "@/assets/car-fiat-panda.jpg";
+import carCitroenC3Aircross from "@/assets/car-citroen-c3-aircross.jpg";
+import carRenaultTwingo from "@/assets/car-renault-twingo.jpg";
+import carToyotaAuris from "@/assets/car-toyota-auris.jpg";
+import carHondaJazz from "@/assets/car-honda-jazz.jpg";
+import carMazdaCX3 from "@/assets/car-mazda-cx3.jpg";
+import carSkodaKamiq from "@/assets/car-skoda-kamiq.jpg";
+import carHyundaiAccent from "@/assets/car-hyundai-accent.jpg";
+import carKiaStonic from "@/assets/car-kia-stonic.jpg";
+import carOpelMokka from "@/assets/car-opel-mokka.jpg";
+import carNissanNote from "@/assets/car-nissan-note.jpg";
 
 const cars = [
   // Renault
@@ -836,6 +866,398 @@ const cars = [
     price: 600,
     priceDisplay: "600 MAD",
     conditions: ["Caution: 8200 MAD", "450 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  
+  // Peugeot (nouveaux modèles)
+  {
+    id: 61,
+    image: carPeugeot2008,
+    name: "Peugeot 2008",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 420,
+    priceDisplay: "420 MAD",
+    conditions: ["Caution: 5600 MAD", "360 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 62,
+    image: carPeugeot208Red,
+    name: "Peugeot 208",
+    brand: "Peugeot",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Tanger",
+    price: 300,
+    priceDisplay: "300 MAD",
+    conditions: ["Caution: 4000 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Renault (nouveaux modèles)
+  {
+    id: 63,
+    image: carClioWhite,
+    name: "Renault Clio",
+    brand: "Renault",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Rabat",
+    price: 335,
+    priceDisplay: "335 MAD",
+    conditions: ["Caution: 4500 MAD", "270 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 64,
+    image: carCapturOrange,
+    name: "Renault Captur",
+    brand: "Renault",
+    type: "Manuelle",
+    category: "SUV",
+    city: "Marrakech",
+    price: 400,
+    priceDisplay: "400 MAD",
+    conditions: ["Caution: 5400 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 65,
+    image: carRenaultTwingo,
+    name: "Renault Twingo",
+    brand: "Renault",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 270,
+    priceDisplay: "270 MAD",
+    conditions: ["Caution: 3600 MAD", "220 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Dacia (nouveaux modèles)
+  {
+    id: 66,
+    image: carDusterGray,
+    name: "Dacia Duster",
+    brand: "Dacia",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: ["Caution: 6400 MAD", "390 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 67,
+    image: carSanderoStepway,
+    name: "Dacia Sandero Stepway",
+    brand: "Dacia",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 310,
+    priceDisplay: "310 MAD",
+    conditions: ["Caution: 4200 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Volkswagen (nouveaux modèles)
+  {
+    id: 68,
+    image: carVwTroc,
+    name: "Volkswagen T-Roc",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 530,
+    priceDisplay: "530 MAD",
+    conditions: ["Caution: 7200 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 69,
+    image: carVwPassat,
+    name: "Volkswagen Passat",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 490,
+    priceDisplay: "490 MAD",
+    conditions: ["Caution: 6600 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  
+  // Toyota (nouveaux modèles)
+  {
+    id: 70,
+    image: carCorollaSilver,
+    name: "Toyota Corolla",
+    brand: "Toyota",
+    type: "Manuelle",
+    category: "Berline",
+    city: "Tanger",
+    price: 420,
+    priceDisplay: "420 MAD",
+    conditions: ["Caution: 5700 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 71,
+    image: carToyotaAuris,
+    name: "Toyota Auris",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "Berline",
+    city: "Rabat",
+    price: 410,
+    priceDisplay: "410 MAD",
+    conditions: ["Caution: 5500 MAD", "360 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Hyundai (nouveaux modèles)
+  {
+    id: 72,
+    image: carHyundaiKona,
+    name: "Hyundai Kona",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 480,
+    priceDisplay: "480 MAD",
+    conditions: ["Caution: 6500 MAD", "390 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 73,
+    image: carHyundaiAccent,
+    name: "Hyundai Accent",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 370,
+    priceDisplay: "370 MAD",
+    conditions: ["Caution: 5000 MAD", "330 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  
+  // Nissan (nouveaux modèles)
+  {
+    id: 74,
+    image: carNissanJuke,
+    name: "Nissan Juke",
+    brand: "Nissan",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 450,
+    priceDisplay: "450 MAD",
+    conditions: ["Caution: 6100 MAD", "370 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 75,
+    image: carNissanNote,
+    name: "Nissan Note",
+    brand: "Nissan",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 305,
+    priceDisplay: "305 MAD",
+    conditions: ["Caution: 4100 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Ford (nouveaux modèles)
+  {
+    id: 76,
+    image: carFordFiesta,
+    name: "Ford Fiesta",
+    brand: "Ford",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Marrakech",
+    price: 295,
+    priceDisplay: "295 MAD",
+    conditions: ["Caution: 3900 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 77,
+    image: carFordKuga,
+    name: "Ford Kuga",
+    brand: "Ford",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 510,
+    priceDisplay: "510 MAD",
+    conditions: ["Caution: 6900 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  
+  // Kia (nouveaux modèles)
+  {
+    id: 78,
+    image: carKiaCeed,
+    name: "Kia Ceed",
+    brand: "Kia",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 380,
+    priceDisplay: "380 MAD",
+    conditions: ["Caution: 5200 MAD", "340 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 79,
+    image: carKiaStonic,
+    name: "Kia Stonic",
+    brand: "Kia",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 430,
+    priceDisplay: "430 MAD",
+    conditions: ["Caution: 5800 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Opel (nouveaux modèles)
+  {
+    id: 80,
+    image: carOpelInsignia,
+    name: "Opel Insignia",
+    brand: "Opel",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 460,
+    priceDisplay: "460 MAD",
+    conditions: ["Caution: 6200 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 81,
+    image: carOpelMokka,
+    name: "Opel Mokka",
+    brand: "Opel",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 440,
+    priceDisplay: "440 MAD",
+    conditions: ["Caution: 5900 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Citroën (nouveaux modèles)
+  {
+    id: 82,
+    image: carCitroenC4Cactus,
+    name: "Citroën C4 Cactus",
+    brand: "Citroën",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Tanger",
+    price: 360,
+    priceDisplay: "360 MAD",
+    conditions: ["Caution: 4900 MAD", "300 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  {
+    id: 83,
+    image: carCitroenC3Aircross,
+    name: "Citroën C3 Aircross",
+    brand: "Citroën",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 410,
+    priceDisplay: "410 MAD",
+    conditions: ["Caution: 5500 MAD", "360 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Seat (nouveaux modèles)
+  {
+    id: 84,
+    image: carSeatLeon,
+    name: "Seat Leon",
+    brand: "Seat",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 390,
+    priceDisplay: "390 MAD",
+    conditions: ["Caution: 5300 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 85,
+    image: carSeatArona,
+    name: "Seat Arona",
+    brand: "Seat",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 425,
+    priceDisplay: "425 MAD",
+    conditions: ["Caution: 5700 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Fiat (nouveaux modèles)
+  {
+    id: 86,
+    image: carFiat500,
+    name: "Fiat 500",
+    brand: "Fiat",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Tanger",
+    price: 285,
+    priceDisplay: "285 MAD",
+    conditions: ["Caution: 3800 MAD", "230 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 87,
+    image: carFiatPanda,
+    name: "Fiat Panda",
+    brand: "Fiat",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 275,
+    priceDisplay: "275 MAD",
+    conditions: ["Caution: 3700 MAD", "220 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Honda (nouveaux modèles)
+  {
+    id: 88,
+    image: carHondaJazz,
+    name: "Honda Jazz",
+    brand: "Honda",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Marrakech",
+    price: 345,
+    priceDisplay: "345 MAD",
+    conditions: ["Caution: 4700 MAD", "280 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  
+  // Mazda (nouveaux modèles)
+  {
+    id: 89,
+    image: carMazdaCX3,
+    name: "Mazda CX-3",
+    brand: "Mazda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 460,
+    priceDisplay: "460 MAD",
+    conditions: ["Caution: 6200 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  
+  // Skoda (nouveaux modèles)
+  {
+    id: 90,
+    image: carSkodaKamiq,
+    name: "Skoda Kamiq",
+    brand: "Skoda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 445,
+    priceDisplay: "445 MAD",
+    conditions: ["Caution: 6000 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
   }
 ];
 
