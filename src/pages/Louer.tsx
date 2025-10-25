@@ -18,6 +18,8 @@ import confetti from "canvas-confetti";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import LoadingCar from "@/components/LoadingCar";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import LazyCarImage from "@/components/LazyCarImage";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -3878,6 +3880,7 @@ const Louer = () => {
     <div className="min-h-screen flex flex-col">
       {isLoading && <LoadingCar />}
       <Header />
+      <Breadcrumbs />
       
       {/* Hero with Search and Parallax */}
       <section className="relative h-[400px] flex items-center justify-center overflow-hidden">

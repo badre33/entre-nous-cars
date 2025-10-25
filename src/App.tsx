@@ -7,14 +7,19 @@ import { ComparisonProvider } from "@/contexts/ComparisonContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
-import Index from "./pages/Index";
-import Louer from "./pages/Louer";
-import Partenaires from "./pages/Partenaires";
-import APropos from "./pages/APropos";
-import Blog from "./pages/Blog";
-import BlogArticle from "./pages/BlogArticle";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import { BackToTop } from "@/components/BackToTop";
+import { lazy, Suspense } from "react";
+import LoadingCar from "@/components/LoadingCar";
+
+// Code splitting avec React.lazy
+const Index = lazy(() => import("./pages/Index"));
+const Louer = lazy(() => import("./pages/Louer"));
+const Partenaires = lazy(() => import("./pages/Partenaires"));
+const APropos = lazy(() => import("./pages/APropos"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogArticle = lazy(() => import("./pages/BlogArticle"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -27,17 +32,20 @@ const App = () => (
             <Toaster />
             <Sonner />
             <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/louer" element={<Louer />} />
-              <Route path="/partenaires" element={<Partenaires />} />
-              <Route path="/a-propos" element={<APropos />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogArticle />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <Suspense fallback={<LoadingCar />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/louer" element={<Louer />} />
+                <Route path="/partenaires" element={<Partenaires />} />
+                <Route path="/a-propos" element={<APropos />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogArticle />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
             <WhatsAppButton />
+            <BackToTop />
           </ComparisonProvider>
         </LanguageProvider>
       </BrowserRouter>

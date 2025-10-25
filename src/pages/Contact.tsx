@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -20,6 +21,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      <Breadcrumbs />
       
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">

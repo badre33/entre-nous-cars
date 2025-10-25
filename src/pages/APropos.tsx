@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Heart, Shield, Zap, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import aboutImage from "@/assets/about-mission.jpg";
 
@@ -11,6 +12,7 @@ const APropos = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      <Breadcrumbs />
       
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">

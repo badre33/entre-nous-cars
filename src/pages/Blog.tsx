@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, ArrowRight, MapPin, Car, Shield } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { blogArticles } from "@/data/blogArticles";
 import { BlogCardSkeleton } from "@/components/BlogCardSkeleton";
@@ -36,6 +37,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      <Breadcrumbs />
       
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">

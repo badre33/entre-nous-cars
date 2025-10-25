@@ -6,6 +6,7 @@ import { TrendingUp, Eye, FileText, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PartnerTestimonials } from "@/components/PartnerTestimonials";
 import { RevenueCalculator } from "@/components/RevenueCalculator";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -41,6 +42,7 @@ const Partenaires = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      <Breadcrumbs />
       
       {/* Hero Section with Parallax */}
       <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
