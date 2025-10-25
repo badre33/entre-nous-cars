@@ -17,7 +17,7 @@ export const blogArticles: BlogArticle[] = [
     excerpt: "Découvrez comment Benatna transforme la location de voiture au Maroc en connectant voyageurs et agences locales de confiance.",
     category: "À propos",
     date: "5 janvier 2025",
-    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&h=600&fit=crop",
+    image: new URL("@/assets/blog-revolution-location.jpg", import.meta.url).href,
     content: [
       "Benatna n'est pas une énième plateforme de location de voiture. C'est une réponse concrète à un problème que rencontrent quotidiennement voyageurs et résidents au Maroc : comment louer une voiture en toute confiance, à un prix juste, sans mauvaise surprise ?",
       
