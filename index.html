@@ -11,13 +11,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
+    <!-- Preload critical fonts for better LCP -->
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/pacifico/v23/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/barlow/v12/7cHpv4kjgoGqM7E_DMs5ynghnQci.woff2" type="font/woff2" crossorigin>
+    
     <!-- Favicon and Icons -->
     <link rel="icon" type="image/png" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     
     <!-- Preload LCP image -->
     <link rel="preload" as="image" href="/assets/hero-home-OtA9UHCO.jpg" fetchpriority="high" />
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Load fonts asynchronously for better performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
     <!-- Open Graph / Facebook -->

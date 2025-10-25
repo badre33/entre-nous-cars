@@ -21,11 +21,14 @@ export default defineConfig(({ mode }) => ({
         short_name: "Benatna",
         description: "La plateforme marocaine qui réunit les agences de location de voitures locales de confiance",
         theme_color: "#048592",
-        background_color: "#ffffff",
+        background_color: "#f5ffe4",
         display: "standalone",
         scope: "/",
         start_url: "/",
         orientation: "portrait",
+        categories: ["travel", "business"],
+        lang: "fr",
+        dir: "ltr",
         icons: [
           {
             src: "/favicon.ico",
@@ -37,6 +40,12 @@ export default defineConfig(({ mode }) => ({
             sizes: "180x180",
             type: "image/png",
             purpose: "any maskable",
+          },
+          {
+            src: "/og-image.png",
+            sizes: "1200x630",
+            type: "image/png",
+            purpose: "any",
           },
         ],
       },
