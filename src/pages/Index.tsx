@@ -59,8 +59,8 @@ const Index = () => {
         <meta property="og:description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
         <meta property="og:url" content="https://benatna.ma/" />
         <meta property="og:type" content="website" />
-        <StructuredData type="home" />
       </Helmet>
+      <StructuredData type="home" />
       <Header />
       
       {/* Hero Section with Parallax */}

@@ -3885,8 +3885,8 @@ const Louer = () => {
         <meta name="description" content="Louez une voiture au Maroc dès 250 MAD/jour. Citadines, SUV, berlines. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Réservation rapide, prix transparents." />
         <meta name="keywords" content="location voiture maroc, louer auto casablanca, rent car marrakech, voiture tourisme maroc, location véhicule rabat, agence location tanger" />
         <link rel="canonical" href="https://benatna.ma/louer" />
-        <StructuredData type="rental" />
       </Helmet>
+      <StructuredData type="rental" />
       {isLoading && <LoadingCar />}
       <Header />
       <Breadcrumbs />
