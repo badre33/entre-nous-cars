@@ -91,12 +91,12 @@ const cars = [
 ];
 
 const Louer = () => {
-  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [selectedCity, setSelectedCity] = useState<string>("all");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
-  const [selectedType, setSelectedType] = useState<string>("");
-  const [selectedBrand, setSelectedBrand] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedType, setSelectedType] = useState<string>("all");
+  const [selectedBrand, setSelectedBrand] = useState<string>("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const cities = ["Casablanca", "Marrakech", "Tanger", "Rabat"];
   const brands = Array.from(new Set(cars.map(car => car.brand)));
@@ -104,10 +104,10 @@ const Louer = () => {
   const types = ["Automatique", "Manuelle"];
 
   const filteredCars = cars.filter(car => {
-    if (selectedCity && car.city !== selectedCity) return false;
-    if (selectedType && car.type !== selectedType) return false;
-    if (selectedBrand && car.brand !== selectedBrand) return false;
-    if (selectedCategory && car.category !== selectedCategory) return false;
+    if (selectedCity && selectedCity !== "all" && car.city !== selectedCity) return false;
+    if (selectedType && selectedType !== "all" && car.type !== selectedType) return false;
+    if (selectedBrand && selectedBrand !== "all" && car.brand !== selectedBrand) return false;
+    if (selectedCategory && selectedCategory !== "all" && car.category !== selectedCategory) return false;
     return true;
   });
 
@@ -143,7 +143,7 @@ const Louer = () => {
                       <SelectValue placeholder="Toutes les villes" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
-                      <SelectItem value="">Toutes les villes</SelectItem>
+                      <SelectItem value="all">Toutes les villes</SelectItem>
                       {cities.map(city => (
                         <SelectItem key={city} value={city}>{city}</SelectItem>
                       ))}
@@ -225,7 +225,7 @@ const Louer = () => {
                       <SelectValue placeholder="Toutes les marques" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
-                      <SelectItem value="">Toutes les marques</SelectItem>
+                      <SelectItem value="all">Toutes les marques</SelectItem>
                       {brands.map(brand => (
                         <SelectItem key={brand} value={brand}>{brand}</SelectItem>
                       ))}
@@ -243,7 +243,7 @@ const Louer = () => {
                       <SelectValue placeholder="Toutes les catégories" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
-                      <SelectItem value="">Toutes les catégories</SelectItem>
+                      <SelectItem value="all">Toutes les catégories</SelectItem>
                       {categories.map(category => (
                         <SelectItem key={category} value={category}>{category}</SelectItem>
                       ))}
@@ -261,7 +261,7 @@ const Louer = () => {
                       <SelectValue placeholder="Tous les types" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
-                      <SelectItem value="">Tous les types</SelectItem>
+                      <SelectItem value="all">Tous les types</SelectItem>
                       {types.map(type => (
                         <SelectItem key={type} value={type}>{type}</SelectItem>
                       ))}
