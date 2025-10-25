@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Calendar as CalendarIcon, MapPin, Car } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -165,7 +166,8 @@ const cars = [
     city: "Casablanca",
     price: 350,
     priceDisplay: "350 MAD",
-    conditions: ["Kilométrage illimité", "Âge minimum: 23 ans"]
+    conditions: ["Kilométrage illimité", "Âge minimum: 23 ans"],
+    badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
   },
   {
     id: 2,
@@ -191,7 +193,8 @@ const cars = [
     city: "Marrakech",
     price: 450,
     priceDisplay: "450 MAD",
-    conditions: ["Caution: 6000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: ["Caution: 6000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"],
+    badges: ["🔥 Populaire"]
   },
   {
     id: 4,
@@ -217,7 +220,8 @@ const cars = [
     city: "Casablanca",
     price: 400,
     priceDisplay: "400 MAD",
-    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"],
+    badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
   },
   {
     id: 6,
@@ -243,7 +247,8 @@ const cars = [
     city: "Casablanca",
     price: 340,
     priceDisplay: "340 MAD",
-    conditions: ["Caution: 4500 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: ["Caution: 4500 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"],
+    badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
   },
   {
     id: 8,
@@ -269,7 +274,8 @@ const cars = [
     city: "Tanger",
     price: 420,
     priceDisplay: "420 MAD",
-    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"],
+    badges: ["🔥 Populaire"]
   },
   {
     id: 10,
@@ -321,7 +327,8 @@ const cars = [
     city: "Tanger",
     price: 500,
     priceDisplay: "500 MAD",
-    conditions: ["Caution: 6800 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: ["Caution: 6800 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"],
+    badges: ["⚡ Disponible immédiatement"]
   },
   {
     id: 14,
@@ -347,7 +354,8 @@ const cars = [
     city: "Casablanca",
     price: 850,
     priceDisplay: "850 MAD",
-    conditions: ["Caution: 10000 MAD", "400 km/jour inclus", "Âge minimum: 28 ans"]
+    conditions: ["Caution: 10000 MAD", "400 km/jour inclus", "Âge minimum: 28 ans"],
+    badges: ["💎 Luxe"]
   },
   {
     id: 16,
@@ -2035,7 +2043,8 @@ const cars = [
     city: "Marrakech",
     price: 3500,
     priceDisplay: "3500 MAD",
-    conditions: ["Âge minimum: 30 ans"]
+    conditions: ["Âge minimum: 30 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
     id: 149,
@@ -2047,7 +2056,8 @@ const cars = [
     city: "Casablanca",
     price: 3600,
     priceDisplay: "3600 MAD",
-    conditions: ["Âge minimum: 30 ans"]
+    conditions: ["Âge minimum: 30 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   
   // Audi A7
@@ -2061,7 +2071,8 @@ const cars = [
     city: "Casablanca",
     price: 1400,
     priceDisplay: "1400 MAD",
-    conditions: ["Âge minimum: 27 ans"]
+    conditions: ["Âge minimum: 27 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
     id: 151,
@@ -2073,7 +2084,8 @@ const cars = [
     city: "Marrakech",
     price: 1380,
     priceDisplay: "1380 MAD",
-    conditions: ["Âge minimum: 27 ans"]
+    conditions: ["Âge minimum: 27 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   
   // Audi A8
@@ -2087,7 +2099,8 @@ const cars = [
     city: "Casablanca",
     price: 2200,
     priceDisplay: "2200 MAD",
-    conditions: ["Âge minimum: 28 ans"]
+    conditions: ["Âge minimum: 28 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
     id: 153,
@@ -2099,7 +2112,8 @@ const cars = [
     city: "Marrakech",
     price: 2150,
     priceDisplay: "2150 MAD",
-    conditions: ["Âge minimum: 28 ans"]
+    conditions: ["Âge minimum: 28 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   
   // Audi Q8
@@ -2113,7 +2127,8 @@ const cars = [
     city: "Casablanca",
     price: 1850,
     priceDisplay: "1850 MAD",
-    conditions: ["Âge minimum: 28 ans"]
+    conditions: ["Âge minimum: 28 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
     id: 155,
@@ -2125,7 +2140,8 @@ const cars = [
     city: "Marrakech",
     price: 1800,
     priceDisplay: "1800 MAD",
-    conditions: ["Âge minimum: 28 ans"]
+    conditions: ["Âge minimum: 28 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   
   // Audi e-tron GT
@@ -2139,7 +2155,8 @@ const cars = [
     city: "Marrakech",
     price: 2800,
     priceDisplay: "2800 MAD",
-    conditions: ["Âge minimum: 30 ans"]
+    conditions: ["Âge minimum: 30 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
     id: 157,
@@ -2151,7 +2168,8 @@ const cars = [
     city: "Casablanca",
     price: 2900,
     priceDisplay: "2900 MAD",
-    conditions: ["Âge minimum: 30 ans"]
+    conditions: ["Âge minimum: 30 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   
   // Porsche Cayenne
@@ -2165,7 +2183,8 @@ const cars = [
     city: "Marrakech",
     price: 2500,
     priceDisplay: "2500 MAD",
-    conditions: ["Âge minimum: 30 ans"]
+    conditions: ["Âge minimum: 30 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
     id: 159,
@@ -2177,7 +2196,8 @@ const cars = [
     city: "Casablanca",
     price: 2600,
     priceDisplay: "2600 MAD",
-    conditions: ["Âge minimum: 30 ans"]
+    conditions: ["Âge minimum: 30 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   
   // Porsche Panamera
@@ -2217,7 +2237,8 @@ const cars = [
     city: "Marrakech",
     price: 3200,
     priceDisplay: "3200 MAD",
-    conditions: ["Âge minimum: 30 ans"]
+    conditions: ["Âge minimum: 30 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
     id: 163,
@@ -2229,7 +2250,8 @@ const cars = [
     city: "Casablanca",
     price: 3300,
     priceDisplay: "3300 MAD",
-    conditions: ["Âge minimum: 30 ans"]
+    conditions: ["Âge minimum: 30 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   
   // Range Rover Sport
@@ -2243,7 +2265,8 @@ const cars = [
     city: "Marrakech",
     price: 2100,
     priceDisplay: "2100 MAD",
-    conditions: ["Âge minimum: 28 ans"]
+    conditions: ["Âge minimum: 28 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
     id: 165,
@@ -2255,7 +2278,8 @@ const cars = [
     city: "Casablanca",
     price: 2200,
     priceDisplay: "2200 MAD",
-    conditions: ["Âge minimum: 28 ans"]
+    conditions: ["Âge minimum: 28 ans"],
+    badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   
   // Range Rover Velar
@@ -2542,12 +2566,32 @@ const Louer = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCars.map((car) => (
               <Card key={car.id} className="overflow-hidden border-2 hover:shadow-xl transition-shadow rounded-2xl group">
-                <div className="aspect-video bg-card overflow-hidden">
+                <div className="aspect-video bg-card overflow-hidden relative">
                   <img 
                     src={car.image} 
                     alt={car.name} 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
+                  {car.badges && car.badges.length > 0 && (
+                    <div className="absolute top-3 left-3 flex flex-col gap-2">
+                      {car.badges.map((badge, idx) => (
+                        <Badge 
+                          key={idx}
+                          className={`${
+                            badge.includes('Populaire') 
+                              ? 'bg-destructive/90 hover:bg-destructive text-destructive-foreground shadow-lg' 
+                              : badge.includes('Disponible') 
+                              ? 'bg-secondary/90 hover:bg-secondary text-secondary-foreground shadow-lg animate-pulse' 
+                              : badge.includes('Nouveau')
+                              ? 'bg-accent/90 hover:bg-accent text-accent-foreground shadow-lg'
+                              : 'bg-primary/90 hover:bg-primary text-primary-foreground shadow-lg'
+                          } backdrop-blur-sm`}
+                        >
+                          {badge}
+                        </Badge>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
