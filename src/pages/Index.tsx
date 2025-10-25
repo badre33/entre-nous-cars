@@ -5,6 +5,7 @@ import { CheckCircle, Shield, MapPin, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -72,6 +73,49 @@ const Index = () => {
                 Devenir partenaire
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-b from-primary/5 to-background">
+        <div className="container">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="mb-2">
+                <span className="text-5xl md:text-6xl font-bold text-primary">
+                  <AnimatedCounter end={302} suffix="+" />
+                </span>
+              </div>
+              <p className="text-xl font-semibold mb-2">Voitures disponibles</p>
+              <p className="text-sm text-muted-foreground">
+                Dans 6 villes du Maroc
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="mb-2">
+                <span className="text-5xl md:text-6xl font-bold text-secondary">
+                  <AnimatedCounter end={24} suffix="+" />
+                </span>
+              </div>
+              <p className="text-xl font-semibold mb-2">Agences partenaires</p>
+              <p className="text-sm text-muted-foreground">
+                Vérifiées et de confiance
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="mb-2">
+                <span className="text-5xl md:text-6xl font-bold text-accent">
+                  <AnimatedCounter end={1200} suffix="+" />
+                </span>
+              </div>
+              <p className="text-xl font-semibold mb-2">Clients satisfaits</p>
+              <p className="text-sm text-muted-foreground">
+                Depuis notre lancement
+              </p>
+            </div>
           </div>
         </div>
       </section>
