@@ -54,46 +54,59 @@ const Blog = () => {
       <section className="py-20">
         <div className="container max-w-6xl">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogArticles.map((article) => (
-              <Link 
-                key={article.id}
-                to={`/blog/${article.slug}`}
-              >
-                <Card 
-                  className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group cursor-pointer h-full"
+            {blogArticles.map((article, index) => {
+              const articleKey = `article${index + 1}`;
+              const translatedTitle = t(`blogArticles.${articleKey}.title`) !== `blogArticles.${articleKey}.title` 
+                ? t(`blogArticles.${articleKey}.title`) 
+                : article.title;
+              const translatedExcerpt = t(`blogArticles.${articleKey}.excerpt`) !== `blogArticles.${articleKey}.excerpt` 
+                ? t(`blogArticles.${articleKey}.excerpt`) 
+                : article.excerpt;
+              const translatedCategory = t(`blogArticles.${articleKey}.category`) !== `blogArticles.${articleKey}.category` 
+                ? t(`blogArticles.${articleKey}.category`) 
+                : article.category;
+              
+              return (
+                <Link 
+                  key={article.id}
+                  to={`/blog/${article.slug}`}
                 >
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={article.image} 
-                      alt={article.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <Badge className="bg-primary/90 backdrop-blur">
-                        {article.category}
-                      </Badge>
+                  <Card 
+                    className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group cursor-pointer h-full"
+                  >
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={article.image} 
+                        alt={translatedTitle}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <Badge className="bg-primary/90 backdrop-blur">
+                          {translatedCategory}
+                        </Badge>
+                      </div>
                     </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                      <Calendar className="w-4 h-4" />
-                      <span>{article.date}</span>
-                    </div>
-                    <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
-                      {article.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-2">
-                      {article.excerpt}
-                    </p>
-                    <div className="flex items-center gap-2 text-primary font-medium">
-                      <span>{t('blog.readMore')}</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
+                    <CardContent className="p-6">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                        <Calendar className="w-4 h-4" />
+                        <span>{article.date}</span>
+                      </div>
+                      <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
+                        {translatedTitle}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 line-clamp-2">
+                        {translatedExcerpt}
+                      </p>
+                      <div className="flex items-center gap-2 text-primary font-medium">
+                        <span>{t('blog.readMore')}</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -107,9 +120,9 @@ const Blog = () => {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Car className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-barlow font-semibold mb-3">Conseils de conduite</h3>
+                <h3 className="text-xl font-barlow font-semibold mb-3">{t('guides.drivingTipsCard')}</h3>
                 <p className="text-muted-foreground">
-                  Maîtrisez les spécificités de la conduite au Maroc
+                  {t('guides.drivingTipsCardText')}
                 </p>
               </CardContent>
             </Card>
@@ -119,9 +132,9 @@ const Blog = () => {
                 <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <MapPin className="w-8 h-8 text-secondary" />
                 </div>
-                <h3 className="text-xl font-barlow font-semibold mb-3">Guides touristiques</h3>
+                <h3 className="text-xl font-barlow font-semibold mb-3">{t('guides.travelGuidesCard')}</h3>
                 <p className="text-muted-foreground">
-                  Découvrez les plus beaux itinéraires du pays
+                  {t('guides.travelGuidesCardText')}
                 </p>
               </CardContent>
             </Card>
@@ -131,9 +144,9 @@ const Blog = () => {
                 <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Shield className="w-8 h-8 text-accent" />
                 </div>
-                <h3 className="text-xl font-barlow font-semibold mb-3">Pratiques locales</h3>
+                <h3 className="text-xl font-barlow font-semibold mb-3">{t('guides.localPracticesCard')}</h3>
                 <p className="text-muted-foreground">
-                  Comprenez les usages et coutumes marocaines
+                  {t('guides.localPracticesCardText')}
                 </p>
               </CardContent>
             </Card>

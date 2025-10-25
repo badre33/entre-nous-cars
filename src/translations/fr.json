@@ -318,5 +318,42 @@
     "openingHours": "Heures d'ouverture",
     "mondayToSaturday": "Lundi - Samedi : 8h00 - 22h00",
     "sunday": "Dimanche : Fermé"
+  },
+  "blogArticles": {
+    "article1": {
+      "title": "10 conseils essentiels pour conduire au Maroc",
+      "excerpt": "Découvrez les bonnes pratiques et règles de conduite pour rouler en toute sécurité sur les routes marocaines.",
+      "category": "Conduite"
+    },
+    "article2": {
+      "title": "Les plus beaux road trips au Maroc en voiture",
+      "excerpt": "De Marrakech à Merzouga, découvrez les itinéraires incontournables pour explorer le Maroc en liberté.",
+      "category": "Tourisme"
+    },
+    "article3": {
+      "title": "Comprendre l'assurance voiture au Maroc",
+      "excerpt": "Tout ce que vous devez savoir sur l'assurance, la franchise et la protection lors de votre location.",
+      "category": "Assurance"
+    },
+    "article4": {
+      "title": "Budget location de voiture au Maroc : guide complet 2025",
+      "excerpt": "Combien coûte une location de voiture au Maroc ? Découvrez les prix, astuces et pièges à éviter.",
+      "category": "Budget"
+    },
+    "article5": {
+      "title": "Louer une voiture au Maroc : le guide complet",
+      "excerpt": "Tout savoir pour louer une voiture au Maroc sereinement : documents, démarches, conseils pratiques.",
+      "category": "Pratique"
+    },
+    "article6": {
+      "title": "Quelle voiture choisir pour votre séjour au Maroc ?",
+      "excerpt": "Citadine, SUV ou 4x4 : quel véhicule correspond le mieux à votre programme de voyage ?",
+      "category": "Pratique"
+    },
+    "article7": {
+      "title": "Benatna : la révolution de la location de voiture au Maroc",
+      "excerpt": "Découvrez comment Benatna transforme la location de voiture au Maroc en connectant voyageurs et agences locales de confiance.",
+      "category": "À propos"
+    }
   }
 }

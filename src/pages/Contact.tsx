@@ -55,7 +55,7 @@ const Contact = () => {
                 >
                   <div>
                     <label className="block text-sm font-medium mb-2">{t('contact.name')}</label>
-                    <Input name="nom" placeholder="Votre nom" className="rounded-lg" required />
+                    <Input name="nom" placeholder={t('contactForm.namePlaceholder')} className="rounded-lg" required />
                   </div>
                   
                   <div>
@@ -65,14 +65,14 @@ const Contact = () => {
                   
                   <div>
                     <label className="block text-sm font-medium mb-2">{t('contact.email')}</label>
-                    <Input name="email" type="email" placeholder="votre@email.com" className="rounded-lg" required />
+                    <Input name="email" type="email" placeholder={t('contactForm.emailPlaceholder')} className="rounded-lg" required />
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium mb-2">Message</label>
+                    <label className="block text-sm font-medium mb-2">{t('contactForm.messageLabel')}</label>
                     <Textarea 
                       name="message"
-                      placeholder="Comment pouvons-nous vous aider ?" 
+                      placeholder={t('contactForm.messagePlaceholder')} 
                       className="rounded-lg min-h-[160px]"
                       required
                     />

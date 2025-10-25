@@ -305,5 +305,42 @@
     "openingHours": "Horario de apertura",
     "mondayToSaturday": "Lunes - Sábado: 8:00 - 22:00",
     "sunday": "Domingo: Cerrado"
+  },
+  "blogArticles": {
+    "article1": {
+      "title": "10 Consejos Esenciales para Conducir en Marruecos",
+      "excerpt": "Descubre buenas prácticas y reglas de conducción para conducir con seguridad en las carreteras marroquíes.",
+      "category": "Conducción"
+    },
+    "article2": {
+      "title": "Los Viajes por Carretera más Hermosos de Marruecos en Coche",
+      "excerpt": "De Marrakech a Merzouga, descubre los itinerarios imprescindibles para explorar Marruecos con libertad.",
+      "category": "Turismo"
+    },
+    "article3": {
+      "title": "Comprender el Seguro de Coche en Marruecos",
+      "excerpt": "Todo lo que necesitas saber sobre el seguro, el deducible y la protección al alquilar.",
+      "category": "Seguro"
+    },
+    "article4": {
+      "title": "Presupuesto de Alquiler de Coche en Marruecos: Guía Completa 2025",
+      "excerpt": "¿Cuánto cuesta un alquiler de coche en Marruecos? Descubre precios, consejos y trampas a evitar.",
+      "category": "Presupuesto"
+    },
+    "article5": {
+      "title": "Alquilar un Coche en Marruecos: La Guía Completa",
+      "excerpt": "Todo lo que necesitas saber para alquilar un coche en Marruecos con tranquilidad: documentos, trámites, consejos prácticos.",
+      "category": "Práctico"
+    },
+    "article6": {
+      "title": "¿Qué Coche Elegir para tu Estancia en Marruecos?",
+      "excerpt": "Urbano, SUV o 4x4: ¿qué vehículo se adapta mejor a tu programa de viaje?",
+      "category": "Práctico"
+    },
+    "article7": {
+      "title": "Benatna: La Revolución del Alquiler de Coches en Marruecos",
+      "excerpt": "Descubre cómo Benatna está transformando el alquiler de coches en Marruecos conectando viajeros con agencias locales de confianza.",
+      "category": "Acerca de"
+    }
   }
 }

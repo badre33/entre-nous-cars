@@ -354,40 +354,40 @@ const Index = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Récupération à l'aéroport</p>
-                      <p className="text-sm text-muted-foreground">Votre voiture vous attend dès votre atterrissage</p>
+                      <p className="font-semibold text-sm">{t('forWho.airportPickup')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.airportPickupText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Processus 100% digital</p>
-                      <p className="text-sm text-muted-foreground">Réservez en ligne, pas de paperasse sur place</p>
+                      <p className="font-semibold text-sm">{t('forWho.digitalProcess')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.digitalProcessText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Prix transparents</p>
-                      <p className="text-sm text-muted-foreground">Aucun frais caché ni mauvaise surprise</p>
+                      <p className="font-semibold text-sm">{t('forWho.transparentPrices')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.transparentPricesText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Support multilingue</p>
-                      <p className="text-sm text-muted-foreground">Français, anglais, arabe : on vous comprend</p>
+                      <p className="font-semibold text-sm">{t('forWho.multilingualSupport')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.multilingualSupportText')}</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-6 pt-6 border-t">
-                  <p className="text-sm font-medium text-primary">Cas d'usage :</p>
+                  <p className="text-sm font-medium text-primary">{t('forWho.useCaseLabel')}</p>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Road trip de 7 jours entre Marrakech et Merzouga, location mensuelle pour un expatrié en mission
+                    {t('forWho.travelersUseCase')}
                   </p>
                 </div>
               </div>
@@ -408,40 +408,40 @@ const Index = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Locations flexibles</p>
-                      <p className="text-sm text-muted-foreground">Un weekend, une semaine, un mois : vous décidez</p>
+                      <p className="font-semibold text-sm">{t('forWho.flexibleRentals')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.flexibleRentalsText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Large choix de véhicules</p>
-                      <p className="text-sm text-muted-foreground">Citadine, SUV, 4x4 selon vos besoins du moment</p>
+                      <p className="font-semibold text-sm">{t('forWho.wideChoice')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.wideChoiceText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Tarifs résidents</p>
-                      <p className="text-sm text-muted-foreground">Réductions sur les locations longue durée</p>
+                      <p className="font-semibold text-sm">{t('forWho.residentRates')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.residentRatesText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Livraison possible</p>
-                      <p className="text-sm text-muted-foreground">Le véhicule vient à vous, où que vous soyez</p>
+                      <p className="font-semibold text-sm">{t('forWho.deliveryAvailable')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.deliveryAvailableText')}</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-6 pt-6 border-t">
-                  <p className="text-sm font-medium text-secondary">Cas d'usage :</p>
+                  <p className="text-sm font-medium text-secondary">{t('forWho.useCaseLabel')}</p>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Voiture de remplacement pendant une réparation, véhicule spacieux pour un déménagement
+                    {t('forWho.residentsUseCase')}
                   </p>
                 </div>
               </div>
@@ -462,40 +462,40 @@ const Index = () => {
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Accès à une clientèle large</p>
-                      <p className="text-sm text-muted-foreground">Touchez voyageurs et résidents en un clic</p>
+                      <p className="font-semibold text-sm">{t('forWho.wideClientele')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.wideClienteleText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Plateforme digitale complète</p>
-                      <p className="text-sm text-muted-foreground">Gérez vos réservations et votre flotte en ligne</p>
+                      <p className="font-semibold text-sm">{t('forWho.digitalPlatform')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.digitalPlatformText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Commission équitable</p>
-                      <p className="text-sm text-muted-foreground">Pas de frais cachés, pas de franchise exorbitante</p>
+                      <p className="font-semibold text-sm">{t('forWho.fairCommission')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.fairCommissionText')}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-sm">Support dédié</p>
-                      <p className="text-sm text-muted-foreground">Une équipe à votre écoute pour vous accompagner</p>
+                      <p className="font-semibold text-sm">{t('forWho.dedicatedSupport')}</p>
+                      <p className="text-sm text-muted-foreground">{t('forWho.dedicatedSupportText')}</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="mt-6 pt-6 border-t">
-                  <p className="text-sm font-medium text-accent">Bénéfices :</p>
+                  <p className="text-sm font-medium text-accent">{t('forWho.benefitsLabel')}</p>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Augmentez votre taux d'occupation, valorisez votre flotte, développez votre activité
+                    {t('forWho.agenciesBenefits')}
                   </p>
                 </div>
                 
@@ -534,19 +534,19 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="text-white font-medium text-sm bg-primary/90 px-3 py-1 rounded-full">
-                      Conduite
+                      {t('guides.drivingCategory')}
                     </span>
                   </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
-                    10 conseils essentiels pour conduire au Maroc
+                    {t('guides.article1Title')}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4">
-                    Les bonnes pratiques et règles à connaître pour rouler en toute sécurité
+                    {t('guides.article1Text')}
                   </p>
                   <div className="flex items-center gap-2 text-primary font-medium text-sm">
-                    <span>Lire l'article</span>
+                    <span>{t('guides.readArticle')}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </CardContent>
@@ -565,19 +565,19 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="text-white font-medium text-sm bg-secondary/90 px-3 py-1 rounded-full">
-                      Tourisme
+                      {t('guides.tourismCategory')}
                     </span>
                   </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
-                    Les plus beaux road trips au Maroc
+                    {t('guides.article2Title')}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4">
-                    De Marrakech à Merzouga, les itinéraires incontournables
+                    {t('guides.article2Text')}
                   </p>
                   <div className="flex items-center gap-2 text-primary font-medium text-sm">
-                    <span>Lire l'article</span>
+                    <span>{t('guides.readArticle')}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </CardContent>

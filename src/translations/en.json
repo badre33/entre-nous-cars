@@ -305,5 +305,42 @@
     "openingHours": "Opening hours",
     "mondayToSaturday": "Monday - Saturday: 8:00 AM - 10:00 PM",
     "sunday": "Sunday: Closed"
+  },
+  "blogArticles": {
+    "article1": {
+      "title": "10 Essential Tips for Driving in Morocco",
+      "excerpt": "Discover best practices and driving rules to drive safely on Moroccan roads.",
+      "category": "Driving"
+    },
+    "article2": {
+      "title": "The Most Beautiful Road Trips in Morocco by Car",
+      "excerpt": "From Marrakech to Merzouga, discover the must-see itineraries to explore Morocco freely.",
+      "category": "Tourism"
+    },
+    "article3": {
+      "title": "Understanding Car Insurance in Morocco",
+      "excerpt": "Everything you need to know about insurance, deductibles and protection when renting.",
+      "category": "Insurance"
+    },
+    "article4": {
+      "title": "Car Rental Budget in Morocco: Complete Guide 2025",
+      "excerpt": "How much does a car rental cost in Morocco? Discover prices, tips and pitfalls to avoid.",
+      "category": "Budget"
+    },
+    "article5": {
+      "title": "Renting a Car in Morocco: The Complete Guide",
+      "excerpt": "Everything you need to know to rent a car in Morocco with peace of mind: documents, procedures, practical advice.",
+      "category": "Practical"
+    },
+    "article6": {
+      "title": "Which Car to Choose for Your Stay in Morocco?",
+      "excerpt": "City car, SUV or 4x4: which vehicle best suits your travel program?",
+      "category": "Practical"
+    },
+    "article7": {
+      "title": "Benatna: The Car Rental Revolution in Morocco",
+      "excerpt": "Discover how Benatna is transforming car rental in Morocco by connecting travelers with trusted local agencies.",
+      "category": "About"
+    }
   }
 }
