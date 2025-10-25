@@ -110,6 +110,25 @@ import carVwArteon from "@/assets/car-vw-arteon.jpg";
 import carVwTouareg from "@/assets/car-vw-touareg.jpg";
 import carVwTaigo from "@/assets/car-vw-taigo.jpg";
 import carVwID4 from "@/assets/car-vw-id4.jpg";
+import carPeugeot5008 from "@/assets/car-peugeot-5008.jpg";
+import carRenaultArkana from "@/assets/car-renault-arkana.jpg";
+import carDaciaJogger from "@/assets/car-dacia-jogger.jpg";
+import carToyotaCHR from "@/assets/car-toyota-chr.jpg";
+import carNissanXTrail from "@/assets/car-nissan-xtrail.jpg";
+import carFordPuma from "@/assets/car-ford-puma.jpg";
+import carHyundaiBayon from "@/assets/car-hyundai-bayon.jpg";
+import carKiaNiro from "@/assets/car-kia-niro.jpg";
+import carMazda2 from "@/assets/car-mazda-2.jpg";
+import carCitroenEC4 from "@/assets/car-citroen-ec4.jpg";
+import carOpelGrandland from "@/assets/car-opel-grandland.jpg";
+import carSeatAteca from "@/assets/car-seat-ateca.jpg";
+import carSkodaKaroq from "@/assets/car-skoda-karoq.jpg";
+import carAudiQ2 from "@/assets/car-audi-q2.jpg";
+import carMercedesEQA from "@/assets/car-mercedes-eqa.jpg";
+import carBmwIX3 from "@/assets/car-bmw-ix3.jpg";
+import carPeugeotE2008 from "@/assets/car-peugeot-e2008.jpg";
+import carRenaultAustral from "@/assets/car-renault-austral.jpg";
+import carVwID3 from "@/assets/car-vw-id3.jpg";
 
 const cars = [
   // Renault
@@ -1578,6 +1597,262 @@ const cars = [
     price: 850,
     priceDisplay: "850 MAD",
     conditions: ["Caution: 10000 MAD", "450 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  
+  // Volkswagen T-Roc
+  {
+    id: 115,
+    image: carVwTroc,
+    name: "Volkswagen T-Roc",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 540,
+    priceDisplay: "540 MAD",
+    conditions: ["Caution: 7300 MAD", "410 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 116,
+    image: carVwTroc,
+    name: "Volkswagen T-Roc",
+    brand: "Volkswagen",
+    type: "Manuelle",
+    category: "SUV",
+    city: "Rabat",
+    price: 510,
+    priceDisplay: "510 MAD",
+    conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  
+  // Nouveaux modèles modernes
+  {
+    id: 117,
+    image: carPeugeot5008,
+    name: "Peugeot 5008",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 620,
+    priceDisplay: "620 MAD",
+    conditions: ["Caution: 8400 MAD", "460 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  {
+    id: 118,
+    image: carRenaultArkana,
+    name: "Renault Arkana",
+    brand: "Renault",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 550,
+    priceDisplay: "550 MAD",
+    conditions: ["Caution: 7400 MAD", "420 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 119,
+    image: carDaciaJogger,
+    name: "Dacia Jogger",
+    brand: "Dacia",
+    type: "Manuelle",
+    category: "Monospace",
+    city: "Casablanca",
+    price: 380,
+    priceDisplay: "380 MAD",
+    conditions: ["Caution: 5200 MAD", "340 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 120,
+    image: carToyotaCHR,
+    name: "Toyota C-HR",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 560,
+    priceDisplay: "560 MAD",
+    conditions: ["Caution: 7600 MAD", "430 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 121,
+    image: carNissanXTrail,
+    name: "Nissan X-Trail",
+    brand: "Nissan",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 580,
+    priceDisplay: "580 MAD",
+    conditions: ["Caution: 7800 MAD", "440 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  {
+    id: 122,
+    image: carFordPuma,
+    name: "Ford Puma",
+    brand: "Ford",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: ["Caution: 6300 MAD", "390 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 123,
+    image: carHyundaiBayon,
+    name: "Hyundai Bayon",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 450,
+    priceDisplay: "450 MAD",
+    conditions: ["Caution: 6100 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 124,
+    image: carKiaNiro,
+    name: "Kia Niro",
+    brand: "Kia",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 570,
+    priceDisplay: "570 MAD",
+    conditions: ["Caution: 7700 MAD", "430 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 125,
+    image: carMazda2,
+    name: "Mazda 2",
+    brand: "Mazda",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Marrakech",
+    price: 310,
+    priceDisplay: "310 MAD",
+    conditions: ["Caution: 4200 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 126,
+    image: carCitroenEC4,
+    name: "Citroën ë-C4",
+    brand: "Citroën",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 520,
+    priceDisplay: "520 MAD",
+    conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 127,
+    image: carOpelGrandland,
+    name: "Opel Grandland X",
+    brand: "Opel",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 550,
+    priceDisplay: "550 MAD",
+    conditions: ["Caution: 7400 MAD", "420 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 128,
+    image: carSeatAteca,
+    name: "Seat Ateca",
+    brand: "Seat",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 510,
+    priceDisplay: "510 MAD",
+    conditions: ["Caution: 6900 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 129,
+    image: carSkodaKaroq,
+    name: "Skoda Karoq",
+    brand: "Skoda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 520,
+    priceDisplay: "520 MAD",
+    conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 130,
+    image: carAudiQ2,
+    name: "Audi Q2",
+    brand: "Audi",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 690,
+    priceDisplay: "690 MAD",
+    conditions: ["Caution: 8200 MAD", "390 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  {
+    id: 131,
+    image: carMercedesEQA,
+    name: "Mercedes EQA",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 920,
+    priceDisplay: "920 MAD",
+    conditions: ["Caution: 11000 MAD", "480 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 132,
+    image: carBmwIX3,
+    name: "BMW iX3",
+    brand: "BMW",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 1050,
+    priceDisplay: "1050 MAD",
+    conditions: ["Caution: 12500 MAD", "490 km/jour inclus", "Âge minimum: 29 ans"]
+  },
+  {
+    id: 133,
+    image: carPeugeotE2008,
+    name: "Peugeot e-2008",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 490,
+    priceDisplay: "490 MAD",
+    conditions: ["Caution: 6600 MAD", "390 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 134,
+    image: carRenaultAustral,
+    name: "Renault Austral",
+    brand: "Renault",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 600,
+    priceDisplay: "600 MAD",
+    conditions: ["Caution: 8100 MAD", "450 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  {
+    id: 135,
+    image: carVwID3,
+    name: "Volkswagen ID.3",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 480,
+    priceDisplay: "480 MAD",
+    conditions: ["Caution: 6400 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
   }
 ];
 
