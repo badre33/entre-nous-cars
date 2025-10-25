@@ -2830,6 +2830,920 @@ const cars = [
     price: 350,
     priceDisplay: "350 MAD",
     conditions: generateConditions(21)
+  },
+  
+  // Véhicules supplémentaires pour Marrakech
+  {
+    id: 209,
+    image: carHondaCivic,
+    name: "Honda Civic",
+    brand: "Honda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 480,
+    priceDisplay: "480 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 210,
+    image: carMazda3,
+    name: "Mazda 3",
+    brand: "Mazda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 211,
+    image: carHyundaiKona,
+    name: "Hyundai Kona",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 530,
+    priceDisplay: "530 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 212,
+    image: carKiaNiro,
+    name: "Kia Niro",
+    brand: "Kia",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 550,
+    priceDisplay: "550 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 213,
+    image: carNissanJuke,
+    name: "Nissan Juke",
+    brand: "Nissan",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 520,
+    priceDisplay: "520 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 214,
+    image: carVwTiguan,
+    name: "VW Tiguan",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 680,
+    priceDisplay: "680 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 215,
+    image: carRenaultArkana,
+    name: "Renault Arkana",
+    brand: "Renault",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 620,
+    priceDisplay: "620 MAD",
+    conditions: generateConditions(25)
+  },
+  
+  // Véhicules supplémentaires pour Rabat
+  {
+    id: 216,
+    image: carPeugeot2008,
+    name: "Peugeot 2008",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 500,
+    priceDisplay: "500 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 217,
+    image: carRenaultCaptur,
+    name: "Renault Captur",
+    brand: "Renault",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 480,
+    priceDisplay: "480 MAD",
+    conditions: generateConditions(23),
+    badges: ["🔥 Populaire"]
+  },
+  {
+    id: 218,
+    image: carFordKuga,
+    name: "Ford Kuga",
+    brand: "Ford",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 600,
+    priceDisplay: "600 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 219,
+    image: carMazdaCX3,
+    name: "Mazda CX-3",
+    brand: "Mazda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 520,
+    priceDisplay: "520 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 220,
+    image: carToyotaCHR,
+    name: "Toyota C-HR",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 590,
+    priceDisplay: "590 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 221,
+    image: carSeatArona,
+    name: "Seat Arona",
+    brand: "Seat",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 510,
+    priceDisplay: "510 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 222,
+    image: carOpelMokka,
+    name: "Opel Mokka",
+    brand: "Opel",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 530,
+    priceDisplay: "530 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 223,
+    image: carSkodaKamiq,
+    name: "Skoda Kamiq",
+    brand: "Skoda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 550,
+    priceDisplay: "550 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 224,
+    image: carCitroenC3Aircross,
+    name: "Citroën C3 Aircross",
+    brand: "Citroën",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 490,
+    priceDisplay: "490 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 225,
+    image: carHondaJazz,
+    name: "Honda Jazz",
+    brand: "Honda",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Rabat",
+    price: 410,
+    priceDisplay: "410 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 226,
+    image: carVwPolo,
+    name: "VW Polo",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Rabat",
+    price: 390,
+    priceDisplay: "390 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 227,
+    image: carHyundaiI20,
+    name: "Hyundai i20",
+    brand: "Hyundai",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 320,
+    priceDisplay: "320 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 228,
+    image: carKiaRio,
+    name: "Kia Rio",
+    brand: "Kia",
+    type: "Manuelle",
+    category: "Berline",
+    city: "Rabat",
+    price: 350,
+    priceDisplay: "350 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 229,
+    image: carNissanMicra,
+    name: "Nissan Micra",
+    brand: "Nissan",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 310,
+    priceDisplay: "310 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 230,
+    image: carToyotaYaris,
+    name: "Toyota Yaris",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Rabat",
+    price: 380,
+    priceDisplay: "380 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 231,
+    image: carMazda2,
+    name: "Mazda 2",
+    brand: "Mazda",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 340,
+    priceDisplay: "340 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 232,
+    image: carSuzukiSwift,
+    name: "Suzuki Swift",
+    brand: "Suzuki",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 350,
+    priceDisplay: "350 MAD",
+    conditions: generateConditions(21)
+  },
+
+  // Véhicules supplémentaires pour Tanger
+  {
+    id: 233,
+    image: carHyundaiTucson,
+    name: "Hyundai Tucson",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 600,
+    priceDisplay: "600 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 234,
+    image: carKiaSportage,
+    name: "Kia Sportage",
+    brand: "Kia",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 620,
+    priceDisplay: "620 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 235,
+    image: carNissanQashqai,
+    name: "Nissan Qashqai",
+    brand: "Nissan",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 550,
+    priceDisplay: "550 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 236,
+    image: carPeugeot3008,
+    name: "Peugeot 3008",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 580,
+    priceDisplay: "580 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 237,
+    image: carRenaultCaptur,
+    name: "Renault Captur",
+    brand: "Renault",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 490,
+    priceDisplay: "490 MAD",
+    conditions: generateConditions(23),
+    badges: ["🔥 Populaire"]
+  },
+  {
+    id: 238,
+    image: carFordKuga,
+    name: "Ford Kuga",
+    brand: "Ford",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 610,
+    priceDisplay: "610 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 239,
+    image: carVwTiguan,
+    name: "VW Tiguan",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 690,
+    priceDisplay: "690 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 240,
+    image: carToyotaCHR,
+    name: "Toyota C-HR",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 600,
+    priceDisplay: "600 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 241,
+    image: carCorolla,
+    name: "Toyota Corolla",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 242,
+    image: carVwGolf,
+    name: "VW Golf",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 500,
+    priceDisplay: "500 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 243,
+    image: carHondaCivic,
+    name: "Honda Civic",
+    brand: "Honda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 490,
+    priceDisplay: "490 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 244,
+    image: carMazda3,
+    name: "Mazda 3",
+    brand: "Mazda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 480,
+    priceDisplay: "480 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 245,
+    image: carHyundaiI20,
+    name: "Hyundai i20",
+    brand: "Hyundai",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Tanger",
+    price: 330,
+    priceDisplay: "330 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 246,
+    image: carKiaRio,
+    name: "Kia Rio",
+    brand: "Kia",
+    type: "Manuelle",
+    category: "Berline",
+    city: "Tanger",
+    price: 360,
+    priceDisplay: "360 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 247,
+    image: carNissanMicra,
+    name: "Nissan Micra",
+    brand: "Nissan",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Tanger",
+    price: 320,
+    priceDisplay: "320 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 248,
+    image: carToyotaYaris,
+    name: "Toyota Yaris",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Tanger",
+    price: 390,
+    priceDisplay: "390 MAD",
+    conditions: generateConditions(21)
+  },
+  
+  // Véhicules supplémentaires pour Agadir
+  {
+    id: 249,
+    image: carHondaCRV,
+    name: "Honda CR-V",
+    brand: "Honda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 680,
+    priceDisplay: "680 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 250,
+    image: carMitsubishiOutlander,
+    name: "Mitsubishi Outlander",
+    brand: "Mitsubishi",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 630,
+    priceDisplay: "630 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 251,
+    image: carToyotaRAV4,
+    name: "Toyota RAV4",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 700,
+    priceDisplay: "700 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 252,
+    image: carNissanXTrail,
+    name: "Nissan X-Trail",
+    brand: "Nissan",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 640,
+    priceDisplay: "640 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 253,
+    image: carRenaultAustral,
+    name: "Renault Austral",
+    brand: "Renault",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 660,
+    priceDisplay: "660 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 254,
+    image: carPeugeot5008,
+    name: "Peugeot 5008",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 720,
+    priceDisplay: "720 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 255,
+    image: carDaciaJogger,
+    name: "Dacia Jogger",
+    brand: "Dacia",
+    type: "Manuelle",
+    category: "Monospace",
+    city: "Agadir",
+    price: 450,
+    priceDisplay: "450 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 256,
+    image: carHyundaiBayon,
+    name: "Hyundai Bayon",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 510,
+    priceDisplay: "510 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 257,
+    image: carKiaStonic,
+    name: "Kia Stonic",
+    brand: "Kia",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 490,
+    priceDisplay: "490 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 258,
+    image: carFordPuma,
+    name: "Ford Puma",
+    brand: "Ford",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 530,
+    priceDisplay: "530 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 259,
+    image: carOpelGrandland,
+    name: "Opel Grandland",
+    brand: "Opel",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 610,
+    priceDisplay: "610 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 260,
+    image: carSeatAteca,
+    name: "Seat Ateca",
+    brand: "Seat",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 600,
+    priceDisplay: "600 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 261,
+    image: carSkodaKaroq,
+    name: "Skoda Karoq",
+    brand: "Skoda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 620,
+    priceDisplay: "620 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 262,
+    image: carCitroenC4Cactus,
+    name: "Citroën C4 Cactus",
+    brand: "Citroën",
+    type: "Automatique",
+    category: "SUV",
+    city: "Agadir",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 263,
+    image: carMazda2,
+    name: "Mazda 2",
+    brand: "Mazda",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Agadir",
+    price: 350,
+    priceDisplay: "350 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 264,
+    image: carRenaultTwingo,
+    name: "Renault Twingo",
+    brand: "Renault",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Agadir",
+    price: 290,
+    priceDisplay: "290 MAD",
+    conditions: generateConditions(21),
+    badges: ["💰 Prix attractif"]
+  },
+  
+  // Véhicules supplémentaires pour Fès
+  {
+    id: 265,
+    image: carHyundaiTucson,
+    name: "Hyundai Tucson",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 590,
+    priceDisplay: "590 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 266,
+    image: carKiaSportage,
+    name: "Kia Sportage",
+    brand: "Kia",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 610,
+    priceDisplay: "610 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 267,
+    image: carNissanQashqai,
+    name: "Nissan Qashqai",
+    brand: "Nissan",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 540,
+    priceDisplay: "540 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 268,
+    image: carVwGolf,
+    name: "VW Golf",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "Berline",
+    city: "Fès",
+    price: 490,
+    priceDisplay: "490 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 269,
+    image: carCorolla,
+    name: "Toyota Corolla",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "Berline",
+    city: "Fès",
+    price: 480,
+    priceDisplay: "480 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 270,
+    image: carSeatLeon,
+    name: "Seat Leon",
+    brand: "Seat",
+    type: "Automatique",
+    category: "Berline",
+    city: "Fès",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 271,
+    image: carSkodaOctavia,
+    name: "Skoda Octavia",
+    brand: "Skoda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Fès",
+    price: 510,
+    priceDisplay: "510 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 272,
+    image: carMazda3,
+    name: "Mazda 3",
+    brand: "Mazda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Fès",
+    price: 460,
+    priceDisplay: "460 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 273,
+    image: carHondaCivic,
+    name: "Honda Civic",
+    brand: "Honda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Fès",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 274,
+    image: carFordKuga,
+    name: "Ford Kuga",
+    brand: "Ford",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 590,
+    priceDisplay: "590 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 275,
+    image: carVwTiguan,
+    name: "VW Tiguan",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 670,
+    priceDisplay: "670 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 276,
+    image: carMazdaCX5,
+    name: "Mazda CX-5",
+    brand: "Mazda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 640,
+    priceDisplay: "640 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 277,
+    image: carToyotaCHR,
+    name: "Toyota C-HR",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 580,
+    priceDisplay: "580 MAD",
+    conditions: generateConditions(25)
+  },
+  {
+    id: 278,
+    image: carSeatArona,
+    name: "Seat Arona",
+    brand: "Seat",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 500,
+    priceDisplay: "500 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 279,
+    image: carOpelMokka,
+    name: "Opel Mokka",
+    brand: "Opel",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 520,
+    priceDisplay: "520 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 280,
+    image: carCitroenC3Aircross,
+    name: "Citroën C3 Aircross",
+    brand: "Citroën",
+    type: "Automatique",
+    category: "SUV",
+    city: "Fès",
+    price: 480,
+    priceDisplay: "480 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 281,
+    image: carRenaultTwingo,
+    name: "Renault Twingo",
+    brand: "Renault",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Fès",
+    price: 280,
+    priceDisplay: "280 MAD",
+    conditions: generateConditions(21),
+    badges: ["💰 Prix attractif"]
+  },
+  {
+    id: 282,
+    image: carFiat500,
+    name: "Fiat 500",
+    brand: "Fiat",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Fès",
+    price: 300,
+    priceDisplay: "300 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 283,
+    image: carSuzukiSwift,
+    name: "Suzuki Swift",
+    brand: "Suzuki",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Fès",
+    price: 350,
+    priceDisplay: "350 MAD",
+    conditions: generateConditions(21)
   }
 ];
 
@@ -2924,6 +3838,16 @@ const Louer = () => {
   
   const types = ["Automatique", "Manuelle"];
 
+  // Fonction pour mélanger les véhicules de manière variée
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
   const filteredCars = cars.filter(car => {
     if (selectedCity && selectedCity !== "all" && car.city !== selectedCity) return false;
     if (selectedType && selectedType !== "all" && car.type !== selectedType) return false;
@@ -2931,6 +3855,12 @@ const Louer = () => {
     if (selectedCategory && selectedCategory !== "all" && car.category !== selectedCategory) return false;
     return true;
   });
+
+  // Mélanger les voitures uniquement quand aucun filtre n'est appliqué
+  const displayedCars = (selectedCity === "all" && selectedType === "all" && 
+                         selectedBrand === "all" && selectedCategory === "all")
+    ? shuffleArray(filteredCars)
+    : filteredCars;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -3104,14 +4034,14 @@ const Louer = () => {
         <div className="container">
           <div className="mb-8">
             <h2 className="text-2xl font-barlow font-semibold mb-2">
-              {filteredCars.length} véhicule{filteredCars.length > 1 ? 's' : ''} disponible{filteredCars.length > 1 ? 's' : ''}
+              {displayedCars.length} véhicule{displayedCars.length > 1 ? 's' : ''} disponible{displayedCars.length > 1 ? 's' : ''}
             </h2>
             <p className="text-muted-foreground">
               Toutes les voitures proviennent d'agences professionnelles vérifiées
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCars.map((car) => (
+            {displayedCars.map((car) => (
               <Card key={car.id} className="overflow-hidden border-2 hover:shadow-xl transition-shadow rounded-2xl group">
                 <div className="aspect-video bg-card overflow-hidden relative">
                   <img 
