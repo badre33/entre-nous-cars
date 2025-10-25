@@ -52,14 +52,14 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>WhatsApp: +212 ...</li>
+              <li>WhatsApp: +212 699 024 526</li>
               <li>contact@benatna.ma</li>
             </ul>
           </div>
         </div>
         
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          © 2025 Benatna – La mobilité, entre nous.
+          © 2025 Benatna - La mobilité, entre nous.
         </div>
       </div>
     </footer>

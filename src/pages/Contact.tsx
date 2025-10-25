@@ -96,7 +96,7 @@ const Contact = () => {
                       <p className="text-muted-foreground mb-2">
                         Contactez-nous directement pour une réponse rapide
                       </p>
-                      <p className="text-lg font-medium text-foreground">+212 ...</p>
+                      <p className="text-lg font-medium text-foreground">+212 699 024 526</p>
                     </div>
                   </div>
                 </CardContent>
@@ -123,8 +123,7 @@ const Contact = () => {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-barlow font-semibold mb-4">Heures d'ouverture</h3>
                   <div className="space-y-2 text-muted-foreground">
-                    <p>Lundi - Vendredi : 9h00 - 18h00</p>
-                    <p>Samedi : 9h00 - 14h00</p>
+                    <p>Lundi - Samedi : 8h00 - 22h00</p>
                     <p>Dimanche : Fermé</p>
                   </div>
                 </CardContent>
