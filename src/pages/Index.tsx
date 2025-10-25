@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import { HeroSearchForm } from "@/components/HeroSearchForm";
+import { FloatingCTA } from "@/components/FloatingCTA";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -54,20 +56,19 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
         
-        <div className="container relative z-10 text-center text-white">
+        <div className="container relative z-10 text-center text-white px-4">
           <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-white drop-shadow-lg">
             La mobilité, entre nous.
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/95 font-medium">
+          <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto text-white/95 font-medium">
             Trouvez la voiture idéale auprès d'agences locales de confiance. 
             Réservez en 3 clics, roulez en toute sérénité.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/louer">
-              <Button size="lg" className="rounded-full text-lg px-8">
-                Louer une voiture
-              </Button>
-            </Link>
+          
+          {/* Search Form */}
+          <HeroSearchForm />
+          
+          <div className="flex gap-4 justify-center flex-wrap mt-6">
             <Link to="/partenaires">
               <Button size="lg" variant="outline" className="rounded-full text-lg px-8 bg-white/10 backdrop-blur border-white/30 text-white hover:bg-white/20">
                 Devenir partenaire
@@ -646,6 +647,9 @@ const Index = () => {
       </section>
 
       <Footer />
+      
+      {/* Floating CTA Button */}
+      <FloatingCTA />
     </div>
   );
 };
