@@ -26,15 +26,17 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center parallax-bg"
+        {/* Preloaded image for LCP optimization */}
+        <img 
+          src={heroImage} 
+          alt="Benatna - Location de voitures au Maroc"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover parallax-bg"
           style={{ 
-            backgroundImage: `url(${heroImage})`,
             transform: `translateY(${parallaxOffset}px)`
           }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
-        </div>
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
         
         <div className="container relative z-10 text-center text-white">
           <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-white drop-shadow-lg">
