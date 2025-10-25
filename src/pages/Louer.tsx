@@ -159,6 +159,11 @@ import carRangeRoverSport from "@/assets/car-range-rover-sport.jpg";
 import carRangeRoverVelar from "@/assets/car-range-rover-velar.jpg";
 import carAudiEtronGT from "@/assets/car-audi-etron-gt.jpg";
 
+// Helper function to generate conditions for all cars
+const generateConditions = (minAge: number): string[] => {
+  return ["Kilométrage illimité", `Âge minimum: ${minAge} ans`];
+};
+
 const cars = [
   // Renault
   {
@@ -171,7 +176,7 @@ const cars = [
     city: "Casablanca",
     price: 350,
     priceDisplay: "350 MAD",
-    conditions: ["Kilométrage illimité", "Âge minimum: 23 ans"],
+    conditions: generateConditions(23),
     badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
   },
   {
@@ -184,7 +189,7 @@ const cars = [
     city: "Tanger",
     price: 320,
     priceDisplay: "320 MAD",
-    conditions: ["Caution: 4500 MAD", "300 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   
   // Toyota
@@ -198,7 +203,7 @@ const cars = [
     city: "Marrakech",
     price: 450,
     priceDisplay: "450 MAD",
-    conditions: ["Caution: 6000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"],
+    conditions: generateConditions(25),
     badges: ["🔥 Populaire"]
   },
   {
@@ -211,7 +216,7 @@ const cars = [
     city: "Rabat",
     price: 460,
     priceDisplay: "460 MAD",
-    conditions: ["Caution: 6000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: generateConditions(25)
   },
   
   // Dacia
@@ -225,7 +230,7 @@ const cars = [
     city: "Casablanca",
     price: 400,
     priceDisplay: "400 MAD",
-    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"],
+    conditions: generateConditions(23),
     badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
   },
   {
@@ -238,7 +243,7 @@ const cars = [
     city: "Marrakech",
     price: 480,
     priceDisplay: "480 MAD",
-    conditions: ["Caution: 6500 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: generateConditions(25)
   },
   
   // Peugeot
@@ -252,7 +257,7 @@ const cars = [
     city: "Casablanca",
     price: 340,
     priceDisplay: "340 MAD",
-    conditions: ["Caution: 4500 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"],
+    conditions: generateConditions(21),
     badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
   },
   {
@@ -265,7 +270,7 @@ const cars = [
     city: "Rabat",
     price: 310,
     priceDisplay: "310 MAD",
-    conditions: ["Caution: 4000 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   
   // Volkswagen
@@ -279,7 +284,7 @@ const cars = [
     city: "Tanger",
     price: 420,
     priceDisplay: "420 MAD",
-    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"],
+    conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
   {
@@ -292,7 +297,7 @@ const cars = [
     city: "Marrakech",
     price: 390,
     priceDisplay: "390 MAD",
-    conditions: ["Caution: 5000 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   
   // Hyundai
@@ -306,7 +311,7 @@ const cars = [
     city: "Casablanca",
     price: 520,
     priceDisplay: "520 MAD",
-    conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: generateConditions(25)
   },
   {
     id: 12,
@@ -318,7 +323,7 @@ const cars = [
     city: "Rabat",
     price: 510,
     priceDisplay: "510 MAD",
-    conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: generateConditions(25)
   },
   
   // Kia
@@ -332,7 +337,7 @@ const cars = [
     city: "Tanger",
     price: 500,
     priceDisplay: "500 MAD",
-    conditions: ["Caution: 6800 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"],
+    conditions: generateConditions(25),
     badges: ["⚡ Disponible immédiatement"]
   },
   {
@@ -345,7 +350,7 @@ const cars = [
     city: "Marrakech",
     price: 470,
     priceDisplay: "470 MAD",
-    conditions: ["Caution: 6500 MAD", "400 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   
   // Mercedes
@@ -359,7 +364,7 @@ const cars = [
     city: "Casablanca",
     price: 850,
     priceDisplay: "850 MAD",
-    conditions: ["Caution: 10000 MAD", "400 km/jour inclus", "Âge minimum: 28 ans"],
+    conditions: generateConditions(28),
     badges: ["💎 Luxe"]
   },
   {
@@ -372,7 +377,7 @@ const cars = [
     city: "Marrakech",
     price: 880,
     priceDisplay: "880 MAD",
-    conditions: ["Caution: 10000 MAD", "400 km/jour inclus", "Âge minimum: 28 ans"]
+    conditions: generateConditions(28)
   },
   
   // Audi
@@ -386,7 +391,7 @@ const cars = [
     city: "Rabat",
     price: 800,
     priceDisplay: "800 MAD",
-    conditions: ["Caution: 9500 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
+    conditions: generateConditions(27)
   },
   {
     id: 18,
@@ -398,7 +403,7 @@ const cars = [
     city: "Tanger",
     price: 820,
     priceDisplay: "820 MAD",
-    conditions: ["Caution: 9500 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
+    conditions: generateConditions(27)
   },
   
   // BMW
@@ -412,7 +417,7 @@ const cars = [
     city: "Casablanca",
     price: 950,
     priceDisplay: "950 MAD",
-    conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+    conditions: generateConditions(28)
   },
   {
     id: 20,
@@ -424,7 +429,7 @@ const cars = [
     city: "Marrakech",
     price: 970,
     priceDisplay: "970 MAD",
-    conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+    conditions: generateConditions(28)
   },
   
   // Citroën
@@ -438,7 +443,7 @@ const cars = [
     city: "Rabat",
     price: 300,
     priceDisplay: "300 MAD",
-    conditions: ["Caution: 4000 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   {
     id: 22,
@@ -450,7 +455,7 @@ const cars = [
     city: "Tanger",
     price: 330,
     priceDisplay: "330 MAD",
-    conditions: ["Caution: 4500 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   
   // Ford
@@ -464,7 +469,7 @@ const cars = [
     city: "Casablanca",
     price: 380,
     priceDisplay: "380 MAD",
-    conditions: ["Caution: 5200 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   {
     id: 24,
@@ -476,7 +481,7 @@ const cars = [
     city: "Marrakech",
     price: 350,
     priceDisplay: "350 MAD",
-    conditions: ["Caution: 4800 MAD", "350 km/jour inclus", "Âge minimum: 22 ans"]
+    conditions: generateConditions(22)
   },
   
   // Nissan
@@ -490,7 +495,7 @@ const cars = [
     city: "Rabat",
     price: 490,
     priceDisplay: "490 MAD",
-    conditions: ["Caution: 6500 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+    conditions: generateConditions(24)
   },
   {
     id: 26,
@@ -502,7 +507,7 @@ const cars = [
     city: "Tanger",
     price: 460,
     priceDisplay: "460 MAD",
-    conditions: ["Caution: 6000 MAD", "380 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   
   // Seat
@@ -516,7 +521,7 @@ const cars = [
     city: "Casablanca",
     price: 290,
     priceDisplay: "290 MAD",
-    conditions: ["Caution: 3800 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   {
     id: 28,
@@ -528,7 +533,7 @@ const cars = [
     city: "Marrakech",
     price: 320,
     priceDisplay: "320 MAD",
-    conditions: ["Caution: 4200 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   
   // Fiat
@@ -542,7 +547,7 @@ const cars = [
     city: "Rabat",
     price: 370,
     priceDisplay: "370 MAD",
-    conditions: ["Caution: 5000 MAD", "330 km/jour inclus", "Âge minimum: 22 ans"]
+    conditions: generateConditions(22)
   },
   {
     id: 30,
@@ -554,7 +559,7 @@ const cars = [
     city: "Tanger",
     price: 340,
     priceDisplay: "340 MAD",
-    conditions: ["Caution: 4600 MAD", "330 km/jour inclus", "Âge minimum: 22 ans"]
+    conditions: generateConditions(22)
   },
   
   // Opel
@@ -568,7 +573,7 @@ const cars = [
     city: "Casablanca",
     price: 310,
     priceDisplay: "310 MAD",
-    conditions: ["Caution: 4200 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   {
     id: 32,
@@ -580,7 +585,7 @@ const cars = [
     city: "Marrakech",
     price: 380,
     priceDisplay: "380 MAD",
-    conditions: ["Caution: 5200 MAD", "330 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   
   // Skoda
@@ -594,7 +599,7 @@ const cars = [
     city: "Rabat",
     price: 440,
     priceDisplay: "440 MAD",
-    conditions: ["Caution: 5800 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+    conditions: generateConditions(24)
   },
   {
     id: 34,
@@ -606,7 +611,7 @@ const cars = [
     city: "Tanger",
     price: 315,
     priceDisplay: "315 MAD",
-    conditions: ["Caution: 4300 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   
   // Mazda
@@ -620,7 +625,7 @@ const cars = [
     city: "Casablanca",
     price: 430,
     priceDisplay: "430 MAD",
-    conditions: ["Caution: 5600 MAD", "370 km/jour inclus", "Âge minimum: 24 ans"]
+    conditions: generateConditions(24)
   },
   {
     id: 36,
@@ -632,7 +637,7 @@ const cars = [
     city: "Marrakech",
     price: 530,
     priceDisplay: "530 MAD",
-    conditions: ["Caution: 7200 MAD", "410 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: generateConditions(25)
   },
   
   // Honda
@@ -646,7 +651,7 @@ const cars = [
     city: "Rabat",
     price: 470,
     priceDisplay: "470 MAD",
-    conditions: ["Caution: 6200 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+    conditions: generateConditions(24)
   },
   {
     id: 38,
@@ -658,7 +663,7 @@ const cars = [
     city: "Tanger",
     price: 540,
     priceDisplay: "540 MAD",
-    conditions: ["Caution: 7300 MAD", "410 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: generateConditions(25)
   },
   
   // Suzuki
@@ -672,7 +677,7 @@ const cars = [
     city: "Casablanca",
     price: 295,
     priceDisplay: "295 MAD",
-    conditions: ["Caution: 3900 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   {
     id: 40,
@@ -684,7 +689,7 @@ const cars = [
     city: "Marrakech",
     price: 440,
     priceDisplay: "440 MAD",
-    conditions: ["Caution: 5900 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   
   // Mitsubishi
@@ -698,7 +703,7 @@ const cars = [
     city: "Rabat",
     price: 410,
     priceDisplay: "410 MAD",
-    conditions: ["Caution: 5500 MAD", "360 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   {
     id: 42,
@@ -710,7 +715,7 @@ const cars = [
     city: "Tanger",
     price: 550,
     priceDisplay: "550 MAD",
-    conditions: ["Caution: 7500 MAD", "420 km/jour inclus", "Âge minimum: 26 ans"]
+    conditions: generateConditions(26)
   },
   
   // Chevrolet
@@ -724,7 +729,7 @@ const cars = [
     city: "Casablanca",
     price: 305,
     priceDisplay: "305 MAD",
-    conditions: ["Caution: 4100 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   {
     id: 44,
@@ -736,7 +741,7 @@ const cars = [
     city: "Marrakech",
     price: 560,
     priceDisplay: "560 MAD",
-    conditions: ["Caution: 7600 MAD", "430 km/jour inclus", "Âge minimum: 26 ans"]
+    conditions: generateConditions(26)
   },
   
   // Renault (autres modèles)
@@ -750,7 +755,7 @@ const cars = [
     city: "Rabat",
     price: 390,
     priceDisplay: "390 MAD",
-    conditions: ["Caution: 5300 MAD", "340 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   {
     id: 46,
@@ -762,7 +767,7 @@ const cars = [
     city: "Tanger",
     price: 430,
     priceDisplay: "430 MAD",
-    conditions: ["Caution: 5700 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   
   // Peugeot (autres modèles)
@@ -776,7 +781,7 @@ const cars = [
     city: "Casablanca",
     price: 540,
     priceDisplay: "540 MAD",
-    conditions: ["Caution: 7300 MAD", "410 km/jour inclus", "Âge minimum: 25 ans"]
+    conditions: generateConditions(25)
   },
   {
     id: 48,
@@ -788,7 +793,7 @@ const cars = [
     city: "Marrakech",
     price: 400,
     priceDisplay: "400 MAD",
-    conditions: ["Caution: 5400 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+    conditions: generateConditions(23)
   },
   
   // Dacia (autres modèles)
@@ -802,7 +807,7 @@ const cars = [
     city: "Rabat",
     price: 280,
     priceDisplay: "280 MAD",
-    conditions: ["Caution: 3700 MAD", "230 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   {
     id: 50,
@@ -814,7 +819,7 @@ const cars = [
     city: "Tanger",
     price: 310,
     priceDisplay: "310 MAD",
-    conditions: ["Caution: 4100 MAD", "280 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   
   // Volkswagen (autres modèles)
@@ -828,7 +833,7 @@ const cars = [
     city: "Casablanca",
     price: 580,
     priceDisplay: "580 MAD",
-    conditions: ["Caution: 7800 MAD", "430 km/jour inclus", "Âge minimum: 26 ans"]
+    conditions: generateConditions(26)
   },
   {
     id: 52,
@@ -840,7 +845,7 @@ const cars = [
     city: "Marrakech",
     price: 325,
     priceDisplay: "325 MAD",
-    conditions: ["Caution: 4400 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   
   // Hyundai (autres modèles)
@@ -854,7 +859,7 @@ const cars = [
     city: "Rabat",
     price: 305,
     priceDisplay: "305 MAD",
-    conditions: ["Caution: 4100 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   {
     id: 54,
@@ -866,7 +871,7 @@ const cars = [
     city: "Tanger",
     price: 450,
     priceDisplay: "450 MAD",
-    conditions: ["Caution: 6000 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+    conditions: generateConditions(24)
   },
   
   // Kia (autres modèles)
@@ -880,7 +885,7 @@ const cars = [
     city: "Casablanca",
     price: 285,
     priceDisplay: "285 MAD",
-    conditions: ["Caution: 3800 MAD", "230 km/jour inclus", "Âge minimum: 21 ans"]
+    conditions: generateConditions(21)
   },
   {
     id: 56,
