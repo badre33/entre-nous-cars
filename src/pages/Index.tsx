@@ -9,6 +9,7 @@ import AnimatedCounter from "@/components/AnimatedCounter";
 import { HeroSearchForm } from "@/components/HeroSearchForm";
 import { FloatingCTA } from "@/components/FloatingCTA";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -20,6 +21,10 @@ import cityFes from "@/assets/city-fes.jpg";
 const Index = () => {
   const { t } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const statsAnimation = useScrollAnimation(0.2);
+  const howItWorksAnimation = useScrollAnimation(0.2);
+  const whyAnimation = useScrollAnimation(0.2);
+  const citiesAnimation = useScrollAnimation(0.2);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -51,27 +56,29 @@ const Index = () => {
           src={heroImage} 
           alt="Benatna - Location de voitures au Maroc"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover parallax-bg"
+          className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
           style={{ 
             transform: `translateY(${parallaxOffset}px)`
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
         
-        <div className="container relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-white drop-shadow-lg">
+        <div className="container relative z-10 text-center text-white px-4 animate-fade-in">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-white drop-shadow-lg animate-fade-in">
             {t('home.heroTitle')}
           </h1>
-          <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto text-white/95 font-medium">
+          <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto text-white/95 font-medium animate-fade-in [animation-delay:200ms]">
             {t('home.heroSubtitle')}
           </p>
           
           {/* Search Form */}
-          <HeroSearchForm />
+          <div className="animate-fade-in [animation-delay:400ms]">
+            <HeroSearchForm />
+          </div>
           
-          <div className="flex gap-4 justify-center flex-wrap mt-6">
+          <div className="flex gap-4 justify-center flex-wrap mt-6 animate-fade-in [animation-delay:600ms]">
             <Link to="/partenaires">
-              <Button size="lg" variant="outline" className="rounded-full text-lg px-8 bg-white/10 backdrop-blur border-white/30 text-white hover:bg-white/20">
+              <Button size="lg" variant="outline" className="rounded-full text-lg px-8 bg-white/10 backdrop-blur border-white/30 text-white hover:bg-white/20 hover:scale-110 transition-all duration-300">
                 {t('home.becomePartner')}
               </Button>
             </Link>
@@ -81,9 +88,14 @@ const Index = () => {
 
       {/* Stats Section */}
       <section className="py-16 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container">
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
+        <div 
+          ref={statsAnimation.ref}
+          className="container"
+        >
+          <div className={`grid md:grid-cols-3 gap-8 max-w-5xl mx-auto transition-all duration-700 ${
+            statsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className="text-center group hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
                 <span className="text-5xl md:text-6xl font-bold text-primary">
                   <AnimatedCounter end={302} suffix="+" />
@@ -95,7 +107,7 @@ const Index = () => {
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center group hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
                 <span className="text-5xl md:text-6xl font-bold text-secondary">
                   <AnimatedCounter end={24} suffix="+" />

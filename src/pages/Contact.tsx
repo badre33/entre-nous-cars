@@ -6,9 +6,16 @@ import { Mail, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useState } from "react";
 
 const Contact = () => {
   const { t } = useLanguage();
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const heroAnimation = useScrollAnimation(0.2);
+  const formAnimation = useScrollAnimation(0.2);
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -16,9 +23,14 @@ const Contact = () => {
       
       {/* Hero */}
       <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
-        <div className="container text-center max-w-4xl">
-          <h1 className="text-5xl md:text-6xl mb-8">{t('contact.title')}</h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
+        <div 
+          ref={heroAnimation.ref}
+          className={`container text-center max-w-4xl transition-all duration-700 ${
+            heroAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <h1 className="text-5xl md:text-6xl mb-8 animate-fade-in">{t('contact.title')}</h1>
+          <p className="text-xl text-muted-foreground leading-relaxed animate-fade-in [animation-delay:200ms]">
             {t('contact.subtitle')}
           </p>
         </div>
@@ -27,9 +39,14 @@ const Contact = () => {
       {/* Contact Form & Info */}
       <section className="py-20">
         <div className="container max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div 
+            ref={formAnimation.ref}
+            className={`grid lg:grid-cols-2 gap-12 transition-all duration-700 ${
+              formAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
             {/* Form */}
-            <Card className="border-2 rounded-2xl shadow-lg">
+            <Card className="border-2 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
               <CardContent className="p-8 md:p-12">
                 <h2 className="text-3xl md:text-4xl mb-8">{t('contact.title')}</h2>
                 <p className="text-muted-foreground mb-6 text-center">
@@ -39,6 +56,7 @@ const Contact = () => {
                   className="space-y-6"
                   onSubmit={(e) => {
                     e.preventDefault();
+                    setIsSubmitting(true);
                     const formData = new FormData(e.currentTarget);
                     const nom = formData.get('nom') as string;
                     const tel = formData.get('tel') as string;
@@ -47,10 +65,18 @@ const Contact = () => {
                     
                     const whatsappMessage = `Nouveau message de contact\n\nNom: ${nom}\nTéléphone: ${tel}\nEmail: ${email}\n\nMessage:\n${message}`;
                     
-                    window.open(
-                      `https://wa.me/212699024526?text=${encodeURIComponent(whatsappMessage)}`,
-                      '_blank'
-                    );
+                    toast({
+                      title: "✓ Message envoyé !",
+                      description: "Nous vous répondrons dans les plus brefs délais",
+                    });
+                    
+                    setTimeout(() => {
+                      setIsSubmitting(false);
+                      window.open(
+                        `https://wa.me/212699024526?text=${encodeURIComponent(whatsappMessage)}`,
+                        '_blank'
+                      );
+                    }, 1000);
                   }}
                 >
                   <div>
@@ -78,8 +104,13 @@ const Contact = () => {
                     />
                   </div>
                   
-                  <Button type="submit" size="lg" className="w-full rounded-full">
-                    {t('contactForm.sendWhatsApp')}
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full rounded-full text-lg hover:scale-105 transition-transform duration-300"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Envoi..." : t('contactForm.sendWhatsApp')}
                   </Button>
                 </form>
               </CardContent>
@@ -87,10 +118,10 @@ const Contact = () => {
 
             {/* Contact Info */}
             <div className="space-y-8">
-              <Card className="border-2 rounded-2xl hover:shadow-lg transition-shadow">
+              <Card className="border-2 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105 group">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
@@ -98,16 +129,23 @@ const Contact = () => {
                       <p className="text-muted-foreground mb-2">
                         {t('contactForm.contactDirectly')}
                       </p>
-                      <p className="text-lg font-medium text-foreground">+212 699 024 526</p>
+                      <a 
+                        href="https://wa.me/212699024526" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-lg font-medium text-primary hover:text-primary/80 transition-colors"
+                      >
+                        +212 699 024 526
+                      </a>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 rounded-2xl hover:shadow-lg transition-shadow">
+              <Card className="border-2 rounded-2xl hover:shadow-xl transition-all duration-300 hover:scale-105 group">
                 <CardContent className="p-8">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/30 transition-colors duration-300">
                       <Mail className="w-6 h-6 text-secondary" />
                     </div>
                     <div>
@@ -115,13 +153,18 @@ const Contact = () => {
                       <p className="text-muted-foreground mb-2">
                         {t('contactForm.emailText')}
                       </p>
-                      <p className="text-lg font-medium text-foreground">contact@benatna.ma</p>
+                      <a 
+                        href="mailto:contact@benatna.ma"
+                        className="text-lg font-medium text-secondary hover:text-secondary/80 transition-colors"
+                      >
+                        contact@benatna.ma
+                      </a>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="border-2 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10">
+              <Card className="border-2 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-barlow font-semibold mb-4">{t('contactForm.openingHours')}</h3>
                   <div className="space-y-2 text-muted-foreground">

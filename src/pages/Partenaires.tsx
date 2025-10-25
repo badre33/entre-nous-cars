@@ -9,12 +9,20 @@ import Footer from "@/components/Footer";
 import { PartnerTestimonials } from "@/components/PartnerTestimonials";
 import { RevenueCalculator } from "@/components/RevenueCalculator";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useToast } from "@/hooks/use-toast";
 import heroImage from "@/assets/hero-partners.jpg";
 
 const Partenaires = () => {
   const { t } = useLanguage();
+  const { toast } = useToast();
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
+  const offersAnimation = useScrollAnimation(0.2);
+  const howItWorksAnimation = useScrollAnimation(0.2);
+  const testimonialsAnimation = useScrollAnimation(0.2);
+  const calculatorAnimation = useScrollAnimation(0.2);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -60,12 +68,17 @@ const Partenaires = () => {
       </section>
 
       <section className="py-20">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">{t('partners.whatWeOffer')}</h2>
+        <div 
+          ref={offersAnimation.ref}
+          className="container"
+        >
+          <h2 className={`text-4xl md:text-5xl text-center mb-16 transition-all duration-700 ${
+            offersAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>{t('partners.whatWeOffer')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
+            <Card className="border-2 hover:shadow-2xl transition-all duration-500 rounded-2xl hover:-translate-y-2 hover:scale-105 group">
               <CardContent className="pt-12 pb-8 text-center">
-                <TrendingUp className="w-12 h-12 mb-6 text-primary mx-auto" />
+                <TrendingUp className="w-12 h-12 mb-6 text-primary mx-auto transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12" />
                 <h3 className="text-xl font-barlow font-semibold mb-4">{t('partners.bookingsTitle')}</h3>
                 <p className="text-muted-foreground text-sm">
                   {t('partners.bookingsText')}
