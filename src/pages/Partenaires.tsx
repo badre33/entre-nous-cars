@@ -3,20 +3,36 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { TrendingUp, Eye, FileText, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-partners.jpg";
 
 const Partenaires = () => {
+  const [parallaxOffset, setParallaxOffset] = useState(0);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      setParallaxOffset(offset * 0.5);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section with Parallax */}
       <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          className="absolute inset-0 bg-cover bg-center parallax-bg"
+          style={{ 
+            backgroundImage: `url(${heroImage})`,
+            transform: `translateY(${parallaxOffset}px)`
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         </div>

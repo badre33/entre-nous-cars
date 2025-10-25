@@ -117,3 +117,30 @@ All colors MUST be HSL.
     font-weight: 400;
   }
 }
+
+@layer utilities {
+  /* Car driving animation */
+  @keyframes car-drive {
+    0%, 100% {
+      transform: translateX(-10px) translateY(0px);
+    }
+    25% {
+      transform: translateX(-5px) translateY(-2px);
+    }
+    50% {
+      transform: translateX(0px) translateY(0px);
+    }
+    75% {
+      transform: translateX(5px) translateY(-2px);
+    }
+  }
+  
+  .animate-car-drive {
+    animation: car-drive 1s ease-in-out infinite;
+  }
+  
+  /* Parallax effect */
+  .parallax-bg {
+    transition: transform 0.1s ease-out;
+  }
+}

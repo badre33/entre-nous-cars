@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar as CalendarIcon, MapPin, Car } from "lucide-react";
@@ -8,8 +8,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { cn } from "@/lib/utils";
+import confetti from "canvas-confetti";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import LoadingCar from "@/components/LoadingCar";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
@@ -2020,6 +2022,38 @@ const Louer = () => {
   const [selectedType, setSelectedType] = useState<string>("all");
   const [selectedBrand, setSelectedBrand] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      setParallaxOffset(offset * 0.5);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {
+    // Confettis animation
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#ffda00', '#d0f690', '#048592']
+    });
+    
+    // Loading simulation
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      window.open(
+        `https://wa.me/212699024526?text=Bonjour, je suis intéressé par ${carName} à ${city} (${priceDisplay}/jour)`,
+        '_blank'
+      );
+    }, 800);
+  };
 
   const cities = ["Casablanca", "Marrakech", "Tanger", "Rabat"];
   
@@ -2049,13 +2083,17 @@ const Louer = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {isLoading && <LoadingCar />}
       <Header />
       
-      {/* Hero with Search */}
+      {/* Hero with Search and Parallax */}
       <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          className="absolute inset-0 bg-cover bg-center parallax-bg"
+          style={{ 
+            backgroundImage: `url(${heroImage})`,
+            transform: `translateY(${parallaxOffset}px)`
+          }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         </div>
@@ -2263,7 +2301,7 @@ const Louer = () => {
                   
                   <Button 
                     className="w-full rounded-full" 
-                    onClick={() => window.open(`https://wa.me/212699024526?text=Bonjour, je suis intéressé par ${car.name} à ${car.city} (${car.priceDisplay}/jour)`, '_blank')}
+                    onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
                   >
                     Contacter via WhatsApp
                   </Button>
