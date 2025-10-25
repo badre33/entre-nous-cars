@@ -6,6 +6,8 @@ import { TrendingUp, Eye, FileText, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { PartnerTestimonials } from "@/components/PartnerTestimonials";
+import { RevenueCalculator } from "@/components/RevenueCalculator";
 import heroImage from "@/assets/hero-partners.jpg";
 
 const Partenaires = () => {
@@ -142,6 +144,12 @@ const Partenaires = () => {
           </div>
         </div>
       </section>
+
+      {/* Partner Testimonials */}
+      <PartnerTestimonials />
+
+      {/* Revenue Calculator */}
+      <RevenueCalculator />
 
       {/* Join Form */}
       <section className="py-20" ref={formRef}>
