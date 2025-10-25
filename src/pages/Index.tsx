@@ -29,10 +29,10 @@ const Index = () => {
   const popularCities = [
     { name: "Casablanca", image: cityCasablanca, vehicles: 52, slug: "Casablanca" },
     { name: "Marrakech", image: cityMarrakech, vehicles: 43, slug: "Marrakech" },
-    { name: "Rabat", image: cityRabat, vehicles: 28, slug: "Rabat" },
-    { name: "Tanger", image: cityTanger, vehicles: 26, slug: "Tanger" },
-    { name: "Agadir", image: cityAgadir, vehicles: 12, slug: "Agadir" },
-    { name: "Fès", image: cityFes, vehicles: 15, slug: "Fès" },
+    { name: "Rabat", image: cityRabat, vehicles: 32, slug: "Rabat" },
+    { name: "Tanger", image: cityTanger, vehicles: 30, slug: "Tanger" },
+    { name: "Agadir", image: cityAgadir, vehicles: 30, slug: "Agadir" },
+    { name: "Fès", image: cityFes, vehicles: 30, slug: "Fès" },
   ];
   
   return (
