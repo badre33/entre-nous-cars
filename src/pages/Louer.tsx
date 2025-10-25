@@ -26,6 +26,36 @@ import carFordFocus from "@/assets/car-ford-focus.jpg";
 import carNissanQashqai from "@/assets/car-nissan-qashqai.jpg";
 import carSeatIbiza from "@/assets/car-seat-ibiza.jpg";
 import carFiatTipo from "@/assets/car-fiat-tipo.jpg";
+import carOpelCorsa from "@/assets/car-opel-corsa.jpg";
+import carOpelAstra from "@/assets/car-opel-astra.jpg";
+import carSkodaOctavia from "@/assets/car-skoda-octavia.jpg";
+import carSkodaFabia from "@/assets/car-skoda-fabia.jpg";
+import carMazda3 from "@/assets/car-mazda-3.jpg";
+import carMazdaCX5 from "@/assets/car-mazda-cx5.jpg";
+import carHondaCivic from "@/assets/car-honda-civic.jpg";
+import carHondaCRV from "@/assets/car-honda-crv.jpg";
+import carSuzukiSwift from "@/assets/car-suzuki-swift.jpg";
+import carSuzukiVitara from "@/assets/car-suzuki-vitara.jpg";
+import carMitsubishiLancer from "@/assets/car-mitsubishi-lancer.jpg";
+import carMitsubishiOutlander from "@/assets/car-mitsubishi-outlander.jpg";
+import carChevroletAveo from "@/assets/car-chevrolet-aveo.jpg";
+import carChevroletCaptiva from "@/assets/car-chevrolet-captiva.jpg";
+import carRenaultMegane from "@/assets/car-renault-megane.jpg";
+import carRenaultCaptur from "@/assets/car-renault-captur.jpg";
+import carPeugeot3008 from "@/assets/car-peugeot-3008.jpg";
+import carPeugeot308 from "@/assets/car-peugeot-308.jpg";
+import carDaciaSandero from "@/assets/car-dacia-sandero.jpg";
+import carDaciaLogan from "@/assets/car-dacia-logan.jpg";
+import carVwTiguan from "@/assets/car-vw-tiguan.jpg";
+import carVwPolo from "@/assets/car-vw-polo.jpg";
+import carHyundaiI20 from "@/assets/car-hyundai-i20.jpg";
+import carHyundaiElantra from "@/assets/car-hyundai-elantra.jpg";
+import carKiaPicanto from "@/assets/car-kia-picanto.jpg";
+import carKiaRio from "@/assets/car-kia-rio.jpg";
+import carNissanMicra from "@/assets/car-nissan-micra.jpg";
+import carNissanSunny from "@/assets/car-nissan-sunny.jpg";
+import carToyotaYaris from "@/assets/car-toyota-yaris.jpg";
+import carToyotaRAV4 from "@/assets/car-toyota-rav4.jpg";
 
 const cars = [
   // Renault
@@ -416,6 +446,396 @@ const cars = [
     price: 340,
     priceDisplay: "340 MAD",
     conditions: ["Caution: 4600 MAD", "330 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  
+  // Opel
+  {
+    id: 31,
+    image: carOpelCorsa,
+    name: "Opel Corsa",
+    brand: "Opel",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 310,
+    priceDisplay: "310 MAD",
+    conditions: ["Caution: 4200 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 32,
+    image: carOpelAstra,
+    name: "Opel Astra",
+    brand: "Opel",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 380,
+    priceDisplay: "380 MAD",
+    conditions: ["Caution: 5200 MAD", "330 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Skoda
+  {
+    id: 33,
+    image: carSkodaOctavia,
+    name: "Skoda Octavia",
+    brand: "Skoda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Rabat",
+    price: 440,
+    priceDisplay: "440 MAD",
+    conditions: ["Caution: 5800 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 34,
+    image: carSkodaFabia,
+    name: "Skoda Fabia",
+    brand: "Skoda",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Tanger",
+    price: 315,
+    priceDisplay: "315 MAD",
+    conditions: ["Caution: 4300 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Mazda
+  {
+    id: 35,
+    image: carMazda3,
+    name: "Mazda 3",
+    brand: "Mazda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 430,
+    priceDisplay: "430 MAD",
+    conditions: ["Caution: 5600 MAD", "370 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 36,
+    image: carMazdaCX5,
+    name: "Mazda CX-5",
+    brand: "Mazda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 530,
+    priceDisplay: "530 MAD",
+    conditions: ["Caution: 7200 MAD", "410 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  
+  // Honda
+  {
+    id: 37,
+    image: carHondaCivic,
+    name: "Honda Civic",
+    brand: "Honda",
+    type: "Automatique",
+    category: "Berline",
+    city: "Rabat",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: ["Caution: 6200 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 38,
+    image: carHondaCRV,
+    name: "Honda CR-V",
+    brand: "Honda",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 540,
+    priceDisplay: "540 MAD",
+    conditions: ["Caution: 7300 MAD", "410 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  
+  // Suzuki
+  {
+    id: 39,
+    image: carSuzukiSwift,
+    name: "Suzuki Swift",
+    brand: "Suzuki",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 295,
+    priceDisplay: "295 MAD",
+    conditions: ["Caution: 3900 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 40,
+    image: carSuzukiVitara,
+    name: "Suzuki Vitara",
+    brand: "Suzuki",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 440,
+    priceDisplay: "440 MAD",
+    conditions: ["Caution: 5900 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Mitsubishi
+  {
+    id: 41,
+    image: carMitsubishiLancer,
+    name: "Mitsubishi Lancer",
+    brand: "Mitsubishi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Rabat",
+    price: 410,
+    priceDisplay: "410 MAD",
+    conditions: ["Caution: 5500 MAD", "360 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 42,
+    image: carMitsubishiOutlander,
+    name: "Mitsubishi Outlander",
+    brand: "Mitsubishi",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 550,
+    priceDisplay: "550 MAD",
+    conditions: ["Caution: 7500 MAD", "420 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  
+  // Chevrolet
+  {
+    id: 43,
+    image: carChevroletAveo,
+    name: "Chevrolet Aveo",
+    brand: "Chevrolet",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 305,
+    priceDisplay: "305 MAD",
+    conditions: ["Caution: 4100 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 44,
+    image: carChevroletCaptiva,
+    name: "Chevrolet Captiva",
+    brand: "Chevrolet",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 560,
+    priceDisplay: "560 MAD",
+    conditions: ["Caution: 7600 MAD", "430 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  
+  // Renault (autres modèles)
+  {
+    id: 45,
+    image: carRenaultMegane,
+    name: "Renault Megane",
+    brand: "Renault",
+    type: "Automatique",
+    category: "Berline",
+    city: "Rabat",
+    price: 390,
+    priceDisplay: "390 MAD",
+    conditions: ["Caution: 5300 MAD", "340 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 46,
+    image: carRenaultCaptur,
+    name: "Renault Captur",
+    brand: "Renault",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 430,
+    priceDisplay: "430 MAD",
+    conditions: ["Caution: 5700 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Peugeot (autres modèles)
+  {
+    id: 47,
+    image: carPeugeot3008,
+    name: "Peugeot 3008",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 540,
+    priceDisplay: "540 MAD",
+    conditions: ["Caution: 7300 MAD", "410 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 48,
+    image: carPeugeot308,
+    name: "Peugeot 308",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 400,
+    priceDisplay: "400 MAD",
+    conditions: ["Caution: 5400 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Dacia (autres modèles)
+  {
+    id: 49,
+    image: carDaciaSandero,
+    name: "Dacia Sandero",
+    brand: "Dacia",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 280,
+    priceDisplay: "280 MAD",
+    conditions: ["Caution: 3700 MAD", "230 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 50,
+    image: carDaciaLogan,
+    name: "Dacia Logan",
+    brand: "Dacia",
+    type: "Manuelle",
+    category: "Berline",
+    city: "Tanger",
+    price: 310,
+    priceDisplay: "310 MAD",
+    conditions: ["Caution: 4100 MAD", "280 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Volkswagen (autres modèles)
+  {
+    id: 51,
+    image: carVwTiguan,
+    name: "Volkswagen Tiguan",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 580,
+    priceDisplay: "580 MAD",
+    conditions: ["Caution: 7800 MAD", "430 km/jour inclus", "Âge minimum: 26 ans"]
+  },
+  {
+    id: 52,
+    image: carVwPolo,
+    name: "Volkswagen Polo",
+    brand: "Volkswagen",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Marrakech",
+    price: 325,
+    priceDisplay: "325 MAD",
+    conditions: ["Caution: 4400 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Hyundai (autres modèles)
+  {
+    id: 53,
+    image: carHyundaiI20,
+    name: "Hyundai i20",
+    brand: "Hyundai",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 305,
+    priceDisplay: "305 MAD",
+    conditions: ["Caution: 4100 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 54,
+    image: carHyundaiElantra,
+    name: "Hyundai Elantra",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 450,
+    priceDisplay: "450 MAD",
+    conditions: ["Caution: 6000 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  
+  // Kia (autres modèles)
+  {
+    id: 55,
+    image: carKiaPicanto,
+    name: "Kia Picanto",
+    brand: "Kia",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 285,
+    priceDisplay: "285 MAD",
+    conditions: ["Caution: 3800 MAD", "230 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 56,
+    image: carKiaRio,
+    name: "Kia Rio",
+    brand: "Kia",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 360,
+    priceDisplay: "360 MAD",
+    conditions: ["Caution: 4900 MAD", "320 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  
+  // Nissan (autres modèles)
+  {
+    id: 57,
+    image: carNissanMicra,
+    name: "Nissan Micra",
+    brand: "Nissan",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 295,
+    priceDisplay: "295 MAD",
+    conditions: ["Caution: 3900 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 58,
+    image: carNissanSunny,
+    name: "Nissan Sunny",
+    brand: "Nissan",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 365,
+    priceDisplay: "365 MAD",
+    conditions: ["Caution: 5000 MAD", "320 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  
+  // Toyota (autres modèles)
+  {
+    id: 59,
+    image: carToyotaYaris,
+    name: "Toyota Yaris",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 355,
+    priceDisplay: "355 MAD",
+    conditions: ["Caution: 4800 MAD", "290 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  {
+    id: 60,
+    image: carToyotaRAV4,
+    name: "Toyota RAV4",
+    brand: "Toyota",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 600,
+    priceDisplay: "600 MAD",
+    conditions: ["Caution: 8200 MAD", "450 km/jour inclus", "Âge minimum: 27 ans"]
   }
 ];
 
