@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Shield, MapPin, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -232,83 +233,235 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-card">
+      <section className="py-20 bg-gradient-to-b from-secondary/20 to-background">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">{t('home.howItWorks')}</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
-              <CardContent className="pt-12 pb-8 text-center">
-                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold">1</span>
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4">
+              Simple et Rapide
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('home.howItWorks')}</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Louez votre voiture en 3 étapes simples
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            {/* Connection lines between steps */}
+            <div className="hidden md:block absolute top-24 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent opacity-30" />
+            
+            {/* Step 1 */}
+            <Card className="relative border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <CardContent className="pt-12 pb-8 text-center relative z-10">
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
+                    1
+                  </div>
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.step1Title')}</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-2xl font-barlow font-bold mb-4 group-hover:text-primary transition-colors">
+                  {t('home.step1Title')}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
                   {t('home.step1Text')}
                 </p>
+                <div className="mt-6 pt-6 border-t">
+                  <p className="text-sm font-medium text-primary">30 secondes</p>
+                </div>
               </CardContent>
             </Card>
             
-            <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
-              <CardContent className="pt-12 pb-8 text-center">
-                <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-2xl font-bold">2</span>
+            {/* Step 2 */}
+            <Card className="relative border-2 hover:border-secondary transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <CardContent className="pt-12 pb-8 text-center relative z-10">
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-secondary to-secondary/70 rounded-2xl flex items-center justify-center mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                    </svg>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
+                    2
+                  </div>
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.step2Title')}</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-2xl font-barlow font-bold mb-4 group-hover:text-secondary transition-colors">
+                  {t('home.step2Title')}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
                   {t('home.step2Text')}
                 </p>
+                <div className="mt-6 pt-6 border-t">
+                  <p className="text-sm font-medium text-secondary">2 minutes</p>
+                </div>
               </CardContent>
             </Card>
             
-            <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl">
-              <CardContent className="pt-12 pb-8 text-center">
-                <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 text-white">
-                  <span className="text-2xl font-bold">3</span>
+            {/* Step 3 */}
+            <Card className="relative border-2 hover:border-accent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <CardContent className="pt-12 pb-8 text-center relative z-10">
+                <div className="relative mb-6">
+                  <div className="w-20 h-20 bg-gradient-to-br from-accent to-accent/70 rounded-2xl flex items-center justify-center mx-auto shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z" />
+                    </svg>
+                  </div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
+                    3
+                  </div>
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.step3Title')}</h3>
-                <p className="text-muted-foreground">
+                <h3 className="text-2xl font-barlow font-bold mb-4 group-hover:text-accent transition-colors">
+                  {t('home.step3Title')}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
                   {t('home.step3Text')}
                 </p>
+                <div className="mt-6 pt-6 border-t">
+                  <p className="text-sm font-medium text-accent">Instantané</p>
+                </div>
               </CardContent>
             </Card>
+          </div>
+          
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-6">
+              Prêt à démarrer votre aventure ?
+            </p>
+            <Link to="/louer">
+              <Button size="lg" className="rounded-full group">
+                Trouver ma voiture
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Why Benatna */}
-      <section className="py-20">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">{t('home.whyBenatna')}</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl bg-card">
-              <CardContent className="pt-12 pb-8">
-                <Shield className="w-12 h-12 mb-6 text-primary" />
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.transparencyTitle')}</h3>
-                <p className="text-muted-foreground">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
+        <div className="container relative z-10">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4">
+              Nos Avantages
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('home.whyBenatna')}</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Ce qui nous rend différents et meilleurs
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Transparency */}
+            <Card className="relative border-2 hover:border-primary transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
+              <CardContent className="pt-12 pb-8 relative z-10">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <Badge variant="secondary" className="bg-primary/10 text-primary border-0">
+                    100%
+                  </Badge>
+                </div>
+                <h3 className="text-2xl font-barlow font-bold mb-4 group-hover:text-primary transition-colors">
+                  {t('home.transparencyTitle')}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   {t('home.transparencyText')}
                 </p>
+                <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                  <CheckCircle className="w-4 h-4" />
+                  <span>Prix garantis sans frais cachés</span>
+                </div>
               </CardContent>
             </Card>
             
-            <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl bg-card">
-              <CardContent className="pt-12 pb-8">
-                <CheckCircle className="w-12 h-12 mb-6 text-secondary" />
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.simplicityTitle')}</h3>
-                <p className="text-muted-foreground">
+            {/* Simplicity */}
+            <Card className="relative border-2 hover:border-secondary transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
+              <CardContent className="pt-12 pb-8 relative z-10">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-secondary to-secondary/70 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <CheckCircle className="w-8 h-8 text-white" />
+                  </div>
+                  <Badge variant="secondary" className="bg-secondary/10 text-secondary border-0">
+                    Facile
+                  </Badge>
+                </div>
+                <h3 className="text-2xl font-barlow font-bold mb-4 group-hover:text-secondary transition-colors">
+                  {t('home.simplicityTitle')}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   {t('home.simplicityText')}
                 </p>
+                <div className="flex items-center gap-2 text-sm font-medium text-secondary">
+                  <CheckCircle className="w-4 h-4" />
+                  <span>Réservation en moins de 3 minutes</span>
+                </div>
               </CardContent>
             </Card>
             
-            <Card className="border-2 hover:shadow-lg transition-shadow rounded-2xl bg-card">
-              <CardContent className="pt-12 pb-8">
-                <MapPin className="w-12 h-12 mb-6 text-accent" />
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('home.trustTitle')}</h3>
-                <p className="text-muted-foreground">
+            {/* Trust */}
+            <Card className="relative border-2 hover:border-accent transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
+              <CardContent className="pt-12 pb-8 relative z-10">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accent to-accent/70 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                    <MapPin className="w-8 h-8 text-white" />
+                  </div>
+                  <Badge variant="secondary" className="bg-accent/10 text-accent border-0">
+                    Local
+                  </Badge>
+                </div>
+                <h3 className="text-2xl font-barlow font-bold mb-4 group-hover:text-accent transition-colors">
+                  {t('home.trustTitle')}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
                   {t('home.trustText')}
                 </p>
+                <div className="flex items-center gap-2 text-sm font-medium text-accent">
+                  <CheckCircle className="w-4 h-4" />
+                  <span>Agences vérifiées et certifiées</span>
+                </div>
               </CardContent>
             </Card>
+          </div>
+          
+          {/* Trust indicators */}
+          <div className="mt-16 flex flex-wrap justify-center gap-8 items-center">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                <Shield className="w-6 h-6 text-primary" />
+              </div>
+              <div className="text-left">
+                <p className="font-bold text-2xl">50+</p>
+                <p className="text-sm text-muted-foreground">Agences partenaires</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+                <CheckCircle className="w-6 h-6 text-secondary" />
+              </div>
+              <div className="text-left">
+                <p className="font-bold text-2xl">300+</p>
+                <p className="text-sm text-muted-foreground">Véhicules disponibles</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-accent" />
+              </div>
+              <div className="text-left">
+                <p className="font-bold text-2xl">6</p>
+                <p className="text-sm text-muted-foreground">Villes couvertes</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
