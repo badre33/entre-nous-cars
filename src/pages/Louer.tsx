@@ -14,8 +14,21 @@ import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
 import carDuster from "@/assets/car-duster.jpg";
+import carPeugeot208 from "@/assets/car-peugeot-208.jpg";
+import carVwGolf from "@/assets/car-vw-golf.jpg";
+import carHyundaiTucson from "@/assets/car-hyundai-tucson.jpg";
+import carKiaSportage from "@/assets/car-kia-sportage.jpg";
+import carMercedesC from "@/assets/car-mercedes-c.jpg";
+import carAudiA4 from "@/assets/car-audi-a4.jpg";
+import carBmwX3 from "@/assets/car-bmw-x3.jpg";
+import carCitroenC3 from "@/assets/car-citroen-c3.jpg";
+import carFordFocus from "@/assets/car-ford-focus.jpg";
+import carNissanQashqai from "@/assets/car-nissan-qashqai.jpg";
+import carSeatIbiza from "@/assets/car-seat-ibiza.jpg";
+import carFiatTipo from "@/assets/car-fiat-tipo.jpg";
 
 const cars = [
+  // Renault
   {
     id: 1,
     image: carClio,
@@ -30,6 +43,20 @@ const cars = [
   },
   {
     id: 2,
+    image: carClio,
+    name: "Renault Clio",
+    brand: "Renault",
+    type: "Manuelle",
+    category: "Berline",
+    city: "Tanger",
+    price: 320,
+    priceDisplay: "320 MAD",
+    conditions: ["Caution: 4500 MAD", "300 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Toyota
+  {
+    id: 3,
     image: carCorolla,
     name: "Toyota Corolla",
     brand: "Toyota",
@@ -41,31 +68,7 @@ const cars = [
     conditions: ["Caution: 6000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
   },
   {
-    id: 3,
-    image: carDuster,
-    name: "Dacia Duster",
-    brand: "Dacia",
-    type: "Manuelle",
-    category: "SUV",
-    city: "Agadir",
-    price: 400,
-    priceDisplay: "400 MAD",
-    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
-  },
-  {
     id: 4,
-    image: carClio,
-    name: "Renault Clio",
-    brand: "Renault",
-    type: "Manuelle",
-    category: "Berline",
-    city: "Tanger",
-    price: 320,
-    priceDisplay: "320 MAD",
-    conditions: ["Caution: 4500 MAD", "300 km/jour inclus", "Âge minimum: 21 ans"]
-  },
-  {
-    id: 5,
     image: carCorolla,
     name: "Toyota Corolla",
     brand: "Toyota",
@@ -76,6 +79,20 @@ const cars = [
     priceDisplay: "460 MAD",
     conditions: ["Caution: 6000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
   },
+  
+  // Dacia
+  {
+    id: 5,
+    image: carDuster,
+    name: "Dacia Duster",
+    brand: "Dacia",
+    type: "Manuelle",
+    category: "SUV",
+    city: "Casablanca",
+    price: 400,
+    priceDisplay: "400 MAD",
+    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+  },
   {
     id: 6,
     image: carDuster,
@@ -83,10 +100,322 @@ const cars = [
     brand: "Dacia",
     type: "Automatique",
     category: "SUV",
-    city: "Casablanca",
+    city: "Marrakech",
     price: 480,
     priceDisplay: "480 MAD",
     conditions: ["Caution: 6500 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  
+  // Peugeot
+  {
+    id: 7,
+    image: carPeugeot208,
+    name: "Peugeot 208",
+    brand: "Peugeot",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 340,
+    priceDisplay: "340 MAD",
+    conditions: ["Caution: 4500 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 8,
+    image: carPeugeot208,
+    name: "Peugeot 208",
+    brand: "Peugeot",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 310,
+    priceDisplay: "310 MAD",
+    conditions: ["Caution: 4000 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Volkswagen
+  {
+    id: 9,
+    image: carVwGolf,
+    name: "Volkswagen Golf",
+    brand: "Volkswagen",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 420,
+    priceDisplay: "420 MAD",
+    conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 10,
+    image: carVwGolf,
+    name: "Volkswagen Golf",
+    brand: "Volkswagen",
+    type: "Manuelle",
+    category: "Berline",
+    city: "Marrakech",
+    price: 390,
+    priceDisplay: "390 MAD",
+    conditions: ["Caution: 5000 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Hyundai
+  {
+    id: 11,
+    image: carHyundaiTucson,
+    name: "Hyundai Tucson",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 520,
+    priceDisplay: "520 MAD",
+    conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 12,
+    image: carHyundaiTucson,
+    name: "Hyundai Tucson",
+    brand: "Hyundai",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 510,
+    priceDisplay: "510 MAD",
+    conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  
+  // Kia
+  {
+    id: 13,
+    image: carKiaSportage,
+    name: "Kia Sportage",
+    brand: "Kia",
+    type: "Automatique",
+    category: "SUV",
+    city: "Tanger",
+    price: 500,
+    priceDisplay: "500 MAD",
+    conditions: ["Caution: 6800 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
+  },
+  {
+    id: 14,
+    image: carKiaSportage,
+    name: "Kia Sportage",
+    brand: "Kia",
+    type: "Manuelle",
+    category: "SUV",
+    city: "Marrakech",
+    price: 470,
+    priceDisplay: "470 MAD",
+    conditions: ["Caution: 6500 MAD", "400 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Mercedes
+  {
+    id: 15,
+    image: carMercedesC,
+    name: "Mercedes Classe C",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 850,
+    priceDisplay: "850 MAD",
+    conditions: ["Caution: 10000 MAD", "400 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 16,
+    image: carMercedesC,
+    name: "Mercedes Classe C",
+    brand: "Mercedes",
+    type: "Automatique",
+    category: "Berline",
+    city: "Marrakech",
+    price: 880,
+    priceDisplay: "880 MAD",
+    conditions: ["Caution: 10000 MAD", "400 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  
+  // Audi
+  {
+    id: 17,
+    image: carAudiA4,
+    name: "Audi A4",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Rabat",
+    price: 800,
+    priceDisplay: "800 MAD",
+    conditions: ["Caution: 9500 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  {
+    id: 18,
+    image: carAudiA4,
+    name: "Audi A4",
+    brand: "Audi",
+    type: "Automatique",
+    category: "Berline",
+    city: "Tanger",
+    price: 820,
+    priceDisplay: "820 MAD",
+    conditions: ["Caution: 9500 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
+  },
+  
+  // BMW
+  {
+    id: 19,
+    image: carBmwX3,
+    name: "BMW X3",
+    brand: "BMW",
+    type: "Automatique",
+    category: "SUV",
+    city: "Casablanca",
+    price: 950,
+    priceDisplay: "950 MAD",
+    conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  {
+    id: 20,
+    image: carBmwX3,
+    name: "BMW X3",
+    brand: "BMW",
+    type: "Automatique",
+    category: "SUV",
+    city: "Marrakech",
+    price: 970,
+    priceDisplay: "970 MAD",
+    conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+  },
+  
+  // Citroën
+  {
+    id: 21,
+    image: carCitroenC3,
+    name: "Citroën C3",
+    brand: "Citroën",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Rabat",
+    price: 300,
+    priceDisplay: "300 MAD",
+    conditions: ["Caution: 4000 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 22,
+    image: carCitroenC3,
+    name: "Citroën C3",
+    brand: "Citroën",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Tanger",
+    price: 330,
+    priceDisplay: "330 MAD",
+    conditions: ["Caution: 4500 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Ford
+  {
+    id: 23,
+    image: carFordFocus,
+    name: "Ford Focus",
+    brand: "Ford",
+    type: "Automatique",
+    category: "Berline",
+    city: "Casablanca",
+    price: 380,
+    priceDisplay: "380 MAD",
+    conditions: ["Caution: 5200 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  {
+    id: 24,
+    image: carFordFocus,
+    name: "Ford Focus",
+    brand: "Ford",
+    type: "Manuelle",
+    category: "Berline",
+    city: "Marrakech",
+    price: 350,
+    priceDisplay: "350 MAD",
+    conditions: ["Caution: 4800 MAD", "350 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  
+  // Nissan
+  {
+    id: 25,
+    image: carNissanQashqai,
+    name: "Nissan Qashqai",
+    brand: "Nissan",
+    type: "Automatique",
+    category: "SUV",
+    city: "Rabat",
+    price: 490,
+    priceDisplay: "490 MAD",
+    conditions: ["Caution: 6500 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
+  },
+  {
+    id: 26,
+    image: carNissanQashqai,
+    name: "Nissan Qashqai",
+    brand: "Nissan",
+    type: "Manuelle",
+    category: "SUV",
+    city: "Tanger",
+    price: 460,
+    priceDisplay: "460 MAD",
+    conditions: ["Caution: 6000 MAD", "380 km/jour inclus", "Âge minimum: 23 ans"]
+  },
+  
+  // Seat
+  {
+    id: 27,
+    image: carSeatIbiza,
+    name: "Seat Ibiza",
+    brand: "Seat",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 290,
+    priceDisplay: "290 MAD",
+    conditions: ["Caution: 3800 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  {
+    id: 28,
+    image: carSeatIbiza,
+    name: "Seat Ibiza",
+    brand: "Seat",
+    type: "Automatique",
+    category: "Citadine",
+    city: "Marrakech",
+    price: 320,
+    priceDisplay: "320 MAD",
+    conditions: ["Caution: 4200 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
+  },
+  
+  // Fiat
+  {
+    id: 29,
+    image: carFiatTipo,
+    name: "Fiat Tipo",
+    brand: "Fiat",
+    type: "Automatique",
+    category: "Berline",
+    city: "Rabat",
+    price: 370,
+    priceDisplay: "370 MAD",
+    conditions: ["Caution: 5000 MAD", "330 km/jour inclus", "Âge minimum: 22 ans"]
+  },
+  {
+    id: 30,
+    image: carFiatTipo,
+    name: "Fiat Tipo",
+    brand: "Fiat",
+    type: "Manuelle",
+    category: "Berline",
+    city: "Tanger",
+    price: 340,
+    priceDisplay: "340 MAD",
+    conditions: ["Caution: 4600 MAD", "330 km/jour inclus", "Âge minimum: 22 ans"]
   }
 ];
 
