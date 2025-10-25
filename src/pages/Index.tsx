@@ -207,32 +207,178 @@ const Index = () => {
       {/* For Whom */}
       <section className="py-20 bg-secondary/30">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">Pour qui ?</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <h2 className="text-4xl md:text-5xl text-center mb-6">Pour qui ?</h2>
+          <p className="text-center text-xl text-muted-foreground mb-16 max-w-3xl mx-auto">
+            Benatna s'adapte à tous vos besoins de mobilité au Maroc, que vous soyez de passage ou résident
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Voyageurs & Expats */}
             <div className="text-center">
-              <div className="bg-card rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <MapPin className="w-8 h-8 text-primary" />
+                </div>
                 <h3 className="text-2xl font-barlow font-semibold mb-4">Voyageurs & expats</h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground mb-6">
                   Des voitures fiables dès votre arrivée, sans stress ni surprise
                 </p>
+                
+                <div className="space-y-4 text-left flex-1">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Récupération à l'aéroport</p>
+                      <p className="text-sm text-muted-foreground">Votre voiture vous attend dès votre atterrissage</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Processus 100% digital</p>
+                      <p className="text-sm text-muted-foreground">Réservez en ligne, pas de paperasse sur place</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Prix transparents</p>
+                      <p className="text-sm text-muted-foreground">Aucun frais caché ni mauvaise surprise</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Support multilingue</p>
+                      <p className="text-sm text-muted-foreground">Français, anglais, arabe : on vous comprend</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-6 pt-6 border-t">
+                  <p className="text-sm font-medium text-primary">Cas d'usage :</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Road trip de 7 jours entre Marrakech et Merzouga, location mensuelle pour un expatrié en mission
+                  </p>
+                </div>
               </div>
             </div>
             
+            {/* Résidents */}
             <div className="text-center">
-              <div className="bg-card rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <Shield className="w-8 h-8 text-secondary" />
+                </div>
                 <h3 className="text-2xl font-barlow font-semibold mb-4">Résidents</h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground mb-6">
                   Louez quand vous voulez, sans engagement, pour tous vos déplacements
                 </p>
+                
+                <div className="space-y-4 text-left flex-1">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Locations flexibles</p>
+                      <p className="text-sm text-muted-foreground">Un weekend, une semaine, un mois : vous décidez</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Large choix de véhicules</p>
+                      <p className="text-sm text-muted-foreground">Citadine, SUV, 4x4 selon vos besoins du moment</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Tarifs résidents</p>
+                      <p className="text-sm text-muted-foreground">Réductions sur les locations longue durée</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Livraison possible</p>
+                      <p className="text-sm text-muted-foreground">Le véhicule vient à vous, où que vous soyez</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-6 pt-6 border-t">
+                  <p className="text-sm font-medium text-secondary">Cas d'usage :</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Voiture de remplacement pendant une réparation, véhicule spacieux pour un déménagement
+                  </p>
+                </div>
               </div>
             </div>
             
+            {/* Agences de location */}
             <div className="text-center">
-              <div className="bg-card rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow">
+              <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <ArrowRight className="w-8 h-8 text-accent" />
+                </div>
                 <h3 className="text-2xl font-barlow font-semibold mb-4">Agences de location</h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground mb-6">
                   Plus de réservations, plus de visibilité, zéro franchise internationale
                 </p>
+                
+                <div className="space-y-4 text-left flex-1">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Accès à une clientèle large</p>
+                      <p className="text-sm text-muted-foreground">Touchez voyageurs et résidents en un clic</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Plateforme digitale complète</p>
+                      <p className="text-sm text-muted-foreground">Gérez vos réservations et votre flotte en ligne</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Commission équitable</p>
+                      <p className="text-sm text-muted-foreground">Pas de frais cachés, pas de franchise exorbitante</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-sm">Support dédié</p>
+                      <p className="text-sm text-muted-foreground">Une équipe à votre écoute pour vous accompagner</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="mt-6 pt-6 border-t">
+                  <p className="text-sm font-medium text-accent">Bénéfices :</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Augmentez votre taux d'occupation, valorisez votre flotte, développez votre activité
+                  </p>
+                </div>
+                
+                <Link to="/partenaires" className="mt-4">
+                  <Button variant="outline" size="sm" className="w-full group">
+                    Devenir partenaire
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
