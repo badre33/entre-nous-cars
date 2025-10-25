@@ -29,7 +29,7 @@ const WhatsAppButton = () => {
     <>
       {/* Chat Widget */}
       {isOpen && (
-        <Card className="fixed bottom-24 right-6 z-50 w-[350px] shadow-2xl animate-scale-in">
+        <Card className="fixed bottom-24 left-6 z-50 w-[350px] shadow-2xl animate-scale-in">
           <CardHeader className="bg-[#25D366] text-white p-4 rounded-t-lg flex flex-row items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
@@ -83,7 +83,7 @@ const WhatsAppButton = () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
+        className="fixed bottom-6 left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
         aria-label="Ouvrir le chat WhatsApp"
       >
         {isOpen ? (
@@ -97,7 +97,7 @@ const WhatsAppButton = () => {
           </>
         )}
         {!isOpen && (
-          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          <span className="absolute left-full ml-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
             Besoin d'aide ? Discutons !
           </span>
         )}
