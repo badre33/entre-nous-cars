@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -2833,6 +2834,7 @@ const cars = [
 ];
 
 const Louer = () => {
+  const [searchParams] = useSearchParams();
   const [selectedCity, setSelectedCity] = useState<string>("all");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
@@ -2845,6 +2847,14 @@ const Louer = () => {
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
   const [showComparison, setShowComparison] = useState(false);
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
+
+  // Lire le paramètre city de l'URL au chargement
+  useEffect(() => {
+    const cityFromUrl = searchParams.get('city');
+    if (cityFromUrl) {
+      setSelectedCity(cityFromUrl);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -2896,7 +2906,7 @@ const Louer = () => {
     setEndDate(end);
   };
 
-  const cities = ["Casablanca", "Marrakech", "Tanger", "Rabat"];
+  const cities = ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"];
   
   // Toutes les marques de véhicules
   const brands = [
