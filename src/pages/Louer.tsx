@@ -1,7 +1,13 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Calendar, MapPin, Car } from "lucide-react";
+import { Calendar as CalendarIcon, MapPin, Car } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { format } from "date-fns";
+import { fr } from "date-fns/locale";
+import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-rent.jpg";
@@ -14,59 +20,97 @@ const cars = [
     id: 1,
     image: carClio,
     name: "Renault Clio",
+    brand: "Renault",
     type: "Automatique",
+    category: "Berline",
     city: "Casablanca",
-    price: "350 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: ["Caution: 5000 MAD", "300 km/jour inclus", "Âge minimum: 23 ans"]
   },
   {
     id: 2,
     image: carCorolla,
     name: "Toyota Corolla",
+    brand: "Toyota",
     type: "Automatique",
+    category: "Berline",
     city: "Marrakech",
-    price: "450 MAD",
+    price: 450,
+    priceDisplay: "450 MAD",
     conditions: ["Caution: 6000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
   },
   {
     id: 3,
     image: carDuster,
     name: "Dacia Duster",
+    brand: "Dacia",
     type: "Manuelle",
+    category: "SUV",
     city: "Agadir",
-    price: "400 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: ["Caution: 5500 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
   },
   {
     id: 4,
     image: carClio,
     name: "Renault Clio",
+    brand: "Renault",
     type: "Manuelle",
+    category: "Berline",
     city: "Tanger",
-    price: "320 MAD",
+    price: 320,
+    priceDisplay: "320 MAD",
     conditions: ["Caution: 4500 MAD", "300 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
     id: 5,
     image: carCorolla,
     name: "Toyota Corolla",
+    brand: "Toyota",
     type: "Automatique",
+    category: "Berline",
     city: "Rabat",
-    price: "460 MAD",
+    price: 460,
+    priceDisplay: "460 MAD",
     conditions: ["Caution: 6000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
   },
   {
     id: 6,
     image: carDuster,
     name: "Dacia Duster",
+    brand: "Dacia",
     type: "Automatique",
+    category: "SUV",
     city: "Casablanca",
-    price: "480 MAD",
+    price: 480,
+    priceDisplay: "480 MAD",
     conditions: ["Caution: 6500 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
   }
 ];
 
 const Louer = () => {
+  const [selectedCity, setSelectedCity] = useState<string>("");
+  const [startDate, setStartDate] = useState<Date>();
+  const [endDate, setEndDate] = useState<Date>();
+  const [selectedType, setSelectedType] = useState<string>("");
+  const [selectedBrand, setSelectedBrand] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+
+  const cities = ["Casablanca", "Marrakech", "Tanger", "Rabat"];
+  const brands = Array.from(new Set(cars.map(car => car.brand)));
+  const categories = Array.from(new Set(cars.map(car => car.category)));
+  const types = ["Automatique", "Manuelle"];
+
+  const filteredCars = cars.filter(car => {
+    if (selectedCity && car.city !== selectedCity) return false;
+    if (selectedType && car.type !== selectedType) return false;
+    if (selectedBrand && car.brand !== selectedBrand) return false;
+    if (selectedCategory && car.category !== selectedCategory) return false;
+    return true;
+  });
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -85,41 +129,144 @@ const Louer = () => {
             Trouvez votre voiture idéale
           </h1>
           
-          {/* Search Bar (Static for MVP) */}
+          {/* Search Bar */}
           <Card className="max-w-4xl mx-auto rounded-2xl shadow-xl">
             <CardContent className="p-6">
+              <div className="grid md:grid-cols-3 gap-4 mb-4">
+                <div className="space-y-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-2">
+                    <MapPin className="w-4 h-4" />
+                    Ville
+                  </label>
+                  <Select value={selectedCity} onValueChange={setSelectedCity}>
+                    <SelectTrigger className="bg-secondary/20 border-0">
+                      <SelectValue placeholder="Toutes les villes" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background">
+                      <SelectItem value="">Toutes les villes</SelectItem>
+                      {cities.map(city => (
+                        <SelectItem key={city} value={city}>{city}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-2">
+                    <CalendarIcon className="w-4 h-4" />
+                    Date de début
+                  </label>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-normal bg-secondary/20 border-0",
+                          !startDate && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {startDate ? format(startDate, "PPP", { locale: fr }) : "Sélectionner"}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={startDate}
+                        onSelect={setStartDate}
+                        disabled={(date) => date < new Date()}
+                        initialFocus
+                        className="pointer-events-auto"
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-2">
+                    <CalendarIcon className="w-4 h-4" />
+                    Date de fin
+                  </label>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <Button
+                        variant="outline"
+                        className={cn(
+                          "w-full justify-start text-left font-normal bg-secondary/20 border-0",
+                          !endDate && "text-muted-foreground"
+                        )}
+                      >
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        {endDate ? format(endDate, "PPP", { locale: fr }) : "Sélectionner"}
+                      </Button>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar
+                        mode="single"
+                        selected={endDate}
+                        onSelect={setEndDate}
+                        disabled={(date) => date < (startDate || new Date())}
+                        initialFocus
+                        className="pointer-events-auto"
+                      />
+                    </PopoverContent>
+                  </Popover>
+                </div>
+              </div>
+
               <div className="grid md:grid-cols-3 gap-4">
-                <div className="flex items-center gap-3 p-3 bg-secondary/20 rounded-lg">
-                  <MapPin className="w-5 h-5 text-primary" />
-                  <div className="flex-1">
-                    <label className="text-xs text-muted-foreground">Ville</label>
-                    <Input 
-                      placeholder="Casablanca, Marrakech..." 
-                      className="border-0 p-0 h-auto focus-visible:ring-0"
-                    />
-                  </div>
+                <div className="space-y-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-2">
+                    <Car className="w-4 h-4" />
+                    Marque
+                  </label>
+                  <Select value={selectedBrand} onValueChange={setSelectedBrand}>
+                    <SelectTrigger className="bg-secondary/20 border-0">
+                      <SelectValue placeholder="Toutes les marques" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background">
+                      <SelectItem value="">Toutes les marques</SelectItem>
+                      {brands.map(brand => (
+                        <SelectItem key={brand} value={brand}>{brand}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-secondary/20 rounded-lg">
-                  <Calendar className="w-5 h-5 text-primary" />
-                  <div className="flex-1">
-                    <label className="text-xs text-muted-foreground">Dates</label>
-                    <Input 
-                      placeholder="15/01 → 20/01" 
-                      className="border-0 p-0 h-auto focus-visible:ring-0"
-                    />
-                  </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-2">
+                    <Car className="w-4 h-4" />
+                    Catégorie
+                  </label>
+                  <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                    <SelectTrigger className="bg-secondary/20 border-0">
+                      <SelectValue placeholder="Toutes les catégories" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background">
+                      <SelectItem value="">Toutes les catégories</SelectItem>
+                      {categories.map(category => (
+                        <SelectItem key={category} value={category}>{category}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
-                
-                <div className="flex items-center gap-3 p-3 bg-secondary/20 rounded-lg">
-                  <Car className="w-5 h-5 text-primary" />
-                  <div className="flex-1">
-                    <label className="text-xs text-muted-foreground">Type</label>
-                    <Input 
-                      placeholder="Berline, SUV..." 
-                      className="border-0 p-0 h-auto focus-visible:ring-0"
-                    />
-                  </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-2">
+                    <Car className="w-4 h-4" />
+                    Transmission
+                  </label>
+                  <Select value={selectedType} onValueChange={setSelectedType}>
+                    <SelectTrigger className="bg-secondary/20 border-0">
+                      <SelectValue placeholder="Tous les types" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-background">
+                      <SelectItem value="">Tous les types</SelectItem>
+                      {types.map(type => (
+                        <SelectItem key={type} value={type}>{type}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
             </CardContent>
@@ -130,8 +277,16 @@ const Louer = () => {
       {/* Available Cars */}
       <section className="py-20">
         <div className="container">
+          <div className="mb-8">
+            <h2 className="text-2xl font-barlow font-semibold mb-2">
+              {filteredCars.length} véhicule{filteredCars.length > 1 ? 's' : ''} disponible{filteredCars.length > 1 ? 's' : ''}
+            </h2>
+            <p className="text-muted-foreground">
+              Toutes les voitures proviennent d'agences professionnelles vérifiées
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {cars.map((car) => (
+            {filteredCars.map((car) => (
               <Card key={car.id} className="overflow-hidden border-2 hover:shadow-xl transition-shadow rounded-2xl group">
                 <div className="aspect-video bg-card overflow-hidden">
                   <img 
@@ -144,10 +299,10 @@ const Louer = () => {
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-barlow font-semibold mb-1">{car.name}</h3>
-                      <p className="text-sm text-muted-foreground">{car.type}</p>
+                      <p className="text-sm text-muted-foreground">{car.category} • {car.type}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-2xl font-bold text-primary">{car.price}</p>
+                      <p className="text-2xl font-bold text-primary">{car.priceDisplay}</p>
                       <p className="text-xs text-muted-foreground">par jour</p>
                     </div>
                   </div>
