@@ -100,8 +100,9 @@ const Louer = () => {
 
   const cities = ["Casablanca", "Marrakech", "Tanger", "Rabat"];
   
-  // Toutes les marques de véhicules non-luxe
+  // Toutes les marques de véhicules
   const brands = [
+    "Audi", "BMW", "Mercedes",
     "Renault", "Peugeot", "Citroën", "Dacia",
     "Toyota", "Nissan", "Honda", "Hyundai", "Kia", "Mazda", "Suzuki", "Mitsubishi",
     "Volkswagen", "Opel", "Ford", "Fiat", "Seat", "Skoda",
@@ -110,7 +111,7 @@ const Louer = () => {
   
   // Toutes les catégories de véhicules
   const categories = [
-    "Berline", "SUV", "Citadine", "Monospace", "4x4", "Break", "Utilitaire"
+    "Berline", "SUV", "Citadine", "Monospace", "4x4", "Break", "Utilitaire", "Cabriolet"
   ].sort();
   
   const types = ["Automatique", "Manuelle"];
