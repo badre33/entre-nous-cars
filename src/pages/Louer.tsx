@@ -2048,8 +2048,18 @@ const Louer = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
+      
+      // Construire le message avec les dates si disponibles
+      let message = `Bonjour, je suis intéressé par ${carName} à ${city} (${priceDisplay}/jour)`;
+      
+      if (startDate && endDate) {
+        const dateDebut = format(startDate, "dd/MM/yyyy");
+        const dateFin = format(endDate, "dd/MM/yyyy");
+        message += `\nDates souhaitées : du ${dateDebut} au ${dateFin}`;
+      }
+      
       window.open(
-        `https://wa.me/212699024526?text=Bonjour, je suis intéressé par ${carName} à ${city} (${priceDisplay}/jour)`,
+        `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
         '_blank'
       );
     }, 800);

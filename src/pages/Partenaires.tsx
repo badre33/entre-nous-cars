@@ -3,13 +3,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { TrendingUp, Eye, FileText, Zap } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/hero-partners.jpg";
 
 const Partenaires = () => {
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const formRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +21,10 @@ const Partenaires = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -46,7 +51,7 @@ const Partenaires = () => {
             de frais de franchise internationale. Restez indépendant, gardez vos tarifs 
             — nous vous apportons les clients.
           </p>
-          <Button size="lg" className="rounded-full text-lg px-8">
+          <Button size="lg" className="rounded-full text-lg px-8" onClick={scrollToForm}>
             Rejoindre Benatna
           </Button>
         </div>
@@ -139,47 +144,71 @@ const Partenaires = () => {
       </section>
 
       {/* Join Form */}
-      <section className="py-20">
+      <section className="py-20" ref={formRef}>
         <div className="container max-w-2xl">
           <Card className="border-2 rounded-2xl shadow-lg">
             <CardContent className="p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl text-center mb-8">Rejoindre Benatna</h2>
-              <form className="space-y-6">
+              <form 
+                className="space-y-6"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const agence = formData.get('agence') as string;
+                  const villes = formData.get('villes') as string;
+                  const flotte = formData.get('flotte') as string;
+                  const tel = formData.get('tel') as string;
+                  const email = formData.get('email') as string;
+                  const message = formData.get('message') as string;
+                  
+                  let whatsappMessage = `Nouvelle candidature partenaire\n\nNom de l'agence: ${agence}\nVille(s): ${villes}\nTaille de la flotte: ${flotte} véhicules\nTéléphone: ${tel}\nEmail: ${email}`;
+                  
+                  if (message) {
+                    whatsappMessage += `\n\nMessage:\n${message}`;
+                  }
+                  
+                  window.open(
+                    `https://wa.me/212699024526?text=${encodeURIComponent(whatsappMessage)}`,
+                    '_blank'
+                  );
+                }}
+              >
                 <div>
                   <label className="block text-sm font-medium mb-2">Nom de l'agence</label>
-                  <Input placeholder="Votre agence de location" className="rounded-lg" />
+                  <Input name="agence" placeholder="Votre agence de location" className="rounded-lg" required />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">Ville(s)</label>
-                  <Input placeholder="Casablanca, Marrakech..." className="rounded-lg" />
+                  <Input name="villes" placeholder="Casablanca, Marrakech..." className="rounded-lg" required />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">Taille de la flotte</label>
-                  <Input type="number" placeholder="Nombre de véhicules" className="rounded-lg" />
+                  <Input name="flotte" type="number" placeholder="Nombre de véhicules" className="rounded-lg" required />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">WhatsApp / Téléphone</label>
-                  <Input type="tel" placeholder="+212 ..." className="rounded-lg" />
+                  <Input name="tel" type="tel" placeholder="+212 ..." className="rounded-lg" required />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">Email</label>
-                  <Input type="email" placeholder="contact@votre-agence.ma" className="rounded-lg" />
+                  <Input name="email" type="email" placeholder="contact@votre-agence.ma" className="rounded-lg" required />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">Message (optionnel)</label>
                   <Textarea 
+                    name="message"
                     placeholder="Parlez-nous de votre agence..." 
                     className="rounded-lg min-h-[120px]"
                   />
                 </div>
                 
                 <Button type="submit" size="lg" className="w-full rounded-full">
-                  Envoyer ma candidature
+                  Envoyer via WhatsApp
                 </Button>
               </form>
             </CardContent>

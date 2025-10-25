@@ -30,32 +30,54 @@ const Contact = () => {
             <Card className="border-2 rounded-2xl shadow-lg">
               <CardContent className="p-8 md:p-12">
                 <h2 className="text-3xl md:text-4xl mb-8">Envoyez-nous un message</h2>
-                <form className="space-y-6">
+                <p className="text-muted-foreground mb-6 text-center">
+                  Remplissez le formulaire ci-dessous et nous vous contacterons sur WhatsApp
+                </p>
+                <form 
+                  className="space-y-6"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    const formData = new FormData(e.currentTarget);
+                    const nom = formData.get('nom') as string;
+                    const tel = formData.get('tel') as string;
+                    const email = formData.get('email') as string;
+                    const message = formData.get('message') as string;
+                    
+                    const whatsappMessage = `Nouveau message de contact\n\nNom: ${nom}\nTéléphone: ${tel}\nEmail: ${email}\n\nMessage:\n${message}`;
+                    
+                    window.open(
+                      `https://wa.me/212699024526?text=${encodeURIComponent(whatsappMessage)}`,
+                      '_blank'
+                    );
+                  }}
+                >
                   <div>
                     <label className="block text-sm font-medium mb-2">Nom complet</label>
-                    <Input placeholder="Votre nom" className="rounded-lg" />
+                    <Input name="nom" placeholder="Votre nom" className="rounded-lg" required />
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium mb-2">Téléphone / WhatsApp</label>
-                    <Input type="tel" placeholder="+212 ..." className="rounded-lg" />
+                    <Input name="tel" type="tel" placeholder="+212 ..." className="rounded-lg" required />
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium mb-2">Email</label>
-                    <Input type="email" placeholder="votre@email.com" className="rounded-lg" />
+                    <Input name="email" type="email" placeholder="votre@email.com" className="rounded-lg" required />
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium mb-2">Message</label>
                     <Textarea 
+                      name="message"
                       placeholder="Comment pouvons-nous vous aider ?" 
                       className="rounded-lg min-h-[160px]"
+                      required
                     />
                   </div>
                   
                   <Button type="submit" size="lg" className="w-full rounded-full">
-                    Envoyer le message
+                    Envoyer via WhatsApp
                   </Button>
                 </form>
               </CardContent>
