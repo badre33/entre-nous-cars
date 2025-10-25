@@ -92,7 +92,7 @@ const Index = () => {
           
           <div className="flex gap-4 justify-center flex-wrap mt-6 animate-fade-in [animation-delay:600ms]">
             <Link to="/partenaires">
-              <Button size="lg" variant="partner" className="rounded-full text-lg px-8 animate-pulse">
+              <Button size="lg" variant="partner" className="rounded-full text-lg px-8">
                 {t('home.becomePartner')}
               </Button>
             </Link>
@@ -526,7 +526,7 @@ const Index = () => {
                 </div>
                 
                 <Link to="/partenaires" className="mt-4">
-                  <Button variant="outline" size="sm" className="w-full group">
+                  <Button variant="partner" size="sm" className="w-full group">
                     {t('forWho.becomePartner')}
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
