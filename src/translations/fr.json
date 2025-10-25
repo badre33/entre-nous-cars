@@ -323,7 +323,36 @@
     "article1": {
       "title": "10 conseils essentiels pour conduire au Maroc",
       "excerpt": "Découvrez les bonnes pratiques et règles de conduite pour rouler en toute sécurité sur les routes marocaines.",
-      "category": "Conduite"
+      "category": "Conduite",
+      "content": [
+        "Conduire au Maroc est une expérience unique qui demande de l'adaptation. Que vous soyez touriste ou résident, ces conseils vous aideront à circuler en toute sécurité.",
+        "## Les limites de vitesse à respecter",
+        "Les vitesses maximales autorisées au Maroc sont de 120 km/h sur autoroute, 100 km/h sur route nationale et 60 km/h en agglomération (parfois 40 km/h près des écoles).",
+        "Les radars automatiques sont présents sur les autoroutes et certaines nationales. Les amendes sont envoyées par courrier au propriétaire du véhicule.",
+        "## La conduite en ville",
+        "La circulation urbaine au Maroc a ses particularités. Les priorités ne sont pas toujours respectées aux intersections. Il faut être particulièrement vigilant aux ronds-points.",
+        "Les deux-roues circulent souvent entre les files et peuvent surgir de n'importe où. Vérifiez toujours vos rétroviseurs avant de changer de voie.",
+        "Le klaxon est utilisé fréquemment. Un coup bref pour signaler votre présence est acceptable, mais évitez les klaxonnements agressifs.",
+        "## Sur les routes rurales",
+        "Les routes de campagne peuvent présenter des surprises : animaux (moutons, chèvres, ânes), charrettes, tracteurs lents, ou encore piétons marchant sur la chaussée.",
+        "Évitez de conduire la nuit sur les routes secondaires. L'éclairage public est rare.",
+        "## Les documents obligatoires",
+        "Gardez toujours avec vous : votre permis de conduire (français ou international accepté), la carte grise du véhicule, l'attestation d'assurance et le contrat de location.",
+        "## Le stationnement",
+        "Dans les villes, les gardiens de parking sont omniprésents. Donnez leur 2 à 5 MAD pour quelques heures, ou 5 à 10 MAD pour une journée. C'est une pratique courante.",
+        "Ne laissez jamais d'objets de valeur visibles dans l'habitacle.",
+        "## Les autoroutes",
+        "Le réseau autoroutier marocain est moderne et très bien entretenu. À l'entrée, prenez un ticket au péage. À la sortie, vous payez selon la distance parcourue (environ 0,80 MAD/km).",
+        "Des stations-service sont présentes tous les 50-70 km avec toilettes, cafés et boutiques.",
+        "## En cas de problème",
+        "Si vous avez une panne ou un accident, contactez immédiatement votre agence de location. En cas d'accident avec des tiers, appelez la police (190).",
+        "Ne déplacez pas les véhicules avant l'arrivée de la police. Remplissez un constat amiable si possible et prenez des photos.",
+        "## Le carburant",
+        "Faites le plein dans les stations officielles (Total, Shell, Afriquia). Les prix sont fixes partout. Un pompiste fera le service, un petit pourboire de 2-5 MAD est apprécié.",
+        "Sur les longs trajets vers le désert, faites le plein dès que possible car les stations peuvent être espacées de 100 km ou plus.",
+        "## Dernier conseil",
+        "Restez zen et patient. Le style de conduite marocain peut sembler chaotique au début, mais en étant attentif et prudent, vous vous adapterez rapidement."
+      ]
     },
     "article2": {
       "title": "Les plus beaux road trips au Maroc en voiture",

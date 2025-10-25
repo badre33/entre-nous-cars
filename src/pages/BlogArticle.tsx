@@ -9,7 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const BlogArticle = () => {
   const { slug } = useParams();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const article = blogArticles.find(a => a.slug === slug);
 
   if (!article) {
@@ -29,6 +29,17 @@ const BlogArticle = () => {
     );
   }
 
+  // Get translated content if available
+  const articleIndex = blogArticles.findIndex(a => a.slug === slug);
+  const articleKey = `article${articleIndex + 1}`;
+  const translatedTitle = t(`blogArticles.${articleKey}.title`);
+  const translatedExcerpt = t(`blogArticles.${articleKey}.excerpt`);
+  const translatedCategory = t(`blogArticles.${articleKey}.category`);
+  const translatedContent = t(`blogArticles.${articleKey}.content`);
+  
+  // Use translated content if available, otherwise fallback to original
+  const content = Array.isArray(translatedContent) ? translatedContent : article.content;
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -37,14 +48,14 @@ const BlogArticle = () => {
       <section className="relative h-[400px] overflow-hidden">
         <img 
           src={article.image} 
-          alt={article.title}
+          alt={translatedTitle}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 container py-8">
-          <Badge className="mb-4">{article.category}</Badge>
+          <Badge className="mb-4">{translatedCategory}</Badge>
           <h1 className="text-4xl md:text-5xl text-white font-bold mb-4">
-            {article.title}
+            {translatedTitle}
           </h1>
           <div className="flex items-center gap-3 text-white/90">
             <Calendar className="w-4 h-4" />
@@ -58,11 +69,11 @@ const BlogArticle = () => {
         <div className="container max-w-3xl">
           <div className="prose prose-lg max-w-none">
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              {article.excerpt}
+              {translatedExcerpt}
             </p>
             
             <div className="space-y-6">
-              {article.content.map((paragraph, index) => {
+              {content.map((paragraph, index) => {
                 if (paragraph.startsWith('##')) {
                   return (
                     <h2 key={index} className="text-3xl font-bold mt-12 mb-6">
