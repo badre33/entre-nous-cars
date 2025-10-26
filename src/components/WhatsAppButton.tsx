@@ -1,5 +1,6 @@
 import { MessageCircle, X, Send } from "lucide-react";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -8,7 +9,14 @@ import { analytics } from "@/utils/analytics";
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+  const location = useLocation();
   const whatsappNumber = "212699024526";
+  
+  // Ne pas afficher sur les pages avec StickyCTA
+  const hiddenRoutes = ['/louer', '/partenaires'];
+  if (hiddenRoutes.includes(location.pathname)) {
+    return null;
+  }
   
   const handleOpen = () => {
     setIsOpen(true);

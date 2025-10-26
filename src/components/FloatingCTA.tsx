@@ -24,7 +24,7 @@ export const FloatingCTA = () => {
 
   return (
     <div
-      className={`fixed bottom-4 sm:bottom-6 left-4 sm:left-24 z-40 transition-all duration-300 ${
+      className={`fixed bottom-24 sm:bottom-6 left-4 sm:left-24 z-40 transition-all duration-300 ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0 pointer-events-none"
       }`}
     >

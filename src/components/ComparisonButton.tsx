@@ -31,7 +31,7 @@ export default function ComparisonButton({ onClick }: ComparisonButtonProps) {
   };
 
   return (
-    <div className="fixed bottom-24 md:bottom-8 right-4 md:right-8 z-50 animate-scale-in">
+    <div className="fixed bottom-40 md:bottom-8 left-4 md:left-auto md:right-8 z-50 animate-scale-in">
       <Button
         onClick={handleClick}
         size="lg"
