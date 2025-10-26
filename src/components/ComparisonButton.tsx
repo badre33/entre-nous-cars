@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useComparison } from "@/contexts/ComparisonContext";
 import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
 
 interface ComparisonButtonProps {
   onClick: () => void;
@@ -10,13 +11,29 @@ interface ComparisonButtonProps {
 
 export default function ComparisonButton({ onClick }: ComparisonButtonProps) {
   const { selectedCars } = useComparison();
+  const canClickRef = useRef(false);
+
+  useEffect(() => {
+    // Empêcher les clicks immédiats lors de l'apparition du bouton
+    canClickRef.current = false;
+    const timer = setTimeout(() => {
+      canClickRef.current = true;
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [selectedCars.length]);
 
   if (selectedCars.length === 0) return null;
+
+  const handleClick = () => {
+    if (canClickRef.current) {
+      onClick();
+    }
+  };
 
   return (
     <div className="fixed bottom-8 right-8 z-50 animate-scale-in">
       <Button
-        onClick={onClick}
+        onClick={handleClick}
         size="lg"
         className={cn(
           "group relative h-14 px-6 shadow-xl hover:shadow-2xl",
