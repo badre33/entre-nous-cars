@@ -29,6 +29,7 @@ import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { toast } from "@/hooks/use-toast";
+import { ShareButton } from "@/components/ShareButton";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
@@ -4550,6 +4551,14 @@ const Louer = () => {
                           >
                             Contacter via WhatsApp
                           </Button>
+                          <ShareButton
+                            title={`${car.name} - Location à ${car.city}`}
+                            text={`Louez ${car.name} à ${car.city} dès ${car.priceDisplay}/jour sur Benatna`}
+                            url={`${window.location.origin}/louer?city=${car.city}`}
+                            variant="ghost"
+                            size="default"
+                            className="w-full"
+                          />
                         </div>
                       </CardContent>
                     </Card>
@@ -4701,6 +4710,14 @@ const Louer = () => {
                     >
                       Contacter via WhatsApp
                     </Button>
+                    <ShareButton
+                      title={`${car.name} - Location à ${car.city}`}
+                      text={`Louez ${car.name} à ${car.city} dès ${car.priceDisplay}/jour sur Benatna`}
+                      url={`${window.location.origin}/louer?city=${car.city}`}
+                      variant="ghost"
+                      size="default"
+                      className="w-full"
+                    />
                   </div>
                 </CardContent>
               </Card>

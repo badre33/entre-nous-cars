@@ -1,24 +1,21 @@
 import { useParams, Link } from "react-router-dom";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, ArrowLeft, Share2, Facebook, Twitter, Linkedin, Check } from "lucide-react";
+import { Calendar, ArrowLeft } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { blogArticles } from "@/data/blogArticles";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ShareButton } from "@/components/ShareButton";
 
 const BlogArticle = () => {
   const { slug } = useParams();
   const { t } = useLanguage();
-  const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(true);
-  const [copied, setCopied] = useState(false);
   const headerAnimation = useScrollAnimation(0.2);
   const contentAnimation = useScrollAnimation(0.1);
   const article = blogArticles.find(a => a.slug === slug);
@@ -55,51 +52,6 @@ const BlogArticle = () => {
   
   // Use translated content if available, otherwise fallback to original
   const content = Array.isArray(translatedContent) ? translatedContent : article.content;
-
-  const shareOnFacebook = () => {
-    const url = window.location.href;
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-    toast({
-      title: "Partage sur Facebook",
-      description: "Fenêtre de partage ouverte",
-    });
-  };
-
-  const shareOnTwitter = () => {
-    const url = window.location.href;
-    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(translatedTitle)}`, '_blank');
-    toast({
-      title: "Partage sur Twitter",
-      description: "Fenêtre de partage ouverte",
-    });
-  };
-
-  const shareOnLinkedin = () => {
-    const url = window.location.href;
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
-    toast({
-      title: "Partage sur LinkedIn",
-      description: "Fenêtre de partage ouverte",
-    });
-  };
-
-  const copyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      toast({
-        title: "✓ Lien copié !",
-        description: "Le lien de l'article a été copié dans le presse-papier",
-      });
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      toast({
-        title: "Erreur",
-        description: "Impossible de copier le lien",
-        variant: "destructive",
-      });
-    }
-  };
 
   if (isLoading) {
     return (
@@ -176,57 +128,15 @@ const BlogArticle = () => {
             </div>
           </header>
 
-          {/* Share Buttons */}
-          <div className="mb-8 flex flex-wrap gap-3 animate-fade-in [animation-delay:400ms]">
-            <Button
+          {/* Share Button with Native API */}
+          <div className="mb-8 animate-fade-in [animation-delay:400ms]">
+            <ShareButton
+              title={translatedTitle}
+              text={translatedExcerpt}
+              url={window.location.href}
               variant="outline"
-              size="sm"
-              onClick={shareOnFacebook}
-              className="gap-2 hover:scale-110 hover:shadow-lg transition-all duration-300"
-            >
-              <Facebook className="w-4 h-4" />
-              Facebook
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={shareOnTwitter}
-              className="gap-2 hover:scale-110 hover:shadow-lg transition-all duration-300"
-            >
-              <Twitter className="w-4 h-4" />
-              Twitter
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={shareOnLinkedin}
-              className="gap-2 hover:scale-110 hover:shadow-lg transition-all duration-300"
-            >
-              <Linkedin className="w-4 h-4" />
-              LinkedIn
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={copyLink}
-              className={`gap-2 transition-all duration-300 ${
-                copied 
-                  ? 'bg-primary text-primary-foreground hover:bg-primary' 
-                  : 'hover:scale-110 hover:shadow-lg'
-              }`}
-            >
-              {copied ? (
-                <>
-                  <Check className="w-4 h-4" />
-                  Copié !
-                </>
-              ) : (
-                <>
-                  <Share2 className="w-4 h-4" />
-                  Copier le lien
-                </>
-              )}
-            </Button>
+              size="default"
+            />
           </div>
 
           {/* Article Image */}
