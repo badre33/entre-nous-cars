@@ -1,4 +1,6 @@
+import * as React from "react";
 import { X, Scale, MapPin, Car, Gauge, Check, Send } from "lucide-react";
+import { useSwipeable } from "react-swipeable";
 import {
   Dialog,
   DialogContent,
@@ -18,11 +20,65 @@ import {
 } from "@/components/ui/table";
 import { useComparison } from "@/contexts/ComparisonContext";
 import { toast } from "@/hooks/use-toast";
+import { cn } from "@/lib/utils";
 
 interface ComparisonDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
+
+interface SwipeableCardProps {
+  car: any;
+  onRemove: (id: number) => void;
+  children: React.ReactNode;
+}
+
+const SwipeableCard = ({ car, onRemove, children }: SwipeableCardProps) => {
+  const [swipeOffset, setSwipeOffset] = React.useState(0);
+  const [isSwiping, setIsSwiping] = React.useState(false);
+
+  const handlers = useSwipeable({
+    onSwiping: (eventData) => {
+      if (eventData.dir === "Left") {
+        setIsSwiping(true);
+        setSwipeOffset(Math.max(eventData.deltaX, -120));
+      }
+    },
+    onSwiped: (eventData) => {
+      setIsSwiping(false);
+      if (eventData.dir === "Left" && Math.abs(eventData.deltaX) > 100) {
+        onRemove(car.id);
+      } else {
+        setSwipeOffset(0);
+      }
+    },
+    trackMouse: false,
+    trackTouch: true,
+  });
+
+  return (
+    <div className="relative overflow-hidden" {...handlers}>
+      <div
+        className={cn(
+          "transition-transform duration-200",
+          isSwiping && "transition-none"
+        )}
+        style={{ transform: `translateX(${swipeOffset}px)` }}
+      >
+        {children}
+      </div>
+      <div
+        className="absolute right-0 top-0 bottom-0 flex items-center justify-center bg-destructive text-destructive-foreground px-6"
+        style={{ 
+          width: Math.abs(swipeOffset),
+          opacity: Math.abs(swipeOffset) / 120 
+        }}
+      >
+        <X className="h-6 w-6" />
+      </div>
+    </div>
+  );
+};
 
 export default function ComparisonDialog({
   open,
@@ -85,21 +141,23 @@ export default function ComparisonDialog({
         </DialogHeader>
 
         <div className="p-6 pt-4">
-          {/* Card View for Mobile */}
+          {/* Card View for Mobile with Swipe */}
           <div className="lg:hidden grid grid-cols-1 md:grid-cols-2 gap-6">
             {selectedCars.map((car) => (
-              <div
+              <SwipeableCard
                 key={car.id}
-                className="relative border rounded-xl overflow-hidden bg-card hover:shadow-xl transition-all duration-300"
+                car={car}
+                onRemove={removeFromComparison}
               >
-                <Button
-                  variant="destructive"
-                  size="sm"
-                  className="absolute top-3 right-3 z-10 h-8 w-8 p-0 rounded-full shadow-lg"
-                  onClick={() => removeFromComparison(car.id)}
-                >
-                  <X className="h-4 w-4" />
-                </Button>
+                <div className="relative border rounded-xl overflow-hidden bg-card hover:shadow-xl transition-all duration-300">
+                  <Button
+                    variant="destructive"
+                    size="sm"
+                    className="absolute top-3 right-3 z-10 h-8 w-8 p-0 rounded-full shadow-lg"
+                    onClick={() => removeFromComparison(car.id)}
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
 
                 <div className="relative h-48 overflow-hidden bg-muted">
                   <img
@@ -175,8 +233,14 @@ export default function ComparisonDialog({
                     </div>
                   </div>
                 </div>
-              </div>
+                </div>
+              </SwipeableCard>
             ))}
+          </div>
+          <div className="lg:hidden mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
+            <p className="text-xs text-center text-muted-foreground">
+              💡 Glissez vers la gauche pour supprimer une voiture
+            </p>
           </div>
 
           {/* Table View for Desktop */}

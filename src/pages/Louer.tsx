@@ -25,6 +25,10 @@ import { StructuredData } from "@/components/StructuredData";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
+import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { toast } from "@/hooks/use-toast";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
@@ -4082,7 +4086,23 @@ const Louer = () => {
   const [showAvailability, setShowAvailability] = useState(false);
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
   const [showComparison, setShowComparison] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(0);
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
+
+  // Pull to refresh
+  const handleRefresh = async () => {
+    // Simulate refresh with a small delay
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    setRefreshKey(prev => prev + 1);
+    toast({
+      title: "Actualisé",
+      description: "Les véhicules ont été actualisés",
+    });
+  };
+
+  const { isPulling, isRefreshing, pullDistance, pullPercentage } = usePullToRefresh({
+    onRefresh: handleRefresh,
+  });
 
   // Lire les paramètres de l'URL au chargement
   useEffect(() => {
@@ -4204,6 +4224,12 @@ const Louer = () => {
       </Helmet>
       <StructuredData type="rental" />
       {isLoading && <LoadingCar />}
+      <PullToRefreshIndicator 
+        isPulling={isPulling}
+        isRefreshing={isRefreshing}
+        pullDistance={pullDistance}
+        pullPercentage={pullPercentage}
+      />
       <Header />
       <Breadcrumbs />
       
@@ -4380,7 +4406,168 @@ const Louer = () => {
               {t('rent.verifiedAgencies')}
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {/* Mobile Carousel View */}
+          <div className="md:hidden mb-8">
+            <Carousel
+              key={refreshKey}
+              opts={{
+                align: "start",
+                loop: false,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {displayedCars.map((car) => (
+                  <CarouselItem key={car.id} className="pl-2 md:pl-4 basis-[85%]">
+                    <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 h-full">
+                      <div className="relative h-56 overflow-hidden bg-muted">
+                        <LazyCarImage 
+                          src={car.image} 
+                          alt={`${car.name} - Location à ${car.city}`}
+                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                        />
+                        <div className="absolute top-3 right-3 z-10">
+                          <div
+                            className={cn(
+                              "flex items-center gap-2 px-3 py-1.5 rounded-full transition-all cursor-pointer backdrop-blur-sm",
+                              isInComparison(car.id)
+                                ? "bg-primary text-primary-foreground shadow-lg scale-105"
+                                : "bg-background/80 border-2 border-border hover:border-primary/50"
+                            )}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (isInComparison(car.id)) {
+                                removeFromComparison(car.id);
+                              } else {
+                                addToComparison(car);
+                              }
+                            }}
+                          >
+                            <Checkbox
+                              checked={isInComparison(car.id)}
+                              className="pointer-events-none"
+                            />
+                            <span className="text-xs font-medium">Comparer</span>
+                          </div>
+                        </div>
+                        {car.badges && car.badges.length > 0 && (
+                          <div className="absolute top-3 left-3 flex flex-col gap-2">
+                            {car.badges.map((badge, idx) => (
+                              <Badge 
+                                key={`${car.id}-badge-${idx}`}
+                                className={`${
+                                  badge.includes('Populaire') 
+                                    ? 'bg-destructive/90 hover:bg-destructive text-destructive-foreground shadow-lg' 
+                                    : badge.includes('Disponible') 
+                                    ? 'bg-secondary/90 hover:bg-secondary text-secondary-foreground shadow-lg animate-pulse' 
+                                    : badge.includes('Nouveau')
+                                    ? 'bg-accent/90 hover:bg-accent text-accent-foreground shadow-lg'
+                                    : 'bg-primary/90 hover:bg-primary text-primary-foreground shadow-lg'
+                                } backdrop-blur-sm`}
+                              >
+                                {badge}
+                              </Badge>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <CardContent className="p-6">
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <h3 className="text-xl font-barlow font-semibold mb-1">{car.name}</h3>
+                            <p className="text-sm text-muted-foreground">{car.category} • {car.type}</p>
+                          </div>
+                          <div className="text-right">
+                            {(() => {
+                              const days = calculateDays(startDate, endDate);
+                              const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
+                              
+                              if (days > 0) {
+                                const totalPrice = calculateTotalPrice(basePrice, days);
+                                const dailyPrice = calculateDailyPrice(basePrice, days);
+                                const discount = days >= 7 ? Math.round((1 - dailyPrice / basePrice) * 100) : 0;
+                                
+                                return (
+                                  <>
+                                    <p className="text-2xl font-bold text-primary">{formatPrice(totalPrice)}</p>
+                                    <p className="text-xs text-muted-foreground">{days} jour{days > 1 ? 's' : ''}</p>
+                                    {discount > 0 && (
+                                      <p className="text-xs text-secondary font-medium">-{discount}% appliqué</p>
+                                    )}
+                                  </>
+                                );
+                              }
+                              
+                              return (
+                                <>
+                                  <p className="text-2xl font-bold text-primary">{car.priceDisplay}</p>
+                                  <p className="text-xs text-muted-foreground">à partir de</p>
+                                </>
+                              );
+                            })()}
+                          </div>
+                        </div>
+                        
+                        {!startDate || !endDate ? (
+                          <div className="mb-4 p-3 bg-secondary/10 rounded-lg border border-secondary/20">
+                            <p className="text-xs text-muted-foreground text-center">
+                              💡 Prix dégressif pour location longue durée
+                            </p>
+                          </div>
+                        ) : null}
+                        
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                          <MapPin className="w-4 h-4" />
+                          <span>{car.city}</span>
+                        </div>
+                        
+                        <div className="space-y-2 mb-6">
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
+                            <span>Kilométrage illimité</span>
+                          </div>
+                          {car.conditions.filter(c => c.startsWith('Âge minimum')).map((condition, idx) => (
+                            <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
+                              <span>{condition}</span>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <Button 
+                            variant="outline"
+                            className="w-full rounded-full" 
+                            onClick={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                          >
+                            <CalendarCheck className="w-4 h-4 mr-2" />
+                            Voir disponibilités
+                          </Button>
+                          <Button 
+                            className="w-full rounded-full" 
+                            onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                          >
+                            Contacter via WhatsApp
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
+            <div className="mt-6 p-4 bg-muted/30 rounded-lg border border-dashed">
+              <p className="text-sm text-center text-muted-foreground">
+                👆 Glissez horizontalement pour parcourir les {displayedCars.length} véhicules disponibles
+              </p>
+            </div>
+          </div>
+
+          {/* Desktop Grid View */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayedCars.map((car) => (
               <Card key={car.id} className="overflow-hidden border-2 hover:shadow-xl transition-shadow rounded-2xl group">
                 <div className="aspect-video bg-card overflow-hidden relative">
