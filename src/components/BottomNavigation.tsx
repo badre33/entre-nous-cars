@@ -11,25 +11,25 @@ export const BottomNavigation = () => {
     {
       path: '/',
       icon: Home,
-      label: t('header.home'),
+      label: t('common.home'),
       ariaLabel: 'Accueil'
     },
     {
       path: '/louer',
       icon: Car,
-      label: t('header.rent'),
+      label: t('common.rent'),
       ariaLabel: 'Louer une voiture'
     },
     {
       path: '/partenaires',
       icon: Handshake,
-      label: t('header.partners'),
+      label: t('common.partners'),
       ariaLabel: 'Devenir partenaire'
     },
     {
       path: '/contact',
       icon: Mail,
-      label: t('header.contact'),
+      label: t('common.contact'),
       ariaLabel: 'Contact'
     }
   ];

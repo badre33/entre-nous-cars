@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Calendar as CalendarIcon, MapPin, Car, CalendarCheck } from "lucide-react";
+import { Calendar as CalendarIcon, MapPin, Car, CalendarCheck, LayoutGrid, List, Rows3, MessageCircle } from "lucide-react";
 import { useComparison } from "@/contexts/ComparisonContext";
 import ComparisonButton from "@/components/ComparisonButton";
 import ComparisonDialog from "@/components/ComparisonDialog";
@@ -33,7 +33,7 @@ import { ShareButton } from "@/components/ShareButton";
 import { FilterBottomSheet } from "@/components/FilterBottomSheet";
 import { StickyCTA } from "@/components/StickyCTA";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { MessageCircle } from "lucide-react";
+import CarCard from "@/components/CarCard";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
@@ -4092,6 +4092,7 @@ const Louer = () => {
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
   const [showComparison, setShowComparison] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('carousel');
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
   const isMobile = useIsMobile();
 
@@ -4470,148 +4471,138 @@ const Louer = () => {
       <section className="py-8 md:py-20 pb-32 md:pb-20">
         <div className="container px-4">
           <div className="mb-6 md:mb-8">
-            <h2 className="text-xl md:text-2xl font-barlow font-semibold mb-2">
-              {displayedCars.length} {t('rent.vehicle')}{displayedCars.length > 1 ? 's' : ''} {t(displayedCars.length > 1 ? 'rent.availables' : 'rent.available')}
-            </h2>
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-xl md:text-2xl font-barlow font-semibold">
+                {displayedCars.length} {t('rent.vehicle')}{displayedCars.length > 1 ? 's' : ''} {t(displayedCars.length > 1 ? 'rent.availables' : 'rent.available')}
+              </h2>
+              {/* View Mode Selector (Mobile only) */}
+              <div className="md:hidden flex gap-1 bg-muted/50 p-1 rounded-lg">
+                <Button
+                  size="sm"
+                  variant={viewMode === 'carousel' ? 'default' : 'ghost'}
+                  className="h-8 w-8 p-0"
+                  onClick={() => setViewMode('carousel')}
+                  aria-label="Vue carrousel"
+                >
+                  <Rows3 className="h-4 w-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={viewMode === 'grid' ? 'default' : 'ghost'}
+                  className="h-8 w-8 p-0"
+                  onClick={() => setViewMode('grid')}
+                  aria-label="Vue grille"
+                >
+                  <LayoutGrid className="h-4 w-4" />
+                </Button>
+                <Button
+                  size="sm"
+                  variant={viewMode === 'list' ? 'default' : 'ghost'}
+                  className="h-8 w-8 p-0"
+                  onClick={() => setViewMode('list')}
+                  aria-label="Vue liste"
+                >
+                  <List className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
             <p className="text-sm md:text-base text-muted-foreground">
               {t('rent.verifiedAgencies')}
             </p>
           </div>
 
-          {/* Mobile Carousel View */}
+          {/* Mobile Views */}
           <div className="md:hidden mb-8">
-            <Carousel
-              key={refreshKey}
-              opts={{
-                align: "start",
-                loop: false,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="-ml-2">
-                {displayedCars.map((car) => (
-                  <CarouselItem key={car.id} className="pl-2 basis-[90%]">
-                    <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border h-full">
-                      <div className="relative h-48 overflow-hidden bg-muted">
-                        <LazyCarImage 
-                          src={car.image} 
-                          alt={`${car.name} - Location à ${car.city}`}
-                          className="w-full h-full object-cover"
+            {viewMode === 'carousel' && (
+              <>
+                <Carousel
+                  key={refreshKey}
+                  opts={{
+                    align: "start",
+                    loop: false,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent className="-ml-2">
+                    {displayedCars.map((car) => (
+                      <CarouselItem key={car.id} className="pl-2 basis-[90%]">
+                        <CarCard
+                          car={car}
+                          viewMode="carousel"
+                          startDate={startDate}
+                          endDate={endDate}
+                          isInComparison={isInComparison(car.id)}
+                          onToggleComparison={() => {
+                            if (isInComparison(car.id)) {
+                              removeFromComparison(car.id);
+                            } else {
+                              addToComparison(car);
+                            }
+                          }}
+                          onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                          onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
                         />
-                        <div className="absolute top-2 right-2 z-10">
-                          <div
-                            className={cn(
-                              "flex items-center gap-1.5 px-3 py-2 rounded-full transition-all cursor-pointer backdrop-blur-sm touch-target",
-                              isInComparison(car.id)
-                                ? "bg-primary text-primary-foreground shadow-lg"
-                                : "bg-background/90 border border-border"
-                            )}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              if (isInComparison(car.id)) {
-                                removeFromComparison(car.id);
-                              } else {
-                                addToComparison(car);
-                              }
-                            }}
-                          >
-                            <Checkbox
-                              checked={isInComparison(car.id)}
-                              className="pointer-events-none h-4 w-4"
-                            />
-                            <span className="text-xs font-medium">Comparer</span>
-                          </div>
-                        </div>
-                        {car.badges && car.badges.length > 0 && (
-                          <div className="absolute top-2 left-2 flex flex-col gap-1.5">
-                            {car.badges.slice(0, 2).map((badge, idx) => (
-                              <Badge 
-                                key={`${car.id}-badge-${idx}`}
-                                className={cn(
-                                  "text-xs py-0.5 px-2",
-                                  badge.includes('Populaire') && 'bg-destructive/90',
-                                  badge.includes('Disponible') && 'bg-secondary/90 animate-pulse',
-                                  badge.includes('Nouveau') && 'bg-accent/90'
-                                )}
-                              >
-                                {badge}
-                              </Badge>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                      <CardContent className="p-4">
-                        <div className="flex items-start justify-between mb-3">
-                          <div className="flex-1 pr-2">
-                            <h3 className="text-lg font-barlow font-semibold mb-0.5 line-clamp-1">{car.name}</h3>
-                            <p className="text-xs text-muted-foreground">{car.category} • {car.type}</p>
-                          </div>
-                          <div className="text-right flex-shrink-0">
-                            {(() => {
-                              const days = calculateDays(startDate, endDate);
-                              const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
-                              
-                              if (days > 0) {
-                                const totalPrice = calculateTotalPrice(basePrice, days);
-                                const discount = days >= 7 ? Math.round((1 - calculateDailyPrice(basePrice, days) / basePrice) * 100) : 0;
-                                
-                                return (
-                                  <>
-                                    <p className="text-xl font-bold text-primary">{formatPrice(totalPrice)}</p>
-                                    <p className="text-[10px] text-muted-foreground">{days} jour{days > 1 ? 's' : ''}</p>
-                                    {discount > 0 && (
-                                      <p className="text-[10px] text-secondary font-medium">-{discount}%</p>
-                                    )}
-                                  </>
-                                );
-                              }
-                              
-                              return (
-                                <>
-                                  <p className="text-xl font-bold text-primary">{car.priceDisplay}</p>
-                                  <p className="text-[10px] text-muted-foreground">par jour</p>
-                                </>
-                              );
-                            })()}
-                          </div>
-                        </div>
-                        
-                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
-                          <MapPin className="w-3 h-3 flex-shrink-0" />
-                          <span className="truncate">{car.city}</span>
-                        </div>
-                        
-                        <div className="space-y-2 mb-4">
-                          <Button 
-                            variant="outline"
-                            size="sm"
-                            className="w-full rounded-full touch-target text-xs" 
-                            onClick={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                          >
-                            <CalendarCheck className="w-3.5 h-3.5 mr-1.5" />
-                            Disponibilités
-                          </Button>
-                          <Button 
-                            size="sm"
-                            className="w-full rounded-full touch-target text-xs" 
-                            onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
-                          >
-                            Contacter WhatsApp
-                          </Button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                  <CarouselPrevious className="left-1 h-8 w-8" />
+                  <CarouselNext className="right-1 h-8 w-8" />
+                </Carousel>
+                <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
+                  <p className="text-xs text-center text-muted-foreground">
+                    👆 Glissez pour voir les {displayedCars.length} véhicules
+                  </p>
+                </div>
+              </>
+            )}
+
+            {viewMode === 'grid' && (
+              <div className="grid grid-cols-2 gap-3">
+                {displayedCars.map((car) => (
+                  <CarCard
+                    key={car.id}
+                    car={car}
+                    viewMode="grid"
+                    startDate={startDate}
+                    endDate={endDate}
+                    isInComparison={isInComparison(car.id)}
+                    onToggleComparison={() => {
+                      if (isInComparison(car.id)) {
+                        removeFromComparison(car.id);
+                      } else {
+                        addToComparison(car);
+                      }
+                    }}
+                    onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                    onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                  />
                 ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-1 h-8 w-8" />
-              <CarouselNext className="right-1 h-8 w-8" />
-            </Carousel>
-            <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
-              <p className="text-xs text-center text-muted-foreground">
-                👆 Glissez pour voir les {displayedCars.length} véhicules
-              </p>
-            </div>
+              </div>
+            )}
+
+            {viewMode === 'list' && (
+              <div className="space-y-0">
+                {displayedCars.map((car) => (
+                  <CarCard
+                    key={car.id}
+                    car={car}
+                    viewMode="list"
+                    startDate={startDate}
+                    endDate={endDate}
+                    isInComparison={isInComparison(car.id)}
+                    onToggleComparison={() => {
+                      if (isInComparison(car.id)) {
+                        removeFromComparison(car.id);
+                      } else {
+                        addToComparison(car);
+                      }
+                    }}
+                    onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                    onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Desktop Grid View */}
