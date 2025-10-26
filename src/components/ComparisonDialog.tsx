@@ -37,7 +37,7 @@ export default function ComparisonDialog({
   const handleGroupRequest = () => {
     const vehiclesList = selectedCars.map(car => `${car.name} - ${car.city}`).join('\n');
     const message = `Bonjour, je souhaite une demande groupée pour les véhicules suivants :\n\n${vehiclesList}\n\nPouvez-vous me communiquer les disponibilités et tarifs ?`;
-    const whatsappUrl = `https://wa.me/212612345678?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/212699024526?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
     toast({
