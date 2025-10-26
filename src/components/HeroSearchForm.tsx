@@ -53,19 +53,19 @@ export const HeroSearchForm = () => {
   return (
     <form 
       onSubmit={handleSearch}
-      className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 max-w-4xl mx-auto mt-8"
+      className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 max-w-4xl mx-auto mt-6 sm:mt-8"
     >
-      <div className="grid md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {/* City Selection */}
         <div className="flex flex-col">
-          <label htmlFor="city" className="text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="city" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             {t('common.city')}
           </label>
           <select
             id="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 bg-white"
+            className="px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 bg-white text-sm sm:text-base"
             required
           >
             <option value="" className="text-gray-500">{t('common.selectCity')}</option>
@@ -79,7 +79,7 @@ export const HeroSearchForm = () => {
 
         {/* Start Date */}
         <div className="flex flex-col">
-          <label htmlFor="startDate" className="text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="startDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             {t('common.startDate')}
           </label>
           <div className="relative">
@@ -89,16 +89,16 @@ export const HeroSearchForm = () => {
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               min={today}
-              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full text-gray-900 bg-white [color-scheme:light]"
+              className="px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base"
               required
             />
-            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none hidden md:block" />
+            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 pointer-events-none hidden sm:block" />
           </div>
         </div>
 
         {/* End Date */}
         <div className="flex flex-col">
-          <label htmlFor="endDate" className="text-sm font-semibold text-gray-700 mb-2">
+          <label htmlFor="endDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
             {t('common.endDate')}
           </label>
           <div className="relative">
@@ -108,19 +108,19 @@ export const HeroSearchForm = () => {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               min={startDate || today}
-              className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full text-gray-900 bg-white [color-scheme:light]"
+              className="px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base"
               required
             />
-            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none hidden md:block" />
+            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 pointer-events-none hidden sm:block" />
           </div>
         </div>
 
         {/* Search Button */}
-        <div className="flex items-end">
+        <div className="flex items-end sm:col-span-1">
           <Button 
             type="submit"
             size="lg" 
-            className="w-full py-3 rounded-lg text-base font-semibold"
+            className="w-full py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold h-auto"
           >
             {t('common.search')}
           </Button>

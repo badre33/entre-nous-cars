@@ -35,8 +35,11 @@ const Index = () => {
   
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      setParallaxOffset(offset * 0.5);
+      // Disable parallax on mobile for better performance
+      if (window.innerWidth >= 768) {
+        const offset = window.scrollY;
+        setParallaxOffset(offset * 0.5);
+      }
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -68,7 +71,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section with Parallax */}
-      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[500px] sm:min-h-[550px] md:h-[600px] lg:h-[650px] flex items-center justify-center overflow-hidden">
         {/* Preloaded image for LCP optimization */}
         <img 
           src={heroImage} 
@@ -76,27 +79,27 @@ const Index = () => {
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
           style={{ 
-            transform: `translateY(${parallaxOffset}px)`
+            transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         
-        <div className="container relative z-10 text-center text-white px-4 animate-fade-in">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 text-white drop-shadow-lg animate-fade-in">
+        <div className="container relative z-10 text-center text-white px-4 sm:px-6 animate-fade-in py-8 sm:py-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 text-white drop-shadow-lg animate-fade-in leading-tight">
             {t('home.heroTitle')}
           </h1>
-          <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto text-white/95 font-medium animate-fade-in [animation-delay:200ms]">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto text-white/95 font-medium animate-fade-in [animation-delay:200ms] leading-relaxed px-2">
             {t('home.heroSubtitle')}
           </p>
           
           {/* Search Form */}
-          <div className="animate-fade-in [animation-delay:400ms]">
+          <div className="animate-fade-in [animation-delay:400ms] max-w-4xl mx-auto">
             <HeroSearchForm />
           </div>
           
-          <div className="flex gap-4 justify-center flex-wrap mt-6 animate-fade-in [animation-delay:600ms]">
+          <div className="flex gap-3 sm:gap-4 justify-center flex-wrap mt-6 sm:mt-8 animate-fade-in [animation-delay:600ms]">
             <Link to="/partenaires">
-              <Button size="lg" variant="partner" className="rounded-full text-lg px-8">
+              <Button size="lg" variant="partner" className="rounded-full text-base sm:text-lg px-6 sm:px-8 h-11 sm:h-12">
                 {t('home.becomePartner')}
               </Button>
             </Link>
@@ -105,55 +108,55 @@ const Index = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-b from-primary/5 to-background">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
         <div 
           ref={statsAnimation.ref}
-          className="container"
+          className="container px-4 sm:px-6"
         >
-          <div className={`grid md:grid-cols-3 gap-8 max-w-5xl mx-auto transition-all duration-700 ${
+          <div className={`grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8 max-w-5xl mx-auto transition-all duration-700 ${
             statsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="text-center group hover:scale-110 transition-transform duration-300">
+            <div className="text-center group hover:scale-105 sm:hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
-                <span className="text-5xl md:text-6xl font-bold text-primary">
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">
                   <AnimatedCounter end={302} suffix="+" />
                 </span>
               </div>
-              <p className="text-xl font-semibold mb-2">{t('home.availableCars')}</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-lg sm:text-xl font-semibold mb-2">{t('home.availableCars')}</p>
+              <p className="text-sm text-muted-foreground px-4">
                 {t('home.inCities')}
               </p>
             </div>
             
-            <div className="text-center group hover:scale-110 transition-transform duration-300">
+            <div className="text-center group hover:scale-105 sm:hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
-                <span className="text-5xl md:text-6xl font-bold text-secondary">
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-secondary">
                   <AnimatedCounter end={24} suffix="+" />
                 </span>
               </div>
-              <p className="text-xl font-semibold mb-2">{t('home.partnerAgencies')}</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-lg sm:text-xl font-semibold mb-2">{t('home.partnerAgencies')}</p>
+              <p className="text-sm text-muted-foreground px-4">
                 {t('home.verifiedTrusted')}
               </p>
             </div>
             
-            <div className="text-center">
+            <div className="text-center group hover:scale-105 sm:hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
-                <span className="text-5xl md:text-6xl font-bold text-accent">
+                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-accent">
                   <AnimatedCounter end={1200} suffix="+" />
                 </span>
               </div>
-              <p className="text-xl font-semibold mb-2">{t('home.satisfiedClients')}</p>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-lg sm:text-xl font-semibold mb-2">{t('home.satisfiedClients')}</p>
+              <p className="text-sm text-muted-foreground px-4">
                 {t('home.sinceLaunch')}
               </p>
             </div>
           </div>
           
           {/* Trust Badges */}
-          <div className="mt-16 flex flex-wrap justify-center items-center gap-8 max-w-4xl mx-auto">
+          <div className="mt-12 sm:mt-16 flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto px-4">
             {/* Google Reviews */}
-            <div className="flex items-center gap-3 bg-card px-6 py-4 rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-2 sm:gap-3 bg-card px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
               <div className="flex flex-col items-center gap-1">
                 <div className="flex items-center gap-2">
                   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -233,19 +236,19 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-gradient-to-b from-secondary/20 to-background">
-        <div className="container">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-secondary/20 to-background">
+        <div className="container px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <Badge variant="secondary" className="mb-4 text-sm sm:text-base">
               Simple et Rapide
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('home.howItWorks')}</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">{t('home.howItWorks')}</h2>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
               Louez votre voiture en 3 étapes simples
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
             {/* Connection lines between steps */}
             <div className="hidden md:block absolute top-24 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent opacity-30" />
             
@@ -333,9 +336,9 @@ const Index = () => {
               Prêt à démarrer votre aventure ?
             </p>
             <Link to="/louer">
-              <Button size="lg" className="rounded-full group">
+              <Button size="lg" className="rounded-full group h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
                 Trouver ma voiture
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform w-4 h-4" />
               </Button>
             </Link>
           </div>
@@ -343,20 +346,20 @@ const Index = () => {
       </section>
 
       {/* Why Benatna */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background" />
-        <div className="container relative z-10">
-          <div className="text-center mb-16">
-            <Badge variant="secondary" className="mb-4">
+        <div className="container relative z-10 px-4 sm:px-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <Badge variant="secondary" className="mb-4 text-sm sm:text-base">
               Nos Avantages
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">{t('home.whyBenatna')}</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">{t('home.whyBenatna')}</h2>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
               Ce qui nous rend différents et meilleurs
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {/* Transparency */}
             <Card className="relative border-2 hover:border-primary transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
@@ -467,13 +470,13 @@ const Index = () => {
       </section>
 
       {/* Popular Cities */}
-      <section className="py-20 bg-muted/30">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-4">{t('home.popularCities')}</h2>
-          <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
+      <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
+        <div className="container px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-center mb-4 px-4">{t('home.popularCities')}</h2>
+          <p className="text-center text-muted-foreground text-sm sm:text-base mb-12 sm:mb-16 max-w-2xl mx-auto px-4">
             {t('home.popularCitiesSubtitle')}
           </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {popularCities.map((city) => (
               <Link 
                 key={city.name}
@@ -481,7 +484,7 @@ const Index = () => {
                 className="group"
               >
                 <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="relative h-48 overflow-hidden">
+                  <div className="relative h-40 sm:h-48 overflow-hidden">
                     <img 
                       src={city.image} 
                       alt={`Location de voiture à ${city.name}`}
@@ -489,15 +492,15 @@ const Index = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-2xl font-barlow font-bold text-white mb-1">{city.name}</h3>
-                      <p className="text-white/90 text-sm font-medium">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                      <h3 className="text-xl sm:text-2xl font-barlow font-bold text-white mb-1">{city.name}</h3>
+                      <p className="text-white/90 text-xs sm:text-sm font-medium">
                         {city.vehicles} {t('common.vehicles')}
                       </p>
                     </div>
                   </div>
-                  <CardContent className="p-4">
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                  <CardContent className="p-3 sm:p-4">
+                    <div className="flex items-center justify-between text-xs sm:text-sm text-muted-foreground">
                       <span className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" />
                         Explorer
@@ -513,22 +516,22 @@ const Index = () => {
       </section>
 
       {/* For Whom */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-6">{t('forWho.title')}</h2>
-          <p className="text-center text-xl text-muted-foreground mb-16 max-w-3xl mx-auto">
+      <section className="py-12 sm:py-16 lg:py-20 bg-secondary/30">
+        <div className="container px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-center mb-4 sm:mb-6 px-4">{t('forWho.title')}</h2>
+          <p className="text-center text-base sm:text-lg md:text-xl text-muted-foreground mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
             {t('forWho.subtitle')}
           </p>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {/* Voyageurs & Expats */}
             <div className="text-center">
-              <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MapPin className="w-8 h-8 text-primary" />
+              <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                  <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
                 </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('forWho.travelers')}</h3>
-                <p className="text-muted-foreground mb-6">
+                <h3 className="text-xl sm:text-2xl font-barlow font-semibold mb-3 sm:mb-4">{t('forWho.travelers')}</h3>
+                <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
                   {t('forWho.travelersText')}
                 </p>
                 
@@ -706,7 +709,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Link to="/blog/assurance-voiture-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 sm:h-48 overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop" 
                     alt="Conseils de conduite au Maroc"
@@ -714,20 +717,20 @@ const Index = () => {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="text-white font-medium text-sm bg-primary/90 px-3 py-1 rounded-full">
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4">
+                    <span className="text-white font-medium text-xs sm:text-sm bg-primary/90 px-2 sm:px-3 py-1 rounded-full">
                       {t('guides.drivingCategory')}
                     </span>
                   </div>
                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
+                <CardContent className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-barlow font-semibold mb-2 sm:mb-3 group-hover:text-primary transition-colors">
                     {t('guides.article1Title')}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4">
+                  <p className="text-muted-foreground text-xs sm:text-sm mb-3 sm:mb-4">
                     {t('guides.article1Text')}
                   </p>
-                  <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                  <div className="flex items-center gap-2 text-primary font-medium text-xs sm:text-sm">
                     <span>{t('guides.readArticle')}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -798,11 +801,11 @@ const Index = () => {
             </Link>
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-8 sm:mt-12">
             <Link to="/blog">
-              <Button size="lg" variant="outline" className="rounded-full group">
+              <Button size="lg" variant="outline" className="rounded-full group h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
                 Voir tous les articles
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform w-4 h-4" />
               </Button>
             </Link>
           </div>
@@ -810,17 +813,17 @@ const Index = () => {
       </section>
 
       {/* Our Mission */}
-      <section className="py-20">
-        <div className="container max-w-4xl">
-          <h2 className="text-4xl md:text-5xl text-center mb-8">{t('home.ourMission')}</h2>
-          <p className="text-xl text-center text-muted-foreground leading-relaxed">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="container max-w-4xl px-4 sm:px-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl text-center mb-6 sm:mb-8 px-4">{t('home.ourMission')}</h2>
+          <p className="text-base sm:text-lg md:text-xl text-center text-muted-foreground leading-relaxed px-4">
             {t('home.missionText')}
           </p>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <Link to="/louer">
-              <Button size="lg" className="rounded-full group">
+              <Button size="lg" className="rounded-full group h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
                 {t('home.discoverCars')}
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform w-4 h-4" />
               </Button>
             </Link>
           </div>

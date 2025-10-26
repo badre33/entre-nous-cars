@@ -24,17 +24,18 @@ export const FloatingCTA = () => {
 
   return (
     <div
-      className={`fixed bottom-6 left-24 z-40 transition-all duration-300 ${
+      className={`fixed bottom-4 sm:bottom-6 left-4 sm:left-24 z-40 transition-all duration-300 ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0 pointer-events-none"
       }`}
     >
       <Link to="/louer">
         <Button
           size="lg"
-          className="rounded-full shadow-2xl px-6 py-6 text-base font-semibold hover:scale-105 transition-transform flex items-center gap-2"
+          className="rounded-full shadow-2xl hover:shadow-primary/50 transition-all duration-300 hover:scale-105 h-12 sm:h-14 px-4 sm:px-8 text-sm sm:text-base"
         >
-          <Car className="w-5 h-5" />
-          {t('common.bookNow')}
+          <Car className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+          <span className="hidden sm:inline">{t('common.rent')}</span>
+          <span className="sm:hidden">{t('common.rent')}</span>
         </Button>
       </Link>
     </div>
