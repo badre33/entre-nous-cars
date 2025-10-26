@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Helmet } from "react-helmet-async";
-import { TrendingUp, Eye, FileText, Zap } from "lucide-react";
+import { TrendingUp, Eye, FileText, Zap, MessageCircle } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -14,6 +14,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
+import { StickyCTA } from "@/components/StickyCTA";
 import heroImage from "@/assets/hero-partners.jpg";
 
 const Partenaires = () => {
@@ -248,6 +249,14 @@ const Partenaires = () => {
       </section>
 
       <Footer />
+      
+      {/* Sticky "Rejoindre" CTA on Mobile */}
+      <StickyCTA
+        label={t('partners.joinBenatna')}
+        onClick={scrollToForm}
+        icon={MessageCircle}
+        className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary hover:to-primary/90"
+      />
     </div>
   );
 };

@@ -30,6 +30,10 @@ import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { toast } from "@/hooks/use-toast";
 import { ShareButton } from "@/components/ShareButton";
+import { FilterBottomSheet } from "@/components/FilterBottomSheet";
+import { StickyCTA } from "@/components/StickyCTA";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
@@ -4089,6 +4093,7 @@ const Louer = () => {
   const [showComparison, setShowComparison] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
+  const isMobile = useIsMobile();
 
   // Pull to refresh
   const handleRefresh = async () => {
@@ -4337,59 +4342,124 @@ const Louer = () => {
               </div>
 
               <div className="grid md:grid-cols-3 gap-4">
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground flex items-center gap-2">
-                    <Car className="w-4 h-4" />
-                    {t('rent.brand')}
-                  </label>
-                  <Select value={selectedBrand} onValueChange={setSelectedBrand}>
-                    <SelectTrigger className="bg-secondary/20 border-0">
-                      <SelectValue placeholder="Toutes les marques" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-background">
-                      <SelectItem value="all">{t('rent.allBrands')}</SelectItem>
-                      {brands.map(brand => (
-                        <SelectItem key={brand} value={brand}>{brand}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+                {/* Mobile: Bottom Sheets */}
+                {isMobile ? (
+                  <>
+                    <div className="space-y-2">
+                      <label className="text-xs text-muted-foreground flex items-center gap-2">
+                        <Car className="w-4 h-4" />
+                        {t('rent.brand')}
+                      </label>
+                      <FilterBottomSheet
+                        title={t('rent.brand')}
+                        description="Sélectionnez une marque de véhicule"
+                        icon={<Car className="w-4 h-4" />}
+                        options={[
+                          { value: "all", label: t('rent.allBrands') },
+                          ...brands.map(brand => ({ value: brand, label: brand }))
+                        ]}
+                        selectedValue={selectedBrand}
+                        onValueChange={setSelectedBrand}
+                        triggerLabel={selectedBrand === "all" ? t('rent.allBrands') : selectedBrand}
+                      />
+                    </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground flex items-center gap-2">
-                    <Car className="w-4 h-4" />
-                    {t('rent.category')}
-                  </label>
-                  <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger className="bg-secondary/20 border-0">
-                      <SelectValue placeholder="Toutes les catégories" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-background">
-                      <SelectItem value="all">{t('rent.allCategories')}</SelectItem>
-                      {categories.map(category => (
-                        <SelectItem key={category} value={category}>{category}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+                    <div className="space-y-2">
+                      <label className="text-xs text-muted-foreground flex items-center gap-2">
+                        <Car className="w-4 h-4" />
+                        {t('rent.category')}
+                      </label>
+                      <FilterBottomSheet
+                        title={t('rent.category')}
+                        description="Sélectionnez une catégorie de véhicule"
+                        icon={<Car className="w-4 h-4" />}
+                        options={[
+                          { value: "all", label: t('rent.allCategories') },
+                          ...categories.map(category => ({ value: category, label: category }))
+                        ]}
+                        selectedValue={selectedCategory}
+                        onValueChange={setSelectedCategory}
+                        triggerLabel={selectedCategory === "all" ? t('rent.allCategories') : selectedCategory}
+                      />
+                    </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground flex items-center gap-2">
-                    <Car className="w-4 h-4" />
-                    {t('rent.transmission')}
-                  </label>
-                  <Select value={selectedType} onValueChange={setSelectedType}>
-                    <SelectTrigger className="bg-secondary/20 border-0">
-                      <SelectValue placeholder="Tous les types" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-background">
-                      <SelectItem value="all">{t('rent.allTypes')}</SelectItem>
-                      {types.map(type => (
-                        <SelectItem key={type} value={type}>{type}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
+                    <div className="space-y-2">
+                      <label className="text-xs text-muted-foreground flex items-center gap-2">
+                        <Car className="w-4 h-4" />
+                        {t('rent.transmission')}
+                      </label>
+                      <FilterBottomSheet
+                        title={t('rent.transmission')}
+                        description="Sélectionnez un type de transmission"
+                        icon={<Car className="w-4 h-4" />}
+                        options={[
+                          { value: "all", label: t('rent.allTypes') },
+                          ...types.map(type => ({ value: type, label: type }))
+                        ]}
+                        selectedValue={selectedType}
+                        onValueChange={setSelectedType}
+                        triggerLabel={selectedType === "all" ? t('rent.allTypes') : selectedType}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  /* Desktop: Select Dropdowns */
+                  <>
+                    <div className="space-y-2">
+                      <label className="text-xs text-muted-foreground flex items-center gap-2">
+                        <Car className="w-4 h-4" />
+                        {t('rent.brand')}
+                      </label>
+                      <Select value={selectedBrand} onValueChange={setSelectedBrand}>
+                        <SelectTrigger className="bg-secondary/20 border-0">
+                          <SelectValue placeholder="Toutes les marques" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-background">
+                          <SelectItem value="all">{t('rent.allBrands')}</SelectItem>
+                          {brands.map(brand => (
+                            <SelectItem key={brand} value={brand}>{brand}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-xs text-muted-foreground flex items-center gap-2">
+                        <Car className="w-4 h-4" />
+                        {t('rent.category')}
+                      </label>
+                      <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                        <SelectTrigger className="bg-secondary/20 border-0">
+                          <SelectValue placeholder="Toutes les catégories" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-background">
+                          <SelectItem value="all">{t('rent.allCategories')}</SelectItem>
+                          {categories.map(category => (
+                            <SelectItem key={category} value={category}>{category}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label className="text-xs text-muted-foreground flex items-center gap-2">
+                        <Car className="w-4 h-4" />
+                        {t('rent.transmission')}
+                      </label>
+                      <Select value={selectedType} onValueChange={setSelectedType}>
+                        <SelectTrigger className="bg-secondary/20 border-0">
+                          <SelectValue placeholder="Tous les types" />
+                        </SelectTrigger>
+                        <SelectContent className="bg-background">
+                          <SelectItem value="all">{t('rent.allTypes')}</SelectItem>
+                          {types.map(type => (
+                            <SelectItem key={type} value={type}>{type}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -4746,6 +4816,16 @@ const Louer = () => {
       )}
 
       <Footer />
+      
+      {/* Sticky WhatsApp CTA on Mobile */}
+      <StickyCTA
+        label="Contacter via WhatsApp"
+        onClick={() => {
+          const message = `Bonjour, je suis intéressé par la location d'un véhicule${selectedCity !== "all" ? ` à ${selectedCity}` : ""}.`;
+          window.open(`https://wa.me/212699024526?text=${encodeURIComponent(message)}`, '_blank');
+        }}
+        icon={MessageCircle}
+      />
       
       {/* Comparison Button */}
       <ComparisonButton onClick={() => setShowComparison(true)} />
