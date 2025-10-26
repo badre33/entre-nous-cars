@@ -24,34 +24,34 @@ const Contact = () => {
       <Breadcrumbs />
       
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-secondary/30 to-background">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-secondary/30 to-background">
         <div 
           ref={heroAnimation.ref}
-          className={`container text-center max-w-4xl transition-all duration-700 ${
+          className={`container text-center max-w-4xl px-4 sm:px-6 transition-all duration-700 ${
             heroAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <h1 className="text-5xl md:text-6xl mb-8 animate-fade-in">{t('contact.title')}</h1>
-          <p className="text-xl text-muted-foreground leading-relaxed animate-fade-in [animation-delay:200ms]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 sm:mb-8 animate-fade-in">{t('contact.title')}</h1>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed animate-fade-in [animation-delay:200ms] px-2">
             {t('contact.subtitle')}
           </p>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20">
-        <div className="container max-w-6xl">
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="container max-w-6xl px-4 sm:px-6">
           <div 
             ref={formAnimation.ref}
-            className={`grid lg:grid-cols-2 gap-12 transition-all duration-700 ${
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 transition-all duration-700 ${
               formAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             {/* Form */}
             <Card className="border-2 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
-              <CardContent className="p-8 md:p-12">
-                <h2 className="text-3xl md:text-4xl mb-8">{t('contact.title')}</h2>
-                <p className="text-muted-foreground mb-6 text-center">
+              <CardContent className="p-6 sm:p-8 md:p-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl mb-6 sm:mb-8">{t('contact.title')}</h2>
+                <p className="text-muted-foreground text-sm sm:text-base mb-4 sm:mb-6 text-center">
                   {t('contactForm.fillForm')}
                 </p>
                 <form 

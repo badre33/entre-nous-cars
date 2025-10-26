@@ -54,39 +54,39 @@ const Partenaires = () => {
       <Breadcrumbs />
       
       {/* Hero Section with Parallax */}
-      <section className="relative h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[400px] sm:min-h-[450px] md:h-[500px] flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center parallax-bg"
           style={{ 
             backgroundImage: `url(${heroImage})`,
-            transform: `translateY(${parallaxOffset}px)`
+            transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         </div>
         
-        <div className="container relative z-10 text-center text-white">
-          <h1 className="text-5xl md:text-6xl mb-6 text-white drop-shadow-lg">
+        <div className="container relative z-10 text-center text-white px-4 sm:px-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 text-white drop-shadow-lg leading-tight">
             {t('partners.heroTitle')}
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/95 font-medium">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto text-white/95 font-medium px-2 leading-relaxed">
             {t('partners.heroSubtitle')}
           </p>
-          <Button size="lg" variant="partner" className="rounded-full text-lg px-8" onClick={scrollToForm}>
+          <Button size="lg" variant="partner" className="rounded-full text-sm sm:text-base lg:text-lg px-6 sm:px-8 h-11 sm:h-12" onClick={scrollToForm}>
             {t('partners.joinBenatna')}
           </Button>
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-12 sm:py-16 lg:py-20">
         <div 
           ref={offersAnimation.ref}
-          className="container"
+          className="container px-4 sm:px-6"
         >
-          <h2 className={`text-4xl md:text-5xl text-center mb-16 transition-all duration-700 ${
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-12 sm:mb-16 transition-all duration-700 px-4 ${
             offersAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>{t('partners.whatWeOffer')}</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             <Card className="border-2 hover:shadow-2xl transition-all duration-500 rounded-2xl hover:-translate-y-2 hover:scale-105 group">
               <CardContent className="pt-12 pb-8 text-center">
                 <TrendingUp className="w-12 h-12 mb-6 text-primary mx-auto transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12" />
@@ -131,10 +131,10 @@ const Partenaires = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl text-center mb-16">{t('partners.howItWorks')}</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <section className="py-12 sm:py-16 lg:py-20 bg-secondary/30">
+        <div className="container px-4 sm:px-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-12 sm:mb-16">{t('partners.howItWorks')}</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-2xl font-bold">1</span>
@@ -175,11 +175,11 @@ const Partenaires = () => {
       <RevenueCalculator />
 
       {/* Join Form */}
-      <section className="py-20" ref={formRef}>
-        <div className="container max-w-2xl">
+      <section className="py-12 sm:py-16 lg:py-20" ref={formRef}>
+        <div className="container max-w-2xl px-4 sm:px-6">
           <Card className="border-2 rounded-2xl shadow-lg">
-            <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl md:text-4xl text-center mb-8">{t('partners.joinForm')}</h2>
+            <CardContent className="p-6 sm:p-8 md:p-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-6 sm:mb-8">{t('partners.joinForm')}</h2>
               <form 
                 className="space-y-6"
                 onSubmit={(e) => {
