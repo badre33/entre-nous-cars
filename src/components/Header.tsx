@@ -103,7 +103,7 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Seulement pour pages secondaires */}
         <div className="flex md:hidden items-center gap-2">
           <LanguageSelector />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -117,11 +117,20 @@ const Header = () => {
                 <SheetTitle className="text-left font-pacifico text-2xl">benatna</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-2 mt-8">
-                <NavLinks mobile onLinkClick={() => setIsOpen(false)} />
-                <Link to="/louer" onClick={() => setIsOpen(false)} className="mt-4">
-                  <Button className="w-full rounded-full">
-                    {t('common.rent')}
-                  </Button>
+                {/* Pages secondaires uniquement */}
+                <Link 
+                  to="/a-propos" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg py-3 px-4 rounded-lg font-medium transition-colors hover:text-primary text-muted-foreground"
+                >
+                  {t('common.about')}
+                </Link>
+                <Link 
+                  to="/blog" 
+                  onClick={() => setIsOpen(false)}
+                  className="text-lg py-3 px-4 rounded-lg font-medium transition-colors hover:text-primary text-muted-foreground"
+                >
+                  {t('common.blog')}
                 </Link>
               </nav>
             </SheetContent>
