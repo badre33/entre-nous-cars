@@ -4430,7 +4430,7 @@ const Louer = () => {
                         <div className="absolute top-3 right-3 z-10">
                           <div
                             className={cn(
-                              "flex items-center gap-2 px-3 py-1.5 rounded-full transition-all cursor-pointer backdrop-blur-sm",
+                              "flex items-center gap-2 px-4 py-2.5 rounded-full transition-all cursor-pointer backdrop-blur-sm touch-target touch-feedback min-h-[44px]",
                               isInComparison(car.id)
                                 ? "bg-primary text-primary-foreground shadow-lg scale-105"
                                 : "bg-background/80 border-2 border-border hover:border-primary/50"
@@ -4446,9 +4446,9 @@ const Louer = () => {
                           >
                             <Checkbox
                               checked={isInComparison(car.id)}
-                              className="pointer-events-none"
+                              className="pointer-events-none h-5 w-5"
                             />
-                            <span className="text-xs font-medium">Comparer</span>
+                            <span className="text-sm font-medium">Comparer</span>
                           </div>
                         </div>
                         {car.badges && car.badges.length > 0 && (
@@ -4535,17 +4535,17 @@ const Louer = () => {
                           ))}
                         </div>
                         
-                        <div className="space-y-2">
+                        <div className="space-y-3">
                           <Button 
                             variant="outline"
-                            className="w-full rounded-full" 
+                            className="w-full rounded-full min-h-[48px] text-base touch-target touch-feedback" 
                             onClick={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                           >
-                            <CalendarCheck className="w-4 h-4 mr-2" />
+                            <CalendarCheck className="w-5 h-5 mr-2" />
                             Voir disponibilités
                           </Button>
                           <Button 
-                            className="w-full rounded-full" 
+                            className="w-full rounded-full min-h-[48px] text-base touch-target touch-feedback" 
                             onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
                           >
                             Contacter via WhatsApp
@@ -4686,17 +4686,17 @@ const Louer = () => {
                     ))}
                   </div>
                   
-                  <div className="space-y-2">
+                  <div className="space-y-3">
                     <Button 
                       variant="outline"
-                      className="w-full rounded-full" 
+                      className="w-full rounded-full min-h-[48px] text-base touch-target touch-feedback" 
                       onClick={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                     >
-                      <CalendarCheck className="w-4 h-4 mr-2" />
+                      <CalendarCheck className="w-5 h-5 mr-2" />
                       Voir disponibilités
                     </Button>
                     <Button 
-                      className="w-full rounded-full" 
+                      className="w-full rounded-full min-h-[48px] text-base touch-target touch-feedback" 
                       onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
                     >
                       Contacter via WhatsApp

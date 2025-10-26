@@ -118,7 +118,7 @@ All colors MUST be HSL.
   /* Add bottom padding on mobile to account for bottom navigation */
   @media (max-width: 768px) {
     body {
-      @apply pb-16;
+      @apply pb-20; /* Increased for taller navigation with better touch targets */
     }
   }
   
@@ -129,6 +129,35 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Touch Target Optimization */
+  .touch-target {
+    @apply min-w-[44px] min-h-[44px] flex items-center justify-center;
+  }
+
+  .touch-feedback {
+    @apply active:scale-95 active:opacity-80 transition-all duration-150;
+  }
+
+  .tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+    @apply active:bg-primary/10 transition-colors duration-150;
+  }
+
+  /* Mobile spacing helpers */
+  @media (max-width: 768px) {
+    .mobile-spacing-tight {
+      @apply space-y-3;
+    }
+    
+    .mobile-spacing-normal {
+      @apply space-y-4;
+    }
+    
+    .mobile-spacing-relaxed {
+      @apply space-y-6;
+    }
+  }
+
   /* Car driving animation */
   @keyframes car-drive {
     0%, 100% {

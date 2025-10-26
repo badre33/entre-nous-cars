@@ -48,7 +48,7 @@ export const BottomNavigation = () => {
         role="navigation"
         aria-label="Navigation mobile principale"
       >
-      <div className="flex items-center justify-around h-16 px-2 max-w-screen-xl mx-auto">
+      <div className="flex items-center justify-around h-20 px-1 max-w-screen-xl mx-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.path);
@@ -58,30 +58,30 @@ export const BottomNavigation = () => {
               key={item.path}
               to={item.path}
               className={cn(
-                "flex flex-col items-center justify-center flex-1 h-full gap-1 transition-all duration-200",
+                "flex flex-col items-center justify-center flex-1 min-w-[64px] min-h-[64px] gap-1.5 transition-all duration-200 rounded-lg mx-1 touch-target touch-feedback",
                 active 
                   ? "text-primary scale-105" 
-                  : "text-muted-foreground hover:text-foreground active:scale-95"
+                  : "text-muted-foreground hover:text-foreground"
               )}
               aria-label={item.ariaLabel}
               aria-current={active ? 'page' : undefined}
             >
               <div className={cn(
                 "relative",
-                active && "animate-bounce"
+                active && "scale-110"
               )}>
                 <Icon 
                   className={cn(
-                    "h-6 w-6 transition-all",
+                    "h-7 w-7 transition-all",
                     active && "drop-shadow-lg"
                   )} 
                 />
                 {active && (
-                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full" />
+                  <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full shadow-sm" />
                 )}
               </div>
               <span className={cn(
-                "text-xs font-medium",
+                "text-[11px] font-medium leading-tight",
                 active && "font-bold"
               )}>
                 {item.label}

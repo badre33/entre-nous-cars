@@ -85,7 +85,7 @@ export const AIAssistant = () => {
       {!isOpen && (
         <Button
           onClick={handleOpen}
-          className="fixed bottom-20 md:bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:scale-110 transition-transform bg-primary hover:bg-primary/90 z-50"
+          className="fixed bottom-24 md:bottom-6 right-6 h-16 w-16 md:h-14 md:w-14 rounded-full shadow-lg hover:scale-110 transition-all duration-300 bg-primary hover:bg-primary/90 z-50 touch-target touch-feedback"
           aria-label={
             language === 'en' 
               ? "Open virtual assistant" 
@@ -94,7 +94,7 @@ export const AIAssistant = () => {
               : "Ouvrir l'assistant virtuel"
           }
         >
-          <MessageSquare className="h-6 w-6" />
+          <MessageSquare className="h-7 w-7 md:h-6 md:w-6" />
         </Button>
       )}
 
