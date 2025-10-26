@@ -4393,7 +4393,7 @@ const Louer = () => {
                   <div className="absolute top-3 right-3 z-10">
                     <div
                       className={cn(
-                        "flex items-center gap-2 bg-background/95 backdrop-blur-sm px-3 py-2 rounded-full",
+                        "flex items-center gap-2 bg-background/95 backdrop-blur-sm px-3 py-2 rounded-full cursor-pointer",
                         "border-2 shadow-lg transition-all duration-200",
                         isInComparison(car.id)
                           ? "border-primary bg-primary/10"
@@ -4410,14 +4410,7 @@ const Louer = () => {
                     >
                       <Checkbox
                         checked={isInComparison(car.id)}
-                        onCheckedChange={(checked) => {
-                          if (checked) {
-                            addToComparison(car);
-                          } else {
-                            removeFromComparison(car.id);
-                          }
-                        }}
-                        className="cursor-pointer"
+                        className="pointer-events-none"
                       />
                       <span className="text-xs font-medium">Comparer</span>
                     </div>
@@ -4426,7 +4419,7 @@ const Louer = () => {
                     <div className="absolute top-3 left-3 flex flex-col gap-2">
                       {car.badges.map((badge, idx) => (
                         <Badge 
-                          key={idx}
+                          key={`${car.id}-badge-${idx}`}
                           className={`${
                             badge.includes('Populaire') 
                               ? 'bg-destructive/90 hover:bg-destructive text-destructive-foreground shadow-lg' 

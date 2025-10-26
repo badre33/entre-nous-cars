@@ -107,19 +107,19 @@ export default function ComparisonDialog({
                     alt={car.name}
                     className="w-full h-full object-cover"
                   />
-                  {car.badges && car.badges.length > 0 && (
-                    <div className="absolute top-3 left-3 flex flex-col gap-1">
-                      {car.badges.map((badge, idx) => (
-                        <Badge
-                          key={idx}
-                          variant="secondary"
-                          className="bg-background/90 backdrop-blur-sm text-xs"
-                        >
-                          {badge}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
+                      {car.badges && car.badges.length > 0 && (
+                        <div className="absolute top-3 left-3 flex flex-col gap-1">
+                          {car.badges.map((badge, idx) => (
+                            <Badge
+                              key={`${car.id}-badge-mobile-${idx}`}
+                              variant="secondary"
+                              className="bg-background/90 backdrop-blur-sm text-xs"
+                            >
+                              {badge}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
                 </div>
 
                 <div className="p-4 space-y-4">
@@ -156,7 +156,7 @@ export default function ComparisonDialog({
                     <h4 className="font-semibold text-sm mb-2">Conditions</h4>
                     <div className="space-y-1.5">
                       {car.conditions.slice(0, 3).map((condition, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-xs">
+                        <div key={`${car.id}-condition-${idx}`} className="flex items-start gap-2 text-xs">
                           <Check className="h-3 w-3 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-muted-foreground">{condition}</span>
                         </div>
@@ -264,7 +264,7 @@ export default function ComparisonDialog({
                         <div className="flex flex-wrap gap-1 justify-center">
                           {car.badges && car.badges.length > 0 ? (
                             car.badges.map((badge, idx) => (
-                              <Badge key={idx} variant="secondary" className="text-xs">
+                              <Badge key={`${car.id}-badge-table-${idx}`} variant="secondary" className="text-xs">
                                 {badge}
                               </Badge>
                             ))
@@ -286,7 +286,7 @@ export default function ComparisonDialog({
                       <TableCell key={car.id} className="text-left align-top">
                         <div className="space-y-1">
                           {car.conditions.slice(0, 4).map((condition, idx) => (
-                            <div key={idx} className="flex items-start gap-1.5 text-xs">
+                            <div key={`${car.id}-condition-table-${idx}`} className="flex items-start gap-1.5 text-xs">
                               <Check className="h-3 w-3 text-primary mt-0.5 flex-shrink-0" />
                               <span className="text-muted-foreground">{condition}</span>
                             </div>
