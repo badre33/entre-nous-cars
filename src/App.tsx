@@ -10,6 +10,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
 import { BackToTop } from "@/components/BackToTop";
 import { AIAssistant } from "@/components/AIAssistant";
+import { BottomNavigation } from "@/components/BottomNavigation";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { lazy, Suspense, useEffect } from "react";
 import LoadingCar from "@/components/LoadingCar";
@@ -65,6 +66,7 @@ const App = () => (
                 <WhatsAppButton />
                 <AIAssistant />
                 <BackToTop />
+                <BottomNavigation />
               </ComparisonProvider>
             </LanguageProvider>
           </BrowserRouter>

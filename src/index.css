@@ -115,6 +115,13 @@ All colors MUST be HSL.
     font-family: 'Barlow', sans-serif;
   }
   
+  /* Add bottom padding on mobile to account for bottom navigation */
+  @media (max-width: 768px) {
+    body {
+      @apply pb-16;
+    }
+  }
+  
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Pacifico', cursive;
     font-weight: 400;

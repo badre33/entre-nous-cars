@@ -85,7 +85,7 @@ export const AIAssistant = () => {
       {!isOpen && (
         <Button
           onClick={handleOpen}
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:scale-110 transition-transform bg-primary hover:bg-primary/90 z-50"
+          className="fixed bottom-20 md:bottom-6 right-6 h-14 w-14 rounded-full shadow-lg hover:scale-110 transition-transform bg-primary hover:bg-primary/90 z-50"
           aria-label={
             language === 'en' 
               ? "Open virtual assistant" 

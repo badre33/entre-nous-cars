@@ -36,7 +36,7 @@ const WhatsAppButton = () => {
     <>
       {/* Chat Widget */}
       {isOpen && (
-        <Card className="fixed bottom-24 left-6 z-50 w-[350px] shadow-2xl animate-scale-in">
+        <Card className="fixed bottom-[88px] md:bottom-24 left-6 z-50 w-[350px] shadow-2xl animate-scale-in">
           <CardHeader className="bg-[#25D366] text-white p-4 rounded-t-lg flex flex-row items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
@@ -90,7 +90,7 @@ const WhatsAppButton = () => {
       {/* Floating Button */}
       <button
         onClick={handleOpen}
-        className="fixed bottom-24 left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
+        className="fixed bottom-[88px] md:bottom-24 left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
         aria-label="Ouvrir le chat WhatsApp"
       >
         {isOpen ? (
