@@ -50,7 +50,7 @@
   },
   "partners": {
     "heroTitle": "Vous possédez une flotte ? Gagnez plus.",
-    "heroSubtitle": "Rejoignez Benatna pour recevoir des demandes qualifiées sans payer de frais de franchise internationale. Restez indépendant, gardez vos tarifs — nous vous apportons les clients.",
+    "heroSubtitle": "Rejoignez Benatna pour recevoir des demandes qualifiées sans payer de frais de franchise internationale. Restez indépendant, gardez vos tarifs, nous vous apportons les clients.",
     "joinBenatna": "Rejoindre Benatna",
     "whatWeOffer": "Ce que Benatna vous apporte",
     "bookingsTitle": "Réservations supplémentaires",
@@ -196,7 +196,10 @@
     "discountApplied": "appliqué",
     "longTermDiscount": "Prix dégressif pour location longue durée",
     "checkAvailability": "Vérifier la disponibilité",
-    "reserveNow": "Réserver maintenant"
+    "reserveNow": "Réserver maintenant",
+    "viewCarousel": "Vue carrousel",
+    "viewGrid": "Vue grille",
+    "viewList": "Vue liste"
   },
   "forWho": {
     "title": "Pour qui ?",

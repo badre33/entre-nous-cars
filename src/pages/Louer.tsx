@@ -4482,7 +4482,7 @@ const Louer = () => {
                   variant={viewMode === 'carousel' ? 'default' : 'ghost'}
                   className="h-8 w-8 p-0"
                   onClick={() => setViewMode('carousel')}
-                  aria-label="Vue carrousel"
+                  aria-label={t('rent.viewCarousel')}
                 >
                   <Rows3 className="h-4 w-4" />
                 </Button>
@@ -4491,7 +4491,7 @@ const Louer = () => {
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}
                   className="h-8 w-8 p-0"
                   onClick={() => setViewMode('grid')}
-                  aria-label="Vue grille"
+                  aria-label={t('rent.viewGrid')}
                 >
                   <LayoutGrid className="h-4 w-4" />
                 </Button>
@@ -4500,7 +4500,7 @@ const Louer = () => {
                   variant={viewMode === 'list' ? 'default' : 'ghost'}
                   className="h-8 w-8 p-0"
                   onClick={() => setViewMode('list')}
-                  aria-label="Vue liste"
+                  aria-label={t('rent.viewList')}
                 >
                   <List className="h-4 w-4" />
                 </Button>
@@ -4760,7 +4760,7 @@ const Louer = () => {
       <section className="py-12 bg-secondary/30">
         <div className="container text-center">
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tous les véhicules proviennent d'agences professionnelles vérifiées — pas de particuliers.
+            Tous les véhicules proviennent d'agences professionnelles vérifiées, pas de particuliers.
           </p>
         </div>
       </section>

@@ -50,7 +50,7 @@
   },
   "partners": {
     "heroTitle": "Own a fleet? Earn more.",
-    "heroSubtitle": "Join Benatna to receive qualified requests without paying international franchise fees. Stay independent, keep your rates — we bring you the customers.",
+    "heroSubtitle": "Join Benatna to receive qualified requests without paying international franchise fees. Stay independent, keep your rates, we bring you the customers.",
     "joinBenatna": "Join Benatna",
     "whatWeOffer": "What Benatna brings you",
     "bookingsTitle": "Additional bookings",
@@ -183,7 +183,10 @@
     "discountApplied": "applied",
     "longTermDiscount": "Reduced price for long-term rental",
     "checkAvailability": "Check availability",
-    "reserveNow": "Reserve now"
+    "reserveNow": "Reserve now",
+    "viewCarousel": "Carousel view",
+    "viewGrid": "Grid view",
+    "viewList": "List view"
   },
   "forWho": {
     "title": "For whom?",
