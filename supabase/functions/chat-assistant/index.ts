@@ -99,13 +99,13 @@ RAPPEL CRITIQUE : Chaque réponse = 4-5 lignes MAX. Pose des questions pour guid
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "openai/gpt-5-mini",
+        model: "google/gemini-2.5-flash",
         messages: [
           { role: "system", content: systemPrompt },
           ...messages,
         ],
         stream: true,
-        max_completion_tokens: 300,
+        max_tokens: 500,
       }),
     });
 
