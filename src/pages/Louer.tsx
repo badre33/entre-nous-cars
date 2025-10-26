@@ -4467,13 +4467,13 @@ const Louer = () => {
       </section>
 
       {/* Available Cars */}
-      <section className="py-20">
-        <div className="container">
-          <div className="mb-8">
-            <h2 className="text-2xl font-barlow font-semibold mb-2">
+      <section className="py-8 md:py-20 pb-32 md:pb-20">
+        <div className="container px-4">
+          <div className="mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-barlow font-semibold mb-2">
               {displayedCars.length} {t('rent.vehicle')}{displayedCars.length > 1 ? 's' : ''} {t(displayedCars.length > 1 ? 'rent.availables' : 'rent.available')}
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-sm md:text-base text-muted-foreground">
               {t('rent.verifiedAgencies')}
             </p>
           </div>
@@ -4488,23 +4488,23 @@ const Louer = () => {
               }}
               className="w-full"
             >
-              <CarouselContent className="-ml-2 md:-ml-4">
+              <CarouselContent className="-ml-2">
                 {displayedCars.map((car) => (
-                  <CarouselItem key={car.id} className="pl-2 md:pl-4 basis-[85%]">
-                    <Card className="overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 h-full">
-                      <div className="relative h-56 overflow-hidden bg-muted">
+                  <CarouselItem key={car.id} className="pl-2 basis-[90%]">
+                    <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border h-full">
+                      <div className="relative h-48 overflow-hidden bg-muted">
                         <LazyCarImage 
                           src={car.image} 
                           alt={`${car.name} - Location à ${car.city}`}
-                          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                          className="w-full h-full object-cover"
                         />
-                        <div className="absolute top-3 right-3 z-10">
+                        <div className="absolute top-2 right-2 z-10">
                           <div
                             className={cn(
-                              "flex items-center gap-2 px-4 py-2.5 rounded-full transition-all cursor-pointer backdrop-blur-sm touch-target touch-feedback min-h-[44px]",
+                              "flex items-center gap-1.5 px-3 py-2 rounded-full transition-all cursor-pointer backdrop-blur-sm touch-target",
                               isInComparison(car.id)
-                                ? "bg-primary text-primary-foreground shadow-lg scale-105"
-                                : "bg-background/80 border-2 border-border hover:border-primary/50"
+                                ? "bg-primary text-primary-foreground shadow-lg"
+                                : "bg-background/90 border border-border"
                             )}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -4517,25 +4517,22 @@ const Louer = () => {
                           >
                             <Checkbox
                               checked={isInComparison(car.id)}
-                              className="pointer-events-none h-5 w-5"
+                              className="pointer-events-none h-4 w-4"
                             />
-                            <span className="text-sm font-medium">Comparer</span>
+                            <span className="text-xs font-medium">Comparer</span>
                           </div>
                         </div>
                         {car.badges && car.badges.length > 0 && (
-                          <div className="absolute top-3 left-3 flex flex-col gap-2">
-                            {car.badges.map((badge, idx) => (
+                          <div className="absolute top-2 left-2 flex flex-col gap-1.5">
+                            {car.badges.slice(0, 2).map((badge, idx) => (
                               <Badge 
                                 key={`${car.id}-badge-${idx}`}
-                                className={`${
-                                  badge.includes('Populaire') 
-                                    ? 'bg-destructive/90 hover:bg-destructive text-destructive-foreground shadow-lg' 
-                                    : badge.includes('Disponible') 
-                                    ? 'bg-secondary/90 hover:bg-secondary text-secondary-foreground shadow-lg animate-pulse' 
-                                    : badge.includes('Nouveau')
-                                    ? 'bg-accent/90 hover:bg-accent text-accent-foreground shadow-lg'
-                                    : 'bg-primary/90 hover:bg-primary text-primary-foreground shadow-lg'
-                                } backdrop-blur-sm`}
+                                className={cn(
+                                  "text-xs py-0.5 px-2",
+                                  badge.includes('Populaire') && 'bg-destructive/90',
+                                  badge.includes('Disponible') && 'bg-secondary/90 animate-pulse',
+                                  badge.includes('Nouveau') && 'bg-accent/90'
+                                )}
                               >
                                 {badge}
                               </Badge>
@@ -4543,28 +4540,27 @@ const Louer = () => {
                           </div>
                         )}
                       </div>
-                      <CardContent className="p-6">
-                        <div className="flex items-start justify-between mb-4">
-                          <div>
-                            <h3 className="text-xl font-barlow font-semibold mb-1">{car.name}</h3>
-                            <p className="text-sm text-muted-foreground">{car.category} • {car.type}</p>
+                      <CardContent className="p-4">
+                        <div className="flex items-start justify-between mb-3">
+                          <div className="flex-1 pr-2">
+                            <h3 className="text-lg font-barlow font-semibold mb-0.5 line-clamp-1">{car.name}</h3>
+                            <p className="text-xs text-muted-foreground">{car.category} • {car.type}</p>
                           </div>
-                          <div className="text-right">
+                          <div className="text-right flex-shrink-0">
                             {(() => {
                               const days = calculateDays(startDate, endDate);
                               const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
                               
                               if (days > 0) {
                                 const totalPrice = calculateTotalPrice(basePrice, days);
-                                const dailyPrice = calculateDailyPrice(basePrice, days);
-                                const discount = days >= 7 ? Math.round((1 - dailyPrice / basePrice) * 100) : 0;
+                                const discount = days >= 7 ? Math.round((1 - calculateDailyPrice(basePrice, days) / basePrice) * 100) : 0;
                                 
                                 return (
                                   <>
-                                    <p className="text-2xl font-bold text-primary">{formatPrice(totalPrice)}</p>
-                                    <p className="text-xs text-muted-foreground">{days} jour{days > 1 ? 's' : ''}</p>
+                                    <p className="text-xl font-bold text-primary">{formatPrice(totalPrice)}</p>
+                                    <p className="text-[10px] text-muted-foreground">{days} jour{days > 1 ? 's' : ''}</p>
                                     {discount > 0 && (
-                                      <p className="text-xs text-secondary font-medium">-{discount}% appliqué</p>
+                                      <p className="text-[10px] text-secondary font-medium">-{discount}%</p>
                                     )}
                                   </>
                                 );
@@ -4572,75 +4568,48 @@ const Louer = () => {
                               
                               return (
                                 <>
-                                  <p className="text-2xl font-bold text-primary">{car.priceDisplay}</p>
-                                  <p className="text-xs text-muted-foreground">à partir de</p>
+                                  <p className="text-xl font-bold text-primary">{car.priceDisplay}</p>
+                                  <p className="text-[10px] text-muted-foreground">par jour</p>
                                 </>
                               );
                             })()}
                           </div>
                         </div>
                         
-                        {!startDate || !endDate ? (
-                          <div className="mb-4 p-3 bg-secondary/10 rounded-lg border border-secondary/20">
-                            <p className="text-xs text-muted-foreground text-center">
-                              💡 Prix dégressif pour location longue durée
-                            </p>
-                          </div>
-                        ) : null}
-                        
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                          <MapPin className="w-4 h-4" />
-                          <span>{car.city}</span>
+                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
+                          <MapPin className="w-3 h-3 flex-shrink-0" />
+                          <span className="truncate">{car.city}</span>
                         </div>
                         
-                        <div className="space-y-2 mb-6">
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
-                            <span>Kilométrage illimité</span>
-                          </div>
-                          {car.conditions.filter(c => c.startsWith('Âge minimum')).map((condition, idx) => (
-                            <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
-                              <span>{condition}</span>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        <div className="space-y-3">
+                        <div className="space-y-2 mb-4">
                           <Button 
                             variant="outline"
-                            className="w-full rounded-full min-h-[48px] text-base touch-target touch-feedback" 
+                            size="sm"
+                            className="w-full rounded-full touch-target text-xs" 
                             onClick={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                           >
-                            <CalendarCheck className="w-5 h-5 mr-2" />
-                            Voir disponibilités
+                            <CalendarCheck className="w-3.5 h-3.5 mr-1.5" />
+                            Disponibilités
                           </Button>
                           <Button 
-                            className="w-full rounded-full min-h-[48px] text-base touch-target touch-feedback" 
+                            size="sm"
+                            className="w-full rounded-full touch-target text-xs" 
                             onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
                           >
-                            Contacter via WhatsApp
+                            Contacter WhatsApp
                           </Button>
-                          <ShareButton
-                            title={`${car.name} - Location à ${car.city}`}
-                            text={`Louez ${car.name} à ${car.city} dès ${car.priceDisplay}/jour sur Benatna`}
-                            url={`${window.location.origin}/louer?city=${car.city}`}
-                            variant="ghost"
-                            size="default"
-                            className="w-full"
-                          />
                         </div>
                       </CardContent>
                     </Card>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
+              <CarouselPrevious className="left-1 h-8 w-8" />
+              <CarouselNext className="right-1 h-8 w-8" />
             </Carousel>
-            <div className="mt-6 p-4 bg-muted/30 rounded-lg border border-dashed">
-              <p className="text-sm text-center text-muted-foreground">
-                👆 Glissez horizontalement pour parcourir les {displayedCars.length} véhicules disponibles
+            <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
+              <p className="text-xs text-center text-muted-foreground">
+                👆 Glissez pour voir les {displayedCars.length} véhicules
               </p>
             </div>
           </div>

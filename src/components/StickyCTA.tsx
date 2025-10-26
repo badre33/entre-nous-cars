@@ -20,7 +20,7 @@ export function StickyCTA({
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-20 md:bottom-0 left-0 right-0 z-40 md:hidden">
+    <div className="fixed bottom-20 md:hidden left-0 right-0 z-30">
       <div className="bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4">
         <Button
           onClick={onClick}
