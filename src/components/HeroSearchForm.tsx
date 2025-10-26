@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "lucide-react";
+import { Calendar, MapPin, Search } from "lucide-react";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -18,10 +18,10 @@ export const HeroSearchForm = () => {
 
   const searchSchema = z.object({
     city: z.string().min(1, { message: t('common.selectCity') }),
-    startDate: z.string().min(1, { message: t('common.startDate') }),
-    endDate: z.string().min(1, { message: t('common.endDate') }),
+    startDate: z.string().min(1, { message: "Veuillez sélectionner une date de début" }),
+    endDate: z.string().min(1, { message: "Veuillez sélectionner une date de fin" }),
   }).refine((data) => new Date(data.endDate) > new Date(data.startDate), {
-    message: t('common.endDate'),
+    message: "La date de fin doit être après la date de début",
     path: ["endDate"],
   });
 
@@ -40,7 +40,7 @@ export const HeroSearchForm = () => {
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast({
-          title: "Erreur",
+          title: "Erreur de validation",
           description: error.errors[0].message,
           variant: "destructive",
         });
@@ -49,6 +49,7 @@ export const HeroSearchForm = () => {
   };
 
   const today = new Date().toISOString().split('T')[0];
+  const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
 
   return (
     <form 
@@ -58,14 +59,17 @@ export const HeroSearchForm = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         {/* City Selection */}
         <div className="flex flex-col">
-          <label htmlFor="city" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
+          <label htmlFor="city" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
+            <MapPin className="w-4 h-4" />
             {t('common.city')}
           </label>
           <select
             id="city"
+            name="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all text-gray-900 bg-white text-sm sm:text-base"
+            className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-gray-900 bg-white text-sm sm:text-base touch-target touch-feedback"
+            autoComplete="address-level2"
             required
           >
             <option value="" className="text-gray-500">{t('common.selectCity')}</option>
@@ -79,39 +83,43 @@ export const HeroSearchForm = () => {
 
         {/* Start Date */}
         <div className="flex flex-col">
-          <label htmlFor="startDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
+          <label htmlFor="startDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
+            <Calendar className="w-4 h-4" />
             {t('common.startDate')}
           </label>
           <div className="relative">
             <input
               id="startDate"
+              name="startDate"
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
               min={today}
-              className="px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base"
+              className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base touch-target touch-feedback"
+              autoComplete="off"
               required
             />
-            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 pointer-events-none hidden sm:block" />
           </div>
         </div>
 
         {/* End Date */}
         <div className="flex flex-col">
-          <label htmlFor="endDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2">
+          <label htmlFor="endDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
+            <Calendar className="w-4 h-4" />
             {t('common.endDate')}
           </label>
           <div className="relative">
             <input
               id="endDate"
+              name="endDate"
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              min={startDate || today}
-              className="px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base"
+              min={startDate || tomorrow}
+              className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base touch-target touch-feedback"
+              autoComplete="off"
               required
             />
-            <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-gray-400 pointer-events-none hidden sm:block" />
           </div>
         </div>
 
@@ -120,8 +128,9 @@ export const HeroSearchForm = () => {
           <Button 
             type="submit"
             size="lg" 
-            className="w-full py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold h-auto"
+            className="w-full py-2.5 sm:py-3 min-h-[48px] rounded-lg text-sm sm:text-base font-semibold h-auto touch-target touch-feedback"
           >
+            <Search className="w-5 h-5 mr-2" />
             {t('common.search')}
           </Button>
         </div>

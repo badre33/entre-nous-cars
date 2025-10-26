@@ -10,6 +10,26 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState } from "react";
+import { z } from "zod";
+
+// Validation schema
+const contactSchema = z.object({
+  nom: z.string()
+    .trim()
+    .min(2, { message: "Le nom doit contenir au moins 2 caractères" })
+    .max(100, { message: "Le nom ne peut pas dépasser 100 caractères" }),
+  tel: z.string()
+    .trim()
+    .regex(/^(\+212|0)[5-7]\d{8}$/, { message: "Numéro de téléphone marocain invalide" }),
+  email: z.string()
+    .trim()
+    .email({ message: "Adresse email invalide" })
+    .max(255, { message: "L'email ne peut pas dépasser 255 caractères" }),
+  message: z.string()
+    .trim()
+    .min(10, { message: "Le message doit contenir au moins 10 caractères" })
+    .max(1000, { message: "Le message ne peut pas dépasser 1000 caractères" })
+});
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -59,41 +79,85 @@ const Contact = () => {
                   onSubmit={(e) => {
                     e.preventDefault();
                     setIsSubmitting(true);
+                    
                     const formData = new FormData(e.currentTarget);
-                    const nom = formData.get('nom') as string;
-                    const tel = formData.get('tel') as string;
-                    const email = formData.get('email') as string;
-                    const message = formData.get('message') as string;
+                    const data = {
+                      nom: formData.get('nom') as string,
+                      tel: formData.get('tel') as string,
+                      email: formData.get('email') as string,
+                      message: formData.get('message') as string,
+                    };
                     
-                    const whatsappMessage = `Nouveau message de contact\n\nNom: ${nom}\nTéléphone: ${tel}\nEmail: ${email}\n\nMessage:\n${message}`;
-                    
-                    toast({
-                      title: "✓ Message envoyé !",
-                      description: "Nous vous répondrons dans les plus brefs délais",
-                    });
-                    
-                    setTimeout(() => {
+                    // Validate with zod
+                    try {
+                      contactSchema.parse(data);
+                      
+                      const whatsappMessage = `Nouveau message de contact\n\nNom: ${data.nom}\nTéléphone: ${data.tel}\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
+                      
+                      toast({
+                        title: "✓ Message envoyé !",
+                        description: "Nous vous répondrons dans les plus brefs délais",
+                      });
+                      
+                      setTimeout(() => {
+                        setIsSubmitting(false);
+                        window.open(
+                          `https://wa.me/212699024526?text=${encodeURIComponent(whatsappMessage)}`,
+                          '_blank'
+                        );
+                        // Reset form
+                        e.currentTarget.reset();
+                      }, 1000);
+                    } catch (error) {
                       setIsSubmitting(false);
-                      window.open(
-                        `https://wa.me/212699024526?text=${encodeURIComponent(whatsappMessage)}`,
-                        '_blank'
-                      );
-                    }, 1000);
+                      if (error instanceof z.ZodError) {
+                        toast({
+                          title: "Erreur de validation",
+                          description: error.errors[0].message,
+                          variant: "destructive",
+                        });
+                      }
+                    }
                   }}
                 >
                   <div>
                     <label className="block text-sm font-medium mb-2">{t('contact.name')}</label>
-                    <Input name="nom" placeholder={t('contactForm.namePlaceholder')} className="rounded-lg" required />
+                    <Input 
+                      name="nom" 
+                      type="text"
+                      placeholder={t('contactForm.namePlaceholder')} 
+                      className="rounded-lg min-h-[48px] text-base touch-target" 
+                      autoComplete="name"
+                      required 
+                    />
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium mb-2">{t('contactForm.phoneLabel')}</label>
-                    <Input name="tel" type="tel" placeholder={t('contactForm.phonePlaceholder')} className="rounded-lg" required />
+                    <Input 
+                      name="tel" 
+                      type="tel" 
+                      placeholder="+212 6XX XXX XXX" 
+                      className="rounded-lg min-h-[48px] text-base touch-target" 
+                      autoComplete="tel"
+                      inputMode="tel"
+                      pattern="(\+212|0)[5-7]\d{8}"
+                      required 
+                    />
+                    <p className="text-xs text-muted-foreground mt-1">Format: +212 6XX XXX XXX ou 06XX XXX XXX</p>
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium mb-2">{t('contact.email')}</label>
-                    <Input name="email" type="email" placeholder={t('contactForm.emailPlaceholder')} className="rounded-lg" required />
+                    <Input 
+                      name="email" 
+                      type="email" 
+                      placeholder={t('contactForm.emailPlaceholder')} 
+                      className="rounded-lg min-h-[48px] text-base touch-target" 
+                      autoComplete="email"
+                      inputMode="email"
+                      required 
+                    />
                   </div>
                   
                   <div>
@@ -101,15 +165,17 @@ const Contact = () => {
                     <Textarea 
                       name="message"
                       placeholder={t('contactForm.messagePlaceholder')} 
-                      className="rounded-lg min-h-[160px]"
+                      className="rounded-lg min-h-[160px] text-base"
+                      maxLength={1000}
                       required
                     />
+                    <p className="text-xs text-muted-foreground mt-1">Maximum 1000 caractères</p>
                   </div>
                   
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full rounded-full text-lg hover:scale-105 transition-transform duration-300"
+                    className="w-full rounded-full text-lg min-h-[56px] hover:scale-105 transition-transform duration-300 touch-target touch-feedback"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? "Envoi..." : t('contactForm.sendWhatsApp')}
