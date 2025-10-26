@@ -18,10 +18,6 @@ const APropos = () => {
       <section className="relative py-16 sm:py-20 lg:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/10 to-background" />
         <div className="container relative text-center max-w-5xl px-4 sm:px-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full mb-6 sm:mb-8">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium">{t('about.title')}</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 sm:mb-8 font-bold leading-tight">
             {t('about.title')}
           </h1>
@@ -40,10 +36,6 @@ const APropos = () => {
         <div className="container px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
             <div className="order-2 lg:order-1 space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span className="text-sm font-medium text-primary">Mission</span>
-              </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 {t('about.missionTitle')}
               </h2>
@@ -74,10 +66,6 @@ const APropos = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-primary/5 to-secondary/10" />
         <div className="container relative max-w-5xl px-4 sm:px-6">
           <div className="text-center space-y-6 sm:space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-full mx-auto">
-              <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-accent">Vision</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               {t('about.visionTitle')}
             </h2>
@@ -96,10 +84,6 @@ const APropos = () => {
       <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-background to-primary/5">
         <div className="container px-4 sm:px-6">
           <div className="text-center space-y-4 sm:space-y-6 mb-12 sm:mb-16 lg:mb-20 max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
-              <Heart className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">ADN</span>
-            </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               {t('about.adnTitle')}
             </h2>
