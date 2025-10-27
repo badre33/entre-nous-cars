@@ -21,13 +21,10 @@ const APropos = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(var(--primary-rgb),0.1),transparent_50%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,rgba(var(--secondary-rgb),0.1),transparent_50%)]" />
         <div className="container relative text-center max-w-5xl px-4 sm:px-6">
-          <div className="inline-block mb-6 animate-fade-in">
-            <Badge variant="secondary" className="text-sm sm:text-base px-4 py-2">
-              Notre Histoire
-            </Badge>
-          </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 sm:mb-8 font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent animate-fade-in [animation-delay:200ms]">
-            {t('about.title')}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 sm:mb-8 font-bold leading-tight animate-fade-in">
+            <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              {t('about.title')}
+            </span>
           </h1>
           <div className="prose prose-lg sm:prose-xl max-w-4xl mx-auto animate-fade-in [animation-delay:400ms]">
             {t('about.intro').split('\n\n').map((paragraph, idx) => (
@@ -46,11 +43,10 @@ const APropos = () => {
         <div className="container px-4 sm:px-6 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-16 lg:gap-20 items-center max-w-7xl mx-auto">
             <div className="order-2 lg:order-1 space-y-6 sm:space-y-8 animate-fade-in">
-              <Badge variant="outline" className="text-xs sm:text-sm px-3 py-1.5">
-                Notre Mission
-              </Badge>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                {t('about.missionTitle')}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                  {t('about.missionTitle')}
+                </span>
               </h2>
               <div className="space-y-5">
                 {t('about.missionText').split('\n\n').map((paragraph, idx) => (
@@ -81,11 +77,10 @@ const APropos = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl" />
         <div className="container relative max-w-5xl px-4 sm:px-6">
           <div className="text-center space-y-8 sm:space-y-10 animate-fade-in">
-            <Badge variant="secondary" className="text-sm sm:text-base px-4 py-2">
-              Notre Vision
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-accent via-primary to-secondary">
-              {t('about.visionTitle')}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <span className="bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
+                {t('about.visionTitle')}
+              </span>
             </h2>
             <div className="space-y-6 max-w-4xl mx-auto">
               {t('about.visionText').split('\n\n').map((paragraph, idx) => (
@@ -103,11 +98,10 @@ const APropos = () => {
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="container px-4 sm:px-6 relative">
           <div className="text-center space-y-6 sm:space-y-8 mb-16 sm:mb-20 lg:mb-24 max-w-4xl mx-auto animate-fade-in">
-            <Badge variant="outline" className="text-sm sm:text-base px-4 py-2">
-              Nos Valeurs
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
-              {t('about.adnTitle')}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                {t('about.adnTitle')}
+              </span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
               {t('about.adnSubtitle')}

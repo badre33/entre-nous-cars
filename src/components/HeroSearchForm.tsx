@@ -83,7 +83,7 @@ export const HeroSearchForm = () => {
             autoComplete="address-level2"
             required
           >
-            <option value="" className="text-gray-500">{t('common.selectCity')}</option>
+            <option value="" className="text-gray-500">Ville</option>
             {cities.map((c) => (
               <option key={c} value={c} className="text-gray-900">
                 {c}

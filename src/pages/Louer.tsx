@@ -4260,15 +4260,15 @@ const Louer = () => {
           {/* Search Bar */}
           <Card className="max-w-4xl mx-auto rounded-2xl shadow-xl">
             <CardContent className="p-6">
-              <div className="grid md:grid-cols-3 gap-4 mb-4">
-                <div className="space-y-2">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">
+                <div className="space-y-2 col-span-2 md:col-span-1">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <MapPin className="w-4 h-4" />
                     {t('common.city')}
                   </label>
                   <Select value={selectedCity} onValueChange={setSelectedCity}>
                     <SelectTrigger className="bg-secondary/20 border-0">
-                      <SelectValue placeholder="Toutes les villes" />
+                      <SelectValue placeholder="Ville" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
                       <SelectItem value="all">{t('rent.allCities')}</SelectItem>
@@ -4313,6 +4313,18 @@ const Louer = () => {
                 <div className="space-y-2">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <CalendarIcon className="w-4 h-4" />
+                    Heure
+                  </label>
+                  <input
+                    type="time"
+                    defaultValue="10:00"
+                    className="w-full px-3 py-2 bg-secondary/20 border-0 rounded-lg focus:ring-2 focus:ring-primary text-sm"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-2">
+                    <CalendarIcon className="w-4 h-4" />
                     {t('common.endDate')}
                   </label>
                   <Popover>
@@ -4339,6 +4351,18 @@ const Louer = () => {
                       />
                     </PopoverContent>
                   </Popover>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs text-muted-foreground flex items-center gap-2">
+                    <CalendarIcon className="w-4 h-4" />
+                    Heure
+                  </label>
+                  <input
+                    type="time"
+                    defaultValue="10:00"
+                    className="w-full px-3 py-2 bg-secondary/20 border-0 rounded-lg focus:ring-2 focus:ring-primary text-sm"
+                  />
                 </div>
               </div>
 
