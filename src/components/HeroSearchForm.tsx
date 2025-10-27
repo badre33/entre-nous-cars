@@ -15,13 +15,21 @@ export const HeroSearchForm = () => {
   const [city, setCity] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [startTime, setStartTime] = useState("10:00");
+  const [endTime, setEndTime] = useState("10:00");
 
   const searchSchema = z.object({
     city: z.string().min(1, { message: t('common.selectCity') }),
     startDate: z.string().min(1, { message: "Veuillez sélectionner une date de début" }),
     endDate: z.string().min(1, { message: "Veuillez sélectionner une date de fin" }),
-  }).refine((data) => new Date(data.endDate) > new Date(data.startDate), {
-    message: "La date de fin doit être après la date de début",
+    startTime: z.string().min(1, { message: "Veuillez sélectionner une heure de début" }),
+    endTime: z.string().min(1, { message: "Veuillez sélectionner une heure de fin" }),
+  }).refine((data) => {
+    const startDateTime = new Date(`${data.startDate}T${data.startTime}`);
+    const endDateTime = new Date(`${data.endDate}T${data.endTime}`);
+    return endDateTime > startDateTime;
+  }, {
+    message: "La date et l'heure de fin doivent être après la date et l'heure de début",
     path: ["endDate"],
   });
 
@@ -29,12 +37,14 @@ export const HeroSearchForm = () => {
     e.preventDefault();
     
     try {
-      searchSchema.parse({ city, startDate, endDate });
+      searchSchema.parse({ city, startDate, endDate, startTime, endTime });
       // Navigate to /louer with search params
       const params = new URLSearchParams({
         city,
         startDate,
         endDate,
+        startTime,
+        endTime,
       });
       navigate(`/louer?${params.toString()}`);
     } catch (error) {
@@ -56,9 +66,9 @@ export const HeroSearchForm = () => {
       onSubmit={handleSearch}
       className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 max-w-4xl mx-auto mt-6 sm:mt-8"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 sm:gap-4">
         {/* City Selection */}
-        <div className="flex flex-col">
+        <div className="flex flex-col sm:col-span-2 lg:col-span-1">
           <label htmlFor="city" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
             <MapPin className="w-4 h-4" />
             {t('common.city')}
@@ -102,6 +112,23 @@ export const HeroSearchForm = () => {
           </div>
         </div>
 
+        {/* Start Time */}
+        <div className="flex flex-col">
+          <label htmlFor="startTime" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
+            <Calendar className="w-4 h-4" />
+            Heure début
+          </label>
+          <input
+            id="startTime"
+            name="startTime"
+            type="time"
+            value={startTime}
+            onChange={(e) => setStartTime(e.target.value)}
+            className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base touch-target touch-feedback"
+            required
+          />
+        </div>
+
         {/* End Date */}
         <div className="flex flex-col">
           <label htmlFor="endDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
@@ -123,8 +150,25 @@ export const HeroSearchForm = () => {
           </div>
         </div>
 
+        {/* End Time */}
+        <div className="flex flex-col">
+          <label htmlFor="endTime" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
+            <Calendar className="w-4 h-4" />
+            Heure fin
+          </label>
+          <input
+            id="endTime"
+            name="endTime"
+            type="time"
+            value={endTime}
+            onChange={(e) => setEndTime(e.target.value)}
+            className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base touch-target touch-feedback"
+            required
+          />
+        </div>
+
         {/* Search Button */}
-        <div className="flex items-end sm:col-span-1">
+        <div className="flex items-end sm:col-span-2 lg:col-span-1">
           <Button 
             type="submit"
             size="lg" 
