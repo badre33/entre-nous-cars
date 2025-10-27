@@ -64,21 +64,22 @@ export const HeroSearchForm = () => {
   return (
     <form 
       onSubmit={handleSearch}
-      className="bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6 max-w-4xl mx-auto mt-6 sm:mt-8"
+      className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-5 max-w-5xl mx-auto"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 sm:gap-3">
         {/* City Selection */}
-        <div className="flex flex-col sm:col-span-2 lg:col-span-1">
-          <label htmlFor="city" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
-            <MapPin className="w-4 h-4" />
-            {t('common.city')}
+        <div className="flex flex-col col-span-2 sm:col-span-1">
+          <label htmlFor="city" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1">
+            <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">{t('common.city')}</span>
+            <span className="sm:hidden">Ville</span>
           </label>
           <select
             id="city"
             name="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-gray-900 bg-white text-sm sm:text-base touch-target touch-feedback"
+            className="px-2 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-gray-900 bg-white text-sm touch-target touch-feedback"
             autoComplete="address-level2"
             required
           >
@@ -93,30 +94,30 @@ export const HeroSearchForm = () => {
 
         {/* Start Date */}
         <div className="flex flex-col">
-          <label htmlFor="startDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
-            {t('common.startDate')}
+          <label htmlFor="startDate" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1">
+            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">{t('common.startDate')}</span>
+            <span className="sm:hidden">Début</span>
           </label>
-          <div className="relative">
-            <input
-              id="startDate"
-              name="startDate"
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-              min={today}
-              className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base touch-target touch-feedback"
-              autoComplete="off"
-              required
-            />
-          </div>
+          <input
+            id="startDate"
+            name="startDate"
+            type="date"
+            value={startDate}
+            onChange={(e) => setStartDate(e.target.value)}
+            min={today}
+            className="px-2 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-xs sm:text-sm touch-target touch-feedback"
+            autoComplete="off"
+            required
+          />
         </div>
 
         {/* Start Time */}
         <div className="flex flex-col">
-          <label htmlFor="startTime" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
-            Heure début
+          <label htmlFor="startTime" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1">
+            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">Heure</span>
+            <span className="sm:hidden">H</span>
           </label>
           <input
             id="startTime"
@@ -124,37 +125,37 @@ export const HeroSearchForm = () => {
             type="time"
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
-            className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base touch-target touch-feedback"
+            className="px-2 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-xs sm:text-sm touch-target touch-feedback"
             required
           />
         </div>
 
         {/* End Date */}
         <div className="flex flex-col">
-          <label htmlFor="endDate" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
-            {t('common.endDate')}
+          <label htmlFor="endDate" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1">
+            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">{t('common.endDate')}</span>
+            <span className="sm:hidden">Fin</span>
           </label>
-          <div className="relative">
-            <input
-              id="endDate"
-              name="endDate"
-              type="date"
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-              min={startDate || tomorrow}
-              className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base touch-target touch-feedback"
-              autoComplete="off"
-              required
-            />
-          </div>
+          <input
+            id="endDate"
+            name="endDate"
+            type="date"
+            value={endDate}
+            onChange={(e) => setEndDate(e.target.value)}
+            min={startDate || tomorrow}
+            className="px-2 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-xs sm:text-sm touch-target touch-feedback"
+            autoComplete="off"
+            required
+          />
         </div>
 
         {/* End Time */}
         <div className="flex flex-col">
-          <label htmlFor="endTime" className="text-xs sm:text-sm font-semibold text-gray-700 mb-1.5 sm:mb-2 flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
-            Heure fin
+          <label htmlFor="endTime" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1">
+            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden sm:inline">Heure</span>
+            <span className="sm:hidden">H</span>
           </label>
           <input
             id="endTime"
@@ -162,20 +163,21 @@ export const HeroSearchForm = () => {
             type="time"
             value={endTime}
             onChange={(e) => setEndTime(e.target.value)}
-            className="px-3 sm:px-4 py-2.5 sm:py-3 min-h-[48px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-sm sm:text-base touch-target touch-feedback"
+            className="px-2 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-xs sm:text-sm touch-target touch-feedback"
             required
           />
         </div>
 
         {/* Search Button */}
-        <div className="flex items-end sm:col-span-2 lg:col-span-1">
+        <div className="flex items-end col-span-2 sm:col-span-3 lg:col-span-1">
           <Button 
             type="submit"
             size="lg" 
-            className="w-full py-2.5 sm:py-3 min-h-[48px] rounded-lg text-sm sm:text-base font-semibold h-auto touch-target touch-feedback"
+            className="w-full py-2 sm:py-2.5 min-h-[44px] rounded-lg text-sm font-semibold h-auto touch-target touch-feedback"
           >
-            <Search className="w-5 h-5 mr-2" />
-            {t('common.search')}
+            <Search className="w-4 h-4 sm:w-5 sm:h-5 sm:mr-2" />
+            <span className="hidden sm:inline">{t('common.search')}</span>
+            <span className="sm:hidden">Rechercher</span>
           </Button>
         </div>
       </div>

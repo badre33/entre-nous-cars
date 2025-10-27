@@ -71,7 +71,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section with Parallax */}
-      <section className="relative min-h-[500px] sm:min-h-[550px] md:h-[600px] lg:h-[650px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[550px] sm:min-h-[600px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
         {/* Preloaded image for LCP optimization */}
         <img 
           src={heroImage} 
@@ -84,22 +84,22 @@ const Index = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         
-        <div className="container relative z-10 text-center text-white px-4 sm:px-6 animate-fade-in py-8 sm:py-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-4 sm:mb-6 text-white drop-shadow-lg animate-fade-in leading-tight">
+        <div className="container relative z-10 text-center text-white px-4 sm:px-6 animate-fade-in py-6 sm:py-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-3 sm:mb-5 text-white drop-shadow-lg animate-fade-in leading-tight">
             {t('home.heroTitle')}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-3xl mx-auto text-white/95 font-medium animate-fade-in [animation-delay:200ms] leading-relaxed px-2">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-5 sm:mb-7 max-w-3xl mx-auto text-white/95 font-medium animate-fade-in [animation-delay:200ms] leading-relaxed px-2">
             {t('home.heroSubtitle')}
           </p>
           
           {/* Search Form */}
-          <div className="animate-fade-in [animation-delay:400ms] max-w-4xl mx-auto">
+          <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-5 sm:mb-7">
             <HeroSearchForm />
           </div>
           
-          <div className="flex gap-3 sm:gap-4 justify-center flex-wrap mt-6 sm:mt-8 animate-fade-in [animation-delay:600ms]">
+          <div className="flex gap-3 sm:gap-4 justify-center flex-wrap animate-fade-in [animation-delay:600ms]">
             <Link to="/partenaires">
-              <Button size="lg" variant="partner" className="rounded-full text-base sm:text-lg px-6 sm:px-8 h-11 sm:h-12">
+              <Button size="lg" variant="partner" className="rounded-full text-sm sm:text-base lg:text-lg px-5 sm:px-7 h-10 sm:h-11">
                 {t('home.becomePartner')}
               </Button>
             </Link>
