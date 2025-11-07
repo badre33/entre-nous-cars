@@ -34,23 +34,22 @@
   # Prevent MIME type sniffing
   Header set X-Content-Type-Options "nosniff"
   
-  # XSS Protection
-  Header set X-XSS-Protection "1; mode=block"
+  # Referrer Policy - more permissive for better compatibility
+  Header set Referrer-Policy "no-referrer-when-downgrade"
   
-  # Clickjacking Protection
-  Header set X-Frame-Options "SAMEORIGIN"
-  
-  # Referrer Policy
-  Header set Referrer-Policy "strict-origin-when-cross-origin"
-  
-  # Permissions Policy
-  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # CORS headers for better cross-origin compatibility
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+  Header set Access-Control-Allow-Headers "Content-Type, Authorization"
 </IfModule>
 
-# Force HTTPS
+# Force HTTPS (only if HTTPS is available)
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  # Only redirect to HTTPS if the server supports it
   RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteCond %{SERVER_PORT} !^443$
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
 
