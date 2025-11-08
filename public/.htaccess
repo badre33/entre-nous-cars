@@ -29,28 +29,12 @@
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
-# Security Headers
+# Minimal Security Headers for maximum compatibility
 <IfModule mod_headers.c>
-  # Prevent MIME type sniffing
-  Header set X-Content-Type-Options "nosniff"
-  
-  # Referrer Policy - more permissive for better compatibility
-  Header set Referrer-Policy "no-referrer-when-downgrade"
-  
-  # CORS headers for better cross-origin compatibility
+  # CORS - Allow all origins
   Header set Access-Control-Allow-Origin "*"
   Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
-  Header set Access-Control-Allow-Headers "Content-Type, Authorization"
-</IfModule>
-
-# Force HTTPS (only if HTTPS is available)
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  # Only redirect to HTTPS if the server supports it
-  RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP:X-Forwarded-Proto} !https
-  RewriteCond %{SERVER_PORT} !^443$
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  Header set Access-Control-Allow-Headers "*"
 </IfModule>
 
 # WebP Image Serving
