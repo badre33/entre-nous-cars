@@ -64,7 +64,9 @@ const App = () => (
                   </Routes>
                 </Suspense>
                 <WhatsAppButton />
-                <AIAssistant />
+                <div className="hidden md:block">
+                  <AIAssistant />
+                </div>
                 <BackToTop />
                 <BottomNavigation />
               </ComparisonProvider>
