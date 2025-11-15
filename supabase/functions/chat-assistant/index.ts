@@ -1,9 +1,42 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
+
+// Input validation schema
+const messageSchema = z.object({
+  role: z.enum(['user', 'assistant', 'system']),
+  content: z.string().min(1).max(2000)
+});
+
+const requestSchema = z.object({
+  messages: z.array(messageSchema).min(1).max(50)
+});
+
+// Simple in-memory rate limiting (resets on function cold start)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW = 60000; // 1 minute
+const MAX_REQUESTS_PER_WINDOW = 20;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return true;
+  }
+  
+  if (record.count >= MAX_REQUESTS_PER_WINDOW) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+}
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {
@@ -11,7 +44,40 @@ serve(async (req) => {
   }
 
   try {
-    const { messages } = await req.json();
+    // Get client IP for rate limiting
+    const clientIP = req.headers.get("x-forwarded-for")?.split(',')[0].trim() || 
+                     req.headers.get("x-real-ip") || 
+                     "unknown";
+    
+    // Check rate limit
+    if (!checkRateLimit(clientIP)) {
+      console.warn(`Rate limit exceeded for IP: ${clientIP}`);
+      return new Response(
+        JSON.stringify({ error: "Trop de requêtes. Veuillez réessayer dans une minute." }),
+        {
+          status: 429,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    // Parse and validate request body
+    const body = await req.json();
+    const validation = requestSchema.safeParse(body);
+    
+    if (!validation.success) {
+      console.warn(`Invalid request from IP ${clientIP}:`, validation.error.errors);
+      return new Response(
+        JSON.stringify({ error: "Format de requête invalide." }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        }
+      );
+    }
+    
+    const { messages } = validation.data;
+    console.log(`Processing chat request from IP ${clientIP}, messages: ${messages.length}`);
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     
     if (!LOVABLE_API_KEY) {
