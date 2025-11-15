@@ -21,13 +21,13 @@ All colors MUST be HSL.
     --primary: 51 100% 50%;     /* #ffda00 - vibrant yellow */
     --primary-foreground: 0 0% 0%;
 
-    --secondary: 88 84% 76%;    /* #d0f690 - soft green accent */
+    --secondary: 88 65% 55%;    /* Green accent with better contrast */
     --secondary-foreground: 0 0% 0%;
 
-    --muted: 88 84% 76%;
+    --muted: 88 65% 55%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 186 96% 29%;      /* #048592 - teal accent */
+    --accent: 186 85% 35%;      /* Darker teal with better contrast */
     --accent-foreground: 0 0% 100%;
     
     --partner: 100 80% 45%;     /* #33cc33 - vibrant green for partner CTA */
@@ -36,7 +36,7 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 88 84% 85%;
+    --border: 88 55% 75%;
     --input: 0 0% 100%;
     --ring: 51 100% 50%;
 
