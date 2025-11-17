@@ -64,7 +64,7 @@ export const HeroSearchForm = () => {
   return (
     <form 
       onSubmit={handleSearch}
-      className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-5 max-w-5xl mx-auto overflow-x-hidden"
+      className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-5 max-w-5xl mx-3 sm:mx-auto overflow-x-hidden w-auto"
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-2 sm:gap-3 overflow-x-hidden">
         {/* City Selection */}
