@@ -64,7 +64,7 @@ export const HeroSearchForm = () => {
   return (
     <form 
       onSubmit={handleSearch}
-      className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-5 max-w-5xl mx-auto"
+      className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-5 max-w-5xl mx-auto"
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-2 sm:gap-3">
         {/* City Selection */}
@@ -79,7 +79,7 @@ export const HeroSearchForm = () => {
             name="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="px-2 sm:px-3 py-2.5 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-gray-900 bg-white text-base touch-target touch-feedback cursor-pointer"
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-gray-900 bg-white text-base touch-target touch-feedback cursor-pointer box-border"
             style={{ fontSize: '16px' }}
             autoComplete="address-level2"
             required
@@ -107,7 +107,7 @@ export const HeroSearchForm = () => {
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
             min={today}
-            className="px-2 sm:px-3 py-2.5 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer"
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
             style={{ fontSize: '16px' }}
             autoComplete="off"
             required
@@ -127,7 +127,7 @@ export const HeroSearchForm = () => {
             type="time"
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
-            className="px-2 sm:px-3 py-2.5 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer"
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
             style={{ fontSize: '16px' }}
             required
           />
@@ -147,7 +147,7 @@ export const HeroSearchForm = () => {
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
             min={startDate || tomorrow}
-            className="px-2 sm:px-3 py-2.5 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer"
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
             style={{ fontSize: '16px' }}
             autoComplete="off"
             required
@@ -167,7 +167,7 @@ export const HeroSearchForm = () => {
             type="time"
             value={endTime}
             onChange={(e) => setEndTime(e.target.value)}
-            className="px-2 sm:px-3 py-2.5 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer"
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
             style={{ fontSize: '16px' }}
             required
           />
