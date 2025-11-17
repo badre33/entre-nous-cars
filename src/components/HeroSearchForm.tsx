@@ -108,7 +108,7 @@ export const HeroSearchForm = () => {
         <div className="flex flex-col gap-4 lg:hidden">
           {/* Ville */}
           <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold">
+            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
               <MapPin className="w-4 h-4" />
               Ville
             </Label>
@@ -126,7 +126,7 @@ export const HeroSearchForm = () => {
 
           {/* Date de début */}
           <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold">
+            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
               <Calendar className="w-4 h-4" />
               Date de début
             </Label>
@@ -144,7 +144,7 @@ export const HeroSearchForm = () => {
 
           {/* Heure de début */}
           <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold">
+            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
               <Clock className="w-4 h-4" />
               Heure de début
             </Label>
@@ -162,7 +162,7 @@ export const HeroSearchForm = () => {
 
           {/* Date de fin */}
           <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold">
+            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
               <Calendar className="w-4 h-4" />
               Date de fin
             </Label>
@@ -180,7 +180,7 @@ export const HeroSearchForm = () => {
 
           {/* Heure de fin */}
           <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold">
+            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
               <Clock className="w-4 h-4" />
               Heure de fin
             </Label>
