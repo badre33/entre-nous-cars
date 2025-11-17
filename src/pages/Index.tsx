@@ -93,7 +93,7 @@ const Index = () => {
           </p>
           
           {/* Search Form */}
-          <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-5 sm:mb-7">
+          <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-5 sm:mb-7 px-2 sm:px-4">
             <HeroSearchForm />
           </div>
           
