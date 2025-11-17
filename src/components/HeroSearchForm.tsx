@@ -242,14 +242,14 @@ export const HeroSearchForm = () => {
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
                 min={today}
-                className="w-full px-3 py-2.5 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white text-gray-900"
+                className="w-full px-2 py-2.5 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white text-gray-900 text-sm"
                 required
               />
               <input
                 type="time"
                 value={startTime}
                 onChange={(e) => setStartTime(e.target.value)}
-                className="w-full px-3 py-2.5 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white text-gray-900"
+                className="w-full px-2 py-2.5 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white text-gray-900 text-sm"
                 required
               />
             </div>
@@ -268,14 +268,14 @@ export const HeroSearchForm = () => {
                 value={endDate}
                 onChange={(e) => setEndDate(e.target.value)}
                 min={startDate || tomorrow}
-                className="w-full px-3 py-2.5 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white text-gray-900"
+                className="w-full px-2 py-2.5 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white text-gray-900 text-sm"
                 required
               />
               <input
                 type="time"
                 value={endTime}
                 onChange={(e) => setEndTime(e.target.value)}
-                className="w-full px-3 py-2.5 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white text-gray-900"
+                className="w-full px-2 py-2.5 border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary bg-white text-gray-900 text-sm"
                 required
               />
             </div>
