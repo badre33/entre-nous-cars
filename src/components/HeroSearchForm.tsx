@@ -66,9 +66,9 @@ export const HeroSearchForm = () => {
       onSubmit={handleSearch}
       className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl p-3 sm:p-5 max-w-5xl mx-auto"
     >
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-2 sm:gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-2 sm:gap-3">
         {/* City Selection */}
-        <div className="flex flex-col col-span-2 sm:col-span-1">
+        <div className="flex flex-col col-span-1 sm:col-span-1">
           <label htmlFor="city" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1.5">
             <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             <span className="hidden sm:inline">{t('common.city')}</span>
@@ -94,7 +94,7 @@ export const HeroSearchForm = () => {
         </div>
 
         {/* Start Date */}
-        <div className="flex flex-col">
+        <div className="flex flex-col sm:col-span-1">
           <label htmlFor="startDate" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             <span className="hidden sm:inline">{t('common.startDate')}</span>
@@ -115,7 +115,7 @@ export const HeroSearchForm = () => {
         </div>
 
         {/* Start Time */}
-        <div className="flex flex-col">
+        <div className="flex flex-col sm:col-span-1 lg:col-span-1">
           <label htmlFor="startTime" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             <span className="hidden sm:inline">Heure</span>
@@ -134,7 +134,7 @@ export const HeroSearchForm = () => {
         </div>
 
         {/* End Date */}
-        <div className="flex flex-col">
+        <div className="flex flex-col sm:col-span-1">
           <label htmlFor="endDate" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             <span className="hidden sm:inline">{t('common.endDate')}</span>
@@ -155,7 +155,7 @@ export const HeroSearchForm = () => {
         </div>
 
         {/* End Time */}
-        <div className="flex flex-col">
+        <div className="flex flex-col sm:col-span-1 lg:col-span-1">
           <label htmlFor="endTime" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1.5">
             <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
             <span className="hidden sm:inline">Heure</span>
@@ -174,7 +174,7 @@ export const HeroSearchForm = () => {
         </div>
 
         {/* Search Button */}
-        <div className="flex items-end col-span-2 sm:col-span-3 lg:col-span-1">
+        <div className="flex items-end col-span-1 sm:col-span-3 lg:col-span-1">
           <Button 
             type="submit"
             size="lg" 
