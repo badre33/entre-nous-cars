@@ -64,9 +64,9 @@ export const HeroSearchForm = () => {
   return (
     <form 
       onSubmit={handleSearch}
-      className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-5 max-w-5xl mx-auto"
+      className="bg-white/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-5 max-w-5xl mx-auto overflow-x-hidden"
     >
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-2 sm:gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-7 gap-2 sm:gap-3 overflow-x-hidden">
         {/* City Selection */}
         <div className="flex flex-col col-span-1 sm:col-span-1">
           <label htmlFor="city" className="text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1.5">
