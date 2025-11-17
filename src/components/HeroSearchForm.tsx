@@ -107,8 +107,8 @@ export const HeroSearchForm = () => {
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
             min={today}
-            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
-            style={{ fontSize: '16px' }}
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full max-w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
+            style={{ fontSize: '16px', maxWidth: '100%' }}
             autoComplete="off"
             required
           />
@@ -127,8 +127,8 @@ export const HeroSearchForm = () => {
             type="time"
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
-            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
-            style={{ fontSize: '16px' }}
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full max-w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
+            style={{ fontSize: '16px', maxWidth: '100%' }}
             required
           />
         </div>
@@ -147,8 +147,8 @@ export const HeroSearchForm = () => {
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
             min={startDate || tomorrow}
-            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
-            style={{ fontSize: '16px' }}
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full max-w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
+            style={{ fontSize: '16px', maxWidth: '100%' }}
             autoComplete="off"
             required
           />
@@ -167,8 +167,8 @@ export const HeroSearchForm = () => {
             type="time"
             value={endTime}
             onChange={(e) => setEndTime(e.target.value)}
-            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
-            style={{ fontSize: '16px' }}
+            className="px-3 py-2.5 min-h-[48px] border sm:border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full max-w-full text-gray-900 bg-white [color-scheme:light] text-base touch-target touch-feedback cursor-pointer box-border"
+            style={{ fontSize: '16px', maxWidth: '100%' }}
             required
           />
         </div>
