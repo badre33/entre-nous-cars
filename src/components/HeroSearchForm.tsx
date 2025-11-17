@@ -79,7 +79,7 @@ export const HeroSearchForm = () => {
             name="city"
             value={city}
             onChange={(e) => setCity(e.target.value)}
-            className="px-1.5 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-gray-900 bg-white text-xs sm:text-sm touch-target touch-feedback"
+            className="px-2 sm:px-3 py-3 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all text-gray-900 bg-white text-base sm:text-sm touch-target touch-feedback cursor-pointer"
             autoComplete="address-level2"
             required
           >
@@ -106,7 +106,7 @@ export const HeroSearchForm = () => {
             value={startDate}
             onChange={(e) => setStartDate(e.target.value)}
             min={today}
-            className="px-1.5 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-xs sm:text-sm touch-target touch-feedback"
+            className="px-2 sm:px-3 py-3 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base sm:text-sm touch-target touch-feedback cursor-pointer"
             autoComplete="off"
             required
           />
@@ -125,7 +125,7 @@ export const HeroSearchForm = () => {
             type="time"
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
-            className="px-1.5 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-xs sm:text-sm touch-target touch-feedback"
+            className="px-2 sm:px-3 py-3 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base sm:text-sm touch-target touch-feedback cursor-pointer"
             required
           />
         </div>
@@ -144,7 +144,7 @@ export const HeroSearchForm = () => {
             value={endDate}
             onChange={(e) => setEndDate(e.target.value)}
             min={startDate || tomorrow}
-            className="px-1.5 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-xs sm:text-sm touch-target touch-feedback"
+            className="px-2 sm:px-3 py-3 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base sm:text-sm touch-target touch-feedback cursor-pointer"
             autoComplete="off"
             required
           />
@@ -163,7 +163,7 @@ export const HeroSearchForm = () => {
             type="time"
             value={endTime}
             onChange={(e) => setEndTime(e.target.value)}
-            className="px-1.5 sm:px-3 py-2 sm:py-2.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-xs sm:text-sm touch-target touch-feedback"
+            className="px-2 sm:px-3 py-3 sm:py-2.5 min-h-[48px] border-2 border-gray-400 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all w-full text-gray-900 bg-white [color-scheme:light] text-base sm:text-sm touch-target touch-feedback cursor-pointer"
             required
           />
         </div>
@@ -173,9 +173,9 @@ export const HeroSearchForm = () => {
           <Button 
             type="submit"
             size="lg" 
-            className="w-full py-2 sm:py-2.5 min-h-[44px] rounded-lg text-sm font-semibold h-auto touch-target touch-feedback"
+            className="w-full py-3 sm:py-2.5 min-h-[48px] rounded-lg text-base sm:text-sm font-semibold h-auto touch-target touch-feedback"
           >
-            <Search className="w-4 h-4 sm:w-5 sm:h-5 sm:mr-2" />
+            <Search className="w-5 h-5 sm:mr-2" />
             <span className="hidden sm:inline">{t('common.search')}</span>
             <span className="sm:hidden">Rechercher</span>
           </Button>
