@@ -98,7 +98,7 @@ const WhatsAppButton = () => {
       {/* Floating Button */}
       <button
         onClick={handleOpen}
-        className="fixed bottom-[144px] md:bottom-24 right-6 md:left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-5 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group touch-target touch-feedback min-w-[56px] min-h-[56px] md:min-w-0 md:min-h-0"
+        className="fixed bottom-[144px] md:bottom-24 right-6 md:right-auto md:left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-5 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group touch-target touch-feedback w-[56px] h-[56px] md:w-auto md:h-auto flex items-center justify-center"
         aria-label="Ouvrir le chat WhatsApp"
       >
         {isOpen ? (
