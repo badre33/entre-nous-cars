@@ -67,7 +67,7 @@ export const BottomNavigation = () => {
               aria-current={active ? 'page' : undefined}
             >
               <div className={cn(
-                "relative",
+                "relative flex items-center justify-center",
                 active && "scale-110"
               )}>
                 <Icon 
