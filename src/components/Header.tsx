@@ -177,20 +177,11 @@ const Header = () => {
                 <SheetTitle className="text-left font-pacifico text-2xl">benatna</SheetTitle>
               </SheetHeader>
               <nav className="flex flex-col gap-2 mt-8">
-                {/* Pages secondaires uniquement */}
-                <Link 
-                  to="/a-propos" 
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg py-3 px-4 rounded-lg font-medium transition-colors hover:text-primary text-muted-foreground"
-                >
-                  {t('common.about')}
-                </Link>
-                <Link 
-                  to="/blog" 
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg py-3 px-4 rounded-lg font-medium transition-colors hover:text-primary text-muted-foreground"
-                >
-                  {t('common.blog')}
+                <NavLinks mobile onLinkClick={() => setIsOpen(false)} />
+                <Link to="/louer" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full rounded-full mt-4">
+                    {t('common.rent')}
+                  </Button>
                 </Link>
               </nav>
             </SheetContent>
