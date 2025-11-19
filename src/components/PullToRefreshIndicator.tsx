@@ -18,9 +18,10 @@ export const PullToRefreshIndicator = ({
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm border-b transition-all duration-200"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-center bg-background/95 backdrop-blur-sm border-b will-change-transform"
       style={{
         height: isRefreshing ? '60px' : `${Math.min(pullDistance, 60)}px`,
+        transform: 'translateZ(0)', // Force GPU acceleration
       }}
     >
       <div className="flex flex-col items-center gap-2">
