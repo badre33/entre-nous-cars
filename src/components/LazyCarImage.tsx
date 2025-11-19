@@ -61,7 +61,7 @@ export default function LazyCarImage({
       {!loaded && !error && (
         <div className="absolute inset-0 bg-gradient-to-br from-muted via-muted/80 to-muted animate-pulse" />
       )}
-      {isInView && (
+      {(isInView || priority) && (
         <picture>
           {hasWebP && (
             <source 
@@ -77,6 +77,7 @@ export default function LazyCarImage({
             alt={alt}
             loading={priority ? "eager" : "lazy"}
             decoding="async"
+            fetchPriority={priority ? "high" : "auto"}
             className={cn(
               "w-full h-full object-cover transition-opacity duration-300",
               loaded ? "opacity-100" : "opacity-0"
