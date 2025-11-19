@@ -95,11 +95,12 @@ const WhatsAppButton = () => {
         </Card>
       )}
 
-      {/* Floating Button */}
+      {/* Floating Button - Optimized for mobile touch */}
       <button
         onClick={handleOpen}
-        className="fixed bottom-[144px] md:bottom-24 right-6 md:right-auto md:left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full p-5 md:p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group touch-target touch-feedback w-[56px] h-[56px] md:w-auto md:h-auto flex items-center justify-center"
+        className="fixed bottom-[144px] md:bottom-24 right-4 md:right-auto md:left-6 z-50 bg-[#25D366] hover:bg-[#128C7E] active:bg-[#0d6e57] text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 group touch-target touch-feedback w-[64px] h-[64px] md:w-[56px] md:h-[56px] flex items-center justify-center"
         aria-label="Ouvrir le chat WhatsApp"
+        style={{ WebkitTapHighlightColor: 'transparent' }}
       >
         {isOpen ? (
           <X className="w-7 h-7 md:w-6 md:h-6" />
