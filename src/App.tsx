@@ -6,13 +6,15 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ComparisonProvider } from "@/contexts/ComparisonContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTop from "@/components/ScrollToTop";
-import { BackToTop } from "@/components/BackToTop";
-import { AIAssistant } from "@/components/AIAssistant";
-import { BottomNavigation } from "@/components/BottomNavigation";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { lazy, Suspense, useEffect } from "react";
+
+// Lazy load non-critical components to reduce initial bundle and improve FID
+const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+const AIAssistant = lazy(() => import("@/components/AIAssistant").then(m => ({ default: m.AIAssistant })));
+const BackToTop = lazy(() => import("@/components/BackToTop").then(m => ({ default: m.BackToTop })));
+const BottomNavigation = lazy(() => import("@/components/BottomNavigation").then(m => ({ default: m.BottomNavigation })));
 import LoadingCar from "@/components/LoadingCar";
 import { analytics } from "@/utils/analytics";
 
@@ -63,12 +65,14 @@ const App = () => (
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
-                <WhatsAppButton />
-                <div className="hidden md:block">
-                  <AIAssistant />
-                </div>
-                <BackToTop />
-                <BottomNavigation />
+                <Suspense fallback={null}>
+                  <WhatsAppButton />
+                  <div className="hidden md:block">
+                    <AIAssistant />
+                  </div>
+                  <BackToTop />
+                  <BottomNavigation />
+                </Suspense>
               </ComparisonProvider>
             </LanguageProvider>
           </BrowserRouter>
