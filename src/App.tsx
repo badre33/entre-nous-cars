@@ -16,8 +16,8 @@ import { lazy, Suspense, useEffect } from "react";
 import LoadingCar from "@/components/LoadingCar";
 import { analytics } from "@/utils/analytics";
 
-// Code splitting avec React.lazy
-const Index = lazy(() => import("./pages/Index"));
+// Code splitting avec React.lazy - Homepage not lazy loaded for better LCP
+import Index from "./pages/Index";
 const Louer = lazy(() => import("./pages/Louer"));
 const Partenaires = lazy(() => import("./pages/Partenaires"));
 const APropos = lazy(() => import("./pages/APropos"));
