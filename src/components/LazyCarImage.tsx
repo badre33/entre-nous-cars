@@ -6,17 +6,29 @@ interface LazyCarImageProps {
   alt: string;
   className?: string;
   priority?: boolean;
+  sizes?: string;
 }
 
 export default function LazyCarImage({ 
   src, 
   alt, 
   className,
-  priority = false
+  priority = false,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 }: LazyCarImageProps) {
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLDivElement>(null);
+
+  // Generate WebP source URL
+  const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  const hasWebP = /\.(jpg|jpeg|png)$/i.test(src);
+
+  // Generate srcset for responsive images
+  const generateSrcSet = (imageSrc: string) => {
+    return `${imageSrc} 1x, ${imageSrc} 2x`;
+  };
 
   // Intersection Observer for lazy loading
   useEffect(() => {
@@ -46,21 +58,36 @@ export default function LazyCarImage({
 
   return (
     <div ref={imgRef} className={cn("relative overflow-hidden bg-muted", className)}>
-      {!loaded && (
+      {!loaded && !error && (
         <div className="absolute inset-0 bg-gradient-to-br from-muted via-muted/80 to-muted animate-pulse" />
       )}
       {isInView && (
-        <img
-          src={src}
-          alt={alt}
-          loading={priority ? "eager" : "lazy"}
-          decoding="async"
-          className={cn(
-            "w-full h-full object-cover transition-opacity duration-300",
-            loaded ? "opacity-100" : "opacity-0"
+        <picture>
+          {hasWebP && (
+            <source 
+              srcSet={generateSrcSet(webpSrc)} 
+              type="image/webp"
+              sizes={sizes}
+            />
           )}
-          onLoad={() => setLoaded(true)}
-        />
+          <img
+            src={src}
+            srcSet={generateSrcSet(src)}
+            sizes={sizes}
+            alt={alt}
+            loading={priority ? "eager" : "lazy"}
+            decoding="async"
+            className={cn(
+              "w-full h-full object-cover transition-opacity duration-300",
+              loaded ? "opacity-100" : "opacity-0"
+            )}
+            onLoad={() => setLoaded(true)}
+            onError={() => {
+              setError(true);
+              setLoaded(true);
+            }}
+          />
+        </picture>
       )}
     </div>
   );
