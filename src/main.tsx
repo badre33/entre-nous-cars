@@ -7,7 +7,7 @@ createRoot(document.getElementById("root")!).render(<App />);
 // Register service worker after initial render to avoid blocking FCP
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/registerSW.js')
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
       .catch((error) => console.log('SW registration failed:', error));
   });
 }
