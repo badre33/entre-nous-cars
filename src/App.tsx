@@ -9,13 +9,15 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { MetaPixel } from "@/components/MetaPixel";
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 
-// Lazy load non-critical components to reduce initial bundle and improve FID
+// Import critical navigation component directly to avoid dependency chain
+import { BottomNavigation } from "@/components/BottomNavigation";
+
+// Lazy load truly non-critical components - will be deferred
 const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const AIAssistant = lazy(() => import("@/components/AIAssistant").then(m => ({ default: m.AIAssistant })));
 const BackToTop = lazy(() => import("@/components/BackToTop").then(m => ({ default: m.BackToTop })));
-const BottomNavigation = lazy(() => import("@/components/BottomNavigation").then(m => ({ default: m.BottomNavigation })));
 import LoadingCar from "@/components/LoadingCar";
 import { analytics } from "@/utils/analytics";
 
@@ -47,6 +49,29 @@ const AnalyticsTracker = () => {
   }, [location]);
 
   return null;
+};
+
+// Deferred component loader to reduce initial dependency chain
+const DeferredComponents = () => {
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    // Defer loading non-critical components until after initial render
+    const timer = setTimeout(() => setShouldLoad(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!shouldLoad) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <WhatsAppButton />
+      <div className="hidden md:block">
+        <AIAssistant />
+      </div>
+      <BackToTop />
+    </Suspense>
+  );
 };
 
 const App = () => (
@@ -81,14 +106,8 @@ const App = () => (
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
-                <Suspense fallback={null}>
-                  <WhatsAppButton />
-                  <div className="hidden md:block">
-                    <AIAssistant />
-                  </div>
-                  <BackToTop />
-                  <BottomNavigation />
-                </Suspense>
+                <BottomNavigation />
+                <DeferredComponents />
               </ComparisonProvider>
             </LanguageProvider>
           </BrowserRouter>
