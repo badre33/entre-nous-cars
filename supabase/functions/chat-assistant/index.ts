@@ -21,6 +21,15 @@ const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW = 60000; // 1 minute
 const MAX_REQUESTS_PER_WINDOW = 20;
 
+// Sanitize error messages to prevent information leakage
+function sanitizeError(error: unknown): string {
+  if (error instanceof Error) {
+    // Log only error type and sanitized message, not full stack trace
+    return `${error.name}: ${error.message.substring(0, 100)}`;
+  }
+  return "Unknown error type";
+}
+
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
   const record = rateLimitMap.get(ip);
@@ -269,7 +278,8 @@ RAPPEL : Réponses courtes + use tes tools pour données précises !`;
       }
       
       const errorText = await response.text();
-      console.error("AI gateway error:", response.status, errorText);
+      // Log only status code and sanitized error (no full error details)
+      console.error(`AI gateway error: status=${response.status}, type=${errorText.substring(0, 50)}`);
       return new Response(
         JSON.stringify({ error: "Erreur du service IA" }),
         {
@@ -283,7 +293,8 @@ RAPPEL : Réponses courtes + use tes tools pour données précises !`;
       headers: { ...corsHeaders, "Content-Type": "text/event-stream" },
     });
   } catch (e) {
-    console.error("Chat error:", e);
+    // Log sanitized error without exposing sensitive details
+    console.error(`Chat error: ${sanitizeError(e)}`);
     return new Response(
       JSON.stringify({ error: e instanceof Error ? e.message : "Erreur inconnue" }),
       {
