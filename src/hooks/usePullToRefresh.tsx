@@ -17,11 +17,13 @@ export const usePullToRefresh = ({
   const [startY, setStartY] = useState(0);
 
   const handleTouchStart = useCallback((e: TouchEvent) => {
-    // Only start if at the top of the page
-    if (window.scrollY === 0) {
-      setStartY(e.touches[0].pageY);
-      setIsPulling(true);
-    }
+    // Use requestAnimationFrame to batch layout reads and avoid forced reflows
+    requestAnimationFrame(() => {
+      if (window.scrollY === 0) {
+        setStartY(e.touches[0].pageY);
+        setIsPulling(true);
+      }
+    });
   }, []);
 
   const handleTouchMove = useCallback((e: TouchEvent) => {
@@ -30,12 +32,17 @@ export const usePullToRefresh = ({
     const currentY = e.touches[0].pageY;
     const distance = Math.max(0, (currentY - startY) / resistance);
 
-    if (distance > 0 && window.scrollY === 0) {
-      setPullDistance(distance);
-      // Prevent default scrolling when pulling down
-      if (distance > 10) {
-        e.preventDefault();
-      }
+    if (distance > 0) {
+      // Use requestAnimationFrame to batch layout reads
+      requestAnimationFrame(() => {
+        if (window.scrollY === 0) {
+          setPullDistance(distance);
+          // Prevent default scrolling when pulling down
+          if (distance > 10) {
+            e.preventDefault();
+          }
+        }
+      });
     }
   }, [isPulling, isRefreshing, startY, resistance]);
 
