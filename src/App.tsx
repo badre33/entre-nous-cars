@@ -8,6 +8,7 @@ import { ComparisonProvider } from "@/contexts/ComparisonContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { MetaPixel } from "@/components/MetaPixel";
 import { lazy, Suspense, useEffect } from "react";
 
 // Lazy load non-critical components to reduce initial bundle and improve FID
@@ -47,6 +48,7 @@ const App = () => (
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <BrowserRouter>
+            <MetaPixel />
             <AnalyticsTracker />
             <LanguageProvider>
               <ComparisonProvider>
