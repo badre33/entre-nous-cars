@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { LanguageSelector } from "@/components/LanguageSelector";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown, MapPin } from "lucide-react";
 import { useState } from "react";
 import {
   Sheet,
@@ -11,6 +11,12 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import logo from "@/assets/logo-black.png";
 
 const Header = () => {
@@ -20,6 +26,17 @@ const Header = () => {
   
   const isActive = (path: string) => location.pathname === path;
   
+  const cities = [
+    { name: 'Casablanca', path: '/location-voiture-casablanca' },
+    { name: 'Marrakech', path: '/location-voiture-marrakech' },
+    { name: 'Rabat', path: '/location-voiture-rabat' },
+    { name: 'Tanger', path: '/location-voiture-tanger' },
+    { name: 'Agadir', path: '/location-voiture-agadir' },
+    { name: 'Fès', path: '/location-voiture-fes' },
+  ];
+
+  const isCityActive = cities.some(city => isActive(city.path));
+
   const NavLinks = ({ mobile = false, onLinkClick }: { mobile?: boolean; onLinkClick?: () => void }) => (
     <>
       <Link 
@@ -40,6 +57,49 @@ const Header = () => {
       >
         {t('common.rent')}
       </Link>
+      
+      {mobile ? (
+        <div className="space-y-1">
+          <div className="text-lg py-3 px-4 font-medium text-muted-foreground flex items-center gap-2">
+            <MapPin className="h-4 w-4" />
+            Villes
+          </div>
+          {cities.map((city) => (
+            <Link 
+              key={city.path}
+              to={city.path} 
+              onClick={onLinkClick}
+              className={`text-base py-2 px-8 rounded-lg block font-medium transition-colors hover:text-primary ${
+                isActive(city.path) ? 'text-foreground bg-accent' : 'text-muted-foreground'
+              }`}
+            >
+              {city.name}
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <DropdownMenu>
+          <DropdownMenuTrigger className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-1 ${
+            isCityActive ? 'text-foreground' : 'text-muted-foreground'
+          }`}>
+            Villes <ChevronDown className="h-3 w-3" />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="start" className="w-56">
+            {cities.map((city) => (
+              <DropdownMenuItem key={city.path} asChild>
+                <Link 
+                  to={city.path}
+                  className="w-full flex items-center gap-2 cursor-pointer"
+                >
+                  <MapPin className="h-4 w-4" />
+                  {city.name}
+                </Link>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      )}
+      
       <Link 
         to="/partenaires" 
         onClick={onLinkClick}
