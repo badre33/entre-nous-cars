@@ -29,6 +29,11 @@ const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const Contact = lazy(() => import("./pages/Contact"));
 const FAQ = lazy(() => import("./pages/FAQ"));
 const LocationVoitureCasablanca = lazy(() => import("./pages/LocationVoitureCasablanca"));
+const LocationVoitureMarrakech = lazy(() => import("./pages/LocationVoitureMarrakech"));
+const LocationVoitureRabat = lazy(() => import("./pages/LocationVoitureRabat"));
+const LocationVoitureTanger = lazy(() => import("./pages/LocationVoitureTanger"));
+const LocationVoitureAgadir = lazy(() => import("./pages/LocationVoitureAgadir"));
+const LocationVoitureFes = lazy(() => import("./pages/LocationVoitureFes"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -68,6 +73,11 @@ const App = () => (
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/faq" element={<FAQ />} />
                     <Route path="/location-voiture-casablanca" element={<LocationVoitureCasablanca />} />
+                    <Route path="/location-voiture-marrakech" element={<LocationVoitureMarrakech />} />
+                    <Route path="/location-voiture-rabat" element={<LocationVoitureRabat />} />
+                    <Route path="/location-voiture-tanger" element={<LocationVoitureTanger />} />
+                    <Route path="/location-voiture-agadir" element={<LocationVoitureAgadir />} />
+                    <Route path="/location-voiture-fes" element={<LocationVoitureFes />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>

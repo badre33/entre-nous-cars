@@ -1,0 +1,272 @@
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
+import { StructuredData } from "@/components/StructuredData";
+import cityTanger from "@/assets/city-tanger.jpg";
+
+const LocationVoitureTanger = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Location de Voiture à Tanger | Prix Dès 150 DH/jour - Benatna</title>
+        <meta name="description" content="Location de voiture à Tanger avec Benatna. Aéroport, port, centre-ville. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
+        <meta name="keywords" content="location voiture tanger, location auto tanger aeroport, louer voiture tanger port, location véhicule tanger, rent car tangier" />
+        <link rel="canonical" href="https://benatna.ma/location-voiture-tanger" />
+        <meta property="og:title" content="Location de Voiture à Tanger | Prix Dès 150 DH/jour" />
+        <meta property="og:description" content="Louez une voiture à Tanger avec Benatna. Aéroport, port, livraison gratuite. Explorez le détroit de Gibraltar." />
+        <meta property="og:url" content="https://benatna.ma/location-voiture-tanger" />
+      </Helmet>
+      <StructuredData type="rental" />
+      <Header />
+
+      <section className="relative h-[400px] md:h-[500px] flex items-center">
+        <img 
+          src={cityTanger}
+          alt="Location de voiture à Tanger"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
+        <div className="container relative z-10 px-4">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Location de Voiture à Tanger
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-8">
+              Prix transparents dès 150 DH/jour • Aéroport & Port • Livraison gratuite
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/louer?city=Tanger">
+                <Button size="lg" className="text-lg px-8">
+                  Réserver Maintenant
+                </Button>
+              </Link>
+              <a href="tel:+212699024526">
+                <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Appeler
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="bg-muted/30 border-b">
+        <div className="container px-4 py-3">
+          <nav className="text-sm text-muted-foreground">
+            <Link to="/" className="hover:text-foreground">Accueil</Link>
+            <span className="mx-2">/</span>
+            <Link to="/louer" className="hover:text-foreground">Locations</Link>
+            <span className="mx-2">/</span>
+            <span className="text-foreground">Tanger</span>
+          </nav>
+        </div>
+      </div>
+
+      <main className="flex-1 py-12">
+        <div className="container px-4">
+          <div className="grid md:grid-cols-4 gap-4 mb-12">
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">50+</div>
+                <div className="text-sm text-muted-foreground">Véhicules Disponibles</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">150 DH</div>
+                <div className="text-sm text-muted-foreground">Prix à partir de</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">24/7</div>
+                <div className="text-sm text-muted-foreground">Service Client</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <div className="flex items-center justify-center gap-1 text-3xl font-bold text-primary mb-2">
+                  4.8 <Star className="h-6 w-6 fill-primary" />
+                </div>
+                <div className="text-sm text-muted-foreground">Note Moyenne</div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            <div className="lg:col-span-2 space-y-8">
+              <section>
+                <h2 className="text-3xl font-bold mb-4">Location de Voiture à Tanger : Porte de l&apos;Afrique</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Vous cherchez à <strong>louer une voiture à Tanger</strong> ? Benatna vous propose le meilleur service de location dans la perle du Nord. Que vous arriviez par l&apos;aéroport, le port Tanger Med ou le port ville, explorez cette ville cosmopolite et ses environs en toute liberté.
+                  </p>
+                  <p>
+                    Notre <strong>service de location de voiture à Tanger</strong> se distingue par sa disponibilité 24/7. Plus de 50 véhicules, des prix clairs dès 150 DH/jour. Visitez le Cap Spartel, les grottes d&apos;Hercule, Asilah ou partez explorer Chefchaouen et Tétouan !
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Tanger avec Benatna ?</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[
+                    "Prix transparents sans frais cachés",
+                    "Livraison aéroport & port gratuite",
+                    "Sans carte de crédit nécessaire",
+                    "Idéal voyageurs depuis l'Europe",
+                    "Kilométrage illimité",
+                    "Service 24/7 (port & aéroport)",
+                    "Véhicules récents",
+                    "Assurance tous risques disponible"
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Points de Retrait à Tanger</h2>
+                <div className="space-y-4">
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="font-semibold mb-1">Aéroport Ibn Batouta</h3>
+                          <p className="text-sm text-muted-foreground">Terminal principal - Livraison gratuite - Disponible 24h/24</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="font-semibold mb-1">Port Tanger Ville</h3>
+                          <p className="text-sm text-muted-foreground">Terminal ferry - Arrivée depuis Tarifa/Algésiras - Service 24/7</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="font-semibold mb-1">Centre-Ville Tanger</h3>
+                          <p className="text-sm text-muted-foreground">Boulevard Pasteur - Médina - Horaires flexibles</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Excursions au Départ de Tanger</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <ul className="space-y-2">
+                    <li><strong>Cap Spartel (15 km) :</strong> Où l&apos;Atlantique rencontre la Méditerranée</li>
+                    <li><strong>Grottes d&apos;Hercule (20 km) :</strong> Site mythologique spectaculaire</li>
+                    <li><strong>Asilah (45 km) :</strong> Ville côtière fortifiée et ses murailles</li>
+                    <li><strong>Chefchaouen (120 km) :</strong> La perle bleue du Maroc</li>
+                    <li><strong>Tétouan (60 km) :</strong> Médina UNESCO, capitale du Nord</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Questions Fréquentes - Location Tanger</h2>
+                <div className="space-y-4">
+                  <Card>
+                    <CardContent className="pt-6">
+                      <h3 className="font-semibold mb-2">Puis-je récupérer ma voiture au port de Tanger ?</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Oui ! Nous proposons la livraison gratuite au port Tanger Ville, idéal si vous arrivez en ferry depuis l&apos;Espagne (Tarifa, Algésiras). Service disponible 24/7.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="pt-6">
+                      <h3 className="font-semibold mb-2">Mon permis européen est-il valable à Tanger ?</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Oui, votre permis de conduire européen est accepté au Maroc. Un permis international est recommandé mais pas obligatoire pour la plupart des pays européens.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+            </div>
+
+            <div className="space-y-6">
+              <Card className="sticky top-24">
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold mb-4">Réservez Maintenant</h3>
+                  <div className="space-y-4">
+                    <Link to="/louer?city=Tanger">
+                      <Button className="w-full" size="lg">
+                        Voir les Véhicules
+                      </Button>
+                    </Link>
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-2">Besoin d&apos;aide ?</p>
+                      <a href="tel:+212699024526" className="text-primary font-semibold hover:underline">
+                        +212 699 024 526
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold mb-4">Autres Villes Populaires</h3>
+                  <div className="space-y-2">
+                    {['Casablanca', 'Marrakech', 'Rabat', 'Agadir', 'Fès'].map(city => (
+                      <Link 
+                        key={city}
+                        to={`/location-voiture-${city.toLowerCase()}`}
+                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        Location voiture {city} →
+                      </Link>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-none">
+            <CardContent className="pt-6 text-center">
+              <h2 className="text-2xl font-bold mb-4">Prêt à Explorer Tanger en Voiture ?</h2>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Découvrez la porte de l&apos;Afrique avec Benatna
+              </p>
+              <Link to="/louer?city=Tanger">
+                <Button size="lg" className="text-lg px-8">
+                  Réserver Maintenant
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default LocationVoitureTanger;
