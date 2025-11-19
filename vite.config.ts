@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => ({
     }),
     VitePWA({
       registerType: "autoUpdate",
-      injectRegister: null, // Manual registration to avoid render-blocking
+      injectRegister: false, // Disable automatic registration - we register manually in main.tsx
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"],
       manifest: {
         name: "Benatna – La mobilité, entre nous",
