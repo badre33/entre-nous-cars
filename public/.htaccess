@@ -32,8 +32,18 @@
 
 # Add Cache-Control headers for better control
 <IfModule mod_headers.c>
+  # Service worker files - short cache for updates
+  <FilesMatch "(sw\.js|registerSW\.js)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  
   # Cache hashed assets for 1 year (immutable)
-  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|js|css|woff|woff2|ttf|eot)$">
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  
+  # Cache JS and CSS for 1 year (they have content hashes in filenames)
+  <FilesMatch "^(?!(sw|registerSW)).*\.(js|css)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   
@@ -42,7 +52,7 @@
     Header set Cache-Control "no-cache, no-store, must-revalidate"
   </FilesMatch>
   
-  # Cache manifest and service worker for shorter time
+  # Cache manifest for shorter time
   <FilesMatch "\.(manifest|webmanifest)$">
     Header set Cache-Control "public, max-age=86400"
   </FilesMatch>
