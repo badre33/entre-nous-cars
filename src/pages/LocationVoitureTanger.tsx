@@ -29,6 +29,8 @@ const LocationVoitureTanger = () => {
           alt="Location de voiture à Tanger"
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
+          sizes="100vw"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
         <div className="container relative z-10 px-4">

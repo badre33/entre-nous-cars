@@ -81,6 +81,8 @@ const Index = () => {
           style={{ 
             transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
           }}
+          sizes="100vw"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         
@@ -490,6 +492,8 @@ const Index = () => {
                       alt={`Location de voiture à ${city.name}`}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
