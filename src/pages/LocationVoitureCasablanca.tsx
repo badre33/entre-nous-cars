@@ -1,0 +1,286 @@
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
+import { StructuredData } from "@/components/StructuredData";
+import cityCasablanca from "@/assets/city-casablanca.jpg";
+
+const LocationVoitureCasablanca = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Location de Voiture à Casablanca | Prix Dès 150 DH/jour - Benatna</title>
+        <meta name="description" content="Location de voiture à Casablanca avec Benatna. Aéroport Mohammed V, Centre-ville, Ain Diab. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
+        <meta name="keywords" content="location voiture casablanca, location auto casablanca aeroport, louer voiture casablanca pas cher, location véhicule casa, rent car casablanca airport" />
+        <link rel="canonical" href="https://benatna.ma/location-voiture-casablanca" />
+        <meta property="og:title" content="Location de Voiture à Casablanca | Prix Dès 150 DH/jour" />
+        <meta property="og:description" content="Louez une voiture à Casablanca avec Benatna. Aéroport, centre-ville, livraison gratuite. Prix transparents, sans surprises." />
+        <meta property="og:url" content="https://benatna.ma/location-voiture-casablanca" />
+      </Helmet>
+      <StructuredData type="rental" />
+      <Header />
+
+      {/* Hero Section */}
+      <section className="relative h-[400px] md:h-[500px] flex items-center">
+        <img 
+          src={cityCasablanca}
+          alt="Location de voiture à Casablanca"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
+        <div className="container relative z-10 px-4">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Location de Voiture à Casablanca
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-8">
+              Prix transparents dès 150 DH/jour • Aéroport Mohammed V • Livraison gratuite
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/louer?city=Casablanca">
+                <Button size="lg" className="text-lg px-8">
+                  Réserver Maintenant
+                </Button>
+              </Link>
+              <a href="tel:+212699024526">
+                <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Appeler
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Breadcrumbs */}
+      <div className="bg-muted/30 border-b">
+        <div className="container px-4 py-3">
+          <nav className="text-sm text-muted-foreground">
+            <Link to="/" className="hover:text-foreground">Accueil</Link>
+            <span className="mx-2">/</span>
+            <Link to="/louer" className="hover:text-foreground">Locations</Link>
+            <span className="mx-2">/</span>
+            <span className="text-foreground">Casablanca</span>
+          </nav>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <main className="flex-1 py-12">
+        <div className="container px-4">
+          {/* Quick Stats */}
+          <div className="grid md:grid-cols-4 gap-4 mb-12">
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">50+</div>
+                <div className="text-sm text-muted-foreground">Véhicules Disponibles</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">150 DH</div>
+                <div className="text-sm text-muted-foreground">Prix à partir de</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">24/7</div>
+                <div className="text-sm text-muted-foreground">Service Client</div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="pt-6 text-center">
+                <div className="flex items-center justify-center gap-1 text-3xl font-bold text-primary mb-2">
+                  4.8 <Star className="h-6 w-6 fill-primary" />
+                </div>
+                <div className="text-sm text-muted-foreground">Note Moyenne</div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* SEO Content */}
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            <div className="lg:col-span-2 space-y-8">
+              <section>
+                <h2 className="text-3xl font-bold mb-4">Location de Voiture à Casablanca : Guide Complet 2025</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Vous cherchez à <strong>louer une voiture à Casablanca</strong> ? Benatna vous propose le plus grand choix de véhicules dans la capitale économique du Maroc. Que vous arriviez à l&apos;aéroport Mohammed V, que vous soyez en centre-ville ou à Ain Diab, nous avons la solution parfaite pour vos besoins de mobilité.
+                  </p>
+                  <p>
+                    Notre <strong>service de location de voiture à Casablanca</strong> se distingue par sa simplicité et sa transparence. Plus de 50 véhicules disponibles, des prix clairs dès 150 DH/jour, et une réservation en 2 minutes chrono. Que vous ayez besoin d&apos;une citadine pour vos déplacements urbains ou d&apos;un SUV pour explorer le Maroc, Benatna a le véhicule qu&apos;il vous faut.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Pourquoi Choisir Benatna pour Louer une Voiture à Casablanca ?</h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {[
+                    "Prix transparents sans frais cachés",
+                    "Livraison gratuite à l'aéroport Mohammed V",
+                    "Sans carte de crédit nécessaire",
+                    "Assurance tous risques incluse",
+                    "Kilométrage illimité sur tous les véhicules",
+                    "Réservation en ligne en 2 minutes",
+                    "Service client 24/7 en français et arabe",
+                    "Annulation gratuite jusqu'à 48h avant"
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-muted-foreground">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Points de Retrait à Casablanca</h2>
+                <div className="space-y-4">
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="font-semibold mb-1">Aéroport Mohammed V</h3>
+                          <p className="text-sm text-muted-foreground">Terminal 1 & 2 - Livraison gratuite - Disponible 24h/24</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="font-semibold mb-1">Centre-Ville Casablanca</h3>
+                          <p className="text-sm text-muted-foreground">Boulevard Mohamed V - À proximité des hôtels - Horaires flexibles</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+                        <div>
+                          <h3 className="font-semibold mb-1">Quartier Ain Diab</h3>
+                          <p className="text-sm text-muted-foreground">Front de mer - Livraison à votre hôtel - Service premium</p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Types de Véhicules Disponibles à Casablanca</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <ul className="space-y-2">
+                    <li><strong>Citadines (Clio, Sandero) :</strong> Parfaites pour la ville, à partir de 150 DH/jour</li>
+                    <li><strong>Berlines (Corolla, Jetta) :</strong> Confort et espace, à partir de 250 DH/jour</li>
+                    <li><strong>SUV (Duster, Tiguan) :</strong> Polyvalents et spacieux, à partir de 350 DH/jour</li>
+                    <li><strong>Véhicules de luxe (Mercedes, BMW) :</strong> Premium et prestigieux, à partir de 800 DH/jour</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Questions Fréquentes - Location Voiture Casablanca</h2>
+                <div className="space-y-4">
+                  <Card>
+                    <CardContent className="pt-6">
+                      <h3 className="font-semibold mb-2">Quel est le prix moyen pour louer une voiture à Casablanca ?</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Nos prix commencent à partir de 150 DH/jour pour une citadine. Le prix final dépend du type de véhicule, de la durée de location et de la saison. Tous nos tarifs sont transparents et incluent l&apos;assurance de base.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="pt-6">
+                      <h3 className="font-semibold mb-2">Peut-on louer une voiture sans carte de crédit à Casablanca ?</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Oui ! Chez Benatna, vous pouvez réserver avec une carte de débit ou payer en espèces. Nous sommes l&apos;une des rares plateformes au Maroc à offrir cette flexibilité.
+                      </p>
+                    </CardContent>
+                  </Card>
+                  <Card>
+                    <CardContent className="pt-6">
+                      <h3 className="font-semibold mb-2">La livraison à l&apos;aéroport Mohammed V est-elle gratuite ?</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Oui, nous offrons la livraison et la récupération gratuites à l&apos;aéroport Mohammed V de Casablanca, 24h/24 et 7j/7. Votre véhicule vous attend dès votre arrivée.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </section>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-6">
+              <Card className="sticky top-24">
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold mb-4">Réservez Maintenant</h3>
+                  <div className="space-y-4">
+                    <Link to="/louer?city=Casablanca">
+                      <Button className="w-full" size="lg">
+                        Voir les Véhicules
+                      </Button>
+                    </Link>
+                    <div className="text-center">
+                      <p className="text-sm text-muted-foreground mb-2">Besoin d&apos;aide ?</p>
+                      <a href="tel:+212699024526" className="text-primary font-semibold hover:underline">
+                        +212 699 024 526
+                      </a>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent className="pt-6">
+                  <h3 className="font-semibold mb-4">Autres Villes Populaires</h3>
+                  <div className="space-y-2">
+                    {['Marrakech', 'Rabat', 'Tanger', 'Agadir', 'Fès'].map(city => (
+                      <Link 
+                        key={city}
+                        to={`/location-voiture-${city.toLowerCase()}`}
+                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+                      >
+                        Location voiture {city} →
+                      </Link>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-none">
+            <CardContent className="pt-6 text-center">
+              <h2 className="text-2xl font-bold mb-4">Prêt à Louer Votre Voiture à Casablanca ?</h2>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Rejoignez des milliers de clients satisfaits qui ont choisi Benatna pour leur location de voiture à Casablanca
+              </p>
+              <Link to="/louer?city=Casablanca">
+                <Button size="lg" className="text-lg px-8">
+                  Réserver Maintenant
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default LocationVoitureCasablanca;
