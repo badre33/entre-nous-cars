@@ -21,12 +21,13 @@ export default function LazyCarImage({
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLDivElement>(null);
 
-  // Generate WebP source URL
-  const webpSrc = src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-  const hasWebP = /\.(jpg|jpeg|png)$/i.test(src);
-
-  // Generate srcset for responsive images
+  // Note: WebP files need to be manually converted or generated via build process
+  // For now, we'll rely on browser caching and lazy loading
+  // To enable WebP: convert images manually or use vite-plugin-imagemin
+  
+  // Generate srcset for responsive images with proper densities
   const generateSrcSet = (imageSrc: string) => {
+    // Provide 1x and 2x versions for retina displays
     return `${imageSrc} 1x, ${imageSrc} 2x`;
   };
 
@@ -62,33 +63,24 @@ export default function LazyCarImage({
         <div className="absolute inset-0 bg-gradient-to-br from-muted via-muted/80 to-muted animate-pulse" />
       )}
       {(isInView || priority) && (
-        <picture>
-          {hasWebP && (
-            <source 
-              srcSet={generateSrcSet(webpSrc)} 
-              type="image/webp"
-              sizes={sizes}
-            />
+        <img
+          src={src}
+          srcSet={generateSrcSet(src)}
+          sizes={sizes}
+          alt={alt}
+          loading={priority ? "eager" : "lazy"}
+          decoding="async"
+          fetchPriority={priority ? "high" : "auto"}
+          className={cn(
+            "w-full h-full object-cover transition-opacity duration-300",
+            loaded ? "opacity-100" : "opacity-0"
           )}
-          <img
-            src={src}
-            srcSet={generateSrcSet(src)}
-            sizes={sizes}
-            alt={alt}
-            loading={priority ? "eager" : "lazy"}
-            decoding="async"
-            fetchPriority={priority ? "high" : "auto"}
-            className={cn(
-              "w-full h-full object-cover transition-opacity duration-300",
-              loaded ? "opacity-100" : "opacity-0"
-            )}
-            onLoad={() => setLoaded(true)}
-            onError={() => {
-              setError(true);
-              setLoaded(true);
-            }}
-          />
-        </picture>
+          onLoad={() => setLoaded(true)}
+          onError={() => {
+            setError(true);
+            setLoaded(true);
+          }}
+        />
       )}
     </div>
   );
