@@ -7,6 +7,7 @@ interface LazyCarImageProps {
   className?: string;
   priority?: boolean;
   sizes?: string;
+  mobileOptimized?: boolean;
 }
 
 export default function LazyCarImage({ 
@@ -14,7 +15,8 @@ export default function LazyCarImage({
   alt, 
   className,
   priority = false,
-  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  mobileOptimized = true
 }: LazyCarImageProps) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -31,7 +33,7 @@ export default function LazyCarImage({
     return `${imageSrc} 1x, ${imageSrc} 2x`;
   };
 
-  // Intersection Observer for lazy loading
+  // Intersection Observer for lazy loading with mobile-optimized margins
   useEffect(() => {
     if (priority) return;
 
@@ -45,7 +47,8 @@ export default function LazyCarImage({
         });
       },
       {
-        rootMargin: '100px',
+        // Load images sooner on mobile for better UX
+        rootMargin: mobileOptimized ? '200px' : '100px',
         threshold: 0.01,
       }
     );
@@ -55,7 +58,7 @@ export default function LazyCarImage({
     }
 
     return () => observer.disconnect();
-  }, [priority]);
+  }, [priority, mobileOptimized]);
 
   return (
     <div ref={imgRef} className={cn("relative overflow-hidden bg-muted", className)}>
@@ -73,7 +76,9 @@ export default function LazyCarImage({
           fetchPriority={priority ? "high" : "auto"}
           className={cn(
             "w-full h-full object-cover transition-opacity duration-300",
-            loaded ? "opacity-100" : "opacity-0"
+            loaded ? "opacity-100" : "opacity-0",
+            // Hardware acceleration for smoother scrolling on mobile
+            "transform-gpu will-change-auto"
           )}
           onLoad={() => setLoaded(true)}
           onError={() => {

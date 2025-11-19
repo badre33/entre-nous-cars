@@ -103,12 +103,12 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Mobile Menu - Seulement pour pages secondaires */}
-        <div className="flex md:hidden items-center gap-2">
+        {/* Mobile Menu - Optimized for touch */}
+        <div className="flex md:hidden items-center gap-2 touch-target">
           <LanguageSelector />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden touch-target touch-feedback">
+              <Button variant="ghost" size="icon" className="md:hidden min-w-[48px] min-h-[48px] touch-target touch-feedback">
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>

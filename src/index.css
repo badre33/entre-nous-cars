@@ -113,6 +113,10 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Barlow', sans-serif;
+    /* Optimize rendering on mobile */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
   /* Add bottom padding on mobile to account for bottom navigation */
@@ -129,18 +133,32 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Touch Target Optimization */
+  /* Touch Target Optimization - iOS/Android compliant */
   .touch-target {
-    @apply min-w-[44px] min-h-[44px] flex items-center justify-center;
+    @apply min-w-[48px] min-h-[48px] flex items-center justify-center;
   }
 
   .touch-feedback {
     @apply active:scale-95 active:opacity-80 transition-all duration-150;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .tap-highlight {
     -webkit-tap-highlight-color: transparent;
     @apply active:bg-primary/10 transition-colors duration-150;
+  }
+
+  /* Performance optimizations for mobile */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
   }
 
   /* Mobile spacing helpers */
@@ -155,6 +173,18 @@ All colors MUST be HSL.
     
     .mobile-spacing-relaxed {
       @apply space-y-6;
+    }
+
+    /* Optimize images for mobile */
+    img {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+
+    /* Prevent text size adjustment on orientation change */
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
   }
 
