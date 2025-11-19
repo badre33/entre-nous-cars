@@ -108,6 +108,46 @@ class Analytics {
       (window as any).gtag('event', event.name, event.properties);
     }
 
+    // Meta Pixel tracking
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      const fbq = (window as any).fbq;
+      
+      // Map custom events to Meta Pixel standard events
+      switch (event.name) {
+        case 'search_performed':
+          fbq('track', 'Search', { search_string: event.properties?.city });
+          break;
+        case 'car_viewed':
+          fbq('track', 'ViewContent', { 
+            content_name: `${event.properties?.brand} ${event.properties?.model}`,
+            content_type: 'vehicle'
+          });
+          break;
+        case 'booking_started':
+          fbq('track', 'InitiateCheckout', { 
+            content_name: event.properties?.car_model,
+            value: event.properties?.price,
+            currency: 'MAD'
+          });
+          break;
+        case 'contact_form_submitted':
+          fbq('track', 'Contact');
+          break;
+        case 'partner_form_submitted':
+          fbq('track', 'SubmitApplication');
+          break;
+        case 'email_subscribed':
+          fbq('track', 'Lead', { source: event.properties?.source });
+          break;
+        case 'chat_opened':
+          fbq('trackCustom', 'ChatOpened', { chat_type: event.properties?.chat_type });
+          break;
+        default:
+          // Track custom events
+          fbq('trackCustom', event.name, event.properties);
+      }
+    }
+
     // You can add other analytics providers here
     // Example: Mixpanel, Amplitude, Segment, etc.
   }
