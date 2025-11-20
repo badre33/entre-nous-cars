@@ -55,6 +55,23 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
     buttonText: "Réserver Maintenant",
     buttonLink: `/louer?city=${city}`
   },
+  relatedServices: citySlug === 'casablanca' ? [
+    { title: 'Location Jeune Conducteur Casablanca', description: 'Dès 21 ans avec supplément raisonnable. Assurance adaptée incluse.', link: '/location-jeune-conducteur-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dégressifs dès 3500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 avec recharge gratuite à nos bornes.', link: '/location-voiture-electrique-casablanca' }
+  ] : citySlug === 'marrakech' ? [
+    { title: 'Location Weekend Marrakech', description: 'Offre spéciale weekend : 2 jours facturés pour 3 jours de location.', link: '/location-weekend-marrakech' },
+    { title: 'Location Jeune Conducteur Marrakech', description: 'Conditions transparentes pour jeunes conducteurs dès 21 ans.', link: '/location-jeune-conducteur-marrakech' },
+    { title: 'Location Sans Carte Crédit Marrakech', description: 'Paiement flexible : espèces, virement ou autre accepté.', link: '/location-voiture-sans-carte-credit-marrakech' }
+  ] : citySlug === 'agadir' ? [
+    { title: 'Location Cabriolet Agadir', description: 'BMW Z4, Audi A5 Cabrio pour profiter du soleil d\'Agadir.', link: '/location-cabriolet-agadir' },
+    { title: 'Location SUV Sud Marocain', description: 'SUV confortables pour road trip Essaouira-Agadir-Taroudant.', link: '/location-suv-sud-maroc' },
+    { title: 'Location Voiture Casablanca', description: 'Service également disponible à Casablanca avec livraison gratuite.', link: '/location-voiture-casablanca' }
+  ] : [
+    { title: 'Location Aéroport Casablanca', description: 'Livraison gratuite au terminal Mohammed V, service 24/7.', link: '/location-voiture-aeroport-casablanca' },
+    { title: 'Location Aéroport Marrakech', description: 'Récupération rapide au terminal Menara sans file d\'attente.', link: '/location-voiture-aeroport-marrakech' },
+    { title: 'Location Jeune Conducteur', description: 'Locations accessibles dès 21 ans avec supplément raisonnable.', link: '/location-jeune-conducteur-casablanca' }
+  ],
   relatedPages: [
     { title: `Location Voiture ${city}`, link: `/location-voiture-${citySlug}` }
   ]
@@ -110,6 +127,11 @@ const createMariagePage = (): LongTailPageConfig => ({
     buttonText: 'Demander un Devis',
     buttonLink: '/contact'
   },
+  relatedServices: [
+    { title: 'Location Voiture Luxe Événement', description: 'Flotte premium pour événements professionnels avec chauffeur.', link: '/location-voiture-luxe-evenement' },
+    { title: 'Location Cabriolet Agadir', description: 'BMW Z4, Audi A5 Cabrio pour occasions spéciales.', link: '/location-cabriolet-agadir' },
+    { title: 'Location Van Familial 7-9 Places', description: 'Mercedes Vito pour groupes, idéal cortèges mariage.', link: '/location-van-famille-maroc' }
+  ],
   relatedPages: [
     { title: 'Location Voiture Luxe', link: '/location-voiture-luxe-evenement' },
     { title: 'Location Casablanca', link: '/location-voiture-casablanca' }
@@ -166,6 +188,15 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     buttonText: 'Obtenir un Devis',
     buttonLink: '/contact'
   },
+  relatedServices: citySlug === 'casablanca' ? [
+    { title: 'Location Aéroport Casablanca', description: 'Livraison gratuite au terminal Mohammed V pour commencer votre longue durée.', link: '/location-voiture-aeroport-casablanca' },
+    { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle, recharge gratuite.', link: '/location-voiture-electrique-casablanca' },
+    { title: 'Location Utilitaire Casablanca', description: 'Fiat Ducato, Mercedes Sprinter en location mensuelle.', link: '/location-utilitaire-demenagement-casablanca' }
+  ] : [
+    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca avec tarifs dégressifs dès 3500 DH/mois.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Jeune Conducteur Marrakech', description: 'Formules longue durée adaptées aux jeunes conducteurs.', link: '/location-jeune-conducteur-marrakech' },
+    { title: 'Location SUV Atlas', description: 'SUV 4x4 en forfait mensuel pour usage régulier montagne.', link: '/location-suv-atlas' }
+  ],
   relatedPages: [
     { title: `Location ${city}`, link: `/location-voiture-${citySlug}` }
   ]
@@ -221,6 +252,19 @@ const createJeuneConducteurPage = (city: string, citySlug: string): LongTailPage
     buttonText: 'Voir les Véhicules Disponibles',
     buttonLink: `/louer?city=${city}`
   },
+  relatedServices: citySlug === 'casablanca' ? [
+    { title: 'Location Sans Carte Crédit Casablanca', description: 'Paiement flexible sans carte bancaire, idéal jeunes conducteurs.', link: '/location-voiture-sans-carte-credit-casablanca' },
+    { title: 'Location Aéroport Casablanca', description: 'Récupération directe au terminal pour jeunes voyageurs.', link: '/location-voiture-aeroport-casablanca' },
+    { title: 'Location Weekend Marrakech', description: 'Offre spéciale weekend accessible aux jeunes conducteurs.', link: '/location-weekend-marrakech' }
+  ] : citySlug === 'marrakech' ? [
+    { title: 'Location Sans Carte Crédit Marrakech', description: 'Louez sans carte bancaire avec caution adaptée.', link: '/location-voiture-sans-carte-credit-marrakech' },
+    { title: 'Location Jeune Conducteur Casablanca', description: 'Même service à Casablanca avec conditions transparentes.', link: '/location-jeune-conducteur-casablanca' },
+    { title: 'Location Aéroport Marrakech', description: 'Livraison au terminal Menara pour jeunes voyageurs.', link: '/location-voiture-aeroport-marrakech' }
+  ] : [
+    { title: 'Location Jeune Conducteur Casablanca', description: 'Dès 21 ans avec supplément raisonnable à Casablanca.', link: '/location-jeune-conducteur-casablanca' },
+    { title: 'Location Jeune Conducteur Marrakech', description: 'Conditions équitables pour jeunes à Marrakech.', link: '/location-jeune-conducteur-marrakech' },
+    { title: 'Location Weekend Marrakech', description: 'Tarif spécial weekend accessible aux jeunes conducteurs.', link: '/location-weekend-marrakech' }
+  ],
   relatedPages: [
     { title: `Location ${city}`, link: `/location-voiture-${citySlug}` }
   ]
@@ -276,6 +320,19 @@ const createSUVSpecialPage = (region: string, slug: string): LongTailPageConfig 
     buttonText: 'Choisir Mon SUV',
     buttonLink: '/louer?category=suv'
   },
+  relatedServices: slug === 'location-suv-atlas' ? [
+    { title: 'Location 4x4 Désert Merzouga', description: 'Véhicules tout-terrain Toyota Prado et Land Cruiser pour expéditions.', link: '/location-4x4-desert' },
+    { title: 'Location SUV Sud Marocain', description: 'SUV confortables pour road trip côte Atlantique et Anti-Atlas.', link: '/location-suv-sud-maroc' },
+    { title: 'Location Van Familial 7-9 Places', description: 'Mercedes Vito pour groupes en excursion montagne.', link: '/location-van-famille-maroc' }
+  ] : slug === 'location-4x4-desert' ? [
+    { title: 'Location SUV Atlas Marocain', description: 'SUV 4x4 pour routes de montagne avec GPS et équipement inclus.', link: '/location-suv-atlas' },
+    { title: 'Location SUV Sud Marocain', description: 'SUV pour road trip Agadir-Ouarzazate-Merzouga.', link: '/location-suv-sud-maroc' },
+    { title: 'Location Van Familial 7-9 Places', description: 'Vans spacieux pour expéditions désert en groupe.', link: '/location-van-famille-maroc' }
+  ] : [
+    { title: 'Location Cabriolet Agadir', description: 'BMW Z4, Audi A5 Cabrio pour profiter des routes côtières.', link: '/location-cabriolet-agadir' },
+    { title: 'Location 4x4 Désert', description: 'Véhicules tout-terrain pour pousser vers Merzouga et dunes.', link: '/location-4x4-desert' },
+    { title: 'Location Aéroport Agadir', description: 'Livraison gratuite au terminal Al Massira pour débuter votre road trip.', link: '/location-voiture-aeroport-agadir' }
+  ],
   relatedPages: [
     { title: 'Location SUV Maroc', link: '/louer?category=suv' }
   ]
@@ -417,6 +474,11 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       buttonText: 'Réserver',
       buttonLink: '/louer?city=Casablanca'
     },
+    relatedServices: [
+      { title: 'Location Longue Durée Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle avec recharge gratuite.', link: '/location-longue-duree-casablanca' },
+      { title: 'Location Aéroport Casablanca', description: 'Récupération de véhicules électriques au terminal Mohammed V.', link: '/location-voiture-aeroport-casablanca' },
+      { title: 'Location Jeune Conducteur Casablanca', description: 'Véhicules électriques accessibles aux jeunes conducteurs.', link: '/location-jeune-conducteur-casablanca' }
+    ],
     relatedPages: []
   },
   {
@@ -443,6 +505,11 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       buttonText: 'Réserver',
       buttonLink: '/louer'
     },
+    relatedServices: [
+      { title: 'Location SUV Atlas', description: 'Alternative SUV 5-7 places pour familles en montagne.', link: '/location-suv-atlas' },
+      { title: 'Location Utilitaire Casablanca', description: 'Mercedes Sprinter pour transports volumineux familiaux.', link: '/location-utilitaire-demenagement-casablanca' },
+      { title: 'Location Longue Durée Casablanca', description: 'Vans en formule mensuelle pour familles expatriées.', link: '/location-longue-duree-casablanca' }
+    ],
     relatedPages: []
   },
   {
@@ -495,6 +562,11 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       buttonText: 'Réserver',
       buttonLink: '/contact'
     },
+    relatedServices: [
+      { title: 'Location Van Familial 7-9 Places', description: 'Alternative vans passagers pour déménagements légers.', link: '/location-van-famille-maroc' },
+      { title: 'Location Longue Durée Casablanca', description: 'Utilitaires en formule mensuelle pour professionnels.', link: '/location-longue-duree-casablanca' },
+      { title: 'Location Aéroport Casablanca', description: 'Livraison d\'utilitaires au terminal pour déménagements internationaux.', link: '/location-voiture-aeroport-casablanca' }
+    ],
     relatedPages: []
   }
 ];

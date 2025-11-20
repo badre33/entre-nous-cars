@@ -32,6 +32,11 @@ export interface LongTailPageConfig {
     title: string;
     link: string;
   }>;
+  relatedServices?: Array<{
+    title: string;
+    description: string;
+    link: string;
+  }>;
 }
 
 export const longTailPages: LongTailPageConfig[] = [

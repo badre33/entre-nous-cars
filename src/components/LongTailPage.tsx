@@ -143,9 +143,42 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
               </CardContent>
             </Card>
 
-            {/* Related Pages */}
+            {/* Related Services - Section prominent pour maillage interne SEO */}
+            {config.relatedServices && config.relatedServices.length > 0 && (
+              <section className="mt-16 mb-12">
+                <div className="text-center mb-8">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                    Services Connexes
+                  </h2>
+                  <p className="text-muted-foreground">
+                    Découvrez nos autres services de location adaptés à vos besoins
+                  </p>
+                </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {config.relatedServices.map((service, index) => (
+                    <Link key={index} to={service.link}>
+                      <Card className="border-2 hover:shadow-lg transition-all duration-300 hover:scale-105 h-full group">
+                        <CardContent className="pt-6 pb-6">
+                          <div className="flex items-start gap-3 mb-3">
+                            <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
+                            <h3 className="font-semibold text-lg leading-tight">
+                              {service.title}
+                            </h3>
+                          </div>
+                          <p className="text-sm text-muted-foreground line-clamp-2">
+                            {service.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Related Pages - Section secondaire */}
             {config.relatedPages && config.relatedPages.length > 0 && (
-              <section className="mt-16">
+              <section className="mt-12">
                 <h2 className="text-xl font-semibold mb-6">Pages Connexes</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {config.relatedPages.map((page, index) => (
