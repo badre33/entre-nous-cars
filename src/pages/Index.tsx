@@ -14,6 +14,7 @@ import { SEOLinks } from "@/components/SEOLinks";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { StructuredData } from "@/components/StructuredData";
+import { generateHeroImageAlt, generateCityImageAlt } from "@/utils/seoHelpers";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { LoyaltyProgram } from "@/components/LoyaltyProgram";
 import { CustomerReviews } from "@/components/CustomerReviews";
@@ -126,7 +127,7 @@ const Index = () => {
         {/* Preloaded image for LCP optimization */}
         <img 
           src={heroImage} 
-          alt="Benatna - Location de voitures au Maroc"
+          alt={generateHeroImageAlt()}
           fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
           style={{ 
@@ -540,7 +541,7 @@ const Index = () => {
                   <div className="relative h-40 sm:h-48 overflow-hidden">
                     <img 
                       src={city.image} 
-                      alt={`Location de voiture à ${city.name}`}
+                      alt={generateCityImageAlt(city.name)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

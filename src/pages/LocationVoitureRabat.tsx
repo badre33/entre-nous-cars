@@ -10,6 +10,7 @@ import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
+import { generateCityImageAlt } from "@/utils/seoHelpers";
 import cityRabat from "@/assets/city-rabat.jpg";
 
 const LocationVoitureRabat = () => {
@@ -69,7 +70,7 @@ const LocationVoitureRabat = () => {
       <section className="relative h-[400px] md:h-[500px] flex items-center">
         <img 
           src={cityRabat}
-          alt="Location de voiture à Rabat"
+          alt={generateCityImageAlt("Rabat")}
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
           sizes="100vw"
