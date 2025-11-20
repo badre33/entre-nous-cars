@@ -10,6 +10,7 @@ import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
+import { OfferSchema } from "@/components/OfferSchema";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
@@ -28,6 +29,7 @@ const LocationVoitureAgadir = () => {
       <StructuredData type="rental" />
       <ServiceSchema city="Agadir" />
       <HowToSchema city="Agadir" />
+      <OfferSchema city="Agadir" />
       <CityLocalBusinessSchema
         cityName="Agadir"
         latitude="30.4278"
