@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
+import { ReviewsSchema } from "@/components/ReviewsSchema";
 import cityTanger from "@/assets/city-tanger.jpg";
 
 const LocationVoitureTanger = () => {
@@ -30,6 +31,34 @@ const LocationVoitureTanger = () => {
         postalCode="90000"
         telephone="+212699024526"
         priceRange="150-850 MAD"
+      />
+      <ReviewsSchema 
+        reviews={[
+          {
+            name: 'Karima El Fassi',
+            location: 'Tanger',
+            rating: 5,
+            comment: 'Location ultra simple, voiture nickel et tarifs imbattables. L\'équipe Benatna est top !',
+            date: 'Il y a 3 semaines',
+          },
+          {
+            name: 'Rachid Senhaji',
+            location: 'Tanger',
+            rating: 5,
+            comment: 'Parfait pour visiter le Nord du Maroc. Service rapide et efficace.',
+            date: 'Il y a 1 semaine',
+          },
+          {
+            name: 'Meryem Chaoui',
+            location: 'Tanger',
+            rating: 5,
+            comment: 'Très contente de mon expérience à Tanger. Je recommande !',
+            date: 'Il y a 4 jours',
+          },
+        ]}
+        averageRating={4.8}
+        totalReviews={1247}
+        city="Tanger"
       />
       <Header />
 

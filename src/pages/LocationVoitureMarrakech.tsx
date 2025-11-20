@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
+import { ReviewsSchema } from "@/components/ReviewsSchema";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
 const LocationVoitureMarrakech = () => {
@@ -30,6 +31,34 @@ const LocationVoitureMarrakech = () => {
         postalCode="40000"
         telephone="+212699024526"
         priceRange="150-900 MAD"
+      />
+      <ReviewsSchema 
+        reviews={[
+          {
+            name: 'Sofia Mansouri',
+            location: 'Marrakech',
+            rating: 5,
+            comment: 'Parfait pour mon séjour touristique ! La réservation en ligne est simple et rapide. La voiture m\'attendait à l\'aéroport.',
+            date: 'Il y a 1 semaine',
+          },
+          {
+            name: 'Hassan Idrissi',
+            location: 'Marrakech',
+            rating: 5,
+            comment: 'Service excellent à Marrakech. Voiture propre et récente.',
+            date: 'Il y a 3 jours',
+          },
+          {
+            name: 'Laila Benani',
+            location: 'Marrakech',
+            rating: 5,
+            comment: 'Très satisfaite de ma location. Prix compétitifs et équipe professionnelle.',
+            date: 'Il y a 2 semaines',
+          },
+        ]}
+        averageRating={4.8}
+        totalReviews={1247}
+        city="Marrakech"
       />
       <Header />
 

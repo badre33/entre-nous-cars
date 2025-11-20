@@ -17,6 +17,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { LoyaltyProgram } from "@/components/LoyaltyProgram";
 import { CustomerReviews } from "@/components/CustomerReviews";
+import { ReviewsSchema } from "@/components/ReviewsSchema";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -68,6 +69,52 @@ const Index = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <StructuredData type="home" />
+      <ReviewsSchema 
+        reviews={[
+          {
+            name: 'Amina Benali',
+            location: 'Casablanca',
+            rating: 5,
+            comment: 'Service impeccable ! J\'ai loué une Clio pour visiter Marrakech. La voiture était propre, récente et le prix très compétitif. Je recommande vivement Benatna.',
+            date: 'Il y a 2 jours',
+            car: 'Renault Clio',
+          },
+          {
+            name: 'Youssef Alami',
+            location: 'Rabat',
+            rating: 5,
+            comment: 'Excellente expérience du début à la fin. L\'assistance client est réactive et professionnelle. J\'ai eu un surclassement gratuit vers un SUV. Merci !',
+            date: 'Il y a 5 jours',
+            car: 'Dacia Duster',
+          },
+          {
+            name: 'Sofia Mansouri',
+            location: 'Marrakech',
+            rating: 5,
+            comment: 'Parfait pour mon séjour touristique ! La réservation en ligne est simple et rapide. La voiture m\'attendait à l\'aéroport. Aucun souci pendant toute la durée de location.',
+            date: 'Il y a 1 semaine',
+            car: 'Peugeot 208',
+          },
+          {
+            name: 'Mehdi Tazi',
+            location: 'Fès',
+            rating: 5,
+            comment: 'Très bonne agence ! Prix transparents, pas de frais cachés. La voiture était en parfait état. Je loue régulièrement chez Benatna et je ne suis jamais déçu.',
+            date: 'Il y a 2 semaines',
+            car: 'Toyota Corolla',
+          },
+          {
+            name: 'Karima El Fassi',
+            location: 'Tanger',
+            rating: 5,
+            comment: 'Location ultra simple, voiture nickel et tarifs imbattables. L\'équipe Benatna est top !',
+            date: 'Il y a 3 semaines',
+            car: 'Hyundai i20',
+          },
+        ]}
+        averageRating={4.8}
+        totalReviews={1247}
+      />
       <Header />
       
       {/* Hero Section with Parallax */}

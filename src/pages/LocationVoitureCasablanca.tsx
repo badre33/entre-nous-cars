@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
+import { ReviewsSchema } from "@/components/ReviewsSchema";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 
 const LocationVoitureCasablanca = () => {
@@ -30,6 +31,35 @@ const LocationVoitureCasablanca = () => {
         postalCode="27000"
         telephone="+212699024526"
         priceRange="150-800 MAD"
+      />
+      <ReviewsSchema 
+        reviews={[
+          {
+            name: 'Amina Benali',
+            location: 'Casablanca',
+            rating: 5,
+            comment: 'Service impeccable ! J\'ai loué une Clio pour visiter Marrakech. La voiture était propre, récente et le prix très compétitif.',
+            date: 'Il y a 2 jours',
+            car: 'Renault Clio',
+          },
+          {
+            name: 'Karim Bouazza',
+            location: 'Casablanca',
+            rating: 5,
+            comment: 'Livraison rapide à l\'aéroport Mohammed V. Processus simple et efficace. Je recommande !',
+            date: 'Il y a 5 jours',
+          },
+          {
+            name: 'Fatima Zahra',
+            location: 'Casablanca',
+            rating: 5,
+            comment: 'Excellent rapport qualité-prix. Voiture récente et bien entretenue.',
+            date: 'Il y a 1 semaine',
+          },
+        ]}
+        averageRating={4.8}
+        totalReviews={1247}
+        city="Casablanca"
       />
       <Header />
 

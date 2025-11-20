@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
+import { ReviewsSchema } from "@/components/ReviewsSchema";
 import cityFes from "@/assets/city-fes.jpg";
 
 const LocationVoitureFes = () => {
@@ -30,6 +31,34 @@ const LocationVoitureFes = () => {
         postalCode="30000"
         telephone="+212699024526"
         priceRange="150-750 MAD"
+      />
+      <ReviewsSchema 
+        reviews={[
+          {
+            name: 'Mehdi Tazi',
+            location: 'Fès',
+            rating: 5,
+            comment: 'Très bonne agence ! Prix transparents, pas de frais cachés. La voiture était en parfait état. Je loue régulièrement chez Benatna.',
+            date: 'Il y a 2 semaines',
+          },
+          {
+            name: 'Leila Benjelloun',
+            location: 'Fès',
+            rating: 5,
+            comment: 'Parfait pour découvrir Fès et ses environs. Service professionnel.',
+            date: 'Il y a 5 jours',
+          },
+          {
+            name: 'Amine Fassi',
+            location: 'Fès',
+            rating: 5,
+            comment: 'Excellent service à Fès. Je recommande sans hésiter !',
+            date: 'Il y a 1 semaine',
+          },
+        ]}
+        averageRating={4.8}
+        totalReviews={1247}
+        city="Fès"
       />
       <Header />
 
