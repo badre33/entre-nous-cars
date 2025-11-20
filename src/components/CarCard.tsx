@@ -6,6 +6,7 @@ import { MapPin, CalendarCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LazyCarImage from "@/components/LazyCarImage";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
+import { generateCarImageAlt } from "@/utils/seoHelpers";
 
 interface CarCardProps {
   car: {
@@ -47,6 +48,9 @@ export default function CarCard({
     discount: days >= 7 ? Math.round((1 - calculateDailyPrice(basePrice, days) / basePrice) * 100) : 0
   } : null;
 
+  // Générer l'alt tag SEO optimisé
+  const imageAlt = generateCarImageAlt(car.name, car.city, car.category, car.priceDisplay);
+
   // Vue Liste (compacte, horizontale)
   if (viewMode === 'list') {
     return (
@@ -56,7 +60,7 @@ export default function CarCard({
             <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
               <LazyCarImage 
                 src={car.image} 
-                alt={`${car.name} - Location à ${car.city}`}
+                alt={imageAlt}
                 className="w-full h-full object-cover"
               />
               {car.badges && car.badges.length > 0 && (
@@ -121,7 +125,7 @@ export default function CarCard({
         <div className="relative h-32 overflow-hidden bg-muted">
           <LazyCarImage 
             src={car.image} 
-            alt={`${car.name} - Location à ${car.city}`}
+            alt={imageAlt}
             className="w-full h-full object-cover"
           />
           <div className="absolute top-1.5 right-1.5 z-10">
@@ -185,7 +189,7 @@ export default function CarCard({
       <div className="relative h-48 overflow-hidden bg-muted">
         <LazyCarImage 
           src={car.image} 
-          alt={`${car.name} - Location à ${car.city}`}
+          alt={imageAlt}
           className="w-full h-full object-cover"
         />
         <div className="absolute top-2 right-2 z-10">
