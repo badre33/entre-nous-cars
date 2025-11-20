@@ -37,6 +37,8 @@ const LocationVoitureRabat = lazy(() => import("./pages/LocationVoitureRabat"));
 const LocationVoitureTanger = lazy(() => import("./pages/LocationVoitureTanger"));
 const LocationVoitureAgadir = lazy(() => import("./pages/LocationVoitureAgadir"));
 const LocationVoitureFes = lazy(() => import("./pages/LocationVoitureFes"));
+const LocationSansCarteMarrakech = lazy(() => import("./pages/LocationSansCarteMarrakech"));
+const LocationSansCarteCasablanca = lazy(() => import("./pages/LocationSansCarteCasablanca"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -105,6 +107,8 @@ const App = () => (
                     <Route path="/location-voiture-tanger" element={<LocationVoitureTanger />} />
                     <Route path="/location-voiture-agadir" element={<LocationVoitureAgadir />} />
                     <Route path="/location-voiture-fes" element={<LocationVoitureFes />} />
+                    <Route path="/location-voiture-sans-carte-credit-marrakech" element={<LocationSansCarteMarrakech />} />
+                    <Route path="/location-voiture-sans-carte-credit-casablanca" element={<LocationSansCarteCasablanca />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
