@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Shield, Zap, MapPin, Sparkles } from "lucide-react";
@@ -12,6 +13,15 @@ const APropos = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>À Propos de Benatna - Notre Mission et Valeurs | Location de Voiture au Maroc</title>
+        <meta name="description" content="Découvrez Benatna, la plateforme qui révolutionne la location de voiture au Maroc. Notre mission : rendre la location simple, transparente et accessible à tous." />
+        <meta name="keywords" content="à propos benatna, mission benatna, valeurs location voiture, qui sommes nous, entreprise location maroc" />
+        <link rel="canonical" href="https://benatna.ma/a-propos" />
+        <meta property="og:title" content="À Propos de Benatna - Notre Mission et Valeurs" />
+        <meta property="og:description" content="Découvrez qui nous sommes et comment nous révolutionnons la location de voiture au Maroc." />
+        <meta property="og:url" content="https://benatna.ma/a-propos" />
+      </Helmet>
       <Header />
       <Breadcrumbs />
       

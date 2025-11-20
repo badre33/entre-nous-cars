@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -36,6 +37,15 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Blog Benatna - Guides et Conseils Location de Voiture au Maroc</title>
+        <meta name="description" content="Découvrez nos guides et conseils pour louer une voiture au Maroc : itinéraires, assurance, conduite locale, destinations touristiques et économies." />
+        <meta name="keywords" content="blog location voiture maroc, guide tourisme maroc, conseils conduite maroc, itinéraires touristiques, assurance auto maroc" />
+        <link rel="canonical" href="https://benatna.ma/blog" />
+        <meta property="og:title" content="Blog Benatna - Guides et Conseils Location de Voiture" />
+        <meta property="og:description" content="Tous nos guides et conseils pour réussir votre location de voiture au Maroc." />
+        <meta property="og:url" content="https://benatna.ma/blog" />
+      </Helmet>
       <Header />
       <Breadcrumbs />
       
