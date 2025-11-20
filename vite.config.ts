@@ -40,13 +40,13 @@ export default defineConfig(({ mode }) => ({
     }),
     VitePWA({
       registerType: "autoUpdate",
-      injectRegister: false, // Disable automatic registration - we register manually in main.tsx
+      injectRegister: 'auto',
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"],
       manifest: {
-        name: "Benatna – La mobilité, entre nous",
+        name: "Benatna – Location de Voiture au Maroc",
         short_name: "Benatna",
-        description: "La plateforme marocaine qui réunit les agences de location de voitures locales de confiance",
-        theme_color: "#048592",
+        description: "Location de voiture au Maroc. Prix transparents, processus digital, sans surprises. Disponible dans 6 villes.",
+        theme_color: "#ffda00",
         background_color: "#f5ffe4",
         display: "standalone",
         scope: "/",
@@ -74,21 +74,72 @@ export default defineConfig(({ mode }) => ({
             purpose: "any",
           },
         ],
+        shortcuts: [
+          {
+            name: "Louer une voiture",
+            short_name: "Louer",
+            description: "Voir tous les véhicules disponibles",
+            url: "/louer",
+            icons: [{ src: "/favicon.ico", sizes: "64x64" }]
+          },
+          {
+            name: "Nos Services",
+            short_name: "Services",
+            description: "Découvrir nos services",
+            url: "/nos-services",
+            icons: [{ src: "/favicon.ico", sizes: "64x64" }]
+          },
+          {
+            name: "Contact",
+            short_name: "Contact",
+            description: "Nous contacter",
+            url: "/contact",
+            icons: [{ src: "/favicon.ico", sizes: "64x64" }]
+          }
+        ]
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,jpg,svg,webp}"],
+        globPatterns: ["**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,woff2}"],
+        navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/api/],
+        cleanupOutdatedCaches: true,
+        skipWaiting: true,
+        clientsClaim: true,
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            urlPattern: /^https:\/\/benatna\.ma\/.*/i,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "pages-cache",
+              networkTimeoutSeconds: 5,
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24 * 7,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          {
+            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
             handler: "CacheFirst",
+            options: {
+              cacheName: "images-cache",
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24 * 30,
+              },
+            },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: "StaleWhileRevalidate",
             options: {
               cacheName: "google-fonts-cache",
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
+                maxAgeSeconds: 60 * 60 * 24 * 365,
               },
             },
           },
@@ -98,22 +149,8 @@ export default defineConfig(({ mode }) => ({
             options: {
               cacheName: "gstatic-fonts-cache",
               expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-          {
-            urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/,
-            handler: "CacheFirst",
-            options: {
-              cacheName: "images-cache",
-              expiration: {
-                maxEntries: 60,
-                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+                maxEntries: 20,
+                maxAgeSeconds: 60 * 60 * 24 * 365,
               },
             },
           },
@@ -125,7 +162,7 @@ export default defineConfig(({ mode }) => ({
               networkTimeoutSeconds: 10,
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 5, // 5 minutes
+                maxAgeSeconds: 60 * 5,
               },
               cacheableResponse: {
                 statuses: [0, 200],
@@ -139,11 +176,15 @@ export default defineConfig(({ mode }) => ({
               cacheName: "cdn-cache",
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24 * 365, // 1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365,
               },
             },
           },
         ],
+      },
+      devOptions: {
+        enabled: false,
+        type: 'module',
       },
     }),
   ].filter(Boolean),
