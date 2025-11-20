@@ -56,6 +56,27 @@ const Footer = () => {
                   {t('common.contact')}
                 </Link>
               </li>
+              <li>
+                <Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-semibold mb-4">Services Spécialisés</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/location-voiture-sans-carte-credit-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Sans Carte Crédit Marrakech
+                </Link>
+              </li>
+              <li>
+                <Link to="/location-voiture-sans-carte-credit-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Sans Carte Crédit Casablanca
+                </Link>
+              </li>
             </ul>
           </div>
           
