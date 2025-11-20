@@ -8,6 +8,7 @@ import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
+import { ServiceSchema } from "@/components/ServiceSchema";
 import cityTanger from "@/assets/city-tanger.jpg";
 
 const LocationVoitureTanger = () => {
@@ -23,7 +24,8 @@ const LocationVoitureTanger = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-tanger" />
       </Helmet>
       <StructuredData type="rental" />
-      <CityLocalBusinessSchema 
+      <ServiceSchema city="Tanger" />
+      <CityLocalBusinessSchema
         cityName="Tanger"
         latitude="35.7595"
         longitude="-5.8340"

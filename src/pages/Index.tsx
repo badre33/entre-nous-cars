@@ -18,6 +18,7 @@ import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { LoyaltyProgram } from "@/components/LoyaltyProgram";
 import { CustomerReviews } from "@/components/CustomerReviews";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
+import { ServiceSchema } from "@/components/ServiceSchema";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -69,7 +70,8 @@ const Index = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <StructuredData type="home" />
-      <ReviewsSchema 
+      <ServiceSchema />
+      <ReviewsSchema
         reviews={[
           {
             name: 'Amina Benali',
