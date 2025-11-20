@@ -3,6 +3,7 @@ export interface BlogArticle {
   slug: string;
   title: string;
   excerpt: string;
+  metaDescription: string;
   category: string;
   date: string;
   image: string;
@@ -15,6 +16,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "pourquoi-benatna",
     title: "Benatna : la révolution de la location de voiture au Maroc",
     excerpt: "Découvrez comment Benatna transforme la location de voiture au Maroc en connectant voyageurs et agences locales de confiance.",
+    metaDescription: "Location voiture Maroc : Benatna connecte voyageurs et agences locales vérifiées. Prix transparents, assurance incluse. Économisez jusqu'à 40% !",
     category: "À propos",
     date: "5 janvier 2025",
     image: new URL("@/assets/blog-revolution-location.jpg", import.meta.url).href,
@@ -157,6 +159,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "conseils-conduite-maroc",
     title: "10 conseils essentiels pour conduire au Maroc",
     excerpt: "Découvrez les bonnes pratiques et règles de conduite pour rouler en toute sécurité sur les routes marocaines.",
+    metaDescription: "Conduire au Maroc : 10 conseils essentiels pour votre sécurité. Code de la route, autoroutes, villes. Guide complet pour location voiture Maroc.",
     category: "Conduite",
     date: "20 janvier 2025",
     image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&h=600&fit=crop",
@@ -212,6 +215,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "road-trips-maroc",
     title: "Les plus beaux road trips au Maroc en voiture",
     excerpt: "De Marrakech à Merzouga, découvrez les itinéraires incontournables pour explorer le Maroc en liberté.",
+    metaDescription: "Road trip Maroc : Marrakech-Merzouga, Atlas, côte atlantique. Les meilleurs itinéraires à parcourir en voiture de location. Conseils et étapes clés.",
     category: "Tourisme",
     date: "18 janvier 2025",
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=600&fit=crop",
@@ -280,6 +284,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "assurance-voiture-maroc",
     title: "Comprendre l'assurance voiture au Maroc",
     excerpt: "Tout ce que vous devez savoir sur l'assurance, la franchise et la protection lors de votre location.",
+    metaDescription: "Assurance location voiture Maroc : tous risques, franchise, CDW. Guide complet pour protéger votre location au meilleur prix. Conseils pratiques.",
     category: "Assurance",
     date: "15 janvier 2025",
     image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=600&fit=crop",
@@ -345,6 +350,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "budget-location-maroc",
     title: "Budget location de voiture au Maroc : guide complet",
     excerpt: "Combien coûte vraiment une location de voiture ? Nos conseils pour optimiser votre budget.",
+    metaDescription: "Prix location voiture Maroc : tarifs réels, frais cachés à éviter, astuces pour économiser. Guide budget complet 2025 avec exemples concrets.",
     category: "Budget",
     date: "12 janvier 2025",
     image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=600&fit=crop",
@@ -435,6 +441,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "stationnement-maroc",
     title: "Stationnement au Maroc : tout ce qu'il faut savoir",
     excerpt: "Parkings surveillés, gardiens, zones bleues... Le guide pratique du stationnement dans les villes marocaines.",
+    metaDescription: "Se garer au Maroc : parkings surveillés, gardiens, zones bleues, tarifs. Guide pratique du stationnement à Casablanca, Marrakech, Rabat et plus.",
     category: "Pratique",
     date: "10 janvier 2025",
     image: "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=1200&h=600&fit=crop",
@@ -537,6 +544,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "carburant-maroc",
     title: "Carburant au Maroc : prix, stations-service et conseils",
     excerpt: "Où faire le plein, combien ça coûte et comment optimiser votre consommation de carburant.",
+    metaDescription: "Prix carburant Maroc 2025 : essence, diesel, stations-service. Conseils pour économiser sur votre location voiture. Guide complet avec tarifs actuels.",
     category: "Pratique",
     date: "8 janvier 2025",
     image: "https://images.unsplash.com/photo-1545262810-77515befe149?w=1200&h=600&fit=crop",
