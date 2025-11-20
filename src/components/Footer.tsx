@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BUSINESS_INFO, getFullAddress } from "@/constants/businessInfo";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -59,9 +61,23 @@ const Footer = () => {
           
           <div>
             <h4 className="font-semibold mb-4">{t('common.contact')}</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>WhatsApp: +212 699 024 526</li>
-              <li>contact@benatna.ma</li>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <span>{getFullAddress()}</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="hover:text-foreground transition-colors">
+                  {BUSINESS_INFO.phone}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                <a href={`mailto:${BUSINESS_INFO.email}`} className="hover:text-foreground transition-colors">
+                  {BUSINESS_INFO.email}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
