@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { 
@@ -208,6 +209,7 @@ const FAQ = () => {
         </script>
       </Helmet>
       <Header />
+      <Breadcrumbs />
 
       <main className="flex-1">
         {/* Hero */}
