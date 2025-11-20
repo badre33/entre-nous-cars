@@ -133,19 +133,30 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Touch Target Optimization - iOS/Android compliant */
+  /* Touch Target Optimization - iOS/Android compliant - 48px minimum */
   .touch-target {
     @apply min-w-[48px] min-h-[48px] flex items-center justify-center;
   }
 
+  /* Touch feedback with performance optimization */
   .touch-feedback {
-    @apply active:scale-95 active:opacity-80 transition-all duration-150;
+    @apply active:scale-95 active:opacity-80 transition-transform duration-150;
     -webkit-tap-highlight-color: transparent;
+    transform: translateZ(0); /* GPU acceleration */
   }
 
   .tap-highlight {
     -webkit-tap-highlight-color: transparent;
     @apply active:bg-primary/10 transition-colors duration-150;
+  }
+
+  /* Safe area padding for notched devices */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   /* Performance optimizations for mobile */

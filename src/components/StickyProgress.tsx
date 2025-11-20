@@ -36,7 +36,7 @@ export function StickyProgress({ sections, className }: StickyProgressProps) {
       // Show/hide based on scroll position (show after 200px)
       setIsVisible(scrolled > 200);
 
-      // Detect active section using IntersectionObserver alternative
+      // Detect active section
       const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean);
       
       for (let i = sectionElements.length - 1; i >= 0; i--) {
@@ -89,37 +89,38 @@ export function StickyProgress({ sections, className }: StickyProgressProps) {
         />
       </div>
 
-      <div className="container px-4 py-3">
-        <div className="flex items-center justify-between gap-4">
-          {/* Current section indicator */}
-          <div className="flex items-center gap-2 min-w-0 flex-1">
-            <span className="text-sm text-muted-foreground whitespace-nowrap">
+      <div className="container px-4 py-2 md:py-3">
+        <div className="flex items-center justify-between gap-2 md:gap-4">
+          {/* Current section indicator - optimisé mobile */}
+          <div className="flex items-center gap-1 md:gap-2 min-w-0 flex-1">
+            <span className="text-xs md:text-sm text-muted-foreground whitespace-nowrap">
               Vous êtes ici:
             </span>
-            <span className="text-sm font-medium truncate">
+            <span className="text-xs md:text-sm font-medium truncate">
               {activeSectionTitle}
             </span>
           </div>
 
-          {/* Section navigation dropdown */}
+          {/* Section navigation dropdown - touch optimized */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button 
                 variant="outline" 
                 size="sm"
-                className="gap-2 whitespace-nowrap"
+                className="gap-1 md:gap-2 whitespace-nowrap text-xs md:text-sm min-h-[44px] md:min-h-[36px] px-3 md:px-4 touch-target"
               >
-                Navigation
-                <ChevronDown className="h-4 w-4" />
+                <span className="hidden sm:inline">Navigation</span>
+                <span className="sm:hidden">Menu</span>
+                <ChevronDown className="h-3 w-3 md:h-4 md:w-4" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-64">
+            <DropdownMenuContent align="end" className="w-[280px] md:w-64 max-h-[70vh] overflow-y-auto">
               {sections.map((section) => (
                 <DropdownMenuItem
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
                   className={cn(
-                    "cursor-pointer",
+                    "cursor-pointer min-h-[44px] text-sm",
                     activeSection === section.id && "bg-accent font-medium"
                   )}
                 >
