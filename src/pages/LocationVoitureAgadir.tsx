@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
+import { ReviewsSchema } from "@/components/ReviewsSchema";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
 const LocationVoitureAgadir = () => {
@@ -30,6 +31,34 @@ const LocationVoitureAgadir = () => {
         postalCode="80000"
         telephone="+212699024526"
         priceRange="150-900 MAD"
+      />
+      <ReviewsSchema 
+        reviews={[
+          {
+            name: 'Ahmed Benkirane',
+            location: 'Agadir',
+            rating: 5,
+            comment: 'Super expérience à Agadir. Voiture idéale pour la plage et les excursions.',
+            date: 'Il y a 2 jours',
+          },
+          {
+            name: 'Salma Ouazzani',
+            location: 'Agadir',
+            rating: 5,
+            comment: 'Service au top ! Livraison à l\'aéroport Al Massira impeccable.',
+            date: 'Il y a 1 semaine',
+          },
+          {
+            name: 'Khalid Moussaoui',
+            location: 'Agadir',
+            rating: 5,
+            comment: 'Excellent rapport qualité-prix pour Agadir. Je recommande vivement.',
+            date: 'Il y a 2 semaines',
+          },
+        ]}
+        averageRating={4.8}
+        totalReviews={1247}
+        city="Agadir"
       />
       <Header />
 

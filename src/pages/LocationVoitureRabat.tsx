@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
+import { ReviewsSchema } from "@/components/ReviewsSchema";
 import cityRabat from "@/assets/city-rabat.jpg";
 
 const LocationVoitureRabat = () => {
@@ -30,6 +31,34 @@ const LocationVoitureRabat = () => {
         postalCode="10000"
         telephone="+212699024526"
         priceRange="150-800 MAD"
+      />
+      <ReviewsSchema 
+        reviews={[
+          {
+            name: 'Youssef Alami',
+            location: 'Rabat',
+            rating: 5,
+            comment: 'Excellente expérience du début à la fin. L\'assistance client est réactive et professionnelle. J\'ai eu un surclassement gratuit vers un SUV.',
+            date: 'Il y a 5 jours',
+          },
+          {
+            name: 'Nadia Tahiri',
+            location: 'Rabat',
+            rating: 5,
+            comment: 'Service impeccable à Rabat. Livraison à l\'heure et voiture en excellent état.',
+            date: 'Il y a 1 semaine',
+          },
+          {
+            name: 'Omar Benjelloun',
+            location: 'Rabat',
+            rating: 5,
+            comment: 'Très professionnel. Je recommande pour la location à Rabat.',
+            date: 'Il y a 10 jours',
+          },
+        ]}
+        averageRating={4.8}
+        totalReviews={1247}
+        city="Rabat"
       />
       <Header />
 
