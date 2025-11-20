@@ -164,6 +164,86 @@ const LocationVoitureMarrakech = () => {
               </section>
 
               <section>
+                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Marrakech ?</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Marrakech, perle du Sud marocain, est bien plus qu&apos;une simple ville touristique : c&apos;est une porte d&apos;entrée vers des paysages exceptionnels. <strong>Louer une voiture à Marrakech</strong> transforme complètement votre expérience de voyage. La ville elle-même s&apos;étend largement au-delà de la Médina historique, avec des quartiers modernes comme Guéliz et l&apos;Hivernage, ainsi que des attractions éloignées comme les jardins de la Palmeraie (8 km du centre).
+                  </p>
+                  <p>
+                    Mais surtout, c&apos;est dans les alentours que la magie opère vraiment. À moins d&apos;une heure de route, vous accédez à la vallée de l&apos;Ourika avec ses cascades rafraîchissantes et ses villages berbères authentiques, au désert d&apos;Agafay qui offre des paysages lunaires spectaculaires, ou encore aux contreforts du Haut Atlas. Sans voiture, ces merveilles restent difficiles d&apos;accès et nécessitent des tours organisés coûteux avec horaires imposés.
+                  </p>
+                  <p>
+                    Avec votre propre véhicule, vous partez quand vous voulez, vous vous arrêtez où vous voulez, et vous explorez à votre rythme. Vous pouvez facilement rejoindre Essaouira (180 km, 2h30) pour une journée au bord de l&apos;Atlantique, ou pousser jusqu&apos;à Ait Ben Haddou (190 km, 3h30), la célèbre kasbah classée UNESCO. Les routes marocaines autour de Marrakech sont en excellent état, bien signalisées, et offrent des panoramas à couper le souffle.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Top 12 des Lieux à Visiter en Voiture depuis Marrakech</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Avec votre <strong>voiture de location à Marrakech</strong>, explorez ces destinations incontournables :
+                  </p>
+                  <ul className="space-y-3">
+                    <li>
+                      <strong>Vallée de l&apos;Ourika (60 km, 1h) :</strong> Villages berbères en terrasses, cascades de Setti Fatma, restaurants au bord de la rivière. Route panoramique magnifique. Idéal en été pour la fraîcheur.
+                    </li>
+                    <li>
+                      <strong>Essaouira (180 km, 2h30) :</strong> Ville côtière fortifiée UNESCO, médina blanche et bleue, port de pêche animé, plages de surf. Spécialités fruits de mer. Parfait pour un week-end.
+                    </li>
+                    <li>
+                      <strong>Désert d&apos;Agafay (40 km, 45min) :</strong> Paysages désertiques lunaires à deux pas de Marrakech. Camps de luxe, balades à dromadaire, couchers de soleil spectaculaires. Route accessible en citadine.
+                    </li>
+                    <li>
+                      <strong>Cascades d&apos;Ouzoud (150 km, 2h30) :</strong> Les plus belles cascades du Maroc (110m de haut), singes magots, restaurants panoramiques, baignade possible. Incontournable en été.
+                    </li>
+                    <li>
+                      <strong>Ait Ben Haddou (190 km, 3h30) :</strong> Kasbah fortifiée UNESCO, décor de Game of Thrones et Gladiator. Route du col Tizi n&apos;Tichka (2 260m d&apos;altitude) avec vues époustouflantes sur l&apos;Atlas.
+                    </li>
+                    <li>
+                      <strong>Lac Lalla Takerkoust (40 km, 50min) :</strong> Lac artificiel au pied de l&apos;Atlas, restaurants flottants, sports nautiques, vue sur les montagnes enneigées (hiver). Atmosphère paisible.
+                    </li>
+                    <li>
+                      <strong>Vallée du Zat (70 km, 1h30) :</strong> Vallée secrète avec villages traditionnels, arganiers, vergers, vue sur le Jbel Toubkal (4 167m). Route moins fréquentée que l&apos;Ourika.
+                    </li>
+                    <li>
+                      <strong>Jardins de la Palmeraie (8 km, 15min) :</strong> Oasis de 15 000 palmiers, circuits quad et buggy, golfs, hôtels de luxe. Échappée nature à deux pas de la ville.
+                    </li>
+                    <li>
+                      <strong>Barrage Moulay Hassan (85 km, 1h30) :</strong> Grand lac de retenue, pêche, pique-nique, villages alentours. Cadre montagnard apaisant. Route panoramique.
+                    </li>
+                    <li>
+                      <strong>Amizmiz (55 km, 1h15) :</strong> Ville berbère authentique, souk hebdomadaire le mardi (le plus grand de la région), artisanat local, tapis berbères. Peu touristique.
+                    </li>
+                    <li>
+                      <strong>Ouirgane (60 km, 1h15) :</strong> Village de montagne, randonnées dans le Parc National du Toubkal, auberges de charme, cuisine du terroir. Point de départ pour trek atlas.
+                    </li>
+                    <li>
+                      <strong>Sidi Kaouki (200 km, 3h) :</strong> Village de surf hippie chic près d&apos;Essaouira, plages sauvages, camps bohèmes, école de surf. Ambiance décontractée.
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Conseils de Conduite à Marrakech</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    <strong>En ville :</strong> La circulation à Marrakech peut être dense, surtout autour de la place Jemaa el-Fna et dans Guéliz. Soyez vigilants aux scooters et vélos. Les ronds-points sont nombreux - priorité à droite sauf indication contraire.
+                  </p>
+                  <p>
+                    <strong>Stationnement :</strong> La Médina est piétonne. Parkings recommandés : Jemaa el-Fna (15 DH/h), Bab Doukkala, Parking Koutoubia. Gardiens de parking omniprésents (5-10 DH pourboire apprécié).
+                  </p>
+                  <p>
+                    <strong>Routes montagneuses :</strong> Pour l&apos;Atlas (Ourika, Ouzoud, Ait Ben Haddou), les routes sont sinueuses mais bien entretenues. Un SUV est recommandé pour plus de confort. Vérifiez la météo en hiver (neige possible sur les cols).
+                  </p>
+                  <p>
+                    <strong>Distances :</strong> GPS indispensable pour les villages reculés. Prévoyez eau et snacks pour les longues routes. Stations-service régulières sur les axes principaux. Prix carburant : 13-14 DH/l (gasoil), 15-16 DH/l (essence).
+                  </p>
+                </div>
+              </section>
+
+              <section>
                 <h2 className="text-2xl font-bold mb-4">Pourquoi Choisir Benatna pour Louer une Voiture à Marrakech ?</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[

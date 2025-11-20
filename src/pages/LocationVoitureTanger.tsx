@@ -159,6 +159,83 @@ const LocationVoitureTanger = () => {
               </section>
 
               <section>
+                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Tanger ?</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Tanger, ville mythique située au carrefour de l&apos;Europe et de l&apos;Afrique, de l&apos;Atlantique et de la Méditerranée, est une destination fascinante qui mérite d&apos;être explorée bien au-delà de sa médina historique. <strong>Louer une voiture à Tanger</strong> devient vite indispensable pour découvrir les trésors cachés de cette région au patrimoine exceptionnel.
+                  </p>
+                  <p>
+                    La ville elle-même s&apos;étend sur une vaste zone côtière. Le centre historique (Médina, Kasbah) est éloigné des plages modernes comme Plage Malabata ou Achakar. Les quartiers d&apos;affaires comme Tanger City Center et la nouvelle marina sont également excentrés. Sans voiture, vous passeriez votre temps à négocier avec les taxis ou à attendre des transports en commun limités.
+                  </p>
+                  <p>
+                    Mais c&apos;est surtout dans les environs que la voiture devient irremplaçable. À 15 km, le Cap Spartel marque la rencontre spectaculaire entre océan Atlantique et mer Méditerranée, avec son phare emblématique et ses vues panoramiques. Les grottes d&apos;Hercule, site mythologique fascinant, se trouvent à 20 km. Plus loin, Asilah (45 km), charmante ville fortifiée aux murs colorés, Chefchaouen (120 km), la célèbre ville bleue perchée dans le Rif, ou encore Tétouan (60 km) avec sa médina UNESCO, sont autant d&apos;excursions fabuleuses facilement accessibles en voiture. La région du Nord marocain offre des paysages variés : montagnes du Rif, plages sauvages, forêts verdoyantes, villages berbères authentiques.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Top 11 des Lieux à Visiter en Voiture depuis Tanger</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Avec votre <strong>voiture de location à Tanger</strong>, explorez le Nord marocain :
+                  </p>
+                  <ul className="space-y-3">
+                    <li>
+                      <strong>Cap Spartel (15 km, 25min) :</strong> Point le plus au nord-ouest de l&apos;Afrique, phare historique (1864), vue sur le détroit de Gibraltar et côtes espagnoles par temps clair. Café panoramique. Coucher de soleil magique.
+                    </li>
+                    <li>
+                      <strong>Grottes d&apos;Hercule (20 km, 30min) :</strong> Cavités naturelles en forme de carte d&apos;Afrique, légende mythologique (Hercule s&apos;y reposa), restaurants de poissons à proximité. Site emblématique. Entrée 10 DH.
+                    </li>
+                    <li>
+                      <strong>Chefchaouen (120 km, 2h) :</strong> La perle bleue du Maroc, médina entièrement peinte en bleu, artisanat local, cascades Akchour à proximité. Route montagneuse panoramique à travers le Rif. Incontournable.
+                    </li>
+                    <li>
+                      <strong>Asilah (45 km, 45min) :</strong> Ville fortifiée portugaise, remparts en bord de mer, médina aux fresques murales, festival d&apos;art en été, plages Paradise et Briech. Ambiance bohème.
+                    </li>
+                    <li>
+                      <strong>Tétouan (60 km, 1h) :</strong> Médina UNESCO, architecture andalouse préservée, marché artisanal, école des arts traditionnels. Capitale culturelle du Nord. Moins touristique que Tanger.
+                    </li>
+                    <li>
+                      <strong>Ksar Sghir (35 km, 40min) :</strong> Petit port de pêche authentique, vestiges de forteresse portugaise, plage familiale tranquille, restaurants de poissons frais. Hors des sentiers battus.
+                    </li>
+                    <li>
+                      <strong>Cabo Negro (25 km, 30min) :</strong> Station balnéaire chic entre Tétouan et M&apos;diq, marina, plage de sable fin, golfs, villas luxueuses. Activités nautiques. Calme et raffiné.
+                    </li>
+                    <li>
+                      <strong>Forêt Rmilate (40 km, 50min) :</strong> Forêt méditerranéenne dense, randonnées pédestres, aires de pique-nique, singes magots parfois visibles. Échappée nature fraîche en été.
+                    </li>
+                    <li>
+                      <strong>Plage Sidi Kacem (12 km, 20min) :</strong> Grande plage populaire des Tangérois, sports nautiques, cafés en bord de mer, surf. Animations le week-end. Parking gratuit.
+                    </li>
+                    <li>
+                      <strong>Village d&apos;Achakar (20 km, 25min) :</strong> Plages sauvages et préservées (Dragons, Dalia), caps rocheux, vue sur détroit, restaurants panoramiques. Idéal baignades tranquilles.
+                    </li>
+                    <li>
+                      <strong>Martil (70 km, 1h15) :</strong> Station balnéaire familiale, longue plage de sable, corniche animée, cafés et restaurants. Très fréquentée l&apos;été par familles marocaines.
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Conseils de Conduite à Tanger</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    <strong>Centre-ville :</strong> Circulation dense autour de la Grand Socco et du port. Médina piétonne - parkings recommandés : Parking Ibn Batouta, Parking Zoco Alto (15-20 DH/jour). Quartiers modernes (Malabata, Boukhalef) bien desservis.
+                  </p>
+                  <p>
+                    <strong>Routes côtières :</strong> Corniche magnifique mais route sinueuse jusqu&apos;au Cap Spartel. Conduite prudente recommandée. Nombreux points de vue pour s&apos;arrêter et photographier. Respect des limitations (60-80 km/h).
+                  </p>
+                  <p>
+                    <strong>Chefchaouen :</strong> Route de montagne avec virages serrés mais bien entretenue (RN2). Vues spectaculaires sur le Rif. Prévoir 2h minimum. SUV recommandé en hiver (risque neige). Stations-service régulières.
+                  </p>
+                  <p>
+                    <strong>Pour Européens :</strong> Conduite à droite comme en Europe. Permis européen accepté. Attention aux piétons traversant hors passages. Klaxon utilisé fréquemment (pas d&apos;agressivité). Prix essence : 15-16 DH/l.
+                  </p>
+                </div>
+              </section>
+
+              <section>
                 <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Tanger avec Benatna ?</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
