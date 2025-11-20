@@ -193,6 +193,78 @@ const FAQ = () => {
           "@type": "Answer",
           "text": "En cas de panne : Contactez immédiatement l'assistance 24/7 de l'agence (numéro sur le contrat). Un véhicule de remplacement ou une réparation sera organisée rapidement. En cas d'accident : 1) Sécurisez la scène, 2) Appelez la police (19), 3) Contactez l'agence immédiatement, 4) Prenez des photos, 5) Remplissez un constat amiable si possible. Ne quittez JAMAIS les lieux avant l'arrivée de la police."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je traverser les frontières avec une voiture de location ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non, les véhicules loués au Maroc ne peuvent pas sortir du territoire marocain. Cette restriction est imposée par les assurances. Toute tentative peut entraîner l'annulation de votre contrat et de votre assurance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne le carburant et qui doit faire le plein ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Politique plein-plein : Vous recevez le véhicule avec le réservoir plein et devez le restituer plein. Gardez le ticket de la dernière station-service. Si vous ne faites pas le plein, des frais de carburant + frais de service vous seront facturés."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Y a-t-il une caution à verser ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, une caution (dépôt de garantie) est demandée à la prise en charge du véhicule. Montant : 2000-10000 MAD selon le véhicule. Méthode : Empreinte carte bancaire (montant bloqué) ou espèces. La caution est restituée à la restitution du véhicule si aucun dommage n'est constaté."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je annuler ma réservation et être remboursé ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, selon les conditions de l'agence partenaire. Généralement : Annulation gratuite jusqu'à 48h avant la prise en charge. Entre 48h et 24h : frais de 50%. Moins de 24h : frais de 100%. Vérifiez les conditions spécifiques lors de votre réservation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Les véhicules sont-ils équipés de GPS ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Certains véhicules récents possèdent un GPS intégré. Sinon, vous pouvez louer un GPS (50-80 MAD/jour) ou utiliser votre smartphone avec Google Maps ou Maps.me (fonctionne hors ligne). La plupart des voyageurs utilisent leur téléphone, ce qui est gratuit et efficace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je louer un siège auto pour bébé ou enfant ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, des sièges auto sont disponibles en option : Siège bébé (0-1 an) : 50 MAD/jour. Siège enfant (1-4 ans) : 40 MAD/jour. Rehausseur (4-10 ans) : 30 MAD/jour. Réservez à l'avance car les stocks sont limités. Vous pouvez aussi apporter le vôtre."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Les routes au Maroc sont-elles en bon état ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui ! Le réseau routier marocain est l'un des meilleurs d'Afrique. Plus de 1800 km d'autoroutes modernes relient les grandes villes. Les routes nationales principales sont bien entretenues. Seules certaines routes secondaires en montagne ou dans le désert peuvent être plus difficiles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Benatna est-il fiable et sécurisé ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolument ! Benatna vérifie toutes ses agences partenaires selon des critères stricts : licences officielles, assurances à jour, état de la flotte, avis clients. Paiements sécurisés. Support client disponible 24/7. Plus de 1200 clients satisfaits depuis 2024 avec 98% de satisfaction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je réserver pour quelqu'un d'autre ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, vous pouvez réserver et payer pour une autre personne. Indiquez lors de la réservation le nom du conducteur principal qui récupérera le véhicule. Cette personne devra présenter ses propres documents (permis, ID) lors de la prise en charge."
+        }
       }
     ]
   };
@@ -517,6 +589,27 @@ const FAQ = () => {
                           <li>Contactez les autorités si nécessaire (police, pompiers)</li>
                         </ol>
                         L&apos;assistance routière 24/7 est incluse dans tous nos contrats.
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="drive-5">
+                      <AccordionTrigger>Y a-t-il une caution à verser ?</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Oui, une caution est demandée (2000-10000 MAD selon le véhicule). Elle peut être versée par empreinte carte bancaire ou en espèces. La caution est restituée à la restitution si aucun dommage n&apos;est constaté.
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="drive-6">
+                      <AccordionTrigger>Les véhicules sont-ils équipés de GPS ?</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Certains véhicules récents possèdent un GPS intégré. Sinon, vous pouvez louer un GPS (50-80 MAD/jour) ou utiliser votre smartphone avec Google Maps (gratuit et efficace).
+                      </AccordionContent>
+                    </AccordionItem>
+
+                    <AccordionItem value="drive-7">
+                      <AccordionTrigger>Puis-je louer un siège auto pour bébé ?</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">
+                        Oui, des sièges auto sont disponibles en option (30-50 MAD/jour selon l&apos;âge). Réservez à l&apos;avance car les stocks sont limités.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
