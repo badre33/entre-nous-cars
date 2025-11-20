@@ -159,6 +159,86 @@ const LocationVoitureAgadir = () => {
               </section>
 
               <section>
+                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Agadir ?</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Agadir, destination balnéaire phare du Maroc avec ses 300 jours de soleil par an et ses 10 km de plages de sable fin, attire chaque année des centaines de milliers de visiteurs en quête de détente et d&apos;évasion. <strong>Louer une voiture à Agadir</strong> transforme radicalement votre séjour en vous offrant une liberté totale pour explorer cette région exceptionnelle du Sud marocain.
+                  </p>
+                  <p>
+                    Agadir elle-même s&apos;étend largement : de la corniche touristique avec ses hôtels resort au quartier populaire de Talborjt avec son souk animé, du port de pêche au nouveau quartier moderne de Founty. Se déplacer en taxi peut vite devenir fastidieux et coûteux pour visiter la ville, surtout si vous voulez vous rendre plusieurs fois par jour à la plage depuis votre hôtel.
+                  </p>
+                  <p>
+                    Mais c&apos;est vraiment dans les alentours qu&apos;Agadir révèle ses plus beaux trésors. À seulement 35 km, Paradise Valley offre des piscines naturelles paradisiaques nichées dans des gorges rocheuses spectaculaires - un joyau accessible uniquement en voiture. Taghazout, à 20 km au nord, est devenu un spot de surf mondialement reconnu avec une ambiance bohème incomparable. Plus loin, vous pouvez rejoindre Essaouira (180 km) pour une escapade côtière, explorer les villages berbères authentiques de l&apos;Anti-Atlas, découvrir Tiznit la ville de l&apos;argent (90 km), ou encore Taroudant (85 km), surnommée « la grand-mère de Marrakech ». Les routes du Sud marocain sont excellentes, bien signalisées, et les paysages sont à couper le souffle : arganiers, palmiers, kasbahs ocres, montagnes arides.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Top 12 des Lieux à Visiter en Voiture depuis Agadir</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Avec votre <strong>voiture de location à Agadir</strong>, découvrez le Sud marocain :
+                  </p>
+                  <ul className="space-y-3">
+                    <li>
+                      <strong>Paradise Valley (35 km, 45min) :</strong> Oasis verdoyante avec piscines naturelles d&apos;eau turquoise, palmiers, gorges rocheuses spectaculaires. Randonnée facile, baignade rafraîchissante. Incontournable en été. Route derniers km non goudronnée (SUV recommandé).
+                    </li>
+                    <li>
+                      <strong>Taghazout (20 km, 25min) :</strong> Village de surf hippie-chic, spot de renommée mondiale, école de surf, cafés bohèmes, murales street art. Plages Hash Point, Anchor Point, Killer Point. Ambiance décontractée internationale.
+                    </li>
+                    <li>
+                      <strong>Essaouira (180 km, 2h30) :</strong> Ville fortifiée UNESCO en bord d&apos;Atlantique, médina blanche et bleue, port de pêche animé, galeries d&apos;art, restaurants fruits de mer. Capitale africaine du vent (kitesurf). Week-end idéal.
+                    </li>
+                    <li>
+                      <strong>Taroudant (85 km, 1h15) :</strong> La petite Marrakech du Sud, remparts ocres majestueux, souks authentiques (épices, argent, tapis), place Assarag, jardins Salam. Moins touristique. Architecture berbère préservée.
+                    </li>
+                    <li>
+                      <strong>Tiznit (90 km, 1h15) :</strong> Ville fortifiée, capitale marocaine de l&apos;argent, bijouterie traditionnelle berbère, souks spécialisés, oasis. Porte du désert et de l&apos;Anti-Atlas. Authenticité garantie.
+                    </li>
+                    <li>
+                      <strong>Immouzer (65 km, 1h15) :</strong> Village de montagne, cascades (impressionnantes février-avril), palmeraies, miel local réputé, amandiers en fleurs (janvier-février). Route panoramique sinueuse. Fraîcheur en été.
+                    </li>
+                    <li>
+                      <strong>Sidi Ifni (170 km, 2h30) :</strong> Ancien comptoir espagnol, architecture art déco coloniale, plage de Legzira (arches naturelles effondrées mais site magnifique), ambiance paisible. Étape vers Sidi Ifni-Mirleft.
+                    </li>
+                    <li>
+                      <strong>Massa (45 km, 50min) :</strong> Parc National Souss-Massa, lagune ornithologique (flamants roses, ibis chauves), plage sauvage infinie, village de pêcheurs. Paradis oiseaux migrateurs. Entrée parc 20 DH.
+                    </li>
+                    <li>
+                      <strong>Tamraght (15 km, 20min) :</strong> Village de surf entre Agadir et Taghazout, spots Devil&apos;s Rock et Boilers, ambiance familiale, moins bondé que Taghazout. Restaurants surf camps. Idéal débutants.
+                    </li>
+                    <li>
+                      <strong>Imi Ouaddar (30 km, 40min) :</strong> Embouchure de l&apos;oued Souss, réserve ornithologique, banc de sable, plage déserte. Observation ibis chauve en danger. Calme absolu.
+                    </li>
+                    <li>
+                      <strong>Crocoparc (15 km, 20min) :</strong> Parc aux crocodiles du Nil (300 spécimens), jardin botanique luxuriant, sentiers ombragés. Parfait avec enfants. Entrée 80 DH adulte. Restaurant sur place.
+                    </li>
+                    <li>
+                      <strong>Vallée du Souss (variable) :</strong> Paysages agricoles fertiles, bananeraies, vergers agrumes, villages berbères, maisons en pisé. Routes secondaires paisibles. Coopératives huile d&apos;argan.
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Conseils de Conduite à Agadir et ses Environs</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    <strong>En ville :</strong> Circulation fluide à Agadir. Grands boulevards (Boulevard Mohammed V, Boulevard Hassan II) facilitent déplacements. Respectez limitations 60 km/h en ville. Tramway en projet mais pas encore opérationnel.
+                  </p>
+                  <p>
+                    <strong>Stationnement :</strong> Nombreux parkings gratuits près plages corniche. Centre-ville et souk Talborjt : parkings payants (10-20 DH/jour) ou gardiens informels (5 DH pourboire). Hôtels disposent généralement parking inclus.
+                  </p>
+                  <p>
+                    <strong>Routes vers Paradise Valley :</strong> Route N8 puis piste 5 derniers km (bosses, ornières). SUV ou 4x4 fortement recommandé pour confort et sécurité. Citadine possible mais conduite prudente obligatoire. Y aller tôt le matin (moins monde, fraîcheur).
+                  </p>
+                  <p>
+                    <strong>Côte vers Taghazout/Essaouira :</strong> Route côtière R301 magnifique, virages panoramiques. Stations-service nombreuses. Attention chèvres/moutons traversant route dans villages. Couchers soleil spectaculaires depuis route. Prix carburant : 13-14 DH/l (gasoil), 15-16 DH/l (essence).
+                    </p>
+                </div>
+              </section>
+
+              <section>
                 <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Agadir avec Benatna ?</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[

@@ -165,6 +165,80 @@ const LocationVoitureCasablanca = () => {
               </section>
 
               <section>
+                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Casablanca ?</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Casablanca, poumon économique du Maroc, est une ville dynamique qui s&apos;étend sur plus de 220 km². Avec ses quartiers d&apos;affaires comme le Maarif et Ain Sebâa, ses zones commerciales à l&apos;Anfaplace et Morocco Mall, et ses plages le long de la corniche d&apos;Ain Diab, la voiture devient rapidement indispensable pour optimiser vos déplacements.
+                  </p>
+                  <p>
+                    <strong>Louer une voiture à Casablanca</strong> vous offre la liberté de découvrir la ville à votre rythme, sans dépendre des taxis ou des transports en commun. Vous pouvez facilement visiter la majestueuse Mosquée Hassan II, flâner dans le quartier des Habous, explorer les Roches Noires, ou vous rendre à votre rendez-vous d&apos;affaires à Sidi Maarouf en toute autonomie. De plus, Casablanca est le point de départ idéal pour des excursions vers Rabat (90 km), El Jadida (100 km) ou même Marrakech (240 km).
+                  </p>
+                  <p>
+                    Le réseau routier casablancais est bien développé avec des autoroutes modernes, des boulevards larges et une signalisation claire. La ville dispose également de nombreux parkings sécurisés dans tous les quartiers. Avec votre voiture de location, vous gagnez en flexibilité horaire et en confort, particulièrement appréciable lors des chaudes journées d&apos;été ou pour vos déplacements professionnels.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Top 10 des Lieux à Visiter en Voiture à Casablanca</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Avec votre <strong>voiture de location à Casablanca</strong>, découvrez les incontournables de la métropole marocaine :
+                  </p>
+                  <ul className="space-y-3">
+                    <li>
+                      <strong>Mosquée Hassan II :</strong> Chef-d&apos;œuvre architectural au bord de l&apos;Atlantique, la 3ème plus grande mosquée au monde. Parking disponible sur place. Visites guidées quotidiennes (sauf vendredi matin).
+                    </li>
+                    <li>
+                      <strong>Corniche d&apos;Ain Diab :</strong> 6 km de front de mer avec restaurants, clubs, plages privées et publiques. Idéal pour une balade en fin d&apos;après-midi. Nombreux parkings le long de la corniche.
+                    </li>
+                    <li>
+                      <strong>Morocco Mall :</strong> Plus grand centre commercial d&apos;Afrique avec aquarium géant, 600 boutiques, restaurants gastronomiques. Parking gratuit de 3 000 places.
+                    </li>
+                    <li>
+                      <strong>Quartier des Habous :</strong> Médina moderne construite dans les années 1930, parfaite pour acheter de l&apos;artisanat marocain. Souks traditionnels, pâtisseries orientales, cafés typiques.
+                    </li>
+                    <li>
+                      <strong>Place Mohammed V :</strong> Cœur administratif de Casablanca entouré d&apos;édifices art déco et mauresque. Fontaines musicales, pigeons, architecture coloniale française.
+                    </li>
+                    <li>
+                      <strong>Ancienne Médina :</strong> Quartier historique authentique avec ses ruelles étroites, artisans, échoppes traditionnelles. Marché aux puces le dimanche matin.
+                    </li>
+                    <li>
+                      <strong>Parc de la Ligue Arabe :</strong> Plus grand espace vert de Casablanca (30 hectares), palmiers centenaires, allées ombragées, restaurants et cafés. Parking gratuit disponible.
+                    </li>
+                    <li>
+                      <strong>Villa des Arts :</strong> Musée d&apos;art contemporain dans une magnifique villa art déco. Expositions d&apos;artistes marocains et internationaux. Entrée gratuite.
+                    </li>
+                    <li>
+                      <strong>Twin Center :</strong> Tours jumelles emblématiques (28 étages), centre commercial, restaurants panoramiques au sommet. Vue spectaculaire sur toute la ville.
+                    </li>
+                    <li>
+                      <strong>Marché Central :</strong> Marché couvert historique avec fruits, légumes, poissons frais, épices, fleurs. Ambiance authentique casablancaise. Ouvert le matin.
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Conseils de Conduite à Casablanca</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    <strong>Circulation :</strong> Évitez les heures de pointe (8h-10h et 17h-19h30) sur les grands axes comme le Boulevard Zerktouni et l&apos;Avenue des FAR. Le trafic peut être dense en centre-ville.
+                  </p>
+                  <p>
+                    <strong>Stationnement :</strong> Privilégiez les parkings sécurisés (20-30 DH/jour). En voirie, respectez les zones payantes marquées en bleu (gardiens de parking sur place). Prix moyen : 5-10 DH/heure.
+                  </p>
+                  <p>
+                    <strong>Autoroutes :</strong> Casablanca est connectée par autoroute à toutes les grandes villes. Péages électroniques disponibles. Tarifs : Casablanca-Rabat (20 DH), Casablanca-Marrakech (90 DH).
+                  </p>
+                  <p>
+                    <strong>Carburant :</strong> Nombreuses stations-service 24h/24 (Afriquia, Total, Shell). Prix moyen : 13-14 DH/litre pour le gasoil, 15-16 DH/litre pour l&apos;essence sans plomb.
+                  </p>
+                </div>
+              </section>
+
+              <section>
                 <h2 className="text-2xl font-bold mb-4">Pourquoi Choisir Benatna pour Louer une Voiture à Casablanca ?</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[

@@ -159,6 +159,83 @@ const LocationVoitureFes = () => {
               </section>
 
               <section>
+                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Fès ?</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Fès, berceau de la civilisation marocaine et capitale spirituelle du royaume, est une ville fascinante où cohabitent trois cités distinctes : Fès el-Bali (la vieille médina médiévale), Fès el-Jdid (la ville nouvelle du XIIIe siècle) et la ville moderne construite sous le protectorat français. <strong>Louer une voiture à Fès</strong> devient indispensable pour naviguer entre ces différents quartiers éloignés les uns des autres et pour découvrir les trésors des environs.
+                  </p>
+                  <p>
+                    La médina de Fès el-Bali, plus grande médina médiévale au monde et classée UNESCO, est certes piétonne (vous devrez y laisser votre voiture dans un parking périphérique). Mais une fois votre exploration terminée, votre voiture vous permettra de rejoindre facilement les autres sites : le Palais Royal à Fès el-Jdid, les poteries de Fès el-Jdid, le quartier moderne de Ville Nouvelle avec ses boulevards haussmanniens, ou encore le Borj Nord avec sa vue panoramique sur toute la ville.
+                  </p>
+                  <p>
+                    Fès occupe surtout une position géographique exceptionnelle pour explorer le Nord et le Centre du Maroc. En moins d&apos;une heure, vous atteignez Meknès (60 km), autre ville impériale majestueuse avec ses monumentales portes Bab Mansour. À 30 km, les ruines romaines de Volubilis, site UNESCO parmi les mieux préservés d&apos;Afrique du Nord, vous plongent dans l&apos;histoire antique. Plus loin, Ifrane (65 km), surnommée « la Suisse marocaine », offre un dépaysement total avec son architecture alpine et ses forêts de cèdres où vivent les singes magots. Chefchaouen (200 km, 3h30), la ville bleue du Rif, est également accessible en excursion. Les routes depuis Fès sont excellentes, notamment l&apos;autoroute vers Meknès et la route nationale vers le Moyen-Atlas.
+                  </p>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Top 11 des Lieux à Visiter en Voiture depuis Fès</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    Avec votre <strong>voiture de location à Fès</strong>, explorez les trésors du Nord :
+                  </p>
+                  <ul className="space-y-3">
+                    <li>
+                      <strong>Meknès (60 km, 50min) :</strong> Ville impériale UNESCO, monumentale porte Bab Mansour, médina, écuries royales Heri es-Souani (pour 12 000 chevaux !), mausolée Moulay Ismail. Architecture grandiose du XVIIe siècle. Incontournable.
+                    </li>
+                    <li>
+                      <strong>Volubilis (90 km, 1h15) :</strong> Site archéologique romain UNESCO, mosaïques exceptionnelles (Orphée, Bacchus), arc de triomphe, colonnes majestueuses. Mieux préservée cité romaine d&apos;Afrique du Nord. Vue sur le Djebel Zerhoun sacré.
+                    </li>
+                    <li>
+                      <strong>Ifrane (65 km, 1h) :</strong> La Suisse marocaine, architecture alpine, propreté exemplaire, université Al Akhawayn, parc national, station de ski Michliffen (hiver), lion de pierre emblématique. Fraîcheur en été, neige en hiver.
+                    </li>
+                    <li>
+                      <strong>Azrou (75 km, 1h15) :</strong> Ville berbère, forêt de cèdres millénaires (Cèdre Gouraud 800 ans), singes magots apprivoisés, artisanat bois de cèdre, tapis berbères. Altitude 1 250m. Arrêt obligé vers le Sud.
+                    </li>
+                    <li>
+                      <strong>Chefchaouen (200 km, 3h30) :</strong> La perle bleue du Rif, médina entièrement bleue Instagram-friendly, artisanat local, cascades Akchour à proximité, randonnées montagnes Rif. Route panoramique mais longue. Week-end recommandé.
+                    </li>
+                    <li>
+                      <strong>Sefrou (30 km, 35min) :</strong> Petite ville authentique surnommée « jardin du Maroc », ancienne médina juive, cascades en centre-ville, festival des cerises (juin), grottes préhistoriques. Peu touristique, authentique.
+                    </li>
+                    <li>
+                      <strong>Sources thermales Moulay Yacoub (20 km, 25min) :</strong> Station thermale naturelle depuis l&apos;époque romaine, eaux chaudes sulfureuses (54°C), bains publics et hammams modernes, propriétés thérapeutiques reconnues. Détente garantie.
+                    </li>
+                    <li>
+                      <strong>Lac Dayet Aoua (10 km, 15min) :</strong> Petit lac naturel en bordure de forêt, pique-niques, promenades à cheval, café panoramique. Très fréquenté week-ends par familles fassis. Calme en semaine.
+                    </li>
+                    <li>
+                      <strong>Moulay Idriss Zerhoun (80 km, 1h) :</strong> Ville sainte musulmane, mausolée du fondateur premier État marocain, village blanc perché colline sacrée, pèlerinage annuel (moussem). Vue panoramique depuis terrasses.
+                    </li>
+                    <li>
+                      <strong>Barrage Idriss 1er (70 km, 1h) :</strong> Grand lac artificiel, pêche (carpe, black-bass), pique-nique au bord de l&apos;eau, vue sur montagnes Rif. Spot calme week-end nature. Peu développé touristiquement.
+                    </li>
+                    <li>
+                      <strong>Bhalil (30 km, 40min) :</strong> Village berbère troglodyte unique, maisons creusées dans la roche (habitées !), église franciscaine, tapis tissés main, atmosphère hors du temps. Visite guidée maisons recommandée (50 DH).
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-bold mb-4">Conseils de Conduite à Fès et ses Environs</h2>
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                  <p>
+                    <strong>Dans Fès :</strong> Médina totalement piétonne (laisser voiture parking Bab Boujeloud, Bab Ftouh : 20 DH/jour). Ville Nouvelle circulation fluide sauf heures pointe Avenue Hassan II. Suivre panneaux « Médina » ou « Ville Nouvelle » selon besoin.
+                  </p>
+                  <p>
+                    <strong>Route Meknès/Volubilis :</strong> Autoroute moderne gratuite vers Meknès (A2). Puis route nationale N13 vers Volubilis bien entretenue. Signalisation claire. Site Volubilis parking 10 DH. Combiner les deux en demi-journée facilement.
+                  </p>
+                  <p>
+                    <strong>Moyen-Atlas (Ifrane, Azrou) :</strong> Route N8 excellente état, paysages spectaculaires. En hiver (décembre-mars) risque neige/verglas sur cols, chaînes recommandées. Stations-service régulières. Singes magots forêt Azrou : ne pas sortir nourriture voiture (ils ouvrent portières !).
+                  </p>
+                  <p>
+                    <strong>Général :</strong> Fès très bien connectée. GPS utile quartiers périphériques. Prix carburant : 13-14 DH/l (gasoil), 15-16 DH/l (essence). Gardiens parking omniprésents (5-10 DH pourboire apprécié). Conduite courtoise, klaxon fréquent mais non agressif.
+                  </p>
+                </div>
+              </section>
+
+              <section>
                 <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Fès avec Benatna ?</h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
