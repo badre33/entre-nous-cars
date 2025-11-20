@@ -24,6 +24,7 @@ import { analytics } from "@/utils/analytics";
 
 // Code splitting avec React.lazy - Homepage not lazy loaded for better LCP
 import Index from "./pages/Index";
+const NosServices = lazy(() => import("./pages/NosServices"));
 const Louer = lazy(() => import("./pages/Louer"));
 const Partenaires = lazy(() => import("./pages/Partenaires"));
 const APropos = lazy(() => import("./pages/APropos"));
@@ -117,6 +118,7 @@ const App = () => (
                 <Suspense fallback={<LoadingCar />}>
                   <Routes>
                     <Route path="/" element={<Index />} />
+                    <Route path="/nos-services" element={<NosServices />} />
                     <Route path="/louer" element={<Louer />} />
                     <Route path="/partenaires" element={<Partenaires />} />
                     <Route path="/a-propos" element={<APropos />} />

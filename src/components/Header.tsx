@@ -57,6 +57,15 @@ const Header = () => {
       >
         {t('common.rent')}
       </Link>
+      <Link 
+        to="/nos-services" 
+        onClick={onLinkClick}
+        className={`${mobile ? 'text-lg py-3 px-4 rounded-lg' : 'text-sm'} font-medium transition-colors hover:text-primary ${
+          isActive('/nos-services') ? 'text-foreground bg-accent' : 'text-muted-foreground'
+        }`}
+      >
+        Services
+      </Link>
       
       {mobile ? (
         <div className="space-y-1">
