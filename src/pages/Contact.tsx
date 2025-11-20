@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -40,6 +41,15 @@ const Contact = () => {
   
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>Contactez-nous - Benatna | Location de Voiture au Maroc</title>
+        <meta name="description" content="Contactez l'équipe Benatna pour toute question sur la location de voiture au Maroc. Support client disponible par téléphone, email ou formulaire en ligne." />
+        <meta name="keywords" content="contact benatna, service client location voiture, aide location auto maroc, numéro téléphone benatna" />
+        <link rel="canonical" href="https://benatna.ma/contact" />
+        <meta property="og:title" content="Contactez-nous - Benatna" />
+        <meta property="og:description" content="Notre équipe est à votre disposition pour toute question sur la location de voiture au Maroc." />
+        <meta property="og:url" content="https://benatna.ma/contact" />
+      </Helmet>
       <Header />
       <Breadcrumbs />
       
