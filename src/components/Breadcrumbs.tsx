@@ -50,24 +50,37 @@ export const Breadcrumbs = () => {
     return routes[path] || path;
   };
 
-  // Generate structured data for breadcrumbs
+  // Generate enriched structured data for breadcrumbs with full SEO metadata
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "name": "Navigation fil d'Ariane",
+    "description": "Chemin de navigation hiérarchique pour faciliter la navigation sur le site Benatna",
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
         "name": t("common.home"),
-        "item": "https://benatna.ma"
+        "item": {
+          "@type": "WebPage",
+          "@id": "https://benatna.ma",
+          "url": "https://benatna.ma",
+          "name": "Benatna - Accueil"
+        }
       },
       ...pathnames.map((path, index) => {
         const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
+        const pageName = getPageName(path);
         return {
           "@type": "ListItem",
           "position": index + 2,
-          "name": getPageName(path),
-          "item": `https://benatna.ma${routeTo}`
+          "name": pageName,
+          "item": {
+            "@type": "WebPage",
+            "@id": `https://benatna.ma${routeTo}`,
+            "url": `https://benatna.ma${routeTo}`,
+            "name": `Benatna - ${pageName}`
+          }
         };
       })
     ]

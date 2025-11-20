@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -69,6 +70,7 @@ const LocationVoitureCasablanca = () => {
         city="Casablanca"
       />
       <Header />
+      <Breadcrumbs />
 
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] flex items-center">
@@ -105,19 +107,6 @@ const LocationVoitureCasablanca = () => {
           </div>
         </div>
       </section>
-
-      {/* Breadcrumbs */}
-      <div className="bg-muted/30 border-b">
-        <div className="container px-4 py-3">
-          <nav className="text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-foreground">Accueil</Link>
-            <span className="mx-2">/</span>
-            <Link to="/louer" className="hover:text-foreground">Locations</Link>
-            <span className="mx-2">/</span>
-            <span className="text-foreground">Casablanca</span>
-          </nav>
-        </div>
-      </div>
 
       {/* Main Content */}
       <main className="flex-1 py-12">
