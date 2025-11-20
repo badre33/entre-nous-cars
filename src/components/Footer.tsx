@@ -9,7 +9,8 @@ const Footer = () => {
   return (
     <footer className="w-full border-t border-border bg-card mt-20">
       <div className="container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Section principale */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <h3 className="font-pacifico text-xl mb-4">benatna</h3>
             <p className="text-sm text-muted-foreground">
@@ -65,22 +66,6 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-semibold mb-4">Services Spécialisés</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link to="/location-voiture-sans-carte-credit-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Sans Carte Crédit Marrakech
-                </Link>
-              </li>
-              <li>
-                <Link to="/location-voiture-sans-carte-credit-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Sans Carte Crédit Casablanca
-                </Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
             <h4 className="font-semibold mb-4">{t('common.contact')}</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-start gap-2">
@@ -102,6 +87,153 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+
+        {/* Section Nos Services - SEO */}
+        <div className="pt-8 border-t border-border">
+          <h3 className="text-lg font-semibold mb-6 text-center">Nos Services de Location</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            {/* Locations Aéroports */}
+            <div>
+              <h4 className="font-semibold mb-3 text-sm text-primary">Locations Aéroports</h4>
+              <ul className="space-y-2 text-xs">
+                <li>
+                  <Link to="/location-voiture-aeroport-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Aéroport Casablanca
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-voiture-aeroport-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Aéroport Marrakech
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-voiture-aeroport-rabat" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Aéroport Rabat
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-voiture-aeroport-agadir" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Aéroport Agadir
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-voiture-aeroport-tanger" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Aéroport Tanger
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Jeune Conducteur */}
+            <div>
+              <h4 className="font-semibold mb-3 text-sm text-primary">Jeune Conducteur</h4>
+              <ul className="space-y-2 text-xs">
+                <li>
+                  <Link to="/location-jeune-conducteur-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Casablanca -21 ans
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-jeune-conducteur-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Marrakech -21 ans
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-jeune-conducteur-rabat" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Rabat -21 ans
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Longue Durée & Spécial */}
+            <div>
+              <h4 className="font-semibold mb-3 text-sm text-primary">Formules Longue Durée</h4>
+              <ul className="space-y-2 text-xs">
+                <li>
+                  <Link to="/location-longue-duree-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Longue Durée Casa
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-longue-duree-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Longue Durée Marrakech
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-weekend-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Weekend Marrakech
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-voiture-sans-carte-credit-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Sans Carte Crédit
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* SUV & Aventure */}
+            <div>
+              <h4 className="font-semibold mb-3 text-sm text-primary">SUV & Aventure</h4>
+              <ul className="space-y-2 text-xs">
+                <li>
+                  <Link to="/location-suv-atlas" className="text-muted-foreground hover:text-foreground transition-colors">
+                    SUV Atlas Montagne
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-4x4-desert" className="text-muted-foreground hover:text-foreground transition-colors">
+                    4x4 Désert Merzouga
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-suv-sud-maroc" className="text-muted-foreground hover:text-foreground transition-colors">
+                    SUV Sud Marocain
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Véhicules Spéciaux */}
+            <div>
+              <h4 className="font-semibold mb-3 text-sm text-primary">Véhicules Spéciaux</h4>
+              <ul className="space-y-2 text-xs">
+                <li>
+                  <Link to="/location-voiture-mariage-maroc" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Voiture Mariage Luxe
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-voiture-luxe-evenement" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Luxe Événement
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-voiture-electrique-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Voiture Électrique
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-van-famille-maroc" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Van Familial 7-9 Places
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-cabriolet-agadir" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Cabriolet Agadir
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/location-utilitaire-demenagement-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
+                    Utilitaire Déménagement
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
         
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
           © 2025 Benatna - {t('footer.tagline')}
