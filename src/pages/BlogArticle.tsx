@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowLeft } from "lucide-react";
@@ -84,6 +85,21 @@ const BlogArticle = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <Helmet>
+        <title>{translatedTitle} | Benatna</title>
+        <meta name="description" content={article.metaDescription} />
+        <meta property="og:title" content={translatedTitle} />
+        <meta property="og:description" content={article.metaDescription} />
+        <meta property="og:image" content={article.image} />
+        <meta property="og:type" content="article" />
+        <meta property="article:published_time" content={article.date} />
+        <meta property="article:section" content={translatedCategory} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={translatedTitle} />
+        <meta name="twitter:description" content={article.metaDescription} />
+        <meta name="twitter:image" content={article.image} />
+        <link rel="canonical" href={`https://benatna.ma/blog/${article.slug}`} />
+      </Helmet>
       <Header />
       <Breadcrumbs />
       
