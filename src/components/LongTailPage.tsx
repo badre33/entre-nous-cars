@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BreadcrumbsEnriched } from "@/components/BreadcrumbsEnriched";
@@ -10,6 +10,9 @@ import { CallButton } from "@/components/CallButton";
 import { LongTailPageConfig } from "@/data/longTailPages";
 import { StructuredData } from "@/components/StructuredData";
 import { StickyProgress } from "@/components/StickyProgress";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
+import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
+import { toast } from "sonner";
 
 interface LongTailPageProps {
   config: LongTailPageConfig;
@@ -20,6 +23,23 @@ interface LongTailPageProps {
  * Optimisé pour la conversion et le référencement
  */
 export const LongTailPage = ({ config }: LongTailPageProps) => {
+  const navigate = useNavigate();
+
+  // Pull to refresh - mobile only
+  const { isPulling, isRefreshing, pullDistance, pullPercentage } = usePullToRefresh({
+    onRefresh: async () => {
+      // Simuler un rafraîchissement avec un délai
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Recharger la page
+      window.location.reload();
+      
+      toast.success("Page actualisée !");
+    },
+    threshold: 80,
+    resistance: 2.5
+  });
+
   // Construire le breadcrumb enrichi
   const breadcrumbItems = [];
   
@@ -58,6 +78,13 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PullToRefreshIndicator 
+        isPulling={isPulling}
+        isRefreshing={isRefreshing}
+        pullDistance={pullDistance}
+        pullPercentage={pullPercentage}
+      />
+      
       <Helmet>
         <title>{config.metaTitle}</title>
         <meta name="description" content={config.metaDescription} />

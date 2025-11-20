@@ -10,6 +10,9 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { services, serviceCategories, Service } from "@/data/servicesData";
 import { ArrowRight, Check, Grid3x3, Plane, UserCheck, Calendar, Mountain, Sparkles } from "lucide-react";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
+import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
+import { toast } from "sonner";
 
 const iconMap = {
   Grid3x3,
@@ -22,6 +25,17 @@ const iconMap = {
 
 const NosServices = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+
+  // Pull to refresh sur mobile
+  const { isPulling, isRefreshing, pullDistance, pullPercentage } = usePullToRefresh({
+    onRefresh: async () => {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      window.location.reload();
+      toast.success("Services actualisés !");
+    },
+    threshold: 80,
+    resistance: 2.5
+  });
 
   const filteredServices = activeCategory === 'all' 
     ? services 
@@ -51,6 +65,13 @@ const NosServices = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PullToRefreshIndicator 
+        isPulling={isPulling}
+        isRefreshing={isRefreshing}
+        pullDistance={pullDistance}
+        pullPercentage={pullPercentage}
+      />
+      
       <Helmet>
         <title>Nos Services de Location de Voiture au Maroc | Benatna</title>
         <meta 
