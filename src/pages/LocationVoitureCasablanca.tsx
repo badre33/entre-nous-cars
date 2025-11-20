@@ -8,6 +8,7 @@ import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
+import { ServiceSchema } from "@/components/ServiceSchema";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 
 const LocationVoitureCasablanca = () => {
@@ -23,7 +24,8 @@ const LocationVoitureCasablanca = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-casablanca" />
       </Helmet>
       <StructuredData type="rental" />
-      <CityLocalBusinessSchema 
+      <ServiceSchema city="Casablanca" />
+      <CityLocalBusinessSchema
         cityName="Casablanca"
         latitude="33.5731"
         longitude="-7.5898"

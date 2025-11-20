@@ -8,6 +8,7 @@ import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
+import { ServiceSchema } from "@/components/ServiceSchema";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
 const LocationVoitureAgadir = () => {
@@ -23,7 +24,8 @@ const LocationVoitureAgadir = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-agadir" />
       </Helmet>
       <StructuredData type="rental" />
-      <CityLocalBusinessSchema 
+      <ServiceSchema city="Agadir" />
+      <CityLocalBusinessSchema
         cityName="Agadir"
         latitude="30.4278"
         longitude="-9.5981"
