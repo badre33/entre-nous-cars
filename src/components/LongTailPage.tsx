@@ -9,6 +9,7 @@ import { CheckCircle, ArrowRight } from "lucide-react";
 import { CallButton } from "@/components/CallButton";
 import { LongTailPageConfig } from "@/data/longTailPages";
 import { StructuredData } from "@/components/StructuredData";
+import { StickyProgress } from "@/components/StickyProgress";
 
 interface LongTailPageProps {
   config: LongTailPageConfig;
@@ -41,6 +42,20 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
     label: config.title
   });
 
+  // Préparer les sections pour la navigation sticky
+  const sections = config.content.sections.map((section, index) => ({
+    id: `section-${index}`,
+    title: section.title
+  }));
+
+  // Ajouter la section FAQ si elle existe
+  if (config.content.faq && config.content.faq.length > 0) {
+    sections.push({
+      id: "faq-section",
+      title: "Questions Fréquentes"
+    });
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
@@ -58,6 +73,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       
       <Header />
       <BreadcrumbsEnriched items={breadcrumbItems} />
+      <StickyProgress sections={sections} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 py-16 md:py-24">
@@ -101,7 +117,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
             {/* Content Sections */}
             <div className="space-y-12 mb-16">
               {config.content.sections.map((section, index) => (
-                <section key={index} className="scroll-mt-20">
+                <section key={index} id={`section-${index}`} className="scroll-mt-24">
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">
                     {section.title}
                   </h2>
@@ -116,7 +132,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
 
             {/* FAQ Section */}
             {config.content.faq && config.content.faq.length > 0 && (
-              <section className="mb-16">
+              <section id="faq-section" className="mb-16 scroll-mt-24">
                 <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
                   Questions Fréquentes
                 </h2>

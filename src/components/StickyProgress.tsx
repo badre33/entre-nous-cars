@@ -1,0 +1,135 @@
+import { useState, useEffect } from "react";
+import { cn } from "@/lib/utils";
+import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+interface Section {
+  id: string;
+  title: string;
+}
+
+interface StickyProgressProps {
+  sections: Section[];
+  className?: string;
+}
+
+export function StickyProgress({ sections, className }: StickyProgressProps) {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Calculate scroll progress
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrolled = window.scrollY;
+      const progress = (scrolled / documentHeight) * 100;
+      setScrollProgress(Math.min(progress, 100));
+
+      // Show/hide based on scroll position (show after 200px)
+      setIsVisible(scrolled > 200);
+
+      // Detect active section using IntersectionObserver alternative
+      const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean);
+      
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const element = sectionElements[i];
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveSection(sections[i].id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial call
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [sections]);
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 100; // Offset for sticky header
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const activeSectionTitle = sections.find(s => s.id === activeSection)?.title || sections[0]?.title;
+
+  if (!isVisible || sections.length === 0) return null;
+
+  return (
+    <div 
+      className={cn(
+        "sticky top-16 z-20 bg-background/95 backdrop-blur-sm border-b border-border",
+        "animate-fade-in",
+        className
+      )}
+    >
+      {/* Progress bar */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-muted">
+        <div 
+          className="h-full bg-primary transition-all duration-300 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
+      <div className="container px-4 py-3">
+        <div className="flex items-center justify-between gap-4">
+          {/* Current section indicator */}
+          <div className="flex items-center gap-2 min-w-0 flex-1">
+            <span className="text-sm text-muted-foreground whitespace-nowrap">
+              Vous êtes ici:
+            </span>
+            <span className="text-sm font-medium truncate">
+              {activeSectionTitle}
+            </span>
+          </div>
+
+          {/* Section navigation dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="gap-2 whitespace-nowrap"
+              >
+                Navigation
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-64">
+              {sections.map((section) => (
+                <DropdownMenuItem
+                  key={section.id}
+                  onClick={() => scrollToSection(section.id)}
+                  className={cn(
+                    "cursor-pointer",
+                    activeSection === section.id && "bg-accent font-medium"
+                  )}
+                >
+                  {section.title}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      </div>
+    </div>
+  );
+}
