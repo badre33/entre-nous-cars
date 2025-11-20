@@ -11,6 +11,10 @@ export interface LongTailPageConfig {
   keywords: string;
   h1: string;
   heroSubtitle: string;
+  category?: {
+    label: string;
+    href: string;
+  };
   content: {
     intro: string;
     sections: Array<{
@@ -49,6 +53,10 @@ export const longTailPages: LongTailPageConfig[] = [
     keywords: "location voiture sans carte crédit marrakech, louer auto sans cb marrakech, location véhicule espèces marrakech",
     h1: "Location de Voiture Sans Carte de Crédit à Marrakech",
     heroSubtitle: "Louez votre véhicule facilement • Paiement en espèces accepté • Dès 150 DH/jour",
+    category: {
+      label: "Formules Flexibles",
+      href: "/nos-services"
+    },
     content: {
       intro: "Vous cherchez à louer une voiture à Marrakech mais vous n'avez pas de carte de crédit ? Benatna révolutionne la location de voiture au Maroc en vous permettant de réserver votre véhicule sans carte bancaire. Contrairement aux agences traditionnelles qui exigent systématiquement une carte de crédit pour la caution, nous acceptons le paiement en espèces, par virement bancaire ou par d'autres moyens flexibles. Cette approche inclusive permet à tous les voyageurs, qu'ils soient Marocains, touristes internationaux, jeunes conducteurs ou personnes sans carte de crédit, de profiter de la liberté qu'offre une voiture de location à Marrakech.",
       sections: [
@@ -116,6 +124,10 @@ export const longTailPages: LongTailPageConfig[] = [
     keywords: "location voiture sans carte crédit casablanca, louer auto sans cb casa, location véhicule espèces casablanca",
     h1: "Location de Voiture Sans Carte de Crédit à Casablanca",
     heroSubtitle: "Aéroport Mohammed V • Centre-ville • Paiement flexible • Dès 150 DH/jour",
+    category: {
+      label: "Formules Flexibles",
+      href: "/nos-services"
+    },
     content: {
       intro: "Casablanca, capitale économique du Maroc, est une ville dynamique où la mobilité est essentielle. Que vous soyez en déplacement professionnel, en visite touristique ou Casablancais ayant besoin d'un véhicule temporaire, Benatna vous permet de louer une voiture sans carte de crédit. Notre service flexible accepte le paiement en espèces, par virement ou par d'autres moyens, rendant la location accessible à tous sans les contraintes des blocages de caution bancaire imposés par les loueurs traditionnels.",
       sections: [

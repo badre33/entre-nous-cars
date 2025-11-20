@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { BreadcrumbsEnriched } from "@/components/BreadcrumbsEnriched";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, ArrowRight } from "lucide-react";
@@ -19,6 +19,28 @@ interface LongTailPageProps {
  * Optimisé pour la conversion et le référencement
  */
 export const LongTailPage = ({ config }: LongTailPageProps) => {
+  // Construire le breadcrumb enrichi
+  const breadcrumbItems = [];
+  
+  // Ajouter "Services" comme niveau intermédiaire
+  breadcrumbItems.push({
+    label: "Nos Services",
+    href: "/nos-services"
+  });
+  
+  // Ajouter la catégorie si elle existe
+  if (config.category) {
+    breadcrumbItems.push({
+      label: config.category.label,
+      href: config.category.href
+    });
+  }
+  
+  // Ajouter la page actuelle (sans href car c'est la page courante)
+  breadcrumbItems.push({
+    label: config.title
+  });
+
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
@@ -35,7 +57,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       <StructuredData type="rental" />
       
       <Header />
-      <Breadcrumbs />
+      <BreadcrumbsEnriched items={breadcrumbItems} />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 py-16 md:py-24">

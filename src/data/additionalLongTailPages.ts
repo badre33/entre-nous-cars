@@ -14,6 +14,10 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   keywords: `location voiture aéroport ${citySlug}, ${airport} location auto, louer voiture terminal ${city}`,
   h1: `Location de Voiture à l'Aéroport ${airport}`,
   heroSubtitle: `Livraison gratuite au terminal • Pas de file d'attente • Dès 150 DH/jour`,
+  category: {
+    label: "Locations Aéroports",
+    href: "/nos-services?category=aeroport"
+  },
   content: {
     intro: `Arrivez à l'aéroport ${airport} et récupérez votre voiture de location en quelques minutes avec Benatna. Notre service de livraison gratuite au terminal vous évite les files d'attente des comptoirs d'aéroport et vous fait économiser jusqu'à 40% par rapport aux tarifs pratiqués dans les kiosques du hall des arrivées. Réservez en ligne avant votre vol, et votre véhicule vous attend dès votre atterrissage. Simple, rapide et économique.`,
     sections: [
@@ -86,6 +90,10 @@ const createMariagePage = (): LongTailPageConfig => ({
   keywords: 'location voiture mariage maroc, voiture luxe mariage, location auto mariage casablanca',
   h1: 'Location de Voiture de Luxe pour Mariage au Maroc',
   heroSubtitle: 'Véhicules premium • Décoration incluse • Chauffeur disponible',
+  category: {
+    label: "Véhicules Spéciaux",
+    href: "/nos-services?category=special"
+  },
   content: {
     intro: 'Faites de votre jour J un moment inoubliable avec notre service de location de voitures de luxe pour mariage. Benatna vous propose une sélection exclusive de véhicules premium (Mercedes Classe S, BMW Série 7, Audi A8) parfaitement entretenus et décorés selon vos souhaits. Nos forfaits mariage incluent la décoration florale, les rubans personnalisés et un service de nettoyage entre cérémonies. Option chauffeur professionnel en costume disponible pour vous permettre de profiter pleinement de votre journée sans stress. Réservation jusqu\'à 12 mois à l\'avance avec devis gratuit et visite des véhicules sur rendez-vous.',
     sections: [
@@ -147,6 +155,10 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
   keywords: `location longue durée ${citySlug}, leasing voiture ${city}, location mensuelle auto`,
   h1: `Location de Voiture Longue Durée à ${city}`,
   heroSubtitle: 'Tarifs mensuels • Entretien inclus • Flexibilité maximale',
+  category: {
+    label: "Formules Longue Durée",
+    href: "/nos-services?category=longue-duree"
+  },
   content: {
     intro: `Besoin d'un véhicule pour plusieurs mois à ${city} ? Benatna propose des formules de location longue durée ultra-flexibles avec tarifs dégressifs : plus vous louez longtemps, moins vous payez. Nos forfaits mensuels incluent l'entretien complet (vidanges, pneus, révisions), l'assurance tous risques sans franchise, l'assistance 24/7 et le remplacement immédiat en cas de panne. Contrairement au leasing classique qui vous engage sur 3-5 ans, nos contrats sont résiliables avec seulement 1 mois de préavis. Idéal pour expatriés, missions longues, startups ou tout simplement pour éviter l'achat et la revente d'un véhicule. Kilométrage illimité inclus dans tous nos forfaits longue durée.`,
     sections: [
@@ -211,6 +223,10 @@ const createJeuneConducteurPage = (city: string, citySlug: string): LongTailPage
   keywords: `location jeune conducteur ${citySlug}, location -25 ans ${city}, louer voiture 21 ans`,
   h1: `Location de Voiture pour Jeune Conducteur à ${city}`,
   heroSubtitle: 'Dès 21 ans • Assurance adaptée • Pas de supplément abusif',
+  category: {
+    label: "Jeune Conducteur",
+    href: "/nos-services?category=jeune"
+  },
   content: {
     intro: `Jeune conducteur à ${city} ? Benatna facilite votre location de voiture avec des conditions adaptées et transparentes. Contrairement aux grandes enseignes qui facturent des suppléments de 150-300 DH/jour pour les moins de 25 ans, nous appliquons une majoration raisonnable de 50 DH/jour seulement, assurance jeune conducteur incluse. Conditions : 21 ans minimum (20 ans pour citadines), permis depuis au moins 1 an, pièce d'identité et permis valides. Nous acceptons les permis marocains, français, européens et internationaux. Pas de caution astronomique : 3000 DH bloqués sur carte bancaire (débloqués 7 jours après restitution). Notre objectif : rendre la mobilité accessible aux jeunes sans les pénaliser financièrement.`,
     sections: [
@@ -347,6 +363,10 @@ const createLuxeEvenementPage = (): LongTailPageConfig => ({
   keywords: 'location voiture luxe maroc, voiture prestige événement, location mercedes bmw',
   h1: 'Location de Voiture de Luxe pour Événements',
   heroSubtitle: 'Flotte premium • Chauffeur professionnel • Service sur-mesure',
+  category: {
+    label: "Véhicules Spéciaux",
+    href: "/nos-services?category=special"
+  },
   content: {
     intro: 'Offrez-vous ou à vos invités une expérience haut de gamme avec notre flotte de véhicules de luxe. Benatna propose des Mercedes Classe S, BMW Série 7, Audi A8 et Range Rover pour tous vos événements professionnels (conférences, séminaires, accueil clients VIP) ou privés (mariages, anniversaires, soirées). Nos véhicules premium sont livrés impeccables avec chauffeur professionnel en costume, discret et ponctuel. Service personnalisé : eau, rafraîchissements, presse du jour, WiFi 4G, prises USB. Réservation événementielle avec devis détaillé et garantie véhicule de secours identique.',
     sections: [
@@ -425,6 +445,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     keywords: 'location weekend marrakech, location 2 jours marrakech, location courte durée',
     h1: 'Location de Voiture Weekend à Marrakech',
     heroSubtitle: 'Tarifs spéciaux 2-3 jours • Départ vendredi soir • Retour lundi matin',
+    category: {
+      label: "Formules Longue Durée",
+      href: "/nos-services?category=longue-duree"
+    },
     content: {
       intro: 'Weekend prolongé à Marrakech ? Profitez de nos tarifs spéciaux 2-3 jours ! Réservez du vendredi soir 18h au lundi matin 9h pour 2 jours de facturation seulement (au lieu de 3). Idéal pour découvrir Marrakech et ses environs (Atlas, Essaouira) sans se ruiner. Toutes catégories disponibles avec kilométrage illimité.',
       sections: [
@@ -489,6 +513,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     keywords: 'location van maroc, minibus 9 places, location familiale maroc',
     h1: 'Location Van et Minibus Familial au Maroc',
     heroSubtitle: '7-9 places • Coffre XXL • Clim arrière',
+    category: {
+      label: "Véhicules Spéciaux",
+      href: "/nos-services?category=special"
+    },
     content: {
       intro: 'Famille nombreuse ou groupe d\'amis ? Louez notre van Mercedes Vito ou Volkswagen Multivan pour voyager tous ensemble. 7-9 places assises confortables, climatisation avant/arrière, coffre géant pour tous les bagages. Parfait pour road trips familiaux Atlas, Merzouga ou côte Atlantique. Conduite facile malgré la taille (gabarit similaire à un SUV).',
       sections: [
@@ -546,6 +574,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     keywords: 'location utilitaire casablanca, camion demenagement casa, location camionnette',
     h1: 'Location Utilitaire et Camion Déménagement Casablanca',
     heroSubtitle: '10-20m³ • Hayon élévateur • Couvertures fournies',
+    category: {
+      label: "Véhicules Spéciaux",
+      href: "/nos-services?category=special"
+    },
     content: {
       intro: 'Déménagement, transport de meubles ou gros achats ? Louez notre utilitaire ou camion à Casablanca. Véhicules 10m³ à 20m³ avec hayon élévateur, idéal pour chargement/déchargement sans effort. Couvertures de protection fournies gratuitement. Permis B suffit (pas besoin permis poids lourd).',
       sections: [
