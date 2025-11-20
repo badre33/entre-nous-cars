@@ -9,6 +9,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import HowToSchema from "@/components/HowToSchema";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
 const LocationVoitureMarrakech = () => {
@@ -25,6 +26,7 @@ const LocationVoitureMarrakech = () => {
       </Helmet>
       <StructuredData type="rental" />
       <ServiceSchema city="Marrakech" />
+      <HowToSchema city="Marrakech" />
       <CityLocalBusinessSchema
         cityName="Marrakech"
         latitude="31.6295"

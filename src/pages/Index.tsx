@@ -19,6 +19,7 @@ import { LoyaltyProgram } from "@/components/LoyaltyProgram";
 import { CustomerReviews } from "@/components/CustomerReviews";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
+import HowToSchema from "@/components/HowToSchema";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -71,6 +72,7 @@ const Index = () => {
       </Helmet>
       <StructuredData type="home" />
       <ServiceSchema />
+      <HowToSchema />
       <ReviewsSchema
         reviews={[
           {
