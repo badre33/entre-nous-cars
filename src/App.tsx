@@ -39,6 +39,29 @@ const LocationVoitureAgadir = lazy(() => import("./pages/LocationVoitureAgadir")
 const LocationVoitureFes = lazy(() => import("./pages/LocationVoitureFes"));
 const LocationSansCarteMarrakech = lazy(() => import("./pages/LocationSansCarteMarrakech"));
 const LocationSansCarteCasablanca = lazy(() => import("./pages/LocationSansCarteCasablanca"));
+// Aéroports (6 pages)
+const LocationAeroportCasablanca = lazy(() => import("./pages/LocationAeroportCasablanca"));
+const LocationAeroportMarrakech = lazy(() => import("./pages/LocationAeroportMarrakech"));
+const LocationAeroportAgadir = lazy(() => import("./pages/LocationAeroportAgadir"));
+const LocationAeroportTanger = lazy(() => import("./pages/LocationAeroportTanger"));
+const LocationAeroportFes = lazy(() => import("./pages/LocationAeroportFes"));
+const LocationAeroportRabat = lazy(() => import("./pages/LocationAeroportRabat"));
+// Thématiques (15 pages)
+const LocationMariageMaroc = lazy(() => import("./pages/LocationMariageMaroc"));
+const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
+const LocationLongueDureeMarrakech = lazy(() => import("./pages/LocationLongueDureeMarrakech"));
+const LocationJeuneConducteurCasablanca = lazy(() => import("./pages/LocationJeuneConducteurCasablanca"));
+const LocationJeuneConducteurMarrakech = lazy(() => import("./pages/LocationJeuneConducteurMarrakech"));
+const LocationJeuneConducteurRabat = lazy(() => import("./pages/LocationJeuneConducteurRabat"));
+const LocationSUVAtlas = lazy(() => import("./pages/LocationSUVAtlas"));
+const Location4x4Desert = lazy(() => import("./pages/Location4x4Desert"));
+const LocationSUVSudMaroc = lazy(() => import("./pages/LocationSUVSudMaroc"));
+const LocationLuxeEvenement = lazy(() => import("./pages/LocationLuxeEvenement"));
+const LocationWeekendMarrakech = lazy(() => import("./pages/LocationWeekendMarrakech"));
+const LocationElectriqueCasablanca = lazy(() => import("./pages/LocationElectriqueCasablanca"));
+const LocationVanFamilleMaroc = lazy(() => import("./pages/LocationVanFamilleMaroc"));
+const LocationCabrioletAgadir = lazy(() => import("./pages/LocationCabrioletAgadir"));
+const LocationUtilitaireCasablanca = lazy(() => import("./pages/LocationUtilitaireCasablanca"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -109,6 +132,29 @@ const App = () => (
                     <Route path="/location-voiture-fes" element={<LocationVoitureFes />} />
                     <Route path="/location-voiture-sans-carte-credit-marrakech" element={<LocationSansCarteMarrakech />} />
                     <Route path="/location-voiture-sans-carte-credit-casablanca" element={<LocationSansCarteCasablanca />} />
+                    {/* Aéroports */}
+                    <Route path="/location-voiture-aeroport-casablanca" element={<LocationAeroportCasablanca />} />
+                    <Route path="/location-voiture-aeroport-marrakech" element={<LocationAeroportMarrakech />} />
+                    <Route path="/location-voiture-aeroport-agadir" element={<LocationAeroportAgadir />} />
+                    <Route path="/location-voiture-aeroport-tanger" element={<LocationAeroportTanger />} />
+                    <Route path="/location-voiture-aeroport-fes" element={<LocationAeroportFes />} />
+                    <Route path="/location-voiture-aeroport-rabat" element={<LocationAeroportRabat />} />
+                    {/* Thématiques */}
+                    <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
+                    <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
+                    <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />
+                    <Route path="/location-jeune-conducteur-casablanca" element={<LocationJeuneConducteurCasablanca />} />
+                    <Route path="/location-jeune-conducteur-marrakech" element={<LocationJeuneConducteurMarrakech />} />
+                    <Route path="/location-jeune-conducteur-rabat" element={<LocationJeuneConducteurRabat />} />
+                    <Route path="/location-suv-atlas" element={<LocationSUVAtlas />} />
+                    <Route path="/location-4x4-desert" element={<Location4x4Desert />} />
+                    <Route path="/location-suv-sud-maroc" element={<LocationSUVSudMaroc />} />
+                    <Route path="/location-voiture-luxe-evenement" element={<LocationLuxeEvenement />} />
+                    <Route path="/location-weekend-marrakech" element={<LocationWeekendMarrakech />} />
+                    <Route path="/location-voiture-electrique-casablanca" element={<LocationElectriqueCasablanca />} />
+                    <Route path="/location-van-famille-maroc" element={<LocationVanFamilleMaroc />} />
+                    <Route path="/location-cabriolet-agadir" element={<LocationCabrioletAgadir />} />
+                    <Route path="/location-utilitaire-demenagement-casablanca" element={<LocationUtilitaireCasablanca />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
