@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
+import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import cityRabat from "@/assets/city-rabat.jpg";
 
 const LocationVoitureRabat = () => {
@@ -21,6 +22,15 @@ const LocationVoitureRabat = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-rabat" />
       </Helmet>
       <StructuredData type="rental" />
+      <CityLocalBusinessSchema 
+        cityName="Rabat"
+        latitude="33.9716"
+        longitude="-6.8498"
+        address="Aéroport Rabat-Salé"
+        postalCode="10000"
+        telephone="+212699024526"
+        priceRange="150-800 MAD"
+      />
       <Header />
 
       <section className="relative h-[400px] md:h-[500px] flex items-center">

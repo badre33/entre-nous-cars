@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
+import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 
 const LocationVoitureCasablanca = () => {
@@ -21,6 +22,15 @@ const LocationVoitureCasablanca = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-casablanca" />
       </Helmet>
       <StructuredData type="rental" />
+      <CityLocalBusinessSchema 
+        cityName="Casablanca"
+        latitude="33.5731"
+        longitude="-7.5898"
+        address="Aéroport Mohammed V"
+        postalCode="27000"
+        telephone="+212699024526"
+        priceRange="150-800 MAD"
+      />
       <Header />
 
       {/* Hero Section */}

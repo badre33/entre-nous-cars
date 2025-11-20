@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
+import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import cityFes from "@/assets/city-fes.jpg";
 
 const LocationVoitureFes = () => {
@@ -21,6 +22,15 @@ const LocationVoitureFes = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-fes" />
       </Helmet>
       <StructuredData type="rental" />
+      <CityLocalBusinessSchema 
+        cityName="Fès"
+        latitude="34.0331"
+        longitude="-5.0003"
+        address="Aéroport Fès-Saïss"
+        postalCode="30000"
+        telephone="+212699024526"
+        priceRange="150-750 MAD"
+      />
       <Header />
 
       <section className="relative h-[400px] md:h-[500px] flex items-center">
