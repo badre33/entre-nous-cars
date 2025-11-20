@@ -5,13 +5,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
+import { MapPin, CheckCircle, Star } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
+import { CallButton } from "@/components/CallButton";
+import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
@@ -95,12 +97,13 @@ const LocationVoitureAgadir = () => {
                   Réserver Maintenant
                 </Button>
               </Link>
-              <a href="tel:+212699024526">
-                <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Appeler
-                </Button>
-              </a>
+              <CallButton 
+                variant="outline"
+                size="lg"
+                className="text-lg px-8 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20"
+              >
+                Appeler
+              </CallButton>
             </div>
           </div>
         </div>
@@ -341,8 +344,8 @@ const LocationVoitureAgadir = () => {
                     </Link>
                     <div className="text-center">
                       <p className="text-sm text-muted-foreground mb-2">Besoin d&apos;aide ?</p>
-                      <a href="tel:+212699024526" className="text-primary font-semibold hover:underline">
-                        +212 699 024 526
+                      <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-primary font-semibold hover:underline">
+                        {BUSINESS_INFO.phone}
                       </a>
                     </div>
                   </div>

@@ -9,6 +9,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { MetaPixel } from "@/components/MetaPixel";
+import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { lazy, Suspense, useEffect, useState } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
@@ -80,6 +81,7 @@ const App = () => (
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <BrowserRouter>
+            <OrganizationSchema />
             <MetaPixel />
             <AnalyticsTracker />
             <LanguageProvider>

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { BUSINESS_INFO } from "@/constants/businessInfo";
 
 interface CityLocalBusinessSchemaProps {
   cityName: string;
@@ -23,10 +24,11 @@ export const CityLocalBusinessSchema = ({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `https://benatna.ma/location-voiture-${cityName.toLowerCase().replace(/\s+/g, '-')}`,
-    "name": `Benatna Location de Voiture ${cityName}`,
+    "name": `${BUSINESS_INFO.name} ${cityName}`,
     "description": `Service de location de voiture à ${cityName}. Véhicules neufs et récents, prix transparents, sans carte de crédit. Livraison gratuite et assistance 24/7.`,
     "url": `https://benatna.ma/location-voiture-${cityName.toLowerCase().replace(/\s+/g, '-')}`,
-    "telephone": telephone,
+    "telephone": BUSINESS_INFO.phone,
+    "email": BUSINESS_INFO.email,
     "priceRange": priceRange,
     "image": "https://benatna.ma/og-image.png",
     "address": {

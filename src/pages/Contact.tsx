@@ -10,6 +10,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { useState } from "react";
 import { z } from "zod";
 
@@ -112,7 +113,7 @@ const Contact = () => {
                       setTimeout(() => {
                         setIsSubmitting(false);
                         window.open(
-                          `https://wa.me/212699024526?text=${encodeURIComponent(whatsappMessage)}`,
+                          `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,
                           '_blank'
                         );
                         // Reset form
@@ -208,12 +209,12 @@ const Contact = () => {
                         {t('contactForm.contactDirectly')}
                       </p>
                       <a 
-                        href="https://wa.me/212699024526" 
+                        href={`https://wa.me/${BUSINESS_INFO.whatsapp}`}
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-lg font-medium text-primary hover:text-primary/80 transition-colors"
                       >
-                        +212 699 024 526
+                        {BUSINESS_INFO.phone}
                       </a>
                     </div>
                   </div>
@@ -232,10 +233,10 @@ const Contact = () => {
                         {t('contactForm.emailText')}
                       </p>
                       <a 
-                        href="mailto:contact@benatna.ma"
+                        href={`mailto:${BUSINESS_INFO.email}`}
                         className="text-lg font-medium text-secondary hover:text-secondary/80 transition-colors"
                       >
-                        contact@benatna.ma
+                        {BUSINESS_INFO.email}
                       </a>
                     </div>
                   </div>
