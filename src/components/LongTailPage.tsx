@@ -75,25 +75,25 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       <BreadcrumbsEnriched items={breadcrumbItems} />
       <StickyProgress sections={sections} />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 py-16 md:py-24">
+      {/* Hero Section - optimisé mobile */}
+      <section className="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 py-12 md:py-16 lg:py-24">
         <div className="container px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 animate-fade-in leading-tight">
               {config.h1}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in [animation-delay:200ms]">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 animate-fade-in [animation-delay:200ms] leading-relaxed">
               {config.heroSubtitle}
             </p>
-            <div className="flex flex-wrap gap-4 justify-center animate-fade-in [animation-delay:400ms]">
-              <Link to={config.cta.buttonLink}>
-                <Button size="lg" className="text-lg px-8">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center animate-fade-in [animation-delay:400ms]">
+              <Link to={config.cta.buttonLink} className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-base md:text-lg px-6 md:px-8 min-h-[48px] md:min-h-[44px] touch-target">
                   {config.cta.buttonText}
                 </Button>
               </Link>
               <CallButton 
                 size="lg"
-                className="text-lg px-8"
+                className="w-full sm:w-auto text-base md:text-lg px-6 md:px-8 min-h-[48px] md:min-h-[44px] touch-target"
               >
                 Appeler
               </CallButton>
@@ -102,27 +102,27 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
         </div>
       </section>
 
-      {/* Main Content */}
-      <main className="flex-1 py-12 md:py-16">
+      {/* Main Content - optimisé mobile */}
+      <main className="flex-1 py-8 md:py-12 lg:py-16">
         <div className="container px-4">
           <div className="max-w-4xl mx-auto">
             
             {/* Introduction */}
-            <div className="prose prose-lg max-w-none mb-12">
-              <p className="text-lg text-muted-foreground leading-relaxed">
+            <div className="prose prose-sm md:prose-lg max-w-none mb-8 md:mb-12">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                 {config.content.intro}
               </p>
             </div>
 
             {/* Content Sections */}
-            <div className="space-y-12 mb-16">
+            <div className="space-y-8 md:space-y-12 mb-12 md:mb-16">
               {config.content.sections.map((section, index) => (
                 <section key={index} id={`section-${index}`} className="scroll-mt-24">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-4">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 leading-tight">
                     {section.title}
                   </h2>
-                  <div className="prose prose-lg max-w-none text-muted-foreground">
-                    <p className="leading-relaxed whitespace-pre-line">
+                  <div className="prose prose-sm md:prose-lg max-w-none text-muted-foreground">
+                    <p className="leading-relaxed whitespace-pre-line text-sm md:text-base">
                       {section.content}
                     </p>
                   </div>
@@ -130,21 +130,21 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
               ))}
             </div>
 
-            {/* FAQ Section */}
+            {/* FAQ Section - optimisé mobile */}
             {config.content.faq && config.content.faq.length > 0 && (
-              <section id="faq-section" className="mb-16 scroll-mt-24">
-                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              <section id="faq-section" className="mb-12 md:mb-16 scroll-mt-24">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6 md:mb-8 text-center">
                   Questions Fréquentes
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-3 md:space-y-4">
                   {config.content.faq.map((faq, index) => (
                     <Card key={index} className="border-2">
-                      <CardContent className="pt-6">
-                        <h3 className="text-lg font-semibold mb-3 flex items-start gap-2">
-                          <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                          {faq.question}
+                      <CardContent className="pt-4 md:pt-6 pb-4 md:pb-6">
+                        <h3 className="text-base md:text-lg font-semibold mb-2 md:mb-3 flex items-start gap-2">
+                          <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-primary flex-shrink-0 mt-0.5 md:mt-1" />
+                          <span className="leading-tight">{faq.question}</span>
                         </h3>
-                        <p className="text-muted-foreground pl-7">
+                        <p className="text-muted-foreground pl-6 md:pl-7 text-sm md:text-base leading-relaxed">
                           {faq.answer}
                         </p>
                       </CardContent>
@@ -154,26 +154,26 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
               </section>
             )}
 
-            {/* CTA Section */}
+            {/* CTA Section - optimisé mobile */}
             <Card className="border-2 bg-gradient-to-br from-primary/5 to-secondary/5">
-              <CardContent className="pt-12 pb-12 text-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              <CardContent className="pt-8 md:pt-12 pb-8 md:pb-12 text-center px-4 md:px-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 leading-tight">
                   {config.cta.title}
                 </h2>
-                <p className="text-lg text-muted-foreground mb-8">
+                <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
                   {config.cta.subtitle}
                 </p>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <Link to={config.cta.buttonLink}>
-                    <Button size="lg" className="text-lg px-8">
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center">
+                  <Link to={config.cta.buttonLink} className="w-full sm:w-auto">
+                    <Button size="lg" className="w-full sm:w-auto text-base md:text-lg px-6 md:px-8 min-h-[48px] md:min-h-[44px] touch-target">
                       {config.cta.buttonText}
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                     </Button>
                   </Link>
                   <CallButton 
                     size="lg"
                     variant="outline"
-                    className="text-lg px-8"
+                    className="w-full sm:w-auto text-base md:text-lg px-6 md:px-8 min-h-[48px] md:min-h-[44px] touch-target"
                   >
                     Contactez-nous
                   </CallButton>
@@ -181,29 +181,29 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
               </CardContent>
             </Card>
 
-            {/* Related Services - Section prominent pour maillage interne SEO */}
+            {/* Related Services - optimisé mobile */}
             {config.relatedServices && config.relatedServices.length > 0 && (
-              <section className="mt-16 mb-12">
-                <div className="text-center mb-8">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-3">
+              <section className="mt-12 md:mt-16 mb-8 md:mb-12">
+                <div className="text-center mb-6 md:mb-8">
+                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-3 leading-tight">
                     Services Connexes
                   </h2>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground text-sm md:text-base">
                     Découvrez nos autres services de location adaptés à vos besoins
                   </p>
                 </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   {config.relatedServices.map((service, index) => (
                     <Link key={index} to={service.link}>
-                      <Card className="border-2 hover:shadow-lg transition-all duration-300 hover:scale-105 h-full group">
-                        <CardContent className="pt-6 pb-6">
-                          <div className="flex items-start gap-3 mb-3">
-                            <ArrowRight className="h-5 w-5 text-primary flex-shrink-0 mt-1 group-hover:translate-x-1 transition-transform" />
-                            <h3 className="font-semibold text-lg leading-tight">
+                      <Card className="border-2 hover:shadow-lg transition-all duration-300 hover:scale-105 h-full group touch-target">
+                        <CardContent className="pt-4 md:pt-6 pb-4 md:pb-6">
+                          <div className="flex items-start gap-2 md:gap-3 mb-2 md:mb-3">
+                            <ArrowRight className="h-4 w-4 md:h-5 md:w-5 text-primary flex-shrink-0 mt-0.5 md:mt-1 group-hover:translate-x-1 transition-transform" />
+                            <h3 className="font-semibold text-base md:text-lg leading-tight">
                               {service.title}
                             </h3>
                           </div>
-                          <p className="text-sm text-muted-foreground line-clamp-2">
+                          <p className="text-xs md:text-sm text-muted-foreground line-clamp-2 pl-6 md:pl-8">
                             {service.description}
                           </p>
                         </CardContent>
@@ -214,17 +214,17 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
               </section>
             )}
 
-            {/* Related Pages - Section secondaire */}
+            {/* Related Pages - optimisé mobile */}
             {config.relatedPages && config.relatedPages.length > 0 && (
-              <section className="mt-12">
-                <h2 className="text-xl font-semibold mb-6">Pages Connexes</h2>
-                <div className="grid sm:grid-cols-2 gap-4">
+              <section className="mt-8 md:mt-12">
+                <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6">Pages Connexes</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                   {config.relatedPages.map((page, index) => (
                     <Link key={index} to={page.link}>
-                      <Card className="border-2 hover:shadow-lg transition-all duration-300 hover:scale-105">
-                        <CardContent className="pt-6 flex items-center justify-between">
-                          <span className="font-medium">{page.title}</span>
-                          <ArrowRight className="h-5 w-5 text-primary" />
+                      <Card className="border-2 hover:shadow-lg transition-all duration-300 hover:scale-105 touch-target">
+                        <CardContent className="pt-4 md:pt-6 pb-4 md:pb-6 flex items-center justify-between">
+                          <span className="font-medium text-sm md:text-base">{page.title}</span>
+                          <ArrowRight className="h-4 w-4 md:h-5 md:w-5 text-primary flex-shrink-0" />
                         </CardContent>
                       </Card>
                     </Link>
