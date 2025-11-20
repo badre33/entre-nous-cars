@@ -10,6 +10,7 @@ import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
+import { OfferSchema } from "@/components/OfferSchema";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import cityFes from "@/assets/city-fes.jpg";
 
@@ -28,6 +29,7 @@ const LocationVoitureFes = () => {
       <StructuredData type="rental" />
       <ServiceSchema city="Fès" />
       <HowToSchema city="Fes" />
+      <OfferSchema city="Fès" />
       <CityLocalBusinessSchema
         cityName="Fès"
         latitude="34.0331"

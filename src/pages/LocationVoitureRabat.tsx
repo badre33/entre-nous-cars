@@ -10,6 +10,7 @@ import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
+import { OfferSchema } from "@/components/OfferSchema";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import cityRabat from "@/assets/city-rabat.jpg";
 
@@ -28,6 +29,7 @@ const LocationVoitureRabat = () => {
       <StructuredData type="rental" />
       <ServiceSchema city="Rabat" />
       <HowToSchema city="Rabat" />
+      <OfferSchema city="Rabat" />
       <CityLocalBusinessSchema
         cityName="Rabat"
         latitude="33.9716"
