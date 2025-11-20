@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
+import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import cityTanger from "@/assets/city-tanger.jpg";
 
 const LocationVoitureTanger = () => {
@@ -21,6 +22,15 @@ const LocationVoitureTanger = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-tanger" />
       </Helmet>
       <StructuredData type="rental" />
+      <CityLocalBusinessSchema 
+        cityName="Tanger"
+        latitude="35.7595"
+        longitude="-5.8340"
+        address="Aéroport Tanger Ibn Battouta"
+        postalCode="90000"
+        telephone="+212699024526"
+        priceRange="150-850 MAD"
+      />
       <Header />
 
       <section className="relative h-[400px] md:h-[500px] flex items-center">

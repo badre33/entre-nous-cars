@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
+import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
 const LocationVoitureAgadir = () => {
@@ -21,6 +22,15 @@ const LocationVoitureAgadir = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-agadir" />
       </Helmet>
       <StructuredData type="rental" />
+      <CityLocalBusinessSchema 
+        cityName="Agadir"
+        latitude="30.4278"
+        longitude="-9.5981"
+        address="Aéroport Agadir Al Massira"
+        postalCode="80000"
+        telephone="+212699024526"
+        priceRange="150-900 MAD"
+      />
       <Header />
 
       <section className="relative h-[400px] md:h-[500px] flex items-center">

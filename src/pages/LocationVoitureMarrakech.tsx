@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Phone } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
+import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
 const LocationVoitureMarrakech = () => {
@@ -21,6 +22,15 @@ const LocationVoitureMarrakech = () => {
         <meta property="og:url" content="https://benatna.ma/location-voiture-marrakech" />
       </Helmet>
       <StructuredData type="rental" />
+      <CityLocalBusinessSchema 
+        cityName="Marrakech"
+        latitude="31.6295"
+        longitude="-7.9811"
+        address="Aéroport Marrakech Menara"
+        postalCode="40000"
+        telephone="+212699024526"
+        priceRange="150-900 MAD"
+      />
       <Header />
 
       {/* Hero Section */}
