@@ -22,15 +22,47 @@ const FAQ = () => {
         "name": "Comment réserver une voiture sur Benatna ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Réserver sur Benatna est simple : 1) Choisissez votre ville et dates, 2) Sélectionnez votre véhicule, 3) Remplissez vos coordonnées, 4) Confirmez votre réservation. Le tout en moins de 2 minutes !"
+          "text": "Réserver sur Benatna est simple : 1) Choisissez votre ville et dates, 2) Sélectionnez votre véhicule, 3) Remplissez vos coordonnées, 4) Confirmez votre réservation. Le tout en moins de 2 minutes ! Vous recevrez une confirmation immédiate par email et SMS."
         }
       },
       {
         "@type": "Question",
-        "name": "Quels sont les documents nécessaires pour louer une voiture au Maroc ?",
+        "name": "Puis-je modifier ou annuler ma réservation ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Vous aurez besoin : d'un permis de conduire valide (+ de 2 ans), d'une pièce d'identité (CIN ou passeport), et d'un moyen de paiement. Pour les étrangers, un permis international est recommandé mais pas toujours obligatoire."
+          "text": "Oui ! Vous pouvez modifier ou annuler votre réservation gratuitement jusqu'à 48 heures avant la date de prise en charge. Au-delà de ce délai, des frais peuvent s'appliquer selon les conditions de l'agence partenaire."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Recevrai-je une confirmation de réservation ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolument ! Dès que votre réservation est confirmée, vous recevrez un email avec tous les détails, un SMS avec votre numéro de réservation, les coordonnées de l'agence partenaire et les instructions pour la prise en charge du véhicule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps à l'avance dois-je réserver ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vous pouvez réserver jusqu'à la dernière minute si des véhicules sont disponibles. Cependant, nous recommandons de réserver au moins 48 heures à l'avance pour garantir la disponibilité et bénéficier des meilleurs prix, surtout en haute saison."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quels sont les prix de location de voiture au Maroc ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nos prix varient selon le type de véhicule : Citadines (Clio, Sandero) à partir de 150 DH/jour, Berlines (Corolla, Jetta) à partir de 250 DH/jour, SUV (Duster, Tiguan) à partir de 350 DH/jour, Véhicules premium à partir de 800 DH/jour. Tous nos prix incluent l'assurance de base et le kilométrage illimité."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Y a-t-il des frais cachés ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non, chez Benatna nous affichons des prix 100% transparents. Le prix que vous voyez inclut l'assurance au tiers, le kilométrage illimité, la TVA et l'assistance 24/7. Les seuls frais supplémentaires possibles sont optionnels (chauffeur, GPS, siège bébé, assurance tous risques)."
         }
       },
       {
@@ -38,7 +70,127 @@ const FAQ = () => {
         "name": "Puis-je louer une voiture sans carte de crédit ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui ! Chez Benatna, vous pouvez réserver avec une carte de débit ou même payer en espèces à la récupération du véhicule. Nous sommes l'une des rares plateformes au Maroc à offrir cette flexibilité."
+          "text": "Oui ! Chez Benatna, vous avez plusieurs options de paiement : Carte de débit (Visa, Mastercard), Espèces à la récupération du véhicule, Virement bancaire. Nous sommes l'une des rares plateformes au Maroc à offrir cette flexibilité sans carte de crédit."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quand dois-je payer ma réservation ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le paiement dépend de l'agence partenaire. Option 1 : Paiement en ligne lors de la réservation (sécurisé). Option 2 : Paiement à la récupération du véhicule (espèces ou carte). L'option disponible sera clairement indiquée lors de votre réservation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quels documents sont nécessaires pour louer une voiture ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pour les Marocains : Carte d'identité nationale (CIN) valide, Permis de conduire valide (+ de 2 ans), Moyen de paiement. Pour les étrangers : Passeport valide, Permis de conduire national + Permis international (recommandé), Moyen de paiement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel âge minimum pour louer une voiture ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'âge minimum est généralement de 21 ans avec un permis de conduire valide depuis au moins 2 ans. Pour certains véhicules premium ou SUV, l'âge minimum peut être de 25 ans. Des frais supplémentaires peuvent s'appliquer pour les conducteurs de moins de 25 ans."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ai-je besoin d'un permis international ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pour les touristes étrangers, le permis international est fortement recommandé mais pas toujours obligatoire. Pour l'Europe, USA, Canada : Permis national suffit souvent, mais permis international recommandé. Pour les autres pays : Permis international généralement requis. Nous vous conseillons de toujours avoir les deux documents."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelles assurances sont incluses dans le prix ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tous nos véhicules incluent l'assurance au tiers (obligatoire au Maroc), qui couvre les dommages causés à des tiers, les blessures aux passagers tiers et l'assistance routière 24/7."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Dois-je prendre l'assurance tous risques ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'assurance tous risques (CDW) est optionnelle mais fortement recommandée. Elle vous protège contre les dommages au véhicule loué (accident, vandalisme), le vol du véhicule et le bris de glace. Prix : environ 80-150 DH/jour selon le véhicule."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que la franchise en cas d'accident ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La franchise est le montant qui reste à votre charge en cas de dommages au véhicule, même avec l'assurance tous risques. Elle varie généralement entre 3,000 et 10,000 DH selon le véhicule. Vous pouvez réduire ou supprimer cette franchise avec une assurance complémentaire."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Où puis-je récupérer ma voiture ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nos agences partenaires proposent plusieurs points de récupération : Aéroports (Casablanca, Marrakech, Agadir, Rabat, Tanger, Fès), Centres-villes dans toutes les grandes villes, Livraison gratuite à votre hôtel ou adresse dans certaines villes. Le lieu exact sera confirmé lors de votre réservation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je restituer le véhicule dans une autre ville ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, le one-way (aller simple) est possible entre les principales villes du Maroc. Des frais de restitution s'appliquent selon la distance entre les villes de prise en charge et de restitution. Ces frais seront clairement indiqués avant la confirmation de votre réservation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que se passe-t-il si mon vol est retardé ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pas de problème ! Indiquez votre numéro de vol lors de la réservation. Nos agences partenaires surveillent les horaires de vol et vous attendront en cas de retard. Si le retard est important (plus de 3 heures), contactez l'agence pour les prévenir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Le véhicule est-il livré avec le plein de carburant ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, politique plein-plein : Vous recevez le véhicule avec le plein de carburant et devez le restituer avec le plein. Si vous ne faites pas le plein, le carburant manquant vous sera facturé au prix fort + frais de service."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Le kilométrage est-il illimité ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui ! Tous nos véhicules incluent le kilométrage illimité. Vous pouvez rouler autant que vous le souhaitez sans frais supplémentaires. C'est inclus dans le prix affiché."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je conduire au-delà des frontières marocaines ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Non, les véhicules loués au Maroc ne sont pas autorisés à sortir du territoire marocain. Cette restriction est imposée par les assurances et les agences de location. Toute tentative de franchir la frontière peut entraîner l'annulation de votre assurance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je ajouter un conducteur supplémentaire ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui, vous pouvez ajouter un ou plusieurs conducteurs supplémentaires. Chaque conducteur additionnel doit remplir les mêmes conditions (âge, permis, documents) que le conducteur principal. Des frais peuvent s'appliquer selon l'agence (environ 50-100 DH/jour)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que faire en cas de panne ou d'accident ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En cas de panne : Contactez immédiatement l'assistance 24/7 de l'agence (numéro sur le contrat). Un véhicule de remplacement ou une réparation sera organisée rapidement. En cas d'accident : 1) Sécurisez la scène, 2) Appelez la police (19), 3) Contactez l'agence immédiatement, 4) Prenez des photos, 5) Remplissez un constat amiable si possible. Ne quittez JAMAIS les lieux avant l'arrivée de la police."
         }
       }
     ]
