@@ -22,6 +22,7 @@ import LoadingCar from "@/components/LoadingCar";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import LazyCarImage from "@/components/LazyCarImage";
 import { StructuredData } from "@/components/StructuredData";
+import { CarProductSchema } from "@/components/CarProductSchema";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -4230,6 +4231,7 @@ const Louer = () => {
         <link rel="canonical" href="https://benatna.ma/louer" />
       </Helmet>
       <StructuredData type="rental" />
+      <CarProductSchema cars={filteredCars.slice(0, 20)} />
       {isLoading && <LoadingCar />}
       <PullToRefreshIndicator 
         isPulling={isPulling}
