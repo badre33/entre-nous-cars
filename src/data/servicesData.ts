@@ -33,7 +33,7 @@ export const services: Service[] = [
     shortDescription: 'Livraison gratuite au terminal. Évitez les files d\'attente et économisez jusqu\'à 40% vs comptoirs aéroport.',
     features: ['Livraison gratuite', 'Service 24/7', 'Pas de file d\'attente', 'Dès 150 DH/jour'],
     priceFrom: '150 DH',
-    image: '/src/assets/city-casablanca.jpg',
+    image: '/city-casablanca.jpg',
     popular: true,
   },
   {
@@ -44,7 +44,7 @@ export const services: Service[] = [
     shortDescription: 'Récupérez votre véhicule directement au terminal Menara. Service rapide et tarifs transparents.',
     features: ['Livraison gratuite', 'Suivi vol temps réel', 'Sans supplément', 'Toutes catégories'],
     priceFrom: '150 DH',
-    image: '/src/assets/city-marrakech.jpg',
+    image: '/city-marrakech.jpg',
     popular: true,
   },
   {
@@ -55,7 +55,7 @@ export const services: Service[] = [
     shortDescription: 'Service de livraison à l\'aéroport de Rabat. Démarrez votre séjour en toute sérénité.',
     features: ['Livraison terminal', 'Flexible', 'Km illimités', 'Assistance 24/7'],
     priceFrom: '150 DH',
-    image: '/src/assets/city-rabat.jpg',
+    image: '/city-rabat.jpg',
   },
   {
     id: 'aeroport-agadir',
@@ -65,7 +65,7 @@ export const services: Service[] = [
     shortDescription: 'Profitez d\'Agadir dès votre arrivée. Livraison gratuite aéroport Al Massira.',
     features: ['Livraison gratuite', 'Service plage', 'Cabriolets disponibles', 'Prix fixes'],
     priceFrom: '150 DH',
-    image: '/src/assets/city-agadir.jpg',
+    image: '/city-agadir.jpg',
   },
   {
     id: 'aeroport-tanger',
@@ -75,7 +75,7 @@ export const services: Service[] = [
     shortDescription: 'Votre voiture vous attend à Tanger. Service rapide et véhicules récents.',
     features: ['Livraison rapide', 'Nord du Maroc', 'Essence incluse', 'Support FR/ES'],
     priceFrom: '150 DH',
-    image: '/src/assets/city-tanger.jpg',
+    image: '/city-tanger.jpg',
   },
   {
     id: 'aeroport-fes',
@@ -85,7 +85,7 @@ export const services: Service[] = [
     shortDescription: 'Découvrez Fès et sa région. Livraison aéroport Saïss sans frais supplémentaires.',
     features: ['Sans supplément', 'Ville impériale', 'GPS offert', 'Conseils locaux'],
     priceFrom: '150 DH',
-    image: '/src/assets/city-fes.jpg',
+    image: '/city-fes.jpg',
   },
 
   // Jeune Conducteur
@@ -97,7 +97,7 @@ export const services: Service[] = [
     shortDescription: 'Dès 21 ans avec supplément raisonnable de 50 DH/jour. Assurance adaptée incluse.',
     features: ['Dès 21 ans', '+50 DH/jour seulement', 'Assurance incluse', 'Caution réduite 3000 DH'],
     priceFrom: '200 DH',
-    image: '/src/assets/car-clio.jpg',
+    image: '/car-clio.jpg',
     popular: true,
   },
   {
@@ -108,7 +108,7 @@ export const services: Service[] = [
     shortDescription: 'Location accessible aux jeunes à Marrakech. Conditions transparentes et équitables.',
     features: ['1 an de permis', 'Pas de discrimination', 'Km illimités', 'Citadines et SUV'],
     priceFrom: '200 DH',
-    image: '/src/assets/car-sandero-stepway.jpg',
+    image: '/car-sandero-stepway.jpg',
   },
   {
     id: 'jeune-rabat',
@@ -118,7 +118,7 @@ export const services: Service[] = [
     shortDescription: 'Louez jeune à Rabat sans supplément abusif. Accompagnement personnalisé.',
     features: ['Conseils conduite', 'Support dédié', 'Franchise raisonnable', 'Permis probatoire OK'],
     priceFrom: '200 DH',
-    image: '/src/assets/car-peugeot-208.jpg',
+    image: '/car-peugeot-208.jpg',
   },
 
   // Longue Durée
@@ -130,7 +130,7 @@ export const services: Service[] = [
     shortDescription: 'Tarifs mensuels dégressifs. Entretien, assurance et assistance inclus. Dès 3500 DH/mois.',
     features: ['Dès 3500 DH/mois', 'Entretien inclus', 'Km illimités', 'Résiliable 1 mois préavis'],
     priceFrom: '3500 DH/mois',
-    image: '/src/assets/car-corolla.jpg',
+    image: '/car-corolla.jpg',
     popular: true,
   },
   {
@@ -141,7 +141,7 @@ export const services: Service[] = [
     shortDescription: 'Forfaits mensuels flexibles à Marrakech. Idéal expatriés et missions longues.',
     features: ['3-6-12 mois', 'Tout compris', 'Véhicule remplacement', 'Déductible fiscalement'],
     priceFrom: '3500 DH/mois',
-    image: '/src/assets/car-duster.jpg',
+    image: '/car-duster.jpg',
   },
   {
     id: 'weekend-marrakech',
@@ -151,7 +151,7 @@ export const services: Service[] = [
     shortDescription: 'Offre spéciale weekend : vendredi soir au lundi matin = 2 jours facturés seulement.',
     features: ['Tarif spécial', '2 jours facturés', 'Km illimités', 'Départ 18h vendredi'],
     priceFrom: '280 DH/jour',
-    image: '/src/assets/car-captur-orange.jpg',
+    image: '/car-captur-orange.jpg',
   },
   {
     id: 'sans-carte-marrakech',
@@ -161,7 +161,7 @@ export const services: Service[] = [
     shortDescription: 'Louez sans carte bancaire. Paiement espèces, virement ou flexible accepté.',
     features: ['Sans CB', 'Paiement flexible', 'Espèces OK', 'Caution adaptée'],
     priceFrom: '150 DH',
-    image: '/src/assets/car-clio-white.jpg',
+    image: '/car-clio-white.jpg',
   },
 
   // SUV & Aventure
@@ -173,7 +173,7 @@ export const services: Service[] = [
     shortDescription: 'SUV 4x4 pour routes de montagne. GPS, équipement et assurance pistes inclus.',
     features: ['Duster, Qashqai, Tiguan', 'GPS inclus', 'Assurance pistes', 'Kit dépannage 4x4'],
     priceFrom: '350 DH',
-    image: '/src/assets/car-duster-gray.jpg',
+    image: '/car-duster-gray.jpg',
     popular: true,
   },
   {
@@ -184,7 +184,7 @@ export const services: Service[] = [
     shortDescription: 'Véhicules tout-terrain pour désert et dunes. Toyota Prado, Land Cruiser disponibles.',
     features: ['Vrai 4x4', 'Prado & Land Cruiser', 'Expédition désert', 'Assistance 24/7'],
     priceFrom: '800 DH',
-    image: '/src/assets/car-toyota-rav4.jpg',
+    image: '/car-toyota-rav4.jpg',
   },
   {
     id: 'suv-sud-maroc',
@@ -194,7 +194,7 @@ export const services: Service[] = [
     shortDescription: 'Road trip Sud : Essaouira, Agadir, Taroudant. SUV confortables et robustes.',
     features: ['Routes côtières', 'Coffre spacieux', 'Confort famille', 'Pistes OK'],
     priceFrom: '350 DH',
-    image: '/src/assets/car-nissan-qashqai.jpg',
+    image: '/car-nissan-qashqai.jpg',
   },
 
   // Véhicules Spéciaux
@@ -206,7 +206,7 @@ export const services: Service[] = [
     shortDescription: 'Mercedes, BMW, Audi pour votre mariage. Décoration incluse, chauffeur optionnel.',
     features: ['Mercedes Classe S', 'Décoration incluse', 'Chauffeur dispo', 'Photos offertes'],
     priceFrom: '900 DH',
-    image: '/src/assets/car-mercedes-e.jpg',
+    image: '/car-mercedes-e.jpg',
     popular: true,
   },
   {
@@ -217,7 +217,7 @@ export const services: Service[] = [
     shortDescription: 'Flotte premium pour événements pro ou privés. Service sur-mesure avec chauffeur.',
     features: ['BMW, Mercedes, Audi', 'Chauffeur bilingue', 'Service VIP', 'Devis personnalisé'],
     priceFrom: '900 DH',
-    image: '/src/assets/car-bmw-5.jpg',
+    image: '/car-bmw-5.jpg',
   },
   {
     id: 'electrique-casa',
@@ -227,7 +227,7 @@ export const services: Service[] = [
     shortDescription: 'VW ID.3 et ID.4 électriques. Recharge gratuite à nos bornes. Écologique et économique.',
     features: ['VW ID.3 & ID.4', 'Recharge gratuite', '400 km autonomie', 'Silencieux'],
     priceFrom: '450 DH',
-    image: '/src/assets/car-vw-id3.jpg',
+    image: '/car-vw-id3.jpg',
   },
   {
     id: 'van-famille',
@@ -237,7 +237,7 @@ export const services: Service[] = [
     shortDescription: 'Mercedes Vito, VW Multivan pour groupes. Coffre XXL, climatisation arrière.',
     features: ['7-9 places', 'Coffre géant', 'Sièges bébé gratuits', 'Road trips famille'],
     priceFrom: '600 DH',
-    image: '/src/assets/car-renault-captur.jpg',
+    image: '/car-renault-captur.jpg',
   },
   {
     id: 'cabriolet-agadir',
@@ -247,7 +247,7 @@ export const services: Service[] = [
     shortDescription: 'BMW Z4, Audi A5 Cabrio. Profitez du soleil d\'Agadir cheveux au vent.',
     features: ['BMW Z4, Audi A5', 'Capote électrique', 'Sono premium', 'Crème solaire offerte'],
     priceFrom: '700 DH',
-    image: '/src/assets/car-bmw-z4.jpg',
+    image: '/car-bmw-z4.jpg',
   },
   {
     id: 'utilitaire-casa',
@@ -257,6 +257,6 @@ export const services: Service[] = [
     shortDescription: 'Fiat Ducato, Mercedes Sprinter 10-20m³. Hayon, couvertures et sangles fournis.',
     features: ['10-20m³', 'Hayon élévateur', 'Couvertures fournies', 'Permis B suffit'],
     priceFrom: '400 DH',
-    image: '/src/assets/car-renault-captur.jpg',
+    image: '/car-renault-captur.jpg',
   },
 ];
