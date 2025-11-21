@@ -265,31 +265,42 @@ const LocationCAN2025 = () => {
             </p>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {stadiumCities.map((city, index) => (
-                <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold mb-1">{city.name}</h3>
-                        <p className="text-sm text-muted-foreground">{city.stadium}</p>
+              {stadiumCities.map((city, index) => {
+                const citySlug = city.name.toLowerCase().replace('è', 'e');
+                const cityPath = `/location-voiture-can-2025-${citySlug === 'fès' ? 'fes' : citySlug}`;
+                
+                return (
+                  <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 hover:border-primary/40">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <h3 className="text-xl font-bold mb-1">{city.name}</h3>
+                          <p className="text-sm text-muted-foreground">{city.stadium}</p>
+                        </div>
+                        <Badge variant="secondary" className="bg-primary/10 text-primary">{city.matches}</Badge>
                       </div>
-                      <Badge variant="secondary">{city.matches}</Badge>
-                    </div>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4 text-primary" />
-                        <span>{language === 'en' ? "Capacity" : language === 'es' ? "Capacidad" : "Capacité"}: {city.capacity}</span>
+                      <div className="space-y-2 text-sm mb-4">
+                        <div className="flex items-center gap-2">
+                          <Users className="w-4 h-4 text-primary" />
+                          <span>{language === 'en' ? "Capacity" : language === 'es' ? "Capacidad" : "Capacité"}: {city.capacity}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-primary" />
+                          <Link to={`/location-voiture-${citySlug === 'fès' ? 'fes' : citySlug}`} className="text-primary hover:underline">
+                            {language === 'en' ? "Rent in" : language === 'es' ? "Alquilar en" : "Louer à"} {city.name}
+                          </Link>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-primary" />
-                        <Link to={`/location-voiture-${city.name.toLowerCase()}`} className="text-primary hover:underline">
-                          {language === 'en' ? "Rent in" : language === 'es' ? "Alquilar en" : "Louer à"} {city.name}
-                        </Link>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                      <Link to={cityPath}>
+                        <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-all">
+                          <Trophy className="w-4 h-4 mr-2" />
+                          {language === 'en' ? "Stadium Info" : language === 'es' ? "Info Estadio" : "Infos Stade"}
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
