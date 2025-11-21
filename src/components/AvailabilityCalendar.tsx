@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { format, isSameDay } from "date-fns";
 import { fr } from "date-fns/locale";
 import { Calendar as CalendarIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 interface AvailabilityCalendarProps {
   carName: string;
@@ -38,8 +37,9 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
   };
 
   const handleConfirm = () => {
-    if (startDate && endDate) {
-      onSelectDates(startDate, endDate);
+    if (startDate) {
+      const finalEndDate = endDate ?? startDate;
+      onSelectDates(startDate, finalEndDate);
       onClose();
     }
   };
@@ -111,7 +111,7 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
             </Button>
             <Button 
               onClick={handleConfirm} 
-              disabled={!startDate || !endDate}
+              disabled={!startDate}
               className="rounded-full"
             >
               Confirmer les dates
