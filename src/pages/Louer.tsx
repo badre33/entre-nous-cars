@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import LoadingCar from "@/components/LoadingCar";
+import { CarCardSkeleton } from "@/components/CarCardSkeleton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import LazyCarImage from "@/components/LazyCarImage";
 import { StructuredData } from "@/components/StructuredData";
@@ -4232,7 +4232,6 @@ const Louer = () => {
       </Helmet>
       <StructuredData type="rental" />
       <CarProductSchema cars={filteredCars.slice(0, 20)} />
-      {isLoading && <LoadingCar />}
       <PullToRefreshIndicator 
         isPulling={isPulling}
         isRefreshing={isRefreshing}
@@ -4539,245 +4538,155 @@ const Louer = () => {
 
           {/* Mobile Views */}
           <div className="md:hidden mb-8">
-            {viewMode === 'carousel' && (
+            {isLoading ? (
               <>
-                <Carousel
-                  key={refreshKey}
-                  opts={{
-                    align: "start",
-                    loop: false,
-                  }}
-                  className="w-full"
-                >
-                  <CarouselContent className="-ml-2">
-                    {displayedCars.map((car) => (
-                      <CarouselItem key={car.id} className="pl-2 basis-[90%]">
-                        <CarCard
-                          car={car}
-                          viewMode="carousel"
-                          startDate={startDate}
-                          endDate={endDate}
-                          isInComparison={isInComparison(car.id)}
-                          onToggleComparison={() => {
-                            if (isInComparison(car.id)) {
-                              removeFromComparison(car.id);
-                            } else {
-                              addToComparison(car);
-                            }
-                          }}
-                          onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                          onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
-                        />
-                      </CarouselItem>
+                {viewMode === 'carousel' && (
+                  <Carousel
+                    opts={{
+                      align: "start",
+                      loop: false,
+                    }}
+                    className="w-full"
+                  >
+                    <CarouselContent className="-ml-2">
+                      {[...Array(6)].map((_, i) => (
+                        <CarouselItem key={i} className="pl-2 basis-[90%]">
+                          <CarCardSkeleton viewMode="carousel" />
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                  </Carousel>
+                )}
+
+                {viewMode === 'grid' && (
+                  <div className="grid grid-cols-2 gap-3">
+                    {[...Array(6)].map((_, i) => (
+                      <CarCardSkeleton key={i} viewMode="grid" />
                     ))}
-                  </CarouselContent>
-                  <CarouselPrevious className="left-1 h-8 w-8" />
-                  <CarouselNext className="right-1 h-8 w-8" />
-                </Carousel>
-                <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
-                  <p className="text-xs text-center text-muted-foreground">
-                    👆 Glissez pour voir les {displayedCars.length} véhicules
-                  </p>
-                </div>
+                  </div>
+                )}
+
+                {viewMode === 'list' && (
+                  <div className="space-y-0">
+                    {[...Array(6)].map((_, i) => (
+                      <CarCardSkeleton key={i} viewMode="list" />
+                    ))}
+                  </div>
+                )}
               </>
-            )}
+            ) : (
+              <>
+                {viewMode === 'carousel' && (
+                  <>
+                    <Carousel
+                      key={refreshKey}
+                      opts={{
+                        align: "start",
+                        loop: false,
+                      }}
+                      className="w-full"
+                    >
+                      <CarouselContent className="-ml-2">
+                        {displayedCars.map((car) => (
+                          <CarouselItem key={car.id} className="pl-2 basis-[90%]">
+                            <CarCard
+                              car={car}
+                              viewMode="carousel"
+                              startDate={startDate}
+                              endDate={endDate}
+                              isInComparison={isInComparison(car.id)}
+                              onToggleComparison={() => {
+                                if (isInComparison(car.id)) {
+                                  removeFromComparison(car.id);
+                                } else {
+                                  addToComparison(car);
+                                }
+                              }}
+                              onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                              onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                            />
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="left-1 h-8 w-8" />
+                      <CarouselNext className="right-1 h-8 w-8" />
+                    </Carousel>
+                    <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
+                      <p className="text-xs text-center text-muted-foreground">
+                        👆 Glissez pour voir les {displayedCars.length} véhicules
+                      </p>
+                    </div>
+                  </>
+                )}
 
-            {viewMode === 'grid' && (
-              <div className="grid grid-cols-2 gap-3">
-                {displayedCars.map((car) => (
-                  <CarCard
-                    key={car.id}
-                    car={car}
-                    viewMode="grid"
-                    startDate={startDate}
-                    endDate={endDate}
-                    isInComparison={isInComparison(car.id)}
-                    onToggleComparison={() => {
-                      if (isInComparison(car.id)) {
-                        removeFromComparison(car.id);
-                      } else {
-                        addToComparison(car);
-                      }
-                    }}
-                    onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                    onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
-                  />
-                ))}
-              </div>
-            )}
+                {viewMode === 'grid' && (
+                  <div className="grid grid-cols-2 gap-3">
+                    {displayedCars.map((car) => (
+                      <CarCard
+                        key={car.id}
+                        car={car}
+                        viewMode="grid"
+                        startDate={startDate}
+                        endDate={endDate}
+                        isInComparison={isInComparison(car.id)}
+                        onToggleComparison={() => {
+                          if (isInComparison(car.id)) {
+                            removeFromComparison(car.id);
+                          } else {
+                            addToComparison(car);
+                          }
+                        }}
+                        onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                        onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                      />
+                    ))}
+                  </div>
+                )}
 
-            {viewMode === 'list' && (
-              <div className="space-y-0">
-                {displayedCars.map((car) => (
-                  <CarCard
-                    key={car.id}
-                    car={car}
-                    viewMode="list"
-                    startDate={startDate}
-                    endDate={endDate}
-                    isInComparison={isInComparison(car.id)}
-                    onToggleComparison={() => {
-                      if (isInComparison(car.id)) {
-                        removeFromComparison(car.id);
-                      } else {
-                        addToComparison(car);
-                      }
-                    }}
-                    onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                    onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
-                  />
-                ))}
-              </div>
+                {viewMode === 'list' && (
+                  <div className="space-y-0">
+                    {displayedCars.map((car) => (
+                      <CarCard
+                        key={car.id}
+                        car={car}
+                        viewMode="list"
+                        startDate={startDate}
+                        endDate={endDate}
+                        isInComparison={isInComparison(car.id)}
+                        onToggleComparison={() => {
+                          if (isInComparison(car.id)) {
+                            removeFromComparison(car.id);
+                          } else {
+                            addToComparison(car);
+                          }
+                        }}
+                        onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                        onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                      />
+                    ))}
+                  </div>
+                )}
+              </>
             )}
           </div>
 
           {/* Desktop Grid View */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedCars.map((car) => (
-              <Card key={car.id} className="overflow-hidden border-2 hover:shadow-xl transition-shadow rounded-2xl group">
-                <div className="aspect-video bg-card overflow-hidden relative">
-                  <img 
-                    src={car.image} 
-                    alt={car.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {/* Comparison Checkbox */}
-                  <div className="absolute top-3 right-3 z-10">
-                    <div
-                      className={cn(
-                        "flex items-center gap-2 bg-background/95 backdrop-blur-sm px-3 py-2 rounded-full cursor-pointer",
-                        "border-2 shadow-lg transition-all duration-200",
-                        isInComparison(car.id)
-                          ? "border-primary bg-primary/10"
-                          : "border-border hover:border-primary/50"
-                      )}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (isInComparison(car.id)) {
-                          removeFromComparison(car.id);
-                        } else {
-                          addToComparison(car);
-                        }
-                      }}
-                    >
-                      <Checkbox
-                        checked={isInComparison(car.id)}
-                        className="pointer-events-none"
-                      />
-                      <span className="text-xs font-medium">Comparer</span>
-                    </div>
-                  </div>
-                  {car.badges && car.badges.length > 0 && (
-                    <div className="absolute top-3 left-3 flex flex-col gap-2">
-                      {car.badges.map((badge, idx) => (
-                        <Badge 
-                          key={`${car.id}-badge-${idx}`}
-                          className={`${
-                            badge.includes('Populaire') 
-                              ? 'bg-destructive/90 hover:bg-destructive text-destructive-foreground shadow-lg' 
-                              : badge.includes('Disponible') 
-                              ? 'bg-secondary/90 hover:bg-secondary text-secondary-foreground shadow-lg animate-pulse' 
-                              : badge.includes('Nouveau')
-                              ? 'bg-accent/90 hover:bg-accent text-accent-foreground shadow-lg'
-                              : 'bg-primary/90 hover:bg-primary text-primary-foreground shadow-lg'
-                          } backdrop-blur-sm`}
-                        >
-                          {badge}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-barlow font-semibold mb-1">{car.name}</h3>
-                      <p className="text-sm text-muted-foreground">{car.category} • {car.type}</p>
-                    </div>
-                    <div className="text-right">
-                      {(() => {
-                        const days = calculateDays(startDate, endDate);
-                        const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
-                        
-                        if (days > 0) {
-                          const totalPrice = calculateTotalPrice(basePrice, days);
-                          const dailyPrice = calculateDailyPrice(basePrice, days);
-                          const discount = days >= 7 ? Math.round((1 - dailyPrice / basePrice) * 100) : 0;
-                          
-                          return (
-                            <>
-                              <p className="text-2xl font-bold text-primary">{formatPrice(totalPrice)}</p>
-                              <p className="text-xs text-muted-foreground">{days} jour{days > 1 ? 's' : ''}</p>
-                              {discount > 0 && (
-                                <p className="text-xs text-secondary font-medium">-{discount}% appliqué</p>
-                              )}
-                            </>
-                          );
-                        }
-                        
-                        return (
-                          <>
-                            <p className="text-2xl font-bold text-primary">{car.priceDisplay}</p>
-                            <p className="text-xs text-muted-foreground">à partir de</p>
-                          </>
-                        );
-                      })()}
-                    </div>
-                  </div>
-                  
-                  {!startDate || !endDate ? (
-                    <div className="mb-4 p-3 bg-secondary/10 rounded-lg border border-secondary/20">
-                      <p className="text-xs text-muted-foreground text-center">
-                        💡 Prix dégressif pour location longue durée
-                      </p>
-                    </div>
-                  ) : null}
-                  
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                    <MapPin className="w-4 h-4" />
-                    <span>{car.city}</span>
-                  </div>
-                  
-                  <div className="space-y-2 mb-6">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
-                      <span>Kilométrage illimité</span>
-                    </div>
-                    {car.conditions.filter(c => c.startsWith('Âge minimum')).map((condition, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-secondary rounded-full" />
-                        <span>{condition}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <div className="space-y-3">
-                    <Button 
-                      variant="outline"
-                      className="w-full rounded-full min-h-[48px] text-base touch-target touch-feedback" 
-                      onClick={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                    >
-                      <CalendarCheck className="w-5 h-5 mr-2" />
-                      Voir disponibilités
-                    </Button>
-                    <Button 
-                      className="w-full rounded-full min-h-[48px] text-base touch-target touch-feedback" 
-                      onClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
-                    >
-                      Contacter via WhatsApp
-                    </Button>
-                    <ShareButton
-                      title={`${car.name} - Location à ${car.city}`}
-                      text={`Louez ${car.name} à ${car.city} dès ${car.priceDisplay}/jour sur Benatna`}
-                      url={`${window.location.origin}/louer?city=${car.city}`}
-                      variant="ghost"
-                      size="default"
-                      className="w-full"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            {isLoading ? (
+              <>
+                {[...Array(9)].map((_, i) => (
+                  <CarCardSkeleton key={i} viewMode="carousel" />
+                ))}
+              </>
+            ) : (
+              <>
+                {displayedCars.map((car) => (
+                  <Card key={car.id} className="overflow-hidden border-2 hover:shadow-xl transition-shadow rounded-2xl group">
+...
+                  </Card>
+                ))}
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -4819,8 +4728,6 @@ const Louer = () => {
       {/* Comparison Dialog */}
       <ComparisonDialog open={showComparison} onOpenChange={setShowComparison} />
       
-      {/* Loading animation */}
-      {isLoading && <LoadingCar />}
     </div>
   );
 };

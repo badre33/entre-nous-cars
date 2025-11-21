@@ -20,7 +20,7 @@ const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
 const AIAssistant = lazy(() => import("@/components/AIAssistant").then(m => ({ default: m.AIAssistant })));
 const BackToTop = lazy(() => import("@/components/BackToTop").then(m => ({ default: m.BackToTop })));
 const PWAUpdatePrompt = lazy(() => import("@/components/PWAUpdatePrompt").then(m => ({ default: m.PWAUpdatePrompt })));
-import LoadingCar from "@/components/LoadingCar";
+import { PageSkeleton } from "@/components/PageSkeleton";
 import { analytics } from "@/utils/analytics";
 
 // Code splitting avec React.lazy - Homepage not lazy loaded for better LCP
@@ -117,7 +117,7 @@ const App = () => (
                 <Toaster />
                 <Sonner />
                 <ScrollToTop />
-                <Suspense fallback={<LoadingCar />}>
+                <Suspense fallback={<PageSkeleton />}>
                   <Routes>
                     <Route path="/" element={<Index />} />
                     <Route path="/nos-services" element={<NosServices />} />
