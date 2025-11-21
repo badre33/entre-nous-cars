@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import { blogArticles } from "@/data/blogArticles";
 import { BlogCardSkeleton } from "@/components/BlogCardSkeleton";
 import { BlogCard } from "@/components/BlogCard";
@@ -46,6 +47,7 @@ const Blog = () => {
         <meta property="og:description" content="Tous nos guides et conseils pour réussir votre location de voiture au Maroc." />
         <meta property="og:url" content="https://benatna.ma/blog" />
       </Helmet>
+      <HreflangTags path="/blog" />
       <Header />
       <Breadcrumbs />
       

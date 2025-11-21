@@ -24,6 +24,7 @@ import LazyCarImage from "@/components/LazyCarImage";
 import { StructuredData } from "@/components/StructuredData";
 import { CarProductSchema } from "@/components/CarProductSchema";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
@@ -4238,6 +4239,7 @@ const Louer = () => {
         <meta name="keywords" content="location voiture maroc, louer auto casablanca, rent car marrakech, voiture tourisme maroc, location véhicule rabat, agence location tanger" />
         <link rel="canonical" href="https://benatna.ma/louer" />
       </Helmet>
+      <HreflangTags path="/louer" />
       <StructuredData type="rental" />
       <CarProductSchema cars={filteredCars.slice(0, 20)} />
       <PullToRefreshIndicator 

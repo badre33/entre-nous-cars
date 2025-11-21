@@ -15,6 +15,7 @@ import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
 const LocationVoitureMarrakech = () => {
@@ -29,6 +30,7 @@ const LocationVoitureMarrakech = () => {
         <meta property="og:description" content="Louez une voiture à Marrakech avec Benatna. Aéroport Menara, Médina, Guéliz, livraison gratuite. Prix transparents, sans surprises." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-marrakech" />
       </Helmet>
+      <HreflangTags path="/location-voiture-marrakech" />
       <StructuredData type="rental" />
       <ServiceSchema city="Marrakech" />
       <HowToSchema city="Marrakech" />

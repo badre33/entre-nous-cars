@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Button } from "@/components/ui/button";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -87,6 +88,7 @@ const NosServices = () => {
         <meta property="og:description" content="Découvrez tous nos services de location adaptés à vos besoins : aéroports, jeune conducteur, longue durée, SUV, véhicules spéciaux." />
         <meta property="og:url" content="https://benatna.ma/nos-services" />
       </Helmet>
+      <HreflangTags path="/nos-services" />
 
       <Header />
       <Breadcrumbs />

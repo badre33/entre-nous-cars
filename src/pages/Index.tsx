@@ -23,6 +23,7 @@ import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -79,6 +80,7 @@ const Index = () => {
         <meta property="og:url" content="https://benatna.ma/" />
         <meta property="og:type" content="website" />
       </Helmet>
+      <HreflangTags path="/" />
       <StructuredData type="home" />
       <ServiceSchema />
       <HowToSchema />

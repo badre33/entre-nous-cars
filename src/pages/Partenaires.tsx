@@ -12,6 +12,7 @@ import { PartnerTestimonials } from "@/components/PartnerTestimonials";
 import { RevenueCalculator } from "@/components/RevenueCalculator";
 import { StructuredData } from "@/components/StructuredData";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
 import { StickyCTA } from "@/components/StickyCTA";
@@ -50,6 +51,7 @@ const Partenaires = () => {
         <meta name="keywords" content="partenaire location voiture maroc, agence location auto partenariat, devenir partenaire benatna, réseau location véhicule maroc" />
         <link rel="canonical" href="https://benatna.ma/partenaires" />
       </Helmet>
+      <HreflangTags path="/partenaires" />
       <StructuredData type="partners" />
       <Header />
       <Breadcrumbs />
