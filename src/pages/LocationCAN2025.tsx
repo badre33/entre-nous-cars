@@ -11,7 +11,6 @@ import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { Calendar, MapPin, Trophy, Users, Car, Shield, Clock, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { HreflangTags } from "@/utils/hreflangHelper";
 import { useState } from "react";
 import canHeroImage from "@/assets/can-2025-hero.jpg";
 import canCtaImage from "@/assets/can-2025-cta.jpg";
@@ -145,7 +144,10 @@ const LocationCAN2025 = () => {
         <meta name="keywords" content="location voiture CAN 2025, rent car AFCON Morocco, voiture coupe afrique, car rental morocco cup nations, location auto supporters CAN, véhicule coupe afrique maroc, alquiler coches CAN Marruecos" />
         
         {/* Hreflang tags */}
-        <HreflangTags path="/location-voiture-can-2025-maroc" />
+        <link rel="alternate" hrefLang="fr" href="https://benatna.ma/location-voiture-can-2025-maroc" />
+        <link rel="alternate" hrefLang="en" href="https://benatna.ma/en/location-voiture-can-2025-maroc" />
+        <link rel="alternate" hrefLang="es" href="https://benatna.ma/es/location-voiture-can-2025-maroc" />
+        <link rel="alternate" hrefLang="x-default" href="https://benatna.ma/location-voiture-can-2025-maroc" />
         
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-maroc" />
         
