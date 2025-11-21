@@ -65,6 +65,12 @@ const LocationVanFamilleMaroc = lazy(() => import("./pages/LocationVanFamilleMar
 const LocationCabrioletAgadir = lazy(() => import("./pages/LocationCabrioletAgadir"));
 const LocationUtilitaireCasablanca = lazy(() => import("./pages/LocationUtilitaireCasablanca"));
 const LocationCAN2025 = lazy(() => import("./pages/LocationCAN2025"));
+const CAN2025Casablanca = lazy(() => import("./pages/CAN2025Casablanca"));
+const CAN2025Rabat = lazy(() => import("./pages/CAN2025Rabat"));
+const CAN2025Marrakech = lazy(() => import("./pages/CAN2025Marrakech"));
+const CAN2025Agadir = lazy(() => import("./pages/CAN2025Agadir"));
+const CAN2025Fes = lazy(() => import("./pages/CAN2025Fes"));
+const CAN2025Tanger = lazy(() => import("./pages/CAN2025Tanger"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -161,6 +167,13 @@ const App = () => (
                     <Route path="/location-cabriolet-agadir" element={<LocationCabrioletAgadir />} />
                     <Route path="/location-utilitaire-demenagement-casablanca" element={<LocationUtilitaireCasablanca />} />
                     <Route path="/location-voiture-can-2025-maroc" element={<LocationCAN2025 />} />
+                    {/* CAN 2025 Villes-Stades */}
+                    <Route path="/location-voiture-can-2025-casablanca" element={<CAN2025Casablanca />} />
+                    <Route path="/location-voiture-can-2025-rabat" element={<CAN2025Rabat />} />
+                    <Route path="/location-voiture-can-2025-marrakech" element={<CAN2025Marrakech />} />
+                    <Route path="/location-voiture-can-2025-agadir" element={<CAN2025Agadir />} />
+                    <Route path="/location-voiture-can-2025-fes" element={<CAN2025Fes />} />
+                    <Route path="/location-voiture-can-2025-tanger" element={<CAN2025Tanger />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
