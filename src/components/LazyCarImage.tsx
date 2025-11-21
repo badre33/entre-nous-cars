@@ -74,6 +74,7 @@ export default function LazyCarImage({
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           fetchPriority={priority ? "high" : "auto"}
+          data-car-image
           className={cn(
             "w-full h-full object-cover transition-opacity duration-300",
             loaded ? "opacity-100" : "opacity-0",
