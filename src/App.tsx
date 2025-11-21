@@ -64,6 +64,7 @@ const LocationElectriqueCasablanca = lazy(() => import("./pages/LocationElectriq
 const LocationVanFamilleMaroc = lazy(() => import("./pages/LocationVanFamilleMaroc"));
 const LocationCabrioletAgadir = lazy(() => import("./pages/LocationCabrioletAgadir"));
 const LocationUtilitaireCasablanca = lazy(() => import("./pages/LocationUtilitaireCasablanca"));
+const LocationCAN2025 = lazy(() => import("./pages/LocationCAN2025"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -159,6 +160,7 @@ const App = () => (
                     <Route path="/location-van-famille-maroc" element={<LocationVanFamilleMaroc />} />
                     <Route path="/location-cabriolet-agadir" element={<LocationCabrioletAgadir />} />
                     <Route path="/location-utilitaire-demenagement-casablanca" element={<LocationUtilitaireCasablanca />} />
+                    <Route path="/location-voiture-can-2025-maroc" element={<LocationCAN2025 />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
