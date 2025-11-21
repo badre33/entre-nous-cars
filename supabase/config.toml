@@ -2,3 +2,6 @@ project_id = "oaajsamymjhxggwxdfwn"
 
 [functions.chat-assistant]
 verify_jwt = false
+
+[functions.generate-og-image]
+verify_jwt = false
