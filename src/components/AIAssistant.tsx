@@ -42,40 +42,40 @@ export const AIAssistant = () => {
 
   const suggestedQuestions = language === 'en' 
     ? [
-        "Which car for desert trip?",
-        "What are your rental conditions?",
-        "Itinerary Marrakech - Essaouira?",
-        "Compare SUV vs sedan?"
+        "I want to rent a car for 7 days",
+        "Best car for Marrakech?",
+        "How much for an SUV?",
+        "Available cars in Casablanca?"
       ]
     : language === 'es'
     ? [
-        "¿Qué coche para visitar el desierto?",
-        "¿Cuáles son sus condiciones de alquiler?",
-        "¿Itinerario Marrakech - Essaouira?",
-        "¿Comparar SUV y sedán?"
+        "Quiero alquilar un coche por 7 días",
+        "¿Mejor coche para Marrakech?",
+        "¿Cuánto cuesta un SUV?",
+        "¿Coches disponibles en Casablanca?"
       ]
     : [
-        "Quelle voiture pour visiter le désert ?",
-        "Quelles sont vos conditions de location ?",
-        "Itinéraire Marrakech - Essaouira ?",
-        "Comparer SUV et citadine ?"
+        "Je veux louer pour 7 jours",
+        "Meilleure voiture pour Marrakech ?",
+        "Combien coûte un SUV ?",
+        "Voitures dispo à Casablanca ?"
       ];
 
   const quickActions = [
     {
       icon: Car,
-      label: language === 'en' ? "See cars" : language === 'es' ? "Ver coches" : "Voir les voitures",
-      action: () => setInputValue(language === 'en' ? "Show me available cars" : language === 'es' ? "Mostrar coches disponibles" : "Montrez-moi les voitures disponibles")
+      label: language === 'en' ? "🚗 Rent now" : language === 'es' ? "🚗 Alquilar ahora" : "🚗 Louer maintenant",
+      action: () => setInputValue(language === 'en' ? "I want to rent a car" : language === 'es' ? "Quiero alquilar un coche" : "Je veux louer une voiture")
     },
     {
       icon: Calculator,
-      label: language === 'en' ? "Calculate price" : language === 'es' ? "Calcular precio" : "Calculer un prix",
-      action: () => setInputValue(language === 'en' ? "Calculate rental price for 7 days" : language === 'es' ? "Calcular precio de alquiler por 7 días" : "Calculer le prix pour 7 jours")
+      label: language === 'en' ? "💰 Get a quote" : language === 'es' ? "💰 Obtener cotización" : "💰 Obtenir un devis",
+      action: () => setInputValue(language === 'en' ? "How much for 7 days?" : language === 'es' ? "¿Cuánto por 7 días?" : "Combien pour 7 jours ?")
     },
     {
       icon: Map,
-      label: language === 'en' ? "Suggest route" : language === 'es' ? "Sugerir ruta" : "Suggérer un itinéraire",
-      action: () => setInputValue(language === 'en' ? "Suggest an itinerary" : language === 'es' ? "Sugerir un itinerario" : "Suggérer un itinéraire")
+      label: language === 'en' ? "📍 Best car for my trip" : language === 'es' ? "📍 Mejor coche para mi viaje" : "📍 Meilleure voiture pour mon voyage",
+      action: () => setInputValue(language === 'en' ? "Which car for my trip?" : language === 'es' ? "¿Qué coche para mi viaje?" : "Quelle voiture pour mon voyage ?")
     }
   ];
 
@@ -107,10 +107,10 @@ export const AIAssistant = () => {
               <MessageSquare className="h-5 w-5" />
               <div>
                 <h3 className="font-semibold">
-                  {language === 'en' ? "Benatna Assistant" : language === 'es' ? "Asistente Benatna" : "Benatna Assistant"}
+                  {language === 'en' ? "Rental Assistant" : language === 'es' ? "Asistente de Alquiler" : "Assistant Location"}
                 </h3>
                 <p className="text-xs opacity-90">
-                  {language === 'en' ? "Your rental & tourism guide" : language === 'es' ? "Tu guía de alquiler y turismo" : "Votre guide location & tourisme"}
+                  {language === 'en' ? "Find your perfect car" : language === 'es' ? "Encuentra tu coche perfecto" : "Trouvez votre voiture idéale"}
                 </p>
               </div>
             </div>
@@ -157,10 +157,10 @@ export const AIAssistant = () => {
                 <div className="bg-muted p-4 rounded-lg">
                   <p className="text-sm text-muted-foreground mb-3">
                     👋 {language === 'en' 
-                      ? "Hello! I'm your Benatna virtual assistant. Ask me your questions about car rental in Morocco!" 
+                      ? "Hello! Ready to find your perfect car? Tell me about your trip and I'll help you choose the best vehicle!" 
                       : language === 'es'
-                      ? "¡Hola! Soy tu asistente virtual Benatna. ¡Hazme tus preguntas sobre alquiler de coches en Marruecos!"
-                      : "Bonjour ! Je suis votre assistant virtuel Benatna. Posez-moi vos questions sur la location de voiture au Maroc !"}
+                      ? "¡Hola! ¿Listo para encontrar tu coche perfecto? ¡Cuéntame sobre tu viaje y te ayudaré a elegir el mejor vehículo!"
+                      : "Bonjour ! Prêt à trouver votre voiture idéale ? Parlez-moi de votre voyage et je vous aide à choisir le meilleur véhicule !"}
                   </p>
                 </div>
                 
