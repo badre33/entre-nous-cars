@@ -81,29 +81,8 @@ export function PWAUpdatePrompt() {
   };
 
   if (!showUpdatePrompt) {
-    // Afficher juste l'indicateur de statut en bas
-    return (
-      <div className="fixed bottom-24 md:bottom-4 right-4 z-40">
-        <div className={cn(
-          "flex items-center gap-2 px-3 py-2 rounded-full shadow-lg text-xs font-medium transition-all",
-          isOnline 
-            ? "bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/20" 
-            : "bg-orange-500/10 text-orange-700 dark:text-orange-400 border border-orange-500/20"
-        )}>
-          {isOnline ? (
-            <>
-              <Wifi className="h-3 w-3" />
-              <span className="hidden sm:inline">En ligne</span>
-            </>
-          ) : (
-            <>
-              <WifiOff className="h-3 w-3" />
-              <span className="hidden sm:inline">Hors ligne</span>
-            </>
-          )}
-        </div>
-      </div>
-    );
+    // Ne rien afficher lorsqu'il n'y a pas de mise à jour disponible
+    return null;
   }
 
   return (
