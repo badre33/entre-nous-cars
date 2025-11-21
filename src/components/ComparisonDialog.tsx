@@ -21,6 +21,7 @@ import {
 import { useComparison } from "@/contexts/ComparisonContext";
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+import { useSwipeToClose } from "@/hooks/useSwipeToClose";
 
 interface ComparisonDialogProps {
   open: boolean;
@@ -85,6 +86,11 @@ export default function ComparisonDialog({
   onOpenChange,
 }: ComparisonDialogProps) {
   const { selectedCars, removeFromComparison, clearComparison } = useComparison();
+  
+  const { dragOffset, isDragging, handlers } = useSwipeToClose({
+    onClose: () => onOpenChange(false),
+    threshold: 100,
+  });
 
   if (selectedCars.length === 0) {
     return null;
@@ -104,7 +110,14 @@ export default function ComparisonDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto p-0">
+      <DialogContent 
+        className={cn("max-w-7xl max-h-[90vh] overflow-y-auto p-0", isDragging && "transition-none")}
+        style={{ transform: `translateY(${Math.max(0, dragOffset)}px)` }}
+      >
+        <div 
+          className="w-12 h-1 bg-muted rounded-full mx-auto mt-4 cursor-grab active:cursor-grabbing touch-target"
+          {...handlers}
+        />
         <DialogHeader className="p-6 pb-4 sticky top-0 bg-background/95 backdrop-blur-lg z-10 border-b">
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div className="flex items-center gap-3">
@@ -239,7 +252,7 @@ export default function ComparisonDialog({
           </div>
           <div className="lg:hidden mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
             <p className="text-xs text-center text-muted-foreground">
-              💡 Glissez vers la gauche pour supprimer une voiture
+              👈 Glissez vers la gauche pour supprimer • 👇 Swipe vers le bas pour fermer
             </p>
           </div>
 

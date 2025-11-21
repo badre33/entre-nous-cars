@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   Drawer,
@@ -14,6 +15,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useSwipeToClose } from "@/hooks/useSwipeToClose";
+import { cn } from "@/lib/utils";
 
 interface FilterOption {
   value: string;
@@ -40,9 +43,15 @@ export function FilterBottomSheet({
   triggerLabel,
 }: FilterBottomSheetProps) {
   const { t } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const { dragOffset, isDragging, handlers } = useSwipeToClose({
+    onClose: () => setIsOpen(false),
+    threshold: 100,
+  });
 
   return (
-    <Drawer>
+    <Drawer open={isOpen} onOpenChange={setIsOpen}>
       <DrawerTrigger asChild>
         <Button 
           variant="outline" 
@@ -52,7 +61,12 @@ export function FilterBottomSheet({
           <span className="ml-2">{triggerLabel}</span>
         </Button>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent 
+        {...handlers}
+        className={cn(isDragging && "transition-none")}
+        style={{ transform: `translateY(${dragOffset}px)` }}
+      >
+        <div className="w-12 h-1 bg-muted rounded-full mx-auto mt-2 mb-4" />
         <DrawerHeader className="text-left">
           <DrawerTitle>{title}</DrawerTitle>
           <DrawerDescription>{description}</DrawerDescription>
