@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import aboutImage from "@/assets/about-mission.jpg";
 
 const APropos = () => {
@@ -22,6 +23,7 @@ const APropos = () => {
         <meta property="og:description" content="Découvrez qui nous sommes et comment nous révolutionnons la location de voiture au Maroc." />
         <meta property="og:url" content="https://benatna.ma/a-propos" />
       </Helmet>
+      <HreflangTags path="/a-propos" />
       <Header />
       <Breadcrumbs />
       

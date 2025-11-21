@@ -11,6 +11,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import { useState } from "react";
 import { z } from "zod";
 
@@ -51,6 +52,7 @@ const Contact = () => {
         <meta property="og:description" content="Notre équipe est à votre disposition pour toute question sur la location de voiture au Maroc." />
         <meta property="og:url" content="https://benatna.ma/contact" />
       </Helmet>
+      <HreflangTags path="/contact" />
       <Header />
       <Breadcrumbs />
       

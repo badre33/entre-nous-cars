@@ -15,6 +15,7 @@ import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 
 const LocationVoitureCasablanca = () => {
@@ -29,6 +30,7 @@ const LocationVoitureCasablanca = () => {
         <meta property="og:description" content="Louez une voiture à Casablanca avec Benatna. Aéroport, centre-ville, livraison gratuite. Prix transparents, sans surprises." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-casablanca" />
       </Helmet>
+      <HreflangTags path="/location-voiture-casablanca" />
       <StructuredData type="rental" />
       <ServiceSchema city="Casablanca" />
       <HowToSchema city="Casablanca" />

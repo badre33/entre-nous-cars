@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import Header from "@/components/Header";
+import { HreflangTags } from "@/utils/hreflangHelper";
 import Footer from "@/components/Footer";
 import { 
   Accordion,
@@ -280,6 +281,7 @@ const FAQ = () => {
           {JSON.stringify(faqSchema)}
         </script>
       </Helmet>
+      <HreflangTags path="/faq" />
       <Header />
       <Breadcrumbs />
 
