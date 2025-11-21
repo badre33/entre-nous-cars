@@ -12,6 +12,8 @@ import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { Calendar, MapPin, Trophy, Users, Car, Shield, Clock, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
+import canHeroImage from "@/assets/can-2025-hero.jpg";
+import canCtaImage from "@/assets/can-2025-cta.jpg";
 
 const LocationCAN2025 = () => {
   const { language } = useLanguage();
@@ -173,9 +175,15 @@ const LocationCAN2025 = () => {
         <Breadcrumbs />
 
         {/* Hero Section */}
-        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] animate-pulse"></div>
+        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img 
+              src={canHeroImage} 
+              alt="CAN 2025 Morocco - Football Stadium" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60" />
           </div>
           
           <div className="container mx-auto px-4 relative z-10 text-center text-white">
@@ -487,17 +495,27 @@ const LocationCAN2025 = () => {
         </section>
 
         {/* CTA Final */}
-        <section className="py-20 bg-gradient-to-r from-primary to-secondary text-white">
-          <div className="container mx-auto px-4 text-center">
-            <Trophy className="w-16 h-16 mx-auto mb-6 animate-bounce" />
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+        <section className="relative py-20 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <img 
+              src={canCtaImage} 
+              alt="CAN 2025 Morocco Stadium Atmosphere" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/95 via-accent/90 to-secondary/95" />
+          </div>
+          
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <Trophy className="w-16 h-16 mx-auto mb-6 animate-bounce text-white drop-shadow-2xl" />
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white drop-shadow-2xl">
               {language === 'en'
                 ? "Ready for the AFCON 2025 Adventure?"
                 : language === 'es'
                 ? "¿Listo para la Aventura de la CAN 2025?"
                 : "Prêts pour l'Aventure de la CAN 2025 ?"}
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-white/95 drop-shadow-lg">
               {language === 'en'
                 ? "Book your vehicle now and secure the best rates for the biggest African football event."
                 : language === 'es'
