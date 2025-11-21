@@ -12,6 +12,1371 @@ export interface BlogArticle {
 
 export const blogArticles: BlogArticle[] = [
   {
+    id: 10,
+    slug: "guide-complet-location-voiture-can-2025",
+    title: "Guide Complet : Location de Voiture pour la CAN 2025 au Maroc",
+    excerpt: "Tout ce qu'il faut savoir pour louer une voiture pendant la Coupe d'Afrique des Nations 2025 au Maroc : tarifs, disponibilités, conseils pratiques et bons plans.",
+    metaDescription: "Guide complet location voiture CAN 2025 Maroc : tarifs spéciaux, disponibilités 6 villes-stades, parkings, conseils supporters. Réservez dès maintenant !",
+    category: "Événements",
+    date: "21 janvier 2025",
+    image: new URL("@/assets/can-2025-hero.jpg", import.meta.url).href,
+    content: [
+      "Le Maroc s'apprête à vibrer au rythme de la Coupe d'Afrique des Nations 2025 ! Du 21 décembre 2025 au 18 janvier 2026, six villes marocaines accueilleront les meilleures équipes du continent africain dans une compétition qui promet d'être historique. Pour les supporters, les médias et les visiteurs, disposer d'un véhicule sera essentiel pour profiter pleinement de cet événement exceptionnel.",
+      
+      "Ce guide complet vous révèle tout ce qu'il faut savoir pour louer une voiture pendant la CAN 2025 : tarifs anticipés, disponibilités par ville, conseils de réservation, parkings autour des stades, circuits touristiques entre les matchs, et bons plans pour économiser. Que vous soyez supporter venu encourager votre équipe, journaliste en mission ou simplement amateur de football, ce guide est fait pour vous.",
+      
+      "## Pourquoi louer une voiture pour la CAN 2025 ?",
+      
+      "### Flexibilité totale pour suivre votre équipe",
+      "La CAN 2025 se déroule dans six villes réparties sur tout le territoire marocain : Casablanca, Rabat, Marrakech, Agadir, Fès et Tanger. Si votre équipe joue dans plusieurs villes, vous devrez vous déplacer rapidement et efficacement. Un véhicule de location vous offre cette flexibilité que les transports en commun ne peuvent garantir.",
+      
+      "Imaginez : votre équipe joue à Casablanca le samedi soir, puis à Marrakech le mercredi suivant. Avec votre voiture, vous partez quand vous voulez, vous vous arrêtez où vous voulez, vous transportez drapeaux, maillots et souvenirs sans contrainte. Aucun stress lié aux horaires de train ou d'avion.",
+      
+      "### Accès direct aux stades",
+      "Les six stades de la CAN 2025 sont tous accessibles en voiture avec des parkings dédiés aux spectateurs. Contrairement aux transports en commun qui peuvent être saturés les jours de match, votre véhicule vous garantit d'arriver à l'heure et de repartir à votre rythme.",
+      
+      "Le Stade Mohammed V à Casablanca dispose de 5 000 places de parking. Le Complexe Sportif Prince Moulay Abdellah à Rabat en compte 3 500. Le Stade de Marrakech en propose 4 000. Tous ces parkings seront accessibles moyennant un tarif spécial CAN (entre 20 et 50 MAD selon le stade).",
+      
+      "### Explorer le Maroc entre les matchs",
+      "La CAN dure presque un mois. Entre deux matchs de votre équipe, profitez-en pour découvrir les richesses du Maroc : médinas historiques, plages de l'Atlantique, montagnes de l'Atlas, villages berbères, désert de Merzouga. Avec une voiture, ces trésors sont à portée de main.",
+      
+      "Un exemple de circuit : match à Casablanca le samedi → route côtière vers Essaouira dimanche et lundi → remontée vers Marrakech mardi → match mercredi → excursion Atlas jeudi → retour Casablanca vendredi. Impossible sans voiture de location.",
+      
+      "### Économies pour les groupes",
+      "Si vous voyagez à 3, 4 ou 5 supporters, louer une voiture devient rapidement plus économique que d'acheter des billets de train ou d'avion pour chaque déplacement. Un monospace 7 places coûte environ 400-500 MAD/jour pendant la CAN. Divisé par 5, cela fait 80-100 MAD par personne, imbattable !",
+      
+      "De plus, vous partagez également les frais de carburant et de péage. Au final, le coût total par personne est souvent inférieur à celui des transports publics, tout en offrant infiniment plus de confort et de liberté.",
+      
+      "## Les 6 villes-stades de la CAN 2025",
+      
+      "### Casablanca - Stade Mohammed V (67 000 places)",
+      "Capitale économique du Maroc, Casablanca accueillera les matchs les plus importants dont potentiellement la finale. Le Stade Mohammed V, rénové en 2024, est un joyau moderne de 67 000 places avec toit rétractable.",
+      
+      "**Parking :** 5 000 places autour du stade (20-50 MAD selon match). Arrivez 2h avant le coup d'envoi pour les gros matchs.",
+      
+      "**Accès :** Boulevard Zerktouni depuis le centre-ville, sortie Casa-Sud depuis l'autoroute A3. Le stade est situé dans le quartier Maârif, à 10 minutes du centre.",
+      
+      "**Où louer :** Aéroport Mohammed V (terminal 1 et 2), centre-ville Mers Sultan, quartier Aïn Diab. Réservez dès maintenant : la demande sera énorme pendant la CAN.",
+      
+      "**Tarifs CAN 2025 :** Citadine 250-350 MAD/jour, SUV 400-600 MAD/jour, Monospace 450-700 MAD/jour. Tarifs dégressifs à partir de 7 jours.",
+      
+      "### Rabat - Complexe Sportif Prince Moulay Abdellah (52 000 places)",
+      "La capitale administrative du Maroc dispose d'un complexe sportif ultramoderne. Le stade principal, entièrement rénové, accueillera les matchs de la phase de groupes et potentiellement une demi-finale.",
+      
+      "**Parking :** 3 500 places officielles + parkings relais avec navettes gratuites (5 000 places supplémentaires). Prix : 20-40 MAD.",
+      
+      "**Accès :** Avenue Hay Riad depuis l'autoroute, Boulevard Al Irfane depuis le centre-ville. Le complexe est situé à 15 minutes du centre de Rabat.",
+      
+      "**Où louer :** Aéroport Rabat-Salé, gare Rabat Agdal, Avenue Mohammed V centre-ville. La concurrence est forte à Rabat : les prix restent compétitifs.",
+      
+      "**Tarifs CAN 2025 :** Citadine 220-320 MAD/jour, Berline 350-500 MAD/jour, SUV 380-580 MAD/jour. Kilométrage illimité inclus.",
+      
+      "### Marrakech - Stade de Marrakech (45 000 places)",
+      "La perle du Sud accueillera plusieurs matchs de groupes dans son stade récent. Profitez-en pour explorer la médina, les souks, le jardin Majorelle et les montagnes de l'Atlas toutes proches.",
+      
+      "**Parking :** 4 000 places autour du stade (30-50 MAD). Le stade est situé route de Safi, accessible rapidement depuis tous les quartiers.",
+      
+      "**Accès :** Route de Safi depuis Guéliz, Avenue Mohammed VI depuis la médina. Comptez 15-20 minutes depuis l'aéroport Menara.",
+      
+      "**Où louer :** Aéroport Marrakech Menara (le plus pratique), Place Jemaa el-Fna, quartier Guéliz, Hivernage. Forte demande touristique : réservez tôt.",
+      
+      "**Tarifs CAN 2025 :** Citadine 280-380 MAD/jour, 4x4 450-700 MAD/jour, Cabriolet 500-800 MAD/jour. Réductions groupes disponibles.",
+      
+      "### Agadir - Stade d'Agadir (45 000 places)",
+      "Ville balnéaire par excellence, Agadir combine football et détente. Son climat doux en hiver (20-25°C) et ses plages en font une destination idéale pour prolonger votre séjour après les matchs.",
+      
+      "**Parking :** 3 800 places + parkings relais. Prix modérés : 20-30 MAD. Le stade est situé à Anza, quartier moderne d'Agadir.",
+      
+      "**Accès :** Boulevard Mohammed V depuis le centre, sortie Agadir depuis l'autoroute A7. Le stade est à 20 minutes de l'aéroport Al Massira.",
+      
+      "**Où louer :** Aéroport Agadir Al Massira, Boulevard Hassan II centre-ville, marina d'Agadir. Prix généralement plus compétitifs qu'à Marrakech.",
+      
+      "**Tarifs CAN 2025 :** Citadine 200-300 MAD/jour, SUV 350-550 MAD/jour, Monospace familial 400-600 MAD/jour. Promos longue durée fréquentes.",
+      
+      "### Fès - Stade de Fès (45 000 places)",
+      "La ville impériale aux 1 000 ans d'histoire accueille la CAN 2025 dans son stade moderne. Entre deux matchs, explorez la plus grande médina médiévale du monde, classée UNESCO.",
+      
+      "**Parking :** 3 200 places officielles. Prix : 20-40 MAD. Le stade est situé route d'Imouzzer, accessible en 15 minutes depuis la médina.",
+      
+      "**Accès :** Route d'Imouzzer depuis le centre-ville, sortie Fès depuis l'autoroute A2. Bonne signalétique les jours de match.",
+      
+      "**Où louer :** Aéroport Fès-Saïss, gare ONCF Fès Ville, Avenue Hassan II. Offre moins dense qu'à Casablanca : réservez à l'avance.",
+      
+      "**Tarifs CAN 2025 :** Citadine 210-310 MAD/jour, Berline confort 330-480 MAD/jour, SUV 370-570 MAD/jour. GPS recommandé pour la médina.",
+      
+      "### Tanger - Stade Ibn Batouta (45 000 places)",
+      "Porte de l'Afrique face à l'Europe, Tanger combine modernité et charme méditerranéen. Son nouveau stade ultramoderne accueillera plusieurs rencontres passionnantes.",
+      
+      "**Parking :** 4 500 places dont 500 VIP. Prix : 20-50 MAD selon catégorie. Le stade est situé à proximité du nouveau port Tanger Med.",
+      
+      "**Accès :** Rocade de Tanger depuis le centre, sortie Tanger-Est depuis l'autoroute A1. À 30 minutes de l'aéroport Ibn Battouta.",
+      
+      "**Où louer :** Aéroport Tanger Ibn Battouta, port Tanger Ville, Avenue Mohammed VI. Beaucoup d'agences locales compétitives.",
+      
+      "**Tarifs CAN 2025 :** Citadine 220-330 MAD/jour, Berline 340-500 MAD/jour, 4x4 400-650 MAD/jour. Forfaits ferry+voiture disponibles.",
+      
+      "## Quand et comment réserver ?",
+      
+      "### Réservez dès maintenant (idéalement 6-8 mois avant)",
+      "La CAN 2025 attirera des centaines de milliers de supporters, journalistes, officiels. La demande de voitures de location sera exceptionnelle. Plus vous réservez tôt, plus vous avez de choix et de prix avantageux.",
+      
+      "**Calendrier optimal :**",
+      "- **Mars-Avril 2025 :** Meilleurs prix, tout le catalogue disponible, modifications gratuites",
+      "- **Mai-Juillet 2025 :** Prix corrects, choix encore large, conditions flexibles",
+      "- **Août-Octobre 2025 :** Prix en hausse, certaines catégories épuisées, annulation payante",
+      "- **Novembre-Décembre 2025 :** Pénurie, prix x2 ou x3, peu de disponibilités",
+      
+      "Sur Benatna, nous bloquons des allocations spéciales CAN 2025 auprès de nos agences partenaires. Réservez maintenant au tarif normal avec annulation gratuite jusqu'à 7 jours avant. Vous ne prenez aucun risque.",
+      
+      "### Choisissez le bon type de véhicule",
+      "**Solo ou duo :** Citadine économique (Clio, Corolla, 208). Consomme peu, facile à garer, prix attractif (200-350 MAD/jour).",
+      
+      "**Groupe 3-4 personnes :** Berline spacieuse (Passat, Accord, Octavia) ou SUV compact (Qashqai, Tiguan, Sportage). Confort routier, coffre généreux (300-500 MAD/jour).",
+      
+      "**Groupe 5-7 personnes :** Monospace ou grand SUV (Lodgy, Doblo, Captiva). Idéal pour partager les frais et transporter matériel de supporters (400-700 MAD/jour).",
+      
+      "**Confort maximum :** Berline premium ou SUV luxe (Mercedes Classe E, BMW Série 5, Audi Q5). Pour les journalistes, VIP ou amateurs de confort absolu (700-1200 MAD/jour).",
+      
+      "### Comparez les offres",
+      "Ne vous précipitez pas sur la première offre. Comparez au moins 3 agences. Sur Benatna, vous voyez instantanément tous les prix et disponibilités. Vérifiez ce qui est inclus :",
+      
+      "- **Kilométrage illimité :** Essentiel si vous voyagez entre plusieurs villes (Casa-Marrakech : 240 km, Tanger-Fès : 280 km)",
+      "- **Assurance tous risques :** Franchise 0 MAD en cas d'accident, vol, bris de glace",
+      "- **2e conducteur gratuit :** Pour partager la conduite sur les longs trajets",
+      "- **Livraison/retour aéroport :** Évite les frais de taxi (100-200 MAD économisés)",
+      "- **GPS ou application :** Indispensable si vous ne connaissez pas les villes",
+      
+      "Méfiez-vous des offres trop alléchantes qui cachent des suppléments : assurance obligatoire non incluse, kilométrage limité, carburant non plein/plein, frais cachés.",
+      
+      "### Réservez en ligne",
+      "Réserver en ligne vous fait gagner du temps et souvent de l'argent. Sur Benatna.ma :",
+      "1. Sélectionnez ville, dates, type de véhicule",
+      "2. Comparez les prix finaux (tout inclus, aucun supplément)",
+      "3. Réservez en 3 minutes avec paiement sécurisé",
+      "4. Recevez confirmation immédiate par email/SMS",
+      "5. Modifiez ou annulez gratuitement jusqu'à 7 jours avant",
+      
+      "Le jour J, présentez-vous à l'agence avec votre confirmation, permis de conduire et carte d'identité. Récupérez votre véhicule en 5 minutes. Zéro paperasse, zéro surprise.",
+      
+      "## Tarifs spéciaux CAN 2025",
+      
+      "### Tarifs indicatifs par catégorie",
+      "Voici les tarifs moyens constatés sur Benatna pour la période CAN 2025 (décembre 2025 - janvier 2026) :",
+      
+      "**Citadines économiques** (Clio, 208, Polo, Corolla)",
+      "- 1-6 jours : 250-350 MAD/jour",
+      "- 7-13 jours : 220-300 MAD/jour",
+      "- 14-20 jours : 200-270 MAD/jour",
+      "- 21-30 jours : 180-250 MAD/jour",
+      
+      "**Berlines & SUV compacts** (Golf, Octavia, Qashqai, Tucson)",
+      "- 1-6 jours : 350-500 MAD/jour",
+      "- 7-13 jours : 320-450 MAD/jour",
+      "- 14-20 jours : 290-410 MAD/jour",
+      "- 21-30 jours : 260-380 MAD/jour",
+      
+      "**Monospaces & Grands SUV** (Lodgy, Doblo, Captiva, Grand C4 Picasso)",
+      "- 1-6 jours : 450-700 MAD/jour",
+      "- 7-13 jours : 400-630 MAD/jour",
+      "- 14-20 jours : 370-580 MAD/jour",
+      "- 21-30 jours : 340-530 MAD/jour",
+      
+      "**Berlines Premium & SUV Luxe** (Mercedes, BMW, Audi, Range Rover)",
+      "- 1-6 jours : 700-1200 MAD/jour",
+      "- 7-13 jours : 650-1100 MAD/jour",
+      "- 14-20 jours : 600-1000 MAD/jour",
+      "- 21-30 jours : 550-950 MAD/jour",
+      
+      "Ces tarifs incluent : kilométrage illimité, assurance tous risques (franchise 0 MAD), 2e conducteur, GPS, assistance 24/7, taxes. Aucun supplément caché.",
+      
+      "### Offres groupes supporters",
+      "Vous voyagez en groupe de supporters ? Benatna propose des tarifs dégressifs à partir de 3 véhicules réservés ensemble :",
+      
+      "- **3-5 véhicules :** -10% sur le tarif de base",
+      "- **6-10 véhicules :** -15% + 1 upgrade gratuit",
+      "- **11-20 véhicules :** -20% + 2 upgrades + accompagnement personnalisé",
+      "- **21+ véhicules :** Tarif négocié + avantages VIP",
+      
+      "Contactez-nous à groupes@benatna.ma avec vos besoins (nombre de véhicules, dates, villes). Nous vous proposerons un devis sur mesure sous 24h.",
+      
+      "### Économisez avec les forfaits longue durée",
+      "Si vous restez tout le mois de la CAN (21-30 jours), les forfaits longue durée sont imbattables. Exemple réel :",
+      
+      "**Renault Clio :**",
+      "- Prix normal : 280 MAD/jour x 28 jours = 7 840 MAD",
+      "- Forfait 28 jours : 4 900 MAD (soit 175 MAD/jour, -37%)",
+      
+      "**Toyota Corolla :**",
+      "- Prix normal : 380 MAD/jour x 28 jours = 10 640 MAD",
+      "- Forfait 28 jours : 7 280 MAD (soit 260 MAD/jour, -32%)",
+      
+      "**Dacia Lodgy 7 places :**",
+      "- Prix normal : 550 MAD/jour x 28 jours = 15 400 MAD",
+      "- Forfait 28 jours : 10 920 MAD (soit 390 MAD/jour, -29%)",
+      
+      "Plus vous louez longtemps, plus le tarif journalier diminue. Ces forfaits incluent tout : kilométrage, assurance, 2e conducteur, GPS, entretien si besoin.",
+      
+      "## Conseils pratiques pendant la CAN",
+      
+      "### Anticipez les pics de trafic",
+      "Les jours de match, la circulation autour des stades sera dense 3-4h avant le coup d'envoi et 1-2h après le coup de sifflet final. Anticipez vos déplacements :",
+      
+      "- Partez 2-3h avant le début du match",
+      "- Évitez les axes menant au stade 4h avant et 2h après",
+      "- Utilisez Waze ou Google Maps pour contourner les bouchons",
+      "- Garez-vous dans les parkings officiels (réservation possible sur certains stades)",
+      
+      "Exemple : pour un match à 21h au Stade Mohammed V à Casablanca, partez de votre hôtel à 18h30 maximum. Vous arriverez vers 19h-19h30, vous aurez le temps de trouver une place et de rejoindre vos tribunes tranquillement.",
+      
+      "### Respectez le code de la route",
+      "Les contrôles de police seront renforcés pendant la CAN. Radars fixes, contrôles mobiles, barrages de sécurité. Respectez scrupuleusement :",
+      
+      "- Limitations de vitesse (120 km/h autoroute, 100 km/h nationale, 60 km/h ville)",
+      "- Port de la ceinture obligatoire pour tous les passagers",
+      "- Interdiction du téléphone au volant (kit mains libres autorisé)",
+      "- Taux d'alcoolémie 0,2 g/L (quasi tolérance zéro)",
+      "- Priorités aux passages piétons",
+      
+      "Les amendes sont immédiates et non négociables. Un excès de vitesse coûte 300-700 MAD selon l'infraction. Le téléphone au volant : 300 MAD. L'alcool au volant : 500-1000 MAD + immobilisation du véhicule.",
+      
+      "### Sécurisez votre véhicule",
+      "Pendant la CAN, l'affluence sera massive. Protégez votre véhicule et vos affaires :",
+      
+      "- Ne laissez JAMAIS d'objets de valeur visibles (sacs, ordinateurs, appareils photo, maillots signés)",
+      "- Rangez tout dans le coffre AVANT d'arriver à destination",
+      "- Utilisez les parkings gardiens ou payants sécurisés (20-50 MAD vs risque de vol)",
+      "- Verrouillez portes et fenêtres même pour un arrêt de 2 minutes",
+      "- Ne donnez pas vos clés à des inconnus qui proposent de garer votre voiture",
+      
+      "Les gardiens de parking officiels (gilets fluorescents) sont de confiance. Donnez-leur 5-10 MAD pour surveiller votre véhicule. C'est une pratique courante au Maroc et efficace.",
+      
+      "### Faites le plein stratégiquement",
+      "Les stations-service autour des stades et sur les axes principaux seront prises d'assaut les jours de match. Stratégies malines :",
+      
+      "- Faites le plein la veille du match ou tôt le matin",
+      "- Privilégiez les stations éloignées des stades (files d'attente plus courtes)",
+      "- Utilisez les stations autoroutières (jamais saturées, prix identiques)",
+      "- Gardez toujours au moins 1/4 de réservoir (évite le stress)",
+      
+      "Prix indicatifs du carburant au Maroc (janvier 2025) : Essence 95 = 13,50 MAD/L, Diesel = 11,80 MAD/L. Une Clio consomme environ 5,5 L/100 km. Budget carburant Casablanca-Marrakech : environ 140 MAD aller simple.",
+      
+      "### Profitez des circuits touristiques",
+      "Entre deux matchs, le Maroc vous tend les bras. Quelques circuits conseillés avec votre voiture de location :",
+      
+      "**Circuit Impérial (6-7 jours) :**",
+      "Casablanca → Rabat (90 km, 1h) → Meknès (140 km, 1h30) → Fès (60 km, 1h) → Ifrane (65 km, 1h) → Azrou → retour Fès → Casablanca (300 km, 3h30). Découvrez les 4 villes impériales et les cèdres de l'Atlas.",
+      
+      "**Circuit Atlantique (4-5 jours) :**",
+      "Casablanca → El Jadida (100 km, 1h) → Oualidia (80 km, 1h) → Essaouira (150 km, 2h) → Agadir (180 km, 2h30). Plages, médinas, sports nautiques.",
+      
+      "**Circuit Sud & Désert (7-10 jours) :**",
+      "Marrakech → Ouarzazate (200 km, 4h col Tichka) → Vallée du Dadès (100 km, 2h) → Merzouga désert (300 km, 5h) → Retour par Midelt et Atlas. Kasbahs, palmeraies, dunes de sable.",
+      
+      "**Circuit Nord Méditerranéen (5-6 jours) :**",
+      "Tanger → Tétouan (60 km, 1h) → Chefchaouen (100 km, 2h ville bleue) → Akchour cascades → Retour Tanger. Montagnes du Rif, plages méditerranéennes.",
+      
+      "Tous ces circuits sont facilement réalisables avec votre voiture de location. Routes en excellent état (autoroutes + nationales), paysages à couper le souffle, hébergements à tous les prix.",
+      
+      "## En résumé : votre checklist CAN 2025",
+      
+      "**3-6 mois avant :**",
+      "☑ Réservez votre voiture sur Benatna (annulation gratuite)",
+      "☑ Achetez vos billets de match",
+      "☑ Réservez vos hébergements (hôtels saturés pendant la CAN)",
+      
+      "**1 mois avant :**",
+      "☑ Vérifiez validité permis de conduire (international si hors France)",
+      "☑ Téléchargez applications GPS (Waze, Google Maps, cartes hors ligne)",
+      "☑ Prévoyez budget : location + carburant + péages + parkings + repas",
+      
+      "**1 semaine avant :**",
+      "☑ Confirmez réservation voiture (email reçu → tout OK)",
+      "☑ Préparez documents : permis, passeport/CNI, carte bancaire",
+      "☑ Notez numéros urgence : agence location, assurance, police (19)",
+      
+      "**Jour J :**",
+      "☑ Récupérez véhicule à l'agence (vérifiez état, plein, rayures)",
+      "☑ Prenez photos du véhicule sous tous les angles",
+      "☑ Testez GPS, climatisation, feux, klaxon",
+      "☑ Partez à l'aventure !",
+      
+      "**Pendant la CAN :**",
+      "☑ Respectez code de la route (vitesse, ceinture, alcool)",
+      "☑ Gardez véhicule propre et en bon état",
+      "☑ Ne laissez rien de valeur visible dans l'habitacle",
+      "☑ Faites le plein régulièrement (jamais en dessous de 1/4)",
+      "☑ Garez-vous dans parkings officiels les jours de match",
+      
+      "**Retour véhicule :**",
+      "☑ Rendez véhicule propre et avec plein (économise frais nettoyage/carburant)",
+      "☑ Vérifiez état avec agent (pas de nouvelle rayure, tout fonctionne)",
+      "☑ Récupérez caution et reçu final",
+      "☑ Laissez avis Google pour aider futurs clients",
+      
+      "## Conclusion : vivez la CAN 2025 en toute liberté",
+      
+      "La Coupe d'Afrique des Nations 2025 au Maroc sera un événement historique. Des millions de passionnés de football vont converger vers le royaume pour vivre des émotions uniques. Louer une voiture vous garantit de profiter pleinement de cette fête : suivre votre équipe de ville en ville, explorer le Maroc entre les matchs, partager des moments inoubliables avec vos amis supporters.",
+      
+      "Réservez dès maintenant sur Benatna.ma pour bénéficier des meilleurs tarifs et du plus large choix de véhicules. Notre équipe est à votre disposition pour vous conseiller et répondre à toutes vos questions.",
+      
+      "Que le meilleur gagne, et que la fête soit belle ! 🇲🇦⚽🏆"
+    ]
+  },
+  {
+    id: 11,
+    slug: "circuits-touristiques-entre-matchs-can-2025",
+    title: "Top 10 Circuits Touristiques Entre les Matchs CAN 2025",
+    excerpt: "Profitez de la CAN 2025 pour découvrir le Maroc : 10 circuits exceptionnels à faire en voiture de location entre deux matchs. Médinas, montagnes, désert, océan.",
+    metaDescription: "CAN 2025 Maroc : Top 10 circuits touristiques en voiture entre matchs. Médinas impériales, Atlas, Sahara, Atlantique. Itinéraires détaillés + conseils pratiques.",
+    category: "Tourisme",
+    date: "21 janvier 2025",
+    image: new URL("@/assets/city-marrakech.jpg", import.meta.url).href,
+    content: [
+      "La Coupe d'Afrique des Nations 2025 au Maroc, c'est l'occasion rêvée de combiner passion du football et découverte d'un pays extraordinaire. Entre deux matchs de votre équipe favorite, pourquoi rester enfermé dans votre hôtel ? Le Maroc vous tend les bras avec ses médinas millénaires, ses montagnes majestueuses, son désert envoûtant et ses plages atlantiques.",
+      
+      "Ce guide vous propose 10 circuits touristiques exceptionnels, tous réalisables en voiture de location entre les matchs de la CAN 2025. Que vous disposiez de 2 jours ou d'une semaine, que vous soyez amateur de culture, de nature ou de farniente, vous trouverez ici votre bonheur. Chaque circuit indique distances, durées, étapes incontournables, budgets et conseils pratiques.",
+      
+      "## Circuit 1 : Escapade Impériale Rabat-Meknès (2-3 jours)",
+      
+      "**Point de départ :** Rabat (match au Complexe Sportif Prince Moulay Abdellah)",
+      "**Distance totale :** 250 km aller-retour",
+      "**Meilleure période :** Entre deux matchs à Rabat ou entre Rabat et Casablanca",
+      
+      "### Jour 1 : Rabat, capitale élégante",
+      "Commencez par la Tour Hassan, minaret inachevé du 12e siècle et symbole de Rabat. Juste à côté, le Mausolée Mohammed V est un chef-d'œuvre architectural où reposent le roi Mohammed V et le roi Hassan II. Entrée gratuite, tenue correcte exigée.",
+      
+      "Descendez vers la Kasbah des Oudayas, forteresse du 12e siècle surplombant l'océan. Promenez-vous dans ses ruelles blanches et bleues, visitez le jardin andalou (10 MAD) et prenez un thé à la menthe avec vue sur l'Atlantique au Café Maure (20-30 MAD).",
+      
+      "L'après-midi, explorez la médina de Rabat, plus calme et authentique que celles de Marrakech ou Fès. Visitez la rue des Consuls avec ses échoppes de tapis et artisanat. Ne manquez pas le souk central pour les épices, olives et fruits secs.",
+      
+      "Terminez par le quartier moderne avec l'Avenue Mohammed V, ses boutiques internationales et ses cafés branchés. Dîner au restaurant Dar Naji (spécialités marocaines, 100-150 MAD/pers) ou Ty Potes (cuisine française, 150-250 MAD/pers).",
+      
+      "### Jour 2 : Route vers Meknès et Volubilis",
+      "Partez tôt vers Meknès (140 km, 1h30 par l'autoroute A2). Meknès, 4e ville impériale, est souvent oubliée des touristes. C'est son charme : authentique, moins touristique, magnifique.",
+      
+      "Commencez par la Place El Hedim, petite sœur de Jemaa el-Fna. Visitez la médina, classée UNESCO, avec ses souks d'artisans (cuir, bois, poterie). Le Mausolée Moulay Ismail (gratuit, fermé vendredi matin) est un joyau architectural.",
+      
+      "Déjeunez dans la médina : Riad Yacout (tajines délicieux, 80-120 MAD/pers) ou Restaurant Zitouna (vue sur place El Hedim, 70-100 MAD/pers).",
+      
+      "L'après-midi, direction Volubilis (30 km, 30 min). Ce site romain du 3e siècle av. J.-C., classé UNESCO, est le mieux conservé d'Afrique du Nord. Mosaïques exceptionnelles, arcs de triomphe, basilique, thermes. Entrée 70 MAD, guide optionnel 150 MAD (recommandé). Comptez 2-3h de visite.",
+      
+      "Sur le chemin du retour, arrêt à Moulay Idriss Zerhoun, ville sainte perchée sur une colline. Vue panoramique époustouflante. Retour à Rabat en soirée (140 km, 1h30).",
+      
+      "**Budget total :** Carburant 200 MAD, péages 30 MAD, entrées sites 100 MAD, repas 350 MAD, soit environ 680 MAD pour 2 jours (hors hébergement).",
+      
+      "## Circuit 2 : Chefchaouen, la Perle Bleue (3-4 jours depuis Tanger)",
+      
+      "**Point de départ :** Tanger (match au Stade Ibn Batouta)",
+      "**Distance totale :** 350 km aller-retour",
+      "**Meilleure période :** Entre deux matchs à Tanger ou entre Tanger et Rabat",
+      
+      "### Jour 1 : Départ de Tanger vers Chefchaouen",
+      "Quittez Tanger le matin (100 km, 2h de route sinueuse mais magnifique à travers les montagnes du Rif). Chefchaouen, la ville bleue, est un coup de cœur garanti. Ses ruelles peintes en bleu indigo créent une atmosphère unique au monde.",
+      
+      "Installez-vous dans un riad traditionnel (300-600 MAD/nuit selon standing). Commencez l'exploration par la Place Outa el Hammam, cœur de la médina. Prenez un café sur la terrasse du Café Clock (vue imprenable).",
+      
+      "Promenez-vous sans plan dans les ruelles bleues. C'est l'essence même de Chefchaouen : se perdre, admirer les portes colorées, les chats endormis, les échoppes d'artisanat. Achetez des couvertures berbères (200-500 MAD), de l'huile d'argan locale (100 MAD/L), des babouches en cuir (150-300 MAD).",
+      
+      "Montez à la Kasbah (60 MAD) pour visiter le musée ethnographique et profiter de la vue depuis le jardin andalou. En fin d'après-midi, grimpez à la mosquée espagnole (1h de marche) pour un coucher de soleil inoubliable sur la ville bleue.",
+      
+      "Dînez au Restaurant Lina (tajine de poulet citron-olive, 60 MAD) ou Aladdin (terrasse panoramique, 80-120 MAD/pers).",
+      
+      "### Jour 2 : Nature et cascades",
+      "Journée nature ! Direction le parc national de Talassemtane et les cascades d'Akchour (30 km, 45 min de route + 15 min de piste). Deux randonnées possibles :",
+      
+      "**Cascade petite (facile, 45 min aller) :** Sentier balisé le long de la rivière, cascade de 20m, baignade possible l'été.",
+      
+      "**Pont de Dieu (difficile, 3-4h aller-retour) :** Randonnée spectaculaire dans les gorges, pont naturel creusé dans la roche par l'eau. Vues époustouflantes. Guide local recommandé (150-200 MAD).",
+      
+      "Pique-nique au bord de la cascade (prévoyez sandwichs et fruits achetés à Chefchaouen). Retour en ville en fin d'après-midi. Soirée libre pour profiter de l'ambiance décontractée de Chefchaouen.",
+      
+      "### Jour 3 : Tétouan et retour à Tanger",
+      "Route vers Tétouan (65 km, 1h15), surnommée la Colombe Blanche. Sa médina, classée UNESCO, a conservé son architecture andalouse du 15e siècle. Moins touristique que Fès ou Marrakech, elle offre une authenticité rare.",
+      
+      "Visitez le quartier de la Mellah (ancien quartier juif), le Palais Royal (extérieur uniquement), et le Musée d'Art Marocain (30 MAD). Déjeunez au Restaurant Restinga (poissons frais de la Méditerranée, 100-150 MAD/pers).",
+      
+      "Après-midi direction Martil ou M'diq, stations balnéaires méditerranéennes. Baignade si la météo le permet (eau à 18-20°C en janvier). Retour à Tanger en soirée (60 km, 1h).",
+      
+      "**Budget total :** Carburant 250 MAD, hébergement 600 MAD (2 nuits), repas 450 MAD, entrées/guides 300 MAD, soit environ 1 600 MAD pour 3 jours.",
+      
+      "## Circuit 3 : Essaouira, Perle Atlantique (2-3 jours depuis Marrakech)",
+      
+      "**Point de départ :** Marrakech (match au Stade de Marrakech)",
+      "**Distance totale :** 380 km aller-retour",
+      "**Meilleure période :** Entre deux matchs à Marrakech ou entre Marrakech et Casablanca",
+      
+      "### Jour 1 : Route côtière Marrakech-Essaouira",
+      "Départ matinal de Marrakech (190 km, 2h30 de route agréable à travers les arganiers). Essaouira, ancienne Mogador portugaise, est une ville côtière au charme fou. Murailles blanches, médina bleue et blanche, port de pêche animé, plages ventées parfaites pour le surf et kitesurf.",
+      
+      "Installez-vous dans un riad de la médina (400-800 MAD/nuit) ou un hôtel balnéaire moderne (600-1200 MAD/nuit). Déjeunez de poissons frais au port : achetez directement aux pêcheurs (50-100 MAD/kg), faites griller sur place (10 MAD/poisson), servez-vous une salade dans les échoppes (20 MAD). Repas complet pour 2-3 personnes : 150-200 MAD.",
+      
+      "Promenez-vous sur les remparts, classés UNESCO, avec vue sur l'océan Atlantique. Visitez la Skala du Port avec ses canons portugais. Explorez la médina aux ruelles rectilignes (contrairement aux autres médinas marocaines labyrinthiques). Artisanat exceptionnel : marqueterie de thuya, peinture, bijoux en argent.",
+      
+      "En fin d'après-midi, baladez-vous sur la grande plage. Les amateurs de sensations peuvent tester le surf (cours 2h : 250 MAD) ou le kitesurf (cours 3h : 600 MAD). Coucher de soleil garanti spectaculaire.",
+      
+      "Dînez dans un restaurant de la médina : Taros (terrasse panoramique, cuisine fusion, 150-200 MAD/pers), La Licorne (français gastronomique, 200-300 MAD/pers) ou Ocean Vagabond (bar-resto face à la mer, 120-180 MAD/pers).",
+      
+      "### Jour 2 : Détente et culture",
+      "Matinée farniente sur la plage ou séance spa dans un riad (hammam + massage 300-500 MAD). Essaouira est réputée pour ses spas authentiques.",
+      
+      "Déjeuner chez Triskala (cuisine marocaine créative, 100-150 MAD/pers) ou Umia (poissons et fruits de mer, 150-200 MAD/pers).",
+      
+      "L'après-midi, visitez le Musée Sidi Mohammed Ben Abdallah (30 MAD) qui retrace l'histoire de la ville. Puis baladez-vous dans les galeries d'art (Essaouira attire de nombreux artistes marocains et internationaux).",
+      
+      "Assistez au coucher de soleil depuis le Bastion Nord ou depuis une terrasse panoramique. Soirée musicale dans un des nombreux bars avec musique gnaoua (musique traditionnelle d'Essaouira classée UNESCO).",
+      
+      "### Jour 3 : Excursions nature (optionnel)",
+      "**Option A - Île de Mogador (1/2 journée) :** Excursion en bateau vers l'île protégée, sanctuaire d'oiseaux rares (faucon d'Éléonore). Réservation obligatoire, départs matinaux (300 MAD/pers).",
+      
+      "**Option B - Vallée du Paradis (journée) :** À 60 km au nord, cette vallée cachée dans les montagnes offre piscines naturelles, cascades et palmeraies. Randonnée et baignade (prévoir guide, 400 MAD pour groupe).",
+      
+      "Retour à Marrakech en fin d'après-midi (190 km, 2h30).",
+      
+      "**Budget total :** Carburant 220 MAD, hébergement 800 MAD (2 nuits), repas 600 MAD, activités 300 MAD, soit environ 1 920 MAD pour 3 jours.",
+      
+      "## Circuit 4 : Atlas et Vallée de l'Ourika (1-2 jours depuis Marrakech)",
+      
+      "**Point de départ :** Marrakech",
+      "**Distance totale :** 130 km aller-retour",
+      "**Meilleure période :** Entre deux matchs à Marrakech, idéal pour échapper à l'effervescence urbaine",
+      
+      "### Matin : Route vers l'Ourika",
+      "Départ de Marrakech vers la Vallée de l'Ourika (65 km, 1h15). Cette vallée verdoyante au pied du Haut Atlas est un havre de fraîcheur. Route panoramique le long de l'oued Ourika avec villages berbères perchés sur les flancs.",
+      
+      "Arrêt au village de Setti Fatma, terminus de la route. Point de départ des randonnées vers les cascades (7 cascades étagées). La première cascade est accessible en 30 minutes de marche facile le long de la rivière. Pour monter jusqu'à la 7e cascade, comptez 3-4h aller-retour avec guide (150 MAD, recommandé car sentier non balisé).",
+      
+      "Déjeunez dans un restaurant les pieds dans l'eau (nombreux établissements le long de l'oued : tajines, brochettes, salades, 60-100 MAD/pers). Ambiance familiale et conviviale garantie.",
+      
+      "### Après-midi : Culture berbère",
+      "Visitez un village berbère traditionnel. Rencontrez les habitants, découvrez leur mode de vie ancestral. Visite d'une coopérative d'huile d'argan (fabrication artisanale expliquée, dégustation, boutique). Achetez de l'huile d'argan pure à prix producteur (80-120 MAD/L au lieu de 150-200 MAD en ville).",
+      
+      "Si vous souhaitez prolonger, possibilité de dormir dans un gîte berbère (200-350 MAD/nuit) ou retour à Marrakech en fin de journée.",
+      
+      "**Option 2 jours :** Le lendemain, randonnée vers le Toubkal (4 167m, plus haut sommet d'Afrique du Nord). Depuis le village d'Imlil (1h30 depuis Marrakech), montée jusqu'au refuge Toubkal (3 207m). Randonnée difficile, guide obligatoire (400-600 MAD/jour). Vue exceptionnelle sur tout le Haut Atlas.",
+      
+      "**Budget 1 jour :** Carburant 80 MAD, repas 150 MAD, guide/entrées 200 MAD, soit 430 MAD.",
+      "**Budget 2 jours :** + hébergement 300 MAD, guide montagne 500 MAD, repas supplémentaires 200 MAD, soit 1 430 MAD total.",
+      
+      "## Circuit 5 : Circuit Impérial Complet (7 jours)",
+      
+      "**Point de départ :** Casablanca ou Rabat",
+      "**Distance totale :** 1 100 km",
+      "**Meilleure période :** Entre phase de groupes et phase finale (1 semaine libre)",
+      
+      "Ce circuit mythique traverse les 4 villes impériales du Maroc. Idéal si vous avez une semaine entre deux phases de la CAN.",
+      
+      "### Jour 1 : Casablanca → Rabat (90 km, 1h)",
+      "(Voir détails Circuit 1 ci-dessus pour Rabat)",
+      
+      "### Jour 2 : Rabat → Meknès → Volubilis (140 km, 1h30)",
+      "(Voir détails Circuit 1 ci-dessus pour Meknès et Volubilis)",
+      "Nuit à Meknès ou Fès.",
+      
+      "### Jour 3-4 : Fès, capitale spirituelle",
+      "Fès, plus ancienne ville impériale (fondée en 789), abrite la plus grande médina médiévale du monde. Classée UNESCO, elle compte 9 400 ruelles. Impossible de ne pas se perdre, et c'est tant mieux !",
+      
+      "**Incontournables :**",
+      "- Porte Bab Boujloud (entrée principale de la médina, magnifique faïence bleue)",
+      "- Médersa Bou Inania (école coranique du 14e siècle, chef-d'œuvre architectural, 20 MAD)",
+      "- Tanneries Chouara (tannage artisanal du cuir depuis le 11e siècle, gratuit mais pourboire bienvenu)",
+      "- Souk Attarine (épices, senteurs enivrantes)",
+      "- Mosquée Karaouiyine (vue extérieure, l'une des plus anciennes universités du monde fondée en 859)",
+      "- Palais Royal (extérieur, portes dorées somptueuses)",
+      
+      "Engagez un guide officiel pour le 1er jour (250-350 MAD/demi-journée). Le 2e jour, perdez-vous seul dans la médina. Déjeunez au Café Clock (burger de chameau, ambiance cool, 80-120 MAD/pers) ou Riad Rcif (terrasse panoramique, tajines traditionnels, 100-150 MAD/pers).",
+      
+      "Nuit à Fès dans un riad de la médina (400-900 MAD/nuit selon standing). Expérience authentique garantie.",
+      
+      "### Jour 5 : Fès → Ifrane → Azrou → retour Fès (circuit 180 km)",
+      "Excursion dans le Moyen Atlas. Ifrane, surnommée la Suisse marocaine pour son architecture alpine et ses toits rouges. Station de ski l'hiver (Michlifen à 15 km). En janvier, possibilité de voir la neige !",
+      
+      "Arrêt à la forêt de cèdres d'Azrou. Rencontrez les singes magots (macaques de Barbarie) en liberté. Donnez-leur des cacahuètes non salées (vendues sur place, 10 MAD le sachet). Photos mémorables garanties !",
+      
+      "Déjeuner à Ifrane au restaurant Pêcheur (truites fraîches du lac, 80-120 MAD/pers) ou La Rose (cuisine française, 120-180 MAD/pers). Retour à Fès en fin d'après-midi.",
+      
+      "### Jour 6 : Fès → Marrakech (530 km, 6h)",
+      "Longue journée de route mais autoroute confortable (A2 puis A7). Départ tôt (7h), arrivée en milieu d'après-midi à Marrakech. Pause déjeuner à mi-chemin : Khouribga ou Kasbah Tadla (restaurants autoroute corrects, 70-100 MAD/pers).",
+      
+      "Installation dans votre riad à Marrakech. Soirée sur la place Jemaa el-Fna : spectacle permanent de charmeurs de serpents, conteurs, acrobates, musiciens. Dîner aux échoppes de la place (brochettes, couscous, jus d'orange, 50-80 MAD/pers) ou dans un restaurant panoramique avec vue sur la place.",
+      
+      "### Jour 7 : Marrakech",
+      "Journée complète à Marrakech la Rouge. Incontournables :",
+      
+      "- Jardin Majorelle (150 MAD, créé par Yves Saint Laurent, bleu cobalt iconique)",
+      "- Palais de la Bahia (70 MAD, palais du 19e siècle, jardins somptueux)",
+      "- Tombeaux Saadiens (70 MAD, nécropole royale du 16e siècle)",
+      "- Souks de Marrakech (labyrinthiques, artisanat de qualité : babouches, lanternes, tapis, épices)",
+      "- Mosquée Koutoubia (extérieur, symbole de Marrakech, minaret de 77m)",
+      "- Medersa Ben Youssef (50 MAD, plus grande école coranique du Maghreb)",
+      
+      "Déjeuner au Nomad (terrasse rooftop, cuisine marocaine moderne, 150-200 MAD/pers) ou Le Jardin (patio verdoyant, 120-180 MAD/pers).",
+      
+      "Soirée dans le quartier Guéliz (ville nouvelle) ou retour Place Jemaa el-Fna pour l'ambiance nocturne magique.",
+      
+      "**Budget 7 jours :** Carburant 900 MAD, péages 250 MAD, hébergement 3 500 MAD (6 nuits), repas 2 100 MAD, entrées/guides 1 200 MAD, soit environ 7 950 MAD pour 2 personnes (3 975 MAD/pers).",
+      
+      "## Circuit 6 : Sud Marocain et Portes du Désert (5-7 jours depuis Marrakech)",
+      
+      "**Point de départ :** Marrakech",
+      "**Distance totale :** 1 200-1 500 km selon options",
+      "**Meilleure période :** Si vous avez 5-7 jours libres entre deux phases",
+      
+      "Ce circuit mythique vous emmène de Marrakech vers les portes du désert du Sahara. Kasbahs, oasis, gorges, et dunes de sable.",
+      
+      "### Jour 1 : Marrakech → Aït-Ben-Haddou → Ouarzazate (200 km, 4h)",
+      "Traversée du col du Tichka (2 260m d'altitude), le plus haut col routier du Maroc. Route sinueuse mais magnifique avec panoramas sur le Haut Atlas enneigé en janvier. Arrêts photo multiples.",
+      
+      "Visite d'Aït-Ben-Haddou, ksar (village fortifié) classé UNESCO. Décor de films mythiques : Gladiator, Game of Thrones, Lawrence d'Arabie. Grimpez jusqu'au sommet pour la vue panoramique (1h de montée). Entrée gratuite, guide local optionnel (100 MAD).",
+      
+      "Déjeuner dans un restaurant face au ksar (tajines, couscous berbère, 60-100 MAD/pers).",
+      
+      "Route vers Ouarzazate, capitale du cinéma marocain. Visite optionnelle des studios Atlas (120 MAD) où sont tournés de nombreux films et séries internationaux. Nuit à Ouarzazate (hôtel 300-600 MAD/nuit).",
+      
+      "### Jour 2 : Ouarzazate → Vallée du Dadès (100 km, 2h)",
+      "Route des Mille Kasbahs. Traversée de la palmeraie de Skoura avec ses kasbahs anciennes (arrêt à Kasbah Amerhidil, 20 MAD). Puis entrée dans la Vallée des Roses, célèbre pour ses roses à parfum (festival en mai).",
+      
+      "Arrivée dans la Vallée du Dadès, surnommée Vallée des 1 000 Kasbahs. Paysages spectaculaires de gorges rouges et de formations rocheuses étranges. Randonnée dans les gorges (2-3h, facile).",
+      
+      "Nuit en auberge ou kasbah-hôtel au cœur de la vallée (250-500 MAD/nuit avec demi-pension souvent). Dîner berbère traditionnel sous les étoiles.",
+      
+      "### Jour 3 : Vallée du Dadès → Gorges du Todra → Merzouga (300 km, 5h)",
+      "Matinée dans les Gorges du Todra, canyon spectaculaire avec parois rocheuses de 300m de hauteur. Promenade dans le canyon (1h). Escalade possible pour les amateurs (matériel à louer sur place).",
+      
+      "Route vers Merzouga à travers le désert pierreux. Paysages lunaires. Arrivée en fin d'après-midi à Merzouga, porte du désert de l'Erg Chebbi.",
+      
+      "**Expérience désert obligatoire :** Départ en 4x4 ou à dos de dromadaire vers le camp dans les dunes (1h de trajet). Installation dans votre tente berbère de luxe. Coucher de soleil sur les dunes (moment magique). Dîner berbère, musique autour du feu, nuit sous les étoiles du Sahara. Une expérience inoubliable ! (Forfait 600-1200 MAD/pers selon standing du camp).",
+      
+      "### Jour 4 : Merzouga → Ouarzazate (360 km, 6h)",
+      "Lever de soleil sur les dunes (réveil 6h, mais ça vaut le coup !). Retour à Merzouga village. Route retour vers Ouarzazate via la Vallée du Ziz (palmeraies, oasis). Pause déjeuner à Tinghir ou Er-Rachidia. Nuit à Ouarzazate.",
+      
+      "### Jour 5 : Ouarzazate → Marrakech (200 km, 4h)",
+      "Retour à Marrakech via le col du Tichka. Arrêt shopping dans les coopératives artisanales (huile d'argan, safran, tapis berbères à prix producteur). Arrivée à Marrakech en fin d'après-midi.",
+      
+      "**Options d'extension (jours 6-7) :**",
+      "- Prolongation désert : 2e nuit à Merzouga, quad dans les dunes, visite village de Khamlia (musique gnaoua)",
+      "- Route par Zagora : retour via Vallée du Drâa, autre accès au désert, palmeraies immenses",
+      "- Ajout Essaouira : de Marrakech, 2 jours à Essaouira (voir Circuit 3)",
+      
+      "**Budget 5 jours :** Carburant 550 MAD, hébergement 2 000 MAD (4 nuits), expérience désert 1 000 MAD (pour 2), repas 1 200 MAD, entrées 200 MAD, soit environ 4 950 MAD pour 2 personnes.",
+      
+      "## Circuit 7 : Côte Atlantique Casablanca-Agadir (4-5 jours)",
+      
+      "**Points de départ :** Casablanca ou Agadir",
+      "**Distance totale :** 650 km aller-retour",
+      "**Meilleure période :** Entre matchs Casablanca-Agadir ou Marrakech-Agadir",
+      
+      "Route côtière magnifique avec plages, médinas, ports de pêche.",
+      
+      "### Jour 1 : Casablanca → El Jadida (100 km, 1h)",
+      "El Jadida, ancienne cité portugaise du 16e siècle. La Cité Portugaise (classée UNESCO) avec ses remparts, sa citerne portugaise (20 MAD, architecture exceptionnelle) et ses ruelles est un bijou.",
+      
+      "Déjeuner de poissons frais au port (60-100 MAD/pers). Baignade possible sur la plage (eau fraîche, 16-18°C en janvier mais plage magnifique). Nuit à El Jadida (hôtel 250-500 MAD/nuit).",
+      
+      "### Jour 2 : El Jadida → Oualidia (80 km, 1h)",
+      "Oualidia, lagune paradisiaque réputée pour ses huîtres. Dégustation d'huîtres fraîches directement chez les producteurs (30-50 MAD les 6 huîtres). Fruits de mer délicieux et frais.",
+      
+      "Activités : kayak dans la lagune (150 MAD/h), planche à voile, ou simple farniente sur la plage protégée. Nuit à Oualidia (hôtel face à la mer 400-800 MAD/nuit).",
+      
+      "### Jour 3 : Oualidia → Essaouira (150 km, 2h)",
+      "(Voir Circuit 3 pour détails sur Essaouira)",
+      "Journée et nuit à Essaouira.",
+      
+      "### Jour 4 : Essaouira → Agadir (180 km, 2h30)",
+      "Route côtière vers Agadir. Arrêts possibles : plage de Sidi Kaouki (spot de surf réputé), village de pêcheurs de Taghazout (ambiance surf et yoga).",
+      
+      "Arrivée à Agadir, station balnéaire moderne. Profitez de la plage (10 km de sable fin), de la promenade en bord de mer, du souk El Had (immense marché local). Nuit à Agadir.",
+      
+      "**Budget 4 jours :** Carburant 350 MAD, hébergement 1 800 MAD (3 nuits), repas 1 000 MAD, activités 300 MAD, soit environ 3 450 MAD pour 2 personnes.",
+      
+      "## Circuit 8 : Agadir et Anti-Atlas (3-4 jours)",
+      
+      "**Point de départ :** Agadir (match au Stade d'Agadir)",
+      "**Distance totale :** 400-500 km",
+      "**Meilleure période :** Entre deux matchs à Agadir ou après votre dernier match",
+      
+      "Explorez l'arrière-pays d'Agadir avec montagnes de l'Anti-Atlas, oasis et villages berbères.",
+      
+      "### Jour 1 : Agadir → Taroudant (85 km, 1h)",
+      "Taroudant, surnommée la petite Marrakech. Remparts ocres de 7 km, médina authentique non touristique, souks traditionnels (argent, épices, babouches). Ambiance locale et tranquille.",
+      
+      "Visite des souks (matinée), déjeuner au Riad Maryam (patio magnifique, cuisine marocaine raffinée, 100-150 MAD/pers). Après-midi farniente à la piscine de votre hôtel ou promenade autour des remparts à vélo (location 50 MAD/journée).",
+      
+      "Nuit dans un riad à Taroudant (350-700 MAD/nuit).",
+      
+      "### Jour 2 : Taroudant → Tafraoute (170 km, 3h30)",
+      "Route de montagne spectaculaire à travers l'Anti-Atlas. Paysages rocheux roses et ocres, villages berbères perchés, palmiers dattiers dans les oasis.",
+      
+      "Tafraoute, bourgade au cœur de la vallée des Ameln. Rochers de granit rose extraordinaires. Visitez les Rochers Peints (rochers décorés par l'artiste belge Jean Vérame dans les années 80, gratuit).",
+      
+      "Randonnée dans la vallée (villages berbères, palmeraies, 2-3h). Visite d'une maison berbère traditionnelle. Achetez des amandes locales (spécialité de la région, 80-120 MAD/kg).",
+      
+      "Nuit à Tafraoute (hôtel simple 200-400 MAD/nuit).",
+      
+      "### Jour 3 : Tafraoute → Tiznit → Agadir (180 km, 3h)",
+      "Route vers Tiznit, capitale de l'argent berbère. La médina de Tiznit abrite des dizaines d'ateliers de bijoutiers berbères. Achetez des bijoux en argent authentiques à prix artisan (bracelets 200-800 MAD, colliers 300-1500 MAD selon poids et finesse).",
+      
+      "Visite des remparts roses (5 km de long), source bleue (Aïn Zerka). Déjeuner dans la médina. Route retour à Agadir en fin d'après-midi (90 km, 1h15).",
+      
+      "**Budget 3 jours :** Carburant 280 MAD, hébergement 1 000 MAD (2 nuits), repas 600 MAD, achats artisanat 500 MAD, soit environ 2 380 MAD pour 2 personnes.",
+      
+      "## Circuit 9 : Fès et Moyen Atlas (3-4 jours)",
+      
+      "**Point de départ :** Fès (match au Stade de Fès)",
+      "**Distance totale :** 350 km",
+      "**Meilleure période :** Entre deux matchs à Fès ou entre Fès et Rabat",
+      
+      "(Partiellement couvert dans Circuit 5, détails supplémentaires ici)",
+      
+      "### Jour 1 : Fès médina",
+      "(Voir Circuit 5 jour 3)",
+      
+      "### Jour 2 : Fès → Ifrane → Azrou → Lac Dayet Aoua (circuit 200 km)",
+      "Journée montagne et nature dans le Moyen Atlas. Ifrane la Suisse marocaine (voir Circuit 5), forêt de cèdres et macaques d'Azrou.",
+      
+      "Ajout : le Lac Dayet Aoua à 30 km d'Ifrane. Lac naturel dans un cadre de montagne. Pique-nique au bord du lac (achetez provisions à Ifrane : pain, fromage, charcuterie, fruits). Balade autour du lac (1h30, facile).",
+      
+      "Possibilité de ski à la station de Michlifen si enneigée (location matériel 200 MAD/jour, forfait journée 150 MAD). Retour à Fès en soirée.",
+      
+      "### Jour 3 : Fès → Sefrou → Bhalil (circuit 100 km)",
+      "Sefrou (30 km de Fès), petite ville tranquille avec médina berbère et quartier juif historique. Festival des cerises en juin (hors CAN). Cascades du Sefrou accessibles à pied (30 min, gratuit).",
+      
+      "Bhalil (15 km), village troglodyte où certaines maisons sont creusées dans la roche. Visite d'une maison-grotte (30 MAD, fascinant). Vue panoramique sur la plaine. Retour à Fès.",
+      
+      "**Budget 3 jours :** Carburant 200 MAD, repas 600 MAD, activités 400 MAD, soit 1 200 MAD (hébergement à Fès déjà compté).",
+      
+      "## Circuit 10 : Tanger et Cap Spartel (1-2 jours)",
+      
+      "**Point de départ :** Tanger",
+      "**Distance totale :** 50 km",
+      "**Meilleure période :** Journée libre à Tanger",
+      
+      "### Matin : Tanger ville",
+      "Médina de Tanger avec ses souks colorés, terrasses panoramiques sur le détroit de Gibraltar. Visitez la Kasbah (musée, 30 MAD), le Grand Socco (place animée), le Petit Socco (cœur historique).",
+      
+      "Café Hafa, mythique café sur la falaise fréquenté jadis par les Beatles, Rolling Stones, William Burroughs. Vue exceptionnelle sur la mer et l'Espagne (thé 15 MAD).",
+      
+      "### Après-midi : Cap Spartel et Grottes d'Hercule",
+      "Route vers le Cap Spartel (15 km, 20 min), point de rencontre entre Méditerranée et Atlantique. Phare mythique, vue sur les deux mers. Photos magnifiques garanties.",
+      
+      "Grottes d'Hercule (5 km du cap, 60 MAD) : grottes marines avec ouverture naturelle en forme de carte d'Afrique. Légende : Hercule aurait dormi ici avant ses 12 travaux. Visite 30 min.",
+      
+      "Plage d'Achakkar ou Robinson pour baignade ou surf (selon saison et météo). Déjeuner de poissons frais dans un restaurant de plage (80-120 MAD/pers). Retour à Tanger en fin d'après-midi.",
+      
+      "**Budget 1 jour :** Carburant 50 MAD, repas 150 MAD, entrées 90 MAD, soit 290 MAD.",
+      
+      "## Conseils généraux pour tous les circuits",
+      
+      "### Carburant",
+      "Stations essence nombreuses sur axes principaux. Dans les zones rurales/montagneuses, faites le plein préventivement. Prix : Essence ~13,50 MAD/L, Diesel ~11,80 MAD/L.",
+      
+      "### Hébergement",
+      "**Riads médinas :** 300-900 MAD/nuit (charme, authenticité, petit-déjeuner inclus)",
+      "**Hôtels modernes :** 400-1200 MAD/nuit (confort, piscine, parking)",
+      "**Auberges/gîtes :** 150-400 MAD/nuit (budget, convivial)",
+      "**Camps désert :** 600-1500 MAD/nuit (expérience unique)",
+      
+      "Réservez à l'avance pendant la CAN (forte demande).",
+      
+      "### Sécurité routière",
+      "Respectez limitations vitesse (120 autoroute, 100 nationale, 60 ville). Radars nombreux. Route de montagne : prudence dans virages, klaxonnez avant virages aveugles. Évitez conduite de nuit sur routes secondaires (animaux, véhicules sans feux).",
+      
+      "### Budget moyen par jour et par personne",
+      "**Économique :** 400-600 MAD (auberge, street food, transports locaux)",
+      "**Confort :** 700-1200 MAD (hôtel 3★, restaurants, activités)",
+      "**Premium :** 1500-2500 MAD (hôtel 4-5★, gastronomie, expériences VIP)",
+      
+      "(hors location voiture déjà comptée à part)",
+      
+      "## Conclusion : combinez football et découverte",
+      
+      "La CAN 2025 au Maroc n'est pas qu'un événement sportif. C'est une invitation à explorer l'un des pays les plus fascinants du monde. Entre deux matchs de votre équipe favorite, partez à l'aventure : médinas millénaires, montagnes enneigées, désert doré, océan bleu.",
+      
+      "Avec votre voiture de location Benatna, vous avez les clés de la liberté. Créez votre propre itinéraire, arrêtez-vous où vous voulez, vivez au rythme de vos envies. Le Maroc vous attend, généreux et accueillant.",
+      
+      "Que votre équipe gagne la CAN... et que vous gagniez des souvenirs inoubliables ! ⚽🇲🇦🚗"
+    ]
+  },
+  {
+    id: 12,
+    slug: "parkings-acces-stades-can-2025",
+    title: "Parkings & Accès aux 6 Stades de la CAN 2025 : Guide Complet",
+    excerpt: "Tout savoir sur les parkings, accès et circulation autour des 6 stades de la CAN 2025 au Maroc. Plans détaillés, tarifs, horaires, conseils pratiques pour chaque stade.",
+    metaDescription: "Guide complet parkings CAN 2025 Maroc : 6 stades (Casablanca, Rabat, Marrakech, Agadir, Fès, Tanger). Plans, tarifs, accès, navettes. Arrivez à l'heure !",
+    category: "Pratique",
+    date: "21 janvier 2025",
+    image: new URL("@/assets/can-2025-cta.jpg", import.meta.url).href,
+    content: [
+      "La Coupe d'Afrique des Nations 2025 au Maroc va attirer des centaines de milliers de spectateurs dans six stades répartis sur tout le territoire. Pour profiter pleinement de chaque match, une seule règle d'or : arriver à l'heure ! Et pour cela, il faut connaître les options de stationnement et les meilleurs accès à chaque stade.",
+      
+      "Ce guide ultra-complet vous révèle TOUT ce qu'il faut savoir sur les parkings et accès aux 6 stades de la CAN 2025. Pour chaque stade, vous trouverez : plans détaillés, nombre de places, tarifs, horaires d'ouverture, navettes gratuites, accès routiers, alternatives de stationnement, et conseils pratiques basés sur l'expérience des matchs précédents.",
+      
+      "Que vous veniez en voiture de location, en taxi ou en transport en commun, vous saurez exactement où aller et comment vous garer. Gagnez du temps, évitez le stress, arrivez serein à votre tribune.",
+      
+      "## Stade Mohammed V - Casablanca (Capacité : 67 000 spectateurs)",
+      
+      "Le Stade Mohammed V, entièrement rénové en 2024, est le plus grand stade du Maroc et accueillera les matchs les plus importants de la CAN 2025, dont potentiellement la finale. Situé dans le quartier Maârif, il est accessible par plusieurs axes routiers majeurs.",
+      
+      "### Parkings officiels du stade",
+      
+      "**Parking Nord (2 000 places)**",
+      "- Accès : Boulevard Zerktouni, entrée face à l'arrêt de tramway Zerktouni",
+      "- Tarif : 20 MAD (phase de groupes), 30 MAD (8es-quarts), 50 MAD (demi-finales/finale)",
+      "- Ouverture : 4h avant le coup d'envoi",
+      "- Type : Parking bitumé sécurisé avec gardiennage",
+      "- Conseil : Arrivez 2h30 avant pour les gros matchs (demi-finales, finale). Saturation rapide.",
+      
+      "**Parking Sud (1 500 places)**",
+      "- Accès : Boulevard de la Corniche, après le rond-point des Sports",
+      "- Tarif : 20-50 MAD selon importance du match",
+      "- Ouverture : 4h avant le coup d'envoi",
+      "- Type : Parking en terre battue, éclairé",
+      "- Conseil : Bon pour tribune Sud et Est. Sortie plus rapide après le match.",
+      
+      "**Parking Est VIP (500 places)**",
+      "- Accès : Avenue Hassan II, entrée réservée détenteurs billets VIP",
+      "- Tarif : Gratuit avec billet VIP, sinon 100 MAD",
+      "- Ouverture : 5h avant le coup d'envoi",
+      "- Type : Parking couvert, places numérotées",
+      "- Avantage : Proximité immédiate des tribunes VIP, confort maximal",
+      
+      "**Parking Ouest (1 000 places)**",
+      "- Accès : Rue Mohamed Diouri, quartier Maârif",
+      "- Tarif : 20-50 MAD",
+      "- Ouverture : 4h avant",
+      "- Type : Parking municipal agrandi pour la CAN",
+      "- Conseil : Idéal pour tribune Ouest, à 300m de l'entrée",
+      
+      "**Total places officielles : 5 000**",
+      
+      "### Parkings relais avec navettes gratuites",
+      
+      "Pour soulager la pression sur les parkings du stade, la ville de Casablanca mettra en place 3 parkings relais avec navettes gratuites :",
+      
+      "**Parking Relais Morocco Mall (2 500 places)**",
+      "- Localisation : Boulevard de la Corniche, Morocco Mall (plus grand centre commercial d'Afrique)",
+      "- Tarif : 10 MAD (moins cher car éloigné)",
+      "- Navettes : Départ toutes les 10 minutes dès 3h avant le match",
+      "- Trajet : 15 minutes jusqu'au stade",
+      "- Conseil : Bon plan pour les familles. Possibilité de déjeuner au Mall avant le match. Nombreux restaurants (McDonald's, KFC, pizzerias, restaurants marocains, 60-150 MAD/pers).",
+      
+      "**Parking Relais Anfa Place (1 500 places)**",
+      "- Localisation : Boulevard d'Anfa, centre commercial Anfa Place",
+      "- Tarif : 10 MAD",
+      "- Navettes : Toutes les 12 minutes dès 3h avant",
+      "- Trajet : 12 minutes jusqu'au stade",
+      "- Avantage : Proche de la Corniche, possibilité de balade en bord de mer après le match",
+      
+      "**Parking Relais Aéroport Mohammed V (1 000 places)**",
+      "- Localisation : Terminal 1, parking longue durée",
+      "- Tarif : Gratuit les jours de match",
+      "- Navettes : Toutes les 15 minutes dès 4h avant",
+      "- Trajet : 25 minutes (autoroute directe)",
+      "- Public cible : Spectateurs arrivant de l'aéroport directement, ou résidents de Nouaceur/Bouskoura",
+      
+      "### Accès routiers recommandés",
+      
+      "**Depuis le centre-ville (Aïn Diab, Maârif, Gauthier) :**",
+      "Boulevard Zerktouni → Suivre panneaux \"Stade Mohammed V\" → Parking Nord ou Est",
+      "Temps de trajet : 10-20 minutes selon trafic",
+      "Astuce : Évitez Boulevard d'Anfa les jours de match (très saturé). Préférez rues secondaires.",
+      
+      "**Depuis l'aéroport Mohammed V :**",
+      "Autoroute A3 direction Casablanca → Sortie \"Casa-Sud\" → Boulevard Mohammed Zerktouni → Stade",
+      "Temps : 35 minutes sans trafic, 50-70 minutes les jours de match",
+      "Conseil : Partez 3h avant le coup d'envoi minimum si vous arrivez de l'aéroport",
+      
+      "**Depuis Rabat :**",
+      "Autoroute A3 direction Casablanca → Sortie \"Casa-Sud\" → Suivre panneaux stade",
+      "Temps : 1h10 sans trafic, 1h40-2h les jours de gros match",
+      "Péage : 30 MAD aller simple",
+      
+      "**Depuis Marrakech :**",
+      "Autoroute A7 direction Casablanca → A3 sortie Casa-Sud → Stade",
+      "Temps : 2h45 sans trafic, 3h15-3h45 les jours de match",
+      "Péage : 68 MAD aller simple",
+      "Conseil : Arrivez la veille et logez à Casablanca si match important",
+      
+      "### Alternatives : parkings privés à proximité",
+      
+      "**Parkings de quartier (dans un rayon de 500m du stade) :**",
+      "- Parking Maârif Centre : 30 MAD, 600 places, 400m du stade",
+      "- Parking Zerktouni : 25 MAD, 400 places, 350m du stade",
+      "- Parkings gardiens de rue : 20 MAD, places limitées, arrivée très tôt nécessaire",
+      
+      "**Gardiens de rue :**",
+      "De nombreux gardiens informels proposent leur surveillance dans les rues autour du stade. Tarif habituel : 10-20 MAD pour 3-4h. Soyez vigilant : choisissez un gardien avec gilet officiel si possible, et ne laissez aucun objet de valeur visible dans votre véhicule.",
+      
+      "### Transports en commun",
+      
+      "**Tramway :**",
+      "Ligne T1 direction Sidi Moumen, arrêt \"Zerktouni\" (100m du stade)",
+      "Tarif : 7 MAD",
+      "Fréquence les jours de match : toutes les 5 minutes",
+      "Conseil : Bondé après les matchs. Patience requise.",
+      
+      "**Bus :**",
+      "Lignes 4, 10, 16 desservent le stade",
+      "Tarif : 4 MAD",
+      "Attention : Très saturés les jours de match",
+      
+      "**Taxi :**",
+      "Petit taxi depuis centre-ville : 30-50 MAD",
+      "Depuis aéroport : 250-300 MAD (négociez avant de monter)",
+      "Grand taxi partagé depuis gare routière : 10-15 MAD/pers",
+      
+      "### Conseils d'expert Stade Mohammed V",
+      
+      "✅ **Arrivez 2h30-3h avant** pour les demi-finales et finale (parkings saturés 2h avant)",
+      "✅ **Parking Relais Morocco Mall** = meilleur plan familial (déjeuner + navette + moins cher)",
+      "✅ **Sortie rapide** : garez-vous Parking Sud, sortez immédiatement après le coup de sifflet final",
+      "✅ **Évitez la voiture** si vous logez en centre-ville : tramway ligne T1 direct",
+      "✅ **GPS indispensable** : téléchargez carte hors ligne de Casablanca (réseau saturé les jours de match)",
+      
+      "---",
+      
+      "## Complexe Sportif Prince Moulay Abdellah - Rabat (Capacité : 52 000 spectateurs)",
+      
+      "Situé dans le quartier moderne de Hay Riad, ce complexe sportif ultramoderne dispose d'infrastructures excellentes et d'un accès plus fluide que Casablanca.",
+      
+      "### Parkings officiels",
+      
+      "**Parking Principal Nord (2 000 places)**",
+      "- Accès : Avenue Hay Riad",
+      "- Tarif : 20 MAD (groupes), 30 MAD (phases finales)",
+      "- Ouverture : 3h30 avant",
+      "- Type : Parking bitumé, bien éclairé",
+      
+      "**Parking Sud (1 500 places)**",
+      "- Accès : Boulevard Al Irfane",
+      "- Tarif : 20-30 MAD",
+      "- Ouverture : 3h30 avant",
+      "- Conseil : Moins saturé que le Nord, sortie plus rapide",
+      
+      "**Total places officielles : 3 500**",
+      
+      "### Parkings relais (capacité énorme)",
+      
+      "**Parking Relais Technopolis (3 000 places)**",
+      "- Localisation : Rabat Technopolis, zone d'affaires à 4 km",
+      "- Tarif : Gratuit",
+      "- Navettes : Toutes les 8 minutes, gratuites",
+      "- Trajet : 10 minutes",
+      
+      "**Parking Relais Agdal (2 000 places)**",
+      "- Localisation : Quartier Agdal, près de la gare ONCF Agdal",
+      "- Tarif : Gratuit",
+      "- Navettes : Toutes les 10 minutes",
+      "- Avantage : Connexion directe avec trains depuis Casablanca",
+      
+      "**Total parkings relais : 5 000 places**",
+      
+      "Rabat offre donc 8 500 places de parking au total, ratio excellent par rapport à la capacité du stade (52 000). Moins de stress qu'à Casablanca !",
+      
+      "### Accès routiers",
+      
+      "**Depuis centre-ville Rabat :**",
+      "Avenue Hassan II → Boulevard Al Irfane → Stade (15 minutes)",
+      
+      "**Depuis Casablanca :**",
+      "Autoroute A1 → Sortie Rabat-Centre → Suivre Hay Riad (1h05 sans trafic)",
+      "Péage : 24 MAD",
+      
+      "**Depuis Tanger :**",
+      "Autoroute A1 → Rabat (2h50 sans trafic)",
+      "Péage : 88 MAD",
+      
+      "**Depuis Marrakech :**",
+      "A7 puis A1 → Rabat (3h15)",
+      "Péage : 96 MAD",
+      
+      "### Transports en commun",
+      
+      "**Tramway :**",
+      "Ligne 2, arrêt \"Hay Riad\" (200m du stade)",
+      "Tarif : 6 MAD",
+      "Fréquence match : toutes les 6 minutes",
+      
+      "**Train :**",
+      "Gare Rabat Agdal → Tramway ligne 2 → Stade (25 min total)",
+      "Tarif train Casablanca-Rabat : 37 MAD (2e classe)",
+      
+      "### Conseils Rabat",
+      
+      "✅ **Moins stressant que Casablanca** : accès plus fluides, parkings suffisants",
+      "✅ **Parking Relais Technopolis** gratuit = meilleur plan",
+      "✅ **Train depuis Casa** : option confortable (37 MAD, 1h, confort), puis tramway",
+      "✅ **Arrivée 2h avant** suffit (sauf finale potentielle)",
+      
+      "---",
+      
+      "## Stade de Marrakech (Capacité : 45 000 spectateurs)",
+      
+      "Situé route de Safi, à 5 km du centre-ville et 15 km de l'aéroport Menara.",
+      
+      "### Parkings officiels",
+      
+      "**Parking Nord (2 500 places)**",
+      "- Accès : Route de Safi, entrée principale",
+      "- Tarif : 30 MAD (plus cher car forte demande touristique)",
+      "- Ouverture : 3h avant",
+      
+      "**Parking Sud (1 500 places)**",
+      "- Accès : Avenue Mohammed VI",
+      "- Tarif : 30-50 MAD selon match",
+      "- Ouverture : 3h avant",
+      
+      "**Total : 4 000 places**",
+      
+      "### Parkings relais",
+      
+      "**Parking Relais Menara Mall (2 000 places)**",
+      "- Localisation : Avenue Mohammed VI, centre commercial Menara Mall",
+      "- Tarif : 15 MAD",
+      "- Navettes : Toutes les 12 minutes, gratuites",
+      "- Trajet : 8 minutes",
+      "- Avantage : Shopping et restauration avant/après match",
+      
+      "**Parking Relais Aéroport Menara (1 500 places)**",
+      "- Localisation : Aéroport Marrakech Menara, parking P3",
+      "- Tarif : Gratuit jours de match",
+      "- Navettes : Toutes les 15 minutes",
+      "- Trajet : 20 minutes",
+      "- Public : Arrivées aéroport directes",
+      
+      "### Accès routiers",
+      
+      "**Depuis Guéliz (centre moderne) :**",
+      "Avenue Mohammed VI → Route de Safi → Stade (12 minutes)",
+      
+      "**Depuis Médina :**",
+      "Avenue Mohammed V → Route de Safi → Stade (18 minutes)",
+      
+      "**Depuis Casablanca :**",
+      "A7 direction Marrakech → Sortie Marrakech-Centre → Route de Safi (2h50)",
+      "Péage : 68 MAD",
+      
+      "**Depuis Agadir :**",
+      "Route N8 → Chichaoua → Marrakech (3h30, route sinueuse montagneuse)",
+      "Alternative autoroute (via Casablanca) : 5h mais plus confortable",
+      
+      "**Depuis Essaouira :**",
+      "Route N8 → Chichaoua → Marrakech (2h40)",
+      
+      "### Transports en commun",
+      
+      "**Bus :**",
+      "Lignes 11, 14, 19 depuis Place Jemaa el-Fna",
+      "Tarif : 4 MAD",
+      "Temps : 25-30 minutes",
+      
+      "**Taxi :**",
+      "Petit taxi Médina-Stade : 40-60 MAD",
+      "Depuis aéroport : 150-200 MAD",
+      
+      "### Conseils Marrakech",
+      
+      "✅ **Circulation dense** : Marrakech = ville très touristique, trafic permanent",
+      "✅ **Arrivez 2h30 avant minimum**",
+      "✅ **Parking Relais Menara Mall** excellent choix (shopping + navette)",
+      "✅ **GPS obligatoire** : routes complexes, beaucoup de ronds-points",
+      "✅ **Gardiens partout** : ne laissez rien de visible dans voiture",
+      
+      "---",
+      
+      "## Stade d'Agadir (Capacité : 45 000 spectateurs)",
+      
+      "Stade moderne situé dans le quartier Anza, à 8 km du centre-ville et 20 km de l'aéroport Al Massira.",
+      
+      "### Parkings officiels",
+      
+      "**Parking Principal (2 500 places)**",
+      "- Accès : Boulevard Mohammed V, Anza",
+      "- Tarif : 20 MAD (Agadir moins cher que Marrakech)",
+      "- Ouverture : 3h avant",
+      
+      "**Parking Annexe (1 300 places)**",
+      "- Accès : Avenue Hassan II",
+      "- Tarif : 20-30 MAD",
+      "- Ouverture : 3h avant",
+      
+      "**Total : 3 800 places**",
+      
+      "### Parkings relais",
+      
+      "**Parking Relais Marina d'Agadir (2 500 places)**",
+      "- Localisation : Marina d'Agadir, front de mer",
+      "- Tarif : 10 MAD",
+      "- Navettes : Toutes les 10 minutes",
+      "- Trajet : 15 minutes",
+      "- Avantage : Balade en bord de mer, restaurants, ambiance",
+      
+      "**Parking Relais Centre Commercial Al Mazar (1 200 places)**",
+      "- Localisation : Route d'Essaouira",
+      "- Tarif : 10 MAD",
+      "- Navettes : Toutes les 15 minutes",
+      "- Trajet : 12 minutes",
+      
+      "### Accès routiers",
+      
+      "**Depuis centre-ville Agadir :**",
+      "Boulevard Mohammed V → Anza → Stade (15 minutes)",
+      
+      "**Depuis Corniche (zone hôtelière) :**",
+      "Boulevard du 20 Août → Avenue Hassan II → Stade (20 minutes)",
+      
+      "**Depuis Marrakech :**",
+      "Route N8 via Chichaoua (3h30, montagneuse)",
+      "Ou A7 + A1 via Casablanca (5h15, autoroute confort)",
+      
+      "**Depuis Essaouira :**",
+      "Route côtière N1 (3h, magnifique)",
+      
+      "**Depuis Casablanca :**",
+      "A7 direction Agadir (5h45)",
+      "Péage : 134 MAD",
+      
+      "### Conseils Agadir",
+      
+      "✅ **Ville détendue** : trafic fluide, stationnement facile",
+      "✅ **Arrivée 1h30-2h avant** suffit (sauf gros match)",
+      "✅ **Parking Marina** = top pour ambiance bord de mer",
+      "✅ **Climat doux** : 20-25°C en janvier, agréable pour balade pré-match",
+      
+      "---",
+      
+      "## Stade de Fès (Capacité : 45 000 spectateurs)",
+      
+      "Situé route d'Imouzzer, à 5 km de la médina et 15 km de l'aéroport Fès-Saïss.",
+      
+      "### Parkings officiels",
+      
+      "**Parking Nord (2 000 places)**",
+      "- Accès : Route d'Imouzzer",
+      "- Tarif : 20 MAD",
+      "- Ouverture : 3h avant",
+      
+      "**Parking Sud (1 200 places)**",
+      "- Accès : Avenue Hassan II",
+      "- Tarif : 20-40 MAD",
+      "- Ouverture : 3h avant",
+      
+      "**Total : 3 200 places**",
+      
+      "### Parkings relais",
+      
+      "**Parking Relais Borj Fès Mall (2 000 places)**",
+      "- Localisation : Route de Séfrou, Borj Fès Shopping Center",
+      "- Tarif : 10 MAD",
+      "- Navettes : Toutes les 12 minutes",
+      "- Trajet : 18 minutes",
+      
+      "**Parking Relais Gare ONCF Fès Ville (1 000 places)**",
+      "- Localisation : Gare ferroviaire centrale",
+      "- Tarif : Gratuit",
+      "- Navettes : Toutes les 15 minutes",
+      "- Trajet : 22 minutes",
+      "- Public : Arrivées en train",
+      
+      "### Accès routiers",
+      
+      "**Depuis Médina de Fès :**",
+      "Avenue Hassan II → Route d'Imouzzer → Stade (15 minutes)",
+      
+      "**Depuis Ville Nouvelle (Fès Jedid) :**",
+      "Avenue des Français → Route d'Imouzzer (12 minutes)",
+      
+      "**Depuis Rabat :**",
+      "A2 direction Fès (2h10)",
+      "Péage : 52 MAD",
+      
+      "**Depuis Casablanca :**",
+      "A3 puis A2 direction Fès (3h20)",
+      "Péage : 88 MAD",
+      
+      "**Depuis Tanger :**",
+      "A1 direction Fès via Meknès (4h10)",
+      "Péage : 118 MAD",
+      
+      "### Transports en commun",
+      
+      "**Bus :**",
+      "Lignes 16, 28 depuis Place Baghdadi (médina)",
+      "Tarif : 4 MAD",
+      "Temps : 30 minutes",
+      
+      "**Taxi :**",
+      "Petit taxi Médina-Stade : 35-50 MAD",
+      "Depuis aéroport : 120-150 MAD",
+      
+      "### Conseils Fès",
+      
+      "✅ **Médina complexe** : GPS indispensable (ruelles labyrinthiques)",
+      "✅ **Arrivée 2h avant** recommandée",
+      "✅ **Train** : belle option depuis Rabat/Casablanca (confort, ponctualité)",
+      "✅ **Parking Gare** gratuit si vous venez en train",
+      
+      "---",
+      
+      "## Stade Ibn Batouta - Tanger (Capacité : 45 000 spectateurs)",
+      
+      "Stade flambant neuf situé à proximité du port Tanger Med, à 12 km du centre-ville et 30 km de l'aéroport Ibn Battouta.",
+      
+      "### Parkings officiels",
+      
+      "**Parking Principal (3 000 places)**",
+      "- Accès : Rocade de Tanger, sortie Tanger-Est",
+      "- Tarif : 20 MAD (groupes), 30 MAD (finales)",
+      "- Ouverture : 3h30 avant",
+      
+      "**Parking VIP (500 places)**",
+      "- Accès : Entrée dédiée depuis Avenue Mohammed VI",
+      "- Tarif : Gratuit avec billet VIP",
+      "- Places numérotées, couvertes",
+      
+      "**Parking Annexe (1 000 places)**",
+      "- Accès : Route de Tétouan",
+      "- Tarif : 20-30 MAD",
+      
+      "**Total : 4 500 places**",
+      
+      "Tanger offre le meilleur ratio places/spectateurs après Rabat !",
+      
+      "### Parkings relais",
+      
+      "**Parking Relais Port Tanger Ville (2 000 places)**",
+      "- Localisation : Port de Tanger, terminal voyageurs",
+      "- Tarif : Gratuit",
+      "- Navettes : Toutes les 10 minutes",
+      "- Trajet : 25 minutes",
+      "- Public : Arrivées ferry depuis Espagne/France",
+      
+      "**Parking Relais Ibn Battuta Mall (1 500 places)**",
+      "- Localisation : Centre commercial sur Avenue Mohammed VI",
+      "- Tarif : 10 MAD",
+      "- Navettes : Toutes les 12 minutes",
+      "- Trajet : 15 minutes",
+      
+      "### Accès routiers",
+      
+      "**Depuis centre-ville Tanger :**",
+      "Avenue Mohammed VI → Rocade → Sortie Stade (18 minutes)",
+      
+      "**Depuis Port Tanger Med (arrivées ferry) :**",
+      "Route côtière → Rocade → Stade (35 minutes)",
+      
+      "**Depuis Rabat :**",
+      "A1 direction Tanger (2h50)",
+      "Péage : 88 MAD",
+      
+      "**Depuis Casablanca :**",
+      "A1 direction Tanger (3h50)",
+      "Péage : 124 MAD",
+      
+      "**Depuis Chefchaouen :**",
+      "Route N16 puis N1 (2h, route de montagne magnifique)",
+      
+      "### Transports en commun",
+      
+      "**Bus :**",
+      "Lignes 7, 12, 15 depuis Grand Socco",
+      "Tarif : 4 MAD",
+      
+      "**Taxi :**",
+      "Petit taxi Centre-Stade : 40-60 MAD",
+      "Depuis aéroport : 200-250 MAD",
+      "Depuis Port Tanger Med : 150-180 MAD",
+      
+      "### Conseils Tanger",
+      
+      "✅ **Stade récent** : infrastructures modernes, parkings bien conçus",
+      "✅ **Parking Port** gratuit si vous arrivez en ferry",
+      "✅ **Ville méditerranéenne** : climat doux, ambiance décontractée",
+      "✅ **Arrivée 2h avant** suffisante (sauf gros match)",
+      
+      "---",
+      
+      "## Tableau récapitulatif : tous les stades en un coup d'œil",
+      
+      "| Stade | Capacité | Places parking | Tarif parking | Arrivée recommandée | Parkings relais |",
+      "|-------|----------|----------------|---------------|---------------------|-----------------|",
+      "| **Casablanca** Mohammed V | 67 000 | 5 000 + 5 000 relais | 20-50 MAD | 2h30-3h avant | 3 (Morocco Mall, Anfa Place, Aéroport) |",
+      "| **Rabat** Prince Moulay Abdellah | 52 000 | 3 500 + 5 000 relais | 20-30 MAD | 2h avant | 2 (Technopolis gratuit, Agdal gratuit) |",
+      "| **Marrakech** | 45 000 | 4 000 + 3 500 relais | 30-50 MAD | 2h30 avant | 2 (Menara Mall, Aéroport Menara) |",
+      "| **Agadir** | 45 000 | 3 800 + 3 700 relais | 20-30 MAD | 2h avant | 2 (Marina, Al Mazar) |",
+      "| **Fès** | 45 000 | 3 200 + 3 000 relais | 20-40 MAD | 2h avant | 2 (Borj Fès Mall, Gare gratuit) |",
+      "| **Tanger** Ibn Batouta | 45 000 | 4 500 + 3 500 relais | 20-30 MAD | 2h avant | 2 (Port gratuit, Ibn Battuta Mall) |",
+      
+      "**Places totales disponibles :** 41 500 places de parking officiel + relais pour 298 000 spectateurs potentiels",
+      
+      "---",
+      
+      "## Conseils généraux valables pour tous les stades",
+      
+      "### Timing optimal",
+      
+      "**Phase de groupes (21 déc - 3 jan) :**",
+      "Arrivée 1h30-2h avant le coup d'envoi suffit généralement. Affluence modérée sauf matchs impliquant l'équipe locale ou grandes équipes (Égypte, Sénégal, Maroc hôte).",
+      
+      "**Huitièmes et quarts de finale (6-15 jan) :**",
+      "Arrivée 2h-2h30 avant. Affluence croissante, parkings qui se remplissent plus vite.",
+      
+      "**Demi-finales (17-18 jan) :**",
+      "Arrivée 2h30-3h avant. Forte affluence, parkings saturés rapidement.",
+      
+      "**Finale (18 jan) :**",
+      "Arrivée 3h-3h30 avant MINIMUM. Affluence maximale. Si vous visez les parkings officiels du stade (non relais), arrivez même 4h avant pour être tranquille.",
+      
+      "### Réservation parking possible ?",
+      
+      "Malheureusement, les parkings des stades ne proposent pas de réservation en ligne. C'est premier arrivé, premier servi. D'où l'importance d'arriver tôt.",
+      
+      "**Exception :** Les places VIP ont parfois des parkings réservés inclus dans le package billet VIP.",
+      
+      "### Moyens de paiement",
+      
+      "Les parkings acceptent principalement **espèces** (MAD). Prévoyez de la monnaie :",
+      "- Billets de 20 MAD (idéal)",
+      "- Billets de 50 MAD (souvent acceptés, mais monnaie pas toujours disponible)",
+      
+      "Certains parkings modernes (Rabat, Tanger) acceptent cartes bancaires, mais ne comptez pas dessus. **Espèces = valeur sûre.**",
+      
+      "### Sécurité de votre véhicule",
+      
+      "**Dans les parkings officiels :**",
+      "- Gardiennage assuré 24/7",
+      "- Vidéosurveillance",
+      "- Clôtures sécurisées",
+      "- Risque de vol très faible",
+      
+      "**Dans les parkings relais :**",
+      "- Généralement bien surveillés (centres commerciaux, aéroports)",
+      "- Sécurité correcte",
+      
+      "**Parkings privés et gardiens de rue :**",
+      "- Choisissez gardiens avec gilet officiel",
+      "- Ne laissez RIEN de visible dans l'habitacle (sacs, appareils photo, maillots, drapeaux de valeur)",
+      "- Verrouillez bien toutes les portes",
+      "- Prenez photo du gardien et de l'emplacement (preuve en cas de problème)",
+      
+      "### Que faire en cas de parking complet ?",
+      
+      "**Option 1 : Parkings relais**",
+      "Tous les stades proposent des parkings relais avec navettes gratuites. C'est l'alternative la plus simple et sûre.",
+      
+      "**Option 2 : Parkings de quartier**",
+      "Autour de chaque stade, des parkings privés de quartier proposent des places (30-50 MAD). Souvent annoncés par des panneaux \"Parking CAN 2025\".",
+      
+      "**Option 3 : Gardiens de rue**",
+      "En dernier recours, trouvez un gardien de rue officiel dans les rues adjacentes (10-20 MAD). Marche de 10-15 minutes jusqu'au stade.",
+      
+      "**Option 4 : Taxi/VTC**",
+      "Faites-vous déposer en taxi puis récupérez après le match. Attention : trouver un taxi après le match peut être compliqué (forte demande). Négociez avec le chauffeur pour qu'il revienne vous chercher à une heure précise.",
+      
+      "### Applications utiles",
+      
+      "**Waze / Google Maps :**",
+      "- Indispensable pour navigation",
+      "- Affiche trafic en temps réel",
+      "- Propose itinéraires alternatifs si bouchon",
+      "- Téléchargez carte hors ligne (réseau saturé jours de match)",
+      
+      "**Moovit (transports en commun) :**",
+      "- Calcule itinéraires bus/tramway/train",
+      "- Horaires en temps réel",
+      "- Alternative crédible à la voiture",
+      
+      "**Parkopedia :**",
+      "- Recense parkings privés autour des stades",
+      "- Tarifs indicatifs",
+      "- Avis utilisateurs",
+      
+      "### Sortie après le match : patience !",
+      
+      "**Affluence de sortie :**",
+      "À la fin du match, 40 000-60 000 personnes quittent le stade simultanément. Embouteillages garantis pendant 30-60 minutes.",
+      
+      "**Stratégies pour éviter le pire :**",
+      
+      "**1. Partez 5 minutes avant la fin (si le score est acquis)**",
+      "Vous évitez le gros de la foule. Contrepartie : vous ratez les dernières minutes et la célébration.",
+      
+      "**2. Attendez 20-30 minutes après le coup de sifflet final**",
+      "Prenez un café/thé dans les alentours du stade, laissez la foule se disperser, puis rentrez tranquillement. Souvent la meilleure option !",
+      
+      "**3. Utilisez les parkings avec sortie rapide**",
+      "Parkings Sud de Casablanca et Marrakech, Parking Nord de Rabat : sorties plus fluides que les autres.",
+      
+      "**4. Profitez de l'ambiance post-match**",
+      "Célébrations, chants, rencontres avec supporters adverses. L'ambiance après un grand match est magique. Profitez-en au lieu de stresser dans les bouchons !",
+      
+      "---",
+      
+      "## Alternatives : location de voiture avec chauffeur",
+      
+      "Si la gestion du parking et du trafic vous rebute, envisagez la **location de voiture avec chauffeur** pour les jours de match.",
+      
+      "**Avantages :**",
+      "- Aucun stress parking",
+      "- Chauffeur connaît les meilleurs itinéraires",
+      "- Vous pouvez célébrer/boire sans souci (pas de conduite)",
+      "- Dépose et récupération aux portes du stade",
+      
+      "**Tarifs indicatifs :**",
+      "- Berline confort + chauffeur : 500-800 MAD/jour (8h)",
+      "- Monospace 7 places + chauffeur : 700-1000 MAD/jour",
+      "- Van 15 places pour groupe supporters : 1200-1800 MAD/jour",
+      
+      "**Réservation :**",
+      "Via Benatna.ma, sélectionnez option \"Avec chauffeur\" lors de votre réservation. Nos partenaires locaux proposent ce service dans les 6 villes-stades.",
+      
+      "**Bon plan groupe :**",
+      "À 7 supporters, un van avec chauffeur coûte environ 150-200 MAD/personne pour la journée. Imbattable en confort et tranquillité !",
+      
+      "---",
+      
+      "## Checklist finale : êtes-vous prêt ?",
+      
+      "**3 jours avant le match :**",
+      "☑ Vérifiez votre véhicule : pneus, niveau essence, feux, documents (permis, carte grise, assurance)",
+      "☑ Téléchargez cartes GPS hors ligne de la ville du match",
+      "☑ Identifiez sur Google Maps les parkings officiels et relais",
+      "☑ Notez l'adresse exacte du stade + numéros utiles (police 19, agence location)",
+      
+      "**Jour du match :**",
+      "☑ Faites le plein d'essence (évitez stations bondées avant/après match)",
+      "☑ Préparez monnaie pour parking (billets 20 MAD)",
+      "☑ Rangez objets de valeur dans coffre (avant d'arriver au parking !)",
+      "☑ Partez 2h-3h avant selon stade et importance du match",
+      "☑ Activez GPS 30 minutes avant départ (téléchargez éventuelles mises à jour trafic)",
+      
+      "**À l'arrivée au parking :**",
+      "☑ Prenez photo de l'emplacement (nom parking, numéro allée, repères visuels)",
+      "☑ Notez localisation GPS si parking immense",
+      "☑ Verrouillez toutes portes, fermez vitres",
+      "☑ Gardez ticket de parking sur vous (si parking payant avec ticket)",
+      
+      "**Après le match :**",
+      "☑ Retrouvez votre voiture (photo prise à l'arrivée !)",
+      "☑ Vérifiez état extérieur rapide",
+      "☑ Soyez patient dans embouteillages (normal, tout le monde part en même temps)",
+      "☑ Allumez GPS pour contourner bouchons si possible",
+      
+      "---",
+      
+      "## Conclusion : arrivez zen, repartez serein",
+      
+      "Avec ce guide complet, vous savez désormais tout sur les parkings et accès aux 6 stades de la CAN 2025. Chaque stade a ses spécificités, mais les règles de base restent les mêmes : arriver tôt, prévoir espèces, sécuriser son véhicule, et rester patient en sortie.",
+      
+      "Les infrastructures marocaines sont modernes et bien organisées. Les parkings relais gratuits/peu chers sont une excellente initiative. Les navettes fonctionnent bien. L'accueil et l'organisation seront à la hauteur de l'événement.",
+      
+      "Ne laissez pas le stress du parking gâcher votre plaisir. Suivez nos conseils, anticipez, et concentrez-vous sur l'essentiel : vibrer au rythme des matchs de cette CAN 2025 historique !",
+      
+      "Et si vraiment vous ne voulez aucun stress parking : optez pour la location avec chauffeur. Confort absolu. 🚗⚽🇲🇦",
+      
+      "**Bon match à tous ! Que la fête soit belle !**"
+    ]
+  },
+  {
     id: 7,
     slug: "pourquoi-benatna",
     title: "Benatna : la révolution de la location de voiture au Maroc",
