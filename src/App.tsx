@@ -16,7 +16,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { BottomNavigation } from "@/components/BottomNavigation";
 
 // Lazy load truly non-critical components - will be deferred
-const WhatsAppButton = lazy(() => import("@/components/WhatsAppButton"));
+const FloatingActionMenu = lazy(() => import("@/components/FloatingActionMenu"));
 const AIAssistant = lazy(() => import("@/components/AIAssistant").then(m => ({ default: m.AIAssistant })));
 const BackToTop = lazy(() => import("@/components/BackToTop").then(m => ({ default: m.BackToTop })));
 const PWAUpdatePrompt = lazy(() => import("@/components/PWAUpdatePrompt").then(m => ({ default: m.PWAUpdatePrompt })));
@@ -93,7 +93,7 @@ const DeferredComponents = () => {
 
   return (
     <Suspense fallback={null}>
-      <WhatsAppButton />
+      <FloatingActionMenu />
       <div className="hidden md:block">
         <AIAssistant />
       </div>
