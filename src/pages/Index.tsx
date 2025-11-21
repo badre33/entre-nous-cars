@@ -531,6 +531,85 @@ const Index = () => {
         </div>
       </section>
 
+      {/* CAN 2025 Special Event Section */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl" />
+        </div>
+        <div className="container px-4 sm:px-6 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8">
+              <Badge className="mb-4 text-base px-6 py-2 bg-gradient-to-r from-primary to-accent text-white border-0">
+                🏆 Événement Spécial
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+                CAN 2025 au Maroc
+              </h2>
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                Coupe d'Afrique des Nations • 21 Déc 2025 - 18 Jan 2026
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
+              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl">
+                <CardContent className="pt-8 pb-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">6 Villes Hôtes</h3>
+                      <p className="text-muted-foreground text-sm">
+                        Casablanca, Rabat, Marrakech, Agadir, Fès, Tanger
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Badge variant="outline" className="text-xs">Stades Modernes</Badge>
+                    <Badge variant="outline" className="text-xs">Accès Optimisé</Badge>
+                    <Badge variant="outline" className="text-xs">Parking Disponible</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="border-2 border-accent/20 hover:border-accent/40 transition-all duration-300 hover:shadow-xl">
+                <CardContent className="pt-8 pb-6">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-6 h-6 text-accent" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">Offres Spéciales</h3>
+                      <p className="text-muted-foreground text-sm">
+                        Tarifs groupes, réservation anticipée, véhicules adaptés
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    <Badge variant="outline" className="text-xs">-15% Groupes</Badge>
+                    <Badge variant="outline" className="text-xs">SUV & Vans</Badge>
+                    <Badge variant="outline" className="text-xs">Annulation Flexible</Badge>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div className="text-center">
+              <Link to="/location-voiture-can-2025-maroc">
+                <Button size="lg" className="rounded-full text-lg px-10 h-14 bg-gradient-to-r from-primary to-accent hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+                  Voir Nos Offres CAN 2025
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <p className="text-sm text-muted-foreground mt-4">
+                Réservez maintenant et profitez des meilleurs tarifs pour la CAN 2025
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Popular Cities */}
       <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
         <div className="container px-4 sm:px-6">

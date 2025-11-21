@@ -32,6 +32,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/location-voiture-can-2025-maroc" className="text-muted-foreground hover:text-foreground transition-colors font-semibold">
+                  🏆 CAN 2025 Maroc
+                </Link>
+              </li>
+              <li>
                 <Link to="/partenaires" className="text-muted-foreground hover:text-foreground transition-colors">
                   {t('common.partners')}
                 </Link>
