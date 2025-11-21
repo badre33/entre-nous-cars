@@ -137,7 +137,6 @@ const Index = () => {
         <img 
           src={heroImage} 
           alt={generateHeroImageAlt()}
-          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
           style={{ 
             transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
