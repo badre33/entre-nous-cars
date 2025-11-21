@@ -1,4 +1,4 @@
-import { MessageCircle, Phone, Mail, Bot, X } from "lucide-react";
+import { MessageCircle, Phone, Mail, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,6 @@ import { cn } from "@/lib/utils";
 
 const FloatingActionMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showAIChat, setShowAIChat] = useState(false);
   const location = useLocation();
   
   // Ne pas afficher sur les pages avec StickyCTA
@@ -57,18 +56,6 @@ const FloatingActionMenu = () => {
         analytics.trackEvent('fab_action', { action: 'email' });
         setIsOpen(false);
       }
-    },
-    {
-      id: 'ai',
-      label: 'Chat IA',
-      icon: Bot,
-      color: 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600',
-      onClick: () => {
-        triggerHaptic('medium');
-        setShowAIChat(true);
-        analytics.trackEvent('fab_action', { action: 'ai_chat' });
-        setIsOpen(false);
-      }
     }
   ];
 
@@ -79,35 +66,6 @@ const FloatingActionMenu = () => {
 
   return (
     <>
-      {/* AI Chat Dialog */}
-      {showAIChat && (
-        <Card className="fixed bottom-[208px] md:bottom-24 left-4 right-4 md:left-6 md:right-auto md:w-[400px] z-50 shadow-2xl animate-scale-in">
-          <div className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-4 rounded-t-lg flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <Bot className="w-6 h-6 text-purple-500" />
-              </div>
-              <div>
-                <h3 className="font-semibold">Assistant IA</h3>
-                <p className="text-xs text-white/90">Disponible 24/7</p>
-              </div>
-            </div>
-            <button
-              onClick={() => setShowAIChat(false)}
-              className="hover:bg-white/20 rounded-full p-1 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-          <CardContent className="p-4 min-h-[300px] max-h-[400px] bg-muted/30">
-            <p className="text-sm text-muted-foreground text-center mt-20">
-              L'assistant IA sera bientôt disponible pour répondre à toutes vos questions sur nos services de location.
-            </p>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* FAB Menu */}
       <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
           <button
