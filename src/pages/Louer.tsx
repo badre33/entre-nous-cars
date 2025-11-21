@@ -35,7 +35,8 @@ import { ShareButton } from "@/components/ShareButton";
 import { FilterBottomSheet } from "@/components/FilterBottomSheet";
 import { StickyCTA } from "@/components/StickyCTA";
 import { useIsMobile } from "@/hooks/use-mobile";
-import CarCard from "@/components/CarCard";
+import SwipeableCarCard from "@/components/SwipeableCarCard";
+import CarPreviewDialog from "@/components/CarPreviewDialog";
 import heroImage from "@/assets/hero-rent.jpg";
 import carClio from "@/assets/car-clio.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
@@ -4097,6 +4098,7 @@ const Louer = () => {
   const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('carousel');
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
   const isMobile = useIsMobile();
+  const [previewCar, setPreviewCar] = useState<typeof cars[0] | null>(null);
 
   // Pull to refresh
   const handleRefresh = async () => {
@@ -4595,7 +4597,7 @@ const Louer = () => {
                       <CarouselContent className="-ml-2">
                         {displayedCars.map((car) => (
                           <CarouselItem key={car.id} className="pl-2 basis-[90%]">
-                            <CarCard
+                            <SwipeableCarCard
                               car={car}
                               viewMode="carousel"
                               startDate={startDate}
@@ -4610,6 +4612,7 @@ const Louer = () => {
                               }}
                               onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                               onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                              onPreview={() => setPreviewCar(car)}
                             />
                           </CarouselItem>
                         ))}
@@ -4619,7 +4622,7 @@ const Louer = () => {
                     </Carousel>
                     <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
                       <p className="text-xs text-center text-muted-foreground">
-                        👆 Glissez pour voir les {displayedCars.length} véhicules
+                        👆 Glissez pour voir • 👇 Swipe vers le bas pour fermer • 👈 Swipe pour comparer • 🤚 Maintenez pour preview
                       </p>
                     </div>
                   </>
@@ -4628,7 +4631,7 @@ const Louer = () => {
                 {viewMode === 'grid' && (
                   <div className="grid grid-cols-2 gap-3">
                     {displayedCars.map((car) => (
-                      <CarCard
+                      <SwipeableCarCard
                         key={car.id}
                         car={car}
                         viewMode="grid"
@@ -4644,6 +4647,7 @@ const Louer = () => {
                         }}
                         onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                         onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                        onPreview={() => setPreviewCar(car)}
                       />
                     ))}
                   </div>
@@ -4652,7 +4656,7 @@ const Louer = () => {
                 {viewMode === 'list' && (
                   <div className="space-y-0">
                     {displayedCars.map((car) => (
-                      <CarCard
+                      <SwipeableCarCard
                         key={car.id}
                         car={car}
                         viewMode="list"
@@ -4668,6 +4672,7 @@ const Louer = () => {
                         }}
                         onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                         onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                        onPreview={() => setPreviewCar(car)}
                       />
                     ))}
                   </div>
@@ -4734,6 +4739,14 @@ const Louer = () => {
       {/* Comparison Dialog */}
       <ComparisonDialog open={showComparison} onOpenChange={setShowComparison} />
       
+      {/* Car Preview Dialog */}
+      <CarPreviewDialog
+        car={previewCar}
+        isOpen={!!previewCar}
+        onClose={() => setPreviewCar(null)}
+        onShowAvailability={() => previewCar && handleShowAvailability(previewCar.name, previewCar.city, previewCar.priceDisplay)}
+        onWhatsAppClick={() => previewCar && handleWhatsAppClick(previewCar.name, previewCar.city, previewCar.priceDisplay)}
+      />
     </div>
   );
 };
