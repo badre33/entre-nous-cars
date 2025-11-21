@@ -26,6 +26,7 @@ import { CarProductSchema } from "@/components/CarProductSchema";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -4111,6 +4112,11 @@ const Louer = () => {
   const { isPulling, isRefreshing, pullDistance, pullPercentage } = usePullToRefresh({
     onRefresh: handleRefresh,
   });
+
+  // Préchargement intelligent des images de voitures suivantes
+  useIntelligentPreloader([
+    { selector: 'img[data-car-image]', attribute: 'src' }
+  ], 0.6);
 
   // Lire les paramètres de l'URL au chargement
   useEffect(() => {

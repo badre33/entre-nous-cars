@@ -13,6 +13,7 @@ import { FloatingCTA } from "@/components/FloatingCTA";
 import { SEOLinks } from "@/components/SEOLinks";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { StructuredData } from "@/components/StructuredData";
 import { generateHeroImageAlt, generateCityImageAlt } from "@/utils/seoHelpers";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
@@ -37,6 +38,12 @@ const Index = () => {
   const howItWorksAnimation = useScrollAnimation(0.2);
   const whyAnimation = useScrollAnimation(0.2);
   const citiesAnimation = useScrollAnimation(0.2);
+  
+  // Préchargement intelligent des images suivantes
+  useIntelligentPreloader([
+    { selector: 'img[data-city-image]', attribute: 'src' },
+    { selector: 'img[loading="lazy"]', attribute: 'src' }
+  ], 0.6);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -546,6 +553,7 @@ const Index = () => {
                       alt={generateCityImageAlt(city.name)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
+                      data-city-image
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       decoding="async"
                     />
