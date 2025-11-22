@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { format, isSameDay } from "date-fns";
@@ -19,6 +20,7 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
   const today = new Date();
+  const isMobile = useIsMobile();
 
   const handleDateSelect = (date: Date | undefined) => {
     if (!date) return;
@@ -58,7 +60,7 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="max-w-3xl w-[95vw] sm:w-full max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-6rem)] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl">
             Disponibilités - {carName}
@@ -77,7 +79,7 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
               modifiersClassNames={modifiersClassNames}
               locale={fr}
               className="pointer-events-auto border rounded-lg p-4"
-              numberOfMonths={2}
+              numberOfMonths={isMobile ? 1 : 2}
             />
           </div>
 
