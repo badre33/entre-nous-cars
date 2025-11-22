@@ -4186,6 +4186,44 @@ const Louer = () => {
   const handleSelectDates = (start: Date, end: Date) => {
     setStartDate(start);
     setEndDate(end);
+    setShowAvailability(false);
+    
+    // Envoyer automatiquement sur WhatsApp avec les dates
+    if (selectedCar) {
+      // Animation confettis
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#ffda00', '#d0f690', '#048592']
+      });
+      
+      // Toast de confirmation
+      toast({
+        title: "Dates sélectionnées !",
+        description: `Du ${format(start, "dd/MM/yyyy", { locale: fr })} au ${format(end, "dd/MM/yyyy", { locale: fr })}`,
+      });
+      
+      // Construire le message WhatsApp avec toutes les informations
+      setTimeout(() => {
+        const dateDebut = format(start, "dd/MM/yyyy", { locale: fr });
+        const dateFin = format(end, "dd/MM/yyyy", { locale: fr });
+        const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+        
+        const message = `Bonjour, je souhaite réserver ${selectedCar.name} à ${selectedCar.city} (${selectedCar.price}/jour)
+        
+📅 Dates : du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
+
+Pouvez-vous confirmer la disponibilité et me donner le prix total ?
+
+Merci !`;
+        
+        window.open(
+          `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
+          '_blank'
+        );
+      }, 500);
+    }
   };
 
   const cities = ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"];
