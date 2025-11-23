@@ -7,7 +7,7 @@ import { CheckCircle2, Wallet, CreditCard, AlertCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CanonicalTag } from "@/components/CanonicalTag";
 import { FAQSchemaEnriched } from "@/components/schemas/FAQSchemaEnriched";
-import { ServiceSchema } from "@/components/ServiceSchema";
+
 import { BreadcrumbsEnriched } from "@/components/BreadcrumbsEnriched";
 
 const PaiementEspecesSansCarte = () => {
@@ -44,16 +44,27 @@ const PaiementEspecesSansCarte = () => {
 
       <CanonicalTag path="/paiement-especes-sans-carte-maroc" />
       <FAQSchemaEnriched faqs={faqs} pageName="Paiement Espèces Location Voiture Maroc" />
-      <ServiceSchema
-        name="Location Voiture Paiement Espèces Sans Carte Maroc"
-        description="Service de location de voiture au Maroc avec paiement en espèces. Caution cash acceptée, pas de carte bancaire obligatoire."
-        provider="Benatna"
-        areaServed="Maroc"
-        availableChannel={[
-          { "@type": "WebSite", "url": "https://www.benatna.com" },
-          { "@type": "ContactPoint", "telephone": "+212-6-00-00-00-00", "contactType": "Réservations" }
-        ]}
-      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Location Voiture Paiement Espèces Sans Carte Maroc",
+            "description": "Service de location de voiture au Maroc avec paiement en espèces. Caution cash acceptée, pas de carte bancaire obligatoire.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Benatna",
+              "url": "https://www.benatna.com",
+              "telephone": "+212699024526"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Maroc"
+            },
+            "paymentAccepted": "Cash"
+          })}
+        </script>
+      </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />

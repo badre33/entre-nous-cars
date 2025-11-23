@@ -7,7 +7,7 @@ import { CheckCircle2, Shield, Car, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CanonicalTag } from "@/components/CanonicalTag";
 import { FAQSchemaEnriched } from "@/components/schemas/FAQSchemaEnriched";
-import { ServiceSchema } from "@/components/ServiceSchema";
+
 import { BreadcrumbsEnriched } from "@/components/BreadcrumbsEnriched";
 
 const LocationSansFranchise = () => {
@@ -44,16 +44,37 @@ const LocationSansFranchise = () => {
 
       <CanonicalTag path="/location-sans-franchise-maroc" />
       <FAQSchemaEnriched faqs={faqs} pageName="Location Voiture Sans Franchise Maroc" />
-      <ServiceSchema
-        name="Location Voiture Sans Franchise Maroc"
-        description="Service de location de voiture au Maroc avec protection sans franchise 0 DH. Couverture totale des dommages, vol, et bris de glace."
-        provider="Benatna"
-        areaServed="Maroc"
-        availableChannel={[
-          { "@type": "WebSite", "url": "https://www.benatna.com" },
-          { "@type": "ContactPoint", "telephone": "+212-6-00-00-00-00", "contactType": "Réservations" }
-        ]}
-      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Location Voiture Sans Franchise Maroc",
+            "description": "Service de location de voiture au Maroc avec protection sans franchise 0 DH. Couverture totale des dommages, vol, et bris de glace.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Benatna",
+              "url": "https://www.benatna.com",
+              "telephone": "+212699024526"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Maroc"
+            },
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "MAD",
+              "price": "50",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "50",
+                "priceCurrency": "MAD",
+                "unitText": "jour"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />
