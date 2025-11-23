@@ -17,6 +17,7 @@ import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
 import { agadirReviews } from "@/data/reviewsData";
+import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
 const LocationVoitureAgadir = () => {
@@ -90,6 +91,9 @@ const LocationVoitureAgadir = () => {
         latitude="30.4278"
         longitude="-9.5981"
       />
+      
+      {/* Product Schema véhicules Agadir */}
+      <VehicleProductSchemas city="Agadir" />
       
       <Header />
       <Breadcrumbs />

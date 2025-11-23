@@ -17,6 +17,7 @@ import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
 import { rabatReviews } from "@/data/reviewsData";
+import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityRabat from "@/assets/city-rabat.jpg";
 
 const LocationVoitureRabat = () => {
@@ -90,6 +91,9 @@ const LocationVoitureRabat = () => {
         latitude="34.0331"
         longitude="-6.7519"
       />
+      
+      {/* Product Schema véhicules Rabat */}
+      <VehicleProductSchemas city="Rabat" />
       
       <Header />
       <Breadcrumbs />

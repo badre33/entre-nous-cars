@@ -25,6 +25,7 @@ import {
   OpeningHoursSchema
 } from "@/components/schemas";
 import { casablancaReviews } from "@/data/reviewsData";
+import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 
 const LocationVoitureCasablanca = () => {
@@ -143,6 +144,9 @@ const LocationVoitureCasablanca = () => {
         latitude="33.3676"
         longitude="-7.5898"
       />
+      
+      {/* Product Schema véhicules Casablanca */}
+      <VehicleProductSchemas city="Casablanca" />
       
       {/* Quick Win 4: FAQ Schema Enrichi */}
       <FAQSchemaEnriched 

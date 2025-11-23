@@ -17,6 +17,7 @@ import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
 import { tangerReviews } from "@/data/reviewsData";
+import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityTanger from "@/assets/city-tanger.jpg";
 
 const LocationVoitureTanger = () => {
@@ -90,6 +91,9 @@ const LocationVoitureTanger = () => {
         latitude="35.7595"
         longitude="-5.8340"
       />
+      
+      {/* Product Schema véhicules Tanger */}
+      <VehicleProductSchemas city="Tanger" />
       
       <Header />
       <Breadcrumbs />

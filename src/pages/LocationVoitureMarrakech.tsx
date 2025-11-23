@@ -25,6 +25,7 @@ import {
   OpeningHoursSchema
 } from "@/components/schemas";
 import { marrakechReviews } from "@/data/reviewsData";
+import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
 const LocationVoitureMarrakech = () => {
@@ -142,6 +143,9 @@ const LocationVoitureMarrakech = () => {
         latitude="31.6069"
         longitude="-8.0363"
       />
+      
+      {/* Product Schema véhicules Marrakech */}
+      <VehicleProductSchemas city="Marrakech" />
       
       {/* FAQ Schema pour Rich Snippets */}
       <FAQSchemaEnriched 

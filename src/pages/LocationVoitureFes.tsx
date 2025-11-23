@@ -17,6 +17,7 @@ import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
 import { fesReviews } from "@/data/reviewsData";
+import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityFes from "@/assets/city-fes.jpg";
 
 const LocationVoitureFes = () => {
@@ -90,6 +91,9 @@ const LocationVoitureFes = () => {
         latitude="34.0331"
         longitude="-5.0003"
       />
+      
+      {/* Product Schema véhicules Fès */}
+      <VehicleProductSchemas city="Fès" />
       
       <Header />
       <Breadcrumbs />
