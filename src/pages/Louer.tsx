@@ -4269,7 +4269,15 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
     // Mélanger uniquement si aucun filtre n'est appliqué
     const noFiltersApplied = selectedCity === "all" && selectedType === "all" && 
                              selectedBrand === "all" && selectedCategory === "all";
-    return noFiltersApplied ? shuffleArray(filtered) : filtered;
+
+    const result = noFiltersApplied ? shuffleArray(filtered) : filtered;
+    console.log("[Louer] displayedCars length:", result.length, {
+      selectedCity,
+      selectedType,
+      selectedBrand,
+      selectedCategory,
+    });
+    return result;
   }, [selectedCity, selectedType, selectedBrand, selectedCategory]);
 
   return (
