@@ -6,16 +6,24 @@
  */
 export function calculateDailyPrice(basePrice: number, days: number): number {
   if (days >= 30) {
-    // 25% de réduction pour 30+ jours
-    return basePrice * 0.75;
-  } else if (days >= 14) {
-    // 15% de réduction pour 14-29 jours
-    return basePrice * 0.85;
-  } else if (days >= 7) {
-    // 10% de réduction pour 7-13 jours
+    // 10% de réduction pour 30+ jours
     return basePrice * 0.90;
+  } else if (days >= 7) {
+    // 5% de réduction pour 7-29 jours
+    return basePrice * 0.95;
   }
   return basePrice;
+}
+
+/**
+ * Récupère le pourcentage de réduction selon la durée
+ * @param days - Nombre de jours de location
+ * @returns Pourcentage de réduction (0, 5 ou 10)
+ */
+export function getDiscountPercentage(days: number): number {
+  if (days >= 30) return 10;
+  if (days >= 7) return 5;
+  return 0;
 }
 
 /**

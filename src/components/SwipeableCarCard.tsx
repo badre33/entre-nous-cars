@@ -10,7 +10,7 @@ import LazyCarImage from "@/components/LazyCarImage";
 import { useSwipeGesture } from "@/hooks/useSwipeGesture";
 import { useLongPress } from "@/hooks/useLongPress";
 import { hapticAddToCompare, hapticRemoveFromCompare } from "@/utils/haptics";
-import { calculateDays, calculateTotalPrice, formatPrice } from "@/utils/priceCalculations";
+import { calculateDays, calculateTotalPrice, formatPrice, getDiscountPercentage } from "@/utils/priceCalculations";
 import { generateCarImageAlt } from "@/utils/seoHelpers";
 
 interface SwipeableCarCardProps {
@@ -56,7 +56,7 @@ export default function SwipeableCarCard({
   const priceInfo = days > 0 ? {
     total: formatPrice(calculateTotalPrice(basePrice, days)),
     days,
-    discount: days >= 7 ? Math.round((1 - (basePrice / (1 + (days - 1) * 0.95)) / basePrice) * 100) : 0
+    discount: getDiscountPercentage(days)
   } : null;
 
   const imageAlt = generateCarImageAlt(car.name, car.city, car.category, car.priceDisplay);
