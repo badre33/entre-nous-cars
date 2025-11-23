@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { EnhancedBreadcrumbs } from "@/components/EnhancedBreadcrumbs";
+import { createBreadcrumbs } from "@/components/schemas";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -175,7 +176,14 @@ const LocationVoitureCasablanca = () => {
         ]}
       />
       <Header />
-      <Breadcrumbs />
+      <EnhancedBreadcrumbs 
+        items={[
+          createBreadcrumbs.home(),
+          createBreadcrumbs.services(),
+          createBreadcrumbs.city("Casablanca", "casablanca")
+        ]}
+        showIcons={true}
+      />
 
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] flex items-center">

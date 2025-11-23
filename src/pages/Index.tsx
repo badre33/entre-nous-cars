@@ -24,7 +24,7 @@ import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema, SitelinksSearchBoxSchema } from "@/components/schemas";
+import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema, SitelinksSearchBoxSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import heroImage from "@/assets/hero-home-new.png";
@@ -151,6 +151,9 @@ const Index = () => {
       
       {/* Product Schema pour top 20 véhicules */}
       <VehicleProductSchemas limit={20} />
+      
+      {/* BreadcrumbList Schema (Homepage) */}
+      <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
       
       <Header />
       
