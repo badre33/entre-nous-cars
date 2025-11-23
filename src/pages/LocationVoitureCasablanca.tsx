@@ -16,6 +16,12 @@ import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { HreflangTags } from "@/utils/hreflangHelper";
+import { 
+  EnhancedAggregateRatingSchema, 
+  PriceRangeOfferSchema, 
+  FAQSchemaEnriched,
+  MultiLocationSchema
+} from "@/components/schemas";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 
 const LocationVoitureCasablanca = () => {
@@ -72,6 +78,80 @@ const LocationVoitureCasablanca = () => {
         averageRating={4.8}
         totalReviews={1247}
         city="Casablanca"
+      />
+      
+      {/* Quick Win 1: Enhanced Aggregate Rating */}
+      <EnhancedAggregateRatingSchema 
+        entityType="LocalBusiness"
+        entityName="Benatna Location de Voiture Casablanca"
+      />
+      
+      {/* Quick Win 2: Price Range Offer Schema */}
+      <PriceRangeOfferSchema 
+        minPrice="150"
+        maxPrice="800"
+        city="Casablanca"
+        discount={{ percentage: 10, minDays: 30 }}
+      />
+      
+      {/* Quick Win 3: Multi-Location Schema */}
+      <MultiLocationSchema 
+        locations={[
+          {
+            name: "Aéroport Mohammed V",
+            address: "Aéroport Mohammed V, Terminal 1 et 2",
+            city: "Casablanca",
+            postalCode: "27000",
+            latitude: "33.3676",
+            longitude: "-7.5898",
+            description: "Point de retrait principal à l'aéroport Mohammed V, disponible 24/7 avec service de livraison express."
+          },
+          {
+            name: "Centre-ville Casablanca",
+            address: "Boulevard Mohammed V",
+            city: "Casablanca",
+            postalCode: "20000",
+            latitude: "33.5731",
+            longitude: "-7.6019",
+            description: "Agence en centre-ville, proche des quartiers d'affaires et commerciaux."
+          },
+          {
+            name: "Ain Diab",
+            address: "Corniche Ain Diab",
+            city: "Casablanca",
+            postalCode: "20050",
+            latitude: "33.5985",
+            longitude: "-7.6704",
+            description: "Point de retrait à Ain Diab, idéal pour les séjours balnéaires."
+          }
+        ]}
+      />
+      
+      {/* Quick Win 4: FAQ Schema Enrichi */}
+      <FAQSchemaEnriched 
+        pageName="Location de Voiture à Casablanca"
+        faqs={[
+          {
+            question: "Quel est le prix de la location de voiture à Casablanca ?",
+            answer: "Les prix démarrent à 150 DH/jour pour une voiture économique. Nous proposons des réductions pour les locations longue durée : -5% à partir de 7 jours, -10% à partir de 30 jours."
+          },
+          {
+            question: "Puis-je louer une voiture à l'aéroport Mohammed V ?",
+            answer: "Oui, nous proposons un service de livraison gratuite à l'aéroport Mohammed V 24/7. Notre équipe vous attend à votre arrivée avec le véhicule de votre choix."
+          },
+          {
+            question: "Faut-il une carte de crédit pour louer ?",
+            answer: "Non, la location sans carte de crédit est possible chez Benatna. Nous acceptons les paiements en espèces, virement bancaire ou carte bancaire classique."
+          },
+          {
+            question: "Quels documents sont nécessaires pour louer une voiture à Casablanca ?",
+            answer: "Vous aurez besoin d'une carte d'identité nationale (CIN) ou passeport, d'un permis de conduire valide depuis au moins 1 an, et d'un justificatif de domicile récent."
+          },
+          {
+            question: "L'assurance est-elle incluse dans le prix ?",
+            answer: "Oui, l'assurance tous risques est incluse dans tous nos tarifs. Vous êtes couvert pour les dommages au véhicule et la responsabilité civile, avec une franchise réduite."
+          }
+        ]}
       />
       <Header />
       <Breadcrumbs />
