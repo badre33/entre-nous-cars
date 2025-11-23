@@ -131,7 +131,7 @@ export const HeroSearchForm = () => {
               Date de début
             </Label>
             <Select value={startDate} onValueChange={setStartDate}>
-              <SelectTrigger className="w-full h-12 text-base">
+              <SelectTrigger className="w-full h-12 text-sm px-3">
                 <SelectValue placeholder="Sélectionnez une date" />
               </SelectTrigger>
               <SelectContent>
@@ -146,10 +146,10 @@ export const HeroSearchForm = () => {
           <div className="w-full space-y-2">
             <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
               <Clock className="w-4 h-4" />
-              Heure de début
+              Heure
             </Label>
             <Select value={startTime} onValueChange={setStartTime}>
-              <SelectTrigger className="w-full h-12 text-base">
+              <SelectTrigger className="w-full h-12 text-sm px-3">
                 <SelectValue placeholder="Sélectionnez une heure" />
               </SelectTrigger>
               <SelectContent>
@@ -167,7 +167,7 @@ export const HeroSearchForm = () => {
               Date de fin
             </Label>
             <Select value={endDate} onValueChange={setEndDate}>
-              <SelectTrigger className="w-full h-12 text-base">
+              <SelectTrigger className="w-full h-12 text-sm px-3">
                 <SelectValue placeholder="Sélectionnez une date" />
               </SelectTrigger>
               <SelectContent>
@@ -182,10 +182,10 @@ export const HeroSearchForm = () => {
           <div className="w-full space-y-2">
             <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
               <Clock className="w-4 h-4" />
-              Heure de fin
+              Heure
             </Label>
             <Select value={endTime} onValueChange={setEndTime}>
-              <SelectTrigger className="w-full h-12 text-base">
+              <SelectTrigger className="w-full h-12 text-sm px-3">
                 <SelectValue placeholder="Sélectionnez une heure" />
               </SelectTrigger>
               <SelectContent>
