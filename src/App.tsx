@@ -19,7 +19,6 @@ import { BottomNavigation } from "@/components/BottomNavigation";
 const FloatingActionMenu = lazy(() => import("@/components/FloatingActionMenu"));
 const AIAssistant = lazy(() => import("@/components/AIAssistant").then(m => ({ default: m.AIAssistant })));
 const BackToTop = lazy(() => import("@/components/BackToTop").then(m => ({ default: m.BackToTop })));
-const PWAUpdatePrompt = lazy(() => import("@/components/PWAUpdatePrompt").then(m => ({ default: m.PWAUpdatePrompt })));
 import { PageSkeleton } from "@/components/PageSkeleton";
 import { analytics } from "@/utils/analytics";
 
@@ -105,7 +104,6 @@ const DeferredComponents = () => {
         <AIAssistant />
       </div>
       <BackToTop />
-      <PWAUpdatePrompt />
     </Suspense>
   );
 };
