@@ -20,8 +20,10 @@ import {
   EnhancedAggregateRatingSchema, 
   PriceRangeOfferSchema, 
   FAQSchemaEnriched,
-  MultiLocationSchema
+  MultiLocationSchema,
+  IndividualReviewsSchema
 } from "@/components/schemas";
+import { casablancaReviews } from "@/data/reviewsData";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 
 const LocationVoitureCasablanca = () => {
@@ -84,6 +86,11 @@ const LocationVoitureCasablanca = () => {
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Casablanca"
+      />
+      <IndividualReviewsSchema
+        reviews={casablancaReviews}
+        entityType="LocalBusiness"
+        city="Casablanca"
       />
       
       {/* Quick Win 2: Price Range Offer Schema */}

@@ -15,7 +15,8 @@ import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema } from "@/components/schemas";
+import { EnhancedAggregateRatingSchema, IndividualReviewsSchema } from "@/components/schemas";
+import { rabatReviews } from "@/data/reviewsData";
 import cityRabat from "@/assets/city-rabat.jpg";
 
 const LocationVoitureRabat = () => {

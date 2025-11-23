@@ -9,3 +9,4 @@ export { PriceRangeOfferSchema } from './PriceRangeOfferSchema';
 export { FAQSchemaEnriched } from './FAQSchemaEnriched';
 export { MultiLocationSchema } from './MultiLocationSchema';
 export { EventSchema } from './EventSchema';
+export { IndividualReviewsSchema } from './IndividualReviewsSchema';
