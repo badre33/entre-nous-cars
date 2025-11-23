@@ -4742,21 +4742,26 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
 
           {/* Desktop Grid View */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {false ? (
-              <>
-                {[...Array(9)].map((_, i) => (
-                  <CarCardSkeleton key={i} viewMode="carousel" />
-                ))}
-              </>
-            ) : (
-              <>
-                {displayedCars.map((car) => (
-                  <Card key={car.id} className="overflow-hidden border-2 hover:shadow-xl transition-shadow rounded-2xl group">
-...
-                  </Card>
-                ))}
-              </>
-            )}
+            {displayedCars.map((car) => (
+              <SwipeableCarCard
+                key={car.id}
+                car={car}
+                viewMode="grid"
+                startDate={startDate}
+                endDate={endDate}
+                isInComparison={isInComparison(car.id)}
+                onToggleComparison={() => {
+                  if (isInComparison(car.id)) {
+                    removeFromComparison(car.id);
+                  } else {
+                    addToComparison(car);
+                  }
+                }}
+                onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                onPreview={() => setPreviewCar(car)}
+              />
+            ))}
           </div>
         </div>
       </section>
