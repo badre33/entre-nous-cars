@@ -4339,12 +4339,14 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                       <Button
                         variant="outline"
                         className={cn(
-                          "w-full justify-start text-left font-normal bg-secondary/20 border-0",
+                          "w-full justify-start text-left font-normal bg-secondary/20 border-0 text-sm md:text-base h-11",
                           !startDate && "text-muted-foreground"
                         )}
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
-                        {startDate ? format(startDate, "PPP", { locale: fr }) : "Sélectionner"}
+                        {startDate
+                          ? format(startDate, isMobile ? "dd/MM/yyyy" : "PPP", { locale: fr })
+                          : "Sélectionner"}
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
@@ -4382,12 +4384,14 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                       <Button
                         variant="outline"
                         className={cn(
-                          "w-full justify-start text-left font-normal bg-secondary/20 border-0",
+                          "w-full justify-start text-left font-normal bg-secondary/20 border-0 text-sm md:text-base h-11",
                           !endDate && "text-muted-foreground"
                         )}
                       >
                         <CalendarIcon className="mr-2 h-4 w-4" />
-                        {endDate ? format(endDate, "PPP", { locale: fr }) : "Sélectionner"}
+                        {endDate
+                          ? format(endDate, isMobile ? "dd/MM/yyyy" : "PPP", { locale: fr })
+                          : "Sélectionner"}
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
