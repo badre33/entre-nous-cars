@@ -21,7 +21,8 @@ import {
   PriceRangeOfferSchema, 
   FAQSchemaEnriched,
   MultiLocationSchema,
-  IndividualReviewsSchema
+  IndividualReviewsSchema,
+  OpeningHoursSchema
 } from "@/components/schemas";
 import { casablancaReviews } from "@/data/reviewsData";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
@@ -132,6 +133,15 @@ const LocationVoitureCasablanca = () => {
             description: "Point de retrait à Ain Diab, idéal pour les séjours balnéaires."
           }
         ]}
+      />
+      
+      {/* Opening Hours Schema pour Google Maps */}
+      <OpeningHoursSchema 
+        city="Casablanca"
+        entityType="LocalBusiness"
+        address="Aéroport Mohammed V"
+        latitude="33.3676"
+        longitude="-7.5898"
       />
       
       {/* Quick Win 4: FAQ Schema Enrichi */}

@@ -21,7 +21,8 @@ import {
   PriceRangeOfferSchema, 
   FAQSchemaEnriched,
   MultiLocationSchema,
-  IndividualReviewsSchema
+  IndividualReviewsSchema,
+  OpeningHoursSchema
 } from "@/components/schemas";
 import { marrakechReviews } from "@/data/reviewsData";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -131,6 +132,15 @@ const LocationVoitureMarrakech = () => {
             description: "Agence au centre du quartier moderne de Guéliz, proche des commerces."
           }
         ]}
+      />
+      
+      {/* Opening Hours Schema pour Google Maps */}
+      <OpeningHoursSchema 
+        city="Marrakech"
+        entityType="LocalBusiness"
+        address="Aéroport Marrakech-Ménara"
+        latitude="31.6069"
+        longitude="-8.0363"
       />
       
       {/* FAQ Schema pour Rich Snippets */}
