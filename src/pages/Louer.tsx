@@ -4339,14 +4339,16 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                       <Button
                         variant="outline"
                         className={cn(
-                          "w-full justify-start text-left font-normal bg-secondary/20 border-0 text-sm md:text-base h-11",
+                          "w-full justify-start text-left font-normal bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base",
                           !startDate && "text-muted-foreground"
                         )}
                       >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {startDate
-                          ? format(startDate, isMobile ? "dd/MM/yyyy" : "PPP", { locale: fr })
-                          : "Sélectionner"}
+                        <CalendarIcon className="mr-2 h-4 w-4 shrink-0" />
+                        <span className="truncate">
+                          {startDate
+                            ? format(startDate, isMobile ? "dd/MM/yyyy" : "PPP", { locale: fr })
+                            : "Sélectionner"}
+                        </span>
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
@@ -4384,14 +4386,16 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                       <Button
                         variant="outline"
                         className={cn(
-                          "w-full justify-start text-left font-normal bg-secondary/20 border-0 text-sm md:text-base h-11",
+                          "w-full justify-start text-left font-normal bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base",
                           !endDate && "text-muted-foreground"
                         )}
                       >
-                        <CalendarIcon className="mr-2 h-4 w-4" />
-                        {endDate
-                          ? format(endDate, isMobile ? "dd/MM/yyyy" : "PPP", { locale: fr })
-                          : "Sélectionner"}
+                        <CalendarIcon className="mr-2 h-4 w-4 shrink-0" />
+                        <span className="truncate">
+                          {endDate
+                            ? format(endDate, isMobile ? "dd/MM/yyyy" : "PPP", { locale: fr })
+                            : "Sélectionner"}
+                        </span>
                       </Button>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
