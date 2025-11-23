@@ -55,10 +55,10 @@ export function FilterBottomSheet({
       <DrawerTrigger asChild>
         <Button 
           variant="outline" 
-          className="w-full justify-start text-left bg-secondary/20 border-0 touch-target touch-feedback min-h-[48px]"
+          className="w-full justify-start text-left bg-secondary/20 border-0 touch-target touch-feedback min-h-[48px] h-11 text-xs sm:text-sm md:text-base"
         >
-          {icon}
-          <span className="ml-2">{triggerLabel}</span>
+          <span className="shrink-0">{icon}</span>
+          <span className="ml-2 truncate">{triggerLabel}</span>
         </Button>
       </DrawerTrigger>
       <DrawerContent 

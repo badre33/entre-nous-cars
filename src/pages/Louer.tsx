@@ -4317,8 +4317,8 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                     {t('common.city')}
                   </label>
                   <Select value={selectedCity} onValueChange={setSelectedCity}>
-                    <SelectTrigger className="bg-secondary/20 border-0">
-                      <SelectValue placeholder="Ville" />
+                    <SelectTrigger className="bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base">
+                      <SelectValue placeholder="Ville" className="truncate" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
                       <SelectItem value="all">{t('rent.allCities')}</SelectItem>
@@ -4494,8 +4494,8 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                         {t('rent.brand')}
                       </label>
                       <Select value={selectedBrand} onValueChange={setSelectedBrand}>
-                        <SelectTrigger className="bg-secondary/20 border-0">
-                          <SelectValue placeholder="Toutes les marques" />
+                        <SelectTrigger className="bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base">
+                          <SelectValue placeholder="Toutes les marques" className="truncate" />
                         </SelectTrigger>
                         <SelectContent className="bg-background">
                           <SelectItem value="all">{t('rent.allBrands')}</SelectItem>
@@ -4512,8 +4512,8 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                         {t('rent.category')}
                       </label>
                       <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                        <SelectTrigger className="bg-secondary/20 border-0">
-                          <SelectValue placeholder="Toutes les catégories" />
+                        <SelectTrigger className="bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base">
+                          <SelectValue placeholder="Toutes les catégories" className="truncate" />
                         </SelectTrigger>
                         <SelectContent className="bg-background">
                           <SelectItem value="all">{t('rent.allCategories')}</SelectItem>
@@ -4530,8 +4530,8 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                         {t('rent.transmission')}
                       </label>
                       <Select value={selectedType} onValueChange={setSelectedType}>
-                        <SelectTrigger className="bg-secondary/20 border-0">
-                          <SelectValue placeholder="Tous les types" />
+                        <SelectTrigger className="bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base">
+                          <SelectValue placeholder="Tous les types" className="truncate" />
                         </SelectTrigger>
                         <SelectContent className="bg-background">
                           <SelectItem value="all">{t('rent.allTypes')}</SelectItem>
