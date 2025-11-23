@@ -14,3 +14,4 @@ export { OpeningHoursSchema } from './OpeningHoursSchema';
 export { VehicleProductSchema } from './VehicleProductSchema';
 export { BreadcrumbListSchema, createBreadcrumbs } from './BreadcrumbListSchema';
 export type { BreadcrumbItem } from './BreadcrumbListSchema';
+export { ComparisonSchema } from './ComparisonSchema';
