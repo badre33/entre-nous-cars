@@ -4597,7 +4597,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
 
           {/* Mobile Views */}
           <div className="md:hidden mb-8">
-            {isLoading ? (
+            {displayedCars.length === 0 ? (
               <>
                 {viewMode === 'carousel' && (
                   <Carousel
@@ -4734,7 +4734,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
 
           {/* Desktop Grid View */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {isLoading ? (
+            {displayedCars.length === 0 ? (
               <>
                 {[...Array(9)].map((_, i) => (
                   <CarCardSkeleton key={i} viewMode="carousel" />
