@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MapPin, CalendarCheck, Eye } from "lucide-react";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { cn } from "@/lib/utils";
 import LazyCarImage from "@/components/LazyCarImage";
 import { useSwipeGesture } from "@/hooks/useSwipeGesture";
@@ -191,12 +192,14 @@ export default function SwipeableCarCard({
         {...swipeHandlers}
         {...longPressHandlers}
       >
-        <div className="relative h-40 md:h-52 overflow-hidden bg-muted">
-          <LazyCarImage 
-            src={car.image} 
-            alt={imageAlt}
-            className="w-full h-full object-contain"
-          />
+        <div className="relative bg-muted">
+          <AspectRatio ratio={16 / 9}>
+            <LazyCarImage 
+              src={car.image} 
+              alt={imageAlt}
+              className="w-full h-full object-cover"
+            />
+          </AspectRatio>
           <div className="absolute top-1.5 right-1.5 z-10">
             <div
               className={cn(
