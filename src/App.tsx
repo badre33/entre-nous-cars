@@ -71,6 +71,18 @@ const CAN2025Marrakech = lazy(() => import("./pages/CAN2025Marrakech"));
 const CAN2025Agadir = lazy(() => import("./pages/CAN2025Agadir"));
 const CAN2025Fes = lazy(() => import("./pages/CAN2025Fes"));
 const CAN2025Tanger = lazy(() => import("./pages/CAN2025Tanger"));
+// Quartiers Casablanca (5 pages)
+const LocationVoitureAinDiabCasablanca = lazy(() => import("./pages/LocationVoitureAinDiabCasablanca"));
+const LocationVoitureMaarifCasablanca = lazy(() => import("./pages/LocationVoitureMaarifCasablanca"));
+const LocationVoitureAnfaCasablanca = lazy(() => import("./pages/LocationVoitureAnfaCasablanca"));
+const LocationVoitureSidiMaaroufCasablanca = lazy(() => import("./pages/LocationVoitureSidiMaaroufCasablanca"));
+const LocationVoitureHassanCasablanca = lazy(() => import("./pages/LocationVoitureHassanCasablanca"));
+// Quartiers Marrakech (6 pages)
+const LocationVoitureGuelizMarrakech = lazy(() => import("./pages/LocationVoitureGuelizMarrakech"));
+const LocationVoitureHivernageMarrakech = lazy(() => import("./pages/LocationVoitureHivernageMarrakech"));
+const LocationVoitureMedinaMarrakech = lazy(() => import("./pages/LocationVoitureMedinaMarrakech"));
+const LocationVoiturePalmeraieMarrakech = lazy(() => import("./pages/LocationVoiturePalmeraieMarrakech"));
+const LocationVoitureRouteOurikaMarrakech = lazy(() => import("./pages/LocationVoitureRouteOurikaMarrakech"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -174,6 +186,18 @@ const App = () => (
                     <Route path="/location-voiture-can-2025-agadir" element={<CAN2025Agadir />} />
                     <Route path="/location-voiture-can-2025-fes" element={<CAN2025Fes />} />
                     <Route path="/location-voiture-can-2025-tanger" element={<CAN2025Tanger />} />
+                    {/* Quartiers Casablanca - SEO Hyper-Local */}
+                    <Route path="/location-voiture-ain-diab-casablanca" element={<LocationVoitureAinDiabCasablanca />} />
+                    <Route path="/location-voiture-maarif-casablanca" element={<LocationVoitureMaarifCasablanca />} />
+                    <Route path="/location-voiture-anfa-casablanca" element={<LocationVoitureAnfaCasablanca />} />
+                    <Route path="/location-voiture-sidi-maarouf-casablanca" element={<LocationVoitureSidiMaaroufCasablanca />} />
+                    <Route path="/location-voiture-hassan-casablanca" element={<LocationVoitureHassanCasablanca />} />
+                    {/* Quartiers Marrakech - SEO Hyper-Local */}
+                    <Route path="/location-voiture-gueliz-marrakech" element={<LocationVoitureGuelizMarrakech />} />
+                    <Route path="/location-voiture-hivernage-marrakech" element={<LocationVoitureHivernageMarrakech />} />
+                    <Route path="/location-voiture-medina-marrakech" element={<LocationVoitureMedinaMarrakech />} />
+                    <Route path="/location-voiture-palmeraie-marrakech" element={<LocationVoiturePalmeraieMarrakech />} />
+                    <Route path="/location-voiture-route-ourika-marrakech" element={<LocationVoitureRouteOurikaMarrakech />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>

@@ -162,4 +162,66 @@
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
   </url>
+  <!-- Quartiers Casablanca - SEO Hyper-Local -->
+  <url>
+    <loc>https://benatna.ma/location-voiture-ain-diab-casablanca</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-maarif-casablanca</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-anfa-casablanca</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-sidi-maarouf-casablanca</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-hassan-casablanca</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <!-- Quartiers Marrakech - SEO Hyper-Local -->
+  <url>
+    <loc>https://benatna.ma/location-voiture-gueliz-marrakech</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-hivernage-marrakech</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-medina-marrakech</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-palmeraie-marrakech</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-route-ourika-marrakech</loc>
+    <lastmod>2025-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>
