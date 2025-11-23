@@ -15,7 +15,8 @@ import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema } from "@/components/schemas";
+import { EnhancedAggregateRatingSchema, IndividualReviewsSchema } from "@/components/schemas";
+import { tangerReviews } from "@/data/reviewsData";
 import cityTanger from "@/assets/city-tanger.jpg";
 
 const LocationVoitureTanger = () => {
@@ -76,6 +77,11 @@ const LocationVoitureTanger = () => {
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Tanger"
+      />
+      <IndividualReviewsSchema
+        reviews={tangerReviews}
+        entityType="LocalBusiness"
+        city="Tanger"
       />
       
       <Header />

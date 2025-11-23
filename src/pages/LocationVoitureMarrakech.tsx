@@ -20,8 +20,10 @@ import {
   EnhancedAggregateRatingSchema, 
   PriceRangeOfferSchema, 
   FAQSchemaEnriched,
-  MultiLocationSchema
+  MultiLocationSchema,
+  IndividualReviewsSchema
 } from "@/components/schemas";
+import { marrakechReviews } from "@/data/reviewsData";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
 const LocationVoitureMarrakech = () => {
@@ -83,6 +85,11 @@ const LocationVoitureMarrakech = () => {
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Marrakech"
+      />
+      <IndividualReviewsSchema
+        reviews={marrakechReviews}
+        entityType="LocalBusiness"
+        city="Marrakech"
       />
       
       {/* Schema Prix pour affichage dans Google */}

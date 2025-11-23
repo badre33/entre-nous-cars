@@ -15,7 +15,8 @@ import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema } from "@/components/schemas";
+import { EnhancedAggregateRatingSchema, IndividualReviewsSchema } from "@/components/schemas";
+import { fesReviews } from "@/data/reviewsData";
 import cityFes from "@/assets/city-fes.jpg";
 
 const LocationVoitureFes = () => {
@@ -76,6 +77,11 @@ const LocationVoitureFes = () => {
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Fès"
+      />
+      <IndividualReviewsSchema
+        reviews={fesReviews}
+        entityType="LocalBusiness"
+        city="Fès"
       />
       
       <Header />
