@@ -12,3 +12,5 @@ export { EventSchema } from './EventSchema';
 export { IndividualReviewsSchema } from './IndividualReviewsSchema';
 export { OpeningHoursSchema } from './OpeningHoursSchema';
 export { VehicleProductSchema } from './VehicleProductSchema';
+export { BreadcrumbListSchema, createBreadcrumbs } from './BreadcrumbListSchema';
+export type { BreadcrumbItem } from './BreadcrumbListSchema';
