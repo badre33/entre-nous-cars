@@ -15,7 +15,7 @@ import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema } from "@/components/schemas";
+import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
 import { agadirReviews } from "@/data/reviewsData";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
@@ -82,6 +82,13 @@ const LocationVoitureAgadir = () => {
         reviews={agadirReviews}
         entityType="LocalBusiness"
         city="Agadir"
+      />
+      <OpeningHoursSchema 
+        city="Agadir"
+        entityType="LocalBusiness"
+        address="Aéroport Agadir Al Massira"
+        latitude="30.4278"
+        longitude="-9.5981"
       />
       
       <Header />

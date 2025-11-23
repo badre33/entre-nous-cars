@@ -56,6 +56,16 @@ export const CityLocalBusinessSchema = ({
           "Sunday"
         ],
         "opens": "00:00",
+        "closes": "23:59",
+        "validFrom": "2024-01-01",
+        "validThrough": "2026-12-31"
+      }
+    ],
+    "specialOpeningHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "PublicHolidays",
+        "opens": "00:00",
         "closes": "23:59"
       }
     ],

@@ -15,7 +15,7 @@ import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema } from "@/components/schemas";
+import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
 import { tangerReviews } from "@/data/reviewsData";
 import cityTanger from "@/assets/city-tanger.jpg";
 
@@ -82,6 +82,13 @@ const LocationVoitureTanger = () => {
         reviews={tangerReviews}
         entityType="LocalBusiness"
         city="Tanger"
+      />
+      <OpeningHoursSchema 
+        city="Tanger"
+        entityType="LocalBusiness"
+        address="Aéroport Tanger Ibn Battouta"
+        latitude="35.7595"
+        longitude="-5.8340"
       />
       
       <Header />

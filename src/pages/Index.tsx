@@ -24,7 +24,7 @@ import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema } from "@/components/schemas";
+import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
@@ -142,6 +142,10 @@ const Index = () => {
       <IndividualReviewsSchema
         reviews={globalReviews.slice(0, 10)}
         entityType="Organization"
+      />
+      <OpeningHoursSchema 
+        entityType="Organization"
+        entityName="Benatna Location de Voiture Maroc"
       />
       
       <Header />
