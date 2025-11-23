@@ -7,7 +7,7 @@ import { CheckCircle2, Calendar, RefreshCw, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CanonicalTag } from "@/components/CanonicalTag";
 import { FAQSchemaEnriched } from "@/components/schemas/FAQSchemaEnriched";
-import { ServiceSchema } from "@/components/ServiceSchema";
+
 import { BreadcrumbsEnriched } from "@/components/BreadcrumbsEnriched";
 
 const AnnulationGratuite = () => {
@@ -44,16 +44,27 @@ const AnnulationGratuite = () => {
 
       <CanonicalTag path="/annulation-gratuite-maroc" />
       <FAQSchemaEnriched faqs={faqs} pageName="Annulation Gratuite Location Voiture Maroc" />
-      <ServiceSchema
-        name="Annulation Gratuite Location Voiture Maroc"
-        description="Politique d'annulation gratuite flexible pour location de voiture au Maroc. Annulation jusqu'à 48h avant sans frais."
-        provider="Benatna"
-        areaServed="Maroc"
-        availableChannel={[
-          { "@type": "WebSite", "url": "https://www.benatna.com" },
-          { "@type": "ContactPoint", "telephone": "+212-6-00-00-00-00", "contactType": "Réservations" }
-        ]}
-      />
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Annulation Gratuite Location Voiture Maroc",
+            "description": "Politique d'annulation gratuite flexible pour location de voiture au Maroc. Annulation jusqu'à 48h avant sans frais.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Benatna",
+              "url": "https://www.benatna.com",
+              "telephone": "+212699024526"
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Maroc"
+            },
+            "termsOfService": "Annulation gratuite jusqu'à 48 heures avant la prise en charge"
+          })}
+        </script>
+      </Helmet>
 
       <div className="min-h-screen bg-background">
         <Header />
