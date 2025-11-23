@@ -4168,7 +4168,12 @@ const Louer = () => {
       if (startDate && endDate) {
         const dateDebut = format(startDate, "dd/MM/yyyy");
         const dateFin = format(endDate, "dd/MM/yyyy");
-        message += `\nDates souhaitées : du ${dateDebut} au ${dateFin}`;
+        const days = calculateDays(startDate, endDate);
+        const basePrice = parseInt(priceDisplay.replace(/[^\d]/g, ''));
+        const totalPrice = formatPrice(calculateTotalPrice(basePrice, days));
+        
+        message += `\nDates souhaitées : du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})`;
+        message += `\n💰 Prix total : ${totalPrice}`;
       }
       
       window.open(
@@ -4209,6 +4214,8 @@ const Louer = () => {
         const dateDebut = format(start, "dd/MM/yyyy", { locale: fr });
         const dateFin = format(end, "dd/MM/yyyy", { locale: fr });
         const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+        const basePrice = parseInt(selectedCar.price.replace(/[^\d]/g, ''));
+        const totalPrice = formatPrice(calculateTotalPrice(basePrice, days));
         
         const message = `🚗 *DEMANDE DE RÉSERVATION*
 
@@ -4216,8 +4223,9 @@ Véhicule : ${selectedCar.name}
 📍 Ville : ${selectedCar.city}
 📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
 💰 Tarif : ${selectedCar.price}/jour
+💵 Prix total : ${totalPrice}
 
-Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité et le prix total.`;
+Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité.`;
         
         window.open(
           `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
