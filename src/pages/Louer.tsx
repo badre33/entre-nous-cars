@@ -4742,7 +4742,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
 
           {/* Desktop Grid View */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedCars.length === 0 ? (
+            {false ? (
               <>
                 {[...Array(9)].map((_, i) => (
                   <CarCardSkeleton key={i} viewMode="carousel" />
