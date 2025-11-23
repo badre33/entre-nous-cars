@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { MapPin, Car, Hotel, Bus, Plane, Clock, Users, Trophy, ParkingCircle } from "lucide-react";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { EventSchema } from "@/components/schemas";
 import canHeroImage from "@/assets/can-2025-hero.jpg";
 
 const CAN2025Marrakech = () => {
@@ -18,6 +19,24 @@ const CAN2025Marrakech = () => {
         <meta name="description" content="Location voiture CAN 2025 à Marrakech. Parking stade, navettes aéroport Menara, hébergements. 6 matchs. Réservez dès 200 DH/jour." />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-marrakech" />
       </Helmet>
+      
+      {/* Event Schema CAN 2025 Marrakech */}
+      <EventSchema 
+        eventName="CAN 2025 - Matchs à Marrakech"
+        eventDescription="6 matchs de la Coupe d'Afrique des Nations 2025 au Stade de Marrakech. Location de voiture avec parking stade, navettes aéroport Menara et hébergements disponibles."
+        startDate="2025-12-21"
+        endDate="2026-01-18"
+        location={{
+          name: "Stade de Marrakech",
+          city: "Marrakech",
+          address: "Route de l'Ourika, Marrakech"
+        }}
+        offers={{
+          price: "200",
+          priceCurrency: "MAD",
+          availability: "https://schema.org/InStock"
+        }}
+      />
 
       <div className="min-h-screen bg-background">
         <Header />

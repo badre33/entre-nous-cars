@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { MapPin, Car, Hotel, Plane, Users, Trophy, Anchor } from "lucide-react";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { EventSchema } from "@/components/schemas";
 import canHeroImage from "@/assets/can-2025-hero.jpg";
 
 const CAN2025Tanger = () => {
@@ -18,6 +19,24 @@ const CAN2025Tanger = () => {
         <meta name="description" content="Location voiture CAN 2025 à Tanger. Stade Ibn Batouta, détroit Gibraltar. 6 matchs. Dès 200 DH/jour." />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-tanger" />
       </Helmet>
+      
+      {/* Event Schema CAN 2025 Tanger */}
+      <EventSchema 
+        eventName="CAN 2025 - Matchs à Tanger"
+        eventDescription="6 matchs de la Coupe d'Afrique des Nations 2025 au Stade Ibn Batouta (65,000 places). Location de voiture pour explorer Tanger et le détroit de Gibraltar."
+        startDate="2025-12-21"
+        endDate="2026-01-18"
+        location={{
+          name: "Stade Ibn Batouta",
+          city: "Tanger",
+          address: "Route de Rabat, Tanger"
+        }}
+        offers={{
+          price: "200",
+          priceCurrency: "MAD",
+          availability: "https://schema.org/InStock"
+        }}
+      />
 
       <div className="min-h-screen bg-background">
         <Header />

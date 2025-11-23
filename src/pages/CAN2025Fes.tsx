@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { MapPin, Car, Hotel, Plane, Users, Trophy } from "lucide-react";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { EventSchema } from "@/components/schemas";
 import canHeroImage from "@/assets/can-2025-hero.jpg";
 
 const CAN2025Fes = () => {
@@ -18,6 +19,24 @@ const CAN2025Fes = () => {
         <meta name="description" content="Location voiture CAN 2025 à Fès. Médina UNESCO, parking stade. 5 matchs. Réservez dès 200 DH/jour." />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-fes" />
       </Helmet>
+      
+      {/* Event Schema CAN 2025 Fès */}
+      <EventSchema 
+        eventName="CAN 2025 - Matchs à Fès"
+        eventDescription="5 matchs de la Coupe d'Afrique des Nations 2025 au Complexe Sportif de Fès. Découvrez la capitale spirituelle avec votre voiture de location."
+        startDate="2025-12-21"
+        endDate="2026-01-18"
+        location={{
+          name: "Complexe Sportif de Fès",
+          city: "Fès",
+          address: "Route Ain Chkef, Fès"
+        }}
+        offers={{
+          price: "200",
+          priceCurrency: "MAD",
+          availability: "https://schema.org/InStock"
+        }}
+      />
 
       <div className="min-h-screen bg-background">
         <Header />
