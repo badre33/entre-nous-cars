@@ -25,7 +25,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { CarProductSchema } from "@/components/CarProductSchema";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
+import { calculateDays, calculateTotalPrice, formatPrice, getDiscountPercentage } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
@@ -4171,8 +4171,12 @@ const Louer = () => {
         const days = calculateDays(startDate, endDate);
         const basePrice = parseInt(priceDisplay.replace(/[^\d]/g, ''));
         const totalPrice = formatPrice(calculateTotalPrice(basePrice, days));
+        const discount = getDiscountPercentage(days);
         
         message += `\nDates souhaitées : du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})`;
+        if (discount > 0) {
+          message += `\n🎉 Réduction : -${discount}% (location longue durée)`;
+        }
         message += `\n💰 Prix total : ${totalPrice}`;
       }
       
@@ -4216,14 +4220,20 @@ const Louer = () => {
         const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
         const basePrice = parseInt(selectedCar.price.replace(/[^\d]/g, ''));
         const totalPrice = formatPrice(calculateTotalPrice(basePrice, days));
+        const discount = getDiscountPercentage(days);
         
-        const message = `🚗 *DEMANDE DE RÉSERVATION*
+        let message = `🚗 *DEMANDE DE RÉSERVATION*
 
 Véhicule : ${selectedCar.name}
 📍 Ville : ${selectedCar.city}
 📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
-💰 Tarif : ${selectedCar.price}/jour
-💵 Prix total : ${totalPrice}
+💰 Tarif : ${selectedCar.price}/jour`;
+
+        if (discount > 0) {
+          message += `\n🎉 Réduction : -${discount}% (location longue durée)`;
+        }
+        
+        message += `\n💵 Prix total : ${totalPrice}
 
 Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité.`;
         
