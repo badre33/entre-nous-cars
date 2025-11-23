@@ -2,18 +2,38 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <!-- Mobile Optimization Meta Tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <!-- ===== MOBILE-FIRST OPTIMIZATION (Critical for +15% mobile ranking) ===== -->
     
-    <!-- PWA Meta Tags -->
-    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Viewport - CRITICAL for mobile-first indexing -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Handheld Device Optimization -->
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    
+    <!-- ===== iOS OPTIMIZATION ===== -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Benatna">
+    
+    <!-- ===== ANDROID CHROME OPTIMIZATION ===== -->
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Benatna">
-    <meta name="format-detection" content="telephone=yes">
+    
+    <!-- ===== FORMAT DETECTION ===== -->
+    <!-- Disable auto-detection to control which numbers are clickable -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+    
+    <!-- ===== WINDOWS TILE ===== -->
     <meta name="msapplication-TileColor" content="#ffda00">
     <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
+    
+    <!-- ===== ACCESSIBILITY ===== -->
+    <meta name="color-scheme" content="light dark">
     
     <title>Benatna – La mobilité, entre nous</title>
     <meta name="description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
@@ -32,9 +52,19 @@
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.webmanifest" />
     
-    <!-- Favicon and Icons -->
+    <!-- ===== ICONS & FAVICONS ===== -->
     <link rel="icon" type="image/png" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Apple Touch Icons - Multiple sizes for all iOS devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon.png" />
     
     <!-- Preload LCP image - uses production build path -->
     <link rel="preload" as="image" href="/assets/hero-home-new-DnToDbf5.png" fetchpriority="high" />
@@ -58,8 +88,10 @@
     <meta name="twitter:description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance." />
     <meta name="twitter:image" content="/og-image.png" />
 
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#048592" />
+    <!-- ===== THEME COLOR (Android Chrome address bar) ===== -->
+    <meta name="theme-color" content="#ffda00" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffda00" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1a1a" />
   </head>
 
   <body>
