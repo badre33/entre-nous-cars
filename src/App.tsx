@@ -33,6 +33,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const Contact = lazy(() => import("./pages/Contact"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const Glossaire = lazy(() => import("./pages/Glossaire"));
 const LocationVoitureCasablanca = lazy(() => import("./pages/LocationVoitureCasablanca"));
 const LocationVoitureMarrakech = lazy(() => import("./pages/LocationVoitureMarrakech"));
 const LocationVoitureRabat = lazy(() => import("./pages/LocationVoitureRabat"));
@@ -147,6 +148,7 @@ const App = () => (
                     <Route path="/blog/:slug" element={<BlogArticle />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/faq" element={<FAQ />} />
+                    <Route path="/glossaire" element={<Glossaire />} />
                     <Route path="/location-voiture-casablanca" element={<LocationVoitureCasablanca />} />
                     <Route path="/location-voiture-marrakech" element={<LocationVoitureMarrakech />} />
                     <Route path="/location-voiture-rabat" element={<LocationVoitureRabat />} />
