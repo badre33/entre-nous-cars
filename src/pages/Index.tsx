@@ -24,6 +24,7 @@ import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
 import { HreflangTags } from "@/utils/hreflangHelper";
+import { EnhancedAggregateRatingSchema } from "@/components/schemas";
 import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
@@ -131,6 +132,13 @@ const Index = () => {
         averageRating={4.8}
         totalReviews={1247}
       />
+      
+      {/* Schema AggregateRating pour étoiles Google */}
+      <EnhancedAggregateRatingSchema 
+        entityType="Organization"
+        entityName="Benatna Location de Voiture Maroc"
+      />
+      
       <Header />
       
       {/* Hero Section with Parallax */}
