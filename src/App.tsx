@@ -10,6 +10,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { MetaPixel } from "@/components/MetaPixel";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
+import { SitelinksSearchBoxSchema } from "@/components/schemas";
 import { lazy, Suspense, useEffect, useState } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
@@ -115,6 +116,7 @@ const App = () => (
         <TooltipProvider>
           <BrowserRouter>
             <OrganizationSchema />
+            <SitelinksSearchBoxSchema />
             <MetaPixel />
             <AnalyticsTracker />
             <LanguageProvider>

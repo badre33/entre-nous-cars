@@ -32,7 +32,10 @@ export const OrganizationSchema = () => {
     "sameAs": [
       BUSINESS_INFO.social.facebook,
       BUSINESS_INFO.social.instagram,
-      BUSINESS_INFO.social.linkedin
+      BUSINESS_INFO.social.linkedin,
+      // Ajouter d'autres profils sociaux pour renforcer le Knowledge Graph
+      "https://www.youtube.com/@benatna",
+      "https://twitter.com/benatna"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",

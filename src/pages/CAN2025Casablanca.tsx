@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { MapPin, Car, Hotel, Bus, Plane, Clock, Users, Trophy, ParkingCircle } from "lucide-react";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { EventSchema } from "@/components/schemas";
 import canHeroImage from "@/assets/can-2025-hero.jpg";
 
 const CAN2025Casablanca = () => {
@@ -51,6 +52,24 @@ const CAN2025Casablanca = () => {
           })}
         </script>
       </Helmet>
+      
+      {/* Quick Win 6: Event Schema CAN 2025 */}
+      <EventSchema 
+        eventName="CAN 2025 - Matchs à Casablanca"
+        eventDescription="8 matchs de la Coupe d'Afrique des Nations 2025 au Stade Mohammed V de Casablanca. Location de voiture avec parking stade, navettes aéroport et hébergements disponibles."
+        startDate="2025-12-21"
+        endDate="2026-01-18"
+        location={{
+          name: "Stade Mohammed V",
+          city: "Casablanca",
+          address: "Avenue My Youssef, Casablanca"
+        }}
+        offers={{
+          price: "200",
+          priceCurrency: "MAD",
+          availability: "https://schema.org/InStock"
+        }}
+      />
 
       <div className="min-h-screen bg-background">
         <Header />
