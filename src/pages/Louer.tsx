@@ -4255,19 +4255,21 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
     return shuffled;
   };
 
-  const filteredCars = cars.filter(car => {
-    if (selectedCity && selectedCity !== "all" && car.city !== selectedCity) return false;
-    if (selectedType && selectedType !== "all" && car.type !== selectedType) return false;
-    if (selectedBrand && selectedBrand !== "all" && car.brand !== selectedBrand) return false;
-    if (selectedCategory && selectedCategory !== "all" && car.category !== selectedCategory) return false;
-    return true;
-  });
-
-  // Mélanger les voitures UNE SEULE FOIS quand les filtres changent
+  // Filtrer et mélanger les voitures de manière optimisée
   const displayedCars = useMemo(() => {
+    // Appliquer les filtres
+    const filtered = cars.filter(car => {
+      if (selectedCity && selectedCity !== "all" && car.city !== selectedCity) return false;
+      if (selectedType && selectedType !== "all" && car.type !== selectedType) return false;
+      if (selectedBrand && selectedBrand !== "all" && car.brand !== selectedBrand) return false;
+      if (selectedCategory && selectedCategory !== "all" && car.category !== selectedCategory) return false;
+      return true;
+    });
+
+    // Mélanger uniquement si aucun filtre n'est appliqué
     const noFiltersApplied = selectedCity === "all" && selectedType === "all" && 
                              selectedBrand === "all" && selectedCategory === "all";
-    return noFiltersApplied ? shuffleArray(filteredCars) : filteredCars;
+    return noFiltersApplied ? shuffleArray(filtered) : filtered;
   }, [selectedCity, selectedType, selectedBrand, selectedCategory]);
 
   return (
@@ -4280,7 +4282,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
       </Helmet>
       <HreflangTags path="/louer" />
       <StructuredData type="rental" />
-      <CarProductSchema cars={filteredCars.slice(0, 20)} />
+      <CarProductSchema cars={displayedCars.slice(0, 20)} />
       <PullToRefreshIndicator 
         isPulling={isPulling}
         isRefreshing={isRefreshing}
