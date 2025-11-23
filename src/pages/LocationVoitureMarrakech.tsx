@@ -16,6 +16,12 @@ import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { HreflangTags } from "@/utils/hreflangHelper";
+import { 
+  EnhancedAggregateRatingSchema, 
+  PriceRangeOfferSchema, 
+  FAQSchemaEnriched,
+  MultiLocationSchema
+} from "@/components/schemas";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
 const LocationVoitureMarrakech = () => {
@@ -71,6 +77,80 @@ const LocationVoitureMarrakech = () => {
         averageRating={4.8}
         totalReviews={1247}
         city="Marrakech"
+      />
+      
+      {/* Schema AggregateRating pour étoiles Google */}
+      <EnhancedAggregateRatingSchema 
+        entityType="LocalBusiness"
+        entityName="Benatna Location de Voiture Marrakech"
+      />
+      
+      {/* Schema Prix pour affichage dans Google */}
+      <PriceRangeOfferSchema 
+        minPrice="150"
+        maxPrice="900"
+        city="Marrakech"
+        discount={{ percentage: 10, minDays: 30 }}
+      />
+      
+      {/* Multi-Location pour SEO local */}
+      <MultiLocationSchema 
+        locations={[
+          {
+            name: "Aéroport Marrakech-Ménara",
+            address: "Aéroport Marrakech-Ménara, Hall Arrivées",
+            city: "Marrakech",
+            postalCode: "40000",
+            latitude: "31.6069",
+            longitude: "-8.0363",
+            description: "Point de retrait principal à l'aéroport de Marrakech, disponible 24/7 avec service express."
+          },
+          {
+            name: "Place Jemaa El-Fna",
+            address: "Place Jemaa El-Fna, Médina",
+            city: "Marrakech",
+            postalCode: "40000",
+            latitude: "31.6259",
+            longitude: "-7.9893",
+            description: "Point de retrait en plein cœur de la médina, idéal pour les touristes."
+          },
+          {
+            name: "Guéliz Centre-ville",
+            address: "Avenue Mohammed V, Guéliz",
+            city: "Marrakech",
+            postalCode: "40000",
+            latitude: "31.6295",
+            longitude: "-7.9811",
+            description: "Agence au centre du quartier moderne de Guéliz, proche des commerces."
+          }
+        ]}
+      />
+      
+      {/* FAQ Schema pour Rich Snippets */}
+      <FAQSchemaEnriched 
+        pageName="Location de Voiture à Marrakech"
+        faqs={[
+          {
+            question: "Quel est le prix de la location de voiture à Marrakech ?",
+            answer: "Les tarifs démarrent à 150 DH/jour pour une voiture économique à Marrakech. Réductions longue durée : -5% dès 7 jours, -10% dès 30 jours. Assurance tous risques incluse."
+          },
+          {
+            question: "Peut-on louer une voiture à l'aéroport de Marrakech ?",
+            answer: "Oui, nous proposons un service de livraison gratuite à l'aéroport Marrakech-Ménara 24/7. Votre véhicule vous attend dès votre arrivée au hall des arrivées."
+          },
+          {
+            question: "Est-ce possible de louer sans carte de crédit à Marrakech ?",
+            answer: "Absolument ! Chez Benatna, la location sans carte de crédit est notre spécialité. Paiement en espèces, virement ou carte bancaire classique accepté."
+          },
+          {
+            question: "Quels sont les meilleurs endroits à visiter en voiture depuis Marrakech ?",
+            answer: "Depuis Marrakech, vous pouvez facilement rejoindre Essaouira (2h30), la vallée de l'Ourika (1h), le désert d'Agafay (45min) et les cascades d'Ouzoud (2h30) avec votre voiture de location."
+          },
+          {
+            question: "L'assurance est-elle obligatoire pour louer une voiture à Marrakech ?",
+            answer: "Oui, l'assurance est obligatoire et INCLUSE dans tous nos tarifs. Vous bénéficiez d'une couverture tous risques avec franchise réduite, sans frais supplémentaires."
+          }
+        ]}
       />
       <Header />
       <Breadcrumbs />

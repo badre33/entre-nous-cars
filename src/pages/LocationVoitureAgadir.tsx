@@ -15,6 +15,7 @@ import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
+import { EnhancedAggregateRatingSchema } from "@/components/schemas";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
 const LocationVoitureAgadir = () => {
@@ -70,6 +71,13 @@ const LocationVoitureAgadir = () => {
         totalReviews={1247}
         city="Agadir"
       />
+      
+      {/* Schema AggregateRating pour étoiles Google */}
+      <EnhancedAggregateRatingSchema 
+        entityType="LocalBusiness"
+        entityName="Benatna Location de Voiture Agadir"
+      />
+      
       <Header />
       <Breadcrumbs />
 
