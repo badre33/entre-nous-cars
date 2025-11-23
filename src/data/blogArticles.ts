@@ -8,6 +8,10 @@ export interface BlogArticle {
   date: string;
   image: string;
   content: string[];
+  featured?: boolean;
+  city?: 'casablanca' | 'marrakech' | 'national';
+  readTime?: number;
+  keywords?: string[];
 }
 
 export const blogArticles: BlogArticle[] = [
@@ -2554,5 +2558,365 @@ export const blogArticles: BlogArticle[] = [
       
       "Avec ce guide, vous savez exactement quel budget prévoir pour profiter pleinement de votre séjour au Maroc. Bon voyage !"
     ]
+  },
+  
+  // ARTICLES HYPER-LOCAUX CASABLANCA & MARRAKECH
+  {
+    id: 11,
+    slug: "meilleurs-spots-ain-diab-casablanca-voiture",
+    title: "Top 10 Spots à Ain Diab Casablanca en Voiture",
+    excerpt: "Guide complet des meilleurs endroits à découvrir en voiture à Ain Diab : de la Corniche aux clubs de plage, en passant par les meilleurs restaurants avec vue mer.",
+    metaDescription: "Découvrez les 10 spots incontournables d'Ain Diab à Casablanca accessibles en voiture : plages, restaurants, cafés, shopping. Itinéraire + parking + conseils.",
+    category: "Guides Locaux",
+    date: "15 décembre 2024",
+    image: new URL("@/assets/city-casablanca.jpg", import.meta.url).href,
+    city: "casablanca",
+    featured: true,
+    readTime: 8,
+    keywords: ["ain diab casablanca", "corniche casablanca voiture", "spots ain diab", "parking ain diab"],
+    content: [
+      "Ain Diab, le quartier balnéaire emblématique de Casablanca, s'étend sur 5 km le long de l'Atlantique. Accessible en 15 minutes du centre-ville par l'autoroute, c'est la destination idéale pour une escapade en voiture. Voici notre sélection des 10 spots incontournables avec conseils parking et horaires optimaux.",
+      
+      "## 🏖️ Les Spots Bord de Mer",
+      
+      "### La Sqala - Café Maure",
+      "Café traditionnel dans une forteresse du 18ème siècle avec vue panoramique mer. Parking gratuit 50 places.",
+      
+      "**Conseils pratiques :**\n- 🅿️ Parking gratuit disponible 24h/24\n- ⏰ Meilleur moment : coucher de soleil (19h-20h)\n- 💰 Budget : thé à la menthe 15-25 DH\n- 📸 Spot photo Instagram parfait",
+      
+      "### Morocco Mall Beach",
+      "Accès plage privée depuis le plus grand centre commercial d'Afrique. Parking payant sécurisé 3000 places.",
+      
+      "**Conseils pratiques :**\n- 🅿️ Parking couvert 10 DH/h, gratuit avec achats\n- 🏖️ Plage aménagée avec transats\n- 🍽️ 50+ restaurants et cafés\n- 🛍️ Shopping + plage en une sortie",
+      
+      "### Tahiti Beach Club",
+      "Club de plage premium avec piscine, restaurant et parking valet. Ambiance lounge chic.",
+      
+      "**Conseils pratiques :**\n- 🅿️ Valet parking inclus (gratuit clients)\n- 💰 Entrée : 100-200 DH (consommable)\n- 🍹 Bar et restaurant gastronomique\n- 👗 Dress code : smart casual le soir",
+      
+      "## 🍽️ Restaurants Vue Mer",
+      
+      "Ain Diab concentre les meilleurs restaurants de Casablanca avec vue océan :",
+      
+      "### La Bodega - Corniche",
+      "Restaurant espagnol emblématique depuis 1949. Tapas, paellas et ambiance festive.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking rue (payant 5 DH/h)\n- 💰 Budget moyen : 250-400 DH/pers\n- ⏰ Réservation recommandée week-end\n- 🎵 Ambiance musicale live jeudi-samedi",
+      
+      "### Rick's Café",
+      "Réplique du café du film 'Casablanca'. Cuisine raffinée et piano bar.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking privé gardé (gratuit)\n- 💰 Budget : 400-600 DH/pers\n- 📞 Réservation OBLIGATOIRE\n- 🎹 Piano live tous les soirs",
+      
+      "### Le Cabestan",
+      "Poissons et fruits de mer sur pilotis. Vue mer à 180°.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking privé 30 places\n- 💰 Budget : 350-500 DH/pers\n- 🐟 Poissons frais du jour\n- ⏰ Déjeuner vue mer imbattable",
+      
+      "## ☕ Cafés & Lounges",
+      
+      "### Bateau Bleu",
+      "Café lounge en bord de mer, ambiance chill et shisha.",
+      
+      "**Conseils :**\n- 🅿️ Parking rue disponible\n- 💰 Budget : 50-150 DH\n- 🌅 Sunset spot parfait\n- 💨 Shisha variété de parfums",
+      
+      "### Le Cabestan Lounge",
+      "Terrasse panoramique, cocktails et tapas.",
+      
+      "**Conseils :**\n- 🅿️ Même parking que restaurant\n- 💰 Cocktails 80-120 DH\n- 🎶 DJ set week-end\n- 👔 Ambiance chic après 22h",
+      
+      "## 🛍️ Shopping & Loisirs",
+      
+      "### Morocco Mall",
+      "Plus grand mall d'Afrique : 600+ boutiques, aquarium, IMAX.",
+      
+      "**Infos :**\n- 🅿️ Parking 3000 places (10 DH/h)\n- 🕐 Ouvert 10h-23h tous les jours\n- 🎬 Cinéma IMAX + Aquarium\n- 🍔 Food court 40+ enseignes",
+      
+      "### Anfa Place Living Resort",
+      "Mall lifestyle avec restaurants, spa, cinéma Megarama.",
+      
+      "**Infos :**\n- 🅿️ Parking gratuit 2000 places\n- 🎭 Bowling + cinéma\n- 🍽️ 30+ restaurants et cafés\n- 💆 Spa et centre wellness",
+      
+      "## 🚗 Itinéraire Optimal",
+      
+      "**Circuit Ain Diab en voiture (3-4h)** :",
+      
+      "1. **Départ Morocco Mall** (10h) - Parking + café\n2. **La Sqala** (11h30) - Visite forteresse + thé\n3. **Déjeuner Le Cabestan** (13h) - Poissons frais\n4. **Balade Corniche** (15h) - Arrêts photos\n5. **Tahiti Beach** (16h) - Détente plage\n6. **Sunset La Bodega** (19h) - Tapas + ambiance",
+      
+      "**Distance totale** : 8 km\n**Temps de conduite** : 45 min (hors arrêts)\n**Budget parking** : 30-50 DH/jour",
+      
+      "## 💡 Conseils Pratiques Parking",
+      
+      "**Zones parking recommandées** :",
+      
+      "✅ **Morocco Mall** : 3000 places couvertes, 10 DH/h (gratuit si achats)\n✅ **Anfa Place** : 2000 places, gratuit\n✅ **Rue de la Corniche** : Parking payant 5 DH/h (surveillé)\n✅ **Restaurants haut de gamme** : Parking privé gratuit clients",
+      
+      "⚠️ **À éviter** :\n❌ Stationnement sauvage près des clubs (risque d'amende 300 DH)\n❌ Week-end après 18h : forte affluence, prévoir +30 min parking\n❌ Laisser objets de valeur visibles dans voiture",
+      
+      "Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 150 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà."
+    ]
+  },
+  {
+    id: 12,
+    slug: "guide-quartier-maarif-casablanca-voiture",
+    title: "Guide Complet du Quartier Maarif à Casablanca en Voiture",
+    excerpt: "Le Maarif est le quartier branché et cosmopolite de Casablanca. Découvrez notre guide complet pour l'explorer en voiture : spots, parkings, bonnes adresses.",
+    metaDescription: "Tout savoir sur Maarif : meilleurs restaurants, cafés, shopping, parkings. Guide pratique pour découvrir le quartier branché de Casablanca en voiture.",
+    category: "Guides Locaux",
+    date: "14 décembre 2024",
+    image: new URL("@/assets/city-casablanca.jpg", import.meta.url).href,
+    city: "casablanca",
+    featured: true,
+    readTime: 7,
+    keywords: ["maarif casablanca", "quartier maarif voiture", "parking maarif", "restaurants maarif"],
+    content: [
+      "Le Maarif, c'est le cœur battant et cosmopolite de Casablanca. Entre le Boulevard Zerktouni et la place du 16 Novembre, ce quartier concentre cafés branchés, restaurants internationaux et boutiques de créateurs. Voici votre guide pour l'explorer en voiture avec les meilleurs spots et parkings.",
+      
+      "## 🍽️ Top Restaurants Maarif",
+      
+      "Le Maarif offre la meilleure scène culinaire de Casablanca.",
+      
+      "### La Sqala du Maarif",
+      "Cuisine marocaine authentique dans un jardin verdoyant.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking privé gratuit 40 places\n- 💰 Budget : 150-250 DH/pers\n- 🥘 Spécialité : tajines et pastilla\n- 🌳 Terrasse ombragée magnifique",
+      
+      "### Boga Boga",
+      "Fusion asiatique-méditerranéenne. Ambiance lounge chic.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking valet (gratuit)\n- 💰 Budget : 250-400 DH/pers\n- 🍣 Sushis et woks excellents\n- 🎶 DJ jeudi-samedi soir",
+      
+      "## ☕ Cafés & Co-Working",
+      
+      "### Paul Maarif",
+      "Boulangerie-café française. WiFi gratuit.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking Twin Center à 200m\n- ☕ Café gourmand 35-55 DH\n- 📶 WiFi rapide et fiable\n- ⏰ Ouvert 7h-22h",
+      
+      "## 🅿️ Parkings Pratiques",
+      
+      "**Options parking Maarif** :",
+      
+      "1. **Twin Center** : 1000 places, 10 DH/h, sécurisé 24h/24\n2. **Zerktouni Mall** : 500 places, 5 DH/h\n3. **Parking rue Abdelmoumen** : Gratuit mais limité\n4. **Parkings restaurants** : Gratuits pour clients",
+      
+      "## 🛍️ Shopping Maarif",
+      
+      "### Twin Center",
+      "Mall emblématique avec boutiques internationales et locales.",
+      
+      "**Infos :**\n- 🅿️ Parking gratuit premières 2h\n- 🕐 Ouvert 10h-22h\n- 🍽️ 20+ restaurants\n- 🏢 Tours iconiques Casablanca",
+      
+      "Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 150 DH/jour."
+    ]
+  },
+  {
+    id: 13,
+    slug: "quartier-gueliz-marrakech-guide-voiture",
+    title: "Guide Guéliz Marrakech en Voiture - Nouveau Centre-Ville",
+    excerpt: "Guéliz est le centre-ville moderne de Marrakech. Notre guide vous aide à découvrir ses cafés, restaurants et boutiques avec votre voiture de location.",
+    metaDescription: "Découvrez Guéliz, le quartier européen de Marrakech : cafés, restaurants, shopping, parkings. Guide complet pour explorer le nouveau centre-ville en voiture.",
+    category: "Guides Locaux",
+    date: "13 décembre 2024",
+    image: new URL("@/assets/city-marrakech.jpg", import.meta.url).href,
+    city: "marrakech",
+    featured: true,
+    readTime: 7,
+    keywords: ["gueliz marrakech", "quartier gueliz voiture", "parking gueliz", "restaurants gueliz"],
+    content: [
+      "Guéliz, surnommé le 'nouveau Marrakech', contraste avec la médina historique. Avenue Mohammed V, place du 16 Novembre, cafés parisiens... ce quartier européen est parfait pour une découverte en voiture. Voici tous nos conseils pour l'explorer efficacement.",
+      
+      "## 🍽️ Meilleurs Restaurants Guéliz",
+      
+      "La scène culinaire de Guéliz rivalise avec les grandes capitales.",
+      
+      "### Le Catanzaro",
+      "Pizza napolitaine au feu de bois. Institution marrakchie.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking rue Mohammed V (5 DH/h)\n- 💰 Budget : 120-200 DH/pers\n- 🍕 Meilleure pizza de Marrakech\n- ⏰ Réservation conseillée week-end",
+      
+      "### Al Fassia Guéliz",
+      "Cuisine marocaine raffinée. Tenu par des femmes.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking privé gratuit\n- 💰 Budget : 250-350 DH/pers\n- 👩‍🍳 Équipe 100% féminine\n- 🥘 Spécialités : méchoui, pastilla",
+      
+      "### Bagatelle",
+      "Bistrot français chic. Terrasse verdoyante.",
+      
+      "**Infos pratiques :**\n- 🅿️ Valet parking gratuit\n- 💰 Budget : 300-450 DH/pers\n- 🇫🇷 Cuisine française authentique\n- 🌳 Jardin ombragé magnifique",
+      
+      "## ☕ Cafés Emblématiques",
+      
+      "### 16 Café",
+      "Café iconique place du 16 Novembre. Terrasse people-watching.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking place 16 Novembre payant\n- ☕ Café : 20-35 DH\n- 👀 Meilleur spot observation\n- 📶 WiFi gratuit",
+      
+      "### Café Extrablatt",
+      "Café allemand moderne. Petits-déjeuners copieux.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking Carré Eden (10 DH/h)\n- 🥐 Petit-déj : 60-100 DH\n- ⏰ Ouvert 7h-23h\n- 🍰 Pâtisseries maison",
+      
+      "## 🛍️ Shopping Guéliz",
+      
+      "### Carré Eden Shopping Center",
+      "Mall moderne avec 120+ boutiques internationales.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking gratuit 1500 places\n- 🕐 Ouvert 10h-22h\n- 🎬 Cinéma Megarama\n- 🍔 Food court 25+ enseignes",
+      
+      "### Al Mazar",
+      "Galerie artisanale haut de gamme.",
+      
+      "**Infos pratiques :**\n- 🅿️ Parking privé gratuit\n- 🎨 Artisanat de qualité\n- 💳 Prix fixes (pas de négociation)\n- 🎁 Idéal cadeaux authentiques",
+      
+      "## 🚗 Circulation & Parking Guéliz",
+      
+      "**Tips circulation Guéliz** :",
+      
+      "✅ **Axe principal** : Avenue Mohammed V (2x3 voies, fluide)\n✅ **Parkings recommandés** :\n   - Carré Eden : gratuit, 1500 places\n   - Place 16 Novembre : payant 5 DH/h\n   - Parkings rue : 5-10 DH/h",
+      
+      "⚠️ **À savoir** :\n- Circulation dense 8h-9h30 et 17h-19h\n- Sens uniques nombreux (GPS recommandé)\n- Contrôles vitesse fréquents (50 km/h en ville)",
+      
+      "Guéliz est le point de départ idéal pour explorer Marrakech en voiture. Moderne, bien aménagé et avec de nombreux parkings, c'est le quartier parfait pour les nouveaux visiteurs. Depuis Guéliz, rejoignez la médina (10 min), Hivernage (5 min) ou l'Atlas (45 min). Louez votre véhicule chez Benatna dès 180 DH/jour pour découvrir Marrakech en toute liberté."
+    ]
+  },
+  {
+    id: 14,
+    slug: "road-trip-atlas-marrakech-4x4",
+    title: "Road Trip Atlas depuis Marrakech en 4x4 - Itinéraire 3 Jours",
+    excerpt: "Partez à la découverte de l'Atlas en 4x4 depuis Marrakech. Itinéraire complet 3 jours : vallées, villages berbères, panoramas époustouflants. Guide pratique avec carte.",
+    metaDescription: "Itinéraire détaillé road trip 3 jours dans l'Atlas depuis Marrakech en 4x4 : Ourika, Toubkal, Imlil, Oukaimeden. Carte, étapes, conseils + véhicule adapté.",
+    category: "Itinéraires",
+    date: "12 décembre 2024",
+    image: new URL("@/assets/car-duster.jpg", import.meta.url).href,
+    city: "marrakech",
+    featured: true,
+    readTime: 12,
+    keywords: ["road trip atlas", "atlas 4x4 marrakech", "itinéraire atlas", "toubkal voiture", "vallée ourika 4x4"],
+    content: [
+      "L'Atlas marocain, à seulement 45 minutes de Marrakech, offre des paysages spectaculaires accessibles en 4x4. Vallées verdoyantes, villages berbères perchés, sommets enneigés... Ce road trip de 3 jours vous emmène au cœur des montagnes avec un itinéraire optimisé et tous les conseils pratiques.",
+      
+      "## 🚙 Véhicule Recommandé",
+      
+      "**4x4 indispensable pour cet itinéraire** :",
+      
+      "✅ **Dacia Duster 4x4** : Best value (280-350 DH/jour)\n   - Garde au sol 210mm\n   - Robuste et fiable\n   - Consommation raisonnable",
+      
+      "✅ **Renault Captur** : Bon compromis SUV (300 DH/jour)\n   - Confortable sur routes\n   - Garde au sol 174mm (limite sur pistes)",
+      
+      "✅ **Land Cruiser/Patrol** : Pour pistes difficiles (800+ DH/jour)",
+      
+      "⚠️ **À éviter** : Citadines type Sandero, Clio (garde au sol insuffisante)",
+      
+      "## 📍 Jour 1 : Marrakech → Vallée de l'Ourika",
+      
+      "**Distance : 65 km | Durée : 2h30 avec arrêts**",
+      
+      "La vallée de l'Ourika est la porte d'entrée de l'Atlas, réputée pour ses cascades et villages berbères.",
+      
+      "### Départ Marrakech (8h)",
+      "Prenez la route de l'Ourika (R203) direction Setti Fatma.",
+      
+      "**Conseils :**\n- ⛽ Faire le plein à Marrakech (dernière station avant montagne)\n- 🥐 Petit-déjeuner à emporter conseillé\n- 📱 Télécharger carte Maps.me hors ligne",
+      
+      "### Arrêt Tnine Ourika (9h30)",
+      "Marché berbère traditionnel (si lundi = jour de souk).",
+      
+      "**Conseils :**\n- 🛍️ Artisanat local authentique\n- 🍊 Fruits frais pour pique-nique\n- 🅿️ Parking gratuit place principale",
+      
+      "### Cascade Setti Fatma (11h)",
+      "Terminus route goudronnée. 7 cascades accessibles à pied.",
+      
+      "**Conseils :**\n- 🥾 Chaussures de marche obligatoires\n- ⏱️ Comptez 2-3h randonnée A/R\n- 💧 Eau et snacks\n- 🅿️ Parking surveillé 20 DH",
+      
+      "### Déjeuner Panoramique (14h)",
+      "Restaurant-terrasse avec vue sur cascade.",
+      
+      "**Conseils :**\n- 🍽️ Tagine ou omelette berbère\n- 💰 Budget : 80-120 DH/pers\n- 🏞️ Tables en terrasse avec vue",
+      
+      "### Nuit à Setti Fatma ou Asgaour",
+      "Auberges et riads de montagne.",
+      
+      "**Conseils :**\n- 🏨 Réservation recommandée (surtout week-end)\n- 💰 Budget : 250-500 DH/nuit\n- 🌌 Ciel étoilé spectaculaire\n- 🔥 Soirée au coin du feu",
+      
+      "## 📍 Jour 2 : Ourika → Imlil (Pied du Toubkal)",
+      
+      "**Distance : 95 km | Durée : 3h30**",
+      
+      "Route de montagne vers Imlil, village au pied du Jbel Toubkal (4167m), plus haut sommet d'Afrique du Nord.",
+      
+      "### Départ Setti Fatma (9h)",
+      "Retour vers Marrakech puis direction Asni.",
+      
+      "**Conseils :**\n- 🛣️ Route sinueuse mais goudronnée\n- 📸 Arrêts photos panoramas vallée\n- ⚠️ Prudence virages (max 40 km/h)",
+      
+      "### Asni - Pause Café (10h30)",
+      "Village-étape avec cafés et épiceries.",
+      
+      "**Conseils :**\n- ☕ Café berbère 15 DH\n- 🛒 Ravitaillement possible\n- 🅿️ Parking gratuit centre",
+      
+      "### Imlil - Arrivée (12h)",
+      "Village de montagne emblématique, base alpinistes Toubkal.",
+      
+      "**Conseils :**\n- 🅿️ Parking surveillé obligatoire 30 DH/nuit\n- 🥾 Randonnées départ village\n- 🏔️ Vue Toubkal enneigé (hiver)",
+      
+      "### Randonnée Aroumd (14h-17h)",
+      "Village berbère perché à 1h30 marche d'Imlil.",
+      
+      "**Conseils :**\n- 👣 Sentier bien balisé\n- 🫖 Thé chez l'habitant possible\n- 💰 Donation 20-50 DH appréciée\n- 📸 Vues panoramiques exceptionnelles",
+      
+      "### Nuit à Imlil",
+      "Auberges de montagne et lodges.",
+      
+      "**Conseils :**\n- 🏨 Réservation obligatoire haute saison\n- 💰 Budget : 300-800 DH/nuit\n- 🍽️ Dîner inclus (tagine berbère)\n- 🔥 Chauffage nécessaire (froid altitude)",
+      
+      "## 📍 Jour 3 : Imlil → Oukaimeden → Marrakech",
+      
+      "**Distance : 110 km | Durée : 4h**",
+      
+      "Retour via Oukaimeden, station de ski la plus haute d'Afrique (2600-3200m).",
+      
+      "### Départ Imlil (9h)",
+      "Direction Oukaimeden par piste de montagne.",
+      
+      "**Conseils :**\n- 🚙 4x4 INDISPENSABLE ce tronçon\n- ⛰️ Piste caillouteuse 18 km\n- ⏱️ Comptez 1h30 (lent mais magnifique)\n- ⚠️ Impossible après pluie/neige",
+      
+      "### Oukaimeden - Station de Ski (11h)",
+      "Plus haute station ski Afrique. Télésiège l'été pour panorama.",
+      
+      "**Conseils :**\n- ⛷️ Ski décembre-mars (si neige)\n- 🚡 Télésiège été : 50 DH A/R\n- 🏔️ Vue Atlas 360° au sommet\n- 🍽️ Cafés-restaurants station",
+      
+      "### Retour Marrakech (14h)",
+      "Descente via route goudronnée S513.",
+      
+      "**Conseils :**\n- 🛣️ Route bonne qualité\n- 📸 Arrêts photos villages\n- ⏱️ 1h30 jusqu'à Marrakech\n- ⛽ Ravitaillement route",
+      
+      "### Arrivée Marrakech (16h)",
+      "Retour agence location + check-out.",
+      
+      "**Conseils :**\n- 🚗 Inspecter véhicule ensemble\n- 💳 Restitution caution immédiate\n- 🧼 Nettoyage sommaire apprécié\n- ⭐ Feedback expérience",
+      
+      "## 💡 Conseils Pratiques Road Trip",
+      
+      "**Préparation essentielle** :",
+      
+      "✅ **Avant départ** :\n- Plein d'essence Marrakech (stations rares montagne)\n- Vérifier pression pneus + roue secours\n- Eau (6L minimum), snacks énergétiques\n- Carte papier + GPS hors ligne (Maps.me)\n- Trousse premiers secours",
+      
+      "✅ **Conduite montagne** :\n- Rouler en 2ème/3ème dans pistes\n- Klaxonner avant virages aveugles\n- Céder priorité mules/moutons\n- Éviter dépassements risqués",
+      
+      "✅ **Budget total 3 jours** :\n- Location 4x4 : 840-1050 DH\n- Essence : 400-500 DH\n- Hébergement (2 nuits) : 600-1600 DH\n- Repas : 600-900 DH\n- Divers : 200 DH\n**TOTAL : 2640-4250 DH pour 2 personnes**",
+      
+      "⚠️ **Période idéale** :\n- **Printemps (mars-mai)** : Verdure, cascades en eau\n- **Automne (sept-nov)** : Températures agréables\n- **Éviter juillet-août** : Chaleur intense basse altitude\n- **Hiver (déc-fév)** : Neige possible, 4x4 obligatoire",
+      
+      "Ce road trip Atlas en 4x4 est une expérience inoubliable à 1h de Marrakech. Vallées verdoyantes, villages berbères authentiques, panoramas à couper le souffle : l'Atlas révèle la diversité du Maroc. Pour ce circuit, nous recommandons le Dacia Duster 4x4 (excellent rapport qualité-prix) ou un SUV robuste. Réservez votre véhicule chez Benatna dès 280 DH/jour avec kilométrage illimité et assurance tous risques pour partir l'esprit tranquille."
+    ]
   }
 ];
+
+// Fonctions helper pour filtrage
+export const getArticlesByCity = (city: string) => {
+  return blogArticles.filter(article => article.city === city);
+};
+
+export const getFeaturedArticles = () => {
+  return blogArticles.filter(article => article.featured === true);
+};
