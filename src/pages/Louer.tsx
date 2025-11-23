@@ -4204,19 +4204,20 @@ const Louer = () => {
         description: `Du ${format(start, "dd/MM/yyyy", { locale: fr })} au ${format(end, "dd/MM/yyyy", { locale: fr })}`,
       });
       
-      // Construire le message WhatsApp avec toutes les informations
+      // Construire le message WhatsApp optimisé pour la conversion
       setTimeout(() => {
         const dateDebut = format(start, "dd/MM/yyyy", { locale: fr });
         const dateFin = format(end, "dd/MM/yyyy", { locale: fr });
         const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
         
-        const message = `Bonjour, je souhaite réserver ${selectedCar.name} à ${selectedCar.city} (${selectedCar.price}/jour)
-        
-📅 Dates : du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
+        const message = `🚗 *DEMANDE DE RÉSERVATION*
 
-Pouvez-vous confirmer la disponibilité et me donner le prix total ?
+Véhicule : ${selectedCar.name}
+📍 Ville : ${selectedCar.city}
+📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
+💰 Tarif : ${selectedCar.price}/jour
 
-Merci !`;
+Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité et le prix total.`;
         
         window.open(
           `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
