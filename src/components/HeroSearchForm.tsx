@@ -5,6 +5,7 @@ import { Calendar, MapPin, Search, Clock } from "lucide-react";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -21,6 +22,7 @@ export const HeroSearchForm = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const isMobile = useIsMobile();
   const [city, setCity] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
@@ -76,7 +78,9 @@ export const HeroSearchForm = () => {
       const date = new Date(Date.now() + i * 86400000);
       dates.push({
         value: date.toISOString().split('T')[0],
-        label: date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+        label: isMobile 
+          ? date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+          : date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
       });
     }
     return dates;
