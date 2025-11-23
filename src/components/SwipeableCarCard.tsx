@@ -191,11 +191,11 @@ export default function SwipeableCarCard({
         {...swipeHandlers}
         {...longPressHandlers}
       >
-        <div className="relative h-32 overflow-hidden bg-muted">
+        <div className="relative h-40 md:h-52 overflow-hidden bg-muted">
           <LazyCarImage 
             src={car.image} 
             alt={imageAlt}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain"
           />
           <div className="absolute top-1.5 right-1.5 z-10">
             <div
