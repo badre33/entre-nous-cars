@@ -13,6 +13,12 @@ import { StickyProgress } from "@/components/StickyProgress";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
 import { toast } from "sonner";
+import { 
+  EnhancedAggregateRatingSchema, 
+  PriceRangeOfferSchema, 
+  FAQSchemaEnriched,
+  MultiLocationSchema
+} from "@/components/schemas";
 
 interface LongTailPageProps {
   config: LongTailPageConfig;
@@ -97,6 +103,33 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       </Helmet>
       
       <StructuredData type="rental" />
+      
+      {/* Quick Wins SEO: AggregateRating Schema pour étoiles Google */}
+      <EnhancedAggregateRatingSchema 
+        entityType="Service"
+        entityName={config.title}
+      />
+      
+      {/* Quick Wins SEO: Price Range pour affichage prix dans Google */}
+      <PriceRangeOfferSchema 
+        minPrice="150"
+        maxPrice="900"
+        city={config.slug.includes('casablanca') ? 'Casablanca' : 
+              config.slug.includes('marrakech') ? 'Marrakech' : 
+              config.slug.includes('rabat') ? 'Rabat' :
+              config.slug.includes('tanger') ? 'Tanger' :
+              config.slug.includes('agadir') ? 'Agadir' :
+              config.slug.includes('fes') ? 'Fès' : undefined}
+        discount={{ percentage: 10, minDays: 30 }}
+      />
+      
+      {/* Quick Wins SEO: FAQ Schema Enrichi pour Rich Snippets */}
+      {config.content.faq && config.content.faq.length > 0 && (
+        <FAQSchemaEnriched 
+          pageName={config.title}
+          faqs={config.content.faq}
+        />
+      )}
       
       <Header />
       <BreadcrumbsEnriched items={breadcrumbItems} />

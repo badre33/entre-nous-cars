@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { MapPin, Car, Hotel, Bus, Plane, Clock, Users, Trophy, Waves } from "lucide-react";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { EventSchema } from "@/components/schemas";
 import canHeroImage from "@/assets/can-2025-hero.jpg";
 
 const CAN2025Agadir = () => {
@@ -18,6 +19,24 @@ const CAN2025Agadir = () => {
         <meta name="description" content="Location voiture CAN 2025 à Agadir. Plages, stade moderne, parking. 6 matchs. Réservez dès 200 DH/jour." />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-agadir" />
       </Helmet>
+      
+      {/* Event Schema CAN 2025 Agadir */}
+      <EventSchema 
+        eventName="CAN 2025 - Matchs à Agadir"
+        eventDescription="6 matchs de la Coupe d'Afrique des Nations 2025 au Stade d'Agadir. Combinez football et vacances balnéaires avec notre service de location de voiture."
+        startDate="2025-12-21"
+        endDate="2026-01-18"
+        location={{
+          name: "Stade d'Agadir",
+          city: "Agadir",
+          address: "Route de l'Aéroport, Agadir"
+        }}
+        offers={{
+          price: "200",
+          priceCurrency: "MAD",
+          availability: "https://schema.org/InStock"
+        }}
+      />
 
       <div className="min-h-screen bg-background">
         <Header />
