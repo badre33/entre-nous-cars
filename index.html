@@ -42,8 +42,8 @@
     <!-- Preconnect to external origins (must be early) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="dns-prefetch" href="https://wa.me">
-    <link rel="dns-prefetch" href="https://connect.facebook.net">
     
     <!-- Preload critical fonts for better LCP -->
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/pacifico/v23/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff2" type="font/woff2" crossorigin>
@@ -68,6 +68,9 @@
     
     <!-- Preload LCP image - uses production build path -->
     <link rel="preload" as="image" href="/assets/hero-home-new-DnToDbf5.png" fetchpriority="high" />
+    
+    <!-- Preload main module for faster JS execution -->
+    <link rel="modulepreload" href="/src/main.tsx" />
     
     <!-- Load fonts asynchronously for better performance -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
