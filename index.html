@@ -66,15 +66,23 @@
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon.png" />
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon.png" />
     
-    <!-- Preload LCP image - uses production build path -->
-    <link rel="preload" as="image" href="/assets/hero-home-new-DnToDbf5.png" fetchpriority="high" />
-    
     <!-- Preload main module for faster JS execution -->
     <link rel="modulepreload" href="/src/main.tsx" />
     
-    <!-- Load fonts asynchronously for better performance -->
+    <!-- Load fonts with optimal loading strategy -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Defer service worker for better initial load -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            navigator.serviceWorker.register('/sw.js');
+          }, 2000);
+        });
+      }
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />

@@ -159,7 +159,7 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[550px] sm:min-h-[600px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* Preloaded image for LCP optimization */}
+        {/* LCP-optimized hero image */}
         <img 
           src={heroImage} 
           alt={generateHeroImageAlt()}
@@ -168,7 +168,9 @@ const Index = () => {
             transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
           }}
           sizes="100vw"
-          decoding="async"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         
