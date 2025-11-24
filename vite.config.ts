@@ -12,28 +12,8 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          // Keep React and React-DOM together - CRITICAL for avoiding dual package hazard
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'vendor';
-            }
-            // All other node_modules in vendor
-            return 'vendor';
-          }
-        },
-      },
-    },
+    // Use default chunking & minification to maximize React compatibility
     cssCodeSplit: true,
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: mode === 'production',
-        drop_debugger: mode === 'production',
-      },
-    },
     chunkSizeWarningLimit: 1000,
   },
   plugins: [
