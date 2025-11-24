@@ -14,9 +14,58 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'ui-vendor': ['lucide-react', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
+        manualChunks: (id) => {
+          // Vendor chunks for libraries
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+              return 'react-vendor';
+            }
+            if (id.includes('@radix-ui') || id.includes('lucide-react')) {
+              return 'ui-vendor';
+            }
+            if (id.includes('@tanstack/react-query')) {
+              return 'query-vendor';
+            }
+            // Other node_modules go into a shared vendor chunk
+            return 'vendor';
+          }
+          
+          // Route-based code splitting for better caching
+          if (id.includes('/pages/')) {
+            // Group CAN 2025 pages together
+            if (id.includes('CAN2025')) {
+              return 'pages-can2025';
+            }
+            // Group airport pages together
+            if (id.includes('LocationAeroport')) {
+              return 'pages-airports';
+            }
+            // Group neighborhood pages together
+            if (id.includes('Casablanca') && !id.includes('Aeroport')) {
+              return 'pages-casablanca';
+            }
+            if (id.includes('Marrakech') && !id.includes('Aeroport')) {
+              return 'pages-marrakech';
+            }
+            // Group thematic location pages
+            if (id.includes('LocationJeuneConducteur') || id.includes('LocationLongueDuree')) {
+              return 'pages-special';
+            }
+            // Core pages like blog, services, about
+            if (id.includes('Blog') || id.includes('NosServices') || id.includes('APropos') || id.includes('Contact')) {
+              return 'pages-core';
+            }
+          }
+          
+          // Component chunks
+          if (id.includes('/components/')) {
+            if (id.includes('schemas')) {
+              return 'components-schemas';
+            }
+            if (id.includes('ui/')) {
+              return 'components-ui';
+            }
+          }
         },
       },
     },
@@ -28,6 +77,7 @@ export default defineConfig(({ mode }) => ({
         drop_debugger: mode === 'production',
       },
     },
+    chunkSizeWarningLimit: 1000,
   },
   plugins: [
     react(),
