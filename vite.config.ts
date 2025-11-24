@@ -40,7 +40,7 @@ export default defineConfig(({ mode }) => ({
     }),
     VitePWA({
       registerType: "autoUpdate",
-      injectRegister: 'auto',
+      injectRegister: 'inline',
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"],
       manifest: {
         name: "Benatna – Location de Voiture au Maroc",
