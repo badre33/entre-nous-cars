@@ -90,7 +90,7 @@ export default defineConfig(({ mode }) => ({
     }),
     VitePWA({
       registerType: "autoUpdate",
-      injectRegister: 'inline',
+      injectRegister: null, // Manual registration for better LCP control
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"],
       manifest: {
         name: "Benatna – Location de Voiture au Maroc",
