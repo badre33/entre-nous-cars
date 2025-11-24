@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import LazyCarImage from "@/components/LazyCarImage";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { generateCarImageAlt } from "@/utils/seoHelpers";
+import { ViewCounter } from "@/components/ViewCounter";
+import { UrgencyBadge } from "@/components/UrgencyBadge";
 
 interface CarCardProps {
   car: {
@@ -128,6 +130,15 @@ export default function CarCard({
             alt={imageAlt}
             className="w-full h-full object-cover"
           />
+          
+          {/* ViewCounter - Personnes qui regardent */}
+          <div className="absolute bottom-2 left-2 z-10">
+            <ViewCounter 
+              vehicleName={car.name}
+              baseViews={Math.floor(Math.random() * 4) + 2}
+            />
+          </div>
+          
           <div className="absolute top-1.5 right-1.5 z-10">
             <div
               className={cn(
@@ -192,6 +203,25 @@ export default function CarCard({
           alt={imageAlt}
           className="w-full h-full object-cover"
         />
+        
+        {/* ViewCounter - Personnes qui regardent */}
+        <div className="absolute bottom-2 left-2 z-10">
+          <ViewCounter 
+            vehicleName={car.name}
+            baseViews={Math.floor(Math.random() * 5) + 2}
+          />
+        </div>
+        
+        {/* UrgencyBadge - Stock limité */}
+        {Math.random() > 0.7 && (
+          <div className="absolute bottom-2 right-2 z-10">
+            <UrgencyBadge 
+              type={Math.random() > 0.5 ? 'limited' : 'popular'}
+              count={Math.floor(Math.random() * 3) + 1}
+            />
+          </div>
+        )}
+        
         <div className="absolute top-2 right-2 z-10">
           <div
             className={cn(

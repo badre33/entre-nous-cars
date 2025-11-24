@@ -18,6 +18,8 @@ import { cn } from "@/lib/utils";
 import confetti from "canvas-confetti";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SocialProofNotification } from "@/components/SocialProofNotification";
+import { RecentBookingAlert } from "@/components/RecentBookingAlert";
 import { CarCardSkeleton } from "@/components/CarCardSkeleton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import LazyCarImage from "@/components/LazyCarImage";
@@ -4300,6 +4302,10 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Social Proof Notifications */}
+      <SocialProofNotification />
+      <RecentBookingAlert />
+      
       <Helmet>
         <title>Location de Voiture au Maroc - 300+ Véhicules Disponibles | Benatna</title>
         <meta name="description" content="Louez une voiture au Maroc dès 250 MAD/jour. Citadines, SUV, berlines. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Réservation rapide, prix transparents." />
