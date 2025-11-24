@@ -15,11 +15,16 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }: Ani
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-        }
+        // Use requestAnimationFrame to batch state updates and avoid forced reflows
+        requestAnimationFrame(() => {
+          if (entries[0].isIntersecting) {
+            setIsVisible(true);
+            // Disconnect observer after triggering to prevent unnecessary checks
+            observer.disconnect();
+          }
+        });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3, rootMargin: '50px' }
     );
 
     if (counterRef.current) {

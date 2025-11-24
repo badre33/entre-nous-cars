@@ -17,13 +17,12 @@ export const usePullToRefresh = ({
   const [startY, setStartY] = useState(0);
 
   const handleTouchStart = useCallback((e: TouchEvent) => {
-    // Use requestAnimationFrame to batch layout reads and avoid forced reflows
-    requestAnimationFrame(() => {
-      if (window.scrollY === 0) {
-        setStartY(e.touches[0].pageY);
-        setIsPulling(true);
-      }
-    });
+    // Cache scroll position to avoid forced reflow
+    const scrollY = window.scrollY;
+    if (scrollY === 0) {
+      setStartY(e.touches[0].pageY);
+      setIsPulling(true);
+    }
   }, []);
 
   const handleTouchMove = useCallback((e: TouchEvent) => {
@@ -33,16 +32,18 @@ export const usePullToRefresh = ({
     const distance = Math.max(0, (currentY - startY) / resistance);
 
     if (distance > 0) {
-      // Use requestAnimationFrame to batch layout reads
-      requestAnimationFrame(() => {
-        if (window.scrollY === 0) {
+      // Cache scroll position to avoid forced reflow
+      const scrollY = window.scrollY;
+      if (scrollY === 0) {
+        // Use requestAnimationFrame to batch DOM updates
+        requestAnimationFrame(() => {
           setPullDistance(distance);
-          // Prevent default scrolling when pulling down
-          if (distance > 10) {
-            e.preventDefault();
-          }
+        });
+        // Prevent default scrolling when pulling down
+        if (distance > 10) {
+          e.preventDefault();
         }
-      });
+      }
     }
   }, [isPulling, isRefreshing, startY, resistance]);
 
