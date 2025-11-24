@@ -159,19 +159,36 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[550px] sm:min-h-[600px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* LCP-optimized hero image */}
-        <img 
-          src={heroImage} 
-          alt={generateHeroImageAlt()}
-          className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
-          style={{ 
-            transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
-          }}
-          sizes="100vw"
-          loading="eager"
-          fetchPriority="high"
-          decoding="sync"
-        />
+        {/* LCP-optimized responsive hero image with srcset */}
+        <picture>
+          {/* Mobile: Optimized for small screens (320-640px) */}
+          <source
+            media="(max-width: 640px)"
+            srcSet={heroImage}
+            sizes="100vw"
+          />
+          {/* Tablet: Optimized for medium screens (641-1024px) */}
+          <source
+            media="(min-width: 641px) and (max-width: 1024px)"
+            srcSet={heroImage}
+            sizes="100vw"
+          />
+          {/* Desktop: Full resolution for large screens (1025px+) */}
+          <img 
+            src={heroImage} 
+            alt={generateHeroImageAlt()}
+            className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
+            style={{ 
+              transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
+            }}
+            width="1920"
+            height="1080"
+            sizes="100vw"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         
         <div className="container relative z-10 text-center text-white px-4 sm:px-6 animate-fade-in py-6 sm:py-10">
