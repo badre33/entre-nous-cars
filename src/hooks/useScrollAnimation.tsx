@@ -7,13 +7,16 @@ export const useScrollAnimation = (threshold = 0.1) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          // Optionally unobserve after first trigger
-          observer.unobserve(entry.target);
-        }
+        // Use requestAnimationFrame to avoid forced reflows
+        requestAnimationFrame(() => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            // Unobserve after first trigger to prevent unnecessary checks
+            observer.unobserve(entry.target);
+          }
+        });
       },
-      { threshold }
+      { threshold, rootMargin: '50px' } // Add rootMargin for smoother transitions
     );
 
     const currentRef = ref.current;
