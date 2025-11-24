@@ -11,6 +11,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { MetaPixel } from "@/components/MetaPixel";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
+import { RoutePrefetcher } from "@/components/RoutePrefetcher";
 import { lazy, Suspense, useEffect, useState } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
@@ -25,25 +26,34 @@ import { analytics } from "@/utils/analytics";
 
 // Code splitting avec React.lazy - Homepage not lazy loaded for better LCP
 import Index from "./pages/Index";
+
+// Critical pages - likely to be visited first
 const NosServices = lazy(() => import("./pages/NosServices"));
 const Louer = lazy(() => import("./pages/Louer"));
-const Partenaires = lazy(() => import("./pages/Partenaires"));
-const APropos = lazy(() => import("./pages/APropos"));
-const Blog = lazy(() => import("./pages/Blog"));
-const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const Contact = lazy(() => import("./pages/Contact"));
-const FAQ = lazy(() => import("./pages/FAQ"));
-const Glossaire = lazy(() => import("./pages/Glossaire"));
-const ComparatifsList = lazy(() => import("./pages/ComparatifsList"));
-const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
+
+// Main city pages
 const LocationVoitureCasablanca = lazy(() => import("./pages/LocationVoitureCasablanca"));
 const LocationVoitureMarrakech = lazy(() => import("./pages/LocationVoitureMarrakech"));
 const LocationVoitureRabat = lazy(() => import("./pages/LocationVoitureRabat"));
 const LocationVoitureTanger = lazy(() => import("./pages/LocationVoitureTanger"));
 const LocationVoitureAgadir = lazy(() => import("./pages/LocationVoitureAgadir"));
 const LocationVoitureFes = lazy(() => import("./pages/LocationVoitureFes"));
+
+// Secondary pages
+const Partenaires = lazy(() => import("./pages/Partenaires"));
+const APropos = lazy(() => import("./pages/APropos"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogArticle = lazy(() => import("./pages/BlogArticle"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+const Glossaire = lazy(() => import("./pages/Glossaire"));
+const ComparatifsList = lazy(() => import("./pages/ComparatifsList"));
+const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
+
+// Special pages
 const LocationSansCarteMarrakech = lazy(() => import("./pages/LocationSansCarteMarrakech"));
 const LocationSansCarteCasablanca = lazy(() => import("./pages/LocationSansCarteCasablanca"));
+
 // Aéroports (6 pages)
 const LocationAeroportCasablanca = lazy(() => import("./pages/LocationAeroportCasablanca"));
 const LocationAeroportMarrakech = lazy(() => import("./pages/LocationAeroportMarrakech"));
@@ -51,6 +61,7 @@ const LocationAeroportAgadir = lazy(() => import("./pages/LocationAeroportAgadir
 const LocationAeroportTanger = lazy(() => import("./pages/LocationAeroportTanger"));
 const LocationAeroportFes = lazy(() => import("./pages/LocationAeroportFes"));
 const LocationAeroportRabat = lazy(() => import("./pages/LocationAeroportRabat"));
+
 // Thématiques (15 pages)
 const LocationMariageMaroc = lazy(() => import("./pages/LocationMariageMaroc"));
 const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
@@ -67,6 +78,8 @@ const LocationElectriqueCasablanca = lazy(() => import("./pages/LocationElectriq
 const LocationVanFamilleMaroc = lazy(() => import("./pages/LocationVanFamilleMaroc"));
 const LocationCabrioletAgadir = lazy(() => import("./pages/LocationCabrioletAgadir"));
 const LocationUtilitaireCasablanca = lazy(() => import("./pages/LocationUtilitaireCasablanca"));
+
+// CAN 2025 pages
 const LocationCAN2025 = lazy(() => import("./pages/LocationCAN2025"));
 const CAN2025Casablanca = lazy(() => import("./pages/CAN2025Casablanca"));
 const CAN2025Rabat = lazy(() => import("./pages/CAN2025Rabat"));
@@ -74,18 +87,22 @@ const CAN2025Marrakech = lazy(() => import("./pages/CAN2025Marrakech"));
 const CAN2025Agadir = lazy(() => import("./pages/CAN2025Agadir"));
 const CAN2025Fes = lazy(() => import("./pages/CAN2025Fes"));
 const CAN2025Tanger = lazy(() => import("./pages/CAN2025Tanger"));
+
 // Quartiers Casablanca (5 pages)
 const LocationVoitureAinDiabCasablanca = lazy(() => import("./pages/LocationVoitureAinDiabCasablanca"));
 const LocationVoitureMaarifCasablanca = lazy(() => import("./pages/LocationVoitureMaarifCasablanca"));
 const LocationVoitureAnfaCasablanca = lazy(() => import("./pages/LocationVoitureAnfaCasablanca"));
 const LocationVoitureSidiMaaroufCasablanca = lazy(() => import("./pages/LocationVoitureSidiMaaroufCasablanca"));
 const LocationVoitureHassanCasablanca = lazy(() => import("./pages/LocationVoitureHassanCasablanca"));
+
 // Quartiers Marrakech (6 pages)
 const LocationVoitureGuelizMarrakech = lazy(() => import("./pages/LocationVoitureGuelizMarrakech"));
 const LocationVoitureHivernageMarrakech = lazy(() => import("./pages/LocationVoitureHivernageMarrakech"));
 const LocationVoitureMedinaMarrakech = lazy(() => import("./pages/LocationVoitureMedinaMarrakech"));
 const LocationVoiturePalmeraieMarrakech = lazy(() => import("./pages/LocationVoiturePalmeraieMarrakech"));
 const LocationVoitureRouteOurikaMarrakech = lazy(() => import("./pages/LocationVoitureRouteOurikaMarrakech"));
+
+// 404 page
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -134,6 +151,7 @@ const App = () => (
             <SitelinksSearchBoxSchema />
             <MetaPixel />
             <AnalyticsTracker />
+            <RoutePrefetcher />
             <LanguageProvider>
               <ComparisonProvider>
                 <Toaster />
