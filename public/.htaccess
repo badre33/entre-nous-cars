@@ -32,27 +32,39 @@
 
 # Add Cache-Control headers for better control
 <IfModule mod_headers.c>
+  # Don't cache HTML files
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+  
   # Service worker files - short cache for updates
   <FilesMatch "(sw\.js|registerSW\.js)$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
   </FilesMatch>
   
-  # Cache hashed assets for 1 year (immutable)
-  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
+  # Cache all JS files for 1 year except service workers
+  <FilesMatch "\.js$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   
-  # Cache JS and CSS for 1 year (they have content hashes in filenames)
-  <FilesMatch "^(?!(sw|registerSW)).*\.(js|css)$">
+  # Cache CSS for 1 year
+  <FilesMatch "\.css$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   
-  # Don't cache HTML files
-  <FilesMatch "\.(html|htm)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  # Cache images for 1 year
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   
-  # Cache manifest for shorter time
+  # Cache fonts for 1 year
+  <FilesMatch "\.(woff|woff2|ttf|eot|otf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  
+  # Cache manifest for 1 day
   <FilesMatch "\.(manifest|webmanifest)$">
     Header set Cache-Control "public, max-age=86400"
   </FilesMatch>
