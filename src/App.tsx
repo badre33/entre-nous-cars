@@ -12,7 +12,7 @@ import { MetaPixel } from "@/components/MetaPixel";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
 import { RoutePrefetcher } from "@/components/RoutePrefetcher";
-import { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
 import { BottomNavigation } from "@/components/BottomNavigation";
@@ -105,8 +105,6 @@ const LocationVoitureRouteOurikaMarrakech = lazy(() => import("./pages/LocationV
 // 404 page
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-const queryClient = new QueryClient();
-
 // Analytics tracking component
 const AnalyticsTracker = () => {
   const location = useLocation();
@@ -141,11 +139,22 @@ const DeferredComponents = () => {
   );
 };
 
-const App = () => (
-  <ErrorBoundary>
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
+const App = () => {
+  // Create QueryClient inside component to avoid initialization timing issues
+  const [queryClient] = useState(() => new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000, // 1 minute
+        refetchOnWindowFocus: false,
+      },
+    },
+  }));
+
+  return (
+    <ErrorBoundary>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
           <BrowserRouter>
             <OrganizationSchema />
             <SitelinksSearchBoxSchema />
@@ -234,6 +243,7 @@ const App = () => (
       </QueryClientProvider>
     </HelmetProvider>
   </ErrorBoundary>
-);
+  );
+};
 
 export default App;
