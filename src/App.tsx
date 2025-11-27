@@ -11,7 +11,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { MetaPixel } from "@/components/MetaPixel";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
-import { RoutePrefetcher } from "@/components/RoutePrefetcher";
+import { IntelligentRoutePrefetcher } from "@/components/IntelligentRoutePrefetcher";
 import React, { lazy, Suspense, useEffect, useState } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
@@ -160,7 +160,7 @@ const App = () => {
             <SitelinksSearchBoxSchema />
             <MetaPixel />
             <AnalyticsTracker />
-            <RoutePrefetcher />
+            <IntelligentRoutePrefetcher />
             <LanguageProvider>
               <ComparisonProvider>
                 <Toaster />
