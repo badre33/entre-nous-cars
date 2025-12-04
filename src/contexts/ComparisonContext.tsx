@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import { toast } from "@/hooks/use-toast";
+import { trackAddToCart } from "@/components/MetaPixel";
 
 interface Car {
   id: number;
@@ -49,6 +50,16 @@ export function ComparisonProvider({ children }: { children: ReactNode }) {
     }
 
     setSelectedCars(prev => [...prev, car]);
+    
+    // Track AddToCart event for Meta Pixel
+    trackAddToCart({
+      content_name: car.name,
+      content_ids: [car.id.toString()],
+      content_type: 'vehicle',
+      value: car.price,
+      currency: 'MAD'
+    });
+    
     toast({
       title: "Ajouté à la comparaison",
       description: `${car.name} a été ajouté à la comparaison.`,
