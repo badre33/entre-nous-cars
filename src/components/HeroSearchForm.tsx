@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Search, Clock } from "lucide-react";
+import { Calendar, MapPin, Search, Clock, ChevronRight } from "lucide-react";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   Select,
@@ -68,6 +67,11 @@ export const HeroSearchForm = () => {
     }
   };
 
+  // Quick access - go directly to /louer
+  const handleQuickAccess = () => {
+    navigate('/louer');
+  };
+
   const today = new Date().toISOString().split('T')[0];
   const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
 
@@ -78,23 +82,18 @@ export const HeroSearchForm = () => {
       const date = new Date(Date.now() + i * 86400000);
       dates.push({
         value: date.toISOString().split('T')[0],
-        label: isMobile 
-          ? date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })
-          : date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
+        label: date.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' })
       });
     }
     return dates;
   };
 
-  // Générer les options d'heures
+  // Générer les options d'heures simplifiées
   const generateTimeOptions = () => {
     const times = [];
-    for (let h = 0; h < 24; h++) {
-      for (let m = 0; m < 60; m += 30) {
-        const hour = h.toString().padStart(2, '0');
-        const minute = m.toString().padStart(2, '0');
-        times.push({ value: `${hour}:${minute}`, label: `${hour}:${minute}` });
-      }
+    for (let h = 7; h < 22; h++) {
+      const hour = h.toString().padStart(2, '0');
+      times.push({ value: `${hour}:00`, label: `${hour}:00` });
     }
     return times;
   };
@@ -103,116 +102,130 @@ export const HeroSearchForm = () => {
   const timeOptions = generateTimeOptions();
 
   return (
-    <div className="w-full px-4">
-      <form 
-        onSubmit={handleSearch}
-        className="bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-5 w-full max-w-md mx-auto lg:max-w-4xl"
-      >
-        {/* Mobile: Selects personnalisés */}
-        <div className="flex flex-col gap-4 lg:hidden">
-          {/* Ville */}
-          <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-              <MapPin className="w-4 h-4" />
-              Ville
-            </Label>
+    <div className="w-full px-2 sm:px-4">
+      {/* Mobile: Formulaire simplifié et compact */}
+      <div className="lg:hidden">
+        <form 
+          onSubmit={handleSearch}
+          className="bg-white/98 backdrop-blur-md rounded-2xl shadow-2xl p-4 w-full max-w-sm mx-auto"
+        >
+          {/* Ville - Full width */}
+          <div className="mb-3">
             <Select value={city} onValueChange={setCity}>
-              <SelectTrigger className="w-full h-12 text-base">
-                <SelectValue placeholder="Sélectionnez une ville" />
+              <SelectTrigger className="w-full h-14 text-base font-medium border-2 border-border/50 focus:border-primary touch-feedback rounded-xl">
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+                  <SelectValue placeholder="Où voulez-vous louer ?" />
+                </div>
               </SelectTrigger>
               <SelectContent>
                 {cities.map((c) => (
-                  <SelectItem key={c} value={c}>{c}</SelectItem>
+                  <SelectItem key={c} value={c} className="text-base py-3">{c}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
           </div>
 
-          {/* Date de début */}
-          <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-              <Calendar className="w-4 h-4" />
-              Date de début
-            </Label>
-            <Select value={startDate} onValueChange={setStartDate}>
-              <SelectTrigger className="w-full h-12 text-sm px-3">
-                <SelectValue placeholder="Sélectionnez une date" />
-              </SelectTrigger>
-              <SelectContent>
-                {dateOptions.map((date) => (
-                  <SelectItem key={date.value} value={date.value}>{date.label}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          {/* Date début - combiné sur une ligne */}
+          <div className="grid grid-cols-2 gap-2 mb-3">
+            <div>
+              <Label className="text-xs text-muted-foreground mb-1 block">Début</Label>
+              <Select value={startDate} onValueChange={setStartDate}>
+                <SelectTrigger className="w-full h-12 text-sm border-2 border-border/50 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
+                    <SelectValue placeholder="Date" />
+                  </div>
+                </SelectTrigger>
+                <SelectContent>
+                  {dateOptions.map((date) => (
+                    <SelectItem key={date.value} value={date.value} className="text-sm py-2">{date.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label className="text-xs text-muted-foreground mb-1 block">Heure</Label>
+              <Select value={startTime} onValueChange={setStartTime}>
+                <SelectTrigger className="w-full h-12 text-sm border-2 border-border/50 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                    <SelectValue placeholder="Heure" />
+                  </div>
+                </SelectTrigger>
+                <SelectContent>
+                  {timeOptions.map((time) => (
+                    <SelectItem key={time.value} value={time.value} className="text-sm py-2">{time.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
-          {/* Heure de début */}
-          <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-              <Clock className="w-4 h-4" />
-              Heure
-            </Label>
-            <Select value={startTime} onValueChange={setStartTime}>
-              <SelectTrigger className="w-full h-12 text-sm px-3">
-                <SelectValue placeholder="Sélectionnez une heure" />
-              </SelectTrigger>
-              <SelectContent>
-                {timeOptions.map((time) => (
-                  <SelectItem key={time.value} value={time.value}>{time.label}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+          {/* Date fin - combiné sur une ligne */}
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <div>
+              <Label className="text-xs text-muted-foreground mb-1 block">Fin</Label>
+              <Select value={endDate} onValueChange={setEndDate}>
+                <SelectTrigger className="w-full h-12 text-sm border-2 border-border/50 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-primary flex-shrink-0" />
+                    <SelectValue placeholder="Date" />
+                  </div>
+                </SelectTrigger>
+                <SelectContent>
+                  {dateOptions.map((date) => (
+                    <SelectItem key={date.value} value={date.value} className="text-sm py-2">{date.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <Label className="text-xs text-muted-foreground mb-1 block">Heure</Label>
+              <Select value={endTime} onValueChange={setEndTime}>
+                <SelectTrigger className="w-full h-12 text-sm border-2 border-border/50 rounded-xl">
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                    <SelectValue placeholder="Heure" />
+                  </div>
+                </SelectTrigger>
+                <SelectContent>
+                  {timeOptions.map((time) => (
+                    <SelectItem key={time.value} value={time.value} className="text-sm py-2">{time.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
 
-          {/* Date de fin */}
-          <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-              <Calendar className="w-4 h-4" />
-              Date de fin
-            </Label>
-            <Select value={endDate} onValueChange={setEndDate}>
-              <SelectTrigger className="w-full h-12 text-sm px-3">
-                <SelectValue placeholder="Sélectionnez une date" />
-              </SelectTrigger>
-              <SelectContent>
-                {dateOptions.map((date) => (
-                  <SelectItem key={date.value} value={date.value}>{date.label}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Heure de fin */}
-          <div className="w-full space-y-2">
-            <Label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
-              <Clock className="w-4 h-4" />
-              Heure
-            </Label>
-            <Select value={endTime} onValueChange={setEndTime}>
-              <SelectTrigger className="w-full h-12 text-sm px-3">
-                <SelectValue placeholder="Sélectionnez une heure" />
-              </SelectTrigger>
-              <SelectContent>
-                {timeOptions.map((time) => (
-                  <SelectItem key={time.value} value={time.value}>{time.label}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Bouton recherche mobile */}
+          {/* Bouton recherche mobile - prominent */}
           <Button 
             type="submit" 
             size="lg"
-            className="w-full h-14 text-lg font-semibold mt-2"
+            className="w-full h-14 text-lg font-bold touch-feedback rounded-xl shadow-lg"
           >
             <Search className="w-5 h-5 mr-2" />
             Rechercher
           </Button>
-        </div>
+        </form>
 
-        {/* Desktop: Grid horizontal avec inputs natifs */}
-        <div className="hidden lg:grid lg:grid-cols-7 gap-3 items-end">;
+        {/* Quick access button - prominent CTA below form */}
+        <button
+          type="button"
+          onClick={handleQuickAccess}
+          className="w-full max-w-sm mx-auto mt-3 flex items-center justify-center gap-2 text-white/90 hover:text-white py-2 font-medium transition-colors touch-feedback"
+        >
+          <span>Voir tous les véhicules</span>
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Desktop: Grid horizontal avec inputs natifs */}
+      <form 
+        onSubmit={handleSearch}
+        className="hidden lg:block bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-5 w-full max-w-4xl mx-auto"
+      >
+        <div className="grid grid-cols-7 gap-3 items-end">
           {/* Ville */}
           <div className="col-span-1">
             <label htmlFor="city-desktop" className="block text-xs font-semibold text-gray-700 mb-1 flex items-center gap-1.5">
