@@ -122,7 +122,13 @@ All colors MUST be HSL.
   /* Add bottom padding on mobile to account for bottom navigation */
   @media (max-width: 768px) {
     body {
-      @apply pb-20; /* Increased for taller navigation with better touch targets */
+      @apply pb-24; /* Increased for navigation with safe area */
+    }
+    
+    /* Better scroll behavior on mobile */
+    html {
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
     }
   }
   

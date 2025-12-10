@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { Home, Car, Handshake, Mail } from 'lucide-react';
+import { Home, Car, Handshake, Phone } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
 
@@ -18,7 +18,8 @@ export const BottomNavigation = () => {
       path: '/louer',
       icon: Car,
       label: t('common.rent'),
-      ariaLabel: 'Louer une voiture'
+      ariaLabel: 'Louer une voiture',
+      highlight: true // CTA principal
     },
     {
       path: '/partenaires',
@@ -28,7 +29,7 @@ export const BottomNavigation = () => {
     },
     {
       path: '/contact',
-      icon: Mail,
+      icon: Phone,
       label: t('common.contact'),
       ariaLabel: 'Contact'
     }
@@ -42,52 +43,61 @@ export const BottomNavigation = () => {
   };
 
   return (
-    <>
-      <nav 
-        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-background/98 backdrop-blur-md border-t border-border shadow-lg safe-area-inset-bottom"
-        role="navigation"
-        aria-label="Navigation mobile principale"
-        style={{ 
-          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
-          WebkitBackdropFilter: 'blur(12px)'
-        }}
-      >
-      <div className="flex items-center justify-around h-20 px-1 max-w-screen-xl mx-auto">
+    <nav 
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-xl border-t border-border/50 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]"
+      role="navigation"
+      aria-label="Navigation mobile principale"
+      style={{ 
+        paddingBottom: 'env(safe-area-inset-bottom, 8px)',
+      }}
+    >
+      <div className="flex items-stretch justify-around h-16 px-2 max-w-screen-sm mx-auto">
         {navItems.map((item) => {
           const Icon = item.icon;
           const active = isActive(item.path);
+          const isHighlight = item.highlight;
           
           return (
             <NavLink
               key={item.path}
               to={item.path}
               className={cn(
-                "flex flex-col items-center justify-center flex-1 min-w-[72px] min-h-[56px] gap-1.5 transition-all duration-200 rounded-xl mx-0.5 touch-target touch-feedback relative",
+                "flex flex-col items-center justify-center flex-1 min-w-[64px] py-2 gap-0.5 transition-all duration-200 relative touch-feedback",
                 active 
-                  ? "text-primary scale-105" 
-                  : "text-muted-foreground hover:text-foreground active:bg-accent/20"
+                  ? "text-primary" 
+                  : isHighlight
+                    ? "text-foreground"
+                    : "text-muted-foreground",
               )}
               aria-label={item.ariaLabel}
               aria-current={active ? 'page' : undefined}
               style={{ WebkitTapHighlightColor: 'transparent' }}
             >
+              {/* Highlight background for CTA */}
+              {isHighlight && !active && (
+                <div className="absolute inset-x-2 inset-y-1 bg-primary/10 rounded-xl -z-10" />
+              )}
+              
               <div className={cn(
-                "relative flex items-center justify-center",
-                active && "scale-110"
+                "relative flex items-center justify-center w-10 h-10 rounded-xl transition-all",
+                active && "bg-primary/15 scale-105",
+                isHighlight && !active && "bg-primary/20"
               )}>
                 <Icon 
                   className={cn(
-                    "h-7 w-7 transition-all",
-                    active && "drop-shadow-lg"
+                    "h-6 w-6 transition-all",
+                    active && "text-primary",
+                    isHighlight && !active && "text-primary"
                   )} 
                 />
                 {active && (
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full shadow-sm animate-pulse" />
+                  <div className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full" />
                 )}
               </div>
               <span className={cn(
-                "text-[10px] font-medium leading-tight text-center",
-                active && "font-bold"
+                "text-[11px] font-medium leading-tight text-center",
+                active && "font-semibold text-primary",
+                isHighlight && !active && "text-primary font-medium"
               )}>
                 {item.label}
               </span>
@@ -96,6 +106,5 @@ export const BottomNavigation = () => {
         })}
       </div>
     </nav>
-    </>
   );
 };

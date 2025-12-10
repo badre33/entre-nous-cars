@@ -158,7 +158,7 @@ const Index = () => {
       <Header />
       
       {/* Hero Section with Parallax */}
-      <section className="relative min-h-[550px] sm:min-h-[600px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
         {/* LCP-optimized responsive hero image with srcset */}
         <picture>
           {/* Mobile: Optimized for small screens (320-640px) */}
@@ -189,22 +189,38 @@ const Index = () => {
             decoding="sync"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
-        <div className="container relative z-10 text-center text-white px-4 sm:px-6 animate-fade-in py-6 sm:py-10">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-3 sm:mb-5 text-white drop-shadow-lg animate-fade-in leading-tight">
+        <div className="container relative z-10 text-center text-white px-3 sm:px-6 animate-fade-in py-4 sm:py-10">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 sm:mb-5 text-white drop-shadow-lg animate-fade-in leading-tight font-pacifico">
             {t('home.heroTitle')}
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-5 sm:mb-7 max-w-3xl mx-auto text-white/95 font-medium animate-fade-in [animation-delay:200ms] leading-relaxed px-2">
+          <p className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-7 max-w-3xl mx-auto text-white/90 font-medium animate-fade-in [animation-delay:200ms] leading-relaxed px-1">
             {t('home.heroSubtitle')}
           </p>
           
           {/* Search Form */}
-          <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-5 sm:mb-7 px-2 sm:px-4">
+          <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-4 sm:mb-7 px-0 sm:px-4">
             <HeroSearchForm />
           </div>
           
-          <div className="flex gap-3 sm:gap-4 justify-center flex-wrap animate-fade-in [animation-delay:600ms]">
+          {/* Mobile: Quick trust indicators in hero */}
+          <div className="flex sm:hidden items-center justify-center gap-4 mt-2 animate-fade-in [animation-delay:600ms]">
+            <div className="flex items-center gap-1.5 text-white/90 text-xs">
+              <div className="flex">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-3 h-3 fill-yellow-400" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ))}
+              </div>
+              <span className="font-semibold">4.8</span>
+              <span className="text-white/70">(1200+ avis)</span>
+            </div>
+          </div>
+          
+          {/* Desktop: Partner CTA */}
+          <div className="hidden sm:flex gap-3 sm:gap-4 justify-center flex-wrap animate-fade-in [animation-delay:600ms]">
             <Link to="/partenaires">
               <Button size="lg" variant="partner" className="rounded-full text-sm sm:text-base lg:text-lg px-5 sm:px-7 h-10 sm:h-11">
                 {t('home.becomePartner')}
@@ -214,46 +230,65 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
+      {/* Stats Section - Compact on mobile */}
+      <section className="py-8 sm:py-16 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
         <div 
           ref={statsAnimation.ref}
           className="container px-4 sm:px-6"
         >
-          <div className={`grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8 max-w-5xl mx-auto transition-all duration-700 ${
+          {/* Mobile: Horizontal compact stats */}
+          <div className={`grid grid-cols-3 sm:hidden gap-2 max-w-md mx-auto transition-all duration-700 ${
             statsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="text-center group hover:scale-105 sm:hover:scale-110 transition-transform duration-300">
+            <div className="text-center p-3 bg-card rounded-xl shadow-sm border border-border/30">
+              <span className="text-2xl font-bold text-primary block">302+</span>
+              <p className="text-xs text-muted-foreground mt-0.5">Voitures</p>
+            </div>
+            <div className="text-center p-3 bg-card rounded-xl shadow-sm border border-border/30">
+              <span className="text-2xl font-bold text-secondary block">24+</span>
+              <p className="text-xs text-muted-foreground mt-0.5">Agences</p>
+            </div>
+            <div className="text-center p-3 bg-card rounded-xl shadow-sm border border-border/30">
+              <span className="text-2xl font-bold text-accent block">1200+</span>
+              <p className="text-xs text-muted-foreground mt-0.5">Clients</p>
+            </div>
+          </div>
+          
+          {/* Desktop: Full stats */}
+          <div className={`hidden sm:grid sm:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto transition-all duration-700 ${
+            statsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className="text-center group hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
-                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary">
+                <span className="text-5xl md:text-6xl font-bold text-primary">
                   <AnimatedCounter end={302} suffix="+" />
                 </span>
               </div>
-              <p className="text-lg sm:text-xl font-semibold mb-2">{t('home.availableCars')}</p>
+              <p className="text-xl font-semibold mb-2">{t('home.availableCars')}</p>
               <p className="text-sm text-muted-foreground px-4">
                 {t('home.inCities')}
               </p>
             </div>
             
-            <div className="text-center group hover:scale-105 sm:hover:scale-110 transition-transform duration-300">
+            <div className="text-center group hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
-                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-secondary">
+                <span className="text-5xl md:text-6xl font-bold text-secondary">
                   <AnimatedCounter end={24} suffix="+" />
                 </span>
               </div>
-              <p className="text-lg sm:text-xl font-semibold mb-2">{t('home.partnerAgencies')}</p>
+              <p className="text-xl font-semibold mb-2">{t('home.partnerAgencies')}</p>
               <p className="text-sm text-muted-foreground px-4">
                 {t('home.verifiedTrusted')}
               </p>
             </div>
             
-            <div className="text-center group hover:scale-105 sm:hover:scale-110 transition-transform duration-300">
+            <div className="text-center group hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
-                <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-accent">
+                <span className="text-5xl md:text-6xl font-bold text-accent">
                   <AnimatedCounter end={1200} suffix="+" />
                 </span>
               </div>
-              <p className="text-lg sm:text-xl font-semibold mb-2">{t('home.satisfiedClients')}</p>
+              <p className="text-xl font-semibold mb-2">{t('home.satisfiedClients')}</p>
               <p className="text-sm text-muted-foreground px-4">
                 {t('home.sinceLaunch')}
               </p>
