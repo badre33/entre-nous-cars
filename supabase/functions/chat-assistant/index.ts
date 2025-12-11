@@ -1,81 +1,167 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+// Allowed origins for CORS - restrict to your domains
+const ALLOWED_ORIGINS = [
+  "https://benatna.ma",
+  "https://www.benatna.ma",
+  "https://lovable.dev",
+  "https://id-preview--oaajsamymjhxggwxdfwn.lovable.app",
+  "http://localhost:5173",
+  "http://localhost:3000"
+];
 
-// Input validation schema
+function getCorsHeaders(origin: string | null): Record<string, string> {
+  const allowedOrigin = origin && ALLOWED_ORIGINS.some(allowed => 
+    origin === allowed || origin.endsWith('.lovable.app') || origin.endsWith('.lovable.dev')
+  ) ? origin : ALLOWED_ORIGINS[0];
+  
+  return {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+  };
+}
+
+// Input validation schema with strict limits
 const messageSchema = z.object({
   role: z.enum(['user', 'assistant', 'system']),
-  content: z.string().min(1).max(2000)
+  content: z.string().min(1).max(1000) // Reduced from 2000 to limit abuse
 });
 
 const requestSchema = z.object({
-  messages: z.array(messageSchema).min(1).max(50)
+  messages: z.array(messageSchema).min(1).max(20) // Reduced from 50 to limit context abuse
 });
 
-// Simple in-memory rate limiting (resets on function cold start)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+// Enhanced rate limiting with fingerprinting
+const rateLimitMap = new Map<string, { count: number; resetTime: number; blocked: boolean }>();
 const RATE_LIMIT_WINDOW = 60000; // 1 minute
-const MAX_REQUESTS_PER_WINDOW = 20;
+const MAX_REQUESTS_PER_WINDOW = 10; // Reduced from 20
+const BLOCK_DURATION = 300000; // 5 minutes block for abusers
+
+// Daily request tracking per IP
+const dailyLimitMap = new Map<string, { count: number; resetTime: number }>();
+const DAILY_LIMIT = 100; // Max 100 requests per day per IP
+const DAY_IN_MS = 86400000;
 
 // Sanitize error messages to prevent information leakage
 function sanitizeError(error: unknown): string {
   if (error instanceof Error) {
-    // Log only error type and sanitized message, not full stack trace
     return `${error.name}: ${error.message.substring(0, 100)}`;
   }
   return "Unknown error type";
 }
 
-function checkRateLimit(ip: string): boolean {
+function getClientFingerprint(req: Request): string {
+  const ip = req.headers.get("x-forwarded-for")?.split(',')[0].trim() || 
+             req.headers.get("x-real-ip") || 
+             "unknown";
+  const userAgent = req.headers.get("user-agent") || "unknown";
+  // Create a simple fingerprint combining IP and user agent
+  return `${ip}:${userAgent.substring(0, 50)}`;
+}
+
+function checkRateLimit(fingerprint: string): { allowed: boolean; retryAfter?: number } {
   const now = Date.now();
-  const record = rateLimitMap.get(ip);
+  const record = rateLimitMap.get(fingerprint);
   
+  // Check if blocked
+  if (record?.blocked && now < record.resetTime) {
+    return { allowed: false, retryAfter: Math.ceil((record.resetTime - now) / 1000) };
+  }
+  
+  // Check daily limit
+  const dailyRecord = dailyLimitMap.get(fingerprint);
+  if (dailyRecord) {
+    if (now > dailyRecord.resetTime) {
+      dailyLimitMap.set(fingerprint, { count: 1, resetTime: now + DAY_IN_MS });
+    } else if (dailyRecord.count >= DAILY_LIMIT) {
+      return { allowed: false, retryAfter: Math.ceil((dailyRecord.resetTime - now) / 1000) };
+    } else {
+      dailyRecord.count++;
+    }
+  } else {
+    dailyLimitMap.set(fingerprint, { count: 1, resetTime: now + DAY_IN_MS });
+  }
+  
+  // Check per-minute limit
   if (!record || now > record.resetTime) {
-    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
-    return true;
+    rateLimitMap.set(fingerprint, { count: 1, resetTime: now + RATE_LIMIT_WINDOW, blocked: false });
+    return { allowed: true };
   }
   
   if (record.count >= MAX_REQUESTS_PER_WINDOW) {
-    return false;
+    // Block for longer if they keep trying
+    record.blocked = true;
+    record.resetTime = now + BLOCK_DURATION;
+    return { allowed: false, retryAfter: BLOCK_DURATION / 1000 };
   }
   
   record.count++;
-  return true;
+  return { allowed: true };
 }
 
 serve(async (req) => {
+  const origin = req.headers.get("origin");
+  const corsHeaders = getCorsHeaders(origin);
+  
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
+  // Only allow POST requests
+  if (req.method !== "POST") {
+    return new Response(
+      JSON.stringify({ error: "Method not allowed" }),
+      { status: 405, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+    );
+  }
+
   try {
-    // Get client IP for rate limiting
-    const clientIP = req.headers.get("x-forwarded-for")?.split(',')[0].trim() || 
-                     req.headers.get("x-real-ip") || 
-                     "unknown";
+    // Get client fingerprint for rate limiting
+    const fingerprint = getClientFingerprint(req);
     
-    // Check rate limit
-    if (!checkRateLimit(clientIP)) {
-      console.warn(`Rate limit exceeded for IP: ${clientIP}`);
+    // Check rate limit with fingerprinting
+    const rateLimitResult = checkRateLimit(fingerprint);
+    if (!rateLimitResult.allowed) {
+      console.warn(`Rate limit exceeded for fingerprint: ${fingerprint.substring(0, 30)}...`);
       return new Response(
-        JSON.stringify({ error: "Trop de requêtes. Veuillez réessayer dans une minute." }),
+        JSON.stringify({ error: "Trop de requêtes. Veuillez réessayer plus tard." }),
         {
           status: 429,
-          headers: { ...corsHeaders, "Content-Type": "application/json" },
+          headers: { 
+            ...corsHeaders, 
+            "Content-Type": "application/json",
+            "Retry-After": String(rateLimitResult.retryAfter || 60)
+          },
         }
       );
     }
 
+    // Validate content type
+    const contentType = req.headers.get("content-type");
+    if (!contentType?.includes("application/json")) {
+      return new Response(
+        JSON.stringify({ error: "Content-Type must be application/json" }),
+        { status: 415, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+
     // Parse and validate request body
-    const body = await req.json();
+    let body;
+    try {
+      body = await req.json();
+    } catch {
+      return new Response(
+        JSON.stringify({ error: "Invalid JSON body" }),
+        { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
+    }
+    
     const validation = requestSchema.safeParse(body);
     
     if (!validation.success) {
-      console.warn(`Invalid request from IP ${clientIP}:`, validation.error.errors);
+      console.warn(`Invalid request validation failed`);
       return new Response(
         JSON.stringify({ error: "Format de requête invalide." }),
         {
@@ -86,7 +172,7 @@ serve(async (req) => {
     }
     
     const { messages } = validation.data;
-    console.log(`Processing chat request from IP ${clientIP}, messages: ${messages.length}`);
+    console.log(`Processing chat request, messages: ${messages.length}`);
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     
     if (!LOVABLE_API_KEY) {
