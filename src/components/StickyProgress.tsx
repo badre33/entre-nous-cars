@@ -25,7 +25,10 @@ export function StickyProgress({ sections, className }: StickyProgressProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let rafId: number | null = null;
+    let ticking = false;
+
+    const processScroll = () => {
       // Calculate scroll progress
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight - windowHeight;
@@ -36,7 +39,7 @@ export function StickyProgress({ sections, className }: StickyProgressProps) {
       // Show/hide based on scroll position (show after 200px)
       setIsVisible(scrolled > 200);
 
-      // Detect active section
+      // Detect active section - batch all getBoundingClientRect calls
       const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean);
       
       for (let i = sectionElements.length - 1; i >= 0; i--) {
@@ -49,12 +52,23 @@ export function StickyProgress({ sections, className }: StickyProgressProps) {
           }
         }
       }
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        rafId = requestAnimationFrame(processScroll);
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial call
+    processScroll(); // Initial call
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [sections]);
 
   const scrollToSection = (id: string) => {
