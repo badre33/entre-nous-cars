@@ -172,21 +172,9 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* LCP-optimized responsive hero image with preload support */}
+        {/* LCP-optimized responsive hero image - NOTE: Convert to WebP for 90% size reduction */}
         <picture>
-          {/* Mobile: Optimized for small screens (320-640px) */}
-          <source
-            media="(max-width: 640px)"
-            srcSet={heroImagePublic}
-            sizes="100vw"
-          />
-          {/* Tablet: Optimized for medium screens (641-1024px) */}
-          <source
-            media="(min-width: 641px) and (max-width: 1024px)"
-            srcSet={heroImagePublic}
-            sizes="100vw"
-          />
-          {/* Desktop: Full resolution for large screens (1025px+) */}
+          {/* Desktop: Full resolution for large screens */}
           <img 
             src={heroImagePublic} 
             alt={generateHeroImageAlt()}
@@ -196,7 +184,7 @@ const Index = () => {
             }}
             width="1920"
             height="1080"
-            sizes="100vw"
+            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
             loading="eager"
             fetchPriority="high"
             decoding="sync"
