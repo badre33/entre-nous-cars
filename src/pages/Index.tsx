@@ -40,6 +40,7 @@ import cityFes from "@/assets/city-fes.jpg";
 const Index = () => {
   const { t } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
   const statsAnimation = useScrollAnimation(0.2);
   const howItWorksAnimation = useScrollAnimation(0.2);
   const whyAnimation = useScrollAnimation(0.2);
@@ -51,17 +52,30 @@ const Index = () => {
     { selector: 'img[loading="lazy"]', attribute: 'src' }
   ], 0.6);
   
+  // Detect desktop once on mount to avoid forced reflows
   useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    checkDesktop();
+    
+    // Only listen for resize changes if needed
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const handleChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+  
+  useEffect(() => {
+    // Skip parallax entirely on mobile for better performance
+    if (!isDesktop) return;
+    
     let rafId: number | null = null;
     let ticking = false;
     
     const handleScroll = () => {
       if (!ticking) {
         rafId = requestAnimationFrame(() => {
-          // Disable parallax on mobile for better performance
-          if (window.innerWidth >= 768) {
-            setParallaxOffset(window.scrollY * 0.5);
-          }
+          setParallaxOffset(window.scrollY * 0.5);
           ticking = false;
         });
         ticking = true;
@@ -73,7 +87,7 @@ const Index = () => {
       window.removeEventListener('scroll', handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
-  }, []);
+  }, [isDesktop]);
 
   const popularCities = [
     { name: "Casablanca", image: cityCasablanca, vehicles: 52, slug: "Casablanca" },
@@ -180,14 +194,14 @@ const Index = () => {
             alt={generateHeroImageAlt()}
             className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
             style={{ 
-              transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
+              transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
             }}
             width="1920"
             height="1080"
-            sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1920px"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
             loading="eager"
             fetchPriority="high"
-            decoding="sync"
+            decoding={isDesktop ? "sync" : "async"}
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
