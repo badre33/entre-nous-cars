@@ -39,11 +39,32 @@
     <meta name="description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
     <meta name="author" content="Benatna" />
     
+    <!-- ===== CRITICAL CSS FOR FCP OPTIMIZATION ===== -->
+    <style>
+      /* Critical CSS - Inline for immediate render */
+      *,*::before,*::after{box-sizing:border-box}
+      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+      body{margin:0;min-height:100vh;background:#fff}
+      #root{min-height:100vh;display:flex;flex-direction:column}
+      /* Hero skeleton for LCP */
+      .hero-skeleton{min-height:480px;background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);display:flex;align-items:center;justify-content:center}
+      @media(min-width:640px){.hero-skeleton{min-height:550px}}
+      @media(min-width:768px){.hero-skeleton{min-height:650px}}
+      /* Loading animation */
+      @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+      .animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
+      /* Initial text styles */
+      .initial-loading{color:#fff;font-size:1.5rem;text-align:center;padding:1rem}
+    </style>
+    
     <!-- Preconnect to external origins (must be early) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="dns-prefetch" href="https://wa.me">
+    
+    <!-- Preload hero image for LCP optimization -->
+    <link rel="preload" as="image" href="/hero-home-new.png" fetchpriority="high">
     
     <!-- Preload critical fonts for better LCP -->
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/pacifico/v23/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff2" type="font/woff2" crossorigin>
@@ -106,7 +127,12 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <!-- Initial skeleton for faster FCP -->
+    <div id="root">
+      <div class="hero-skeleton animate-pulse">
+        <div class="initial-loading">Chargement...</div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

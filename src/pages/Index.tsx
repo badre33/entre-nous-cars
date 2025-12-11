@@ -28,6 +28,8 @@ import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSch
 import { globalReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import heroImage from "@/assets/hero-home-new.png";
+// Hero image also available at /hero-home-new.png for preloading
+const heroImagePublic = "/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 import cityRabat from "@/assets/city-rabat.jpg";
@@ -159,23 +161,23 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* LCP-optimized responsive hero image with srcset */}
+        {/* LCP-optimized responsive hero image with preload support */}
         <picture>
           {/* Mobile: Optimized for small screens (320-640px) */}
           <source
             media="(max-width: 640px)"
-            srcSet={heroImage}
+            srcSet={heroImagePublic}
             sizes="100vw"
           />
           {/* Tablet: Optimized for medium screens (641-1024px) */}
           <source
             media="(min-width: 641px) and (max-width: 1024px)"
-            srcSet={heroImage}
+            srcSet={heroImagePublic}
             sizes="100vw"
           />
           {/* Desktop: Full resolution for large screens (1025px+) */}
           <img 
-            src={heroImage} 
+            src={heroImagePublic} 
             alt={generateHeroImageAlt()}
             className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
             style={{ 
