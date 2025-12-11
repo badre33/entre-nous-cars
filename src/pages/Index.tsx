@@ -27,9 +27,8 @@ import { HreflangTags } from "@/utils/hreflangHelper";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema, SitelinksSearchBoxSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
-// Hero image served from public folder for optimal LCP (discoverable in initial HTML)
-// IMPORTANT: Convert this PNG to WebP for ~90% size reduction (1.69MB -> ~150KB)
-const heroImagePublic = "/hero-home-new.png";
+// Hero image - WebP format for optimal performance (~150KB vs 1.69MB PNG)
+import heroImage from "@/assets/hero-home-new.webp";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 import cityRabat from "@/assets/city-rabat.jpg";
@@ -186,24 +185,21 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* LCP-optimized responsive hero image - NOTE: Convert to WebP for 90% size reduction */}
-        <picture>
-          {/* Desktop: Full resolution for large screens */}
-          <img 
-            src={heroImagePublic} 
-            alt={generateHeroImageAlt()}
-            className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
-            style={{ 
-              transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
-            }}
-            width="1920"
-            height="1080"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
-            loading="eager"
-            fetchPriority="high"
-            decoding={isDesktop ? "sync" : "async"}
-          />
-        </picture>
+        {/* LCP-optimized WebP hero image - ~90% smaller than PNG */}
+        <img 
+          src={heroImage} 
+          alt={generateHeroImageAlt()}
+          className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
+          style={{ 
+            transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
+          }}
+          width="1920"
+          height="1080"
+          sizes="100vw"
+          loading="eager"
+          fetchPriority="high"
+          decoding={isDesktop ? "sync" : "async"}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
         <div className="container relative z-10 text-center text-white px-3 sm:px-6 animate-fade-in py-4 sm:py-10">
