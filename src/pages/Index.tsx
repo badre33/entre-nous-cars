@@ -52,16 +52,27 @@ const Index = () => {
   ], 0.6);
   
   useEffect(() => {
+    let rafId: number | null = null;
+    let ticking = false;
+    
     const handleScroll = () => {
-      // Disable parallax on mobile for better performance
-      if (window.innerWidth >= 768) {
-        const offset = window.scrollY;
-        setParallaxOffset(offset * 0.5);
+      if (!ticking) {
+        rafId = requestAnimationFrame(() => {
+          // Disable parallax on mobile for better performance
+          if (window.innerWidth >= 768) {
+            setParallaxOffset(window.scrollY * 0.5);
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
     
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const popularCities = [
