@@ -14,6 +14,21 @@ export default defineConfig(({ mode }) => ({
     // Use default chunking & minification to maximize React compatibility
     cssCodeSplit: true,
     chunkSizeWarningLimit: 1000,
+    // Enable module preload polyfill for faster CSS/JS loading
+    modulePreload: {
+      polyfill: true,
+    },
+    rollupOptions: {
+      output: {
+        // Ensure CSS is in a predictable location for preloading
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'assets/[name]-[hash][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
+      },
+    },
   },
   plugins: [
     react(),
