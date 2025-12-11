@@ -63,8 +63,8 @@
     <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="dns-prefetch" href="https://wa.me">
     
-    <!-- Preload hero image for LCP optimization -->
-    <link rel="preload" as="image" href="/hero-home-new.png" fetchpriority="high">
+    <!-- Preload hero image for LCP optimization - Only on desktop (mobile will lazy load smaller version) -->
+    <link rel="preload" as="image" href="/hero-home-new.png" fetchpriority="high" media="(min-width: 768px)">
     
     <!-- Preload critical fonts for better LCP -->
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/pacifico/v23/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff2" type="font/woff2" crossorigin>
