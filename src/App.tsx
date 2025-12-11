@@ -116,14 +116,23 @@ const AnalyticsTracker = () => {
   return null;
 };
 
-// Deferred component loader to reduce initial dependency chain
+// Deferred component loader - uses requestIdleCallback to truly break the critical chain
 const DeferredComponents = () => {
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    // Defer loading non-critical components until after initial render
-    const timer = setTimeout(() => setShouldLoad(true), 100);
-    return () => clearTimeout(timer);
+    // Use requestIdleCallback to defer loading until browser is truly idle
+    // This ensures these components don't block LCP or critical rendering
+    const loadDeferred = () => setShouldLoad(true);
+    
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(loadDeferred, { timeout: 2000 });
+      return () => cancelIdleCallback(idleId);
+    } else {
+      // Fallback for Safari - use longer timeout to ensure after LCP
+      const timer = setTimeout(loadDeferred, 1500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   if (!shouldLoad) return null;
