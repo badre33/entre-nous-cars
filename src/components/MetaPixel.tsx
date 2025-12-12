@@ -101,37 +101,49 @@ export const MetaPixel = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Defer Meta Pixel loading to reduce initial JS blocking and improve LCP
+    // Multi-stage deferral to reduce Max Potential FID
+    // Stage 1: Wait for initial paint and FID window to pass
+    // Stage 2: Use requestIdleCallback for true idle-time loading
+    let cancelled = false;
+    
     const loadPixel = () => {
-      if (!window.fbq) {
-        const script = document.createElement('script');
-        script.innerHTML = `
-          !function(f,b,e,v,n,t,s)
-          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-          n.queue=[];t=b.createElement(e);t.async=!0;
-          t.src=v;s=b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t,s)}(window, document,'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-        `;
-        document.head.appendChild(script);
+      if (cancelled || window.fbq) return;
+      
+      const script = document.createElement('script');
+      script.innerHTML = `
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+      `;
+      document.head.appendChild(script);
 
-        // Initialize pixel after script is injected
-        window.fbq('init', PIXEL_ID);
-        window.fbq('track', 'PageView');
-      }
+      // Initialize pixel after script is injected
+      window.fbq('init', PIXEL_ID);
+      window.fbq('track', 'PageView');
     };
 
-    // Use requestIdleCallback to defer loading until browser is idle
-    if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(loadPixel, { timeout: 3000 });
-      return () => cancelIdleCallback(idleId);
-    } else {
-      // Fallback for Safari - defer 2 seconds after LCP
-      const timer = setTimeout(loadPixel, 2000);
-      return () => clearTimeout(timer);
-    }
+    // Extended delay to ensure FID window passes before loading heavy third-party script
+    const initialDelay = setTimeout(() => {
+      if (cancelled) return;
+      
+      // Use requestIdleCallback for browser idle time
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadPixel, { timeout: 5000 });
+      } else {
+        // Fallback for Safari
+        setTimeout(loadPixel, 500);
+      }
+    }, 3000); // Wait 3 seconds to ensure past FID measurement window
+    
+    return () => {
+      cancelled = true;
+      clearTimeout(initialDelay);
+    };
   }, []);
 
   // Track page views on route change
