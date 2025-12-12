@@ -17,10 +17,8 @@ import React, { lazy, Suspense, useEffect, useState } from "react";
 // Import critical navigation component directly to avoid dependency chain
 import { BottomNavigation } from "@/components/BottomNavigation";
 
-// Lazy load truly non-critical components - will be deferred
-const FloatingActionMenu = lazy(() => import("@/components/FloatingActionMenu"));
-const AIAssistant = lazy(() => import("@/components/AIAssistant").then(m => ({ default: m.AIAssistant })));
-const BackToTop = lazy(() => import("@/components/BackToTop").then(m => ({ default: m.BackToTop })));
+// Deferred components - NOT imported as lazy() to prevent discovery in dependency tree
+// These will be dynamically imported only after user interaction/idle time
 import { PageSkeleton } from "@/components/PageSkeleton";
 import { analytics } from "@/utils/analytics";
 
@@ -116,33 +114,53 @@ const AnalyticsTracker = () => {
   return null;
 };
 
-// Deferred component loader - uses requestIdleCallback to truly break the critical chain
-// Extended delay to reduce Max Potential FID by allowing browser to complete initial render
+// Truly deferred component loader - uses runtime dynamic imports to break dependency chain
+// This prevents browser from discovering these chunks in the initial network dependency tree
 const DeferredComponents = () => {
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [components, setComponents] = useState<{
+    FloatingActionMenu: React.ComponentType | null;
+    AIAssistant: React.ComponentType | null;
+    BackToTop: React.ComponentType | null;
+  }>({ FloatingActionMenu: null, AIAssistant: null, BackToTop: null });
 
   useEffect(() => {
-    // Multi-stage deferral: wait for LCP, then idle, then load
-    // This ensures these components don't contribute to long tasks during FID window
     let cancelled = false;
     
-    const loadDeferred = () => {
-      if (cancelled) return;
-      setShouldLoad(true);
-    };
-    
-    // First wait for initial paint to complete (longer delay for FID improvement)
+    // Multi-stage deferral to completely break the network dependency chain
+    // Stage 1: Wait for initial paint and FID window to pass (3+ seconds)
     const initialDelay = setTimeout(() => {
       if (cancelled) return;
       
-      // Then use requestIdleCallback for true idle-time loading
+      // Stage 2: Use requestIdleCallback for true idle-time loading
+      const loadComponents = async () => {
+        if (cancelled) return;
+        
+        try {
+          // Dynamic imports - only discovered at runtime, not in bundle analysis
+          const [FloatingMenu, Assistant, BackTop] = await Promise.all([
+            import("@/components/FloatingActionMenu"),
+            import("@/components/AIAssistant"),
+            import("@/components/BackToTop"),
+          ]);
+          
+          if (!cancelled) {
+            setComponents({
+              FloatingActionMenu: FloatingMenu.default,
+              AIAssistant: Assistant.AIAssistant,
+              BackToTop: BackTop.BackToTop,
+            });
+          }
+        } catch (error) {
+          console.error('[DeferredComponents] Failed to load:', error);
+        }
+      };
+      
       if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadDeferred, { timeout: 3000 });
+        requestIdleCallback(() => loadComponents(), { timeout: 5000 });
       } else {
-        // Fallback for Safari
-        setTimeout(loadDeferred, 500);
+        setTimeout(loadComponents, 500);
       }
-    }, 2500); // Increased from 1500ms to allow FID window to pass
+    }, 3000); // Extended delay to ensure past critical loading window
     
     return () => {
       cancelled = true;
@@ -150,16 +168,21 @@ const DeferredComponents = () => {
     };
   }, []);
 
-  if (!shouldLoad) return null;
+  // Don't render anything until components are loaded
+  if (!components.FloatingActionMenu) return null;
+
+  const { FloatingActionMenu, AIAssistant, BackToTop } = components;
 
   return (
-    <Suspense fallback={null}>
-      <FloatingActionMenu />
-      <div className="hidden md:block">
-        <AIAssistant />
-      </div>
-      <BackToTop />
-    </Suspense>
+    <>
+      {FloatingActionMenu && <FloatingActionMenu />}
+      {AIAssistant && (
+        <div className="hidden md:block">
+          <AIAssistant />
+        </div>
+      )}
+      {BackToTop && <BackToTop />}
+    </>
   );
 };
 
