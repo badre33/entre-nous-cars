@@ -2910,6 +2910,708 @@ export const blogArticles: BlogArticle[] = [
       "Ce road trip Atlas en 4x4 est une expérience inoubliable à 1h de Marrakech. Vallées verdoyantes, villages berbères authentiques, panoramas à couper le souffle : l'Atlas révèle la diversité du Maroc. Pour ce circuit, nous recommandons le Dacia Duster 4x4 (excellent rapport qualité-prix) ou un SUV robuste. Réservez votre véhicule chez Benatna dès 280 DH/jour avec kilométrage illimité et assurance tous risques pour partir l'esprit tranquille."
     ]
   }
+],
+  // ==================== NOUVEAUX ARTICLES SEO ====================
+  {
+    id: 20,
+    slug: "location-voiture-pas-chere-maroc-guide-complet",
+    title: "Location Voiture Pas Chère au Maroc : Le Guide Complet pour Économiser",
+    excerpt: "Découvrez toutes les astuces pour louer une voiture au Maroc au meilleur prix. Comparatif des tarifs, périodes creuses, négociation et bons plans exclusifs.",
+    metaDescription: "Location voiture pas chère Maroc : astuces pour économiser 30-50% sur votre location. Comparatif prix, meilleures périodes, agences locales vs internationales.",
+    category: "Budget",
+    date: "12 décembre 2024",
+    image: "/car-duster.jpg",
+    featured: true,
+    city: "national",
+    readTime: 12,
+    keywords: ["location voiture pas cher maroc", "louer voiture maroc prix", "tarif location auto maroc", "voiture location économique", "budget location maroc"],
+    content: [
+      "Vous planifiez un voyage au Maroc et cherchez à louer une voiture sans exploser votre budget ? Vous êtes au bon endroit. Ce guide complet vous révèle toutes les astuces utilisées par les voyageurs expérimentés pour obtenir les meilleurs tarifs de location au Maroc.",
+
+      "## Combien coûte vraiment une location de voiture au Maroc ?",
+      
+      "### Tarifs moyens 2024-2025",
+      "Avant de parler d'économies, connaissons les prix du marché :",
+      
+      "**Citadine économique (Clio, Sandero, i10) :**\n- Basse saison : 150-200 MAD/jour\n- Haute saison : 250-350 MAD/jour\n- CAN 2025 : 300-450 MAD/jour",
+      
+      "**Compact/Berline (Corolla, Golf, 308) :**\n- Basse saison : 200-280 MAD/jour\n- Haute saison : 350-450 MAD/jour\n- CAN 2025 : 400-600 MAD/jour",
+      
+      "**SUV/Crossover (Duster, Qashqai, Tucson) :**\n- Basse saison : 280-380 MAD/jour\n- Haute saison : 450-600 MAD/jour\n- CAN 2025 : 550-800 MAD/jour",
+      
+      "Ces tarifs incluent généralement l'assurance de base, le kilométrage illimité et les taxes. Les suppléments (2e conducteur, GPS, siège bébé) sont facturés en plus.",
+
+      "## Les 10 meilleures astuces pour payer moins cher",
+      
+      "### 1. Réservez à l'avance (mais pas trop)",
+      "La règle d'or : réservez **3 à 6 semaines avant** votre voyage. Trop tôt, les agences n'ont pas encore lancé leurs promotions. Trop tard, les stocks s'épuisent et les prix grimpent.",
+      
+      "**Exception :** Pour les périodes de forte affluence (CAN 2025, Nouvel An, Ramadan), réservez 2-3 mois à l'avance.",
+
+      "### 2. Comparez agences locales et internationales",
+      "Les agences locales marocaines proposent souvent des tarifs **20-40% moins chers** que les grands noms (Hertz, Europcar, Avis). Elles compensent par un service plus personnalisé.",
+      
+      "**Avantages agences locales :**\n✅ Prix plus bas\n✅ Négociation possible\n✅ Flexibilité horaires\n✅ Service client direct",
+      
+      "**Avantages grandes enseignes :**\n✅ Standards qualité garantis\n✅ Flotte récente\n✅ Assistance routière étendue\n✅ Réservation internationale",
+      
+      "Sur Benatna, nous travaillons avec les meilleures agences locales vérifiées, combinant prix bas et qualité de service.",
+
+      "### 3. Choisissez le bon lieu de prise en charge",
+      "Les agences aéroportuaires pratiquent des tarifs **15-25% plus élevés** que les agences en centre-ville. Elles paient des concessions coûteuses aux aéroports.",
+      
+      "**Solution économique :** Prenez un taxi de l'aéroport vers votre hôtel (50-150 MAD), puis récupérez la voiture en ville le lendemain. Économie nette : 100-300 MAD.",
+      
+      "**Alternative :** Certaines agences proposent la livraison gratuite à l'aéroport. Demandez !",
+
+      "### 4. Louez pour une semaine complète",
+      "Le tarif journalier baisse significativement avec la durée :",
+      
+      "**Exemple Dacia Sandero :**\n- 3 jours : 200 MAD/jour = 600 MAD total\n- 7 jours : 170 MAD/jour = 1190 MAD total\n- 14 jours : 140 MAD/jour = 1960 MAD total",
+      
+      "Si vous partez 5 jours, il est parfois plus économique de réserver 7 jours et rendre la voiture plus tôt (sans remboursement mais total moins cher).",
+
+      "### 5. Évitez les suppléments inutiles",
+      "Les options gonflent vite la facture :",
+      
+      "**À éviter :**\n❌ GPS : Utilisez Google Maps ou Maps.me (gratuit)\n❌ Plein d'essence prépayé : Faites le plein vous-même\n❌ Assurance super CDW : Souvent redondant avec votre carte bancaire",
+      
+      "**À garder :**\n✅ 2e conducteur si vous alternez la conduite\n✅ Siège bébé (obligatoire pour les enfants)\n✅ Assistance routière 24h/24",
+
+      "### 6. Voyagez en basse saison",
+      "Les prix varient du simple au double selon la période :",
+      
+      "**Basse saison (meilleurs prix) :**\n📅 Novembre (hors vacances)\n📅 Janvier-février\n📅 Mai-juin (hors ponts)",
+      
+      "**Haute saison (prix élevés) :**\n📅 Juillet-août (vacances européennes)\n📅 Noël et Nouvel An\n📅 Pâques\n📅 CAN 2025 (déc 2025 - jan 2026)",
+
+      "### 7. Négociez sur place",
+      "Les agences locales acceptent souvent la négociation, surtout pour les locations longues durées ou en basse saison.",
+      
+      "**Phrases qui fonctionnent :**\n- \"J'ai vu moins cher chez X, vous pouvez vous aligner ?\"\n- \"Je prends pour 10 jours, vous faites un geste ?\"\n- \"Je paie en cash, il y a une réduction ?\"",
+      
+      "Attention : les grandes enseignes appliquent des tarifs fixes sans négociation.",
+
+      "### 8. Utilisez les bons moyens de paiement",
+      "**Carte bancaire premium :** Certaines cartes (Visa Premier, Mastercard Gold) incluent une assurance location voiture gratuite. Vérifiez vos garanties !",
+      
+      "**Paiement cash :** Certaines agences locales accordent 5-10% de remise pour paiement en espèces. Demandez.",
+      
+      "**Attention aux frais de change :** Si votre carte facture des frais sur les paiements en devises, privilégiez le paiement en MAD.",
+
+      "### 9. Groupez-vous",
+      "Un monospace 7 places coûte à peine plus cher qu'une berline. Partagez les frais :",
+      
+      "**Calcul pour 5 personnes :**\n- SUV 7 places : 500 MAD/jour\n- Par personne : 100 MAD/jour\n- Train/bus équivalent : 150-200 MAD/personne",
+      
+      "Bonus : vous partagez aussi l'essence et les péages.",
+
+      "### 10. Faites le plein malin",
+      "L'essence au Maroc coûte environ 14-15 MAD/litre. Quelques astuces :",
+      
+      "**Où faire le plein :**\n✅ Stations en périphérie : 0,50-1 MAD moins cher/litre\n✅ Stations autoroutes : les plus chères, à éviter\n✅ Stations locales (Shell, Total, Afriquia) : prix équivalents",
+      
+      "**Rendez le véhicule avec le réservoir plein** pour éviter les frais de remise en état (souvent facturés 20% plus cher).",
+
+      "## Tableau comparatif : économies potentielles",
+      
+      "| Astuce | Économie estimée |\n|--------|------------------|\n| Réservation anticipée | 10-20% |\n| Agence locale vs internationale | 20-40% |\n| Centre-ville vs aéroport | 15-25% |\n| Durée 7 jours vs 3 jours | 15-20% |\n| Éviter options inutiles | 50-150 MAD |\n| Basse saison | 30-50% |\n| Négociation | 5-15% |\n| **TOTAL CUMULABLE** | **jusqu'à 50%** |",
+
+      "## FAQ : vos questions sur les prix",
+      
+      "### Quel est le prix minimum pour louer une voiture au Maroc ?",
+      "En basse saison, avec une agence locale, comptez **120-150 MAD/jour** pour une citadine basique (Dacia Sandero, Hyundai i10). Avec Benatna, nos tarifs débutent à 139 MAD/jour tout compris.",
+
+      "### Faut-il une carte bancaire pour louer ?",
+      "La plupart des agences demandent une carte bancaire pour la caution. Cependant, certaines agences locales acceptent le paiement en espèces avec un dépôt de garantie. Sur Benatna, nous proposons l'option \"Location sans carte bancaire\".",
+
+      "### Les prix incluent-ils l'assurance ?",
+      "Généralement oui. L'assurance de base (responsabilité civile + CDW avec franchise) est incluse. Pour une protection complète sans franchise, comptez 50-100 MAD/jour supplémentaires.",
+
+      "### Est-ce moins cher de réserver en ligne ou sur place ?",
+      "En ligne ! Les agences proposent souvent des tarifs web exclusifs 10-15% moins chers. De plus, vous avez la garantie d'avoir un véhicule disponible.",
+
+      "## Conclusion : notre recommandation",
+      
+      "Pour une location de voiture pas chère au Maroc, combinez ces stratégies :",
+      
+      "1. **Réservez 3-6 semaines à l'avance** sur Benatna\n2. **Choisissez une agence locale** vérifiée\n3. **Optez pour le centre-ville** plutôt que l'aéroport\n4. **Louez 7 jours minimum** si possible\n5. **Refusez les options superflues** (GPS, assurance redondante)\n6. **Voyagez hors saison** si votre emploi du temps le permet",
+      
+      "Avec ces astuces, vous économiserez **30 à 50%** sur votre location. Sur Benatna, nos tarifs sont déjà optimisés avec des agences locales de confiance. Comparez dès maintenant et réservez au meilleur prix !"
+    ]
+  },
+  {
+    id: 21,
+    slug: "premiere-location-voiture-maroc-guide-debutant",
+    title: "Première Location de Voiture au Maroc : Guide Complet pour Débutants",
+    excerpt: "Tout ce qu'il faut savoir avant de louer votre première voiture au Maroc : documents, assurances, règles de conduite, conseils pratiques et erreurs à éviter.",
+    metaDescription: "Première location voiture Maroc : guide complet débutant. Documents requis, assurances, code route marocain, conseils conduite. Réussir sa première location.",
+    category: "Pratique",
+    date: "11 décembre 2024",
+    image: "/car-clio.jpg",
+    featured: true,
+    city: "national",
+    readTime: 15,
+    keywords: ["première location voiture maroc", "louer voiture maroc débutant", "comment louer voiture maroc", "location auto maroc guide", "conseil location voiture"],
+    content: [
+      "Vous n'avez jamais loué de voiture au Maroc et vous avez quelques appréhensions ? C'est normal. Entre les documents requis, les assurances, les règles de conduite locales et les arnaques potentielles, il y a beaucoup à savoir. Ce guide détaillé répond à toutes vos questions pour une première expérience réussie.",
+
+      "## Avant de réserver : les questions essentielles",
+      
+      "### Ai-je vraiment besoin d'une voiture au Maroc ?",
+      "La réponse dépend de votre itinéraire :",
+      
+      "**Oui, louez une voiture si :**\n✅ Vous visitez plusieurs villes\n✅ Vous explorez l'Atlas ou le désert\n✅ Vous voyagez en famille ou groupe\n✅ Vous aimez l'indépendance\n✅ Vous allez dans des zones mal desservies",
+      
+      "**Non, évitez si :**\n❌ Vous restez uniquement dans une grande ville (Marrakech médina, Fès médina)\n❌ Vous êtes seul avec un petit budget\n❌ Vous n'êtes pas à l'aise en conduite",
+      
+      "Dans les médinas marocaines, les voitures sont inutiles (ruelles piétonnes). Les transports en commun (train, CTM) sont excellents entre grandes villes.",
+
+      "### Quel permis faut-il ?",
+      "**Permis français/européen :** Valable au Maroc pendant 1 an. Aucune démarche nécessaire.",
+      
+      "**Permis international :** Recommandé mais rarement demandé par les agences. Obligatoire pour les permis non latins (arabe, japonais, chinois...).",
+      
+      "**Âge minimum :** 21 ans (parfois 23 ans pour les SUV et voitures de luxe). Supplément \"jeune conducteur\" fréquent pour les moins de 25 ans.",
+      
+      "**Ancienneté permis :** Minimum 1 an (parfois 2 ans pour certaines catégories).",
+
+      "### Quels documents préparer ?",
+      "Voici la check-list complète :",
+      
+      "**Documents obligatoires :**\n📋 Permis de conduire valide\n📋 Passeport (ou carte d'identité pour séjours < 3 mois)\n📋 Carte bancaire au nom du conducteur (pour la caution)\n📋 Confirmation de réservation",
+      
+      "**Documents utiles :**\n📋 Permis international (si permis non latin)\n📋 Justificatif d'assurance carte bancaire\n📋 Numéro d'assistance de votre assurance voyage",
+
+      "## Comprendre les assurances",
+      
+      "### Les 3 types d'assurance location",
+      
+      "**1. Responsabilité civile (RC) - OBLIGATOIRE**\n- Incluse dans toutes les locations\n- Couvre les dommages causés aux tiers\n- Limite légale au Maroc : 1 million MAD",
+      
+      "**2. CDW (Collision Damage Waiver) - INCLUSE GÉNÉRALEMENT**\n- Couvre les dommages au véhicule loué\n- Comporte une franchise (1000-5000 MAD)\n- En cas d'accident, vous payez la franchise",
+      
+      "**3. Assurance tous risques / Super CDW - OPTIONNELLE**\n- Réduit ou annule la franchise\n- Coût : 50-150 MAD/jour\n- Recommandée pour les conducteurs novices",
+
+      "### Ma carte bancaire couvre-t-elle l'assurance ?",
+      "Certaines cartes bancaires premium (Visa Premier, Mastercard Gold, American Express) incluent une assurance location voiture. Vérifiez :",
+      
+      "✅ La durée couverte (souvent 30-90 jours max)\n✅ Les pays couverts (Maroc généralement inclus)\n✅ Le type de véhicule couvert (SUV parfois exclus)\n✅ Le montant de franchise pris en charge\n✅ Les exclusions (conduite hors route, etc.)",
+      
+      "**Important :** Cette assurance intervient en complément de la CDW, elle ne la remplace pas. Conservez précieusement la facture de location.",
+
+      "### Faut-il prendre l'assurance complémentaire ?",
+      "Notre recommandation :",
+      
+      "**Prenez-la si :**\n✅ C'est votre première fois au Maroc\n✅ Vous conduisez dans l'Atlas ou zones rurales\n✅ Votre carte bancaire ne couvre pas\n✅ Vous préférez la tranquillité d'esprit",
+      
+      "**Évitez-la si :**\n✅ Votre carte bancaire offre une couverture équivalente\n✅ Vous êtes un conducteur expérimenté\n✅ Vous restez uniquement en ville",
+
+      "## Choisir la bonne voiture",
+      
+      "### Quel type de véhicule pour quel usage ?",
+      
+      "**Citadine (Clio, 208, Sandero) :**\n👍 Idéale pour : villes, routes côtières, petits budgets\n👎 Éviter pour : Atlas, pistes, familles nombreuses\n💰 150-300 MAD/jour",
+      
+      "**Berline (Corolla, Golf, Octavia) :**\n👍 Idéale pour : longs trajets, confort, 4 passagers\n👎 Éviter pour : pistes, routes non goudronnées\n💰 250-400 MAD/jour",
+      
+      "**SUV/Crossover (Duster, Qashqai, Tucson) :**\n👍 Idéale pour : Atlas, polyvalence, familles\n👎 Éviter pour : médinas (trop large)\n💰 300-500 MAD/jour",
+      
+      "**4x4 (Prado, Land Cruiser) :**\n👍 Idéale pour : désert, pistes difficiles, Merzouga\n👎 Éviter pour : usage urbain uniquement\n💰 500-1000 MAD/jour",
+
+      "### Boîte manuelle ou automatique ?",
+      "**Au Maroc, 90% des voitures sont en boîte manuelle.** Les automatiques existent mais :",
+      
+      "- Coûtent 30-50% plus cher\n- Choix limité de modèles\n- Moins disponibles en haute saison",
+      
+      "Si vous n'êtes pas à l'aise en manuelle, réservez votre automatique très tôt.",
+
+      "## Le jour de la prise en charge",
+      
+      "### L'état des lieux : étape cruciale",
+      "C'est LE moment clé de votre location. Prenez 10 minutes pour :",
+      
+      "**1. Faire le tour du véhicule avec l'agent :**\n- Rayures, bosses, éraflures\n- État des rétroviseurs et vitres\n- Pneumatiques (usure, pression)\n- Phares et feux arrière",
+      
+      "**2. Photographier TOUT :**\n📸 Chaque côté du véhicule\n📸 Les 4 angles\n📸 Les jantes et pneus\n📸 L'intérieur (sièges, tableau de bord)\n📸 Le compteur kilométrique\n📸 Le niveau d'essence",
+      
+      "**3. Vérifier le contrat :**\n- Tous les dommages sont-ils notés ?\n- Le kilométrage est-il correct ?\n- Le niveau d'essence correspond ?\n- Les options choisies sont-elles bien indiquées ?",
+      
+      "**Astuce :** Envoyez-vous les photos par email avec la date. Preuve horodatée en cas de litige.",
+
+      "### Ce qu'il faut vérifier avant de partir",
+      
+      "**Dans le véhicule :**\n✅ Roue de secours + cric\n✅ Gilet jaune et triangle\n✅ Carte grise (dans la boîte à gants)\n✅ Attestation d'assurance\n✅ Numéro d'assistance 24h/24",
+      
+      "**À tester :**\n✅ Freins (avant de quitter le parking)\n✅ Climatisation (essentielle l'été)\n✅ Phares et clignotants\n✅ Essuie-glaces\n✅ GPS/Bluetooth si équipé",
+
+      "## Conduire au Maroc : ce qu'il faut savoir",
+      
+      "### Les règles de base",
+      
+      "**Vitesses maximales :**\n- Ville : 40-60 km/h\n- Route : 80-100 km/h\n- Autoroute : 120 km/h",
+      
+      "**Priorités :**\n- Priorité à droite en ville\n- Les ronds-points : priorité à l'intérieur\n- Les piétons sont souvent prioritaires (même hors passages)",
+      
+      "**Alcool au volant :**\n- Tolérance zéro (0,0 g/L)\n- Sanctions sévères (prison possible)",
+
+      "### Les particularités marocaines",
+      
+      "**Ce qui surprend les étrangers :**\n🚗 Vélos et scooters sans éclairage la nuit\n🚗 Animaux sur la route (moutons, ânes, chameaux)\n🚗 Piétons traversant n'importe où\n🚗 Conduite \"flexible\" des locaux\n🚗 Klaxon utilisé comme signal, pas comme reproche",
+      
+      "**Conseils pratiques :**\n✅ Roulez défensivement\n✅ Anticipez l'imprévisible\n✅ Évitez de conduire la nuit hors villes\n✅ Gardez votre calme (ça sert à rien de s'énerver)\n✅ Le klaxon, c'est normal ici",
+
+      "### Les contrôles de police",
+      "Ils sont fréquents, surtout aux entrées/sorties de ville. Restez zen :",
+      
+      "**Documents à présenter :**\n- Permis de conduire\n- Carte grise du véhicule\n- Attestation d'assurance\n- Passeport (parfois demandé)",
+      
+      "**Conseils :**\n✅ Soyez poli et souriant\n✅ Parlez français, ils comprennent généralement\n✅ Ne proposez jamais d'argent (corruption = prison)\n✅ En cas de problème, appelez votre agence",
+
+      "## La restitution du véhicule",
+      
+      "### Comment rendre la voiture ?",
+      
+      "**Avant de rendre :**\n✅ Faites le plein (même station = même niveau)\n✅ Nettoyez grossièrement l'intérieur\n✅ Vérifiez n'avoir rien oublié\n✅ Photographiez le compteur et le niveau d'essence",
+      
+      "**Pendant la restitution :**\n✅ Faites un état des lieux avec l'agent\n✅ Comparez avec les photos du départ\n✅ Signez uniquement si vous êtes d'accord\n✅ Réclamez un reçu de restitution",
+      
+      "**En cas de désaccord :**\n- Ne signez pas le formulaire\n- Prenez des photos\n- Contactez le service client de Benatna",
+
+      "## Les erreurs courantes des débutants",
+      
+      "### Erreur n°1 : Ne pas lire le contrat",
+      "Le contrat peut contenir des clauses surprenantes (zones interdites, heures limites, frais cachés). Lisez-le attentivement avant de signer.",
+
+      "### Erreur n°2 : Sous-estimer les distances",
+      "Le Maroc est grand. Casablanca-Marrakech : 2h30. Marrakech-Merzouga : 8h. Prévoyez large.",
+
+      "### Erreur n°3 : Oublier de faire le plein",
+      "Rendez le véhicule avec le réservoir plein. Sinon, l'agence facture le carburant avec une marge (souvent +30%).",
+
+      "### Erreur n°4 : Négliger l'état des lieux",
+      "Chaque rayure non signalée peut vous être imputée au retour. Soyez maniaque.",
+
+      "### Erreur n°5 : Payer en espèces la caution",
+      "Toujours par carte bancaire. Les espèces sont difficiles à récupérer en cas de problème.",
+
+      "## Conclusion : check-list du parfait débutant",
+      
+      "✅ **Avant de partir :**\n- Permis valide + passeport\n- Carte bancaire au nom du conducteur\n- Réservation confirmée\n- Assurance carte vérifiée",
+      
+      "✅ **À la prise en charge :**\n- État des lieux minutieux\n- Photos horodatées\n- Vérification équipements de sécurité",
+      
+      "✅ **Pendant la location :**\n- Conduite défensive\n- Respect des limitations\n- Éviter la nuit hors ville",
+      
+      "✅ **À la restitution :**\n- Plein fait\n- État des lieux contradictoire\n- Reçu de restitution",
+      
+      "Avec ce guide, vous êtes prêt pour votre première location de voiture au Maroc. Sur Benatna, nous accompagnons les débutants avec une assistance 24h/24 et des agences partenaires bienveillantes. Réservez en toute confiance !"
+    ]
+  },
+  {
+    id: 22,
+    slug: "location-voiture-aeroport-vs-centre-ville-maroc",
+    title: "Location Voiture : Aéroport vs Centre-Ville au Maroc - Comparatif Complet",
+    excerpt: "Faut-il louer sa voiture à l'aéroport ou en centre-ville au Maroc ? Comparatif prix, avantages, inconvénients et notre verdict pour chaque situation.",
+    metaDescription: "Location voiture aéroport ou centre-ville Maroc ? Comparatif complet : prix, disponibilité, commodité. Économisez 20% avec le bon choix.",
+    category: "Pratique",
+    date: "10 décembre 2024",
+    image: "/car-corolla.jpg",
+    city: "national",
+    readTime: 8,
+    keywords: ["location voiture aeroport maroc", "louer voiture centre ville", "comparatif location aeroport", "prix location aeroport maroc"],
+    content: [
+      "Question récurrente des voyageurs au Maroc : faut-il louer sa voiture directement à l'aéroport ou attendre d'être en centre-ville ? La réponse n'est pas aussi simple qu'il y paraît. Ce comparatif détaillé vous aide à faire le bon choix.",
+
+      "## Location à l'aéroport : avantages et inconvénients",
+      
+      "### Les avantages",
+      
+      "**✅ Gain de temps immédiat**\nVous récupérez votre voiture dès l'atterrissage. Pas besoin de chercher un taxi, négocier le prix, attendre. En 30 minutes, vous êtes sur la route.",
+      
+      "**✅ Disponibilité large**\nLes agences aéroportuaires ont les plus grands stocks de véhicules. Même en haute saison, vous trouverez généralement ce que vous cherchez.",
+      
+      "**✅ Horaires étendus**\nOuvertes de 6h à minuit (parfois 24h/24 dans les grands aéroports). Idéal pour les vols de nuit.",
+      
+      "**✅ Retour simplifié**\nVous rendez la voiture juste avant votre vol. Pas de stress de timing.",
+
+      "### Les inconvénients",
+      
+      "**❌ Prix plus élevés (15-25%)**\nLes agences aéroportuaires paient des concessions aux aéroports (jusqu'à 15% du CA). Elles répercutent ce coût sur vous.",
+      
+      "**❌ Files d'attente**\nAprès un vol, vous faites la queue derrière tous les passagers qui ont eu la même idée. Comptez 20-45 minutes d'attente.",
+      
+      "**❌ Upselling agressif**\nLes agents sont formés pour vous vendre des options (assurances, GPS, surclassement). Difficile de résister après un long vol.",
+      
+      "**❌ Transfert parfois long**\nCertaines agences ont leur parking à 5-10 minutes de navette du terminal. Temps additionnel.",
+
+      "## Location en centre-ville : avantages et inconvénients",
+      
+      "### Les avantages",
+      
+      "**✅ Prix plus bas (15-25% moins cher)**\nMoins de charges = prix plus compétitifs. Les agences locales de centre-ville proposent souvent les meilleurs tarifs.",
+      
+      "**✅ Négociation possible**\nLes agences locales acceptent parfois de discuter le prix, surtout pour les locations longues durées.",
+      
+      "**✅ Moins de pression commerciale**\nAmbiance plus détendue. Vous prenez le temps de comprendre le contrat.",
+      
+      "**✅ Livraison hôtel souvent gratuite**\nCertaines agences livrent gratuitement à votre hôtel. Service personnalisé.",
+
+      "### Les inconvénients",
+      
+      "**❌ Logistique supplémentaire**\nVous devez d'abord rejoindre votre hébergement (taxi, navette), puis vous rendre à l'agence. Perte de temps le premier jour.",
+      
+      "**❌ Horaires limités**\nOuvertures souvent 8h-20h. Fermé le dimanche pour certaines agences.",
+      
+      "**❌ Stocks plus réduits**\nMoins de choix, surtout en haute saison. Réservation anticipée indispensable.",
+      
+      "**❌ Retour plus compliqué**\nVous devez prévoir du temps le dernier jour pour rendre la voiture avant d'aller à l'aéroport.",
+
+      "## Comparatif par ville marocaine",
+      
+      "### Casablanca",
+      "**Aéroport Mohammed V :**\n- Très grand hub avec 10+ agences\n- Tarif citadine : 280-350 MAD/jour\n- Files d'attente longues (30-45 min)",
+      
+      "**Centre-ville (Mers Sultan, Maarif) :**\n- Nombreuses agences locales\n- Tarif citadine : 200-280 MAD/jour\n- Taxi aéroport-centre : 200-250 MAD",
+      
+      "**Notre verdict :** Centre-ville si vous arrivez de jour. Aéroport si vol de nuit.",
+
+      "### Marrakech",
+      "**Aéroport Menara :**\n- Aéroport compact, agences à 5 min à pied\n- Tarif citadine : 300-400 MAD/jour\n- Attente modérée (15-25 min)",
+      
+      "**Centre-ville (Guéliz, Hivernage) :**\n- Forteconcentration d'agences\n- Tarif citadine : 220-320 MAD/jour\n- Taxi aéroport-centre : 100-150 MAD",
+      
+      "**Notre verdict :** Centre-ville. L'aéroport est proche et les économies sont significatives.",
+
+      "### Agadir",
+      "**Aéroport Al Massira :**\n- Aéroport éloigné (25 km du centre)\n- Tarif citadine : 250-350 MAD/jour\n- Peu de choix en agences",
+      
+      "**Centre-ville (Boulevard Hassan II) :**\n- Agences compétitives\n- Tarif citadine : 180-280 MAD/jour\n- Taxi aéroport-centre : 250-350 MAD",
+      
+      "**Notre verdict :** Aéroport. La distance rend le taxi coûteux, autant récupérer la voiture directement.",
+
+      "### Fès",
+      "**Aéroport Fès-Saïss :**\n- Petit aéroport, 3-4 agences seulement\n- Tarif citadine : 280-380 MAD/jour\n- Attente courte (10-15 min)",
+      
+      "**Centre-ville (Ville Nouvelle) :**\n- Choix limité d'agences\n- Tarif citadine : 220-320 MAD/jour\n- Taxi aéroport-centre : 120-180 MAD",
+      
+      "**Notre verdict :** Aéroport. Le taxi est abordable mais le gain de temps vaut le surcoût.",
+
+      "## Le meilleur des deux mondes",
+      
+      "### Option hybride : livraison aéroport par agence locale",
+      "Certaines agences locales proposent la **livraison gratuite à l'aéroport**. Vous bénéficiez :",
+      
+      "✅ Des prix bas des agences locales\n✅ De la commodité de l'aéroport\n✅ D'un service personnalisé",
+      
+      "Sur Benatna, nous travaillons avec des agences qui offrent ce service. Vous réservez au tarif centre-ville, et un agent vous attend à la sortie de l'aéroport avec votre véhicule.",
+
+      "### Calcul économique type",
+      
+      "**Scénario : Location 7 jours depuis Marrakech**",
+      
+      "| Option | Tarif/jour | Total location | Taxi | TOTAL |\n|--------|------------|----------------|------|-------|\n| Aéroport | 350 MAD | 2450 MAD | 0 | **2450 MAD** |\n| Centre-ville | 270 MAD | 1890 MAD | 250 MAD | **2140 MAD** |\n| Livraison aéroport | 280 MAD | 1960 MAD | 0 | **1960 MAD** |",
+      
+      "**Économie avec la bonne option : 490 MAD (20%)**",
+
+      "## Notre verdict final",
+      
+      "### Choisissez l'aéroport si :",
+      "✅ Vous arrivez de nuit (après 20h)\n✅ Vous êtes pressé\n✅ Vous voyagez en famille avec bagages\n✅ L'aéroport est loin du centre (Agadir, Tanger)\n✅ C'est votre premier voyage au Maroc",
+
+      "### Choisissez le centre-ville si :",
+      "✅ Vous arrivez de jour\n✅ Vous voulez économiser\n✅ Vous restez 1-2 jours avant de partir en road trip\n✅ Vous êtes à l'aise avec la logistique locale",
+
+      "### Choisissez la livraison aéroport si :",
+      "✅ Vous voulez le meilleur des deux mondes\n✅ Vous réservez à l'avance\n✅ Vous utilisez Benatna 😉",
+      
+      "Quelle que soit votre préférence, comparez les options sur Benatna. Nous affichons les tarifs aéroport ET centre-ville avec la possibilité de livraison gratuite. Faites le bon choix dès maintenant !"
+    ]
+  },
+  {
+    id: 23,
+    slug: "road-trip-maroc-7-jours-itineraire-complet",
+    title: "Road Trip Maroc 7 Jours : Itinéraire Complet du Nord au Sud",
+    excerpt: "Le meilleur itinéraire pour un road trip de 7 jours au Maroc en voiture de location. Casablanca, Marrakech, Atlas, Désert, Fès : carte, étapes, budget détaillé.",
+    metaDescription: "Road trip Maroc 7 jours : itinéraire complet Casablanca Marrakech désert Fès. Carte, étapes jour par jour, budget, conseils pratiques. Guide 2025.",
+    category: "Tourisme",
+    date: "9 décembre 2024",
+    image: "/car-duster-gray.jpg",
+    featured: true,
+    city: "national",
+    readTime: 18,
+    keywords: ["road trip maroc 7 jours", "itinéraire maroc voiture", "circuit maroc une semaine", "tour maroc en voiture", "voyage maroc voiture location"],
+    content: [
+      "Le Maroc en 7 jours, c'est possible ! Ce road trip optimisé vous fait découvrir les incontournables : villes impériales, montagnes de l'Atlas, désert de Merzouga et côte atlantique. Un itinéraire testé et approuvé, avec toutes les informations pratiques pour le reproduire.",
+
+      "## Vue d'ensemble de l'itinéraire",
+      
+      "**📍 Départ :** Casablanca (aéroport Mohammed V)\n**📍 Arrivée :** Casablanca (aéroport Mohammed V)\n**📏 Distance totale :** 1 800 km environ\n**⏱️ Temps de conduite :** 20-25 heures réparties sur 7 jours",
+      
+      "**L'itinéraire jour par jour :**\nJour 1 : Casablanca → Marrakech (240 km, 2h30)\nJour 2 : Marrakech (journée sur place)\nJour 3 : Marrakech → Gorges du Dadès (350 km, 5h)\nJour 4 : Gorges du Dadès → Merzouga (170 km, 3h)\nJour 5 : Merzouga → Fès (450 km, 7h)\nJour 6 : Fès (journée sur place)\nJour 7 : Fès → Casablanca (300 km, 3h30)",
+
+      "## Jour 1 : Casablanca → Marrakech",
+      
+      "**🚗 Trajet : 240 km, 2h30 par autoroute A7**",
+      
+      "### Matin : Arrivée et récupération du véhicule",
+      "Atterrissage à l'aéroport Mohammed V. Récupérez votre voiture de location (prévoyez 45 min pour les formalités). Nous recommandons un SUV type Dacia Duster pour ce circuit : confortable, économique et adapté aux pistes.",
+      
+      "Avant de partir, faites le plein. Les stations sont moins fréquentes dans le Sud.",
+
+      "### Après-midi : Route vers Marrakech",
+      "L'autoroute A7 est excellente. Péage total : environ 130 MAD. Arrivée à Marrakech vers 15-16h.",
+      
+      "**Escale recommandée : Settat (1h de route)**\nPause café et découverte de cette ville méconnue. Le marché couvert vaut le détour.",
+
+      "### Soir : Installation et premiers pas à Marrakech",
+      "Installez-vous dans votre riad en médina (garez la voiture dans un parking gardé, 30-50 MAD/nuit). Balade sur la place Jemaa el-Fna au coucher du soleil. Dîner sur les stands de grillades de la place.",
+      
+      "**💰 Budget jour 1 :**\n- Péage : 130 MAD\n- Essence : 150 MAD\n- Parking Marrakech : 50 MAD\n- Dîner : 100-200 MAD\n- Hébergement : 400-800 MAD",
+
+      "## Jour 2 : Marrakech (journée complète)",
+      
+      "### Matin : Médina et souks",
+      "Journée sans voiture. Explorez à pied :",
+      
+      "✨ **Place Jemaa el-Fna** - Le cœur battant de Marrakech\n✨ **Souks traditionnels** - Épices, cuir, poteries, lanternes\n✨ **Medersa Ben Youssef** - Chef-d'œuvre d'architecture islamique\n✨ **Musée de Marrakech** - Palais restauré, expositions d'art",
+
+      "### Après-midi : Jardins et palais",
+      "✨ **Jardin Majorelle** - Le jardin bleu mythique (70 MAD)\n✨ **Palais Bahia** - 8 hectares de jardins et salons (70 MAD)\n✨ **Quartier Guéliz** - Le Marrakech moderne, cafés branchés",
+
+      "### Soir : Rooftop et spectacle",
+      "Dîner sur un rooftop avec vue sur la Koutoubia. Retour place Jemaa el-Fna pour le spectacle nocturne : conteurs, musiciens, acrobates.",
+      
+      "**💰 Budget jour 2 :**\n- Entrées monuments : 200 MAD\n- Déjeuner : 150 MAD\n- Dîner rooftop : 300-500 MAD\n- Hébergement : 400-800 MAD",
+
+      "## Jour 3 : Marrakech → Gorges du Dadès",
+      
+      "**🚗 Trajet : 350 km, 5h (route de montagne)**",
+      
+      "### La route la plus spectaculaire du Maroc",
+      "Aujourd'hui, vous traversez le Haut Atlas par le col du Tichka (2 260 m). Paysages grandioses garantis. Départ conseillé : 7h pour profiter de la lumière.",
+
+      "### Les étapes clés",
+      
+      "**📍 Col du Tichka (2h de route)**\nPoint culminant de la journée. Vue panoramique sur l'Atlas. Arrêtez-vous au sommet pour photos et thé à la menthe.",
+      
+      "**📍 Aït Benhaddou (3h de route)**\nKsar UNESCO, décor de Game of Thrones et Gladiator. Visite 1h30. Déjeuner dans un restaurant face au ksar.",
+      
+      "**📍 Ouarzazate (3h30 de route)**\nLa \"porte du désert\". Studios Atlas (Hollywood africain). Possibilité de visite rapide (1h).",
+      
+      "**📍 Vallée des Roses (4h de route)**\nEn mai, les roses de Kelaat M'Gouna parfument toute la vallée. Arrêt photos.",
+      
+      "**📍 Gorges du Dadès (5h de route)**\nArrivée en fin d'après-midi. Installation dans un hôtel perché au-dessus des gorges.",
+
+      "### Conseils de conduite",
+      "⚠️ Route sinueuse avec lacets serrés dans les gorges\n⚠️ Attention aux camions sur le col du Tichka\n⚠️ Prévoir des pauses régulières (altitude = fatigue)\n⚠️ Plein d'essence à Ouarzazate",
+      
+      "**💰 Budget jour 3 :**\n- Essence : 300 MAD\n- Entrée Aït Benhaddou : 20 MAD\n- Déjeuner : 100-150 MAD\n- Hébergement gorges : 300-600 MAD",
+
+      "## Jour 4 : Gorges du Dadès → Merzouga",
+      
+      "**🚗 Trajet : 170 km, 3h (route désertique)**",
+      
+      "### Matin : Exploration des gorges",
+      "Réveil tôt pour admirer les gorges dans la lumière du matin. Courte randonnée (1h) dans les gorges si vous le souhaitez. Départ vers 9h.",
+
+      "### La route des mille kasbahs",
+      "Direction Merzouga via Tinghir et les Gorges du Todra. Route monotone mais ponctuée de trésors :",
+      
+      "**📍 Gorges du Todra (1h30 de route)**\nFalaises de 300m de haut, largeur 10m seulement. Impressionnant ! Pause 30 min.",
+      
+      "**📍 Erfoud (2h30 de route)**\nCapitale des fossiles. Les boutiques vendent des ammonites, trilobites, plaques de marbre fossilisé.",
+      
+      "**📍 Rissani (3h de route)**\nDernière ville avant le désert. Marché traditionnel le mardi, jeudi et dimanche.",
+
+      "### Après-midi : Arrivée à Merzouga",
+      "L'Erg Chebbi apparaît : dunes orange culminant à 150m. Installation dans votre bivouac ou hôtel en bordure de désert.",
+
+      "### Coucher de soleil en dromadaire",
+      "Excursion incontournable : balade à dos de dromadaire (1h30) jusqu'au sommet d'une dune pour admirer le coucher de soleil. Magique. Prévu avec la plupart des hébergements (150-250 MAD).",
+      
+      "**💰 Budget jour 4 :**\n- Essence : 200 MAD\n- Déjeuner route : 80-120 MAD\n- Excursion dromadaire : 200 MAD\n- Bivouac/hôtel : 400-1000 MAD",
+
+      "## Jour 5 : Merzouga → Fès",
+      
+      "**🚗 Trajet : 450 km, 7h (la plus longue étape)**",
+      
+      "### Lever de soleil sur les dunes",
+      "Réveil 5h pour grimper la dune devant l'hôtel. Le lever de soleil sur l'Erg Chebbi est un souvenir inoubliable. Petit-déjeuner berbère. Départ 8h.",
+
+      "### La traversée du Moyen Atlas",
+      "Longue étape mais variée : paysages désertiques, oasis, montagnes boisées de cèdres.",
+      
+      "**📍 Errachidia (2h de route)**\nGrande ville étape. Pause café, plein d'essence.",
+      
+      "**📍 Vallée du Ziz (3h de route)**\nPalmeraie spectaculaire. Arrêt belvédère pour photos panoramiques.",
+      
+      "**📍 Midelt (4h de route)**\nAu pied du Jbel Ayachi (3 747m). Spécialité locale : les pommes ! Déjeuner tajine.",
+      
+      "**📍 Ifrane (6h de route)**\nLa \"petite Suisse\" marocaine. Architecture alpine incongrue. Pause photos avec le lion de pierre.",
+      
+      "**📍 Forêt de cèdres d'Azrou (6h30 de route)**\nHabitat des macaques de Barbarie. Arrêtez-vous pour les observer (ne les nourrissez pas !).",
+
+      "### Arrivée à Fès",
+      "Installation en riad dans la médina de Fès. Parking gardé indispensable (50-70 MAD/nuit). Dîner léger après cette longue journée.",
+      
+      "**💰 Budget jour 5 :**\n- Essence : 400 MAD\n- Déjeuner Midelt : 100 MAD\n- Parking Fès : 70 MAD\n- Dîner : 150 MAD\n- Hébergement : 400-800 MAD",
+
+      "## Jour 6 : Fès (journée complète)",
+      
+      "### La plus grande médina médiévale du monde",
+      "Fès el-Bali compte 9 400 ruelles. Prenez un guide officiel (200-300 MAD la demi-journée) pour ne rien manquer.",
+
+      "### Matin : Médina et artisanat",
+      "✨ **Tanneries Chouara** - Les plus grandes d'Afrique, vue depuis les terrasses\n✨ **Medersa Bou Inania** - Chef-d'œuvre architectural du XIVe siècle\n✨ **Fondouk Nejjarine** - Musée des arts du bois\n✨ **Quartier des dinandiers** - Bruit des marteaux sur cuivre",
+
+      "### Après-midi : Mosquées et remparts",
+      "✨ **Mosquée Karaouine** - Plus ancienne université du monde (vue extérieure)\n✨ **Bab Boujloud** - La porte bleue iconique\n✨ **Remparts et Borj Nord** - Vue panoramique sur la médina\n✨ **Mellah** - L'ancien quartier juif",
+
+      "### Soir : Gastronomie fassi",
+      "La cuisine de Fès est réputée la plus raffinée du Maroc. Réservez un dîner dans un palais (Dar Roumana, Palais Faraj) pour une pastilla, tajine aux pruneaux ou couscous aux 7 légumes.",
+      
+      "**💰 Budget jour 6 :**\n- Guide : 300 MAD\n- Entrées : 100 MAD\n- Déjeuner médina : 100 MAD\n- Dîner gastronomique : 400-600 MAD\n- Hébergement : 400-800 MAD",
+
+      "## Jour 7 : Fès → Casablanca",
+      
+      "**🚗 Trajet : 300 km, 3h30 par autoroute A2**",
+      
+      "### Matin : Dernières visites à Fès",
+      "Petit-déjeuner tranquille. Dernière balade dans les souks pour achats de dernière minute (céramique bleue de Fès, babouches). Départ vers 10h.",
+
+      "### Route vers Casablanca",
+      "Autoroute directe et rapide. Péage : environ 120 MAD.",
+      
+      "**Escale optionnelle : Meknès (1h de route)**\nVille impériale souvent négligée. Place el-Hedim, Bab Mansour, greniers de Moulay Ismaïl. Prévoir 2h de visite.",
+
+      "### Arrivée Casablanca",
+      "Arrivée à l'aéroport 3h avant votre vol. Restitution de la voiture. Temps pour un dernier café marocain avant le départ.",
+      
+      "**💰 Budget jour 7 :**\n- Essence : 200 MAD\n- Péage : 120 MAD\n- Achats souvenirs : variable\n- Déjeuner : 100-150 MAD",
+
+      "## Budget total estimé",
+      
+      "| Poste | Budget économique | Budget confort |\n|-------|-------------------|----------------|\n| Location voiture 7 jours | 1 400 MAD | 2 800 MAD |\n| Essence + péages | 1 500 MAD | 1 500 MAD |\n| Hébergements 6 nuits | 2 400 MAD | 4 800 MAD |\n| Repas | 1 500 MAD | 2 500 MAD |\n| Activités + entrées | 800 MAD | 1 200 MAD |\n| **TOTAL** | **7 600 MAD** | **12 800 MAD** |\n| *Par personne (2 pers)* | *3 800 MAD* | *6 400 MAD* |",
+
+      "## Conseils pratiques pour ce road trip",
+      
+      "### Quelle voiture choisir ?",
+      "**Notre recommandation : SUV ou 4x4 compact**\nLe Dacia Duster est parfait pour ce circuit. Passages de cols et pistes des gorges en toute sérénité. Chez Benatna, à partir de 200 MAD/jour.",
+
+      "### Quand partir ?",
+      "**Idéal : Mars-mai ou septembre-novembre**\n- Températures agréables partout\n- Pas de neige dans l'Atlas\n- Désert supportable\n\n**À éviter : Juillet-août**\n- Désert infernal (45°C+)\n- Foule touristique",
+
+      "### Applications utiles",
+      "📱 **Maps.me** - Cartes hors ligne, indispensable\n📱 **Google Maps** - Navigation avec trafic\n📱 **Booking** - Réservations dernière minute\n📱 **XE Currency** - Conversion MAD/EUR",
+
+      "## Conclusion",
+      
+      "Ce road trip de 7 jours est le condensé parfait du Maroc : villes impériales mythiques, montagnes spectaculaires, désert envoûtant. 1 800 km d'aventure accessibles à tous les conducteurs.",
+      
+      "Réservez votre voiture sur Benatna dès maintenant. Nous vous proposons le véhicule idéal pour ce circuit avec kilométrage illimité, assurance tous risques et assistance 24h/24. Bon road trip !"
+    ]
+  },
+  {
+    id: 24,
+    slug: "arnaques-location-voiture-maroc-comment-les-eviter",
+    title: "Les Arnaques à la Location de Voiture au Maroc : Comment les Éviter",
+    excerpt: "Découvrez les arnaques les plus courantes en location de voiture au Maroc et nos conseils pour les éviter. Guide pratique pour louer en toute sérénité.",
+    metaDescription: "Arnaques location voiture Maroc : les pièges à éviter. Faux dommages, frais cachés, assurances abusives. Guide pour louer en sécurité au Maroc.",
+    category: "Pratique",
+    date: "8 décembre 2024",
+    image: "/car-peugeot-208.jpg",
+    featured: true,
+    city: "national",
+    readTime: 10,
+    keywords: ["arnaque location voiture maroc", "eviter arnaque location auto", "probleme location voiture maroc", "location voiture maroc securise"],
+    content: [
+      "Louer une voiture au Maroc est généralement une expérience positive. Cependant, comme partout dans le monde, quelques pratiques douteuses existent. Ce guide vous aide à les identifier et les éviter pour louer en toute sérénité.",
+
+      "## Les arnaques les plus courantes",
+      
+      "### 1. L'arnaque aux faux dommages",
+      "**Comment ça marche :**\nÀ la restitution, l'agent \"découvre\" des rayures ou bosses qui n'existaient pas (ou étaient déjà présentes). Il vous facture les réparations.",
+      
+      "**Comment l'éviter :**\n✅ **Photographiez TOUT** à la prise en charge : chaque angle, chaque rayure, même minime\n✅ Filmez un tour complet du véhicule en vidéo avec horodatage\n✅ Envoyez-vous les photos par email (preuve datée)\n✅ Vérifiez que TOUS les dommages sont notés sur le contrat\n✅ À la restitution, refaites photos/vidéo AVANT de rendre les clés",
+
+      "### 2. Les frais cachés",
+      "**Comment ça marche :**\nLe tarif affiché semble attractif, mais les suppléments s'accumulent : assurance \"obligatoire\", frais de nettoyage, frais administratifs, frais de restitution...",
+      
+      "**Comment l'éviter :**\n✅ Demandez le prix TOTAL avant de réserver (tout compris)\n✅ Lisez les conditions générales en détail\n✅ Méfiez-vous des prix anormalement bas\n✅ Comparez sur des plateformes transparentes comme Benatna\n✅ Refusez les options non demandées",
+      
+      "**Les frais légitimes vs abusifs :**\n\n| Légitime | Abusif |\n|----------|--------|\n| 2e conducteur (50-100 MAD/jour) | \"Frais de dossier\" (100-200 MAD) |\n| Siège bébé (30-50 MAD/jour) | \"Nettoyage\" si véhicule propre |\n| Franchise 0 (50-150 MAD/jour) | \"Frais de restitution\" non prévus |\n| Livraison hors agence | \"Assurance obligatoire\" non mentionnée |",
+
+      "### 3. Le réservoir d'essence",
+      "**Comment ça marche :**\nOn vous donne la voiture avec le réservoir \"plein\" qui n'est pas vraiment plein. Ou on vous facture le carburant manquant à un tarif gonflé (30-50% plus cher).",
+      
+      "**Comment l'éviter :**\n✅ Photographiez la jauge au départ\n✅ Optez pour la formule \"plein/plein\" (vous rendez avec le même niveau qu'au départ)\n✅ Évitez le \"plein prépayé\" (vous payez un plein que vous n'utiliserez pas entièrement)\n✅ Faites le plein vous-même à une station proche avant de rendre",
+
+      "### 4. L'assurance forcée",
+      "**Comment ça marche :**\nL'agent insiste lourdement pour vous vendre une assurance complémentaire en inventant des obligations légales ou en exagérant les risques.",
+      
+      "**Comment l'éviter :**\n✅ Renseignez-vous AVANT sur les assurances incluses dans votre réservation\n✅ Vérifiez si votre carte bancaire vous couvre\n✅ Sachez dire \"non merci, j'ai déjà une couverture\"\n✅ Ne cédez pas à la pression",
+      
+      "**Ce qui est VRAI :**\n- L'assurance responsabilité civile est obligatoire et toujours incluse\n- La CDW (dommages au véhicule) est généralement incluse avec franchise\n\n**Ce qui est FAUX :**\n- \"Sans assurance complémentaire, vous n'êtes pas couvert\" → Faux\n- \"La loi marocaine impose la super CDW\" → Faux\n- \"Votre carte bancaire ne fonctionne pas au Maroc\" → Faux",
+
+      "### 5. Le véhicule en mauvais état",
+      "**Comment ça marche :**\nOn vous donne un véhicule mal entretenu : pneus usés, freins faibles, climatisation en panne. En cas de problème, on vous tient responsable.",
+      
+      "**Comment l'éviter :**\n✅ Vérifiez l'état des pneus (usure, pression)\n✅ Testez les freins avant de quitter le parking\n✅ Vérifiez la climatisation (essentielle l'été)\n✅ Contrôlez les niveaux (huile, liquide refroidissement)\n✅ Refusez le véhicule si problème évident\n✅ Notez tous les défauts sur le contrat",
+
+      "### 6. La caution excessive",
+      "**Comment ça marche :**\nOn vous demande une caution disproportionnée (10 000-20 000 MAD) qui est bloquée sur votre carte pendant des semaines après la restitution.",
+      
+      "**Comment l'éviter :**\n✅ Renseignez-vous sur le montant de la caution avant de réserver\n✅ Préférez les agences avec caution raisonnable (3 000-5 000 MAD)\n✅ Vérifiez le délai de déblocage (normalement 7-15 jours)\n✅ Gardez les justificatifs de restitution",
+      
+      "**Bon à savoir :** La caution est une pré-autorisation, pas un débit. Elle ne devrait pas apparaître sur votre relevé comme une dépense.",
+
+      "### 7. Les conditions cachées",
+      "**Comment ça marche :**\nDes restrictions non mentionnées à la réservation apparaissent au dernier moment : kilométrage limité, zones interdites, âge minimum...",
+      
+      "**Comment l'éviter :**\n✅ Lisez les CGV avant de réserver (pas seulement au comptoir)\n✅ Demandez confirmation écrite des conditions importantes\n✅ Méfiez-vous des \"offres spéciales\" trop belles",
+      
+      "**Questions à poser AVANT de réserver :**\n- Le kilométrage est-il vraiment illimité ?\n- Puis-je aller dans l'Atlas/le désert ?\n- Y a-t-il un âge minimum/maximum ?\n- Puis-je rendre le véhicule dans une autre ville ?\n- Quels sont les frais d'annulation ?",
+
+      "## Comment choisir une agence de confiance",
+      
+      "### Les critères de sélection",
+      
+      "**✅ Bonnes pratiques :**\n- Prix transparents (tout compris)\n- Avis vérifiés positifs (Google, TripAdvisor)\n- Contrat clair et détaillé\n- État des lieux minutieux proposé\n- Assistance 24h/24\n- Politique d'annulation flexible",
+      
+      "**❌ Signaux d'alerte :**\n- Prix anormalement bas (< 100 MAD/jour)\n- Pas d'avis ou avis uniquement négatifs\n- Réticence à détailler le prix total\n- Pression pour options supplémentaires\n- Refus de faire un état des lieux détaillé\n- Pas de numéro de téléphone fixe",
+
+      "### Agences locales vs internationales",
+      "**Les deux peuvent être fiables.** Les grandes enseignes (Hertz, Avis, Europcar) offrent des standards mais sont plus chères. Les agences locales sont moins chères mais plus variables en qualité.",
+      
+      "**Notre conseil :** Passez par une plateforme de confiance comme Benatna qui sélectionne et vérifie les agences partenaires.",
+
+      "## Que faire en cas de problème ?",
+      
+      "### Pendant la location",
+      "1. **Gardez votre calme** - L'énervement n'aide jamais\n2. **Documentez tout** - Photos, vidéos, témoins\n3. **Appelez l'assistance** - Le numéro est sur votre contrat\n4. **Contactez votre plateforme de réservation** - Benatna intervient pour vous",
+
+      "### En cas de litige à la restitution",
+      "1. **Ne signez pas** si vous n'êtes pas d'accord\n2. **Notez votre désaccord** par écrit sur le document\n3. **Gardez une copie** de tous les documents\n4. **Contestez le débit** auprès de votre banque si abusif\n5. **Contactez** les associations de consommateurs marocaines",
+
+      "### Recours possibles",
+      "- **Opposition bancaire** pour débits non autorisés\n- **Assurance carte bancaire** pour litiges\n- **Ministère du Tourisme marocain** pour plaintes graves\n- **Plateformes d'avis** pour alerter les futurs voyageurs",
+
+      "## Pourquoi réserver sur Benatna ?",
+      
+      "Chez Benatna, nous avons construit notre réputation sur la confiance :",
+      
+      "✅ **Agences vérifiées** - Nous visitons et auditons chaque partenaire\n✅ **Prix transparents** - Tout compris, pas de surprise\n✅ **Avis authentiques** - Retours réels de vrais clients\n✅ **Médiation** - Nous intervenons en cas de problème\n✅ **Assistance 24h/24** - Un humain vous répond, pas un robot\n✅ **Garantie satisfaction** - Remboursement si problème non résolu",
+
+      "## Conclusion",
+      
+      "Les arnaques en location de voiture au Maroc sont l'exception, pas la règle. En suivant ces conseils simples :",
+      
+      "1. **Photographiez tout** à la prise et restitution\n2. **Lisez le contrat** avant de signer\n3. **Refusez les pressions** commerciales\n4. **Choisissez une agence** vérifiée\n5. **Gardez tous les documents**",
+      
+      "Vous profiterez de votre road trip marocain en toute sérénité. Sur Benatna, nous faisons le tri pour vous : réservez en confiance et concentrez-vous sur votre voyage !"
+    ]
+  }
 ];
 
 // Fonctions helper pour filtrage
@@ -2919,4 +3621,10 @@ export const getArticlesByCity = (city: string) => {
 
 export const getFeaturedArticles = () => {
   return blogArticles.filter(article => article.featured === true);
+};
+
+export const getArticlesByKeyword = (keyword: string) => {
+  return blogArticles.filter(article => 
+    article.keywords?.some(k => k.toLowerCase().includes(keyword.toLowerCase()))
+  );
 };
