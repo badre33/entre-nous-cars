@@ -101,13 +101,20 @@ export const MetaPixel = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Multi-stage deferral to reduce Max Potential FID
-    // Stage 1: Wait for initial paint and FID window to pass
-    // Stage 2: Use requestIdleCallback for true idle-time loading
+    // Load pixel on first user interaction OR after extended delay
+    // This reduces unused JavaScript by deferring the heavy third-party script
     let cancelled = false;
+    let loaded = false;
     
     const loadPixel = () => {
-      if (cancelled || window.fbq) return;
+      if (cancelled || loaded || window.fbq) return;
+      loaded = true;
+      
+      // Remove interaction listeners once loaded
+      document.removeEventListener('scroll', loadPixel);
+      document.removeEventListener('click', loadPixel);
+      document.removeEventListener('touchstart', loadPixel);
+      document.removeEventListener('keydown', loadPixel);
       
       const script = document.createElement('script');
       script.innerHTML = `
@@ -127,22 +134,29 @@ export const MetaPixel = () => {
       window.fbq('track', 'PageView');
     };
 
-    // Extended delay to ensure FID window passes before loading heavy third-party script
-    const initialDelay = setTimeout(() => {
-      if (cancelled) return;
-      
-      // Use requestIdleCallback for browser idle time
+    // Strategy: Load on first interaction (captures engaged users) or after 8 seconds
+    // This ensures tracking works while deferring heavy JS from critical path
+    document.addEventListener('scroll', loadPixel, { once: true, passive: true });
+    document.addEventListener('click', loadPixel, { once: true });
+    document.addEventListener('touchstart', loadPixel, { once: true, passive: true });
+    document.addEventListener('keydown', loadPixel, { once: true });
+    
+    // Fallback: Load after 8 seconds regardless of interaction
+    const fallbackTimer = setTimeout(() => {
       if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadPixel, { timeout: 5000 });
+        requestIdleCallback(loadPixel, { timeout: 3000 });
       } else {
-        // Fallback for Safari
-        setTimeout(loadPixel, 500);
+        loadPixel();
       }
-    }, 3000); // Wait 3 seconds to ensure past FID measurement window
+    }, 8000);
     
     return () => {
       cancelled = true;
-      clearTimeout(initialDelay);
+      clearTimeout(fallbackTimer);
+      document.removeEventListener('scroll', loadPixel);
+      document.removeEventListener('click', loadPixel);
+      document.removeEventListener('touchstart', loadPixel);
+      document.removeEventListener('keydown', loadPixel);
     };
   }, []);
 
