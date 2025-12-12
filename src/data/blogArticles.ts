@@ -2909,8 +2909,7 @@ export const blogArticles: BlogArticle[] = [
       
       "Ce road trip Atlas en 4x4 est une expérience inoubliable à 1h de Marrakech. Vallées verdoyantes, villages berbères authentiques, panoramas à couper le souffle : l'Atlas révèle la diversité du Maroc. Pour ce circuit, nous recommandons le Dacia Duster 4x4 (excellent rapport qualité-prix) ou un SUV robuste. Réservez votre véhicule chez Benatna dès 280 DH/jour avec kilométrage illimité et assurance tous risques pour partir l'esprit tranquille."
     ]
-  }
-],
+  },
   // ==================== NOUVEAUX ARTICLES SEO ====================
   {
     id: 20,
