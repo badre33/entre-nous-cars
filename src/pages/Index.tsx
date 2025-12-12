@@ -27,8 +27,8 @@ import { HreflangTags } from "@/utils/hreflangHelper";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema, SitelinksSearchBoxSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
-// Hero image - WebP format for optimal performance (~150KB vs 1.69MB PNG)
-import heroImage from "@/assets/hero-home-new.webp";
+// Hero image - Using public path for LCP discoverability (preloaded in index.html)
+const heroImage = "/hero-home-new.webp";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 import cityRabat from "@/assets/city-rabat.jpg";
