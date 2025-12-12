@@ -162,7 +162,16 @@ const Header = () => {
       <div className="container flex h-16 md:h-20 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 transition-transform hover:scale-105">
-          <img src={logo} alt="Benatna" width="48" height="48" className="h-8 md:h-12 w-auto" />
+          <img 
+            src={logo} 
+            alt="Benatna" 
+            width="48" 
+            height="48" 
+            className="h-8 md:h-12 w-auto"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
           <span className="font-pacifico text-xl md:text-2xl text-foreground">benatna</span>
         </Link>
         
