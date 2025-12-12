@@ -117,22 +117,37 @@ const AnalyticsTracker = () => {
 };
 
 // Deferred component loader - uses requestIdleCallback to truly break the critical chain
+// Extended delay to reduce Max Potential FID by allowing browser to complete initial render
 const DeferredComponents = () => {
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    // Use requestIdleCallback to defer loading until browser is truly idle
-    // This ensures these components don't block LCP or critical rendering
-    const loadDeferred = () => setShouldLoad(true);
+    // Multi-stage deferral: wait for LCP, then idle, then load
+    // This ensures these components don't contribute to long tasks during FID window
+    let cancelled = false;
     
-    if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(loadDeferred, { timeout: 2000 });
-      return () => cancelIdleCallback(idleId);
-    } else {
-      // Fallback for Safari - use longer timeout to ensure after LCP
-      const timer = setTimeout(loadDeferred, 1500);
-      return () => clearTimeout(timer);
-    }
+    const loadDeferred = () => {
+      if (cancelled) return;
+      setShouldLoad(true);
+    };
+    
+    // First wait for initial paint to complete (longer delay for FID improvement)
+    const initialDelay = setTimeout(() => {
+      if (cancelled) return;
+      
+      // Then use requestIdleCallback for true idle-time loading
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadDeferred, { timeout: 3000 });
+      } else {
+        // Fallback for Safari
+        setTimeout(loadDeferred, 500);
+      }
+    }, 2500); // Increased from 1500ms to allow FID window to pass
+    
+    return () => {
+      cancelled = true;
+      clearTimeout(initialDelay);
+    };
   }, []);
 
   if (!shouldLoad) return null;
