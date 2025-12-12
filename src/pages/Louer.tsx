@@ -4098,7 +4098,7 @@ const Louer = () => {
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
   const [showComparison, setShowComparison] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
-  const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('carousel');
+  const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('grid');
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
   const isMobile = useIsMobile();
   const [previewCar, setPreviewCar] = useState<typeof cars[0] | null>(null);
