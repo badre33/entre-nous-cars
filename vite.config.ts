@@ -13,6 +13,8 @@ export default defineConfig(({ mode }) => ({
   build: {
     // Use default chunking & minification to maximize React compatibility
     cssCodeSplit: true,
+    cssMinify: 'esbuild',
+    minify: 'esbuild',
     chunkSizeWarningLimit: 1000,
     // Enable module preload polyfill for faster CSS/JS loading
     modulePreload: {
