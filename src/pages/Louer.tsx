@@ -4141,13 +4141,28 @@ const Louer = () => {
   }, [searchParams]);
 
   useEffect(() => {
+    // Check if mobile to skip parallax (avoid reflows)
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    if (!isDesktop) return;
+    
+    let rafId: number | null = null;
+    let ticking = false;
+    
     const handleScroll = () => {
-      const offset = window.scrollY;
-      setParallaxOffset(offset * 0.5);
+      if (!ticking) {
+        rafId = requestAnimationFrame(() => {
+          setParallaxOffset(window.scrollY * 0.5);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {
