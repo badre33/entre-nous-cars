@@ -185,20 +185,20 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* LCP-optimized WebP hero image - ~90% smaller than PNG */}
+        {/* LCP-optimized WebP hero image - Critical for page load */}
         <img 
           src={heroImage} 
           alt={generateHeroImageAlt()}
-          className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ 
-            transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
+            transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none',
+            willChange: isDesktop ? 'transform' : 'auto'
           }}
           width="1920"
           height="1080"
-          sizes="100vw"
           loading="eager"
           fetchPriority="high"
-          decoding={isDesktop ? "sync" : "async"}
+          decoding="sync"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
