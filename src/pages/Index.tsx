@@ -17,6 +17,7 @@ import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { StructuredData } from "@/components/StructuredData";
 import { generateHeroImageAlt, generateCityImageAlt } from "@/utils/seoHelpers";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
+import { MobileEngagementBanner } from "@/components/MobileEngagementBanner";
 import { LoyaltyProgram } from "@/components/LoyaltyProgram";
 import { CustomerReviews } from "@/components/CustomerReviews";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
@@ -215,8 +216,9 @@ const Index = () => {
             <HeroSearchForm />
           </div>
           
-          {/* Mobile: Quick trust indicators in hero */}
-          <div className="flex sm:hidden items-center justify-center gap-4 mt-2 animate-fade-in [animation-delay:600ms]">
+          {/* Mobile: Enhanced trust + CTA */}
+          <div className="flex sm:hidden flex-col items-center gap-3 mt-3 animate-fade-in [animation-delay:600ms]">
+            {/* Trust indicators */}
             <div className="flex items-center gap-1.5 text-white/90 text-xs">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -228,6 +230,13 @@ const Index = () => {
               <span className="font-semibold">4.8</span>
               <span className="text-white/70">(1200+ avis)</span>
             </div>
+            
+            {/* Mobile quick CTA - Important for engagement */}
+            <Link to="/louer" className="w-full max-w-xs">
+              <Button size="lg" className="w-full rounded-full text-base font-semibold shadow-lg bg-primary hover:bg-primary/90">
+                Voir les véhicules disponibles →
+              </Button>
+            </Link>
           </div>
           
           {/* Desktop: Partner CTA */}
@@ -1078,6 +1087,9 @@ const Index = () => {
       
       {/* Floating CTA Button */}
       <FloatingCTA />
+      
+      {/* Mobile Engagement Banner */}
+      <MobileEngagementBanner />
       
       {/* Exit Intent Popup */}
       <ExitIntentPopup />
