@@ -27,6 +27,20 @@ export default defineConfig(({ mode }) => ({
           }
           return 'assets/[name]-[hash][extname]';
         },
+        // Manual chunks to break network dependency chains for non-critical components
+        manualChunks: (id) => {
+          // Separate non-critical UI components into their own chunks
+          if (id.includes('FloatingActionMenu') || 
+              id.includes('AIAssistant') || 
+              id.includes('BackToTop')) {
+            return 'deferred-ui';
+          }
+          // Keep Radix UI components together but separate from main bundle
+          if (id.includes('@radix-ui/react-popover') ||
+              id.includes('@radix-ui/react-scroll-area')) {
+            return 'radix-deferred';
+          }
+        },
       },
     },
   },
