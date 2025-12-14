@@ -29,18 +29,34 @@ export default defineConfig(({ mode }) => ({
           }
           return 'assets/[name]-[hash][extname]';
         },
-        // Manual chunks to break network dependency chains for non-critical components
+        // Manual chunks to reduce unused JavaScript by splitting vendor code
         manualChunks: (id) => {
-          // Separate non-critical UI components into their own chunks
+          // React core - separate for better caching
+          if (id.includes('node_modules/react/') || 
+              id.includes('node_modules/react-dom/') ||
+              id.includes('node_modules/scheduler/')) {
+            return 'react-vendor';
+          }
+          // Router - usually needed on all pages
+          if (id.includes('react-router')) {
+            return 'router';
+          }
+          // All Radix UI components in one chunk
+          if (id.includes('@radix-ui/')) {
+            return 'radix-ui';
+          }
+          // Utility libraries
+          if (id.includes('date-fns') || 
+              id.includes('clsx') || 
+              id.includes('tailwind-merge') ||
+              id.includes('class-variance-authority')) {
+            return 'utils';
+          }
+          // Separate non-critical UI components
           if (id.includes('FloatingActionMenu') || 
               id.includes('AIAssistant') || 
               id.includes('BackToTop')) {
             return 'deferred-ui';
-          }
-          // Keep Radix UI components together but separate from main bundle
-          if (id.includes('@radix-ui/react-popover') ||
-              id.includes('@radix-ui/react-scroll-area')) {
-            return 'radix-deferred';
           }
         },
       },
