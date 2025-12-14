@@ -41,10 +41,8 @@ export const IntelligentRoutePrefetcher = () => {
     return unsubscribe;
   }, []);
 
-  // Main prefetching logic - heavily deferred to not impact FID
+  // Main prefetching logic
   useEffect(() => {
-    let cancelled = false;
-    
     // Clear previous idle callback
     if (idleCallbackId.current) {
       cancelIdleCallback(idleCallbackId.current);
@@ -59,33 +57,21 @@ export const IntelligentRoutePrefetcher = () => {
     const limit = getPrefetchLimit();
     if (limit === 0) return;
 
-    // Multi-stage deferral to avoid impacting Max Potential FID
-    // Stage 1: Wait 3 seconds for initial page load and FID window
-    const initialDelay = setTimeout(() => {
-      if (cancelled) return;
-      
-      // Stage 2: Use requestIdleCallback for browser idle time
-      if ('requestIdleCallback' in window) {
-        idleCallbackId.current = requestIdleCallback(
-          () => {
-            if (!cancelled) {
-              performIntelligentPrefetch(location.pathname, limit);
-            }
-          },
-          { timeout: 5000 } // Extended timeout
-        );
-      } else {
-        setTimeout(() => {
-          if (!cancelled) {
-            performIntelligentPrefetch(location.pathname, limit);
-          }
-        }, 500);
-      }
-    }, 3000); // Extended initial delay for FID improvement
+    // Use requestIdleCallback for non-blocking prefetch
+    const scheduleIdlePrefetch = () => {
+      idleCallbackId.current = requestIdleCallback(
+        () => {
+          performIntelligentPrefetch(location.pathname, limit);
+        },
+        { timeout: 2000 } // Fallback timeout
+      );
+    };
+
+    // Wait a bit before prefetching to not interfere with page load
+    const timer = setTimeout(scheduleIdlePrefetch, 1000);
 
     return () => {
-      cancelled = true;
-      clearTimeout(initialDelay);
+      clearTimeout(timer);
       if (idleCallbackId.current) {
         cancelIdleCallback(idleCallbackId.current);
       }

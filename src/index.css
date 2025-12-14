@@ -229,20 +229,4 @@ All colors MUST be HSL.
   .parallax-bg {
     transition: transform 0.1s ease-out;
   }
-  
-  /* Slide in down animation for banners */
-  @keyframes slide-in-down {
-    from {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-slide-in-down {
-    animation: slide-in-down 0.4s ease-out forwards;
-  }
 }

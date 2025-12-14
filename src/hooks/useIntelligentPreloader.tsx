@@ -8,7 +8,6 @@ interface PreloadTarget {
 /**
  * Hook pour précharger intelligemment les images suivantes
  * Détecte le scroll vers le bas et précharge les 2-3 prochaines images
- * Uses requestAnimationFrame to avoid forced reflows
  */
 export const useIntelligentPreloader = (
   targets: PreloadTarget[],
@@ -16,8 +15,6 @@ export const useIntelligentPreloader = (
 ) => {
   const preloadedUrls = useRef(new Set<string>());
   const isPreloading = useRef(false);
-  const rafId = useRef<number | null>(null);
-  const lastScrollTime = useRef(0);
 
   const preloadImage = useCallback((url: string) => {
     if (preloadedUrls.current.has(url)) return;
@@ -34,16 +31,14 @@ export const useIntelligentPreloader = (
 
   const findNextImages = useCallback(() => {
     const nextImages: string[] = [];
-    const viewportHeight = window.innerHeight;
     
     targets.forEach(({ selector, attribute = "src" }) => {
       const elements = document.querySelectorAll(selector);
       
       elements.forEach((el) => {
-        // Batch all getBoundingClientRect calls within the same rAF
         const rect = el.getBoundingClientRect();
-        const isInViewport = rect.top < viewportHeight && rect.bottom > 0;
-        const isJustBelow = rect.top > viewportHeight && rect.top < viewportHeight * 2;
+        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        const isJustBelow = rect.top > window.innerHeight && rect.top < window.innerHeight * 2;
         
         if (isJustBelow && !isInViewport) {
           const url = el.getAttribute(attribute);
@@ -57,12 +52,12 @@ export const useIntelligentPreloader = (
     return nextImages.slice(0, 3); // Limiter à 3 images
   }, [targets]);
 
-  const processScroll = useCallback(() => {
+  const handleScroll = useCallback(() => {
     if (isPreloading.current) return;
     
     const scrollPercentage = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
     
-    // Précharger quand on atteint le threshold de la page
+    // Précharger quand on atteint 70% de la page
     if (scrollPercentage >= threshold) {
       isPreloading.current = true;
       
@@ -79,30 +74,24 @@ export const useIntelligentPreloader = (
   }, [threshold, findNextImages, preloadImage]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Throttle: only process every 200ms
-      const now = Date.now();
-      if (now - lastScrollTime.current < 200) return;
-      lastScrollTime.current = now;
+    // Throttle scroll event
+    let timeoutId: NodeJS.Timeout;
+    const throttledScroll = () => {
+      if (timeoutId) return;
       
-      // Cancel any pending rAF to avoid stacking
-      if (rafId.current) {
-        cancelAnimationFrame(rafId.current);
-      }
-      
-      // Use requestAnimationFrame to batch DOM reads and avoid forced reflows
-      rafId.current = requestAnimationFrame(() => {
-        processScroll();
-      });
+      timeoutId = setTimeout(() => {
+        handleScroll();
+        clearTimeout(timeoutId);
+      }, 200);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", throttledScroll, { passive: true });
     
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafId.current) cancelAnimationFrame(rafId.current);
+      window.removeEventListener("scroll", throttledScroll);
+      if (timeoutId) clearTimeout(timeoutId);
     };
-  }, [processScroll]);
+  }, [handleScroll]);
 
   return { preloadedCount: preloadedUrls.current.size };
 };

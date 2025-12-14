@@ -17,8 +17,10 @@ import React, { lazy, Suspense, useEffect, useState } from "react";
 // Import critical navigation component directly to avoid dependency chain
 import { BottomNavigation } from "@/components/BottomNavigation";
 
-// Deferred components - NOT imported as lazy() to prevent discovery in dependency tree
-// These will be dynamically imported only after user interaction/idle time
+// Lazy load truly non-critical components - will be deferred
+const FloatingActionMenu = lazy(() => import("@/components/FloatingActionMenu"));
+const AIAssistant = lazy(() => import("@/components/AIAssistant").then(m => ({ default: m.AIAssistant })));
+const BackToTop = lazy(() => import("@/components/BackToTop").then(m => ({ default: m.BackToTop })));
 import { PageSkeleton } from "@/components/PageSkeleton";
 import { analytics } from "@/utils/analytics";
 
@@ -114,75 +116,26 @@ const AnalyticsTracker = () => {
   return null;
 };
 
-// Truly deferred component loader - uses runtime dynamic imports to break dependency chain
-// This prevents browser from discovering these chunks in the initial network dependency tree
+// Deferred component loader to reduce initial dependency chain
 const DeferredComponents = () => {
-  const [components, setComponents] = useState<{
-    FloatingActionMenu: React.ComponentType | null;
-    AIAssistant: React.ComponentType | null;
-    BackToTop: React.ComponentType | null;
-  }>({ FloatingActionMenu: null, AIAssistant: null, BackToTop: null });
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    let cancelled = false;
-    
-    // Multi-stage deferral to completely break the network dependency chain
-    // Stage 1: Wait for initial paint and FID window to pass (3+ seconds)
-    const initialDelay = setTimeout(() => {
-      if (cancelled) return;
-      
-      // Stage 2: Use requestIdleCallback for true idle-time loading
-      const loadComponents = async () => {
-        if (cancelled) return;
-        
-        try {
-          // Dynamic imports - only discovered at runtime, not in bundle analysis
-          const [FloatingMenu, Assistant, BackTop] = await Promise.all([
-            import("@/components/FloatingActionMenu"),
-            import("@/components/AIAssistant"),
-            import("@/components/BackToTop"),
-          ]);
-          
-          if (!cancelled) {
-            setComponents({
-              FloatingActionMenu: FloatingMenu.default,
-              AIAssistant: Assistant.AIAssistant,
-              BackToTop: BackTop.BackToTop,
-            });
-          }
-        } catch (error) {
-          console.error('[DeferredComponents] Failed to load:', error);
-        }
-      };
-      
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => loadComponents(), { timeout: 5000 });
-      } else {
-        setTimeout(loadComponents, 500);
-      }
-    }, 3000); // Extended delay to ensure past critical loading window
-    
-    return () => {
-      cancelled = true;
-      clearTimeout(initialDelay);
-    };
+    // Defer loading non-critical components until after initial render
+    const timer = setTimeout(() => setShouldLoad(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
-  // Don't render anything until components are loaded
-  if (!components.FloatingActionMenu) return null;
-
-  const { FloatingActionMenu, AIAssistant, BackToTop } = components;
+  if (!shouldLoad) return null;
 
   return (
-    <>
-      {FloatingActionMenu && <FloatingActionMenu />}
-      {AIAssistant && (
-        <div className="hidden md:block">
-          <AIAssistant />
-        </div>
-      )}
-      {BackToTop && <BackToTop />}
-    </>
+    <Suspense fallback={null}>
+      <FloatingActionMenu />
+      <div className="hidden md:block">
+        <AIAssistant />
+      </div>
+      <BackToTop />
+    </Suspense>
   );
 };
 

@@ -13,54 +13,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     // Use default chunking & minification to maximize React compatibility
     cssCodeSplit: true,
-    cssMinify: 'esbuild',
-    minify: 'esbuild',
     chunkSizeWarningLimit: 1000,
-    // Enable module preload polyfill for faster CSS/JS loading
-    modulePreload: {
-      polyfill: true,
-    },
-    rollupOptions: {
-      output: {
-        // Ensure CSS is in a predictable location for preloading
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name?.endsWith('.css')) {
-            return 'assets/[name]-[hash][extname]';
-          }
-          return 'assets/[name]-[hash][extname]';
-        },
-        // Manual chunks to reduce unused JavaScript by splitting vendor code
-        manualChunks: (id) => {
-          // React core - separate for better caching
-          if (id.includes('node_modules/react/') || 
-              id.includes('node_modules/react-dom/') ||
-              id.includes('node_modules/scheduler/')) {
-            return 'react-vendor';
-          }
-          // Router - usually needed on all pages
-          if (id.includes('react-router')) {
-            return 'router';
-          }
-          // All Radix UI components in one chunk
-          if (id.includes('@radix-ui/')) {
-            return 'radix-ui';
-          }
-          // Utility libraries
-          if (id.includes('date-fns') || 
-              id.includes('clsx') || 
-              id.includes('tailwind-merge') ||
-              id.includes('class-variance-authority')) {
-            return 'utils';
-          }
-          // Separate non-critical UI components
-          if (id.includes('FloatingActionMenu') || 
-              id.includes('AIAssistant') || 
-              id.includes('BackToTop')) {
-            return 'deferred-ui';
-          }
-        },
-      },
-    },
   },
   plugins: [
     react(),
@@ -127,22 +80,21 @@ export default defineConfig(({ mode }) => ({
       },
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,woff2}"],
-        navigateFallback: null, // Disable fallback to prevent stale cache issues
+        navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/api/],
         cleanupOutdatedCaches: true,
         skipWaiting: true,
         clientsClaim: true,
-        // Force new SW to take control immediately
-        disableDevLogs: true,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/benatna\.ma\/.*/i,
             handler: "NetworkFirst",
             options: {
-              cacheName: "pages-cache-v2",
-              networkTimeoutSeconds: 3, // Shorter timeout
+              cacheName: "pages-cache",
+              networkTimeoutSeconds: 5,
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24, // 1 day instead of 7
+                maxAgeSeconds: 60 * 60 * 24 * 7,
               },
               cacheableResponse: {
                 statuses: [0, 200],
@@ -153,7 +105,7 @@ export default defineConfig(({ mode }) => ({
             urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
             handler: "CacheFirst",
             options: {
-              cacheName: "images-cache-v2",
+              cacheName: "images-cache",
               expiration: {
                 maxEntries: 100,
                 maxAgeSeconds: 60 * 60 * 24 * 30,

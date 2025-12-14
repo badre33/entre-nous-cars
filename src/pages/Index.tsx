@@ -17,10 +17,6 @@ import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { StructuredData } from "@/components/StructuredData";
 import { generateHeroImageAlt, generateCityImageAlt } from "@/utils/seoHelpers";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
-import { MobileEngagementBanner } from "@/components/MobileEngagementBanner";
-import { RecentBookings } from "@/components/RecentBookings";
-import { PopularVehicles } from "@/components/PopularVehicles";
-import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 import { LoyaltyProgram } from "@/components/LoyaltyProgram";
 import { CustomerReviews } from "@/components/CustomerReviews";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
@@ -31,8 +27,7 @@ import { HreflangTags } from "@/utils/hreflangHelper";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema, SitelinksSearchBoxSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
-// Hero image - Using public path for LCP discoverability (preloaded in index.html)
-const heroImage = "/hero-home-new.webp";
+import heroImage from "@/assets/hero-home-new.png";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 import cityRabat from "@/assets/city-rabat.jpg";
@@ -43,7 +38,6 @@ import cityFes from "@/assets/city-fes.jpg";
 const Index = () => {
   const { t } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
-  const [isDesktop, setIsDesktop] = useState(false);
   const statsAnimation = useScrollAnimation(0.2);
   const howItWorksAnimation = useScrollAnimation(0.2);
   const whyAnimation = useScrollAnimation(0.2);
@@ -55,42 +49,18 @@ const Index = () => {
     { selector: 'img[loading="lazy"]', attribute: 'src' }
   ], 0.6);
   
-  // Detect desktop once on mount to avoid forced reflows
   useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
-    checkDesktop();
-    
-    // Only listen for resize changes if needed
-    const mediaQuery = window.matchMedia('(min-width: 768px)');
-    const handleChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
-    mediaQuery.addEventListener('change', handleChange);
-    
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-  
-  useEffect(() => {
-    // Skip parallax entirely on mobile for better performance
-    if (!isDesktop) return;
-    
-    let rafId: number | null = null;
-    let ticking = false;
-    
     const handleScroll = () => {
-      if (!ticking) {
-        rafId = requestAnimationFrame(() => {
-          setParallaxOffset(window.scrollY * 0.5);
-          ticking = false;
-        });
-        ticking = true;
+      // Disable parallax on mobile for better performance
+      if (window.innerWidth >= 768) {
+        const offset = window.scrollY;
+        setParallaxOffset(offset * 0.5);
       }
     };
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, [isDesktop]);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const popularCities = [
     { name: "Casablanca", image: cityCasablanca, vehicles: 52, slug: "Casablanca" },
@@ -189,21 +159,36 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* LCP-optimized WebP hero image - Critical for page load */}
-        <img 
-          src={heroImage} 
-          alt={generateHeroImageAlt()}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ 
-            transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none',
-            willChange: isDesktop ? 'transform' : 'auto'
-          }}
-          width="1920"
-          height="1080"
-          loading="eager"
-          fetchPriority="high"
-          decoding="sync"
-        />
+        {/* LCP-optimized responsive hero image with srcset */}
+        <picture>
+          {/* Mobile: Optimized for small screens (320-640px) */}
+          <source
+            media="(max-width: 640px)"
+            srcSet={heroImage}
+            sizes="100vw"
+          />
+          {/* Tablet: Optimized for medium screens (641-1024px) */}
+          <source
+            media="(min-width: 641px) and (max-width: 1024px)"
+            srcSet={heroImage}
+            sizes="100vw"
+          />
+          {/* Desktop: Full resolution for large screens (1025px+) */}
+          <img 
+            src={heroImage} 
+            alt={generateHeroImageAlt()}
+            className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
+            style={{ 
+              transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
+            }}
+            width="1920"
+            height="1080"
+            sizes="100vw"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
         <div className="container relative z-10 text-center text-white px-3 sm:px-6 animate-fade-in py-4 sm:py-10">
@@ -219,9 +204,8 @@ const Index = () => {
             <HeroSearchForm />
           </div>
           
-          {/* Mobile: Enhanced trust + CTA */}
-          <div className="flex sm:hidden flex-col items-center gap-3 mt-3 animate-fade-in [animation-delay:600ms]">
-            {/* Trust indicators */}
+          {/* Mobile: Quick trust indicators in hero */}
+          <div className="flex sm:hidden items-center justify-center gap-4 mt-2 animate-fade-in [animation-delay:600ms]">
             <div className="flex items-center gap-1.5 text-white/90 text-xs">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
@@ -233,13 +217,6 @@ const Index = () => {
               <span className="font-semibold">4.8</span>
               <span className="text-white/70">(1200+ avis)</span>
             </div>
-            
-            {/* Mobile quick CTA - Important for engagement */}
-            <Link to="/louer" className="w-full max-w-xs">
-              <Button size="lg" className="w-full rounded-full text-base font-semibold shadow-lg bg-primary hover:bg-primary/90">
-                Voir les véhicules disponibles →
-              </Button>
-            </Link>
           </div>
           
           {/* Desktop: Partner CTA */}
@@ -252,9 +229,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Popular Vehicles Section - Mobile engagement boost */}
-      <PopularVehicles />
 
       {/* Stats Section - Compact on mobile */}
       <section className="py-8 sm:py-16 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
@@ -1093,15 +1067,6 @@ const Index = () => {
       
       {/* Floating CTA Button */}
       <FloatingCTA />
-      
-      {/* Mobile Engagement Banner */}
-      <MobileEngagementBanner />
-      
-      {/* Recent Bookings Social Proof */}
-      <RecentBookings />
-      
-      {/* Scroll Progress Bar */}
-      <ScrollProgressBar />
       
       {/* Exit Intent Popup */}
       <ExitIntentPopup />

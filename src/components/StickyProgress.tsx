@@ -25,60 +25,36 @@ export function StickyProgress({ sections, className }: StickyProgressProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    let rafId: number | null = null;
-    let ticking = false;
-    
-    // Cache section elements to avoid repeated DOM queries
-    const sectionElementsMap = new Map<string, HTMLElement>();
-    sections.forEach(s => {
-      const el = document.getElementById(s.id);
-      if (el) sectionElementsMap.set(s.id, el);
-    });
-
-    const processScroll = () => {
-      // Batch all DOM reads together first to avoid layout thrashing
-      const scrolled = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // Collect all rects in a single pass before any state updates
-      const sectionRects: Array<{ id: string; top: number }> = [];
-      sectionElementsMap.forEach((element, id) => {
-        sectionRects.push({ id, top: element.getBoundingClientRect().top });
-      });
-      
-      // Now perform state updates (writes) - these don't cause reflows
-      const progress = (scrolled / (documentHeight - windowHeight)) * 100;
-      setScrollProgress(Math.min(progress, 100));
-      setIsVisible(scrolled > 200);
-      
-      // Find active section from cached rects
-      for (let i = sectionRects.length - 1; i >= 0; i--) {
-        if (sectionRects[i].top <= 150) {
-          setActiveSection(sectionRects[i].id);
-          break;
-        }
-      }
-      
-      ticking = false;
-    };
-
     const handleScroll = () => {
-      if (!ticking) {
-        rafId = requestAnimationFrame(processScroll);
-        ticking = true;
+      // Calculate scroll progress
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight - windowHeight;
+      const scrolled = window.scrollY;
+      const progress = (scrolled / documentHeight) * 100;
+      setScrollProgress(Math.min(progress, 100));
+
+      // Show/hide based on scroll position (show after 200px)
+      setIsVisible(scrolled > 200);
+
+      // Detect active section
+      const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean);
+      
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const element = sectionElements[i];
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150) {
+            setActiveSection(sections[i].id);
+            break;
+          }
+        }
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial call
     
-    // Defer initial call to avoid blocking render
-    rafId = requestAnimationFrame(processScroll);
-    
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [sections]);
 
   const scrollToSection = (id: string) => {

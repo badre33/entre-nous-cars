@@ -24,35 +24,13 @@ function getCorsHeaders(origin: string | null): Record<string, string> {
   };
 }
 
-// Valid Moroccan cities for OG images
-const VALID_CITIES = [
-  "casablanca", "marrakech", "rabat", "agadir", "tanger", "fes", "fès",
-  "meknes", "meknès", "oujda", "kenitra", "tétouan", "tetouan", "nador",
-  "safi", "mohammedia", "el jadida", "beni mellal", "khouribga", "taza"
-];
-
-// Valid vehicle categories
-const VALID_CATEGORIES = ["citadine", "suv", "berline", "luxe", "4x4", "utilitaire", "van", "électrique"];
-
-// Input validation schema with strict character whitelisting
+// Input validation schema
 const requestSchema = z.object({
-  carName: z.string()
-    .min(1, "Car name required")
-    .max(100, "Car name too long")
-    .regex(/^[a-zA-Z0-9àâäéèêëïîôùûüçÀÂÄÉÈÊËÏÎÔÙÛÜÇ\s\-\.]+$/, "Invalid characters in car name"),
-  city: z.string()
-    .min(1, "City required")
-    .max(50, "City name too long")
-    .regex(/^[a-zA-ZàâäéèêëïîôùûüçÀÂÄÉÈÊËÏÎÔÙÛÜÇ\s\-]+$/, "Invalid characters in city name"),
-  price: z.string()
-    .min(1, "Price required")
-    .max(50, "Price too long")
-    .regex(/^[\d\s\-MADmadjour\/]+$/, "Invalid price format"),
-  category: z.string()
-    .max(50)
-    .regex(/^[a-zA-ZàâäéèêëïîôùûüçÀÂÄÉÈÊËÏÎÔÙÛÜÇ\s\-]*$/, "Invalid category")
-    .optional(),
-  baseImageUrl: z.string().url("Invalid URL format").optional()
+  carName: z.string().min(1).max(100),
+  city: z.string().min(1).max(50),
+  price: z.string().min(1).max(50),
+  category: z.string().max(50).optional(),
+  baseImageUrl: z.string().url().optional()
 });
 
 // Rate limiting
@@ -75,23 +53,6 @@ function checkRateLimit(fingerprint: string): boolean {
   
   record.count++;
   return true;
-}
-
-// Generate content-based hash for unpredictable filenames
-async function generateHash(input: string): Promise<string> {
-  const encoder = new TextEncoder();
-  const data = encoder.encode(input + Date.now().toString());
-  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-  const hashArray = Array.from(new Uint8Array(hashBuffer));
-  return hashArray.map(b => b.toString(16).padStart(2, "0")).join("").substring(0, 16);
-}
-
-// Sanitize input for prompt injection prevention
-function sanitizeForPrompt(input: string, maxLength: number): string {
-  return input
-    .replace(/[^a-zA-Z0-9àâäéèêëïîôùûüçÀÂÄÉÈÊËÏÎÔÙÛÜÇ\s\-\.\/]/g, "")
-    .substring(0, maxLength)
-    .trim();
 }
 
 serve(async (req) => {
@@ -126,14 +87,13 @@ serve(async (req) => {
       body = await req.json();
     } catch {
       return new Response(
-        JSON.stringify({ error: "Invalid request format" }),
+        JSON.stringify({ error: "Invalid JSON body" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
       );
     }
     
     const validation = requestSchema.safeParse(body);
     if (!validation.success) {
-      console.log("[OG Image] Validation failed");
       return new Response(
         JSON.stringify({ error: "Invalid request parameters" }),
         { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } }
@@ -142,38 +102,29 @@ serve(async (req) => {
     
     const { carName, city, price, category, baseImageUrl } = validation.data;
 
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
-      console.error("[OG Image] Missing API configuration");
-      return new Response(
-        JSON.stringify({ error: "Service configuration error" }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    // Sanitize inputs for prompt injection prevention
-    const sanitizedCarName = sanitizeForPrompt(carName, 100);
-    const sanitizedCity = sanitizeForPrompt(city, 50);
-    const sanitizedPrice = sanitizeForPrompt(price, 50);
-    const sanitizedCategory = category ? sanitizeForPrompt(category, 30) : "modern vehicle";
+    console.log("Generating OG image for:", { carName, city, price, category });
 
-    console.log("[OG Image] Generating image");
-
-    // Create detailed prompt for professional OG image
+    // Créer un prompt détaillé pour une image OG professionnelle
     const prompt = `Create a professional social media share image (1200x630px) for a car rental service.
 
 Layout:
 - Background: Modern gradient (dark blue to teal) with subtle geometric patterns
-- Left side: Show a ${sanitizedCarName} car (${sanitizedCategory}) in a professional studio lighting
+- Left side: Show a ${carName} car (${category || 'modern vehicle'}) in a professional studio lighting
 - Right side: Information overlay with:
-  * Car name: "${sanitizedCarName}" in large, bold, white text
-  * Location: "${sanitizedCity}" with a pin icon in smaller text
-  * Price: "${sanitizedPrice}" in prominent orange/yellow text with "par jour" below
+  * Car name: "${carName}" in large, bold, white text
+  * Location: "${city}" with a pin icon in smaller text
+  * Price: "${price}" in prominent orange/yellow text with "par jour" below
   * Small logo placeholder in top right corner
   
 Style: Professional, modern, clean design with high contrast text for readability on social media. Make it eye-catching and premium-looking.`;
 
-    // Call Lovable AI to generate image
+    // Appeler Lovable AI pour générer l'image
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
       headers: {
@@ -193,8 +144,8 @@ Style: Professional, modern, clean design with high contrast text for readabilit
     });
 
     if (!response.ok) {
-      // Log sanitized error server-side only (no details to client)
-      console.error(`[OG Image] Gateway error: status=${response.status}`);
+      const errorText = await response.text();
+      console.error("AI Gateway error:", response.status, errorText);
       
       if (response.status === 429) {
         return new Response(
@@ -204,50 +155,40 @@ Style: Professional, modern, clean design with high contrast text for readabilit
       }
       
       if (response.status === 402) {
-        // Don't expose payment details - return generic service error
         return new Response(
-          JSON.stringify({ error: "Service temporarily unavailable." }),
-          { status: 503, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+          JSON.stringify({ error: "Payment required. Please add credits to your workspace." }),
+          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
 
-      // Generic error for all other cases - no internal details to client
-      return new Response(
-        JSON.stringify({ error: "Failed to generate image. Please try again." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      throw new Error(`AI Gateway error: ${response.status} ${errorText}`);
     }
 
     const data = await response.json();
-    console.log("[OG Image] AI response received");
+    console.log("AI response received");
 
-    // Extract generated image
+    // Extraire l'image générée
     const imageUrl = data.choices?.[0]?.message?.images?.[0]?.image_url?.url;
 
     if (!imageUrl) {
-      console.error("[OG Image] No image in response");
-      return new Response(
-        JSON.stringify({ error: "Failed to generate image. Please try again." }),
-        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
-      );
+      throw new Error("No image generated in response");
     }
 
-    // Save image to Supabase Storage for caching
+    // Optionnel: Sauvegarder l'image dans Supabase Storage pour la mettre en cache
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Convert base64 to blob for upload
+    // Convertir base64 en blob pour upload
     if (imageUrl.startsWith("data:image")) {
       const base64Data = imageUrl.split(",")[1];
       const imageBuffer = Uint8Array.from(atob(base64Data), c => c.charCodeAt(0));
       
-      // Use content-based hash for unpredictable filenames (security improvement)
-      const contentHash = await generateHash(`${carName}-${city}-${price}`);
-      const fileName = `og-${contentHash}.png`;
+      // Créer un nom de fichier unique basé sur les paramètres de la voiture
+      const fileName = `og-${carName.replace(/\s+/g, "-").toLowerCase()}-${city.replace(/\s+/g, "-").toLowerCase()}.png`;
       const filePath = `og-images/${fileName}`;
 
-      // Check if bucket exists, create if needed
+      // Vérifier si le bucket existe, sinon le créer
       const { data: buckets } = await supabase.storage.listBuckets();
       const bucketExists = buckets?.some(b => b.name === "og-images");
 
@@ -255,25 +196,23 @@ Style: Professional, modern, clean design with high contrast text for readabilit
         await supabase.storage.createBucket("og-images", {
           public: true,
           fileSizeLimit: 5242880, // 5MB
-          allowedMimeTypes: ["image/png", "image/jpeg", "image/webp"]
         });
       }
 
-      // Upload image with cache control
-      const { error: uploadError } = await supabase.storage
+      // Upload l'image
+      const { data: uploadData, error: uploadError } = await supabase.storage
         .from("og-images")
         .upload(filePath, imageBuffer, {
           contentType: "image/png",
-          cacheControl: "3600", // 1 hour browser cache
           upsert: true,
         });
 
       if (uploadError) {
-        console.error("[OG Image] Upload failed");
+        console.error("Upload error:", uploadError);
       } else {
-        console.log("[OG Image] Cached successfully");
+        console.log("Image uploaded successfully:", filePath);
         
-        // Return public URL
+        // Retourner l'URL publique
         const { data: publicUrlData } = supabase.storage
           .from("og-images")
           .getPublicUrl(filePath);
@@ -288,17 +227,18 @@ Style: Professional, modern, clean design with high contrast text for readabilit
       }
     }
 
-    // If no cache, return base64 image directly
+    // Si pas de cache, retourner l'image base64 directement
     return new Response(
       JSON.stringify({ imageUrl, cached: false }),
       { headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
 
   } catch (error) {
-    // Log sanitized error without exposing sensitive details
-    console.error(`[OG Image] Error: ${error instanceof Error ? error.name : "Unknown"}`);
+    console.error("Error generating OG image:", error);
     return new Response(
-      JSON.stringify({ error: "Failed to generate image. Please try again." }),
+      JSON.stringify({ 
+        error: error instanceof Error ? error.message : "Unknown error occurred" 
+      }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }

@@ -4098,7 +4098,7 @@ const Louer = () => {
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
   const [showComparison, setShowComparison] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
-  const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('grid');
+  const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('carousel');
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
   const isMobile = useIsMobile();
   const [previewCar, setPreviewCar] = useState<typeof cars[0] | null>(null);
@@ -4141,28 +4141,13 @@ const Louer = () => {
   }, [searchParams]);
 
   useEffect(() => {
-    // Check if mobile to skip parallax (avoid reflows)
-    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-    if (!isDesktop) return;
-    
-    let rafId: number | null = null;
-    let ticking = false;
-    
     const handleScroll = () => {
-      if (!ticking) {
-        rafId = requestAnimationFrame(() => {
-          setParallaxOffset(window.scrollY * 0.5);
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const offset = window.scrollY;
+      setParallaxOffset(offset * 0.5);
     };
     
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {

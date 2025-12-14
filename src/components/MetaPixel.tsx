@@ -101,21 +101,8 @@ export const MetaPixel = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Load pixel on first user interaction OR after extended delay
-    // This reduces unused JavaScript by deferring the heavy third-party script
-    let cancelled = false;
-    let loaded = false;
-    
-    const loadPixel = () => {
-      if (cancelled || loaded || window.fbq) return;
-      loaded = true;
-      
-      // Remove interaction listeners once loaded
-      document.removeEventListener('scroll', loadPixel);
-      document.removeEventListener('click', loadPixel);
-      document.removeEventListener('touchstart', loadPixel);
-      document.removeEventListener('keydown', loadPixel);
-      
+    // Load Meta Pixel immediately for better tracking
+    if (!window.fbq) {
       const script = document.createElement('script');
       script.innerHTML = `
         !function(f,b,e,v,n,t,s)
@@ -129,35 +116,10 @@ export const MetaPixel = () => {
       `;
       document.head.appendChild(script);
 
-      // Initialize pixel after script is injected
+      // Initialize pixel
       window.fbq('init', PIXEL_ID);
       window.fbq('track', 'PageView');
-    };
-
-    // Strategy: Load on first interaction (captures engaged users) or after 8 seconds
-    // This ensures tracking works while deferring heavy JS from critical path
-    document.addEventListener('scroll', loadPixel, { once: true, passive: true });
-    document.addEventListener('click', loadPixel, { once: true });
-    document.addEventListener('touchstart', loadPixel, { once: true, passive: true });
-    document.addEventListener('keydown', loadPixel, { once: true });
-    
-    // Fallback: Load after 8 seconds regardless of interaction
-    const fallbackTimer = setTimeout(() => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadPixel, { timeout: 3000 });
-      } else {
-        loadPixel();
-      }
-    }, 8000);
-    
-    return () => {
-      cancelled = true;
-      clearTimeout(fallbackTimer);
-      document.removeEventListener('scroll', loadPixel);
-      document.removeEventListener('click', loadPixel);
-      document.removeEventListener('touchstart', loadPixel);
-      document.removeEventListener('keydown', loadPixel);
-    };
+    }
   }, []);
 
   // Track page views on route change
