@@ -29,15 +29,41 @@ const Partenaires = () => {
   const testimonialsAnimation = useScrollAnimation(0.2);
   const calculatorAnimation = useScrollAnimation(0.2);
   
+  const [isDesktop, setIsDesktop] = useState(false);
+  
+  // Detect desktop once on mount
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    setIsDesktop(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+  
+  useEffect(() => {
+    // Skip parallax on mobile to avoid forced reflows
+    if (!isDesktop) return;
+    
+    let rafId: number | null = null;
+    let ticking = false;
+    
     const handleScroll = () => {
-      const offset = window.scrollY;
-      setParallaxOffset(offset * 0.5);
+      if (!ticking) {
+        rafId = requestAnimationFrame(() => {
+          setParallaxOffset(window.scrollY * 0.5);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [isDesktop]);
   
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -62,7 +88,7 @@ const Partenaires = () => {
           className="absolute inset-0 bg-cover bg-center parallax-bg"
           style={{ 
             backgroundImage: `url(${heroImage})`,
-            transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
+            transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
