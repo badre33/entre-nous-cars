@@ -18,6 +18,9 @@ import { StructuredData } from "@/components/StructuredData";
 import { generateHeroImageAlt, generateCityImageAlt } from "@/utils/seoHelpers";
 import { ExitIntentPopup } from "@/components/ExitIntentPopup";
 import { MobileEngagementBanner } from "@/components/MobileEngagementBanner";
+import { RecentBookings } from "@/components/RecentBookings";
+import { PopularVehicles } from "@/components/PopularVehicles";
+import { ScrollProgressBar } from "@/components/ScrollProgressBar";
 import { LoyaltyProgram } from "@/components/LoyaltyProgram";
 import { CustomerReviews } from "@/components/CustomerReviews";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
@@ -249,6 +252,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Popular Vehicles Section - Mobile engagement boost */}
+      <PopularVehicles />
 
       {/* Stats Section - Compact on mobile */}
       <section className="py-8 sm:py-16 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
@@ -1090,6 +1096,12 @@ const Index = () => {
       
       {/* Mobile Engagement Banner */}
       <MobileEngagementBanner />
+      
+      {/* Recent Bookings Social Proof */}
+      <RecentBookings />
+      
+      {/* Scroll Progress Bar */}
+      <ScrollProgressBar />
       
       {/* Exit Intent Popup */}
       <ExitIntentPopup />
