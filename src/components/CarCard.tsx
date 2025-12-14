@@ -1,19 +1,16 @@
-import { useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
-import { MapPin, CalendarCheck, Eye } from "lucide-react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { MapPin, CalendarCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import LazyCarImage from "@/components/LazyCarImage";
-import { useSwipeGesture } from "@/hooks/useSwipeGesture";
-import { useLongPress } from "@/hooks/useLongPress";
-import { hapticAddToCompare, hapticRemoveFromCompare } from "@/utils/haptics";
-import { calculateDays, calculateTotalPrice, formatPrice, getDiscountPercentage } from "@/utils/priceCalculations";
+import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { generateCarImageAlt } from "@/utils/seoHelpers";
+// import { ViewCounter } from "@/components/ViewCounter";
+// import { UrgencyBadge } from "@/components/UrgencyBadge";
 
-interface SwipeableCarCardProps {
+interface CarCardProps {
   car: {
     id: number;
     image: string;
@@ -32,10 +29,9 @@ interface SwipeableCarCardProps {
   onToggleComparison: () => void;
   onShowAvailability: () => void;
   onWhatsAppClick: () => void;
-  onPreview?: () => void;
 }
 
-export default function SwipeableCarCard({
+export default function CarCard({
   car,
   viewMode,
   startDate,
@@ -43,66 +39,24 @@ export default function SwipeableCarCard({
   isInComparison,
   onToggleComparison,
   onShowAvailability,
-  onWhatsAppClick,
-  onPreview
-}: SwipeableCarCardProps) {
-  const [swipeOffset, setSwipeOffset] = useState(0);
-  const [showQuickActions, setShowQuickActions] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
+  onWhatsAppClick
+}: CarCardProps) {
   const days = calculateDays(startDate, endDate);
   const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
   
   const priceInfo = days > 0 ? {
     total: formatPrice(calculateTotalPrice(basePrice, days)),
     days,
-    discount: getDiscountPercentage(days)
+    discount: days >= 7 ? Math.round((1 - calculateDailyPrice(basePrice, days) / basePrice) * 100) : 0
   } : null;
 
+  // Générer l'alt tag SEO optimisé
   const imageAlt = generateCarImageAlt(car.name, car.city, car.category, car.priceDisplay);
 
-  // Gestion du swipe horizontal
-  const swipeHandlers = useSwipeGesture({
-    onSwipeLeft: () => {
-      // Swipe left = ajouter à la comparaison
-      if (!isInComparison) {
-        if (isInComparison) {
-          hapticRemoveFromCompare();
-        } else {
-          hapticAddToCompare();
-        }
-        onToggleComparison();
-        setShowQuickActions(true);
-        setTimeout(() => setShowQuickActions(false), 2000);
-      }
-    },
-    onSwipeRight: () => {
-      // Swipe right = ouvrir disponibilités
-      onShowAvailability();
-    },
-    threshold: 80
-  });
-
-  // Gestion du long press pour preview
-  const longPressHandlers = useLongPress({
-    onLongPress: () => {
-      if (onPreview) onPreview();
-    },
-    delay: 600
-  });
-
-  // Vue Liste (compacte)
+  // Vue Liste (compacte, horizontale)
   if (viewMode === 'list') {
     return (
-      <Card 
-        ref={cardRef}
-        className={cn(
-          "overflow-hidden hover:shadow-md transition-all duration-200 border mb-3",
-          showQuickActions && "ring-2 ring-primary"
-        )}
-        {...swipeHandlers}
-        {...longPressHandlers}
-      >
+      <Card className="overflow-hidden hover:shadow-md transition-all duration-200 border mb-3">
         <CardContent className="p-3">
           <div className="flex gap-3">
             <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
@@ -154,14 +108,7 @@ export default function SwipeableCarCard({
                     "h-7 w-7 flex items-center justify-center rounded border cursor-pointer transition-all",
                     isInComparison ? "bg-primary border-primary" : "border-border"
                   )}
-                  onClick={() => {
-                    if (isInComparison) {
-                      hapticRemoveFromCompare();
-                    } else {
-                      hapticAddToCompare();
-                    }
-                    onToggleComparison();
-                  }}
+                  onClick={onToggleComparison}
                 >
                   <Checkbox checked={isInComparison} className="pointer-events-none h-3.5 w-3.5" />
                 </div>
@@ -169,51 +116,37 @@ export default function SwipeableCarCard({
             </div>
           </div>
         </CardContent>
-        
-        {/* Indicateur de swipe */}
-        {showQuickActions && (
-          <div className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded animate-fade-in">
-            {isInComparison ? "Ajouté ✓" : "Retiré"}
-          </div>
-        )}
       </Card>
     );
   }
 
-  // Vue Grille
+  // Vue Grille (2 colonnes, compact)
   if (viewMode === 'grid') {
     return (
-      <Card 
-        ref={cardRef}
-        className={cn(
-          "overflow-hidden hover:shadow-md transition-all duration-200 border h-full",
-          showQuickActions && "ring-2 ring-primary"
-        )}
-        {...swipeHandlers}
-        {...longPressHandlers}
-      >
-        <div className="relative bg-muted">
-          <AspectRatio ratio={16 / 9}>
-            <LazyCarImage 
-              src={car.image} 
-              alt={imageAlt}
-              className="w-full h-full object-cover"
+      <Card className="overflow-hidden hover:shadow-md transition-all duration-200 border h-full">
+        <div className="relative h-32 overflow-hidden bg-muted">
+          <LazyCarImage 
+            src={car.image} 
+            alt={imageAlt}
+            className="w-full h-full object-cover"
+          />
+          
+          {/* ViewCounter - Temporairement désactivé
+          <div className="absolute bottom-2 left-2 z-10">
+            <ViewCounter 
+              vehicleName={car.name}
+              baseViews={Math.floor(Math.random() * 4) + 2}
             />
-          </AspectRatio>
+          </div>
+          */}
+          
           <div className="absolute top-1.5 right-1.5 z-10">
             <div
               className={cn(
                 "h-7 w-7 flex items-center justify-center rounded-full backdrop-blur-sm cursor-pointer transition-all",
                 isInComparison ? "bg-primary" : "bg-background/80 border border-border"
               )}
-              onClick={() => {
-                if (isInComparison) {
-                  hapticRemoveFromCompare();
-                } else {
-                  hapticAddToCompare();
-                }
-                onToggleComparison();
-              }}
+              onClick={onToggleComparison}
             >
               <Checkbox checked={isInComparison} className="pointer-events-none h-3.5 w-3.5" />
             </div>
@@ -258,27 +191,13 @@ export default function SwipeableCarCard({
             </Button>
           </div>
         </CardContent>
-        
-        {showQuickActions && (
-          <div className="absolute top-2 right-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded animate-fade-in z-20">
-            Ajouté ✓
-          </div>
-        )}
       </Card>
     );
   }
 
-  // Vue Carrousel (par défaut)
+  // Vue Carrousel (par défaut, carte complète)
   return (
-    <Card 
-      ref={cardRef}
-      className={cn(
-        "overflow-hidden hover:shadow-lg transition-all duration-300 border h-full relative",
-        showQuickActions && "ring-2 ring-primary"
-      )}
-      {...swipeHandlers}
-      {...longPressHandlers}
-    >
+    <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border h-full">
       <div className="relative h-48 overflow-hidden bg-muted">
         <LazyCarImage 
           src={car.image} 
@@ -286,11 +205,25 @@ export default function SwipeableCarCard({
           className="w-full h-full object-cover"
         />
         
-        {/* Instructions de swipe au premier affichage */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 text-[9px] text-white/80 backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
-          <span>← Comparer</span>
-          <span>Dispo →</span>
+        {/* ViewCounter - Temporairement désactivé
+        <div className="absolute bottom-2 left-2 z-10">
+          <ViewCounter 
+            vehicleName={car.name}
+            baseViews={Math.floor(Math.random() * 5) + 2}
+          />
         </div>
+        */}
+        
+        {/* UrgencyBadge - Temporairement désactivé
+        {Math.random() > 0.7 && (
+          <div className="absolute bottom-2 right-2 z-10">
+            <UrgencyBadge 
+              type={Math.random() > 0.5 ? 'limited' : 'popular'}
+              count={Math.floor(Math.random() * 3) + 1}
+            />
+          </div>
+        )}
+        */}
         
         <div className="absolute top-2 right-2 z-10">
           <div
@@ -300,14 +233,7 @@ export default function SwipeableCarCard({
                 ? "bg-primary text-primary-foreground shadow-lg"
                 : "bg-background/90 border border-border"
             )}
-            onClick={() => {
-              if (isInComparison) {
-                hapticRemoveFromCompare();
-              } else {
-                hapticAddToCompare();
-              }
-              onToggleComparison();
-            }}
+            onClick={onToggleComparison}
           >
             <Checkbox
               checked={isInComparison}
@@ -382,15 +308,6 @@ export default function SwipeableCarCard({
           </Button>
         </div>
       </CardContent>
-      
-      {showQuickActions && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg animate-scale-in z-30">
-          <div className="flex items-center gap-2">
-            <Checkbox checked className="h-5 w-5" />
-            <span className="font-semibold">Ajouté à la comparaison</span>
-          </div>
-        </div>
-      )}
     </Card>
   );
 }
