@@ -69,6 +69,9 @@
     <!-- Preload main module for faster JS execution -->
     <link rel="modulepreload" href="/src/main.tsx" />
     
+    <!-- Preload LCP hero image for faster rendering (desktop only) -->
+    <link rel="preload" as="image" href="/hero-home-new.webp" type="image/webp" fetchpriority="high" media="(min-width: 768px)" />
+    
     <!-- Load fonts with optimal loading strategy -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>

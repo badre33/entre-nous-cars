@@ -17,7 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logo from "@/assets/logo-black.png";
+import logo from "@/assets/logo-black.webp";
 
 const Header = () => {
   const location = useLocation();
