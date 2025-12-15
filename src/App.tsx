@@ -150,9 +150,8 @@ const CrispLoader = () => {
 const DeferredComponents = () => {
   const [components, setComponents] = useState<{
     FloatingActionMenu: ComponentType | null;
-    AIAssistant: ComponentType | null;
     BackToTop: ComponentType | null;
-  }>({ FloatingActionMenu: null, AIAssistant: null, BackToTop: null });
+  }>({ FloatingActionMenu: null, BackToTop: null });
 
   useEffect(() => {
     // Stagger component loading to avoid long tasks that block main thread
@@ -168,17 +167,11 @@ const DeferredComponents = () => {
         const famModule = await import("@/components/FloatingActionMenu");
         setComponents(prev => ({ ...prev, FloatingActionMenu: famModule.default }));
       }, 4000);
-
-      // Load heaviest (AIAssistant) last after 5s
-      setTimeout(async () => {
-        const aiModule = await import("@/components/AIAssistant");
-        setComponents(prev => ({ ...prev, AIAssistant: aiModule.AIAssistant }));
-      }, 5000);
     };
 
     // Use requestIdleCallback to start the staggered loading
     if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(loadComponentsStaggered, { timeout: 6000 });
+      const idleId = requestIdleCallback(loadComponentsStaggered, { timeout: 5000 });
       return () => cancelIdleCallback(idleId);
     } else {
       const timer = setTimeout(loadComponentsStaggered, 3000);
@@ -186,12 +179,11 @@ const DeferredComponents = () => {
     }
   }, []);
 
-  const { FloatingActionMenu, AIAssistant, BackToTop } = components;
+  const { FloatingActionMenu, BackToTop } = components;
   
   return (
     <>
       {FloatingActionMenu && <FloatingActionMenu />}
-      {AIAssistant && <div className="hidden md:block"><AIAssistant /></div>}
       {BackToTop && <BackToTop />}
     </>
   );
