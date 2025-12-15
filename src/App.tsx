@@ -124,7 +124,7 @@ const AnalyticsTracker = () => {
   return null;
 };
 
-// Runtime dynamic import loader - completely removes from critical dependency tree
+// Runtime dynamic import loader - staggered loading to minimize TBT
 const DeferredComponents = () => {
   const [components, setComponents] = useState<{
     FloatingActionMenu: ComponentType | null;
@@ -133,26 +133,33 @@ const DeferredComponents = () => {
   }>({ FloatingActionMenu: null, AIAssistant: null, BackToTop: null });
 
   useEffect(() => {
-    // Load components only after idle - not analyzed in initial bundle
-    const loadComponents = async () => {
-      const [famModule, aiModule, bttModule] = await Promise.all([
-        import("@/components/FloatingActionMenu"),
-        import("@/components/AIAssistant"),
-        import("@/components/BackToTop")
-      ]);
-      setComponents({
-        FloatingActionMenu: famModule.default,
-        AIAssistant: aiModule.AIAssistant,
-        BackToTop: bttModule.BackToTop
-      });
+    // Stagger component loading to avoid long tasks that block main thread
+    const loadComponentsStaggered = () => {
+      // Load smallest first after 3s
+      setTimeout(async () => {
+        const bttModule = await import("@/components/BackToTop");
+        setComponents(prev => ({ ...prev, BackToTop: bttModule.BackToTop }));
+      }, 3000);
+
+      // Load FloatingActionMenu after 4s
+      setTimeout(async () => {
+        const famModule = await import("@/components/FloatingActionMenu");
+        setComponents(prev => ({ ...prev, FloatingActionMenu: famModule.default }));
+      }, 4000);
+
+      // Load heaviest (AIAssistant) last after 5s
+      setTimeout(async () => {
+        const aiModule = await import("@/components/AIAssistant");
+        setComponents(prev => ({ ...prev, AIAssistant: aiModule.AIAssistant }));
+      }, 5000);
     };
 
-    // Use requestIdleCallback to defer loading completely out of critical path
+    // Use requestIdleCallback to start the staggered loading
     if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(() => loadComponents(), { timeout: 4000 });
+      const idleId = requestIdleCallback(loadComponentsStaggered, { timeout: 6000 });
       return () => cancelIdleCallback(idleId);
     } else {
-      const timer = setTimeout(loadComponents, 2500);
+      const timer = setTimeout(loadComponentsStaggered, 3000);
       return () => clearTimeout(timer);
     }
   }, []);
