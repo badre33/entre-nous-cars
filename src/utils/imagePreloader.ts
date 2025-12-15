@@ -38,10 +38,9 @@ export const preloadImage = (
  * Précharger les images hero et above-the-fold
  */
 export const preloadCriticalImages = () => {
-  // Images hero à précharger en priorité haute
+  // Images hero à précharger en priorité haute (WebP from public folder)
   const criticalImages = [
-    { href: '/assets/hero-home-new.png', type: 'image/png' },
-    { href: '/assets/hero-home-new.webp', type: 'image/webp' },
+    { href: '/hero-home-new.webp', type: 'image/webp' },
   ];
 
   criticalImages.forEach(img => {

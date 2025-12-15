@@ -12,7 +12,7 @@ const HowToSchema = ({ city }: HowToSchemaProps) => {
     "@type": "HowTo",
     "name": `Comment réserver votre voiture${locationText}`,
     "description": `Guide complet pour réserver votre voiture de location avec Benatna${locationText}. Processus simple en 4 étapes pour une réservation rapide et sécurisée.`,
-    "image": "https://benatna.ma/hero-home-new.png",
+    "image": "https://benatna.ma/hero-home-new.webp",
     "totalTime": "PT5M",
     "estimatedCost": {
       "@type": "MonetaryAmount",
@@ -54,7 +54,7 @@ const HowToSchema = ({ city }: HowToSchemaProps) => {
         "name": "Sélectionnez vos dates",
         "text": "Choisissez la date et l'heure de prise en charge, puis la date et l'heure de restitution de votre véhicule. Le système calcule automatiquement le tarif en fonction de la durée.",
         "url": `https://benatna.ma${city ? `/location-voiture-${city.toLowerCase()}` : ''}`,
-        "image": "https://benatna.ma/hero-home-new.png"
+        "image": "https://benatna.ma/hero-home-new.webp"
       },
       {
         "@type": "HowToStep",
