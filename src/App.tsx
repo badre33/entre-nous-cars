@@ -105,25 +105,50 @@ const LocationVoitureRouteOurikaMarrakech = lazy(() => import("./pages/LocationV
 // 404 page
 const NotFound = lazy(() => import("./pages/NotFound"));
 
-// Analytics tracking component
+// Analytics tracking component - deferred to avoid FID impact
 const AnalyticsTracker = () => {
   const location = useLocation();
 
   useEffect(() => {
-    analytics.trackPageView(location.pathname);
+    // Defer analytics tracking to avoid blocking main thread during navigation
+    const trackWithDelay = () => {
+      analytics.trackPageView(location.pathname);
+    };
+
+    // Use requestIdleCallback for non-blocking analytics
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(trackWithDelay, { timeout: 1000 });
+      return () => cancelIdleCallback(idleId);
+    } else {
+      const timer = setTimeout(trackWithDelay, 100);
+      return () => clearTimeout(timer);
+    }
   }, [location]);
 
   return null;
 };
 
-// Deferred component loader to reduce initial dependency chain
+// Deferred component loader to reduce initial dependency chain and improve FID
 const DeferredComponents = () => {
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    // Defer loading non-critical components until after initial render
-    const timer = setTimeout(() => setShouldLoad(true), 100);
-    return () => clearTimeout(timer);
+    // Use requestIdleCallback for optimal deferral, with fallback for Safari
+    const scheduleLoad = () => {
+      if ('requestIdleCallback' in window) {
+        const idleId = requestIdleCallback(
+          () => setShouldLoad(true),
+          { timeout: 3000 } // Max 3 seconds wait
+        );
+        return () => cancelIdleCallback(idleId);
+      } else {
+        // Fallback: defer by 2 seconds to avoid blocking FID
+        const timer = setTimeout(() => setShouldLoad(true), 2000);
+        return () => clearTimeout(timer);
+      }
+    };
+    
+    return scheduleLoad();
   }, []);
 
   if (!shouldLoad) return null;
