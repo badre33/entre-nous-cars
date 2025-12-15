@@ -55,16 +55,37 @@ const Index = () => {
   ], 0.6);
   
   useEffect(() => {
-    const handleScroll = () => {
+    // Defer parallax setup to avoid blocking FID
+    let rafId: number | null = null;
+    let isScrolling = false;
+    
+    const updateParallax = () => {
       // Disable parallax on mobile for better performance
       if (window.innerWidth >= 768) {
         const offset = window.scrollY;
         setParallaxOffset(offset * 0.5);
       }
+      isScrolling = false;
     };
     
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      // Throttle with requestAnimationFrame to avoid blocking main thread
+      if (!isScrolling) {
+        isScrolling = true;
+        rafId = requestAnimationFrame(updateParallax);
+      }
+    };
+    
+    // Defer scroll listener registration to improve FID
+    const timeoutId = setTimeout(() => {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    }, 100);
+    
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   const popularCities = [
