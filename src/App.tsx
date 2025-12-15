@@ -12,15 +12,11 @@ import { MetaPixel } from "@/components/MetaPixel";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
 import { IntelligentRoutePrefetcher } from "@/components/IntelligentRoutePrefetcher";
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState, ComponentType } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
 import { BottomNavigation } from "@/components/BottomNavigation";
 
-// Lazy load truly non-critical components - will be deferred
-const FloatingActionMenu = lazy(() => import("@/components/FloatingActionMenu"));
-const AIAssistant = lazy(() => import("@/components/AIAssistant").then(m => ({ default: m.AIAssistant })));
-const BackToTop = lazy(() => import("@/components/BackToTop").then(m => ({ default: m.BackToTop })));
 import { PageSkeleton } from "@/components/PageSkeleton";
 import { analytics } from "@/utils/analytics";
 
@@ -128,39 +124,47 @@ const AnalyticsTracker = () => {
   return null;
 };
 
-// Deferred component loader to reduce initial dependency chain and improve FID
+// Runtime dynamic import loader - completely removes from critical dependency tree
 const DeferredComponents = () => {
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [components, setComponents] = useState<{
+    FloatingActionMenu: ComponentType | null;
+    AIAssistant: ComponentType | null;
+    BackToTop: ComponentType | null;
+  }>({ FloatingActionMenu: null, AIAssistant: null, BackToTop: null });
 
   useEffect(() => {
-    // Use requestIdleCallback for optimal deferral, with fallback for Safari
-    const scheduleLoad = () => {
-      if ('requestIdleCallback' in window) {
-        const idleId = requestIdleCallback(
-          () => setShouldLoad(true),
-          { timeout: 3000 } // Max 3 seconds wait
-        );
-        return () => cancelIdleCallback(idleId);
-      } else {
-        // Fallback: defer by 2 seconds to avoid blocking FID
-        const timer = setTimeout(() => setShouldLoad(true), 2000);
-        return () => clearTimeout(timer);
-      }
+    // Load components only after idle - not analyzed in initial bundle
+    const loadComponents = async () => {
+      const [famModule, aiModule, bttModule] = await Promise.all([
+        import("@/components/FloatingActionMenu"),
+        import("@/components/AIAssistant"),
+        import("@/components/BackToTop")
+      ]);
+      setComponents({
+        FloatingActionMenu: famModule.default,
+        AIAssistant: aiModule.AIAssistant,
+        BackToTop: bttModule.BackToTop
+      });
     };
-    
-    return scheduleLoad();
+
+    // Use requestIdleCallback to defer loading completely out of critical path
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(() => loadComponents(), { timeout: 4000 });
+      return () => cancelIdleCallback(idleId);
+    } else {
+      const timer = setTimeout(loadComponents, 2500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
-  if (!shouldLoad) return null;
-
+  const { FloatingActionMenu, AIAssistant, BackToTop } = components;
+  
   return (
-    <Suspense fallback={null}>
-      <FloatingActionMenu />
-      <div className="hidden md:block">
-        <AIAssistant />
-      </div>
-      <BackToTop />
-    </Suspense>
+    <>
+      {FloatingActionMenu && <FloatingActionMenu />}
+      {AIAssistant && <div className="hidden md:block"><AIAssistant /></div>}
+      {BackToTop && <BackToTop />}
+    </>
   );
 };
 
