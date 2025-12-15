@@ -27,13 +27,18 @@ import { HreflangTags } from "@/utils/hreflangHelper";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema, SitelinksSearchBoxSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
-import heroImage from "@/assets/hero-home-new.png";
+// WebP optimized images with JPG fallbacks
+import cityCasablancaWebp from "@/assets/city-casablanca.webp";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
+import cityRabatWebp from "@/assets/city-rabat.webp";
 import cityRabat from "@/assets/city-rabat.jpg";
 import cityTanger from "@/assets/city-tanger.jpg";
 import cityAgadir from "@/assets/city-agadir.jpg";
 import cityFes from "@/assets/city-fes.jpg";
+
+// Hero image: WebP in public folder for LCP optimization
+const heroImageWebp = "/hero-home-new.webp";
 
 const Index = () => {
   const { t } = useLanguage();
@@ -63,9 +68,9 @@ const Index = () => {
   }, []);
 
   const popularCities = [
-    { name: "Casablanca", image: cityCasablanca, vehicles: 52, slug: "Casablanca" },
+    { name: "Casablanca", image: cityCasablancaWebp, vehicles: 52, slug: "Casablanca" },
     { name: "Marrakech", image: cityMarrakech, vehicles: 50, slug: "Marrakech" },
-    { name: "Rabat", image: cityRabat, vehicles: 50, slug: "Rabat" },
+    { name: "Rabat", image: cityRabatWebp, vehicles: 50, slug: "Rabat" },
     { name: "Tanger", image: cityTanger, vehicles: 50, slug: "Tanger" },
     { name: "Agadir", image: cityAgadir, vehicles: 50, slug: "Agadir" },
     { name: "Fès", image: cityFes, vehicles: 50, slug: "Fès" },
@@ -159,36 +164,21 @@ const Index = () => {
       
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
-        {/* LCP-optimized responsive hero image with srcset */}
-        <picture>
-          {/* Mobile: Optimized for small screens (320-640px) */}
-          <source
-            media="(max-width: 640px)"
-            srcSet={heroImage}
-            sizes="100vw"
-          />
-          {/* Tablet: Optimized for medium screens (641-1024px) */}
-          <source
-            media="(min-width: 641px) and (max-width: 1024px)"
-            srcSet={heroImage}
-            sizes="100vw"
-          />
-          {/* Desktop: Full resolution for large screens (1025px+) */}
-          <img 
-            src={heroImage} 
-            alt={generateHeroImageAlt()}
-            className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
-            style={{ 
-              transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
-            }}
-            width="1920"
-            height="1080"
-            sizes="100vw"
-            loading="eager"
-            fetchPriority="high"
-            decoding="sync"
-          />
-        </picture>
+        {/* LCP-optimized WebP hero image from public folder for fast discovery */}
+        <img 
+          src={heroImageWebp} 
+          alt={generateHeroImageAlt()}
+          className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
+          style={{ 
+            transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
+          }}
+          width="1920"
+          height="1080"
+          sizes="100vw"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
         
         <div className="container relative z-10 text-center text-white px-3 sm:px-6 animate-fade-in py-4 sm:py-10">
