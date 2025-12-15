@@ -43,6 +43,7 @@ const heroImageWebp = "/hero-home-new.webp";
 const Index = () => {
   const { t } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
   const statsAnimation = useScrollAnimation(0.2);
   const howItWorksAnimation = useScrollAnimation(0.2);
   const whyAnimation = useScrollAnimation(0.2);
@@ -55,13 +56,22 @@ const Index = () => {
   ], 0.6);
   
   useEffect(() => {
+    // Check if desktop once on mount to avoid reflow during render
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    checkDesktop();
+    
+    // Use matchMedia for resize detection (no reflow)
+    const mql = window.matchMedia('(min-width: 768px)');
+    const handleResize = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mql.addEventListener('change', handleResize);
+    
     // Defer parallax setup to avoid blocking FID
     let rafId: number | null = null;
     let isScrolling = false;
     
     const updateParallax = () => {
-      // Disable parallax on mobile for better performance
-      if (window.innerWidth >= 768) {
+      // Only update if desktop (already in state, no reflow)
+      if (mql.matches) {
         const offset = window.scrollY;
         setParallaxOffset(offset * 0.5);
       }
@@ -83,6 +93,7 @@ const Index = () => {
     
     return () => {
       clearTimeout(timeoutId);
+      mql.removeEventListener('change', handleResize);
       window.removeEventListener('scroll', handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
     };
@@ -191,7 +202,7 @@ const Index = () => {
           alt={generateHeroImageAlt()}
           className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
           style={{ 
-            transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
+            transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
           }}
           width="1920"
           height="1080"
