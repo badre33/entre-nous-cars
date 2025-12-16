@@ -44,13 +44,24 @@ const NosServices = () => {
 
   const getCategoryColor = (category: Service['category']) => {
     const colors = {
-      aeroport: 'bg-blue-500/10 text-blue-700 dark:text-blue-400',
-      jeune: 'bg-green-500/10 text-green-700 dark:text-green-400',
-      'longue-duree': 'bg-purple-500/10 text-purple-700 dark:text-purple-400',
-      suv: 'bg-orange-500/10 text-orange-700 dark:text-orange-400',
-      special: 'bg-pink-500/10 text-pink-700 dark:text-pink-400',
+      aeroport: 'bg-blue-500 text-white shadow-blue-500/30',
+      jeune: 'bg-emerald-500 text-white shadow-emerald-500/30',
+      'longue-duree': 'bg-violet-500 text-white shadow-violet-500/30',
+      suv: 'bg-amber-500 text-white shadow-amber-500/30',
+      special: 'bg-rose-500 text-white shadow-rose-500/30',
     };
     return colors[category];
+  };
+
+  const getCategoryGradient = (category: Service['category']) => {
+    const gradients = {
+      aeroport: 'from-blue-500/20 to-blue-600/5',
+      jeune: 'from-emerald-500/20 to-emerald-600/5',
+      'longue-duree': 'from-violet-500/20 to-violet-600/5',
+      suv: 'from-amber-500/20 to-amber-600/5',
+      special: 'from-rose-500/20 to-rose-600/5',
+    };
+    return gradients[category];
   };
 
   const getCategoryLabel = (category: Service['category']) => {
@@ -157,53 +168,69 @@ const NosServices = () => {
       <section className="container px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredServices.map((service) => (
-            <Card key={service.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
+            <Card 
+              key={service.id} 
+              className={`group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col bg-gradient-to-br ${getCategoryGradient(service.category)}`}
+            >
+              {/* Animated border glow on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary/20 via-transparent to-secondary/20 pointer-events-none" />
+              
               {/* Image */}
-              <div className="relative h-48 overflow-hidden rounded-t-lg">
+              <div className="relative h-52 overflow-hidden">
                 <img 
                   src={service.image} 
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
+                
                 {service.popular && (
-                  <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
-                    Populaire
+                  <Badge className="absolute top-3 right-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg animate-pulse">
+                    ⭐ Populaire
                   </Badge>
                 )}
-                <Badge className={`absolute top-3 left-3 ${getCategoryColor(service.category)}`}>
+                <Badge className={`absolute top-3 left-3 shadow-lg ${getCategoryColor(service.category)}`}>
                   {getCategoryLabel(service.category)}
                 </Badge>
+                
+                {/* Price overlay on image */}
+                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-lg">
+                  <p className="text-xs text-muted-foreground">À partir de</p>
+                  <p className="text-lg font-bold text-primary">{service.priceFrom}</p>
+                </div>
               </div>
 
-              <CardHeader>
-                <CardTitle className="text-lg group-hover:text-primary transition-colors">
+              <CardHeader className="relative">
+                <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-sm">
+                <CardDescription className="text-sm text-muted-foreground">
                   {service.shortDescription}
                 </CardDescription>
               </CardHeader>
 
               <CardContent className="flex-1">
-                <ul className="space-y-2">
+                <ul className="space-y-2.5">
                   {service.features.slice(0, 4).map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>{feature}</span>
+                    <li key={idx} className="flex items-start gap-2.5 text-sm group/item">
+                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-primary/20 transition-colors">
+                        <Check className="h-3 w-3 text-primary" />
+                      </div>
+                      <span className="text-foreground/80">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
 
-              <CardFooter className="flex items-center justify-between pt-4 border-t">
-                <div>
-                  <p className="text-xs text-muted-foreground">À partir de</p>
-                  <p className="text-lg font-bold text-primary">{service.priceFrom}</p>
-                </div>
-                <Button asChild size="sm" className="group-hover:bg-primary group-hover:text-primary-foreground">
-                  <Link to={service.slug}>
-                    Découvrir
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <CardFooter className="pt-4 border-t border-border/50">
+                <Button 
+                  asChild 
+                  className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300"
+                >
+                  <Link to={service.slug} className="flex items-center justify-center gap-2">
+                    Découvrir ce service
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
                   </Link>
                 </Button>
               </CardFooter>
