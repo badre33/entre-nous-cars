@@ -190,17 +190,19 @@ const Header = () => {
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] sm:w-[350px]">
-              <SheetHeader>
+            <SheetContent side="right" className="w-[280px] sm:w-[350px] flex flex-col">
+              <SheetHeader className="flex-shrink-0">
                 <SheetTitle className="text-left font-pacifico text-2xl">benatna</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-2 mt-8">
+              <nav className="flex flex-col gap-2 mt-6 flex-1 overflow-y-auto pb-safe">
                 <NavLinks mobile onLinkClick={() => setIsOpen(false)} />
-                <Link to="/louer" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full rounded-full mt-4">
+                <Link to="/louer" onClick={() => setIsOpen(false)} className="mt-4">
+                  <Button className="w-full rounded-full">
                     {t('common.rent')}
                   </Button>
                 </Link>
+                {/* Espace en bas pour safe area */}
+                <div className="h-8" />
               </nav>
             </SheetContent>
           </Sheet>
