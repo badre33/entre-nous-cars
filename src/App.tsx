@@ -146,47 +146,29 @@ const CrispLoader = () => {
   return CrispChat ? <CrispChat /> : null;
 };
 
-// Runtime dynamic import loader - staggered loading to minimize TBT
+// Runtime dynamic import loader - loads BackToTop only
 const DeferredComponents = () => {
-  const [components, setComponents] = useState<{
-    FloatingActionMenu: ComponentType | null;
-    BackToTop: ComponentType | null;
-  }>({ FloatingActionMenu: null, BackToTop: null });
+  const [BackToTop, setBackToTop] = useState<ComponentType | null>(null);
 
   useEffect(() => {
-    // Stagger component loading to avoid long tasks that block main thread
-    const loadComponentsStaggered = () => {
-      // Load smallest first after 3s
-      setTimeout(async () => {
-        const bttModule = await import("@/components/BackToTop");
-        setComponents(prev => ({ ...prev, BackToTop: bttModule.BackToTop }));
-      }, 3000);
-
-      // Load FloatingActionMenu after 4s
-      setTimeout(async () => {
-        const famModule = await import("@/components/FloatingActionMenu");
-        setComponents(prev => ({ ...prev, FloatingActionMenu: famModule.default }));
-      }, 4000);
+    const loadBackToTop = async () => {
+      const bttModule = await import("@/components/BackToTop");
+      setBackToTop(() => bttModule.BackToTop);
     };
 
-    // Use requestIdleCallback to start the staggered loading
+    // Use requestIdleCallback to start loading after idle
     if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(loadComponentsStaggered, { timeout: 5000 });
+      const idleId = requestIdleCallback(() => {
+        setTimeout(loadBackToTop, 3000);
+      }, { timeout: 5000 });
       return () => cancelIdleCallback(idleId);
     } else {
-      const timer = setTimeout(loadComponentsStaggered, 3000);
+      const timer = setTimeout(loadBackToTop, 3000);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const { FloatingActionMenu, BackToTop } = components;
-  
-  return (
-    <>
-      {FloatingActionMenu && <FloatingActionMenu />}
-      {BackToTop && <BackToTop />}
-    </>
-  );
+  return BackToTop ? <BackToTop /> : null;
 };
 
 const App = () => {
