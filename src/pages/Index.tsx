@@ -27,12 +27,10 @@ import { HreflangTags } from "@/utils/hreflangHelper";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema, SitelinksSearchBoxSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
-// WebP optimized images with JPG fallbacks
-import cityCasablancaWebp from "@/assets/city-casablanca.webp";
-import cityCasablanca from "@/assets/city-casablanca.jpg";
-import cityMarrakech from "@/assets/city-marrakech.jpg";
-import cityRabatWebp from "@/assets/city-rabat.webp";
-import cityRabat from "@/assets/city-rabat.jpg";
+// WebP optimized images (compressed and resized for display)
+import cityCasablanca from "@/assets/city-casablanca-optimized.webp";
+import cityMarrakech from "@/assets/city-marrakech-optimized.webp";
+import cityRabat from "@/assets/city-rabat-optimized.webp";
 import cityTanger from "@/assets/city-tanger.jpg";
 import cityAgadir from "@/assets/city-agadir.jpg";
 import cityFes from "@/assets/city-fes.jpg";
@@ -100,9 +98,9 @@ const Index = () => {
   }, []);
 
   const popularCities = [
-    { name: "Casablanca", image: cityCasablancaWebp, vehicles: 52, slug: "Casablanca" },
+    { name: "Casablanca", image: cityCasablanca, vehicles: 52, slug: "Casablanca" },
     { name: "Marrakech", image: cityMarrakech, vehicles: 50, slug: "Marrakech" },
-    { name: "Rabat", image: cityRabatWebp, vehicles: 50, slug: "Rabat" },
+    { name: "Rabat", image: cityRabat, vehicles: 50, slug: "Rabat" },
     { name: "Tanger", image: cityTanger, vehicles: 50, slug: "Tanger" },
     { name: "Agadir", image: cityAgadir, vehicles: 50, slug: "Agadir" },
     { name: "Fès", image: cityFes, vehicles: 50, slug: "Fès" },
