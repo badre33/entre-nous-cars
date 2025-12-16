@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { BUSINESS_INFO } from "@/constants/businessInfo";
 
 interface StructuredDataProps {
   type?: "home" | "rental" | "partners" | "blog" | "article";
@@ -86,8 +87,8 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
       description: "Location de voitures au Maroc avec transparence des prix et processus 100% digital. Trouvez votre véhicule idéal parmi nos agences partenaires vérifiées.",
       aggregateRating: {
         "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "247"
+        ratingValue: BUSINESS_INFO.rating.value,
+        reviewCount: BUSINESS_INFO.rating.count
       }
     };
 

@@ -13,6 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { HelpCircle, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { SITE_STATS } from "@/data/siteStats";
 
 const FAQ = () => {
   const faqSchema = {
@@ -256,7 +257,7 @@ const FAQ = () => {
         "name": "Benatna est-il fiable et sécurisé ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolument ! Benatna vérifie toutes ses agences partenaires selon des critères stricts : licences officielles, assurances à jour, état de la flotte, avis clients. Paiements sécurisés. Support client disponible 24/7. Plus de 1200 clients satisfaits depuis 2024 avec 98% de satisfaction."
+          "text": `Absolument ! Benatna vérifie toutes ses agences partenaires selon des critères stricts : licences officielles, assurances à jour, état de la flotte, avis clients. Paiements sécurisés. Support client disponible 24/7. Plus de ${SITE_STATS.totalCustomers} clients satisfaits depuis 2024 avec ${SITE_STATS.satisfactionRate}% de satisfaction.`
         }
       },
       {

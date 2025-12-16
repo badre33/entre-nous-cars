@@ -1,6 +1,10 @@
+import { SITE_STATS } from "@/data/siteStats";
+
 /**
  * Informations NAP (Name, Address, Phone) centralisées
  * CRITIQUE pour le SEO local: Ces informations doivent être EXACTEMENT identiques partout
+ * 
+ * Note: Les stats numériques (rating, count) viennent de SITE_STATS pour éviter les doublons
  */
 
 export const BUSINESS_INFO = {
@@ -42,12 +46,21 @@ export const BUSINESS_INFO = {
   // URLs
   website: "https://benatna.ma",
   
-  // Notation moyenne
+  // Notation moyenne - SOURCE UNIQUE: SITE_STATS
   rating: {
-    value: "4.8",
-    count: "1247",
+    value: SITE_STATS.ratingAverage.toString(),
+    count: SITE_STATS.ratingCount.toString(),
     best: "5",
     worst: "1"
+  },
+  
+  // Stats business - SOURCE UNIQUE: SITE_STATS
+  stats: {
+    vehicles: SITE_STATS.totalVehicles,
+    agencies: SITE_STATS.totalAgencies,
+    customers: SITE_STATS.totalCustomers,
+    cities: SITE_STATS.coveredCities,
+    satisfactionRate: SITE_STATS.satisfactionRate,
   },
   
   // Description

@@ -75,10 +75,10 @@ export const CityLocalBusinessSchema = ({
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "250",
-      "bestRating": "5",
-      "worstRating": "1"
+      "ratingValue": BUSINESS_INFO.rating.value,
+      "reviewCount": BUSINESS_INFO.rating.count,
+      "bestRating": BUSINESS_INFO.rating.best,
+      "worstRating": BUSINESS_INFO.rating.worst
     },
     "areaServed": {
       "@type": "City",
