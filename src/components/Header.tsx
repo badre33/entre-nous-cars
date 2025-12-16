@@ -158,7 +158,7 @@ const Header = () => {
   );
   
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
+    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b-2 border-primary/20 shadow-sm">
       <div className="container flex h-16 md:h-20 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 transition-transform hover:scale-105">
