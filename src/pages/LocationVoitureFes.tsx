@@ -14,6 +14,7 @@ import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { SITE_STATS } from "@/data/siteStats";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
 import { fesReviews } from "@/data/reviewsData";
@@ -69,8 +70,8 @@ const LocationVoitureFes = () => {
             date: 'Il y a 1 semaine',
           },
         ]}
-        averageRating={4.8}
-        totalReviews={1247}
+        averageRating={SITE_STATS.ratingAverage}
+        totalReviews={SITE_STATS.ratingCount}
         city="Fès"
       />
       
