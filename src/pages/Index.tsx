@@ -31,12 +31,12 @@ const Index = () => {
   };
 
   const cities = [
-    { name: "Casablanca", image: cityCasablanca, slug: "/location-voiture-casablanca" },
-    { name: "Rabat", image: cityRabat, slug: "/location-voiture-rabat" },
-    { name: "Marrakech", image: cityMarrakech, slug: "/location-voiture-marrakech" },
-    { name: "Aéroport Casablanca", image: cityCasablanca, slug: "/location-voiture-aeroport-casablanca" },
-    { name: "Aéroport Rabat", image: cityRabat, slug: "/location-voiture-aeroport-rabat" },
-    { name: "Aéroport Marrakech", image: cityMarrakech, slug: "/location-voiture-aeroport-marrakech" },
+    { name: "Casablanca", image: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-casablanca" },
+    { name: "Rabat", image: cityRabat, slug: "rabat", guideSlug: "/location-voiture-rabat" },
+    { name: "Marrakech", image: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-marrakech" },
+    { name: "Aéroport Casablanca", image: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-aeroport-casablanca" },
+    { name: "Aéroport Rabat", image: cityRabat, slug: "rabat", guideSlug: "/location-voiture-aeroport-rabat" },
+    { name: "Aéroport Marrakech", image: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-aeroport-marrakech" },
   ];
 
   const testimonials = [
@@ -261,24 +261,30 @@ const Index = () => {
             Disponible dans les principales villes et aéroports du Maroc
           </p>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {cities.map((city) => (
-              <Link key={city.name} to={city.slug}>
-                <Card className="overflow-hidden group cursor-pointer hover:shadow-lg transition-all duration-300 border-0">
-                  <div className="relative h-32 sm:h-40">
-                    <img 
-                      src={city.image} 
-                      alt={`Location voiture ${city.name}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                      <h3 className="text-white font-semibold text-sm sm:text-base">{city.name}</h3>
-                    </div>
+              <Card key={city.name} className="overflow-hidden group hover:shadow-lg transition-all duration-300 border-0">
+                <div className="relative h-32 sm:h-40">
+                  <img 
+                    src={city.image} 
+                    alt={`Location voiture ${city.name}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                    <h3 className="text-white font-semibold text-sm sm:text-base">{city.name}</h3>
                   </div>
-                </Card>
-              </Link>
+                </div>
+                <div className="p-3 flex gap-2">
+                  <Button asChild size="sm" className="flex-1 text-xs">
+                    <Link to={`/louer?city=${city.slug}`}>Voir les voitures</Link>
+                  </Button>
+                  <Button asChild size="sm" variant="outline" className="flex-1 text-xs">
+                    <Link to={city.guideSlug}>Guide location</Link>
+                  </Button>
+                </div>
+              </Card>
             ))}
           </div>
         </div>
