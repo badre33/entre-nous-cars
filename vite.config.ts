@@ -106,36 +106,20 @@ export default defineConfig(({ mode }) => ({
               },
             },
           },
-          // Chunks JS hashés - NetworkFirst pour éviter les mismatches
+          // Chunks JS hashés - NetworkOnly pour GARANTIR la fraîcheur (aucun fallback cache)
           {
             urlPattern: /\/assets\/.*\.[a-f0-9]+\.js$/i,
-            handler: "NetworkFirst",
+            handler: "NetworkOnly",
             options: {
-              cacheName: "js-chunks-cache",
-              networkTimeoutSeconds: 3,
-              expiration: {
-                maxEntries: 100,
-                maxAgeSeconds: 60 * 60 * 24, // 1 jour
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
+              cacheName: "js-chunks-no-cache",
             },
           },
-          // CSS chunks - NetworkFirst également
+          // CSS chunks - NetworkOnly également (aucun fallback cache)
           {
             urlPattern: /\/assets\/.*\.[a-f0-9]+\.css$/i,
-            handler: "NetworkFirst",
+            handler: "NetworkOnly",
             options: {
-              cacheName: "css-chunks-cache",
-              networkTimeoutSeconds: 3,
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
+              cacheName: "css-chunks-no-cache",
             },
           },
           // Images - CacheFirst car elles sont stables
