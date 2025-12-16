@@ -83,46 +83,40 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,woff2}"],
-        navigateFallback: '/index.html',
-        navigateFallbackDenylist: [/^\/api/, /^\/version\.json/],
+        // STABILITÉ > OFFLINE : pas de precaching des pages
+        globPatterns: ["**/*.{ico,png,jpg,jpeg,svg,webp,woff2}"], // Seulement assets statiques
+        // DÉSACTIVÉ : navigateFallback cause des versions obsolètes
+        // navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/.*/], // Bloquer tout fallback
         cleanupOutdatedCaches: true,
         skipWaiting: true,
         clientsClaim: true,
         runtimeCaching: [
-          // Pages HTML - cache très court pour éviter les versions obsolètes
+          // Pages HTML - NetworkOnly : TOUJOURS frais, jamais de cache
           {
-            urlPattern: /^https:\/\/benatna\.ma\/(?!assets\/).*$/i,
-            handler: "NetworkFirst",
-            options: {
-              cacheName: "pages-cache",
-              networkTimeoutSeconds: 3, // Réduit de 5s à 3s
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60 * 60, // 1 heure au lieu de 7 jours
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
-          },
-          // Chunks JS hashés - NetworkOnly pour GARANTIR la fraîcheur (aucun fallback cache)
-          {
-            urlPattern: /\/assets\/.*\.[a-f0-9]+\.js$/i,
+            urlPattern: /^https:\/\/.*\/(?!assets\/).*$/i,
             handler: "NetworkOnly",
             options: {
-              cacheName: "js-chunks-no-cache",
+              cacheName: "pages-no-cache",
             },
           },
-          // CSS chunks - NetworkOnly également (aucun fallback cache)
+          // Chunks JS - NetworkOnly : TOUJOURS frais
           {
-            urlPattern: /\/assets\/.*\.[a-f0-9]+\.css$/i,
+            urlPattern: /\/assets\/.*\.js$/i,
             handler: "NetworkOnly",
             options: {
-              cacheName: "css-chunks-no-cache",
+              cacheName: "js-no-cache",
             },
           },
-          // Images - CacheFirst car elles sont stables
+          // CSS - NetworkOnly : TOUJOURS frais
+          {
+            urlPattern: /\/assets\/.*\.css$/i,
+            handler: "NetworkOnly",
+            options: {
+              cacheName: "css-no-cache",
+            },
+          },
+          // Images - CacheFirst (seul cache autorisé, assets vraiment statiques)
           {
             urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
             handler: "CacheFirst",
@@ -130,60 +124,40 @@ export default defineConfig(({ mode }) => ({
               cacheName: "images-cache",
               expiration: {
                 maxEntries: 100,
-                maxAgeSeconds: 60 * 60 * 24 * 30,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 jours
               },
             },
           },
-          // Google Fonts stylesheets
-          {
-            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-            handler: "StaleWhileRevalidate",
-            options: {
-              cacheName: "google-fonts-cache",
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365,
-              },
-            },
-          },
-          // Google Fonts files
+          // Fonts Google - CacheFirst (vraiment statiques)
           {
             urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
             handler: "CacheFirst",
             options: {
-              cacheName: "gstatic-fonts-cache",
+              cacheName: "fonts-cache",
               expiration: {
                 maxEntries: 20,
                 maxAgeSeconds: 60 * 60 * 24 * 365,
               },
             },
           },
-          // API calls - NetworkFirst avec timeout court
+          // Font stylesheets - StaleWhileRevalidate
           {
-            urlPattern: /^https:\/\/.*\.supabase\.co\/functions\/.*/i,
-            handler: "NetworkFirst",
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: "StaleWhileRevalidate",
             options: {
-              cacheName: "api-cache",
-              networkTimeoutSeconds: 10,
+              cacheName: "font-stylesheets-cache",
               expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60 * 5,
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 7,
               },
             },
           },
-          // CDN assets - CacheFirst
+          // API calls - NetworkOnly : données TOUJOURS fraîches
           {
-            urlPattern: /^https:\/\/.*\.(?:googleapis|gstatic|unpkg|jsdelivr)\.com\/.*/i,
-            handler: "CacheFirst",
+            urlPattern: /^https:\/\/.*\.supabase\.co\/.*/i,
+            handler: "NetworkOnly",
             options: {
-              cacheName: "cdn-cache",
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24 * 365,
-              },
+              cacheName: "api-no-cache",
             },
           },
         ],
