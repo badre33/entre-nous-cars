@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface HeroWhatsAppCTAProps {
   heroImageUrl: string;
@@ -7,6 +8,8 @@ interface HeroWhatsAppCTAProps {
 }
 
 const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps) => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[85vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
       <img 
@@ -23,28 +26,28 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
         <div className="flex flex-wrap justify-center gap-3 mb-6 animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
             <Shield className="w-4 h-4 text-green-400" />
-            <span className="text-sm font-medium">Agences vérifiées</span>
+            <span className="text-sm font-medium">{t("homepage.trustBadgeVerified")}</span>
           </div>
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
             <CheckCircle className="w-4 h-4 text-blue-400" />
-            <span className="text-sm font-medium">Prix transparents</span>
+            <span className="text-sm font-medium">{t("homepage.trustBadgeTransparent")}</span>
           </div>
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
-            <span className="text-sm font-medium">Support WhatsApp 7j/7</span>
+            <span className="text-sm font-medium">{t("homepage.trustBadgeWhatsApp")}</span>
           </div>
         </div>
         
         {/* Main headline */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight animate-fade-in max-w-4xl mx-auto">
-          Louez une voiture au Maroc
-          <span className="block text-primary mt-2">en quelques minutes, sans stress.</span>
+          {t("homepage.heroTitle")}
+          <span className="block text-primary mt-2">{t("homepage.heroTitleHighlight")}</span>
         </h1>
         
         {/* Subheadline */}
         <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in [animation-delay:200ms] leading-relaxed">
-          Disponible à Casablanca, Rabat, Marrakech & aéroports.
-          <span className="block mt-1">Service simple, rapide et humain – même depuis l'étranger.</span>
+          {t("homepage.heroSubtitle")}
+          <span className="block mt-1">{t("homepage.heroSubtitle2")}</span>
         </p>
         
         {/* PRIMARY CTA */}
@@ -55,9 +58,9 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
             className="bg-[#25D366] hover:bg-[#128C7E] text-white text-lg px-8 py-6 h-auto rounded-full shadow-2xl hover:shadow-[#25D366]/30 transition-all duration-300 hover:scale-105 font-semibold"
           >
             <MessageCircle className="w-6 h-6 mr-3" />
-            Louer maintenant sur WhatsApp
+            {t("homepage.heroCTA")}
           </Button>
-          <p className="text-white/70 text-sm mt-4">Réponse rapide • Pas de paiement en ligne</p>
+          <p className="text-white/70 text-sm mt-4">{t("homepage.heroNote")}</p>
         </div>
       </div>
     </section>
