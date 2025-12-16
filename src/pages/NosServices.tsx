@@ -94,26 +94,27 @@ const NosServices = () => {
       <Breadcrumbs />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 py-16 md:py-20">
-        <div className="container px-4">
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 md:py-24">
+        <div className="absolute inset-0 bg-[url('/hero-home-new.webp')] bg-cover bg-center opacity-20" />
+        <div className="container px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 animate-fade-in text-white leading-tight">
               Nos Services de Location de Voiture
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in [animation-delay:200ms]">
+            <p className="text-base sm:text-lg md:text-xl text-white/80 mb-6 md:mb-8 animate-fade-in [animation-delay:200ms] px-2">
               Une gamme complète de services adaptés à tous vos besoins de mobilité au Maroc. 
               Des tarifs transparents, une flotte récente et un service client disponible 24/7.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center text-sm animate-fade-in [animation-delay:400ms]">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center text-sm animate-fade-in [animation-delay:400ms] text-white/90">
+              <div className="flex items-center gap-2 justify-center">
                 <Check className="h-5 w-5 text-primary" />
                 <span>21+ services spécialisés</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 justify-center">
                 <Check className="h-5 w-5 text-primary" />
                 <span>6 villes du Maroc</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 justify-center">
                 <Check className="h-5 w-5 text-primary" />
                 <span>Tarifs dès 150 DH/jour</span>
               </div>
