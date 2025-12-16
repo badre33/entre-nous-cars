@@ -14,6 +14,7 @@ import { EnhancedAggregateRatingSchema, BreadcrumbListSchema, createBreadcrumbs 
 import { globalReviews } from "@/data/reviewsData";
 import { SITE_STATS } from "@/data/siteStats";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { generateSimpleMessage, openWhatsApp } from "@/utils/whatsapp";
 
 // WebP optimized images
 import cityCasablanca from "@/assets/city-casablanca-optimized.webp";
@@ -25,13 +26,8 @@ const heroImageWebp = "/hero-home-new.webp";
 const Index = () => {
   const { t } = useLanguage();
   
-  const whatsappNumber = "212699024526";
-  
-  const openWhatsApp = (city?: string) => {
-    const message = city 
-      ? `Bonjour, je souhaite louer une voiture à ${city} du [date] au [date].`
-      : `Bonjour, je souhaite louer une voiture au Maroc du [date] au [date].`;
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+  const handleWhatsAppClick = (city?: string) => {
+    openWhatsApp(generateSimpleMessage(city));
   };
 
   const cities = [
@@ -128,7 +124,7 @@ const Index = () => {
           {/* PRIMARY CTA */}
           <div className="animate-fade-in [animation-delay:400ms]">
             <Button 
-              onClick={() => openWhatsApp()}
+              onClick={() => handleWhatsAppClick()}
               size="lg"
               className="bg-[#25D366] hover:bg-[#128C7E] text-white text-lg px-8 py-6 h-auto rounded-full shadow-2xl hover:shadow-[#25D366]/30 transition-all duration-300 hover:scale-105 font-semibold"
             >
@@ -346,7 +342,7 @@ const Index = () => {
             Vérifiez la disponibilité en quelques secondes sur WhatsApp. Réponse rapide garantie.
           </p>
           <Button 
-            onClick={() => openWhatsApp()}
+            onClick={() => handleWhatsAppClick()}
             size="lg"
             className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 h-auto rounded-full shadow-2xl transition-all duration-300 hover:scale-105 font-semibold"
           >
@@ -361,7 +357,7 @@ const Index = () => {
       {/* Sticky WhatsApp CTA - Mobile */}
       <div className="fixed bottom-0 left-0 right-0 md:hidden z-50 bg-background/95 backdrop-blur-sm border-t border-border p-3 safe-area-pb">
         <Button 
-          onClick={() => openWhatsApp()}
+          onClick={() => handleWhatsAppClick()}
           className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-6 text-base font-semibold rounded-xl shadow-lg"
         >
           <MessageCircle className="w-5 h-5 mr-2" />

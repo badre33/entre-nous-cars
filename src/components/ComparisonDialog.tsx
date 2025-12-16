@@ -22,6 +22,7 @@ import { useComparison } from "@/contexts/ComparisonContext";
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { useSwipeToClose } from "@/hooks/useSwipeToClose";
+import { generateComparisonMessage, openWhatsApp } from "@/utils/whatsapp";
 
 interface ComparisonDialogProps {
   open: boolean;
@@ -97,10 +98,9 @@ export default function ComparisonDialog({
   }
 
   const handleGroupRequest = () => {
-    const vehiclesList = selectedCars.map(car => `${car.name} - ${car.city}`).join('\n');
-    const message = `Bonjour, je souhaite une demande groupée pour les véhicules suivants :\n\n${vehiclesList}\n\nPouvez-vous me communiquer les disponibilités et tarifs ?`;
-    const whatsappUrl = `https://wa.me/212699024526?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const vehicles = selectedCars.map(car => ({ name: car.name, city: car.city }));
+    const message = generateComparisonMessage(vehicles);
+    openWhatsApp(message);
     
     toast({
       title: "Demande envoyée",
