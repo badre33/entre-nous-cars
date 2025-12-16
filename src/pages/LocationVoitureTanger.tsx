@@ -43,7 +43,6 @@ const LocationVoitureTanger = () => {
         longitude="-5.8340"
         address="Aéroport Tanger Ibn Battouta"
         postalCode="90000"
-        telephone="+212699024526"
         priceRange="150-850 MAD"
       />
       <ReviewsSchema 

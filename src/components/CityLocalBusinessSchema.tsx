@@ -7,7 +7,6 @@ interface CityLocalBusinessSchemaProps {
   longitude: string;
   address: string;
   postalCode: string;
-  telephone: string;
   priceRange: string;
 }
 
@@ -17,7 +16,6 @@ export const CityLocalBusinessSchema = ({
   longitude,
   address,
   postalCode,
-  telephone,
   priceRange
 }: CityLocalBusinessSchemaProps) => {
   const localBusinessSchema = {

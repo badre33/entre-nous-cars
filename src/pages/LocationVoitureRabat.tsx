@@ -43,7 +43,6 @@ const LocationVoitureRabat = () => {
         longitude="-6.8498"
         address="Aéroport Rabat-Salé"
         postalCode="10000"
-        telephone="+212699024526"
         priceRange="150-800 MAD"
       />
       <ReviewsSchema 

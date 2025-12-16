@@ -43,7 +43,6 @@ const LocationVoitureFes = () => {
         longitude="-5.0003"
         address="Aéroport Fès-Saïss"
         postalCode="30000"
-        telephone="+212699024526"
         priceRange="150-750 MAD"
       />
       <ReviewsSchema 

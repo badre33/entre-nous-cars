@@ -53,7 +53,6 @@ const LocationVoitureCasablanca = () => {
         longitude="-7.5898"
         address="Aéroport Mohammed V"
         postalCode="27000"
-        telephone="+212699024526"
         priceRange="150-800 MAD"
       />
       <ReviewsSchema 

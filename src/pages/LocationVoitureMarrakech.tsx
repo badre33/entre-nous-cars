@@ -52,7 +52,6 @@ const LocationVoitureMarrakech = () => {
         longitude="-7.9811"
         address="Aéroport Marrakech Menara"
         postalCode="40000"
-        telephone="+212699024526"
         priceRange="150-900 MAD"
       />
       <ReviewsSchema 
