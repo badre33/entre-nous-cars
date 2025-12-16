@@ -144,24 +144,27 @@ Style: Professional, modern, clean design with high contrast text for readabilit
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      console.error("AI Gateway error:", response.status, errorText);
+      // Log sanitized error for debugging (no sensitive details exposed)
+      console.error(`AI Gateway error: status=${response.status}`);
       
       if (response.status === 429) {
         return new Response(
-          JSON.stringify({ error: "Rate limit exceeded. Please try again later." }),
+          JSON.stringify({ error: "Service temporarily unavailable. Please try again later." }),
           { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
       
       if (response.status === 402) {
         return new Response(
-          JSON.stringify({ error: "Payment required. Please add credits to your workspace." }),
+          JSON.stringify({ error: "Service temporarily unavailable." }),
           { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
 
-      throw new Error(`AI Gateway error: ${response.status} ${errorText}`);
+      return new Response(
+        JSON.stringify({ error: "Image generation service unavailable." }),
+        { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
+      );
     }
 
     const data = await response.json();
@@ -234,11 +237,10 @@ Style: Professional, modern, clean design with high contrast text for readabilit
     );
 
   } catch (error) {
-    console.error("Error generating OG image:", error);
+    // Log sanitized error for debugging (no sensitive details in response)
+    console.error(`OG image generation error: ${error instanceof Error ? error.name : 'Unknown'}`);
     return new Response(
-      JSON.stringify({ 
-        error: error instanceof Error ? error.message : "Unknown error occurred" 
-      }),
+      JSON.stringify({ error: "An error occurred while generating the image." }),
       { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
     );
   }

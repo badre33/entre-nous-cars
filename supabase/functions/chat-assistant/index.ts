@@ -401,7 +401,7 @@ RAPPEL : Chaque message doit RAPPROCHER de la location. Pas de bavardage inutile
     // Log sanitized error without exposing sensitive details
     console.error(`Chat error: ${sanitizeError(e)}`);
     return new Response(
-      JSON.stringify({ error: e instanceof Error ? e.message : "Erreur inconnue" }),
+      JSON.stringify({ error: "Une erreur est survenue. Veuillez réessayer." }),
       {
         status: 500,
         headers: { ...corsHeaders, "Content-Type": "application/json" },
