@@ -12,6 +12,8 @@ import { ServiceSchema } from "@/components/ServiceSchema";
 import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { EnhancedAggregateRatingSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
+import { SITE_STATS } from "@/data/siteStats";
+import { BUSINESS_INFO } from "@/constants/businessInfo";
 
 // WebP optimized images
 import cityCasablanca from "@/assets/city-casablanca-optimized.webp";
@@ -77,8 +79,8 @@ const Index = () => {
           date: r.date,
           car: r.title || "Véhicule"
         }))}
-        averageRating={4.8}
-        totalReviews={1247}
+        averageRating={SITE_STATS.ratingAverage}
+        totalReviews={SITE_STATS.ratingCount}
       />
       
       <Header />
@@ -98,7 +100,7 @@ const Index = () => {
           {/* Trust badge */}
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in">
             <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-            <span className="text-sm font-medium">4.8/5 - Plus de 1200 clients satisfaits</span>
+            <span className="text-sm font-medium">{SITE_STATS.ratingAverage}/5 - Plus de {SITE_STATS.totalCustomers} clients satisfaits</span>
           </div>
           
           {/* Main headline */}
