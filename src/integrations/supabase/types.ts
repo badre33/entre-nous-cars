@@ -14,7 +14,99 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      analytics_events: {
+        Row: {
+          created_at: string
+          device_type: string | null
+          event_name: string
+          event_type: string
+          id: string
+          page_path: string | null
+          properties: Json | null
+          referrer: string | null
+          session_id: string | null
+          source: string | null
+          user_agent: string | null
+          visitor_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          device_type?: string | null
+          event_name: string
+          event_type: string
+          id?: string
+          page_path?: string | null
+          properties?: Json | null
+          referrer?: string | null
+          session_id?: string | null
+          source?: string | null
+          user_agent?: string | null
+          visitor_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          device_type?: string | null
+          event_name?: string
+          event_type?: string
+          id?: string
+          page_path?: string | null
+          properties?: Json | null
+          referrer?: string | null
+          session_id?: string | null
+          source?: string | null
+          user_agent?: string | null
+          visitor_id?: string | null
+        }
+        Relationships: []
+      }
+      analytics_sessions: {
+        Row: {
+          country: string | null
+          created_at: string
+          device_type: string | null
+          end_time: string | null
+          entry_page: string | null
+          events_count: number | null
+          exit_page: string | null
+          id: string
+          page_views: number | null
+          session_id: string
+          source: string | null
+          start_time: string
+          visitor_id: string
+        }
+        Insert: {
+          country?: string | null
+          created_at?: string
+          device_type?: string | null
+          end_time?: string | null
+          entry_page?: string | null
+          events_count?: number | null
+          exit_page?: string | null
+          id?: string
+          page_views?: number | null
+          session_id: string
+          source?: string | null
+          start_time?: string
+          visitor_id: string
+        }
+        Update: {
+          country?: string | null
+          created_at?: string
+          device_type?: string | null
+          end_time?: string | null
+          entry_page?: string | null
+          events_count?: number | null
+          exit_page?: string | null
+          id?: string
+          page_views?: number | null
+          session_id?: string
+          source?: string | null
+          start_time?: string
+          visitor_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

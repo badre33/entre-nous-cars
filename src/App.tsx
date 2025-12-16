@@ -18,7 +18,7 @@ import React, { lazy, Suspense, useEffect, useState, ComponentType } from "react
 import { BottomNavigation } from "@/components/BottomNavigation";
 
 import { PageSkeleton } from "@/components/PageSkeleton";
-import { analytics } from "@/utils/analytics";
+import { analyticsTracker } from "@/utils/analyticsTracker";
 
 // Code splitting avec React.lazy - Homepage not lazy loaded for better LCP
 import Index from "./pages/Index";
@@ -101,14 +101,27 @@ const LocationVoitureRouteOurikaMarrakech = lazy(() => import("./pages/LocationV
 // 404 page
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Auth and Analytics pages
+const Auth = lazy(() => import("./pages/Auth"));
+const AnalyticsDashboard = lazy(() => import("./pages/Analytics"));
+
 // Analytics tracking component - deferred to avoid FID impact
-const AnalyticsTracker = () => {
+const AnalyticsTrackerComponent = () => {
   const location = useLocation();
+  const isInitialized = React.useRef(false);
+
+  useEffect(() => {
+    // Initialize tracker once
+    if (!isInitialized.current) {
+      analyticsTracker.init();
+      isInitialized.current = true;
+    }
+  }, []);
 
   useEffect(() => {
     // Defer analytics tracking to avoid blocking main thread during navigation
     const trackWithDelay = () => {
-      analytics.trackPageView(location.pathname);
+      analyticsTracker.trackPageView(location.pathname);
     };
 
     // Use requestIdleCallback for non-blocking analytics
@@ -191,7 +204,7 @@ const App = () => {
             <OrganizationSchema />
             <SitelinksSearchBoxSchema />
             <MetaPixel />
-            <AnalyticsTracker />
+            <AnalyticsTrackerComponent />
             <IntelligentRoutePrefetcher />
             <LanguageProvider>
               <ComparisonProvider>
@@ -263,6 +276,9 @@ const App = () => {
                     <Route path="/location-voiture-medina-marrakech" element={<LocationVoitureMedinaMarrakech />} />
                     <Route path="/location-voiture-palmeraie-marrakech" element={<LocationVoiturePalmeraieMarrakech />} />
                     <Route path="/location-voiture-route-ourika-marrakech" element={<LocationVoitureRouteOurikaMarrakech />} />
+                    {/* Auth & Analytics */}
+                    <Route path="/auth" element={<Auth />} />
+                    <Route path="/analytics" element={<AnalyticsDashboard />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
