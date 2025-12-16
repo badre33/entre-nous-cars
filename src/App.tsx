@@ -42,6 +42,7 @@ const APropos = lazy(() => import("./pages/APropos"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const ConditionsGenerales = lazy(() => import("./pages/ConditionsGenerales"));
 const Glossaire = lazy(() => import("./pages/Glossaire"));
 const ComparatifsList = lazy(() => import("./pages/ComparatifsList"));
 const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
@@ -222,6 +223,7 @@ const App = () => {
                     <Route path="/blog/:slug" element={<BlogArticle />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/faq" element={<FAQ />} />
+                    <Route path="/conditions-generales" element={<ConditionsGenerales />} />
                     <Route path="/glossaire" element={<Glossaire />} />
                     <Route path="/comparatifs" element={<ComparatifsList />} />
                     <Route path="/comparatif/:slug" element={<ComparisonPage />} />

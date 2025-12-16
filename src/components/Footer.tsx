@@ -67,6 +67,11 @@ const Footer = () => {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link to="/conditions-generales" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Conditions générales
+                </Link>
+              </li>
             </ul>
           </div>
           
