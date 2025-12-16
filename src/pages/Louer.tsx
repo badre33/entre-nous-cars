@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { HreflangTags } from "@/utils/hreflangHelper";
 import LazyCarImage from "@/components/LazyCarImage";
+import { generateSimpleMessage, openWhatsApp } from "@/utils/whatsapp";
 
 // Car images
 import carClio from "@/assets/car-clio.jpg";
@@ -23,18 +24,21 @@ const Louer = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   
-  const whatsappNumber = "212699024526";
-  
-  const openWhatsApp = (carName?: string) => {
+  const handleWhatsAppClick = (carName?: string) => {
+    let cityLabel = selectedCity;
+    // Convert value to label if needed
+    const cityObj = cities.find(c => c.value === selectedCity);
+    if (cityObj) cityLabel = cityObj.label;
+    
     let message = "Bonjour, je souhaite louer une voiture";
     if (carName) {
       message += ` (${carName})`;
     }
-    if (selectedCity) {
-      message += ` à ${selectedCity}`;
+    if (cityLabel) {
+      message += ` à ${cityLabel}`;
     }
-    message += " du [date] au [date].";
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    message += ".\n\nPouvez-vous me communiquer les disponibilités et tarifs ?\n\nMerci !";
+    openWhatsApp(message);
   };
 
   const cities = [
@@ -110,7 +114,7 @@ const Louer = () => {
             
             {/* Primary CTA */}
             <Button 
-              onClick={() => openWhatsApp()}
+              onClick={() => handleWhatsAppClick()}
               size="lg"
               className="bg-[#25D366] hover:bg-[#128C7E] text-white text-lg px-8 py-6 h-auto rounded-full shadow-xl hover:shadow-[#25D366]/30 transition-all duration-300 hover:scale-105 font-semibold"
             >
@@ -214,7 +218,7 @@ const Louer = () => {
           {/* View more CTA */}
           <div className="text-center mt-8">
             <Button 
-              onClick={() => openWhatsApp()}
+              onClick={() => handleWhatsAppClick()}
               variant="outline"
               size="lg"
               className="rounded-full"
@@ -277,7 +281,7 @@ const Louer = () => {
             Envoyez-nous un message et recevez votre devis personnalisé en quelques minutes.
           </p>
           <Button 
-            onClick={() => openWhatsApp()}
+            onClick={() => handleWhatsAppClick()}
             size="lg"
             className="bg-white text-[#25D366] hover:bg-white/90 text-lg px-8 py-6 h-auto rounded-full shadow-2xl transition-all duration-300 hover:scale-105 font-semibold"
           >
@@ -292,7 +296,7 @@ const Louer = () => {
       {/* Sticky WhatsApp CTA - Mobile */}
       <div className="fixed bottom-0 left-0 right-0 md:hidden z-50 bg-background/95 backdrop-blur-sm border-t border-border p-3 safe-area-pb">
         <Button 
-          onClick={() => openWhatsApp()}
+          onClick={() => handleWhatsAppClick()}
           className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-6 text-base font-semibold rounded-xl shadow-lg"
         >
           <MessageCircle className="w-5 h-5 mr-2" />

@@ -1,10 +1,10 @@
 import { MessageCircle } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { analytics } from "@/utils/analytics";
+import { WHATSAPP_NUMBER, generateSimpleMessage } from "@/utils/whatsapp";
 
 const WhatsAppButton = () => {
   const location = useLocation();
-  const whatsappNumber = "212699024526";
   
   // Hide on pages with their own sticky CTA
   const hiddenRoutes = ['/louer', '/partenaires', '/'];
@@ -12,48 +12,42 @@ const WhatsAppButton = () => {
     return null;
   }
   
-  // Generate context-aware pre-filled message
-  const getMessage = () => {
-    const path = location.pathname;
+  // Extract city from URL path
+  const getCityFromPath = (): string | undefined => {
+    const path = location.pathname.toLowerCase();
     
-    if (path.includes('casablanca')) {
-      if (path.includes('aeroport')) {
-        return "Bonjour, j'arrive à l'aéroport de Casablanca et je souhaite louer une voiture du [date] au [date].";
+    const cityMappings: Record<string, string> = {
+      'casablanca': 'Casablanca',
+      'rabat': 'Rabat', 
+      'marrakech': 'Marrakech',
+      'agadir': 'Agadir',
+      'tanger': 'Tanger',
+      'fes': 'Fès',
+    };
+    
+    for (const [key, value] of Object.entries(cityMappings)) {
+      if (path.includes(key)) {
+        // Check if it's an airport
+        if (path.includes('aeroport')) {
+          return `Aéroport ${value}`;
+        }
+        return value;
       }
-      return "Bonjour, je souhaite louer une voiture à Casablanca du [date] au [date].";
     }
-    if (path.includes('rabat')) {
-      if (path.includes('aeroport')) {
-        return "Bonjour, j'arrive à l'aéroport de Rabat et je souhaite louer une voiture du [date] au [date].";
-      }
-      return "Bonjour, je souhaite louer une voiture à Rabat du [date] au [date].";
-    }
-    if (path.includes('marrakech')) {
-      if (path.includes('aeroport')) {
-        return "Bonjour, j'arrive à l'aéroport de Marrakech et je souhaite louer une voiture du [date] au [date].";
-      }
-      return "Bonjour, je souhaite louer une voiture à Marrakech du [date] au [date].";
-    }
+    
+    // Special cases
     if (path.includes('can-2025')) {
-      return "Bonjour, je souhaite louer une voiture pour la CAN 2025 au Maroc du [date] au [date].";
-    }
-    if (path.includes('agadir')) {
-      return "Bonjour, je souhaite louer une voiture à Agadir du [date] au [date].";
-    }
-    if (path.includes('tanger')) {
-      return "Bonjour, je souhaite louer une voiture à Tanger du [date] au [date].";
-    }
-    if (path.includes('fes')) {
-      return "Bonjour, je souhaite louer une voiture à Fès du [date] au [date].";
+      return 'CAN 2025 Maroc';
     }
     
-    return "Bonjour, je souhaite louer une voiture au Maroc du [date] au [date].";
+    return undefined;
   };
   
   const handleClick = () => {
     analytics.trackEvent('whatsapp_click', { page: location.pathname });
-    const message = getMessage();
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    const city = getCityFromPath();
+    const message = generateSimpleMessage(city);
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
