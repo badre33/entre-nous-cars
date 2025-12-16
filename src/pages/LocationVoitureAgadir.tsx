@@ -43,7 +43,6 @@ const LocationVoitureAgadir = () => {
         longitude="-9.5981"
         address="Aéroport Agadir Al Massira"
         postalCode="80000"
-        telephone="+212699024526"
         priceRange="150-900 MAD"
       />
       <ReviewsSchema 
