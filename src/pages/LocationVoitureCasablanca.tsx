@@ -15,6 +15,7 @@ import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { SITE_STATS } from "@/data/siteStats";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { HreflangTags } from "@/utils/hreflangHelper";
 import { 
@@ -80,8 +81,8 @@ const LocationVoitureCasablanca = () => {
             date: 'Il y a 1 semaine',
           },
         ]}
-        averageRating={4.8}
-        totalReviews={1247}
+        averageRating={SITE_STATS.ratingAverage}
+        totalReviews={SITE_STATS.ratingCount}
         city="Casablanca"
       />
       
@@ -492,7 +493,7 @@ const LocationVoitureCasablanca = () => {
             <CardContent className="pt-6 text-center">
               <h2 className="text-2xl font-bold mb-4">Prêt à Louer Votre Voiture à Casablanca ?</h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Rejoignez des milliers de clients satisfaits qui ont choisi Benatna pour leur location de voiture à Casablanca
+                Agences vérifiées, prix transparents, support WhatsApp 7j/7 – tout pour une location sereine à Casablanca
               </p>
               <Link to="/louer?city=Casablanca">
                 <Button size="lg" className="text-lg px-8">

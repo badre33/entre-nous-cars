@@ -97,10 +97,20 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
         
         <div className="container relative z-10 text-center text-white px-4 py-8">
-          {/* Trust badge */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 animate-fade-in">
-            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-            <span className="text-sm font-medium">{SITE_STATS.ratingAverage}/5 - Plus de {SITE_STATS.totalCustomers} clients satisfaits</span>
+          {/* Trust badges - claims vérifiables uniquement */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6 animate-fade-in">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+              <Shield className="w-4 h-4 text-green-400" />
+              <span className="text-sm font-medium">Agences vérifiées</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+              <CheckCircle className="w-4 h-4 text-blue-400" />
+              <span className="text-sm font-medium">Prix transparents</span>
+            </div>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
+              <MessageCircle className="w-4 h-4 text-[#25D366]" />
+              <span className="text-sm font-medium">Support WhatsApp 7j/7</span>
+            </div>
           </div>
           
           {/* Main headline */}
