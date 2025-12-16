@@ -9,6 +9,7 @@ import { EnhancedAggregateRatingSchema, BreadcrumbListSchema, createBreadcrumbs 
 import { globalReviews } from "@/data/reviewsData";
 import { SITE_STATS } from "@/data/siteStats";
 import { generateSimpleMessage, openWhatsApp } from "@/utils/whatsapp";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   HeroWhatsAppCTA,
   HowItWorks,
@@ -27,6 +28,8 @@ import cityRabat from "@/assets/city-rabat-optimized.webp";
 const heroImageWebp = "/hero-home-new.webp";
 
 const Index = () => {
+  const { t } = useLanguage();
+
   const handleWhatsAppClick = (city?: string) => {
     openWhatsApp(generateSimpleMessage(city));
   };
@@ -58,8 +61,8 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>Benatna - Location de Voiture au Maroc | Simple, Rapide, Sans Stress</title>
-        <meta name="description" content="Louez une voiture au Maroc en quelques minutes. Casablanca, Marrakech, Rabat & aéroports. Service humain et réactif via WhatsApp. Pas de paiement en ligne." />
+        <title>{t("homepage.metaTitle")}</title>
+        <meta name="description" content={t("homepage.metaDescription")} />
         <link rel="canonical" href="https://benatna.ma/" />
       </Helmet>
       <HreflangTags path="/" />
