@@ -188,8 +188,12 @@ Style: Professional, modern, clean design with high contrast text for readabilit
       const imageBuffer = Uint8Array.from(atob(base64Data), c => c.charCodeAt(0));
       
       // Créer un nom de fichier unique basé sur les paramètres de la voiture
-      const fileName = `og-${carName.replace(/\s+/g, "-").toLowerCase()}-${city.replace(/\s+/g, "-").toLowerCase()}.png`;
-      const filePath = `og-images/${fileName}`;
+      // Sanitize inputs to prevent path traversal attacks
+      const sanitizedCarName = carName.replace(/[^a-z0-9-]/gi, '-').toLowerCase().slice(0, 50);
+      const sanitizedCity = city.replace(/[^a-z0-9-]/gi, '-').toLowerCase().slice(0, 30);
+      const fileName = `og-${sanitizedCarName}-${sanitizedCity}.png`;
+      // Ensure file path stays within bucket (no directory traversal)
+      const filePath = fileName.replace(/\.\./g, '').replace(/\/+/g, '');
 
       // Vérifier si le bucket existe, sinon le créer
       const { data: buckets } = await supabase.storage.listBuckets();
