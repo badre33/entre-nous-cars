@@ -122,11 +122,26 @@ function isChunkLoadError(error: Error | unknown): boolean {
     /Unable to preload CSS/i,
     /Importing a module script failed/i,
     /error loading dynamically imported module/i,
+    // NetworkOnly failures (new SW config)
+    /Failed to fetch/i,
+    /NetworkError when attempting to fetch/i,
+    /Load failed/i,
+    /fetch failed/i,
   ];
 
-  return chunkErrorPatterns.some(pattern => 
+  // Check if error is related to asset loading (JS/CSS chunks)
+  const isAssetRelated = errorString.includes('/assets/') || 
+                         errorString.includes('.js') || 
+                         errorString.includes('.css');
+
+  const matchesPattern = chunkErrorPatterns.some(pattern => 
     pattern.test(errorMessage) || pattern.test(errorName) || pattern.test(errorString)
   );
+
+  // For generic fetch errors, only treat as chunk error if asset-related
+  const isGenericFetchError = /Failed to fetch|NetworkError|Load failed|fetch failed/i.test(errorMessage);
+  
+  return matchesPattern && (!isGenericFetchError || isAssetRelated);
 }
 
 /**
