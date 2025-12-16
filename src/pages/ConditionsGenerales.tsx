@@ -72,8 +72,8 @@ const ConditionsGenerales = () => {
           <section className="mb-8">
             <h2 className="text-2xl font-semibold mb-4">6. Contact</h2>
             <p className="text-muted-foreground">
-              Pour toute question concernant nos conditions générales, contactez-nous via WhatsApp 
-              ou par email à contact@benatna.ma. Notre équipe est disponible pour vous accompagner.
+              Pour toute question concernant nos conditions générales, contactez-nous via WhatsApp. 
+              Notre équipe est disponible pour vous accompagner.
             </p>
           </section>
         </div>
