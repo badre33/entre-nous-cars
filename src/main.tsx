@@ -1,3 +1,7 @@
+// ChunkErrorHandler doit être importé en premier pour intercepter les erreurs de chargement
+import './utils/chunkErrorHandler';
+import './utils/versionCheck';
+
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
