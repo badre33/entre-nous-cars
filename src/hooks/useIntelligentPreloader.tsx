@@ -31,25 +31,32 @@ export const useIntelligentPreloader = (
 
   const findNextImages = useCallback(() => {
     const nextImages: string[] = [];
+    const viewportHeight = window.innerHeight;
+    
+    // Batch all layout reads first to avoid forced reflows
+    const elementsData: { url: string | null; rect: DOMRect }[] = [];
     
     targets.forEach(({ selector, attribute = "src" }) => {
       const elements = document.querySelectorAll(selector);
-      
       elements.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-        const isJustBelow = rect.top > window.innerHeight && rect.top < window.innerHeight * 2;
-        
-        if (isJustBelow && !isInViewport) {
-          const url = el.getAttribute(attribute);
-          if (url && !preloadedUrls.current.has(url)) {
-            nextImages.push(url);
-          }
-        }
+        elementsData.push({
+          url: el.getAttribute(attribute),
+          rect: el.getBoundingClientRect()
+        });
       });
     });
     
-    return nextImages.slice(0, 3); // Limiter à 3 images
+    // Then process the data without triggering reflows
+    elementsData.forEach(({ url, rect }) => {
+      const isInViewport = rect.top < viewportHeight && rect.bottom > 0;
+      const isJustBelow = rect.top > viewportHeight && rect.top < viewportHeight * 2;
+      
+      if (isJustBelow && !isInViewport && url && !preloadedUrls.current.has(url)) {
+        nextImages.push(url);
+      }
+    });
+    
+    return nextImages.slice(0, 3);
   }, [targets]);
 
   const handleScroll = useCallback(() => {
