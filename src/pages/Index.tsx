@@ -32,25 +32,25 @@ const Index = () => {
   };
 
   const cities = [
-    { name: "Casablanca", image: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-casablanca" },
-    { name: "Rabat", image: cityRabat, slug: "rabat", guideSlug: "/location-voiture-rabat" },
-    { name: "Marrakech", image: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-marrakech" },
-    { name: "Aéroport Casablanca", image: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-aeroport-casablanca" },
-    { name: "Aéroport Rabat", image: cityRabat, slug: "rabat", guideSlug: "/location-voiture-aeroport-rabat" },
-    { name: "Aéroport Marrakech", image: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-aeroport-marrakech" },
+    { nameKey: "homepage.casablanca", image: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-casablanca" },
+    { nameKey: "homepage.rabat", image: cityRabat, slug: "rabat", guideSlug: "/location-voiture-rabat" },
+    { nameKey: "homepage.marrakech", image: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-marrakech" },
+    { nameKey: "homepage.airportCasablanca", image: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-aeroport-casablanca" },
+    { nameKey: "homepage.airportRabat", image: cityRabat, slug: "rabat", guideSlug: "/location-voiture-aeroport-rabat" },
+    { nameKey: "homepage.airportMarrakech", image: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-aeroport-marrakech" },
   ];
 
   const testimonials = [
     {
-      name: "Youssef A.",
-      location: "France → Casablanca",
-      comment: "Service impeccable ! J'ai réservé depuis Paris, tout était prêt à mon arrivée. Aucun stress.",
+      nameKey: "homepage.testimonial1Name",
+      locationKey: "homepage.testimonial1Location",
+      commentKey: "homepage.testimonial1Comment",
       rating: 5
     },
     {
-      name: "Sarah M.",
-      location: "Belgique → Marrakech", 
-      comment: "Enfin une agence qui répond rapidement sur WhatsApp. Très pratique pour nous les MRE.",
+      nameKey: "homepage.testimonial2Name",
+      locationKey: "homepage.testimonial2Location", 
+      commentKey: "homepage.testimonial2Comment",
       rating: 5
     }
   ];
