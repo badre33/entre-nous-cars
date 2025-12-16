@@ -10,6 +10,10 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  // Injecter le timestamp de build pour la détection de version
+  define: {
+    __BUILD_TIMESTAMP__: JSON.stringify(new Date().toISOString()),
+  },
   build: {
     // Use default chunking & minification to maximize React compatibility
     cssCodeSplit: true,
@@ -81,26 +85,60 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,woff2}"],
         navigateFallback: '/index.html',
-        navigateFallbackDenylist: [/^\/api/],
+        navigateFallbackDenylist: [/^\/api/, /^\/version\.json/],
         cleanupOutdatedCaches: true,
         skipWaiting: true,
         clientsClaim: true,
         runtimeCaching: [
+          // Pages HTML - cache très court pour éviter les versions obsolètes
           {
-            urlPattern: /^https:\/\/benatna\.ma\/.*/i,
+            urlPattern: /^https:\/\/benatna\.ma\/(?!assets\/).*$/i,
             handler: "NetworkFirst",
             options: {
               cacheName: "pages-cache",
-              networkTimeoutSeconds: 5,
+              networkTimeoutSeconds: 3, // Réduit de 5s à 3s
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 60 * 24 * 7,
+                maxAgeSeconds: 60 * 60, // 1 heure au lieu de 7 jours
               },
               cacheableResponse: {
                 statuses: [0, 200],
               },
             },
           },
+          // Chunks JS hashés - NetworkFirst pour éviter les mismatches
+          {
+            urlPattern: /\/assets\/.*\.[a-f0-9]+\.js$/i,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "js-chunks-cache",
+              networkTimeoutSeconds: 3,
+              expiration: {
+                maxEntries: 100,
+                maxAgeSeconds: 60 * 60 * 24, // 1 jour
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          // CSS chunks - NetworkFirst également
+          {
+            urlPattern: /\/assets\/.*\.[a-f0-9]+\.css$/i,
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "css-chunks-cache",
+              networkTimeoutSeconds: 3,
+              expiration: {
+                maxEntries: 50,
+                maxAgeSeconds: 60 * 60 * 24,
+              },
+              cacheableResponse: {
+                statuses: [0, 200],
+              },
+            },
+          },
+          // Images - CacheFirst car elles sont stables
           {
             urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp)$/i,
             handler: "CacheFirst",
@@ -112,6 +150,7 @@ export default defineConfig(({ mode }) => ({
               },
             },
           },
+          // Google Fonts stylesheets
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: "StaleWhileRevalidate",
@@ -123,6 +162,7 @@ export default defineConfig(({ mode }) => ({
               },
             },
           },
+          // Google Fonts files
           {
             urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
             handler: "CacheFirst",
@@ -134,6 +174,7 @@ export default defineConfig(({ mode }) => ({
               },
             },
           },
+          // API calls - NetworkFirst avec timeout court
           {
             urlPattern: /^https:\/\/.*\.supabase\.co\/functions\/.*/i,
             handler: "NetworkFirst",
@@ -149,6 +190,7 @@ export default defineConfig(({ mode }) => ({
               },
             },
           },
+          // CDN assets - CacheFirst
           {
             urlPattern: /^https:\/\/.*\.(?:googleapis|gstatic|unpkg|jsdelivr)\.com\/.*/i,
             handler: "CacheFirst",
