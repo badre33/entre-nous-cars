@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import { analyticsTracker } from "@/utils/analyticsTracker";
 
 // Delay analytics to move it completely out of critical request chain
-const ANALYTICS_INIT_DELAY = 5000; // 5 seconds after page load
-const ANALYTICS_TRACK_DELAY = 6000; // 6 seconds for tracking events
+const ANALYTICS_INIT_DELAY = 7000; // 7 seconds after page load
+const ANALYTICS_TRACK_DELAY = 8000; // 8 seconds for tracking events
 
 export const useAnalyticsTracker = () => {
   const location = useLocation();
