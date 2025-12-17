@@ -33,6 +33,20 @@ const requestSchema = z.object({
   baseImageUrl: z.string().url().optional()
 });
 
+// Sanitize user input to prevent prompt injection in image generation
+function sanitizeForImagePrompt(input: string): string {
+  return input
+    .replace(/ignore\s+(all\s+)?(previous|above|prior)\s+instructions?/gi, '')
+    .replace(/generate\s+(explicit|violent|illegal)/gi, '')
+    .replace(/create\s+(nsfw|inappropriate)/gi, '')
+    .replace(/instead\s+of\s+(a\s+)?car/gi, '')
+    .replace(/\bimportant\s*:/gi, '')
+    .replace(/override/gi, '')
+    .replace(/[<>{}[\]]/g, '') // Remove potential injection characters
+    .trim()
+    .slice(0, 100); // Enforce max length after sanitization
+}
+
 // Rate limiting
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT_WINDOW = 60000; // 1 minute
@@ -101,25 +115,30 @@ serve(async (req) => {
     }
     
     const { carName, city, price, category, baseImageUrl } = validation.data;
-
+    
+    // Sanitize all user inputs before using in AI prompt
+    const sanitizedCarName = sanitizeForImagePrompt(carName);
+    const sanitizedCity = sanitizeForImagePrompt(city);
+    const sanitizedPrice = sanitizeForImagePrompt(price);
+    const sanitizedCategory = category ? sanitizeForImagePrompt(category) : 'modern vehicle';
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) {
       throw new Error("LOVABLE_API_KEY is not configured");
     }
 
-    console.log("Generating OG image for:", { carName, city, price, category });
+    console.log("Generating OG image for:", { carName: sanitizedCarName, city: sanitizedCity, price: sanitizedPrice });
 
     // Créer un prompt détaillé pour une image OG professionnelle
     const prompt = `Create a professional social media share image (1200x630px) for a car rental service.
 
 Layout:
 - Background: Modern gradient (dark blue to teal) with subtle geometric patterns
-- Left side: Show a ${carName} car (${category || 'modern vehicle'}) in a professional studio lighting
+- Left side: Show a ${sanitizedCarName} car (${sanitizedCategory}) in a professional studio lighting
 - Right side: Information overlay with:
-  * Car name: "${carName}" in large, bold, white text
-  * Location: "${city}" with a pin icon in smaller text
-  * Price: "${price}" in prominent orange/yellow text with "par jour" below
+  * Car name: "${sanitizedCarName}" in large, bold, white text
+  * Location: "${sanitizedCity}" with a pin icon in smaller text
+  * Price: "${sanitizedPrice}" in prominent orange/yellow text with "par jour" below
   * Small logo placeholder in top right corner
   
 Style: Professional, modern, clean design with high contrast text for readability on social media. Make it eye-catching and premium-looking.`;

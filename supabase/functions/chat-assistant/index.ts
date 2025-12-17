@@ -33,6 +33,22 @@ const requestSchema = z.object({
   messages: z.array(messageSchema).min(1).max(20) // Reduced from 50 to limit context abuse
 });
 
+// Sanitize user input to prevent prompt injection attacks
+function sanitizeForAIPrompt(input: string): string {
+  return input
+    .replace(/ignore\s+(all\s+)?(previous|above|prior)\s+instructions?/gi, '[filtered]')
+    .replace(/system\s+prompt/gi, '[filtered]')
+    .replace(/you\s+are\s+now/gi, '[filtered]')
+    .replace(/act\s+as\s+(a|an)?/gi, '[filtered]')
+    .replace(/pretend\s+to\s+be/gi, '[filtered]')
+    .replace(/\brole\s*:/gi, '[filtered]')
+    .replace(/reveal\s+(your|the)\s+(system|instructions?|prompt)/gi, '[filtered]')
+    .replace(/what\s+(are|were)\s+your\s+(original\s+)?instructions?/gi, '[filtered]')
+    .replace(/disregard\s+(all\s+)?(previous|prior)/gi, '[filtered]')
+    .replace(/bypass\s+(security|filters?|restrictions?)/gi, '[filtered]')
+    .trim();
+}
+
 // Enhanced rate limiting with fingerprinting
 const rateLimitMap = new Map<string, { count: number; resetTime: number; blocked: boolean }>();
 const RATE_LIMIT_WINDOW = 60000; // 1 minute
@@ -172,7 +188,14 @@ serve(async (req) => {
     }
     
     const { messages } = validation.data;
-    console.log(`Processing chat request, messages: ${messages.length}`);
+    
+    // Sanitize user messages to prevent prompt injection
+    const sanitizedMessages = messages.map(msg => ({
+      ...msg,
+      content: msg.role === 'user' ? sanitizeForAIPrompt(msg.content) : msg.content
+    }));
+    
+    console.log(`Processing chat request, messages: ${sanitizedMessages.length}`);
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     
     if (!LOVABLE_API_KEY) {
@@ -353,7 +376,7 @@ RAPPEL : Chaque message doit RAPPROCHER de la location. Pas de bavardage inutile
         model: "google/gemini-2.5-flash",
         messages: [
           { role: "system", content: systemPrompt },
-          ...messages,
+          ...sanitizedMessages,
         ],
         tools: tools,
         tool_choice: "auto",
