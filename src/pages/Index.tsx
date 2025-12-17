@@ -1,6 +1,6 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { HreflangTags } from "@/utils/hreflangHelper";
 import { ServiceSchema } from "@/components/ServiceSchema";
@@ -10,15 +10,20 @@ import { globalReviews } from "@/data/reviewsData";
 import { SITE_STATS } from "@/data/siteStats";
 import { generateSimpleMessage, openWhatsApp } from "@/utils/whatsapp";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+// Above-the-fold components - eagerly loaded
 import {
   HeroWhatsAppCTA,
   HowItWorks,
   WhyBenatna,
-  CityGrid,
-  Testimonials,
-  FinalCTA,
   MobileStickyCTA
 } from "@/components/home";
+
+// Below-the-fold components - lazy loaded for better FCP
+const CityGrid = lazy(() => import("@/components/home/CityGrid"));
+const Testimonials = lazy(() => import("@/components/home/Testimonials"));
+const FinalCTA = lazy(() => import("@/components/home/FinalCTA"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 // WebP optimized images
 import cityCasablanca from "@/assets/city-casablanca-optimized.webp";
@@ -26,6 +31,20 @@ import cityMarrakech from "@/assets/city-marrakech-optimized.webp";
 import cityRabat from "@/assets/city-rabat-optimized.webp";
 
 const heroImageWebp = "/hero-home-new.webp";
+
+// Minimal loading skeleton for lazy components
+const SectionSkeleton = () => (
+  <div className="py-16 animate-pulse">
+    <div className="container px-4">
+      <div className="h-8 bg-muted rounded w-1/3 mx-auto mb-8" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {[1, 2, 3].map((i) => (
+          <div key={i} className="h-48 bg-muted rounded-lg" />
+        ))}
+      </div>
+    </div>
+  </div>
+);
 
 const Index = () => {
   const { t } = useLanguage();
@@ -94,13 +113,22 @@ const Index = () => {
       
       <WhyBenatna />
       
-      <CityGrid cities={cities} />
+      {/* Below-the-fold sections with lazy loading */}
+      <Suspense fallback={<SectionSkeleton />}>
+        <CityGrid cities={cities} />
+      </Suspense>
       
-      <Testimonials testimonials={testimonials} />
+      <Suspense fallback={<SectionSkeleton />}>
+        <Testimonials testimonials={testimonials} />
+      </Suspense>
       
-      <FinalCTA onWhatsAppClick={() => handleWhatsAppClick()} />
+      <Suspense fallback={<SectionSkeleton />}>
+        <FinalCTA onWhatsAppClick={() => handleWhatsAppClick()} />
+      </Suspense>
       
-      <Footer />
+      <Suspense fallback={<div className="h-96 bg-muted animate-pulse" />}>
+        <Footer />
+      </Suspense>
       
       <MobileStickyCTA onWhatsAppClick={() => handleWhatsAppClick()} />
     </div>
