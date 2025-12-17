@@ -64,10 +64,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preconnect" href="https://oaajsamymjhxggwxdfwn.supabase.co" crossorigin>
+    <link rel="preconnect" href="https://client.crisp.chat" crossorigin>
     <link rel="dns-prefetch" href="https://wa.me">
     
+    <!-- Critical CSS for FCP - inline above-the-fold styles -->
+    <style>
+      /* Critical reset and base */
+      *,*::before,*::after{box-sizing:border-box;border:0 solid}
+      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:Barlow,ui-sans-serif,system-ui,sans-serif}
+      body{margin:0;line-height:inherit;background-color:#fff;color:#0a0a0a}
+      /* Critical layout */
+      #root{min-height:100vh;display:flex;flex-direction:column}
+      .min-h-screen{min-height:100vh}
+      .flex{display:flex}
+      .flex-col{flex-direction:column}
+      /* Header critical styles */
+      header{position:sticky;top:0;z-index:50;background:hsla(0,0%,100%,.95);backdrop-filter:blur(8px)}
+      .container{width:100%;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
+      @media(min-width:640px){.container{max-width:640px}}
+      @media(min-width:768px){.container{max-width:768px}}
+      @media(min-width:1024px){.container{max-width:1024px}}
+      @media(min-width:1280px){.container{max-width:1280px}}
+      /* Hero section critical */
+      .relative{position:relative}
+      .absolute{position:absolute}
+      .inset-0{inset:0}
+      .w-full{width:100%}
+      .h-full{height:100%}
+      .object-cover{object-fit:cover}
+      /* Button base for CTA */
+      button{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0;background:transparent;cursor:pointer}
+      /* Hide content until CSS loads */
+      .bg-background{background-color:#fff}
+      /* Loading placeholder */
+      .animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
+      @keyframes pulse{50%{opacity:.5}}
+    </style>
+    
     <!-- Preload critical fonts for better LCP -->
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/pacifico/v23/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/barlow/v12/7cHpv4kjgoGqM7E_DMs5ynghnQci.woff2" type="font/woff2" crossorigin>
     
     <!-- PWA Manifest -->
