@@ -69,38 +69,27 @@
     <link rel="preconnect" href="https://client.crisp.chat" crossorigin>
     <link rel="dns-prefetch" href="https://wa.me">
     
-    <!-- Critical CSS for FCP - inline above-the-fold styles -->
+    <!-- Critical CSS for FCP - minimal above-the-fold styles only -->
     <style>
-      /* Critical reset and base */
-      *,*::before,*::after{box-sizing:border-box;border:0 solid}
-      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:Barlow,ui-sans-serif,system-ui,sans-serif}
-      body{margin:0;line-height:inherit;background-color:#fff;color:#0a0a0a}
-      /* Critical layout */
+      /* Critical reset */
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:Barlow,system-ui,sans-serif}
+      body{background:#f5ffe4;color:#000}
+      /* Layout */
       #root{min-height:100vh;display:flex;flex-direction:column}
-      .min-h-screen{min-height:100vh}
-      .flex{display:flex}
-      .flex-col{flex-direction:column}
-      /* Header critical styles */
-      header{position:sticky;top:0;z-index:50;background:hsla(0,0%,100%,.95);backdrop-filter:blur(8px)}
-      .container{width:100%;margin-left:auto;margin-right:auto;padding-left:1rem;padding-right:1rem}
-      @media(min-width:640px){.container{max-width:640px}}
-      @media(min-width:768px){.container{max-width:768px}}
-      @media(min-width:1024px){.container{max-width:1024px}}
-      @media(min-width:1280px){.container{max-width:1280px}}
-      /* Hero section critical */
-      .relative{position:relative}
-      .absolute{position:absolute}
-      .inset-0{inset:0}
-      .w-full{width:100%}
-      .h-full{height:100%}
-      .object-cover{object-fit:cover}
-      /* Button base for CTA */
-      button{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0;background:transparent;cursor:pointer}
-      /* Hide content until CSS loads */
-      .bg-background{background-color:#fff}
-      /* Loading placeholder */
+      .container{width:100%;max-width:1280px;margin:0 auto;padding:0 1rem}
+      /* Hero critical */
+      .relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}
+      .w-full{width:100%}.h-full{height:100%}.object-cover{object-fit:cover}
+      .flex{display:flex}.items-center{align-items:center}.justify-center{justify-content:center}
+      .text-center{text-align:center}.text-white{color:#fff}
+      /* Header critical */
+      header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px)}
+      /* Prevent FOUC */
       .animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
       @keyframes pulse{50%{opacity:.5}}
+      /* Font display swap */
+      @font-face{font-family:Barlow;font-display:swap;src:local('Barlow')}
     </style>
     
     <!-- Preload critical fonts for better LCP -->
