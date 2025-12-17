@@ -123,13 +123,13 @@ export const MetaPixel = () => {
       }
     };
 
-    // Use requestIdleCallback to defer loading and avoid blocking FID
+    // Use requestIdleCallback with longer timeout to stay completely out of critical path
     if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(loadPixel, { timeout: 4000 });
+      const idleId = requestIdleCallback(loadPixel, { timeout: 8000 });
       return () => cancelIdleCallback(idleId);
     } else {
-      // Fallback for browsers without requestIdleCallback (Safari)
-      const timer = setTimeout(loadPixel, 2500);
+      // Fallback for browsers without requestIdleCallback (Safari) - 6s delay
+      const timer = setTimeout(loadPixel, 6000);
       return () => clearTimeout(timer);
     }
   }, []);

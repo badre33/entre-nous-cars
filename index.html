@@ -14,11 +14,11 @@
         j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WK894PKV';
         document.head.appendChild(j);
       }
-      // Defer GTM loading significantly to move out of critical path
+      // Defer GTM loading significantly to move out of critical path - 10s timeout
       if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGTM, { timeout: 8000 });
+        requestIdleCallback(loadGTM, { timeout: 10000 });
       } else {
-        setTimeout(loadGTM, 5000);
+        setTimeout(loadGTM, 8000);
       }
     </script>
     <!-- End Google Tag Manager -->
