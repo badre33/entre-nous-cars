@@ -178,34 +178,14 @@ class AnalyticsTracker {
     const visitorId = getVisitorId();
     
     try {
-      // Try to update existing session
-      const { data: existing } = await supabase
-        .from('analytics_sessions')
-        .select('id, page_views')
-        .eq('session_id', sessionId)
-        .single();
-      
-      if (existing) {
-        await supabase
-          .from('analytics_sessions')
-          .update({
-            page_views: (existing.page_views || 0) + 1,
-            exit_page: path,
-            end_time: new Date().toISOString()
-          })
-          .eq('session_id', sessionId);
-      } else {
-        await supabase
-          .from('analytics_sessions')
-          .insert({
-            session_id: sessionId,
-            visitor_id: visitorId,
-            entry_page: path,
-            exit_page: path,
-            device_type: getDeviceType(),
-            source: getSource()
-          });
-      }
+      // Use secure RPC function instead of direct table access
+      await supabase.rpc('touch_analytics_session', {
+        p_session_id: sessionId,
+        p_visitor_id: visitorId,
+        p_path: path,
+        p_device_type: getDeviceType(),
+        p_source: getSource()
+      });
     } catch (error) {
       console.error('Session tracking error:', error);
     }
