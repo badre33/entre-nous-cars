@@ -59,13 +59,38 @@ const Analytics = () => {
   const [eventTypeFilter, setEventTypeFilter] = useState("all");
   const [pageFilter, setPageFilter] = useState("all");
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
 
-  // Auth check
+  // Auth + Admin role check
   useEffect(() => {
+    const checkAdminRole = async (userId: string) => {
+      const { data, error } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', userId)
+        .maybeSingle();
+      
+      if (error || !data || data.role !== 'admin') {
+        toast({
+          title: "Accès refusé",
+          description: "Vous n'avez pas les droits d'accès au dashboard analytics.",
+          variant: "destructive",
+        });
+        navigate("/");
+        return false;
+      }
+      return true;
+    };
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       setIsAuthenticated(!!session?.user);
       if (!session?.user) {
         navigate("/auth");
+      } else {
+        // Defer role check to avoid Supabase deadlock
+        setTimeout(() => {
+          checkAdminRole(session.user.id).then(setIsAdmin);
+        }, 0);
       }
     });
 
@@ -73,11 +98,13 @@ const Analytics = () => {
       setIsAuthenticated(!!session?.user);
       if (!session?.user) {
         navigate("/auth");
+      } else {
+        checkAdminRole(session.user.id).then(setIsAdmin);
       }
     });
 
     return () => subscription.unsubscribe();
-  }, [navigate]);
+  }, [navigate, toast]);
 
   const startDate = startOfDay(subDays(new Date(), parseInt(dateRange)));
   const endDate = endOfDay(new Date());
@@ -269,8 +296,12 @@ const Analytics = () => {
     });
   };
 
-  if (isAuthenticated === null) {
+  if (isAuthenticated === null || isAdmin === null) {
     return <div className="min-h-screen flex items-center justify-center">Chargement...</div>;
+  }
+
+  if (!isAdmin) {
+    return <div className="min-h-screen flex items-center justify-center">Accès refusé</div>;
   }
 
   const isLoading = eventsLoading || sessionsLoading;
