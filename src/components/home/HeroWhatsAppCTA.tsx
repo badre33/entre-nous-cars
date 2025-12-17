@@ -12,9 +12,10 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
 
   return (
     <section className="relative min-h-[85vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
+      {/* Hero image optimized for LCP */}
       <img 
         src={heroImageUrl} 
-        alt="Location de voiture au Maroc"
+        alt="Location de voiture au Maroc - Benatna"
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
         fetchPriority="high"
@@ -22,6 +23,7 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
         width={1920}
         height={1080}
         sizes="100vw"
+        srcSet={`${heroImageUrl} 1920w`}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       
