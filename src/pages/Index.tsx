@@ -4,10 +4,7 @@ import Header from "@/components/Header";
 import { StructuredData } from "@/components/StructuredData";
 import { HreflangTags } from "@/utils/hreflangHelper";
 import { ServiceSchema } from "@/components/ServiceSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { EnhancedAggregateRatingSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
-import { globalReviews } from "@/data/reviewsData";
-import { SITE_STATS } from "@/data/siteStats";
 import { generateSimpleMessage, openWhatsApp } from "@/utils/whatsapp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -87,20 +84,9 @@ const Index = () => {
       <HreflangTags path="/" />
       <StructuredData type="home" />
       <ServiceSchema />
+      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
       <EnhancedAggregateRatingSchema entityType="Organization" entityName="Benatna Location de Voiture Maroc" />
       <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
-      <ReviewsSchema
-        reviews={globalReviews.slice(0, 3).map(r => ({
-          name: r.author,
-          location: "Maroc",
-          rating: r.rating,
-          comment: r.text,
-          date: r.date,
-          car: r.title || "Véhicule"
-        }))}
-        averageRating={SITE_STATS.ratingAverage}
-        totalReviews={SITE_STATS.ratingCount}
-      />
       
       <Header />
       

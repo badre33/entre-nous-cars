@@ -8,7 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
@@ -22,10 +21,8 @@ import {
   PriceRangeOfferSchema, 
   FAQSchemaEnriched,
   MultiLocationSchema,
-  IndividualReviewsSchema,
   OpeningHoursSchema
 } from "@/components/schemas";
-import { marrakechReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
@@ -54,44 +51,11 @@ const LocationVoitureMarrakech = () => {
         postalCode="40000"
         priceRange="150-900 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Sofia Mansouri',
-            location: 'Marrakech',
-            rating: 5,
-            comment: 'Parfait pour mon séjour touristique ! La réservation en ligne est simple et rapide. La voiture m\'attendait à l\'aéroport.',
-            date: 'Il y a 1 semaine',
-          },
-          {
-            name: 'Hassan Idrissi',
-            location: 'Marrakech',
-            rating: 5,
-            comment: 'Service excellent à Marrakech. Voiture propre et récente.',
-            date: 'Il y a 3 jours',
-          },
-          {
-            name: 'Laila Benani',
-            location: 'Marrakech',
-            rating: 5,
-            comment: 'Très satisfaite de ma location. Prix compétitifs et équipe professionnelle.',
-            date: 'Il y a 2 semaines',
-          },
-        ]}
-        averageRating={SITE_STATS.ratingAverage}
-        totalReviews={SITE_STATS.ratingCount}
-        city="Marrakech"
-      />
       
-      {/* Schema AggregateRating pour étoiles Google */}
+      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Marrakech"
-      />
-      <IndividualReviewsSchema
-        reviews={marrakechReviews}
-        entityType="LocalBusiness"
-        city="Marrakech"
       />
       
       {/* Schema Prix pour affichage dans Google */}
