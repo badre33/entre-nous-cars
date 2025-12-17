@@ -18,6 +18,10 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
         className="absolute inset-0 w-full h-full object-cover"
         loading="eager"
         fetchPriority="high"
+        decoding="async"
+        width={1920}
+        height={1080}
+        sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       
