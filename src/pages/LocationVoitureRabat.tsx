@@ -8,7 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
@@ -16,8 +15,7 @@ import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { SITE_STATS } from "@/data/siteStats";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
-import { rabatReviews } from "@/data/reviewsData";
+import { EnhancedAggregateRatingSchema, OpeningHoursSchema } from "@/components/schemas";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityRabat from "@/assets/city-rabat.jpg";
 
@@ -45,44 +43,11 @@ const LocationVoitureRabat = () => {
         postalCode="10000"
         priceRange="150-800 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Youssef Alami',
-            location: 'Rabat',
-            rating: 5,
-            comment: 'Excellente expérience du début à la fin. L\'assistance client est réactive et professionnelle. J\'ai eu un surclassement gratuit vers un SUV.',
-            date: 'Il y a 5 jours',
-          },
-          {
-            name: 'Nadia Tahiri',
-            location: 'Rabat',
-            rating: 5,
-            comment: 'Service impeccable à Rabat. Livraison à l\'heure et voiture en excellent état.',
-            date: 'Il y a 1 semaine',
-          },
-          {
-            name: 'Omar Benjelloun',
-            location: 'Rabat',
-            rating: 5,
-            comment: 'Très professionnel. Je recommande pour la location à Rabat.',
-            date: 'Il y a 10 jours',
-          },
-        ]}
-        averageRating={SITE_STATS.ratingAverage}
-        totalReviews={SITE_STATS.ratingCount}
-        city="Rabat"
-      />
       
-      {/* Schema AggregateRating pour étoiles Google */}
+      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Rabat"
-      />
-      <IndividualReviewsSchema
-        reviews={rabatReviews}
-        entityType="LocalBusiness"
-        city="Rabat"
       />
       <OpeningHoursSchema 
         city="Rabat"

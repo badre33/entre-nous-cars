@@ -8,7 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
@@ -16,8 +15,7 @@ import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { SITE_STATS } from "@/data/siteStats";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
-import { tangerReviews } from "@/data/reviewsData";
+import { EnhancedAggregateRatingSchema, OpeningHoursSchema } from "@/components/schemas";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityTanger from "@/assets/city-tanger.jpg";
 
@@ -45,44 +43,11 @@ const LocationVoitureTanger = () => {
         postalCode="90000"
         priceRange="150-850 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Karima El Fassi',
-            location: 'Tanger',
-            rating: 5,
-            comment: 'Location ultra simple, voiture nickel et tarifs imbattables. L\'équipe Benatna est top !',
-            date: 'Il y a 3 semaines',
-          },
-          {
-            name: 'Rachid Senhaji',
-            location: 'Tanger',
-            rating: 5,
-            comment: 'Parfait pour visiter le Nord du Maroc. Service rapide et efficace.',
-            date: 'Il y a 1 semaine',
-          },
-          {
-            name: 'Meryem Chaoui',
-            location: 'Tanger',
-            rating: 5,
-            comment: 'Très contente de mon expérience à Tanger. Je recommande !',
-            date: 'Il y a 4 jours',
-          },
-        ]}
-        averageRating={SITE_STATS.ratingAverage}
-        totalReviews={SITE_STATS.ratingCount}
-        city="Tanger"
-      />
       
-      {/* Schema AggregateRating pour étoiles Google */}
+      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Tanger"
-      />
-      <IndividualReviewsSchema
-        reviews={tangerReviews}
-        entityType="LocalBusiness"
-        city="Tanger"
       />
       <OpeningHoursSchema 
         city="Tanger"

@@ -2,6 +2,7 @@ import { Star, Quote } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+import { SITE_STATS } from '@/data/siteStats';
 
 const reviews = [
   {
@@ -47,8 +48,8 @@ const reviews = [
 ];
 
 export const CustomerReviews = () => {
-  const averageRating = 4.8;
-  const totalReviews = 1247;
+  const averageRating = SITE_STATS.ratingAverage;
+  const totalReviews = SITE_STATS.ratingCount;
 
   return (
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-background to-primary/5">

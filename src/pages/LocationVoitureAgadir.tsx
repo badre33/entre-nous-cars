@@ -8,7 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
@@ -16,8 +15,7 @@ import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { SITE_STATS } from "@/data/siteStats";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
-import { agadirReviews } from "@/data/reviewsData";
+import { EnhancedAggregateRatingSchema, OpeningHoursSchema } from "@/components/schemas";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityAgadir from "@/assets/city-agadir.jpg";
 
@@ -45,44 +43,11 @@ const LocationVoitureAgadir = () => {
         postalCode="80000"
         priceRange="150-900 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Ahmed Benkirane',
-            location: 'Agadir',
-            rating: 5,
-            comment: 'Super expérience à Agadir. Voiture idéale pour la plage et les excursions.',
-            date: 'Il y a 2 jours',
-          },
-          {
-            name: 'Salma Ouazzani',
-            location: 'Agadir',
-            rating: 5,
-            comment: 'Service au top ! Livraison à l\'aéroport Al Massira impeccable.',
-            date: 'Il y a 1 semaine',
-          },
-          {
-            name: 'Khalid Moussaoui',
-            location: 'Agadir',
-            rating: 5,
-            comment: 'Excellent rapport qualité-prix pour Agadir. Je recommande vivement.',
-            date: 'Il y a 2 semaines',
-          },
-        ]}
-        averageRating={SITE_STATS.ratingAverage}
-        totalReviews={SITE_STATS.ratingCount}
-        city="Agadir"
-      />
       
-      {/* Schema AggregateRating pour étoiles Google */}
+      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Agadir"
-      />
-      <IndividualReviewsSchema
-        reviews={agadirReviews}
-        entityType="LocalBusiness"
-        city="Agadir"
       />
       <OpeningHoursSchema 
         city="Agadir"

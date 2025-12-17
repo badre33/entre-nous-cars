@@ -9,7 +9,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
@@ -23,10 +22,8 @@ import {
   PriceRangeOfferSchema, 
   FAQSchemaEnriched,
   MultiLocationSchema,
-  IndividualReviewsSchema,
   OpeningHoursSchema
 } from "@/components/schemas";
-import { casablancaReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityCasablanca from "@/assets/city-casablanca.jpg";
 
@@ -55,45 +52,11 @@ const LocationVoitureCasablanca = () => {
         postalCode="27000"
         priceRange="150-800 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Amina Benali',
-            location: 'Casablanca',
-            rating: 5,
-            comment: 'Service impeccable ! J\'ai loué une Clio pour visiter Marrakech. La voiture était propre, récente et le prix très compétitif.',
-            date: 'Il y a 2 jours',
-            car: 'Renault Clio',
-          },
-          {
-            name: 'Karim Bouazza',
-            location: 'Casablanca',
-            rating: 5,
-            comment: 'Livraison rapide à l\'aéroport Mohammed V. Processus simple et efficace. Je recommande !',
-            date: 'Il y a 5 jours',
-          },
-          {
-            name: 'Fatima Zahra',
-            location: 'Casablanca',
-            rating: 5,
-            comment: 'Excellent rapport qualité-prix. Voiture récente et bien entretenue.',
-            date: 'Il y a 1 semaine',
-          },
-        ]}
-        averageRating={SITE_STATS.ratingAverage}
-        totalReviews={SITE_STATS.ratingCount}
-        city="Casablanca"
-      />
       
-      {/* Quick Win 1: Enhanced Aggregate Rating */}
+      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Casablanca"
-      />
-      <IndividualReviewsSchema
-        reviews={casablancaReviews}
-        entityType="LocalBusiness"
-        city="Casablanca"
       />
       
       {/* Quick Win 2: Price Range Offer Schema */}

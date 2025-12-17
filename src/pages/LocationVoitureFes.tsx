@@ -8,7 +8,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
@@ -16,8 +15,7 @@ import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { SITE_STATS } from "@/data/siteStats";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
-import { fesReviews } from "@/data/reviewsData";
+import { EnhancedAggregateRatingSchema, OpeningHoursSchema } from "@/components/schemas";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityFes from "@/assets/city-fes.jpg";
 
@@ -45,44 +43,11 @@ const LocationVoitureFes = () => {
         postalCode="30000"
         priceRange="150-750 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Mehdi Tazi',
-            location: 'Fès',
-            rating: 5,
-            comment: 'Très bonne agence ! Prix transparents, pas de frais cachés. La voiture était en parfait état. Je loue régulièrement chez Benatna.',
-            date: 'Il y a 2 semaines',
-          },
-          {
-            name: 'Leila Benjelloun',
-            location: 'Fès',
-            rating: 5,
-            comment: 'Parfait pour découvrir Fès et ses environs. Service professionnel.',
-            date: 'Il y a 5 jours',
-          },
-          {
-            name: 'Amine Fassi',
-            location: 'Fès',
-            rating: 5,
-            comment: 'Excellent service à Fès. Je recommande sans hésiter !',
-            date: 'Il y a 1 semaine',
-          },
-        ]}
-        averageRating={SITE_STATS.ratingAverage}
-        totalReviews={SITE_STATS.ratingCount}
-        city="Fès"
-      />
       
-      {/* Schema AggregateRating pour étoiles Google */}
+      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Fès"
-      />
-      <IndividualReviewsSchema
-        reviews={fesReviews}
-        entityType="LocalBusiness"
-        city="Fès"
       />
       <OpeningHoursSchema 
         city="Fès"

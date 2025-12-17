@@ -9,7 +9,6 @@ export { PriceRangeOfferSchema } from './PriceRangeOfferSchema';
 export { FAQSchemaEnriched } from './FAQSchemaEnriched';
 export { MultiLocationSchema } from './MultiLocationSchema';
 export { EventSchema } from './EventSchema';
-export { IndividualReviewsSchema } from './IndividualReviewsSchema';
 export { OpeningHoursSchema } from './OpeningHoursSchema';
 export { VehicleProductSchema } from './VehicleProductSchema';
 export { BreadcrumbListSchema, createBreadcrumbs } from './BreadcrumbListSchema';
