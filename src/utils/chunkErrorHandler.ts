@@ -73,11 +73,37 @@ async function clearServiceWorkerCaches(): Promise<void> {
 }
 
 /**
+ * Track chunk error recovery for monitoring
+ */
+function trackChunkErrorRecovery(errorType: string, errorMessage: string): void {
+  console.log('[ChunkErrorHandler] 📊 chunk_error_recovered:', { errorType, errorMessage });
+  
+  // Send to analytics if available
+  try {
+    // Google Analytics 4
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'chunk_error_recovered', {
+        event_category: 'error',
+        error_type: errorType,
+        error_message: errorMessage.slice(0, 100),
+        page_path: window.location.pathname,
+      });
+    }
+    
+    // Also log to console for Crisp/support debugging
+    console.warn(`[CHUNK_ERROR] Type: ${errorType}, Path: ${window.location.pathname}`);
+  } catch (e) {
+    // Silent fail - don't break recovery flow
+  }
+}
+
+/**
  * Force un hard reload avec cache-busting
  */
-function forceHardReload(): void {
+function forceHardReload(errorType: string = 'unknown', errorMessage: string = ''): void {
   if (isReloadLoop()) {
     console.error('[ChunkErrorHandler] Boucle de reload détectée. Abandon.');
+    trackChunkErrorRecovery('reload_loop_blocked', errorMessage);
     // Afficher un message à l'utilisateur
     document.body.innerHTML = `
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: system-ui, sans-serif; padding: 20px; text-align: center;">
@@ -95,6 +121,9 @@ function forceHardReload(): void {
     return;
   }
 
+  // Track successful recovery attempt
+  trackChunkErrorRecovery(errorType, errorMessage);
+  
   incrementReloadCount();
   console.log('[ChunkErrorHandler] Rechargement forcé de la page...');
   
@@ -166,11 +195,13 @@ function handleGlobalError(event: ErrorEvent): void {
   const isAssetFile = filename && /\/assets\/.*\.(js|css)/.test(filename);
   
   if (isChunkLoadError(error) || (isAssetFile && isSyntaxErrorOnAsset(error))) {
+    const errorType = isSyntaxErrorOnAsset(error) ? 'syntax_error_on_asset' : 'chunk_load_error';
+    const errorMessage = error instanceof Error ? error.message : String(error);
     console.error('[ChunkErrorHandler] Erreur de chunk détectée:', error);
     event.preventDefault();
     
     clearServiceWorkerCaches().then(() => {
-      forceHardReload();
+      forceHardReload(errorType, errorMessage);
     });
   }
 }
@@ -182,11 +213,12 @@ function handleUnhandledRejection(event: PromiseRejectionEvent): void {
   const { reason } = event;
   
   if (isChunkLoadError(reason)) {
+    const errorMessage = reason instanceof Error ? reason.message : String(reason);
     console.error('[ChunkErrorHandler] Erreur de chunk (promise) détectée:', reason);
     event.preventDefault();
     
     clearServiceWorkerCaches().then(() => {
-      forceHardReload();
+      forceHardReload('chunk_load_promise_rejection', errorMessage);
     });
   }
 }
