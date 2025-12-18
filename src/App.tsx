@@ -103,6 +103,10 @@ const LocationVoitureRouteOurikaMarrakech = lazy(() => import("./pages/LocationV
 const NotFound = lazy(() => import("./pages/NotFound"));
 const SitemapAudit = lazy(() => import("./pages/SitemapAudit"));
 
+// Legal pages
+const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
+const PolitiqueConfidentialite = lazy(() => import("./pages/PolitiqueConfidentialite"));
+
 // Auth and Analytics pages
 const Auth = lazy(() => import("./pages/Auth"));
 const AnalyticsDashboard = lazy(() => import("./pages/Analytics"));
@@ -279,6 +283,9 @@ const App = () => {
                     <Route path="/location-voiture-medina-marrakech" element={<LocationVoitureMedinaMarrakech />} />
                     <Route path="/location-voiture-palmeraie-marrakech" element={<LocationVoiturePalmeraieMarrakech />} />
                     <Route path="/location-voiture-route-ourika-marrakech" element={<LocationVoitureRouteOurikaMarrakech />} />
+                    {/* Legal Pages */}
+                    <Route path="/mentions-legales" element={<MentionsLegales />} />
+                    <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
                     {/* Auth & Analytics */}
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/analytics" element={<AnalyticsDashboard />} />
