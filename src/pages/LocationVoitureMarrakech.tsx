@@ -30,7 +30,7 @@ const LocationVoitureMarrakech = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Location de Voiture à Marrakech | Prix Dès 150 DH/jour - Benatna</title>
+        <title>Location de voiture à Marrakech | Benatna – Loueurs locaux</title>
         <meta name="description" content="Location de voiture à Marrakech avec Benatna. Aéroport Menara, Médina, Guéliz. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
         <meta name="keywords" content="location voiture marrakech, location auto marrakech aeroport, louer voiture marrakech pas cher, location véhicule marrakech, rent car marrakech menara" />
         <link rel="canonical" href="https://benatna.ma/location-voiture-marrakech" />

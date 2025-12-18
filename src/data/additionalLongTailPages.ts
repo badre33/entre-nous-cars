@@ -9,7 +9,7 @@ import { LongTailPageConfig } from "./longTailPages";
 const createAeroportPage = (city: string, citySlug: string, airport: string): LongTailPageConfig => ({
   slug: `location-voiture-aeroport-${citySlug}`,
   title: `Location Voiture Aéroport ${city}`,
-  metaTitle: `Location Voiture Aéroport ${city} - Livraison Gratuite | Benatna`,
+  metaTitle: `Location voiture aéroport ${city} | Benatna – Loueurs locaux`,
   metaDescription: `Louez une voiture directement à l'aéroport ${airport}. Livraison gratuite au terminal. Réservation en ligne, gain de temps, prix dès 150 DH/jour.`,
   keywords: `location voiture aéroport ${citySlug}, ${airport} location auto, louer voiture terminal ${city}`,
   h1: `Location de Voiture à l'Aéroport ${airport}`,
@@ -85,7 +85,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
 const createMariagePage = (): LongTailPageConfig => ({
   slug: 'location-voiture-mariage-maroc',
   title: 'Location Voiture Mariage Maroc',
-  metaTitle: 'Location Voiture Mariage Maroc - Véhicules de Luxe | Benatna',
+  metaTitle: 'Location voiture mariage Maroc | Benatna – Loueurs locaux',
   metaDescription: 'Louez une voiture de luxe pour votre mariage au Maroc. Mercedes, BMW, Audi disponibles. Décoration incluse, chauffeur optionnel. Tarifs dès 800 DH/jour.',
   keywords: 'location voiture mariage maroc, voiture luxe mariage, location auto mariage casablanca',
   h1: 'Location de Voiture de Luxe pour Mariage au Maroc',
@@ -150,7 +150,7 @@ const createMariagePage = (): LongTailPageConfig => ({
 const createLongueDureePage = (city: string, citySlug: string): LongTailPageConfig => ({
   slug: `location-longue-duree-${citySlug}`,
   title: `Location Longue Durée ${city}`,
-  metaTitle: `Location Voiture Longue Durée ${city} - Tarifs Mensuels | Benatna`,
+  metaTitle: `Location longue durée ${city} | Benatna – Loueurs locaux`,
   metaDescription: `Location de voiture longue durée à ${city}. Tarifs dégressifs dès 3 mois. Entretien et assurance inclus. Dès 3500 DH/mois tout compris.`,
   keywords: `location longue durée ${citySlug}, leasing voiture ${city}, location mensuelle auto`,
   h1: `Location de Voiture Longue Durée à ${city}`,
@@ -218,7 +218,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
 const createJeuneConducteurPage = (city: string, citySlug: string): LongTailPageConfig => ({
   slug: `location-jeune-conducteur-${citySlug}`,
   title: `Location Jeune Conducteur ${city}`,
-  metaTitle: `Location Voiture Jeune Conducteur ${city} -21 ans | Benatna`,
+  metaTitle: `Location jeune conducteur ${city} | Benatna – Loueurs locaux`,
   metaDescription: `Location voiture pour jeunes conducteurs à ${city}. Dès 21 ans avec 1 an de permis. Assurance jeune incluse. Tarifs dès 180 DH/jour sans supplément abusif.`,
   keywords: `location jeune conducteur ${citySlug}, location -25 ans ${city}, louer voiture 21 ans`,
   h1: `Location de Voiture pour Jeune Conducteur à ${city}`,
@@ -290,7 +290,7 @@ const createJeuneConducteurPage = (city: string, citySlug: string): LongTailPage
 const createSUVSpecialPage = (region: string, slug: string): LongTailPageConfig => ({
   slug,
   title: `Location SUV 4x4 ${region}`,
-  metaTitle: `Location SUV 4x4 ${region} - Duster, Qashqai, Tiguan | Benatna`,
+  metaTitle: `Location SUV 4x4 ${region} | Benatna – Loueurs locaux`,
   metaDescription: `Louez un SUV ou 4x4 pour ${region}. Véhicules tout-terrain adaptés. GPS et équipement inclus. Dès 350 DH/jour avec assurance complète.`,
   keywords: `location suv ${slug}, 4x4 ${region}, location duster ${slug}`,
   h1: `Location SUV et 4x4 pour ${region}`,
@@ -358,7 +358,7 @@ const createSUVSpecialPage = (region: string, slug: string): LongTailPageConfig 
 const createLuxeEvenementPage = (): LongTailPageConfig => ({
   slug: 'location-voiture-luxe-evenement',
   title: 'Location Voiture Luxe Événement',
-  metaTitle: 'Location Voiture Luxe Événement Maroc - Mercedes, BMW, Audi | Benatna',
+  metaTitle: 'Location voiture luxe événement Maroc | Benatna – Loueurs locaux',
   metaDescription: 'Louez une voiture de prestige pour vos événements professionnels ou privés. Mercedes, BMW, Audi avec chauffeur. Service premium dès 900 DH/jour.',
   keywords: 'location voiture luxe maroc, voiture prestige événement, location mercedes bmw',
   h1: 'Location de Voiture de Luxe pour Événements',
@@ -440,7 +440,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-weekend-marrakech',
     title: 'Location Weekend Marrakech',
-    metaTitle: 'Location Voiture Weekend Marrakech - Tarifs 2-3 Jours | Benatna',
+    metaTitle: 'Location weekend Marrakech | Benatna – Loueurs locaux',
     metaDescription: 'Louez une voiture pour le weekend à Marrakech. Tarifs spéciaux 2-3 jours. Dès 280 DH/jour, kilométrage illimité inclus.',
     keywords: 'location weekend marrakech, location 2 jours marrakech, location courte durée',
     h1: 'Location de Voiture Weekend à Marrakech',
@@ -472,7 +472,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-voiture-electrique-casablanca',
     title: 'Location Voiture Électrique Casablanca',
-    metaTitle: 'Location Voiture Électrique Casablanca - VW ID.3, ID.4 | Benatna',
+    metaTitle: 'Location voiture électrique Casablanca | Benatna – Loueurs locaux',
     metaDescription: 'Louez une voiture électrique à Casablanca. VW ID.3 et ID.4 disponibles. Recharge incluse, écologique et économique. Dès 450 DH/jour.',
     keywords: 'location voiture électrique casablanca, location VW ID casablanca, voiture ecologique',
     h1: 'Location de Voiture Électrique à Casablanca',
@@ -508,7 +508,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-van-famille-maroc',
     title: 'Location Van Famille Maroc',
-    metaTitle: 'Location Van Familial Maroc - 7-9 Places | Benatna',
+    metaTitle: 'Location van familial Maroc | Benatna – Loueurs locaux',
     metaDescription: 'Louez un van ou minibus pour famille nombreuse au Maroc. Véhicules 7-9 places spacieux. Idéal road trips en famille. Dès 600 DH/jour.',
     keywords: 'location van maroc, minibus 9 places, location familiale maroc',
     h1: 'Location Van et Minibus Familial au Maroc',
@@ -543,7 +543,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-cabriolet-agadir',
     title: 'Location Cabriolet Agadir',
-    metaTitle: 'Location Cabriolet Agadir - BMW Z4, Audi A5 Cabrio | Benatna',
+    metaTitle: 'Location cabriolet Agadir | Benatna – Loueurs locaux',
     metaDescription: 'Louez un cabriolet à Agadir. BMW Z4, Audi A5 Cabrio, Mercedes. Profitez du soleil et de la côte atlantique. Dès 700 DH/jour.',
     keywords: 'location cabriolet agadir, location decapotable maroc, bmw z4 agadir',
     h1: 'Location de Cabriolet à Agadir',
@@ -569,7 +569,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-utilitaire-demenagement-casablanca',
     title: 'Location Utilitaire Casablanca',
-    metaTitle: 'Location Utilitaire Déménagement Casablanca - Camion 20m³ | Benatna',
+    metaTitle: 'Location utilitaire Casablanca | Benatna – Loueurs locaux',
     metaDescription: 'Louez un utilitaire ou camion pour déménagement à Casablanca. Véhicules 10-20m³ avec hayon. Tarifs journée ou weekend. Dès 400 DH/jour.',
     keywords: 'location utilitaire casablanca, camion demenagement casa, location camionnette',
     h1: 'Location Utilitaire et Camion Déménagement Casablanca',
