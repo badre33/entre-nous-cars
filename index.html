@@ -235,11 +235,11 @@
           document.removeEventListener('click', loadGTM);
           document.removeEventListener('touchstart', loadGTM);
         }
-        // Load GTM on first user interaction OR after 15s max
+        // Load GTM on first user interaction OR after 10s max
         document.addEventListener('scroll', loadGTM, {once: true, passive: true});
         document.addEventListener('click', loadGTM, {once: true});
         document.addEventListener('touchstart', loadGTM, {once: true, passive: true});
-        setTimeout(loadGTM, 15000);
+        setTimeout(loadGTM, 10000);
       })();
     </script>
   </body>
