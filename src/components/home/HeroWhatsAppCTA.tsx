@@ -8,6 +8,9 @@ interface HeroWhatsAppCTAProps {
   onWhatsAppClick: () => void;
 }
 
+// Mobile-optimized hero image path
+const heroImageMobile = "/hero-home-mobile.webp";
+
 const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps) => {
   const { t } = useLanguage();
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -17,18 +20,18 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
       {/* Solid background color shows instantly for fast FCP/LCP perception */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d]" />
       
-      {/* Hero image optimized for LCP - loads over the placeholder */}
+      {/* Hero image optimized for LCP - responsive srcset for mobile/desktop */}
       <img 
-        src={heroImageUrl} 
+        src={heroImageMobile} 
         alt="Location de voiture au Maroc - Benatna"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        width={1920}
-        height={1080}
+        width={1280}
+        height={720}
         sizes="100vw"
-        srcSet={`${heroImageUrl} 1920w`}
+        srcSet={`${heroImageMobile} 768w, ${heroImageUrl} 1920w`}
         onLoad={() => setImageLoaded(true)}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
