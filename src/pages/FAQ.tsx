@@ -274,8 +274,8 @@ const FAQ = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>FAQ - Questions Fréquentes Location de Voiture au Maroc | Benatna</title>
-        <meta name="description" content="Toutes vos questions sur la location de voiture au Maroc avec Benatna : Prix, documents nécessaires, assurances, livraison, paiement. Réponses claires et complètes." />
+        <title>FAQ Location Voiture Maroc | Benatna</title>
+        <meta name="description" content="Questions fréquentes sur la location de voiture au Maroc : documents, prix, assurances, paiement. Réponses claires par Benatna." />
         <meta name="keywords" content="faq location voiture maroc, questions location auto, documents nécessaires location voiture, assurance location maroc" />
         <link rel="canonical" href="https://benatna.ma/faq" />
         <script type="application/ld+json">

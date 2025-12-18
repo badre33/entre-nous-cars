@@ -76,8 +76,8 @@ const Louer = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>Louer une Voiture au Maroc | Réservation Simple via WhatsApp | Benatna</title>
-        <meta name="description" content="Louez une voiture au Maroc facilement via WhatsApp. Casablanca, Rabat, Marrakech. Pas de paiement en ligne, pas de frais cachés. Réponse rapide garantie." />
+        <title>Louer une Voiture au Maroc | Benatna</title>
+        <meta name="description" content="Louez une voiture au Maroc via WhatsApp. Casablanca, Rabat, Marrakech. Pas de paiement en ligne, pas de frais cachés. Réponse rapide." />
         <link rel="canonical" href="https://benatna.ma/louer" />
       </Helmet>
       <HreflangTags path="/louer" />
