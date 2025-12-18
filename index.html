@@ -73,8 +73,8 @@
     <style>
       /* Critical reset */
       *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:Barlow,system-ui,sans-serif}
-      body{background:#f5ffe4;color:#000}
+      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,sans-serif}
+      body{background:#f5ffe4;color:#000;min-height:100vh}
       /* Layout */
       #root{min-height:100vh;display:flex;flex-direction:column}
       .container{width:100%;max-width:1280px;margin:0 auto;padding:0 1rem}
@@ -83,13 +83,22 @@
       .w-full{width:100%}.h-full{height:100%}.object-cover{object-fit:cover}
       .flex{display:flex}.items-center{align-items:center}.justify-center{justify-content:center}
       .text-center{text-align:center}.text-white{color:#fff}
-      /* Header critical */
-      header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px)}
+      /* Header critical - skeleton */
+      .skeleton-header{height:64px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;padding:0 16px}
+      .skeleton-logo{width:32px;height:32px;background:#e5e7eb;border-radius:4px}
+      /* Hero skeleton */
+      .skeleton-hero{height:70vh;min-height:500px;background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);display:flex;align-items:center;justify-content:center}
+      .skeleton-hero-content{text-align:center;color:#fff;padding:20px}
+      .skeleton-hero h1{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:16px;opacity:.9}
+      .skeleton-hero p{font-size:1rem;opacity:.7}
       /* Prevent FOUC */
-      .animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}
-      @keyframes pulse{50%{opacity:.5}}
+      .loading-skeleton{animation:pulse 1.5s ease-in-out infinite}
+      @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
       /* Font display swap */
       @font-face{font-family:Barlow;font-display:swap;src:local('Barlow')}
+      /* Hide skeleton when app loads */
+      #root:not(:empty)+.initial-skeleton{display:none}
+      #root:not(:empty)~.initial-skeleton{display:none}
     </style>
     
     <!-- Preload critical fonts for better LCP -->
@@ -161,6 +170,31 @@
     <!-- End Google Tag Manager (noscript) -->
     
     <div id="root"></div>
+    
+    <!-- Initial skeleton for faster FCP - hidden when React hydrates -->
+    <div class="initial-skeleton" id="initial-skeleton">
+      <div class="skeleton-header">
+        <div class="skeleton-logo loading-skeleton"></div>
+      </div>
+      <div class="skeleton-hero">
+        <div class="skeleton-hero-content">
+          <h1>Location de Voiture au Maroc</h1>
+          <p>Chargement en cours...</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Remove skeleton as soon as React renders
+      const observer = new MutationObserver(() => {
+        const root = document.getElementById('root');
+        if (root && root.children.length > 0) {
+          const skeleton = document.getElementById('initial-skeleton');
+          if (skeleton) skeleton.remove();
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.getElementById('root'), { childList: true });
+    </script>
     
     <!-- Fallback content for crawlers that don't execute JS -->
     <noscript>
