@@ -36,21 +36,52 @@
     <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
     <meta name="color-scheme" content="light dark">
     
-    <!-- Critical CSS for FCP - minimal above-the-fold styles only -->
+    <!-- Critical CSS for FCP - expanded above-the-fold styles -->
     <style>
       /* Critical reset */
       *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,sans-serif}
-      body{background:#f5ffe4;color:#000;min-height:100vh}
-      /* Layout */
+      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,sans-serif;scroll-behavior:smooth}
+      body{background:#f5ffe4;color:#000;min-height:100vh;font-family:Barlow,system-ui,-apple-system,sans-serif}
+      img,video{max-width:100%;height:auto;display:block}
+      button{cursor:pointer;font:inherit}
+      a{color:inherit;text-decoration:none}
+      /* Layout utilities */
       #root{min-height:100vh;display:flex;flex-direction:column}
+      .min-h-screen{min-height:100vh}
       .container{width:100%;max-width:1280px;margin:0 auto;padding:0 1rem}
-      /* Hero critical */
-      .relative{position:relative}.absolute{position:absolute}.inset-0{inset:0}
-      .w-full{width:100%}.h-full{height:100%}.object-cover{object-fit:cover}
-      .flex{display:flex}.items-center{align-items:center}.justify-center{justify-content:center}
-      .text-center{text-align:center}.text-white{color:#fff}
-      /* Header critical - skeleton */
+      /* Positioning */
+      .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}.sticky{position:sticky}
+      .inset-0{inset:0}.top-0{top:0}.left-0{left:0}.right-0{right:0}.z-50{z-index:50}
+      /* Display & Flex */
+      .flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}.block{display:block}
+      .flex-col{flex-direction:column}.flex-row{flex-direction:row}
+      .items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
+      .gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}
+      /* Sizing */
+      .w-full{width:100%}.h-full{height:100%}.w-auto{width:auto}
+      .h-8{height:2rem}.h-12{height:3rem}
+      /* Object fit */
+      .object-cover{object-fit:cover}
+      /* Spacing */
+      .p-4{padding:1rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}
+      .mx-auto{margin-left:auto;margin-right:auto}
+      /* Text */
+      .text-center{text-align:center}.text-white{color:#fff}.text-black{color:#000}
+      .font-bold{font-weight:700}.font-semibold{font-weight:600}
+      .text-sm{font-size:0.875rem}.text-lg{font-size:1.125rem}.text-xl{font-size:1.25rem}
+      .text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}.text-4xl{font-size:2.25rem}
+      /* Background & Colors */
+      .bg-white{background-color:#fff}.bg-black{background-color:#000}
+      .bg-primary{background-color:#ffda00}
+      /* Borders */
+      .rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}
+      .border{border-width:1px}.border-b{border-bottom-width:1px}
+      /* Effects */
+      .shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1)}
+      .opacity-50{opacity:0.5}.opacity-70{opacity:0.7}.opacity-90{opacity:0.9}
+      /* Transitions */
+      .transition{transition:all 150ms ease}
+      /* Header critical */
       .skeleton-header{height:64px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;padding:0 16px}
       .skeleton-logo{width:32px;height:32px;background:#e5e7eb;border-radius:4px}
       /* Hero skeleton */
@@ -66,6 +97,8 @@
       /* Hide skeleton when app loads */
       #root:not(:empty)+.initial-skeleton{display:none}
       #root:not(:empty)~.initial-skeleton{display:none}
+      /* Responsive */
+      @media(min-width:768px){.md\\:h-12{height:3rem}.md\\:text-4xl{font-size:2.25rem}}
     </style>
     
     <!-- Preload critical fonts for better LCP -->
