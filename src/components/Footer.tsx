@@ -72,6 +72,16 @@ const Footer = () => {
                   Conditions générales
                 </Link>
               </li>
+              <li>
+                <Link to="/mentions-legales" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Mentions légales
+                </Link>
+              </li>
+              <li>
+                <Link to="/politique-confidentialite" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Politique de confidentialité
+                </Link>
+              </li>
             </ul>
           </div>
           
