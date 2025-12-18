@@ -24,7 +24,7 @@ const LocationVoitureFes = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Location de voiture à Fès | Benatna – Loueurs locaux</title>
-        <meta name="description" content="Location de voiture à Fès avec Benatna. Aéroport Saïss, Médina, ville nouvelle. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
+        <meta name="description" content="Louez une voiture à Fès dès 150 DH/jour. Aéroport Saïss, Médina. Véhicules vérifiés, livraison gratuite. Réservez par WhatsApp." />
         <meta name="keywords" content="location voiture fes, location auto fes aeroport, louer voiture fes medina, location véhicule fes, rent car fez morocco" />
         <link rel="canonical" href="https://benatna.ma/location-voiture-fes" />
         <meta property="og:title" content="Location de Voiture à Fès | Prix Dès 150 DH/jour" />

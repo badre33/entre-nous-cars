@@ -24,7 +24,7 @@ const LocationVoitureAgadir = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Location de voiture à Agadir | Benatna – Loueurs locaux</title>
-        <meta name="description" content="Location de voiture à Agadir avec Benatna. Aéroport Al Massira, corniche, plages. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
+        <meta name="description" content="Louez une voiture à Agadir dès 150 DH/jour. Aéroport Al Massira, corniche. Véhicules vérifiés, réservation rapide par WhatsApp." />
         <meta name="keywords" content="location voiture agadir, location auto agadir aeroport, louer voiture agadir corniche, location véhicule agadir plage, rent car agadir" />
         <link rel="canonical" href="https://benatna.ma/location-voiture-agadir" />
         <meta property="og:title" content="Location de Voiture à Agadir | Prix Dès 150 DH/jour" />
