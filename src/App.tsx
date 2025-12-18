@@ -101,6 +101,7 @@ const LocationVoitureRouteOurikaMarrakech = lazy(() => import("./pages/LocationV
 
 // 404 page
 const NotFound = lazy(() => import("./pages/NotFound"));
+const SitemapAudit = lazy(() => import("./pages/SitemapAudit"));
 
 // Auth and Analytics pages
 const Auth = lazy(() => import("./pages/Auth"));
@@ -281,6 +282,7 @@ const App = () => {
                     {/* Auth & Analytics */}
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/analytics" element={<AnalyticsDashboard />} />
+                    <Route path="/sitemap" element={<SitemapAudit />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>
