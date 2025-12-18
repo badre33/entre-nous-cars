@@ -446,25 +446,59 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     h1: 'Location de Voiture Weekend à Marrakech',
     heroSubtitle: 'Tarifs spéciaux 2-3 jours • Départ vendredi soir • Retour lundi matin',
     category: {
-      label: "Formules Longue Durée",
-      href: "/nos-services?category=longue-duree"
+      label: "Formules Courte Durée",
+      href: "/nos-services?category=courte-duree"
     },
     content: {
-      intro: 'Weekend prolongé à Marrakech ? Profitez de nos tarifs spéciaux 2-3 jours ! Réservez du vendredi soir 18h au lundi matin 9h pour 2 jours de facturation seulement (au lieu de 3). Idéal pour découvrir Marrakech et ses environs (Atlas, Essaouira) sans se ruiner. Toutes catégories disponibles avec kilométrage illimité.',
+      intro: 'Weekend prolongé à Marrakech ? Profitez de nos tarifs spéciaux 2-3 jours ! Réservez du vendredi soir 18h au lundi matin 9h pour 2 jours de facturation seulement (au lieu de 3). Idéal pour découvrir Marrakech et ses environs (Atlas, Essaouira, désert d\'Agafay) sans se ruiner. Toutes catégories disponibles avec kilométrage illimité. Nos offres weekend sont conçues pour les escapades romantiques en couple, les sorties entre amis ou les week-ends en famille à la découverte de la ville ocre et de ses trésors.',
       sections: [
         {
-          title: 'Forfaits Weekend',
-          content: 'Forfait Essentiel (2 jours) : Citadine 280 DH/jour, retrait vendredi après-midi, retour dimanche soir, 400 km inclus. Forfait Exploration (3 jours) : SUV 380 DH/jour, retrait vendredi soir, retour lundi matin, kilométrage illimité pour road trip Atlas ou Essaouira. Forfait VIP (weekend luxe) : Berline premium 750 DH/jour, service conciergerie inclus (recommandations restaurants, réservations riads).'
+          title: 'Pourquoi Louer une Voiture pour le Weekend à Marrakech ?',
+          content: 'Marrakech offre un potentiel d\'exploration immense en seulement 2-3 jours. Sans voiture, vous êtes limité à la Médina et Guéliz, dépendant des taxis ou des excursions organisées coûteuses. Avec votre propre véhicule, le champ des possibles s\'ouvre : la vallée de l\'Ourika à 1h (cascades, villages berbères), Essaouira à 2h30 (ville côtière UNESCO), le désert d\'Agafay à 40 minutes (coucher de soleil spectaculaire), ou encore les cascades d\'Ouzoud à 2h30. Vous partez quand vous voulez, vous vous arrêtez où vous voulez, vous rentrez à votre rythme. C\'est la liberté totale pour maximiser votre court séjour. De plus, nos tarifs weekend dégressifs vous permettent d\'économiser jusqu\'à 30% par rapport à une location classique, rendant l\'option voiture encore plus attractive financièrement.'
+        },
+        {
+          title: 'Forfaits Weekend Disponibles',
+          content: 'Forfait Essentiel (2 jours) : Citadine (Clio, Sandero, 208) à 280 DH/jour, retrait vendredi 14h, retour dimanche 20h. 400 km inclus, parfait pour Marrakech + une excursion (Ourika ou Agafay). Assurance tous risques incluse. Forfait Exploration (3 jours) : SUV (Duster, Qashqai) à 380 DH/jour, retrait vendredi soir 18h, retour lundi matin 9h. Kilométrage illimité pour road trip Atlas ou Essaouira. GPS inclus, assurance pistes. Idéal familles et groupes d\'amis. Forfait VIP (weekend luxe) : Berline premium (Mercedes, BMW) à 750 DH/jour, service conciergerie inclus avec recommandations restaurants gastronomiques, réservations riads de charme, itinéraires personnalisés. Pour occasions spéciales : anniversaires, demandes en mariage, lunes de miel. Tous nos forfaits incluent : livraison/récupération gratuite à votre hôtel ou riad, assurance tous risques, assistance 24/7, annulation gratuite jusqu\'à 48h avant.'
+        },
+        {
+          title: 'Itinéraires Weekend Recommandés depuis Marrakech',
+          content: 'Weekend Nature (vallée de l\'Ourika) : Samedi matin départ vers Ourika (1h), balade villages berbères, déjeuner tajine en terrasse vue montagne, baignade cascades Setti Fatma (été). Retour Marrakech fin d\'après-midi. Dimanche : Jardin Majorelle + Médina + Jemaa el-Fna. Total ~150 km. Weekend Côte (Essaouira) : Samedi départ tôt vers Essaouira (2h30), découverte médina fortifiée, déjeuner fruits de mer au port, plage Sidi Kaouki (surfeurs). Nuit dans un riad. Dimanche retour tranquille via route des arganiers. Total ~400 km. Weekend Désert (Agafay) : Samedi après-midi départ vers désert Agafay (45 min), coucher de soleil, dîner camp de luxe, nuit sous les étoiles. Dimanche : lac Takerkoust + retour Marrakech via Palmeraie. Total ~120 km. Weekend Atlas (montagne) : Samedi route Tizi n\'Tichka jusqu\'à Aït Ben Haddou (3h), visite kasbah UNESCO, nuit sur place. Dimanche retour via vallée du Draa ou route directe. Total ~380 km. SUV recommandé.'
+        },
+        {
+          title: 'Comment Réserver Votre Voiture Weekend avec Benatna ?',
+          content: 'Étape 1 : Choisissez votre véhicule sur notre catalogue en ligne ou contactez-nous par WhatsApp pour conseils personnalisés selon votre itinéraire prévu. Étape 2 : Indiquez vos dates (vendredi-dimanche ou vendredi-lundi) et lieu de livraison (aéroport Menara, hôtel, riad Médina). Étape 3 : Validez votre réservation en 2 minutes, paiement flexible (carte, espèces, virement). Aucune carte de crédit obligatoire. Étape 4 : Le jour J, nous livrons le véhicule à l\'heure et à l\'endroit convenus. Briefing rapide sur le véhicule, remise des clés, et c\'est parti ! Étape 5 : Profitez de votre weekend. Notre assistance 24/7 reste joignable en cas de besoin. Étape 6 : Retour du véhicule à l\'heure convenue au même point ou ailleurs (sans supplément dans Marrakech). Réservation conseillée 1 semaine à l\'avance pour les weekends de haute saison (vacances scolaires, ponts, festivals).'
         }
       ],
-      faq: []
+      faq: [
+        {
+          question: 'Comment fonctionne l\'offre 3 jours pour le prix de 2 ?',
+          answer: 'Si vous récupérez le véhicule vendredi après 18h et le rendez lundi avant 9h, vous ne payez que 2 jours de location au lieu de 3. C\'est notre façon de rendre les weekends accessibles à tous. Cette offre s\'applique à toutes les catégories de véhicules.'
+        },
+        {
+          question: 'Puis-je partir vers Essaouira ou l\'Atlas avec le forfait weekend ?',
+          answer: 'Absolument ! Le forfait Exploration inclut le kilométrage illimité, parfait pour Essaouira (400 km aller-retour) ou l\'Atlas. Nous recommandons un SUV pour les routes de montagne, inclus dans ce forfait à 380 DH/jour.'
+        },
+        {
+          question: 'Que se passe-t-il si je rends la voiture en retard le lundi ?',
+          answer: 'Nous offrons une tolérance de 1h gratuite. Au-delà, un supplément de 50 DH/heure s\'applique jusqu\'à 4h de retard. Après 4h, une journée complète est facturée. Prévenez-nous en cas de retard prévisible, nous sommes flexibles !'
+        },
+        {
+          question: 'Livrez-vous dans les riads de la Médina de Marrakech ?',
+          answer: 'Oui ! Nous livrons à l\'entrée la plus proche accessible en voiture de votre riad (Bab Doukkala, Bab Laksour, etc.). Notre agent vous accompagne jusqu\'au véhicule. Service gratuit inclus dans tous les forfaits weekend.'
+        }
+      ]
     },
     cta: {
       title: 'Réservez Votre Weekend à Marrakech',
-      subtitle: 'Tarifs dégressifs • Kilométrage flexible',
-      buttonText: 'Réserver',
+      subtitle: 'Tarifs dégressifs • Kilométrage illimité • Livraison gratuite',
+      buttonText: 'Réserver Mon Weekend',
       buttonLink: '/louer?city=Marrakech'
     },
+    relatedServices: [
+      { title: 'Location Aéroport Marrakech', description: 'Récupérez votre voiture dès l\'atterrissage au terminal Menara.', link: '/location-voiture-aeroport-marrakech' },
+      { title: 'Location Jeune Conducteur Marrakech', description: 'Forfaits weekend accessibles dès 21 ans.', link: '/location-jeune-conducteur-marrakech' },
+      { title: 'Location SUV Atlas', description: 'Véhicules tout-terrain pour excursions montagne.', link: '/location-suv-atlas' }
+    ],
     relatedPages: [
       { title: 'Location Marrakech', link: '/location-voiture-marrakech' }
     ]
@@ -477,33 +511,63 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     keywords: 'location voiture électrique casablanca, location VW ID casablanca, voiture ecologique',
     h1: 'Location de Voiture Électrique à Casablanca',
     heroSubtitle: 'VW ID.3 & ID.4 • Recharge gratuite • 100% écologique',
+    category: {
+      label: "Véhicules Écologiques",
+      href: "/nos-services?category=electrique"
+    },
     content: {
-      intro: 'Roulez électrique à Casablanca avec nos VW ID.3 et ID.4 ! Autonomie réelle 350-400 km, recharge gratuite dans nos locaux ou bornes partenaires. Économisez sur le carburant (0 DH vs 140 DH/jour d\'essence) et profitez d\'une conduite silencieuse et moderne. Stationnement gratuit dans certaines zones vertes de Casa. Idéal pour usage urbain et trajets Casablanca-Rabat.',
+      intro: 'Roulez électrique à Casablanca avec nos VW ID.3 et ID.4 ! Autonomie réelle 350-400 km, recharge gratuite dans nos locaux ou bornes partenaires. Économisez sur le carburant (0 DH vs 140 DH/jour d\'essence) et profitez d\'une conduite silencieuse, fluide et moderne. Stationnement gratuit dans certaines zones vertes de Casa. Idéal pour usage urbain quotidien, trajets Casablanca-Rabat ou déplacements professionnels éco-responsables. Rejoignez la mobilité du futur dès aujourd\'hui avec Benatna, pionnier de la location électrique au Maroc.',
       sections: [
         {
+          title: 'Pourquoi Louer une Voiture Électrique à Casablanca ?',
+          content: 'Casablanca est la ville idéale pour découvrir la mobilité électrique. La métropole dispose d\'un réseau croissant de bornes de recharge (Afriquia, Inwi, centres commerciaux) et ses distances quotidiennes typiques (domicile-travail, courses, sorties) représentent rarement plus de 50-80 km, soit une fraction de l\'autonomie de nos véhicules. Économiquement, l\'électrique est imbattable : 0 DH de carburant vs 140 DH/jour en essence pour un usage similaire. L\'entretien est quasi-nul (pas de vidange, pas de filtres). Sur le plan pratique, la conduite électrique est un pur bonheur : accélération instantanée et linéaire, silence de fonctionnement, absence de vibrations, climatisation efficace. Dans les embouteillages casablancais, vous apprécierez le confort acoustique et le mode « une pédale » qui rend la conduite fluide et reposante. Enfin, rouler électrique c\'est contribuer à réduire la pollution atmosphérique de Casablanca, enjeu de santé publique majeur dans cette métropole de 4 millions d\'habitants.'
+        },
+        {
           title: 'Véhicules Électriques Disponibles',
-          content: 'VW ID.3 (450 DH/jour) : Compacte électrique, autonomie 420 km WLTP (350 km réel), recharge rapide 30 min 10-80%, intérieur futuriste digital. VW ID.4 (550 DH/jour) : SUV électrique familial, autonomie 520 km WLTP (400 km réel), spacieux, 4 roues motrices optionnelles. Les deux modèles incluent : recharge gratuite illimitée dans nos locaux Casablanca (borne 11 kW, plein en 6h), accès bornes partenaires Maroc (Afriquia, Inwi) avec carte fournie, câble de recharge domestique (prise classique 8h pour plein), assurance batterie incluse.'
+          content: 'VW ID.3 (450 DH/jour) : Compacte électrique de référence, autonomie 420 km WLTP (350 km réel en conduite mixte), recharge rapide 30 min 10-80% sur borne 100 kW, intérieur futuriste tout digital, coffre 385L. Parfaite pour usage urbain solo ou couple. VW ID.4 (550 DH/jour) : SUV électrique familial premium, autonomie 520 km WLTP (400 km réel), espace généreux 5 places + coffre 543L, toit panoramique, écran tactile 12 pouces. 4 roues motrices optionnelles pour escapades montagneuses. Idéal familles ou professionnels. Les deux modèles incluent : recharge gratuite illimitée dans nos locaux Casablanca (borne 11 kW AC, plein en 6h de nuit), carte d\'accès bornes partenaires Maroc (Afriquia, Inwi, Morocco Mall) avec tarifs réduits, câble de recharge domestique Type 2 (prise renforcée 8h pour plein), application VW ID pour localiser bornes et suivre autonomie, assurance batterie et composants électriques incluse (garantie 8 ans/160 000 km).'
+        },
+        {
+          title: 'Réseau de Recharge à Casablanca et au Maroc',
+          content: 'Le réseau de bornes marocain se développe rapidement. À Casablanca, vous trouverez des bornes dans tous les grands centres commerciaux (Morocco Mall, Anfa Place, Casanearshore), les stations Afriquia équipées (corniche, Maarif, Sidi Maarouf), et les parkings de certains hôtels 4-5 étoiles. Pour les trajets inter-villes : Casablanca-Rabat (90 km) se fait sans recharge, Casablanca-Marrakech (240 km) également avec ID.4 (prévoir borne à l\'arrivée), Casablanca-El Jadida (100 km) aller-retour sans souci. Nous fournissons une carte détaillée des bornes avec codes d\'accès. En cas de doute, notre assistance 24/7 vous guide vers la borne la plus proche. Conseil : rechargez la nuit à notre borne gratuite, vous partez chaque matin avec 100% de batterie. Temps de recharge : borne rapide 100 kW = 30 min 10-80%, borne AC 11 kW = 6h plein, prise domestique = 8-10h plein.'
+        },
+        {
+          title: 'Comment Louer une Voiture Électrique avec Benatna ?',
+          content: 'Étape 1 : Réservez en ligne ou par WhatsApp en précisant « véhicule électrique ». Indiquez votre usage prévu (urbain, inter-villes) pour conseils personnalisés. Étape 2 : Livraison du véhicule à votre domicile, hôtel ou bureau avec batterie 100%. Notre agent vous fait une démonstration complète : branchement des câbles, utilisation de l\'application VW ID, localisation des bornes, mode conduite « B » (récupération d\'énergie). Étape 3 : Pendant votre location, rechargez gratuitement dans nos locaux (Sidi Maarouf) ou utilisez votre carte bornes partenaires. L\'application VW ID affiche l\'autonomie restante en temps réel. Étape 4 : Retour du véhicule. Aucune exigence de niveau de batterie au retour (contrairement au plein d\'essence). Nous rechargeons pour le client suivant. Conseil pro : activez le préchauffage/climatisation depuis l\'application VW ID 10 minutes avant de partir. La voiture sera à température idéale et la batterie ne sera pas sollicitée pendant votre trajet.'
         }
       ],
       faq: [
         {
-          question: 'Autonomie suffisante pour aller à Marrakech ?',
-          answer: 'Casablanca-Marrakech = 240 km. Autonomie ID.3/ID.4 = 350-400 km réel. Oui, ça passe large ! Et il y a des bornes rapides à El Jadida (mi-chemin) et Marrakech centre.'
+          question: 'L\'autonomie est-elle suffisante pour aller à Marrakech ?',
+          answer: 'Casablanca-Marrakech = 240 km. Autonomie ID.3 = 350 km réel, ID.4 = 400 km réel. Oui, ça passe largement ! Vous arriverez avec 30-40% de batterie restante. Bornes de recharge disponibles à Marrakech centre (Morocco Mall, hôtels) pour le retour.'
+        },
+        {
+          question: 'Que se passe-t-il si je tombe en panne de batterie ?',
+          answer: 'Nos véhicules affichent l\'autonomie restante en temps réel et alertent dès 20% de batterie. En cas d\'immobilisation (très rare), notre assistance 24/7 vous envoie un dépanneur avec générateur mobile ou vous remorque vers la borne la plus proche. Service inclus dans la location.'
+        },
+        {
+          question: 'La recharge chez vous est-elle vraiment gratuite ?',
+          answer: 'Oui, 100% gratuite et illimitée ! Nos locaux à Sidi Maarouf sont équipés de bornes 11 kW. Vous pouvez laisser le véhicule branché toute la nuit, nous ne facturons rien. C\'est notre façon de promouvoir la mobilité électrique au Maroc.'
+        },
+        {
+          question: 'Les véhicules électriques sont-ils adaptés aux jeunes conducteurs ?',
+          answer: 'Absolument ! L\'ID.3 et l\'ID.4 sont accessibles dès 23 ans avec 2 ans de permis. La conduite électrique est même plus facile (pas de boîte de vitesses, réponse linéaire). Supplément jeune conducteur standard de 50 DH/jour applicable.'
         }
       ]
     },
     cta: {
       title: 'Essayez l\'Électrique à Casablanca',
-      subtitle: 'Recharge gratuite • Économique • Écologique',
-      buttonText: 'Réserver',
+      subtitle: 'Recharge gratuite • 0 DH de carburant • Conduite silencieuse',
+      buttonText: 'Réserver Mon Véhicule Électrique',
       buttonLink: '/louer?city=Casablanca'
     },
     relatedServices: [
-      { title: 'Location Longue Durée Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle avec recharge gratuite.', link: '/location-longue-duree-casablanca' },
+      { title: 'Location Longue Durée Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle avec recharge gratuite illimitée.', link: '/location-longue-duree-casablanca' },
       { title: 'Location Aéroport Casablanca', description: 'Récupération de véhicules électriques au terminal Mohammed V.', link: '/location-voiture-aeroport-casablanca' },
-      { title: 'Location Jeune Conducteur Casablanca', description: 'Véhicules électriques accessibles aux jeunes conducteurs.', link: '/location-jeune-conducteur-casablanca' }
+      { title: 'Location Jeune Conducteur Casablanca', description: 'Véhicules électriques accessibles aux jeunes conducteurs dès 23 ans.', link: '/location-jeune-conducteur-casablanca' }
     ],
-    relatedPages: []
+    relatedPages: [
+      { title: 'Location Casablanca', link: '/location-voiture-casablanca' }
+    ]
   },
   {
     slug: 'location-van-famille-maroc',
@@ -514,31 +578,63 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     h1: 'Location Van et Minibus Familial au Maroc',
     heroSubtitle: '7-9 places • Coffre XXL • Clim arrière',
     category: {
-      label: "Véhicules Spéciaux",
-      href: "/nos-services?category=special"
+      label: "Véhicules Familiaux",
+      href: "/nos-services?category=famille"
     },
     content: {
-      intro: 'Famille nombreuse ou groupe d\'amis ? Louez notre van Mercedes Vito ou Volkswagen Multivan pour voyager tous ensemble. 7-9 places assises confortables, climatisation avant/arrière, coffre géant pour tous les bagages. Parfait pour road trips familiaux Atlas, Merzouga ou côte Atlantique. Conduite facile malgré la taille (gabarit similaire à un SUV).',
+      intro: 'Famille nombreuse, groupe d\'amis ou équipe professionnelle ? Louez notre van Mercedes Vito ou Volkswagen Multivan pour voyager tous ensemble dans le confort. 7-9 places assises véritables avec ceintures, climatisation avant/arrière indépendante, coffre géant pour tous les bagages et équipements. Parfait pour road trips familiaux Atlas, Merzouga ou côte Atlantique, mais aussi pour navettes aéroport, séminaires d\'entreprise ou événements familiaux. Conduite facile malgré la taille grâce au gabarit raisonnable (similaire à un gros SUV) et aux aides à la conduite modernes.',
       sections: [
         {
-          title: 'Vans Disponibles',
-          content: 'Mercedes Vito (600 DH/jour) : Van 9 places robuste, moteur diesel 150ch, coffre modulable 1200L-4000L selon configuration sièges. VW Multivan (750 DH/jour) : Van premium 7 places, sièges cuir pivotants, table intégrée, stores électriques. Confort berline dans un volume van. Inclus : porte-vélos ou coffre de toit sur demande (50 DH/jour), GPS grand écran 9 pouces, sièges bébé/rehausseurs gratuits (sur réservation).'
+          title: 'Pourquoi Louer un Van Familial au Maroc ?',
+          content: 'Le Maroc est une destination idéale pour les voyages en groupe. Entre les médinas fascinantes, les montagnes de l\'Atlas, le désert de Merzouga et les plages atlantiques, les distances peuvent être importantes. Voyager à 6-9 personnes dans 2-3 voitures séparées pose de nombreux problèmes : coût multiplié, coordination difficile, séparation du groupe, ambiance de road trip perdue. Avec un van familial, tout le monde voyage ensemble, partage les découvertes en temps réel, joue aux cartes pendant les longs trajets, et crée des souvenirs communs inoubliables. Économiquement, le van est imbattable : 600 DH/jour pour 9 personnes = 67 DH/personne/jour, moins cher que les transports en commun ! Vous économisez également sur l\'essence (un seul véhicule), le stationnement, les péages. Et vous gagnez une flexibilité totale : pas de contraintes d\'horaires de bus, possibilité de s\'arrêter où vous voulez, itinéraires personnalisés. Pour les familles avec enfants, le van offre l\'espace nécessaire pour les poussettes, sièges auto, jouets et bagages sans compromis sur le confort.'
+        },
+        {
+          title: 'Vans Familiaux Disponibles',
+          content: 'Mercedes Vito Tourer (600 DH/jour) : Van 9 places configuration « long », sièges face route avec ceintures 3 points, climatisation bi-zone puissante, vitres teintées arrière, coffre 1200L (configuration 9 places) à 4000L (sièges rabattus). Moteur diesel 150ch économique, consommation 7-8L/100km. Fiable et robuste pour routes marocaines. Guidage GPS intégré. Volkswagen Multivan (750 DH/jour) : Van premium 7 places « business », sièges cuir pivotants 180°, table centrale amovible, stores électriques latéraux, éclairage d\'ambiance. Coffre 700L + rangements malins partout. Moteur essence ou diesel 204ch, conduite silencieuse type berline. Pour familles exigeantes ou voyages d\'affaires. Équipements inclus dans tous nos vans : GPS grand écran 9 pouces avec cartographie Maroc, sièges bébé et rehausseurs (gratuits sur réservation, précisez âges enfants), porte-vélos attelage ou coffre de toit XXL (50 DH/jour), glacière 12V (25L), prises USB arrière pour recharger tous les appareils, couvertures pique-nique. Option chauffeur : 350 DH/jour pour profiter pleinement du voyage sans conduire.'
+        },
+        {
+          title: 'Itinéraires Road Trip Famille au Maroc',
+          content: 'Circuit Impérial (7-10 jours) : Casablanca → Rabat → Meknès → Fès → Marrakech. 800 km au total. Découverte des 4 villes impériales, médinas UNESCO, palais et jardins. Étapes 150-200 km/jour adaptées aux enfants. Hébergements riads familiaux. Le Vito 9 places est parfait pour ce circuit. Circuit Grand Sud (10-14 jours) : Marrakech → Ouarzazate → Gorges du Dadès → Merzouga (désert) → Agadir → Essaouira → retour Marrakech. 1200 km. Kasbahs, désert, oasis, plages. Prévoir 3-4h de route max par jour pour le confort des enfants. Le Multivan avec sièges pivotants permet aux enfants de jouer pendant les trajets. Circuit Côte Atlantique (5-7 jours) : Casablanca → El Jadida → Essaouira → Agadir → retour. 600 km. Plages, surf, ports de pêche, détente balnéaire. Idéal familles avec ados qui surfent. Prévoir planches sur le toit (rack fourni). Circuit Express Weekend (3 jours) : Marrakech → Atlas (Ourika) → Essaouira → Marrakech. 400 km. Montagne + mer en un weekend. Parfait pour découvrir le Maroc en famille sur court séjour.'
+        },
+        {
+          title: 'Comment Louer un Van Familial avec Benatna ?',
+          content: 'Étape 1 : Contactez-nous par WhatsApp ou formulaire en précisant le nombre de passagers, les âges des enfants (pour sièges adaptés), vos dates et itinéraire prévu. Nous vous conseillons le véhicule idéal. Étape 2 : Validation de la réservation avec versement d\'acompte 30% (remboursable si annulation 7 jours avant). Solde le jour de la prise en charge. Paiement carte, virement ou espèces. Étape 3 : Livraison du van à votre hôtel, aéroport ou adresse. Notre agent installe les sièges enfants, configure le GPS avec votre itinéraire, vous montre les commandes spécifiques (portes coulissantes électriques, clim arrière, rangements). Étape 4 : Pendant le road trip, notre assistance 24/7 reste joignable. En cas de crevaison ou problème, nous intervenons ou envoyons dépannage partenaire rapidement partout au Maroc. Étape 5 : Retour du van au point convenu (même endroit ou autre ville moyennant supplément inter-villes). Restitution rapide 10 minutes. Sièges enfants récupérés par nous. Conseil pro : réservez 3-4 semaines à l\'avance pour les vacances scolaires et l\'été (forte demande familles européennes).'
         }
       ],
-      faq: []
+      faq: [
+        {
+          question: 'Faut-il un permis spécial pour conduire un van 9 places ?',
+          answer: 'Non ! Nos vans Mercedes Vito et VW Multivan sont homologués « transport de personnes jusqu\'à 9 places ». Un simple permis B français, marocain ou international suffit. Aucune formation spéciale requise.'
+        },
+        {
+          question: 'Les sièges bébé et rehausseurs sont-ils inclus ?',
+          answer: 'Oui, gratuits ! Précisez les âges des enfants lors de la réservation (0-9 mois = coque, 9 mois-4 ans = siège, 4-10 ans = rehausseur). Nous installons les sièges aux normes avant votre arrivée.'
+        },
+        {
+          question: 'Le van est-il adapté pour les routes de montagne (Atlas) ?',
+          answer: 'Absolument. Nos vans ont des moteurs puissants (150-204ch) qui grimpent les cols sans effort. La garde au sol est suffisante pour les routes goudronnées de l\'Atlas (Tizi n\'Tichka, Ourika). Pour les pistes, nous recommandons notre SUV 4x4.'
+        },
+        {
+          question: 'Peut-on dormir dans le van ?',
+          answer: 'Le Multivan peut être configuré en couchage 2 adultes (banquette arrière dépliable). Ce n\'est pas un camping-car mais ça dépanne pour une nuit en bivouac. Nous fournissons couvertures sur demande. Le Vito standard n\'a pas cette option.'
+        }
+      ]
     },
     cta: {
-      title: 'Réservez Votre Van Familial',
-      subtitle: 'Espace maximal • Confort assuré',
-      buttonText: 'Réserver',
-      buttonLink: '/louer'
+      title: 'Réservez Votre Van Familial au Maroc',
+      subtitle: '7-9 places • Sièges enfants gratuits • GPS inclus',
+      buttonText: 'Demander un Devis Famille',
+      buttonLink: '/contact'
     },
     relatedServices: [
       { title: 'Location SUV Atlas', description: 'Alternative SUV 5-7 places pour familles en montagne.', link: '/location-suv-atlas' },
-      { title: 'Location Utilitaire Casablanca', description: 'Mercedes Sprinter pour transports volumineux familiaux.', link: '/location-utilitaire-demenagement-casablanca' },
+      { title: 'Location Utilitaire Casablanca', description: 'Mercedes Sprinter pour transports volumineux.', link: '/location-utilitaire-demenagement-casablanca' },
       { title: 'Location Longue Durée Casablanca', description: 'Vans en formule mensuelle pour familles expatriées.', link: '/location-longue-duree-casablanca' }
     ],
-    relatedPages: []
+    relatedPages: [
+      { title: 'Location Casablanca', link: '/location-voiture-casablanca' },
+      { title: 'Location Marrakech', link: '/location-voiture-marrakech' }
+    ]
   },
   {
     slug: 'location-cabriolet-agadir',
@@ -548,23 +644,58 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     keywords: 'location cabriolet agadir, location decapotable maroc, bmw z4 agadir',
     h1: 'Location de Cabriolet à Agadir',
     heroSubtitle: 'BMW Z4 • Audi A5 Cabrio • Soleil d\'Agadir',
+    category: {
+      label: "Véhicules Premium",
+      href: "/nos-services?category=premium"
+    },
     content: {
-      intro: '300 jours de soleil par an à Agadir = conditions parfaites pour rouler cheveux au vent ! Benatna vous propose des cabriolets sportifs (BMW Z4, Audi A5 Cabrio) pour profiter pleinement de la corniche, des plages et de la route vers Essaouira. Conduite plaisir garantie avec le bruit de l\'océan et la capote ouverte.',
+      intro: '300 jours de soleil par an à Agadir = conditions parfaites pour rouler cheveux au vent ! Benatna vous propose des cabriolets sportifs (BMW Z4, Audi A5 Cabrio) pour profiter pleinement de la corniche, des plages et de la route côtière vers Essaouira. Conduite plaisir garantie avec le bruit de l\'océan, le soleil sur le visage et la capote ouverte. Que ce soit pour un weekend romantique, une lune de miel, un anniversaire ou simplement pour le plaisir de conduire, nos cabriolets transforment chaque kilomètre en moment d\'exception.',
       sections: [
         {
+          title: 'Pourquoi Louer un Cabriolet à Agadir ?',
+          content: 'Agadir bénéficie du climat le plus doux du Maroc : 300 jours de soleil, températures douces toute l\'année (18-28°C), vent océanique rafraîchissant. C\'est l\'endroit rêvé pour profiter d\'un cabriolet ! La route côtière entre Agadir et Essaouira (180 km) est considérée comme l\'une des plus belles du Maroc : falaises ocres, plages désertes, villages de pêcheurs, arganiers. Capote ouverte, vous ressentez pleinement cette nature sauvage. La corniche d\'Agadir offre également un cadre idéal pour les balades en décapotable : 6 km de front de mer, restaurants, clubs, couchers de soleil sur l\'Atlantique. Et pour les occasions spéciales (demande en mariage, anniversaire, lune de miel), arriver en BMW Z4 ou Audi A5 Cabrio fait toute la différence. C\'est l\'expérience de conduite ultime sous le soleil marocain.'
+        },
+        {
           title: 'Cabriolets Disponibles',
-          content: 'BMW Z4 (700 DH/jour) : Roadster 2 places pur plaisir, moteur 6 cylindres 260ch, capote électrique 10 secondes, sono Harman Kardon. Pour couple romantique. Audi A5 Cabrio (750 DH/jour) : Cabriolet 4 vraies places, capote toile acoustique, Quattro intégrale, design élégant. Polyvalent et chic. Tous cabriolets livrés : lavés et aspirés minutieusement, plein d\'essence, tapis de coffre protection sable, crème solaire offerte !'
+          content: 'BMW Z4 (700 DH/jour) : Roadster 2 places pur plaisir de conduire. Moteur 6 cylindres 260ch, 0-100 km/h en 5.4 secondes. Capote rigide électrique (10 secondes), sono Harman Kardon premium, sièges sport chauffants. Coffre 280L (suffisant pour weekend). Design iconique. Pour couples en quête de sensations. Audi A5 Cabriolet (750 DH/jour) : Cabriolet 4 vraies places adultes. Moteur TFSI 252ch, transmission Quattro intégrale (sécurité sur routes humides). Capote toile acoustique (silence à 130 km/h), éclairage Matrix LED, Virtual Cockpit digital. Coffre 380L. Polyvalent et élégant, idéal couples avec enfants ou groupe d\'amis. Équipements inclus : GPS intégré avec Points d\'Intérêt Agadir, lunettes de soleil offertes, crème solaire indice 50, tapis coffre protection sable, chargeur USB, plein d\'essence au départ.'
+        },
+        {
+          title: 'Itinéraires Cabriolet depuis Agadir',
+          content: 'Route côtière Agadir-Essaouira (180 km, 3h avec arrêts) : Départ tôt le matin, capote ouverte. Arrêt Taghazout (café surfeurs), Tamri (bananes et surf), Cap Ghir (phare panoramique), arrivée Essaouira déjeuner. Retour fin d\'après-midi coucher de soleil. Circuit légendaire. Corniche sunset (20 km, 1h) : Balade en fin d\'après-midi le long de la corniche d\'Agadir. Arrêt Marina, vue sur Kasbah, coucher de soleil depuis restaurant panoramique. Romantique et accessible. Paradise Valley express (70 km, 2h) : Route vers les gorges et piscines naturelles. Attention : derniers km piste non goudronnée, à éviter avec cabriolet (préférer SUV). Mais la route jusqu\'à Immouzer est magnifique en décapotable. Tiznit et portes du désert (180 km, 4h) : Découverte ville fortifiée, bijouterie traditionnelle, début de l\'Anti-Atlas. Routes larges et peu fréquentées, parfaites pour rouler cheveux au vent.'
+        },
+        {
+          title: 'Conseils Conduite Cabriolet à Agadir',
+          content: 'Protection solaire : Le soleil marocain est puissant. Crème indice 50 fournie, mais portez chapeau/casquette et lunettes. Hydratez-vous régulièrement. Meilleur moment : tôt le matin (lumière magique, fraîcheur) ou fin d\'après-midi (golden hour, températures douces). Évitez 12h-16h en été (trop chaud même avec vent). Vent : Les jours de Chergui (vent de sable venant du Sahara), gardez la capote fermée. Climatisation efficace dans nos modèles. Sable : Ne laissez pas le cabriolet capote ouverte stationné près des plages (sable s\'infiltre partout). Fermez la capote même pour courte pause. Nous fournissons tapis coffre protection sable. Sécurité : Ne laissez jamais objets de valeur visibles dans habitacle (même capote fermée). Utilisez coffre verrouillé. Parkings surveillés recommandés (10-20 DH).'
         }
       ],
-      faq: []
+      faq: [
+        {
+          question: 'La capote se ferme-t-elle facilement en cas de pluie soudaine ?',
+          answer: 'Oui ! Sur BMW Z4 (capote rigide) et Audi A5 (capote toile), la fermeture est 100% électrique et prend 10-15 secondes. Vous pouvez même la fermer à l\'arrêt au feu rouge si besoin. Étanchéité parfaite.'
+        },
+        {
+          question: 'Puis-je emmener le cabriolet jusqu\'à Marrakech ?',
+          answer: 'Absolument ! Agadir-Marrakech = 260 km, route excellente. Kilométrage illimité inclus. Seule précaution : route de montagne (col Tizi n\'Test) en hiver peut être froide, prévoyez veste.'
+        },
+        {
+          question: 'Le cabriolet est-il adapté aux jeunes conducteurs ?',
+          answer: 'Nos cabriolets sont réservés aux conducteurs de 25 ans minimum avec 3 ans de permis (véhicules puissants). Caution majorée à 8000 DH. Assurance tous risques incluse avec franchise 5000 DH.'
+        }
+      ]
     },
     cta: {
       title: 'Louez Votre Cabriolet à Agadir',
       subtitle: 'Soleil • Liberté • Sensations',
-      buttonText: 'Réserver',
+      buttonText: 'Réserver Mon Cabriolet',
       buttonLink: '/louer?city=Agadir'
     },
-    relatedPages: []
+    relatedServices: [
+      { title: 'Location Voiture Luxe Événement', description: 'Mercedes, BMW pour occasions spéciales avec chauffeur.', link: '/location-voiture-luxe-evenement' },
+      { title: 'Location Aéroport Agadir', description: 'Récupérez votre cabriolet dès l\'atterrissage à Al Massira.', link: '/location-voiture-aeroport-agadir' }
+    ],
+    relatedPages: [
+      { title: 'Location Agadir', link: '/location-voiture-agadir' }
+    ]
   },
   {
     slug: 'location-utilitaire-demenagement-casablanca',
@@ -575,30 +706,60 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     h1: 'Location Utilitaire et Camion Déménagement Casablanca',
     heroSubtitle: '10-20m³ • Hayon élévateur • Couvertures fournies',
     category: {
-      label: "Véhicules Spéciaux",
-      href: "/nos-services?category=special"
+      label: "Véhicules Utilitaires",
+      href: "/nos-services?category=utilitaire"
     },
     content: {
-      intro: 'Déménagement, transport de meubles ou gros achats ? Louez notre utilitaire ou camion à Casablanca. Véhicules 10m³ à 20m³ avec hayon élévateur, idéal pour chargement/déchargement sans effort. Couvertures de protection fournies gratuitement. Permis B suffit (pas besoin permis poids lourd).',
+      intro: 'Déménagement, transport de meubles, gros achats ou livraisons professionnelles ? Louez notre utilitaire ou camion à Casablanca. Véhicules 10m³ à 20m³ avec hayon élévateur, idéal pour chargement/déchargement sans effort et sans risque de blessure. Couvertures de protection et sangles d\'arrimage fournies gratuitement. Permis B suffit pour tous nos modèles (pas besoin permis poids lourd). Que vous déménagiez un studio, un appartement T4 ou une villa entière, nous avons le véhicule adapté à vos besoins.',
       sections: [
         {
-          title: 'Utilitaires et Camions',
-          content: 'Fiat Ducato 10m³ (400 DH/jour) : L2H2, charge utile 1200 kg, largeur portes 1.42m (canapé passe), permis B. Idéal studio ou petit appartement. Mercedes Sprinter 15m³ (500 DH/jour) : L3H2, charge 1500 kg, rampe hayon 500 kg, volume optimal T3. Iveco Daily 20m³ (650 DH/jour) : L4H3, charge 2000 kg, hayon 750 kg, déménage villa entière. Tous incluent : 10 couvertures matelassées épaisses, 20 sangles d\'arrimage professionnelles, diable/chariot si disponible, assurance marchandise transportée (30 000 DH).'
+          title: 'Pourquoi Louer un Utilitaire avec Benatna ?',
+          content: 'Déménager à Casablanca peut vite devenir un casse-tête : circulation dense, stationnement limité, escaliers sans ascenseur dans les anciens immeubles. Nos utilitaires sont sélectionnés pour s\'adapter au contexte casablancais : gabarit urbain (passent dans les ruelles du centre-ville), hayon élévateur (indispensable pour meubles lourds sans se casser le dos), motorisation diesel économique. Contrairement aux déménageurs professionnels qui facturent 3000-5000 DH minimum, vous économisez jusqu\'à 80% en louant vous-même : 400 DH le Ducato + quelques amis motivés = déménagement réussi ! Nous fournissons tout l\'équipement : couvertures matelassées pour protéger vos meubles, sangles d\'arrimage professionnelles, diable si disponible. Vous n\'avez rien à acheter. Et si vous n\'avez jamais conduit d\'utilitaire, pas d\'inquiétude : nos véhicules sont modernes, avec direction assistée, caméra de recul et radar de stationnement. Conduite similaire à un gros monospace.'
+        },
+        {
+          title: 'Utilitaires et Camions Disponibles',
+          content: 'Fiat Ducato 10m³ (400 DH/jour) : Fourgon L2H2 compact, charge utile 1200 kg, largeur portes arrière 1.42m (un canapé 3 places passe), hauteur intérieure 1.90m. Permis B. Idéal studio ou petit appartement T2. Facile à garer, passe partout. Mercedes Sprinter 15m³ (500 DH/jour) : Fourgon L3H2 polyvalent, charge utile 1500 kg, hayon élévateur 500 kg inclus, hauteur intérieure 2.10m (armoires debout). Permis B. Volume optimal pour T3-T4 standard. Le plus demandé. Iveco Daily 20m³ (650 DH/jour) : Grand fourgon L4H3, charge utile 2000 kg, hayon élévateur 750 kg, hauteur intérieure 2.40m. Permis B. Déménage villa entière ou gros volumes professionnels. Puissant et robuste. Équipements inclus dans tous nos utilitaires : 10 couvertures matelassées épaisses (protection meubles bois, électroménager), 20 sangles d\'arrimage à cliquet (sécurisation charge), diable professionnel (si disponible, sur réservation), rampe ou hayon selon modèle, assurance marchandise transportée jusqu\'à 30 000 DH.'
+        },
+        {
+          title: 'Comment Organiser Votre Déménagement ?',
+          content: 'J-7 : Réservez votre utilitaire Benatna (surtout fin de mois, forte demande). Précisez volume à déménager pour conseil sur taille véhicule. Commencez à faire vos cartons. J-1 : Récupérez le véhicule en fin de journée (tarif identique, profitez de la soirée pour premier chargement tranquille). Vérifiez équipement fourni (couvertures, sangles). Protégez les meubles fragiles avec les couvertures. Jour J : Chargement stratégique : meubles lourds au fond près de la cabine (meilleure répartition du poids), cartons au-dessus, objets fragiles en dernier. Sanglez tout ! Route vers nouvelle adresse. Déchargement dans l\'ordre inverse. J+1 matin : Retour du véhicule propre (balayé sommairement). Restitution équipement. Caution débloquée sous 7 jours. Conseil pro : commencez tôt le matin (6h-7h) pour éviter la circulation casablancaise et la chaleur. Prévoyez eau et snacks pour les porteurs. Stationnement temporaire en double file toléré le temps du chargement (mettez les warnings).'
+        },
+        {
+          title: 'Tarifs et Conditions de Location',
+          content: 'Tarifs journée (24h) : Ducato 10m³ = 400 DH, Sprinter 15m³ = 500 DH, Daily 20m³ = 650 DH. Kilométrage : 200 km/jour inclus (largement suffisant pour déménagement intra-Casablanca), km supplémentaire = 2 DH/km. Tarifs weekend (vendredi 18h → lundi 9h) : 2 jours facturés pour 3 jours d\'utilisation. Idéal pour déménagements tranquilles. Tarifs semaine (7 jours) : -20% sur tarif journalier. Pour déménagements inter-villes ou gros chantiers. Caution : 2000 DH (Ducato), 3000 DH (Sprinter/Daily), bloquée sur carte ou espèces, restituée 7 jours après retour si pas de dommage. Carburant : véhicule fourni plein, à rendre plein (gasoil ~11 DH/L, consommation 10-12 L/100km). Conducteur : âge minimum 23 ans, permis B depuis 2 ans minimum. Documents : CIN/passeport + permis + justificatif domicile.'
         }
       ],
-      faq: []
+      faq: [
+        {
+          question: 'Puis-je conduire l\'utilitaire 20m³ avec un permis B ?',
+          answer: 'Oui ! Tous nos utilitaires sont homologués PTAC < 3.5 tonnes, donc accessibles avec un simple permis B. Pas besoin de permis poids lourd (C) même pour le Daily 20m³.'
+        },
+        {
+          question: 'Le hayon élévateur est-il inclus dans le prix ?',
+          answer: 'Oui, le hayon est inclus sur le Sprinter 15m³ et le Daily 20m³ sans supplément. Le Ducato 10m³ dispose d\'une rampe de chargement. Capacité hayon : 500-750 kg selon modèle.'
+        },
+        {
+          question: 'Que se passe-t-il si j\'abîme un meuble pendant le transport ?',
+          answer: 'Notre assurance marchandise transportée couvre les dommages jusqu\'à 30 000 DH. Pour les objets de valeur (œuvres d\'art, antiquités), déclarez-les à la réservation pour couverture adaptée. Les couvertures fournies minimisent les risques de chocs.'
+        },
+        {
+          question: 'Puis-je garder l\'utilitaire plusieurs jours pour un déménagement inter-villes ?',
+          answer: 'Oui, tarif semaine disponible (-20%). Casablanca → Marrakech ou Rabat, pas de problème. Précisez l\'itinéraire pour adapter le kilométrage inclus. Supplément one-way (aller simple) possible sur demande.'
+        }
+      ]
     },
     cta: {
-      title: 'Réservez Votre Utilitaire',
-      subtitle: 'Permis B • Hayon • Équipement inclus',
-      buttonText: 'Réserver',
+      title: 'Réservez Votre Utilitaire Déménagement',
+      subtitle: 'Permis B suffit • Hayon inclus • Équipement fourni',
+      buttonText: 'Réserver Mon Utilitaire',
       buttonLink: '/contact'
     },
     relatedServices: [
-      { title: 'Location Van Familial 7-9 Places', description: 'Alternative vans passagers pour déménagements légers.', link: '/location-van-famille-maroc' },
-      { title: 'Location Longue Durée Casablanca', description: 'Utilitaires en formule mensuelle pour professionnels.', link: '/location-longue-duree-casablanca' },
-      { title: 'Location Aéroport Casablanca', description: 'Livraison d\'utilitaires au terminal pour déménagements internationaux.', link: '/location-voiture-aeroport-casablanca' }
+      { title: 'Location Van Familial 7-9 Places', description: 'Alternative pour petits déménagements ou transports légers.', link: '/location-van-famille-maroc' },
+      { title: 'Location Longue Durée Casablanca', description: 'Utilitaires en formule mensuelle pour professionnels.', link: '/location-longue-duree-casablanca' }
     ],
-    relatedPages: []
+    relatedPages: [
+      { title: 'Location Casablanca', link: '/location-voiture-casablanca' }
+    ]
   }
 ];
