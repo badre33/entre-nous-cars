@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
 
 interface HeroWhatsAppCTAProps {
   heroImageUrl: string;
@@ -9,14 +10,18 @@ interface HeroWhatsAppCTAProps {
 
 const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps) => {
   const { t } = useLanguage();
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <section className="relative min-h-[85vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
-      {/* Hero image optimized for LCP */}
+    <section className="relative min-h-[85vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden bg-[#1a1a1a]">
+      {/* Solid background color shows instantly for fast FCP/LCP perception */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d]" />
+      
+      {/* Hero image optimized for LCP - loads over the placeholder */}
       <img 
         src={heroImageUrl} 
         alt="Location de voiture au Maroc - Benatna"
-        className="absolute inset-0 w-full h-full object-cover"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
         loading="eager"
         fetchPriority="high"
         decoding="async"
@@ -24,6 +29,7 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
         height={1080}
         sizes="100vw"
         srcSet={`${heroImageUrl} 1920w`}
+        onLoad={() => setImageLoaded(true)}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       
