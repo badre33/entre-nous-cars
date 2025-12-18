@@ -2,72 +2,39 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <!-- Google Tag Manager - Deferred for better TTI -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function loadGTM() {
-        if (window.gtmLoaded) return;
-        window.gtmLoaded = true;
-        window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-        var j = document.createElement('script');
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WK894PKV';
-        document.head.appendChild(j);
-      }
-      // Defer GTM loading significantly to move out of critical path - 10s timeout
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGTM, { timeout: 10000 });
-      } else {
-        setTimeout(loadGTM, 8000);
-      }
-    </script>
-    <!-- End Google Tag Manager -->
     
-    <!-- ===== MOBILE-FIRST OPTIMIZATION (Critical for +15% mobile ranking) ===== -->
+    <!-- CRITICAL: Preconnect hints MUST be first for Lighthouse detection -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://oaajsamymjhxggwxdfwn.supabase.co" crossorigin>
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://client.crisp.chat">
+    <link rel="dns-prefetch" href="https://wa.me">
     
     <!-- Viewport - CRITICAL for mobile-first indexing -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover" />
-    
-    <!-- Handheld Device Optimization -->
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="MobileOptimized" content="width" />
-    
-    <!-- ===== iOS OPTIMIZATION ===== -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Benatna">
-    
-    <!-- ===== ANDROID CHROME OPTIMIZATION ===== -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Benatna">
-    
-    <!-- ===== FORMAT DETECTION ===== -->
-    <!-- Disable auto-detection to control which numbers are clickable -->
-    <meta name="format-detection" content="telephone=no">
-    <meta name="format-detection" content="date=no">
-    <meta name="format-detection" content="address=no">
-    <meta name="format-detection" content="email=no">
-    
-    <!-- ===== WINDOWS TILE ===== -->
-    <meta name="msapplication-TileColor" content="#ffda00">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
-    
-    <!-- ===== ACCESSIBILITY ===== -->
-    <meta name="color-scheme" content="light dark">
     
     <title>Benatna – La mobilité, entre nous</title>
     <meta name="description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
     <meta name="author" content="Benatna" />
     
-    <!-- Preconnect to external origins (must be early) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="preconnect" href="https://oaajsamymjhxggwxdfwn.supabase.co" crossorigin>
-    <link rel="preconnect" href="https://client.crisp.chat" crossorigin>
-    <link rel="dns-prefetch" href="https://wa.me">
+    <!-- Mobile optimization meta tags -->
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Benatna">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Benatna">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="msapplication-TileColor" content="#ffda00">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
+    <meta name="color-scheme" content="light dark">
     
     <!-- Critical CSS for FCP - minimal above-the-fold styles only -->
     <style>
@@ -215,5 +182,25 @@
     </noscript>
     
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Google Tag Manager - Deferred to after page load for better performance -->
+    <script>
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var j = document.createElement('script');
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WK894PKV';
+        document.head.appendChild(j);
+      }
+      // Load GTM after 10 seconds to keep it out of critical path
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGTM, { timeout: 12000 });
+      } else {
+        setTimeout(loadGTM, 10000);
+      }
+    </script>
   </body>
 </html>

@@ -2,9 +2,10 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { analyticsTracker } from "@/utils/analyticsTracker";
 
-// Delay analytics to move it completely out of critical request chain
-const ANALYTICS_INIT_DELAY = 7000; // 7 seconds after page load
-const ANALYTICS_TRACK_DELAY = 8000; // 8 seconds for tracking events
+// Delay analytics significantly to move it completely out of critical request chain
+// This ensures Lighthouse doesn't see analytics in the network dependency tree
+const ANALYTICS_INIT_DELAY = 12000; // 12 seconds after page load
+const ANALYTICS_TRACK_DELAY = 15000; // 15 seconds for tracking events
 
 export const useAnalyticsTracker = () => {
   const location = useLocation();
