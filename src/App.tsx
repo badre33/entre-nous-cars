@@ -165,26 +165,35 @@ const CrispLoader = () => {
   return CrispChat ? <CrispChat /> : null;
 };
 
-// Runtime dynamic import loader - loads BackToTop only
+// Runtime dynamic import loader - loads BackToTop only after scroll
 const DeferredComponents = () => {
   const [BackToTop, setBackToTop] = useState<ComponentType | null>(null);
 
   useEffect(() => {
+    let loaded = false;
+    
     const loadBackToTop = async () => {
+      if (loaded) return;
+      loaded = true;
       const bttModule = await import("@/components/BackToTop");
       setBackToTop(() => bttModule.BackToTop);
     };
 
-    // Use requestIdleCallback to start loading after idle
-    if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(() => {
-        setTimeout(loadBackToTop, 3000);
-      }, { timeout: 5000 });
-      return () => cancelIdleCallback(idleId);
-    } else {
-      const timer = setTimeout(loadBackToTop, 3000);
-      return () => clearTimeout(timer);
-    }
+    // Only load BackToTop when user scrolls past 500px OR after 10s
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        loadBackToTop();
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    const timer = setTimeout(loadBackToTop, 10000); // Fallback after 10s
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, []);
 
   return BackToTop ? <BackToTop /> : null;
