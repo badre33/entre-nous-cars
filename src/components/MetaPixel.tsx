@@ -130,11 +130,11 @@ export const MetaPixel = () => {
       document.removeEventListener('touchstart', loadPixel);
     };
 
-    // Load on first user interaction OR after 15s max
+    // Load on first user interaction OR after 10s max
     document.addEventListener('scroll', loadPixel, { once: true, passive: true });
     document.addEventListener('click', loadPixel, { once: true });
     document.addEventListener('touchstart', loadPixel, { once: true, passive: true });
-    const timer = setTimeout(loadPixel, 15000);
+    const timer = setTimeout(loadPixel, 10000);
     
     return () => {
       clearTimeout(timer);
