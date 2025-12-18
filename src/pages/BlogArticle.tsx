@@ -201,8 +201,33 @@ const BlogArticle = () => {
               })}
           </div>
 
+          {/* Internal Linking - Related City Pages */}
+          <div className="mt-12 p-6 bg-muted/30 rounded-xl">
+            <h3 className="text-lg font-semibold mb-4">Louez une voiture dans nos villes</h3>
+            <div className="flex flex-wrap gap-2">
+              <Link to="/location-voiture-casablanca" className="px-3 py-1.5 bg-background hover:bg-primary/10 rounded-full text-sm border transition-colors">
+                📍 Casablanca
+              </Link>
+              <Link to="/location-voiture-marrakech" className="px-3 py-1.5 bg-background hover:bg-primary/10 rounded-full text-sm border transition-colors">
+                📍 Marrakech
+              </Link>
+              <Link to="/location-voiture-rabat" className="px-3 py-1.5 bg-background hover:bg-primary/10 rounded-full text-sm border transition-colors">
+                📍 Rabat
+              </Link>
+              <Link to="/location-voiture-agadir" className="px-3 py-1.5 bg-background hover:bg-primary/10 rounded-full text-sm border transition-colors">
+                📍 Agadir
+              </Link>
+              <Link to="/location-voiture-fes" className="px-3 py-1.5 bg-background hover:bg-primary/10 rounded-full text-sm border transition-colors">
+                📍 Fès
+              </Link>
+              <Link to="/location-voiture-tanger" className="px-3 py-1.5 bg-background hover:bg-primary/10 rounded-full text-sm border transition-colors">
+                📍 Tanger
+              </Link>
+            </div>
+          </div>
+
           {/* CTA */}
-          <div className="mt-16 p-8 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl text-center hover:shadow-xl transition-shadow duration-300">
+          <div className="mt-8 p-8 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl text-center hover:shadow-xl transition-shadow duration-300">
             <h3 className="text-2xl font-bold mb-4">{t('blogArticle.readyToRent')}</h3>
             <p className="text-muted-foreground mb-6">
               {t('blogArticle.findPerfectCar')}

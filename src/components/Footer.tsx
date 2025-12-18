@@ -98,6 +98,31 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Section Villes Principales - SEO Internal Linking */}
+        <div className="pt-8 border-t border-border mb-8">
+          <h3 className="text-lg font-semibold mb-4 text-center">Location de Voiture par Ville</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to="/location-voiture-casablanca" className="px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-full text-sm font-medium transition-colors">
+              Casablanca
+            </Link>
+            <Link to="/location-voiture-marrakech" className="px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-full text-sm font-medium transition-colors">
+              Marrakech
+            </Link>
+            <Link to="/location-voiture-rabat" className="px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-full text-sm font-medium transition-colors">
+              Rabat
+            </Link>
+            <Link to="/location-voiture-agadir" className="px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-full text-sm font-medium transition-colors">
+              Agadir
+            </Link>
+            <Link to="/location-voiture-fes" className="px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-full text-sm font-medium transition-colors">
+              Fès
+            </Link>
+            <Link to="/location-voiture-tanger" className="px-4 py-2 bg-primary/10 hover:bg-primary/20 rounded-full text-sm font-medium transition-colors">
+              Tanger
+            </Link>
+          </div>
+        </div>
+
         {/* Section Nos Services - SEO */}
         <div className="pt-8 border-t border-border">
           <h3 className="text-lg font-semibold mb-6 text-center">Nos Services de Location</h3>
