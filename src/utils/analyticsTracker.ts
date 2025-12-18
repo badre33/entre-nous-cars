@@ -137,25 +137,24 @@ class AnalyticsTracker {
   
   async trackEvent({ eventType, eventName, properties = {} }: TrackEventOptions) {
     try {
-      const event = {
-        event_type: eventType,
-        event_name: eventName,
-        page_path: window.location.pathname,
-        referrer: document.referrer,
-        source: getSource(),
-        device_type: getDeviceType(),
-        user_agent: navigator.userAgent,
-        session_id: getSessionId(),
-        visitor_id: getVisitorId(),
-        properties: JSON.parse(JSON.stringify(properties))
-      };
-      
-      // Insert into database
-      await supabase.from('analytics_events').insert([event]);
+      // Use validated RPC function instead of direct INSERT
+      // This enforces server-side validation for all inputs
+      await supabase.rpc('insert_analytics_event', {
+        p_event_type: eventType,
+        p_event_name: eventName,
+        p_page_path: window.location.pathname,
+        p_referrer: document.referrer || null,
+        p_source: getSource(),
+        p_device_type: getDeviceType(),
+        p_user_agent: navigator.userAgent,
+        p_session_id: getSessionId(),
+        p_visitor_id: getVisitorId(),
+        p_properties: JSON.parse(JSON.stringify(properties))
+      });
       
       // Log in development
       if (import.meta.env.DEV) {
-        console.log('📊 Analytics:', eventName, event);
+        console.log('📊 Analytics:', eventName, { eventType, eventName, properties });
       }
     } catch (error) {
       console.error('Analytics tracking error:', error);

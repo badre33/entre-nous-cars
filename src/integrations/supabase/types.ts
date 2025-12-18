@@ -140,6 +140,21 @@ export type Database = {
         }
         Returns: boolean
       }
+      insert_analytics_event: {
+        Args: {
+          p_device_type?: string
+          p_event_name: string
+          p_event_type: string
+          p_page_path?: string
+          p_properties?: Json
+          p_referrer?: string
+          p_session_id?: string
+          p_source?: string
+          p_user_agent?: string
+          p_visitor_id?: string
+        }
+        Returns: string
+      }
       touch_analytics_session: {
         Args: {
           p_device_type?: string
