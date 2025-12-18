@@ -101,6 +101,27 @@
       @media(min-width:768px){.md\\:h-12{height:3rem}.md\\:text-4xl{font-size:2.25rem}}
     </style>
     
+    <!-- Make Vite CSS non-render-blocking -->
+    <script>
+      (function(){
+        // Convert render-blocking CSS to async loading
+        var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            mutation.addedNodes.forEach(function(node) {
+              if (node.tagName === 'LINK' && node.rel === 'stylesheet' && node.href && node.href.includes('/assets/')) {
+                // Use media swap technique for async CSS loading
+                node.media = 'print';
+                node.onload = function() { this.media = 'all'; };
+              }
+            });
+          });
+        });
+        observer.observe(document.head, { childList: true });
+        // Disconnect after 5s to prevent memory leaks
+        setTimeout(function() { observer.disconnect(); }, 5000);
+      })();
+    </script>
+    
     <!-- Preload critical fonts for better LCP -->
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/barlow/v12/7cHpv4kjgoGqM7E_DMs5ynghnQci.woff2" type="font/woff2" crossorigin>
     
