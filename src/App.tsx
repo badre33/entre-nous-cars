@@ -1,5 +1,3 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
@@ -8,17 +6,12 @@ import { ComparisonProvider } from "@/contexts/ComparisonContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import { MetaPixel } from "@/components/MetaPixel";
-import { OrganizationSchema } from "@/components/OrganizationSchema";
-import { SitelinksSearchBoxSchema } from "@/components/schemas";
-import { IntelligentRoutePrefetcher } from "@/components/IntelligentRoutePrefetcher";
 import React, { lazy, Suspense, useEffect, useState, ComponentType } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
 import { BottomNavigation } from "@/components/BottomNavigation";
 
 import { PageSkeleton } from "@/components/PageSkeleton";
-import { analyticsTracker } from "@/utils/analyticsTracker";
 
 // Code splitting avec React.lazy - Homepage not lazy loaded for better LCP
 import Index from "./pages/Index";
@@ -111,23 +104,102 @@ const PolitiqueConfidentialite = lazy(() => import("./pages/PolitiqueConfidentia
 const Auth = lazy(() => import("./pages/Auth"));
 const AnalyticsDashboard = lazy(() => import("./pages/Analytics"));
 
+// Deferred analytics and schemas loader - loaded after FCP
+const DeferredSEOComponents = () => {
+  const [components, setComponents] = useState<{
+    OrganizationSchema: ComponentType | null;
+    SitelinksSearchBoxSchema: ComponentType | null;
+    MetaPixel: ComponentType | null;
+    IntelligentRoutePrefetcher: ComponentType | null;
+    Toaster: ComponentType | null;
+    Sonner: ComponentType | null;
+  }>({
+    OrganizationSchema: null,
+    SitelinksSearchBoxSchema: null,
+    MetaPixel: null,
+    IntelligentRoutePrefetcher: null,
+    Toaster: null,
+    Sonner: null,
+  });
+
+  useEffect(() => {
+    const loadComponents = async () => {
+      const [orgSchema, sitelinks, metaPixel, prefetcher, toaster, sonner] = await Promise.all([
+        import("@/components/OrganizationSchema"),
+        import("@/components/schemas"),
+        import("@/components/MetaPixel"),
+        import("@/components/IntelligentRoutePrefetcher"),
+        import("@/components/ui/toaster"),
+        import("@/components/ui/sonner"),
+      ]);
+      
+      setComponents({
+        OrganizationSchema: orgSchema.OrganizationSchema,
+        SitelinksSearchBoxSchema: sitelinks.SitelinksSearchBoxSchema,
+        MetaPixel: metaPixel.MetaPixel,
+        IntelligentRoutePrefetcher: prefetcher.IntelligentRoutePrefetcher,
+        Toaster: toaster.Toaster,
+        Sonner: sonner.Toaster,
+      });
+    };
+
+    // Load SEO components after a small delay to prioritize FCP
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(() => loadComponents(), { timeout: 2000 });
+      return () => cancelIdleCallback(idleId);
+    } else {
+      const timer = setTimeout(loadComponents, 500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  return (
+    <>
+      {components.OrganizationSchema && <components.OrganizationSchema />}
+      {components.SitelinksSearchBoxSchema && <components.SitelinksSearchBoxSchema />}
+      {components.MetaPixel && <components.MetaPixel />}
+      {components.IntelligentRoutePrefetcher && <components.IntelligentRoutePrefetcher />}
+      {components.Toaster && <components.Toaster />}
+      {components.Sonner && <components.Sonner />}
+    </>
+  );
+};
+
 // Analytics tracking component - deferred to avoid FID impact
 const AnalyticsTrackerComponent = () => {
   const location = useLocation();
   const isInitialized = React.useRef(false);
+  const [tracker, setTracker] = useState<typeof import("@/utils/analyticsTracker")["analyticsTracker"] | null>(null);
 
   useEffect(() => {
-    // Initialize tracker once
-    if (!isInitialized.current) {
-      analyticsTracker.init();
-      isInitialized.current = true;
+    const loadTracker = async () => {
+      const module = await import("@/utils/analyticsTracker");
+      setTracker(module.analyticsTracker);
+    };
+    
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => loadTracker(), { timeout: 2000 });
+    } else {
+      setTimeout(loadTracker, 500);
     }
   }, []);
 
   useEffect(() => {
+    if (!tracker) return;
+    
+    // Initialize tracker once
+    if (!isInitialized.current) {
+      tracker.init();
+      isInitialized.current = true;
+    }
+  }, [tracker]);
+
+  useEffect(() => {
+    if (!tracker) return;
+    
     // Defer analytics tracking to avoid blocking main thread during navigation
     const trackWithDelay = () => {
-      analyticsTracker.trackPageView(location.pathname);
+      tracker.trackPageView(location.pathname);
     };
 
     // Use requestIdleCallback for non-blocking analytics
@@ -138,7 +210,7 @@ const AnalyticsTrackerComponent = () => {
       const timer = setTimeout(trackWithDelay, 100);
       return () => clearTimeout(timer);
     }
-  }, [location]);
+  }, [location, tracker]);
 
   return null;
 };
@@ -216,15 +288,10 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
           <BrowserRouter>
-            <OrganizationSchema />
-            <SitelinksSearchBoxSchema />
-            <MetaPixel />
+            <DeferredSEOComponents />
             <AnalyticsTrackerComponent />
-            <IntelligentRoutePrefetcher />
             <LanguageProvider>
               <ComparisonProvider>
-                <Toaster />
-                <Sonner />
                 <ScrollToTop />
                 <Suspense fallback={<PageSkeleton />}>
                   <Routes>
