@@ -38,12 +38,14 @@ export const preloadImage = (
  * Précharger les images hero et above-the-fold
  */
 export const preloadCriticalImages = () => {
-  // Images hero à précharger en priorité haute (WebP from public folder)
-  const criticalImages = [
-    { href: '/hero-home-new.webp', type: 'image/webp' },
-  ];
+  const isMobile = window.innerWidth < 768;
+  
+  // Preload appropriate hero image based on viewport
+  const heroImages = isMobile
+    ? [{ href: '/hero-home-mobile.webp', type: 'image/webp' }]
+    : [{ href: '/hero-home-new.webp', type: 'image/webp' }];
 
-  criticalImages.forEach(img => {
+  heroImages.forEach(img => {
     preloadImage(img.href, { 
       type: img.type, 
       fetchPriority: 'high' 
