@@ -28,8 +28,8 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       
       <div className="container relative z-10 text-center text-white px-4 py-8">
-        {/* Trust badges */}
-        <div className="flex flex-wrap justify-center gap-3 mb-6 animate-fade-in">
+        {/* Trust badges - no animation for faster LCP */}
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
             <Shield className="w-4 h-4 text-green-400" />
             <span className="text-sm font-medium">{t("homepage.trustBadgeVerified")}</span>
@@ -44,20 +44,20 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
           </div>
         </div>
         
-        {/* Main headline */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight animate-fade-in max-w-4xl mx-auto">
+        {/* Main headline - LCP critical, no animation delay */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight max-w-4xl mx-auto">
           {t("homepage.heroTitle")}
           <span className="block text-primary mt-2">{t("homepage.heroTitleHighlight")}</span>
         </h1>
         
         {/* Subheadline */}
-        <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in [animation-delay:200ms] leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
           {t("homepage.heroSubtitle")}
           <span className="block mt-1">{t("homepage.heroSubtitle2")}</span>
         </p>
         
         {/* PRIMARY CTA */}
-        <div className="animate-fade-in [animation-delay:400ms]">
+        <div>
           <Button 
             onClick={onWhatsAppClick}
             size="lg"
