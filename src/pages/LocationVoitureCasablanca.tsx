@@ -31,7 +31,7 @@ const LocationVoitureCasablanca = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Location de Voiture à Casablanca | Prix Dès 150 DH/jour - Benatna</title>
+        <title>Location de voiture à Casablanca | Benatna – Loueurs locaux</title>
         <meta name="description" content="Location de voiture à Casablanca avec Benatna. Aéroport Mohammed V, Centre-ville, Ain Diab. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
         <meta name="keywords" content="location voiture casablanca, location auto casablanca aeroport, louer voiture casablanca pas cher, location véhicule casa, rent car casablanca airport" />
         <link rel="canonical" href="https://benatna.ma/location-voiture-casablanca" />

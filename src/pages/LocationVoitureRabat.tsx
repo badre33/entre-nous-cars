@@ -23,7 +23,7 @@ const LocationVoitureRabat = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Location de Voiture à Rabat | Prix Dès 150 DH/jour - Benatna</title>
+        <title>Location de voiture à Rabat | Benatna – Loueurs locaux</title>
         <meta name="description" content="Location de voiture à Rabat avec Benatna. Capitale du Maroc, centre-ville, gare. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
         <meta name="keywords" content="location voiture rabat, location auto rabat centre ville, louer voiture rabat pas cher, location véhicule capitale maroc, rent car rabat" />
         <link rel="canonical" href="https://benatna.ma/location-voiture-rabat" />
