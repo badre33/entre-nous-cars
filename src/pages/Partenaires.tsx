@@ -46,8 +46,8 @@ const Partenaires = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Devenir Partenaire Benatna - Agence de Location de Voiture au Maroc</title>
-        <meta name="description" content="Rejoignez le réseau Benatna et boostez votre activité de location de voitures au Maroc. Visibilité nationale, réservations en ligne, outil de gestion gratuit." />
+        <title>Devenir Partenaire Benatna | Agence Location Maroc</title>
+        <meta name="description" content="Rejoignez Benatna : visibilité nationale, réservations en ligne, outil de gestion gratuit. Boostez votre agence de location." />
         <meta name="keywords" content="partenaire location voiture maroc, agence location auto partenariat, devenir partenaire benatna, réseau location véhicule maroc" />
         <link rel="canonical" href="https://benatna.ma/partenaires" />
       </Helmet>

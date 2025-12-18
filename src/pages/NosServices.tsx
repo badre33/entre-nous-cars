@@ -85,18 +85,18 @@ const NosServices = () => {
       />
       
       <Helmet>
-        <title>Nos Services de Location de Voiture au Maroc | Benatna</title>
+        <title>Services Location Voiture Maroc | Benatna</title>
         <meta 
           name="description" 
-          content="Découvrez tous nos services de location : aéroports, jeune conducteur, longue durée, SUV 4x4, véhicules de luxe et spéciaux. Tarifs dès 150 DH/jour partout au Maroc." 
+          content="Services location voiture au Maroc : aéroports, jeune conducteur, longue durée, SUV 4x4. Dès 150 DH/jour. Réservez via WhatsApp." 
         />
         <meta 
           name="keywords" 
           content="services location voiture maroc, location aéroport, jeune conducteur, longue durée, suv 4x4, voiture luxe" 
         />
         <link rel="canonical" href="https://benatna.ma/nos-services" />
-        <meta property="og:title" content="Nos Services de Location de Voiture au Maroc | Benatna" />
-        <meta property="og:description" content="Découvrez tous nos services de location adaptés à vos besoins : aéroports, jeune conducteur, longue durée, SUV, véhicules spéciaux." />
+        <meta property="og:title" content="Services Location Voiture Maroc | Benatna" />
+        <meta property="og:description" content="Services location voiture au Maroc : aéroports, jeune conducteur, longue durée, SUV. Dès 150 DH/jour." />
         <meta property="og:url" content="https://benatna.ma/nos-services" />
       </Helmet>
       <HreflangTags path="/nos-services" />

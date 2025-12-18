@@ -36,8 +36,8 @@ const AgeMinimumLocation = () => {
   return (
     <>
       <Helmet>
-        <title>Âge Minimum Location Voiture Maroc - 21 ans + Conditions | Benatna</title>
-        <meta name="description" content="Âge minimum pour louer une voiture au Maroc : 21 ans avec 2 ans de permis. Supplément jeune conducteur 21-24 ans. Véhicules autorisés. Guide complet." />
+        <title>Âge Minimum Location Voiture Maroc | Benatna</title>
+        <meta name="description" content="Âge minimum location voiture Maroc : 21 ans avec 2 ans de permis. Supplément jeune conducteur 21-24 ans. Guide complet." />
         <meta name="keywords" content="age minimum location voiture maroc, jeune conducteur maroc, location voiture 21 ans maroc, supplément jeune conducteur, permis 2 ans" />
       </Helmet>
 
