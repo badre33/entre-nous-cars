@@ -183,24 +183,30 @@
     
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Google Tag Manager - Deferred to after page load for better performance -->
+    <!-- Google Tag Manager - Load only after user interaction for best performance -->
     <script>
-      function loadGTM() {
-        if (window.gtmLoaded) return;
-        window.gtmLoaded = true;
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-        var j = document.createElement('script');
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WK894PKV';
-        document.head.appendChild(j);
-      }
-      // Load GTM after 10 seconds to keep it out of critical path
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGTM, { timeout: 12000 });
-      } else {
-        setTimeout(loadGTM, 10000);
-      }
+      (function() {
+        var gtmLoaded = false;
+        function loadGTM() {
+          if (gtmLoaded) return;
+          gtmLoaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+          var j = document.createElement('script');
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WK894PKV';
+          document.head.appendChild(j);
+          // Remove event listeners after loading
+          document.removeEventListener('scroll', loadGTM);
+          document.removeEventListener('click', loadGTM);
+          document.removeEventListener('touchstart', loadGTM);
+        }
+        // Load GTM on first user interaction OR after 15s max
+        document.addEventListener('scroll', loadGTM, {once: true, passive: true});
+        document.addEventListener('click', loadGTM, {once: true});
+        document.addEventListener('touchstart', loadGTM, {once: true, passive: true});
+        setTimeout(loadGTM, 15000);
+      })();
     </script>
   </body>
 </html>
