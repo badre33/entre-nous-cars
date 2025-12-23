@@ -1,4 +1,9 @@
-import { supabase } from "@/integrations/supabase/client";
+// Dynamic import to avoid loading Supabase client in critical path
+// This reduces network dependency chain for better LCP/TTI
+const getSupabaseClient = async () => {
+  const { supabase } = await import("@/integrations/supabase/client");
+  return supabase;
+};
 
 // Generate unique visitor ID stored in localStorage
 const getVisitorId = (): string => {
@@ -137,6 +142,9 @@ class AnalyticsTracker {
   
   async trackEvent({ eventType, eventName, properties = {} }: TrackEventOptions) {
     try {
+      // Dynamically load Supabase client to avoid critical path
+      const supabase = await getSupabaseClient();
+      
       // Use validated RPC function instead of direct INSERT
       // This enforces server-side validation for all inputs
       await supabase.rpc('insert_analytics_event', {
@@ -177,6 +185,9 @@ class AnalyticsTracker {
     const visitorId = getVisitorId();
     
     try {
+      // Dynamically load Supabase client to avoid critical path
+      const supabase = await getSupabaseClient();
+      
       // Use secure RPC function instead of direct table access
       await supabase.rpc('touch_analytics_session', {
         p_session_id: sessionId,
