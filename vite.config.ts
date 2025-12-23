@@ -35,6 +35,28 @@ export default defineConfig(({ mode }) => ({
     // Use default chunking & minification to maximize React compatibility
     cssCodeSplit: true,
     chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          // Isolate Supabase client into its own chunk - loaded only when needed
+          if (id.includes('@supabase') || id.includes('supabase-js')) {
+            return 'supabase-client';
+          }
+          // Keep React in vendor chunk
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'react-vendor';
+          }
+          // Isolate radix-ui components
+          if (id.includes('@radix-ui')) {
+            return 'ui-vendor';
+          }
+          // Analytics and tracking in separate chunk
+          if (id.includes('analyticsTracker') || id.includes('analytics')) {
+            return 'analytics';
+          }
+        },
+      },
+    },
   },
   plugins: [
     react(),
