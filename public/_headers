@@ -4,11 +4,11 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
 
-# Cache hashed assets (immutable - hash changes when content changes)
+# Cache hashed assets for 1 year (immutable)
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Cache images in public folder with explicit extensions
+# Cache all static files in public folder
 /*.webp
   Cache-Control: public, max-age=31536000, immutable
 
@@ -30,14 +30,6 @@
 /*.ico
   Cache-Control: public, max-age=31536000, immutable
 
-# Hero images specifically
-/hero-home-new.webp
-  Cache-Control: public, max-age=31536000, immutable
-
-/hero-home-mobile.webp
-  Cache-Control: public, max-age=31536000, immutable
-
-# Cache fonts
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
 
@@ -47,25 +39,22 @@
 /*.ttf
   Cache-Control: public, max-age=31536000, immutable
 
-/*.eot
-  Cache-Control: public, max-age=31536000, immutable
-
-/*.otf
-  Cache-Control: public, max-age=31536000, immutable
-
-# Cache CSS and JS
 /*.css
   Cache-Control: public, max-age=31536000, immutable
 
 /*.js
   Cache-Control: public, max-age=31536000, immutable
 
-# HTML should not be cached long-term
-/*.html
-  Cache-Control: no-cache
+# Hero images with explicit paths
+/hero-home-new.webp
+  Cache-Control: public, max-age=31536000, immutable
 
+/hero-home-mobile.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+# Don't cache HTML
 /
-  Cache-Control: no-cache
+  Cache-Control: no-cache, no-store, must-revalidate
 
 /index.html
-  Cache-Control: no-cache
+  Cache-Control: no-cache, no-store, must-revalidate
