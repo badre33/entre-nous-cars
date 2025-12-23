@@ -215,7 +215,7 @@ const AnalyticsTrackerComponent = () => {
   return null;
 };
 
-// Crisp Chat - loaded deferred
+// Crisp Chat - loaded deferred with significant delay for better TTI
 const CrispLoader = () => {
   const [CrispChat, setCrispChat] = useState<ComponentType | null>(null);
 
@@ -225,12 +225,13 @@ const CrispLoader = () => {
       setCrispChat(() => module.CrispChat);
     };
 
+    // Delay Crisp loading significantly to improve TTI
     if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(() => loadCrisp(), { timeout: 5000 });
-      return () => cancelIdleCallback(idleId);
+      requestIdleCallback(() => {
+        setTimeout(loadCrisp, 5000); // Additional 5s delay after idle
+      }, { timeout: 8000 });
     } else {
-      const timer = setTimeout(loadCrisp, 4000);
-      return () => clearTimeout(timer);
+      setTimeout(loadCrisp, 10000); // 10s delay on fallback
     }
   }, []);
 

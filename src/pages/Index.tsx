@@ -1,12 +1,56 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
-import { StructuredData } from "@/components/StructuredData";
-import { HreflangTags } from "@/utils/hreflangHelper";
-import { ServiceSchema } from "@/components/ServiceSchema";
-import { EnhancedAggregateRatingSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { generateSimpleMessage, openWhatsApp } from "@/utils/whatsapp";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+// Deferred SEO schemas to improve TTI - loaded after paint
+const DeferredSchemas = () => {
+  const [loaded, setLoaded] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [schemas, setSchemas] = useState<any>(null);
+
+  useEffect(() => {
+    const loadSchemas = async () => {
+      const [structuredData, hreflang, service, schemaModule] = await Promise.all([
+        import("@/components/StructuredData"),
+        import("@/utils/hreflangHelper"),
+        import("@/components/ServiceSchema"),
+        import("@/components/schemas"),
+      ]);
+      setSchemas({
+        StructuredData: structuredData.StructuredData,
+        HreflangTags: hreflang.HreflangTags,
+        ServiceSchema: service.ServiceSchema,
+        EnhancedAggregateRatingSchema: schemaModule.EnhancedAggregateRatingSchema,
+        BreadcrumbListSchema: schemaModule.BreadcrumbListSchema,
+        createBreadcrumbs: schemaModule.createBreadcrumbs,
+      });
+      setLoaded(true);
+    };
+
+    // Defer schemas to after paint for better TTI
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => loadSchemas(), { timeout: 3000 });
+    } else {
+      setTimeout(loadSchemas, 1000);
+    }
+  }, []);
+
+  if (!loaded || !schemas) return null;
+
+  const { StructuredData, HreflangTags, ServiceSchema, EnhancedAggregateRatingSchema, BreadcrumbListSchema, createBreadcrumbs } = schemas;
+
+  return (
+    <>
+      <HreflangTags path="/" />
+      <StructuredData type="home" />
+      <ServiceSchema />
+      <EnhancedAggregateRatingSchema entityType="Organization" entityName="Benatna Location de Voiture Maroc" />
+      <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
+    </>
+  );
+};
 
 // Above-the-fold components - eagerly loaded
 import {
@@ -81,12 +125,8 @@ const Index = () => {
         <meta name="description" content={t("homepage.metaDescription")} />
         <link rel="canonical" href="https://benatna.ma/" />
       </Helmet>
-      <HreflangTags path="/" />
-      <StructuredData type="home" />
-      <ServiceSchema />
-      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
-      <EnhancedAggregateRatingSchema entityType="Organization" entityName="Benatna Location de Voiture Maroc" />
-      <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
+      {/* Deferred schemas for better TTI */}
+      <DeferredSchemas />
       
       <Header />
       
