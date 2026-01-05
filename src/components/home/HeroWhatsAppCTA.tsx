@@ -8,8 +8,8 @@ interface HeroWhatsAppCTAProps {
   onWhatsAppClick: () => void;
 }
 
-// Mobile-optimized hero image path
-const heroImageMobile = "/hero-home-mobile.webp";
+// Mobile-optimized hero image path - using compressed version for better LCP
+const heroImageMobile = "/hero-home-mobile-optimized.webp";
 
 const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps) => {
   const { t } = useLanguage();
