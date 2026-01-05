@@ -42,17 +42,47 @@ export default defineConfig(({ mode }) => ({
           if (id.includes('@supabase') || id.includes('supabase-js')) {
             return 'supabase-client';
           }
-          // Keep React in vendor chunk
-          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
-            return 'react-vendor';
+          // React core - minimal vendor chunk
+          if (id.includes('node_modules/react-dom')) {
+            return 'react-dom';
           }
-          // Isolate radix-ui components
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-is')) {
+            return 'react-core';
+          }
+          // Router in separate chunk
+          if (id.includes('react-router')) {
+            return 'router';
+          }
+          // Tanstack query - defer loading
+          if (id.includes('@tanstack')) {
+            return 'tanstack';
+          }
+          // Isolate radix-ui components by category
+          if (id.includes('@radix-ui/react-dialog') || id.includes('@radix-ui/react-drawer')) {
+            return 'ui-dialogs';
+          }
           if (id.includes('@radix-ui')) {
             return 'ui-vendor';
+          }
+          // Date utilities
+          if (id.includes('date-fns')) {
+            return 'date-utils';
+          }
+          // Form handling
+          if (id.includes('react-hook-form') || id.includes('@hookform') || id.includes('zod')) {
+            return 'forms';
+          }
+          // Charts/visualization
+          if (id.includes('recharts') || id.includes('d3')) {
+            return 'charts';
           }
           // Analytics and tracking in separate chunk
           if (id.includes('analyticsTracker') || id.includes('analytics')) {
             return 'analytics';
+          }
+          // Lucide icons - commonly tree-shaken but still large
+          if (id.includes('lucide-react')) {
+            return 'icons';
           }
         },
       },
