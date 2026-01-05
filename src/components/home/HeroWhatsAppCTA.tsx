@@ -20,7 +20,7 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
       {/* Solid background color shows instantly for fast FCP/LCP perception */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d]" />
       
-      {/* Hero image optimized for LCP - responsive srcset for mobile/desktop */}
+      {/* Hero image optimized for LCP - responsive srcset with intermediate sizes */}
       <img 
         src={heroImageMobile} 
         alt="Location de voiture au Maroc - Benatna"
@@ -30,8 +30,8 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
         decoding="async"
         width={1280}
         height={720}
-        sizes="100vw"
-        srcSet={`${heroImageMobile} 768w, ${heroImageUrl} 1920w`}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1400px"
+        srcSet={`${heroImageMobile} 768w, ${heroImageUrl} 1400w, ${heroImageUrl} 1920w`}
         onLoad={() => setImageLoaded(true)}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />

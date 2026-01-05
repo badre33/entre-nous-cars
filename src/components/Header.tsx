@@ -18,6 +18,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import logo from "@/assets/logo-black.webp";
+import logoSmall from "@/assets/logo-black-small.webp";
 
 const Header = () => {
   const location = useLocation();
@@ -162,7 +163,15 @@ const Header = () => {
       <div className="container flex h-16 md:h-20 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 transition-transform hover:scale-105">
-          <img src={logo} alt="Benatna" width="48" height="48" className="h-8 md:h-12 w-auto" />
+          <img 
+            src={logoSmall} 
+            srcSet={`${logoSmall} 48w, ${logo} 96w`}
+            sizes="(max-width: 768px) 32px, 48px"
+            alt="Benatna" 
+            width="48" 
+            height="48" 
+            className="h-8 md:h-12 w-auto" 
+          />
           <span className="font-pacifico text-xl md:text-2xl text-foreground">benatna</span>
         </Link>
         

@@ -36,6 +36,9 @@ const CityGrid = ({ cities }: CityGridProps) => {
                   alt={`Location voiture ${t(city.nameKey)}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
+                  width="380"
+                  height="160"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 288px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
