@@ -17,7 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logo from "@/assets/logo-black.webp";
+import logoLarge from "@/assets/logo-black.webp";
 import logoSmall from "@/assets/logo-black-small.webp";
 
 const Header = () => {
@@ -165,8 +165,8 @@ const Header = () => {
         <Link to="/" className="flex items-center gap-2 transition-transform hover:scale-105">
           <img 
             src={logoSmall} 
-            srcSet={`${logoSmall} 48w, ${logo} 96w`}
-            sizes="(max-width: 768px) 32px, 48px"
+            srcSet={`${logoSmall} 48w, ${logoLarge} 96w`}
+            sizes="48px"
             alt="Benatna" 
             width="48" 
             height="48" 

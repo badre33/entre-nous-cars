@@ -70,6 +70,10 @@ const Footer = lazy(() => import("@/components/Footer"));
 import cityCasablanca from "@/assets/city-casablanca-optimized.webp";
 import cityMarrakech from "@/assets/city-marrakech-optimized.webp";
 import cityRabat from "@/assets/city-rabat-optimized.webp";
+// Small optimized versions for grid display
+import cityCasablancaSmall from "@/assets/city-casablanca-small.webp";
+import cityMarrakechSmall from "@/assets/city-marrakech-small.webp";
+import cityRabatSmall from "@/assets/city-rabat-small.webp";
 
 const heroImageWebp = "/hero-home-new.webp";
 
@@ -95,12 +99,12 @@ const Index = () => {
   };
 
   const cities = [
-    { nameKey: "homepage.casablanca", image: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-casablanca" },
-    { nameKey: "homepage.rabat", image: cityRabat, slug: "rabat", guideSlug: "/location-voiture-rabat" },
-    { nameKey: "homepage.marrakech", image: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-marrakech" },
-    { nameKey: "homepage.airportCasablanca", image: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-aeroport-casablanca" },
-    { nameKey: "homepage.airportRabat", image: cityRabat, slug: "rabat", guideSlug: "/location-voiture-aeroport-rabat" },
-    { nameKey: "homepage.airportMarrakech", image: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-aeroport-marrakech" },
+    { nameKey: "homepage.casablanca", image: cityCasablancaSmall, imageLarge: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-casablanca" },
+    { nameKey: "homepage.rabat", image: cityRabatSmall, imageLarge: cityRabat, slug: "rabat", guideSlug: "/location-voiture-rabat" },
+    { nameKey: "homepage.marrakech", image: cityMarrakechSmall, imageLarge: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-marrakech" },
+    { nameKey: "homepage.airportCasablanca", image: cityCasablancaSmall, imageLarge: cityCasablanca, slug: "casablanca", guideSlug: "/location-voiture-aeroport-casablanca" },
+    { nameKey: "homepage.airportRabat", image: cityRabatSmall, imageLarge: cityRabat, slug: "rabat", guideSlug: "/location-voiture-aeroport-rabat" },
+    { nameKey: "homepage.airportMarrakech", image: cityMarrakechSmall, imageLarge: cityMarrakech, slug: "marrakech", guideSlug: "/location-voiture-aeroport-marrakech" },
   ];
 
   const testimonials = [
