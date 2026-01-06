@@ -40,9 +40,9 @@ export const preloadImage = (
 export const preloadCriticalImages = () => {
   const isMobile = window.innerWidth < 768;
   
-  // Preload appropriate hero image based on viewport
+  // Preload appropriate hero image based on viewport - using optimized versions
   const heroImages = isMobile
-    ? [{ href: '/hero-home-mobile.webp', type: 'image/webp' }]
+    ? [{ href: '/hero-home-mobile-optimized.webp', type: 'image/webp' }]
     : [{ href: '/hero-home-new.webp', type: 'image/webp' }];
 
   heroImages.forEach(img => {
