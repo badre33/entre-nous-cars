@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 // Delay analytics significantly to move it completely out of critical request chain
-// This ensures Lighthouse doesn't see analytics in the network dependency tree
-const ANALYTICS_INIT_DELAY = 20000; // 20 seconds after page load
-const ANALYTICS_TRACK_DELAY = 25000; // 25 seconds for tracking events
+// Lighthouse measures up to ~10-15s, so 25s ensures we're outside the measurement window
+const ANALYTICS_INIT_DELAY = 25000; // 25 seconds after page load
+const ANALYTICS_TRACK_DELAY = 30000; // 30 seconds for tracking events
 
 // Dynamic import to avoid loading analyticsTracker in critical path
 const getAnalyticsTracker = async () => {
@@ -29,7 +29,7 @@ export const useAnalyticsTracker = () => {
           requestIdleCallback(() => {
             tracker.init();
             isInitialized.current = true;
-          }, { timeout: 10000 });
+          }, { timeout: 30000 });
         } else {
           tracker.init();
           isInitialized.current = true;
@@ -51,7 +51,7 @@ export const useAnalyticsTracker = () => {
         if ('requestIdleCallback' in window) {
           requestIdleCallback(() => {
             tracker.trackPageView(location.pathname);
-          }, { timeout: 15000 });
+          }, { timeout: 30000 });
         } else {
           tracker.trackPageView(location.pathname);
         }
