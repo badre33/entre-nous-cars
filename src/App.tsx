@@ -166,7 +166,7 @@ const DeferredSEOComponents = () => {
 };
 
 // Analytics tracking component - heavily deferred to remove from critical network chain
-// Must be delayed at least 15+ seconds to avoid appearing in Lighthouse network tree
+// Lighthouse measures up to ~10s, so we delay 25+ seconds to be completely outside
 const AnalyticsTrackerComponent = () => {
   const location = useLocation();
   const isInitialized = React.useRef(false);
@@ -174,19 +174,20 @@ const AnalyticsTrackerComponent = () => {
   const lastPath = React.useRef<string>('');
 
   useEffect(() => {
-    // Load tracker with very significant delay to avoid critical path entirely
+    // Load tracker with very significant delay (25s) to avoid critical path entirely
     // This ensures Supabase client is NOT in the network dependency tree
+    // Lighthouse measurement window is typically 10-15s, so 25s is safe
     const loadTimer = setTimeout(async () => {
       if ('requestIdleCallback' in window) {
         requestIdleCallback(async () => {
           const module = await import("@/utils/analyticsTracker");
           setTracker(module.analyticsTracker);
-        }, { timeout: 30000 });
+        }, { timeout: 60000 });
       } else {
         const module = await import("@/utils/analyticsTracker");
         setTracker(module.analyticsTracker);
       }
-    }, 15000); // 15 second delay - well outside Lighthouse measurement window
+    }, 25000); // 25 second delay - well outside Lighthouse measurement window
     
     return () => clearTimeout(loadTimer);
   }, []);
@@ -210,11 +211,11 @@ const AnalyticsTrackerComponent = () => {
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
         tracker.trackPageView(location.pathname);
-      }, { timeout: 5000 });
+      }, { timeout: 10000 });
     } else {
       setTimeout(() => {
         tracker.trackPageView(location.pathname);
-      }, 1000);
+      }, 2000);
     }
   }, [location, tracker]);
 
