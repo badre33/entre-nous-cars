@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 interface City {
   nameKey: string;
   image: string;
+  imageLarge?: string;
   slug: string;
   guideSlug: string;
 }
@@ -33,12 +34,13 @@ const CityGrid = ({ cities }: CityGridProps) => {
               <div className="relative h-32 sm:h-40">
                 <img 
                   src={city.image} 
+                  srcSet={city.imageLarge ? `${city.image} 400w, ${city.imageLarge} 896w` : undefined}
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 288px"
                   alt={`Location voiture ${t(city.nameKey)}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
-                  width="380"
+                  width="288"
                   height="160"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 288px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
