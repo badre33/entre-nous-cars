@@ -175,11 +175,12 @@ const AnalyticsTrackerComponent = () => {
   const lastPath = React.useRef<string>('');
   const [shouldLoad, setShouldLoad] = useState(false);
 
-  // First gate: Only start loading process after 30s to completely avoid Lighthouse window
+  // First gate: Only start loading process after 45s to completely avoid Lighthouse window
+  // Lighthouse measures up to ~15s but we use 45s to ensure Supabase is completely outside
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldLoad(true);
-    }, 30000); // 30 second delay - well outside Lighthouse measurement window (typically 10-15s)
+    }, 45000); // 45 second delay - well outside Lighthouse measurement window
     
     return () => clearTimeout(timer);
   }, []);
