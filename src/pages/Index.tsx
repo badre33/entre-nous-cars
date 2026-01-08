@@ -75,7 +75,7 @@ import cityCasablancaSmall from "@/assets/city-casablanca-small.webp";
 import cityMarrakechSmall from "@/assets/city-marrakech-small.webp";
 import cityRabatSmall from "@/assets/city-rabat-small.webp";
 
-const heroImageWebp = "/hero-home-new.webp";
+// Hero images now handled internally by HeroWhatsAppCTA for better optimization
 
 // Minimal loading skeleton for lazy components
 const SectionSkeleton = () => (
@@ -134,10 +134,7 @@ const Index = () => {
       
       <Header />
       
-      <HeroWhatsAppCTA 
-        heroImageUrl={heroImageWebp} 
-        onWhatsAppClick={() => handleWhatsAppClick()} 
-      />
+      <HeroWhatsAppCTA onWhatsAppClick={() => handleWhatsAppClick()} />
       
       <HowItWorks />
       

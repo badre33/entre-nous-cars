@@ -4,14 +4,14 @@ import { useState } from "react";
 import { RentalRequestForm } from "@/components/RentalRequestForm";
 
 interface HeroWhatsAppCTAProps {
-  heroImageUrl: string;
   onWhatsAppClick: () => void;
 }
 
 // Mobile-optimized hero image path - using compressed version for better LCP
 const heroImageMobile = "/hero-home-mobile-optimized.webp";
+const heroImageDesktop = "/hero-home-new.webp";
 
-const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps) => {
+const HeroWhatsAppCTA = ({ onWhatsAppClick }: HeroWhatsAppCTAProps) => {
   const { t } = useLanguage();
   const [imageLoaded, setImageLoaded] = useState(false);
 
@@ -20,32 +20,20 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
       {/* Solid background color shows instantly for fast FCP/LCP perception */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d]" />
       
-      {/* Hero image optimized for LCP - uses compressed mobile version exclusively on small screens */}
-      <picture>
-        <source 
-          media="(max-width: 768px)" 
-          srcSet={heroImageMobile}
-          type="image/webp"
-        />
-        <source 
-          media="(min-width: 769px)" 
-          srcSet={heroImageUrl}
-          type="image/webp"
-        />
-        <img 
-          src={heroImageMobile} 
-          alt="Location de voiture au Maroc - Benatna"
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          width={768}
-          height={432}
-          sizes="100vw"
-          srcSet={`${heroImageMobile} 768w, ${heroImageUrl} 1920w`}
-          onLoad={() => setImageLoaded(true)}
-        />
-      </picture>
+      {/* Hero image optimized for LCP - uses ONLY optimized versions */}
+      <img 
+        src={heroImageMobile} 
+        alt="Location de voiture au Maroc - Benatna"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        width={768}
+        height={432}
+        sizes="(max-width: 768px) 100vw, 1920px"
+        srcSet={`${heroImageMobile} 768w, ${heroImageDesktop} 1920w`}
+        onLoad={() => setImageLoaded(true)}
+      />
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
       
       <div className="container relative z-10 text-center text-white px-4 py-8">
