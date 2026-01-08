@@ -26,28 +26,76 @@ import carHyundaiTucson from "@/assets/car-hyundai-tucson.jpg";
 import carMercedesGLC from "@/assets/car-mercedes-glc.jpg";
 import carVWGolf from "@/assets/car-vw-golf.jpg";
 import carRenaultMegane from "@/assets/car-renault-megane.jpg";
+import carDaciaSandero from "@/assets/car-dacia-sandero.jpg";
+import carFiatPanda from "@/assets/car-fiat-panda.jpg";
+import carHyundaiI20 from "@/assets/car-hyundai-i20.jpg";
+import carOpelCorsa from "@/assets/car-opel-corsa.jpg";
+import carKiaPicanto from "@/assets/car-kia-picanto.jpg";
+import carSeatIbiza from "@/assets/car-seat-ibiza.jpg";
+import carKiaSportage from "@/assets/car-kia-sportage.jpg";
+import carNissanQashqai from "@/assets/car-nissan-qashqai.jpg";
+import carVolvoXC60 from "@/assets/car-volvo-xc60.jpg";
+import carMazdaCX5 from "@/assets/car-mazda-cx5.jpg";
+import carFordKuga from "@/assets/car-ford-kuga.jpg";
+import carRenaultArkana from "@/assets/car-renault-arkana.jpg";
+import carVWPassat from "@/assets/car-vw-passat.jpg";
+import carPeugeot308 from "@/assets/car-peugeot-308.jpg";
+import carHondaCivic from "@/assets/car-honda-civic.jpg";
+import carMazda3 from "@/assets/car-mazda-3.jpg";
+import carSkodaOctavia from "@/assets/car-skoda-octavia.jpg";
+import carOpelAstra from "@/assets/car-opel-astra.jpg";
+import carMercedesE from "@/assets/car-mercedes-e.jpg";
+import carBmw5 from "@/assets/car-bmw-5.jpg";
+import carAudiA6 from "@/assets/car-audi-a6.jpg";
+import carPorscheCayenne from "@/assets/car-porsche-cayenne.jpg";
+import carMercedesGLE from "@/assets/car-mercedes-gle.jpg";
+import carRangeRoverSport from "@/assets/car-range-rover-sport.jpg";
 
-// Tous les véhicules disponibles - même liste que RentalRequestForm
+// Tous les véhicules disponibles - catalogue complet
 const allVehicles = [
-  // Économique
+  // Économique (8 véhicules)
   { name: "Renault Clio", category: "economique", categoryLabel: "Économique", price: "350 MAD/jour", image: carClio, popular: true },
   { name: "Peugeot 208", category: "economique", categoryLabel: "Économique", price: "340 MAD/jour", image: carPeugeot208 },
+  { name: "Dacia Sandero", category: "economique", categoryLabel: "Économique", price: "300 MAD/jour", image: carDaciaSandero, popular: true },
+  { name: "Fiat Panda", category: "economique", categoryLabel: "Économique", price: "280 MAD/jour", image: carFiatPanda },
+  { name: "Hyundai i20", category: "economique", categoryLabel: "Économique", price: "320 MAD/jour", image: carHyundaiI20 },
+  { name: "Opel Corsa", category: "economique", categoryLabel: "Économique", price: "330 MAD/jour", image: carOpelCorsa },
+  { name: "Kia Picanto", category: "economique", categoryLabel: "Économique", price: "270 MAD/jour", image: carKiaPicanto },
+  { name: "Seat Ibiza", category: "economique", categoryLabel: "Économique", price: "340 MAD/jour", image: carSeatIbiza },
   
-  // SUV
+  // SUV (10 véhicules)
   { name: "Dacia Duster", category: "suv", categoryLabel: "SUV / 4x4", price: "400 MAD/jour", image: carDuster, popular: true },
   { name: "Peugeot 3008", category: "suv", categoryLabel: "SUV / 4x4", price: "550 MAD/jour", image: carPeugeot3008 },
   { name: "Toyota RAV4", category: "suv", categoryLabel: "SUV / 4x4", price: "600 MAD/jour", image: carToyotaRav4 },
-  { name: "Hyundai Tucson", category: "suv", categoryLabel: "SUV / 4x4", price: "500 MAD/jour", image: carHyundaiTucson },
+  { name: "Hyundai Tucson", category: "suv", categoryLabel: "SUV / 4x4", price: "500 MAD/jour", image: carHyundaiTucson, popular: true },
   { name: "BMW X3", category: "suv", categoryLabel: "SUV / 4x4", price: "950 MAD/jour", image: carBmwX3 },
   { name: "Mercedes GLC", category: "suv", categoryLabel: "SUV / 4x4", price: "1000 MAD/jour", image: carMercedesGLC },
+  { name: "Kia Sportage", category: "suv", categoryLabel: "SUV / 4x4", price: "520 MAD/jour", image: carKiaSportage },
+  { name: "Nissan Qashqai", category: "suv", categoryLabel: "SUV / 4x4", price: "480 MAD/jour", image: carNissanQashqai },
+  { name: "Volvo XC60", category: "suv", categoryLabel: "SUV / 4x4", price: "900 MAD/jour", image: carVolvoXC60 },
+  { name: "Mazda CX-5", category: "suv", categoryLabel: "SUV / 4x4", price: "580 MAD/jour", image: carMazdaCX5 },
+  { name: "Ford Kuga", category: "suv", categoryLabel: "SUV / 4x4", price: "500 MAD/jour", image: carFordKuga },
+  { name: "Renault Arkana", category: "suv", categoryLabel: "SUV / 4x4", price: "480 MAD/jour", image: carRenaultArkana },
   
-  // Berline
+  // Berline (8 véhicules)
   { name: "Toyota Corolla", category: "berline", categoryLabel: "Berline", price: "450 MAD/jour", image: carCorolla },
-  { name: "VW Golf", category: "berline", categoryLabel: "Berline", price: "420 MAD/jour", image: carVWGolf },
+  { name: "VW Golf", category: "berline", categoryLabel: "Berline", price: "420 MAD/jour", image: carVWGolf, popular: true },
   { name: "Renault Megane", category: "berline", categoryLabel: "Berline", price: "400 MAD/jour", image: carRenaultMegane },
+  { name: "VW Passat", category: "berline", categoryLabel: "Berline", price: "500 MAD/jour", image: carVWPassat },
+  { name: "Peugeot 308", category: "berline", categoryLabel: "Berline", price: "420 MAD/jour", image: carPeugeot308 },
+  { name: "Honda Civic", category: "berline", categoryLabel: "Berline", price: "450 MAD/jour", image: carHondaCivic },
+  { name: "Mazda 3", category: "berline", categoryLabel: "Berline", price: "430 MAD/jour", image: carMazda3 },
+  { name: "Skoda Octavia", category: "berline", categoryLabel: "Berline", price: "410 MAD/jour", image: carSkodaOctavia },
+  { name: "Opel Astra", category: "berline", categoryLabel: "Berline", price: "390 MAD/jour", image: carOpelAstra },
   
-  // Luxe
-  { name: "Mercedes Classe C", category: "luxe", categoryLabel: "Luxe", price: "850 MAD/jour", image: carMercedesC },
+  // Luxe (7 véhicules)
+  { name: "Mercedes Classe C", category: "luxe", categoryLabel: "Luxe", price: "850 MAD/jour", image: carMercedesC, popular: true },
+  { name: "Mercedes Classe E", category: "luxe", categoryLabel: "Luxe", price: "1100 MAD/jour", image: carMercedesE },
+  { name: "BMW Série 5", category: "luxe", categoryLabel: "Luxe", price: "1000 MAD/jour", image: carBmw5 },
+  { name: "Audi A6", category: "luxe", categoryLabel: "Luxe", price: "950 MAD/jour", image: carAudiA6 },
+  { name: "Porsche Cayenne", category: "luxe", categoryLabel: "Luxe", price: "1800 MAD/jour", image: carPorscheCayenne },
+  { name: "Mercedes GLE", category: "luxe", categoryLabel: "Luxe", price: "1300 MAD/jour", image: carMercedesGLE },
+  { name: "Range Rover Sport", category: "luxe", categoryLabel: "Luxe", price: "2000 MAD/jour", image: carRangeRoverSport },
 ];
 
 const cities = [
