@@ -22,6 +22,7 @@ const Partenaires = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const offersAnimation = useScrollAnimation(0.2);
@@ -29,15 +30,36 @@ const Partenaires = () => {
   const testimonialsAnimation = useScrollAnimation(0.2);
   const calculatorAnimation = useScrollAnimation(0.2);
   
+  // Check if desktop on mount and resize - avoids layout reads during render
   useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      setParallaxOffset(offset * 0.5);
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth >= 768);
     };
     
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop, { passive: true });
+    return () => window.removeEventListener('resize', checkDesktop);
   }, []);
+  
+  useEffect(() => {
+    if (!isDesktop) return; // Skip scroll handling on mobile
+    
+    let ticking = false;
+    
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const offset = window.scrollY;
+          setParallaxOffset(offset * 0.5);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isDesktop]);
   
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -62,7 +84,7 @@ const Partenaires = () => {
           className="absolute inset-0 bg-cover bg-center parallax-bg"
           style={{ 
             backgroundImage: `url(${heroImage})`,
-            transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
+            transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
