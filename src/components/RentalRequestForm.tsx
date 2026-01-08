@@ -130,7 +130,7 @@ export const RentalRequestForm = () => {
                   variant="outline"
                   className={cn(
                     "w-full h-11 justify-start text-left font-normal bg-background",
-                    !pickupDate && "text-muted-foreground"
+                    pickupDate ? "text-foreground" : "text-muted-foreground"
                   )}
                 >
                   {pickupDate ? (
@@ -165,7 +165,7 @@ export const RentalRequestForm = () => {
                   variant="outline"
                   className={cn(
                     "w-full h-11 justify-start text-left font-normal bg-background",
-                    !returnDate && "text-muted-foreground"
+                    returnDate ? "text-foreground" : "text-muted-foreground"
                   )}
                 >
                   {returnDate ? (
