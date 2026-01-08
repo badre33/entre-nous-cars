@@ -25,29 +25,37 @@ export function StickyProgress({ sections, className }: StickyProgressProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      // Calculate scroll progress
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight - windowHeight;
-      const scrolled = window.scrollY;
-      const progress = (scrolled / documentHeight) * 100;
-      setScrollProgress(Math.min(progress, 100));
-
-      // Show/hide based on scroll position (show after 200px)
-      setIsVisible(scrolled > 200);
-
-      // Detect active section
-      const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean);
-      
-      for (let i = sectionElements.length - 1; i >= 0; i--) {
-        const element = sectionElements[i];
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(sections[i].id);
-            break;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Batch all layout reads first to avoid forced reflows
+          const windowHeight = window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight - windowHeight;
+          const scrolled = window.scrollY;
+          
+          // Get section elements and their rects in one batch
+          const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean);
+          const sectionRects = sectionElements.map(el => el?.getBoundingClientRect());
+          
+          // Now perform state updates (no layout reads after this point)
+          const progress = (scrolled / documentHeight) * 100;
+          setScrollProgress(Math.min(progress, 100));
+          setIsVisible(scrolled > 200);
+          
+          // Detect active section using cached rects
+          for (let i = sectionRects.length - 1; i >= 0; i--) {
+            const rect = sectionRects[i];
+            if (rect && rect.top <= 150) {
+              setActiveSection(sections[i].id);
+              break;
+            }
           }
-        }
+          
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
