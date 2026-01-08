@@ -176,10 +176,10 @@ const Louer = () => {
 
           {/* Car Examples */}
           <h3 className="text-xl font-semibold text-center mb-6">
-            Exemples de véhicules disponibles
+            Nos véhicules disponibles
           </h3>
           <p className="text-center text-muted-foreground mb-8 text-sm">
-            Contactez-nous pour connaître la disponibilité exacte
+            Tous nos véhicules sont disponibles dans toutes les villes et pour toutes les dates
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
