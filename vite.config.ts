@@ -38,51 +38,61 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Isolate Supabase client into its own chunk - loaded only when needed
+          // Isolate Supabase client completely - never loaded on initial page
           if (id.includes('@supabase') || id.includes('supabase-js')) {
             return 'supabase-client';
           }
-          // React core - minimal vendor chunk
+          // Analytics tracker in its own chunk
+          if (id.includes('analyticsTracker')) {
+            return 'analytics-tracker';
+          }
+          // React DOM - largest React package
           if (id.includes('node_modules/react-dom')) {
             return 'react-dom';
           }
+          // React core - minimal
           if (id.includes('node_modules/react/') || id.includes('node_modules/react-is')) {
             return 'react-core';
           }
-          // Router in separate chunk
+          // Router - separate for route-based splitting
           if (id.includes('react-router')) {
             return 'router';
           }
-          // Tanstack query - defer loading
-          if (id.includes('@tanstack')) {
-            return 'tanstack';
+          // Helmet for SEO - loaded with app
+          if (id.includes('react-helmet')) {
+            return 'helmet';
           }
-          // Isolate radix-ui components by category
-          if (id.includes('@radix-ui/react-dialog') || id.includes('@radix-ui/react-drawer')) {
-            return 'ui-dialogs';
+          // Query library - deferred loading
+          if (id.includes('@tanstack/react-query')) {
+            return 'query';
           }
+          // Radix dialog/drawer - only when modals open
+          if (id.includes('@radix-ui/react-dialog') || id.includes('@radix-ui/react-drawer') || id.includes('vaul')) {
+            return 'ui-modals';
+          }
+          // Other Radix UI primitives
           if (id.includes('@radix-ui')) {
-            return 'ui-vendor';
+            return 'ui-primitives';
           }
-          // Date utilities
+          // Date utilities - lazy loaded
           if (id.includes('date-fns')) {
             return 'date-utils';
           }
-          // Form handling
+          // Form handling - only on form pages
           if (id.includes('react-hook-form') || id.includes('@hookform') || id.includes('zod')) {
             return 'forms';
           }
-          // Charts/visualization
+          // Charts - lazy loaded on analytics page
           if (id.includes('recharts') || id.includes('d3')) {
             return 'charts';
           }
-          // Analytics and tracking in separate chunk
-          if (id.includes('analyticsTracker') || id.includes('analytics')) {
-            return 'analytics';
-          }
-          // Lucide icons - commonly tree-shaken but still large
+          // Icons - tree-shaken but still large
           if (id.includes('lucide-react')) {
             return 'icons';
+          }
+          // Class utilities - small but frequently used
+          if (id.includes('clsx') || id.includes('tailwind-merge') || id.includes('class-variance-authority')) {
+            return 'class-utils';
           }
         },
       },
