@@ -77,6 +77,11 @@ export const RentalRequestForm = () => {
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-4xl mx-auto">
       <div className="bg-card/95 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-xl border border-border/50">
+        {/* Reassurance message */}
+        <p className="text-center text-sm text-muted-foreground mb-4">
+          ✅ Tous nos véhicules sont disponibles dans toutes les villes et pour toutes les dates
+        </p>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {/* Ville */}
           <div className="space-y-2">
