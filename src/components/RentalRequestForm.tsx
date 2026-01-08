@@ -82,18 +82,15 @@ export const RentalRequestForm = () => {
   const [returnDate, setReturnDate] = useState<Date>();
   const [city, setCity] = useState<string>("");
   const [carType, setCarType] = useState<string>("");
-  const [hasSearched, setHasSearched] = useState(false);
 
-  // Filter vehicles based on selected car type
+  // Filter vehicles based on selected car type (city doesn't filter - all vehicles available everywhere)
   const filteredVehicles = useMemo(() => {
     if (!carType) return allVehicles;
     return allVehicles.filter(car => car.category === carType);
   }, [carType]);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    setHasSearched(true);
-  };
+  // Show results when city OR carType is selected
+  const showResults = city !== "" || carType !== "";
 
   const handleVehicleClick = (vehicleName: string) => {
     const cityLabel = cities.find(c => c.value === city)?.label || city;
@@ -145,9 +142,9 @@ export const RentalRequestForm = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto">
       {/* Search Form */}
-      <form onSubmit={handleSearch} className="bg-card/95 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-xl border border-border/50">
+      <div className="bg-card/95 backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-xl border border-border/50">
         {/* Reassurance message */}
         <p className="text-center text-sm text-muted-foreground mb-4">
           ✅ Tous nos véhicules sont disponibles dans toutes les villes et pour toutes les dates
@@ -174,13 +171,12 @@ export const RentalRequestForm = () => {
             </Select>
           </div>
 
-          {/* Type de véhicule */}
           <div className="space-y-2">
             <label className="text-sm font-medium text-foreground flex items-center gap-2">
               <Car className="h-4 w-4 text-primary" />
               Type de véhicule
             </label>
-            <Select value={carType} onValueChange={(value) => { setCarType(value); setHasSearched(true); }}>
+            <Select value={carType} onValueChange={setCarType}>
               <SelectTrigger className="w-full h-11 bg-background">
                 <SelectValue placeholder="Tous types" />
               </SelectTrigger>
@@ -265,23 +261,18 @@ export const RentalRequestForm = () => {
           </div>
         </div>
 
-        {/* Search Button */}
-        <div className="mt-4 md:mt-6">
-          <Button 
-            type="submit" 
-            size="lg"
-            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold h-12 px-8 text-base"
-          >
-            <Car className="mr-2 h-5 w-5" />
-            Voir les véhicules disponibles
-          </Button>
+        {/* Info message */}
+        <div className="mt-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            Sélectionnez une ville ou un type de véhicule pour voir les disponibilités
+          </p>
         </div>
-      </form>
+      </div>
 
-      {/* Search Results */}
-      {hasSearched && (
+      {/* Search Results - Always visible when city or carType selected */}
+      {showResults && (
         <div className="mt-8">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
             <h3 className="text-lg font-semibold">
               {filteredVehicles.length} véhicule{filteredVehicles.length > 1 ? 's' : ''} disponible{filteredVehicles.length > 1 ? 's' : ''}
               {city && ` à ${cities.find(c => c.value === city)?.label}`}
