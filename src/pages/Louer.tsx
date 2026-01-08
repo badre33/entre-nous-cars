@@ -10,7 +10,8 @@ import Footer from "@/components/Footer";
 import { StructuredData } from "@/components/StructuredData";
 import { HreflangTags } from "@/utils/hreflangHelper";
 import LazyCarImage from "@/components/LazyCarImage";
-import { generateSimpleMessage, openWhatsApp } from "@/utils/whatsapp";
+import { openWhatsApp } from "@/utils/whatsapp";
+import RentalRequestForm from "@/components/RentalRequestForm";
 
 // Car images
 import carClio from "@/assets/car-clio.jpg";
@@ -86,41 +87,34 @@ const Louer = () => {
       <Header />
       
       {/* Hero / Reassurance Section */}
-      <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12 md:py-16">
+      <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-8 md:py-16">
         <div className="container px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
               Louez votre voiture <span className="text-primary">sans stress</span>
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-base md:text-lg text-muted-foreground mb-6 md:mb-8">
               Pas de paiement en ligne • Pas de formulaire compliqué • Réponse rapide sur WhatsApp
             </p>
             
             {/* Trust badges inline */}
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center gap-2 bg-green-50 dark:bg-green-950/30 px-4 py-2 rounded-full">
-                <Shield className="w-4 h-4 text-green-600" />
-                <span className="text-sm font-medium text-green-700 dark:text-green-400">Paiement sur place</span>
+            <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-6 md:mb-8">
+              <div className="flex items-center gap-1.5 md:gap-2 bg-green-50 dark:bg-green-950/30 px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                <Shield className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-600" />
+                <span className="text-xs md:text-sm font-medium text-green-700 dark:text-green-400">Paiement sur place</span>
               </div>
-              <div className="flex items-center gap-2 bg-blue-50 dark:bg-blue-950/30 px-4 py-2 rounded-full">
-                <CheckCircle className="w-4 h-4 text-blue-600" />
-                <span className="text-sm font-medium text-blue-700 dark:text-blue-400">Prix transparents</span>
+              <div className="flex items-center gap-1.5 md:gap-2 bg-blue-50 dark:bg-blue-950/30 px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-blue-600" />
+                <span className="text-xs md:text-sm font-medium text-blue-700 dark:text-blue-400">Prix transparents</span>
               </div>
-              <div className="flex items-center gap-2 bg-orange-50 dark:bg-orange-950/30 px-4 py-2 rounded-full">
-                <Clock className="w-4 h-4 text-orange-600" />
-                <span className="text-sm font-medium text-orange-700 dark:text-orange-400">Réponse rapide</span>
+              <div className="flex items-center gap-1.5 md:gap-2 bg-orange-50 dark:bg-orange-950/30 px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600" />
+                <span className="text-xs md:text-sm font-medium text-orange-700 dark:text-orange-400">Réponse rapide</span>
               </div>
             </div>
             
-            {/* Primary CTA */}
-            <Button 
-              onClick={() => handleWhatsAppClick()}
-              size="lg"
-              className="bg-[#25D366] hover:bg-[#128C7E] text-white text-lg px-8 py-6 h-auto rounded-full shadow-xl hover:shadow-[#25D366]/30 transition-all duration-300 hover:scale-105 font-semibold"
-            >
-              <MessageCircle className="w-6 h-6 mr-3" />
-              Demander un devis sur WhatsApp
-            </Button>
+            {/* Rental Request Form */}
+            <RentalRequestForm />
           </div>
         </div>
       </section>
