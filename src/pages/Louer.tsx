@@ -20,16 +20,58 @@ import carPeugeot208 from "@/assets/car-peugeot-208.jpg";
 import carCorolla from "@/assets/car-corolla.jpg";
 import carMercedesC from "@/assets/car-mercedes-c.jpg";
 import carBmwX3 from "@/assets/car-bmw-x3.jpg";
+import carPeugeot3008 from "@/assets/car-peugeot-3008.jpg";
+import carToyotaRav4 from "@/assets/car-toyota-rav4.jpg";
+import carHyundaiTucson from "@/assets/car-hyundai-tucson.jpg";
+import carMercedesGLC from "@/assets/car-mercedes-glc.jpg";
+import carVWGolf from "@/assets/car-vw-golf.jpg";
+import carRenaultMegane from "@/assets/car-renault-megane.jpg";
+
+// Tous les véhicules disponibles - même liste que RentalRequestForm
+const allVehicles = [
+  // Économique
+  { name: "Renault Clio", category: "economique", categoryLabel: "Économique", price: "350 MAD/jour", image: carClio, popular: true },
+  { name: "Peugeot 208", category: "economique", categoryLabel: "Économique", price: "340 MAD/jour", image: carPeugeot208 },
+  
+  // SUV
+  { name: "Dacia Duster", category: "suv", categoryLabel: "SUV / 4x4", price: "400 MAD/jour", image: carDuster, popular: true },
+  { name: "Peugeot 3008", category: "suv", categoryLabel: "SUV / 4x4", price: "550 MAD/jour", image: carPeugeot3008 },
+  { name: "Toyota RAV4", category: "suv", categoryLabel: "SUV / 4x4", price: "600 MAD/jour", image: carToyotaRav4 },
+  { name: "Hyundai Tucson", category: "suv", categoryLabel: "SUV / 4x4", price: "500 MAD/jour", image: carHyundaiTucson },
+  { name: "BMW X3", category: "suv", categoryLabel: "SUV / 4x4", price: "950 MAD/jour", image: carBmwX3 },
+  { name: "Mercedes GLC", category: "suv", categoryLabel: "SUV / 4x4", price: "1000 MAD/jour", image: carMercedesGLC },
+  
+  // Berline
+  { name: "Toyota Corolla", category: "berline", categoryLabel: "Berline", price: "450 MAD/jour", image: carCorolla },
+  { name: "VW Golf", category: "berline", categoryLabel: "Berline", price: "420 MAD/jour", image: carVWGolf },
+  { name: "Renault Megane", category: "berline", categoryLabel: "Berline", price: "400 MAD/jour", image: carRenaultMegane },
+  
+  // Luxe
+  { name: "Mercedes Classe C", category: "luxe", categoryLabel: "Luxe", price: "850 MAD/jour", image: carMercedesC },
+];
+
+const cities = [
+  { value: "casablanca", label: "Casablanca" },
+  { value: "rabat", label: "Rabat" },
+  { value: "marrakech", label: "Marrakech" },
+  { value: "agadir", label: "Agadir" },
+  { value: "tanger", label: "Tanger" },
+  { value: "fes", label: "Fès" },
+];
+
+const categories = [
+  { value: "economique", label: "Économique" },
+  { value: "berline", label: "Berline" },
+  { value: "suv", label: "SUV / 4x4" },
+  { value: "luxe", label: "Luxe" },
+];
 
 const Louer = () => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   
   const handleWhatsAppClick = (carName?: string) => {
-    let cityLabel = selectedCity;
-    // Convert value to label if needed
-    const cityObj = cities.find(c => c.value === selectedCity);
-    if (cityObj) cityLabel = cityObj.label;
+    const cityLabel = cities.find(c => c.value === selectedCity)?.label || selectedCity;
     
     let message = "Bonjour, je souhaite louer une voiture";
     if (carName) {
@@ -42,36 +84,10 @@ const Louer = () => {
     openWhatsApp(message);
   };
 
-  const cities = [
-    { value: "casablanca", label: "Casablanca" },
-    { value: "rabat", label: "Rabat" },
-    { value: "marrakech", label: "Marrakech" },
-    { value: "aeroport-casablanca", label: "Aéroport Casablanca" },
-    { value: "aeroport-rabat", label: "Aéroport Rabat" },
-    { value: "aeroport-marrakech", label: "Aéroport Marrakech" },
-  ];
-
-  const categories = [
-    { value: "economique", label: "Économique" },
-    { value: "berline", label: "Berline" },
-    { value: "suv", label: "SUV" },
-    { value: "luxe", label: "Luxe" },
-  ];
-
-  const featuredCars = [
-    { name: "Renault Clio", category: "Économique", price: "350 MAD/jour", image: carClio, popular: true },
-    { name: "Peugeot 208", category: "Économique", price: "340 MAD/jour", image: carPeugeot208 },
-    { name: "Dacia Duster", category: "SUV", price: "400 MAD/jour", image: carDuster, popular: true },
-    { name: "Toyota Corolla", category: "Berline", price: "450 MAD/jour", image: carCorolla },
-    { name: "Mercedes Classe C", category: "Luxe", price: "850 MAD/jour", image: carMercedesC },
-    { name: "BMW X3", category: "SUV Premium", price: "950 MAD/jour", image: carBmwX3 },
-  ];
-
+  // Filtrer UNIQUEMENT par type de véhicule - la ville n'affecte pas le filtrage
   const filteredCars = useMemo(() => {
-    if (!selectedCategory) return featuredCars;
-    return featuredCars.filter(car => 
-      car.category.toLowerCase().includes(selectedCategory.toLowerCase())
-    );
+    if (!selectedCategory) return allVehicles;
+    return allVehicles.filter(car => car.category === selectedCategory);
   }, [selectedCategory]);
 
   return (
@@ -199,7 +215,7 @@ const Louer = () => {
                 </div>
                 <CardContent className="p-3 sm:p-4">
                   <h4 className="font-semibold text-sm sm:text-base truncate">{car.name}</h4>
-                  <p className="text-xs text-muted-foreground mb-2">{car.category}</p>
+                  <p className="text-xs text-muted-foreground mb-2">{car.categoryLabel}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-primary font-bold text-sm">{car.price}</span>
                     <MessageCircle className="w-4 h-4 text-[#25D366]" />
