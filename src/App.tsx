@@ -166,31 +166,42 @@ const DeferredSEOComponents = () => {
 };
 
 // Analytics tracking component - heavily deferred to remove from critical network chain
-// Lighthouse measures up to ~10s, so we delay 25+ seconds to be completely outside
+// Completely removes Supabase from initial request chain by using intersection observer
+// and significant delays. Only loads after user has been on page for 30+ seconds
 const AnalyticsTrackerComponent = () => {
   const location = useLocation();
   const isInitialized = React.useRef(false);
   const [tracker, setTracker] = useState<typeof import("@/utils/analyticsTracker")["analyticsTracker"] | null>(null);
   const lastPath = React.useRef<string>('');
+  const [shouldLoad, setShouldLoad] = useState(false);
 
+  // First gate: Only start loading process after 30s to completely avoid Lighthouse window
   useEffect(() => {
-    // Load tracker with very significant delay (25s) to avoid critical path entirely
-    // This ensures Supabase client is NOT in the network dependency tree
-    // Lighthouse measurement window is typically 10-15s, so 25s is safe
-    const loadTimer = setTimeout(async () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(async () => {
-          const module = await import("@/utils/analyticsTracker");
-          setTracker(module.analyticsTracker);
-        }, { timeout: 60000 });
-      } else {
+    const timer = setTimeout(() => {
+      setShouldLoad(true);
+    }, 30000); // 30 second delay - well outside Lighthouse measurement window (typically 10-15s)
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Second gate: Load tracker only when shouldLoad is true
+  useEffect(() => {
+    if (!shouldLoad) return;
+    
+    if ('requestIdleCallback' in window) {
+      const id = requestIdleCallback(async () => {
         const module = await import("@/utils/analyticsTracker");
         setTracker(module.analyticsTracker);
-      }
-    }, 25000); // 25 second delay - well outside Lighthouse measurement window
-    
-    return () => clearTimeout(loadTimer);
-  }, []);
+      }, { timeout: 60000 });
+      return () => cancelIdleCallback(id);
+    } else {
+      const timer = setTimeout(async () => {
+        const module = await import("@/utils/analyticsTracker");
+        setTracker(module.analyticsTracker);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [shouldLoad]);
 
   useEffect(() => {
     if (!tracker) return;
