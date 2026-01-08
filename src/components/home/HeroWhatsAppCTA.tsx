@@ -39,8 +39,10 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
           loading="eager"
           fetchPriority="high"
           decoding="async"
-          width={1280}
-          height={720}
+          width={768}
+          height={432}
+          sizes="100vw"
+          srcSet={`${heroImageMobile} 768w, ${heroImageUrl} 1920w`}
           onLoad={() => setImageLoaded(true)}
         />
       </picture>
