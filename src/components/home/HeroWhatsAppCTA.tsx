@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
+import { RentalRequestForm } from "@/components/RentalRequestForm";
 
 interface HeroWhatsAppCTAProps {
   heroImageUrl: string;
@@ -16,7 +16,7 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <section className="relative min-h-[85vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden bg-[#1a1a1a]">
+    <section className="relative min-h-[90vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#1a1a1a]">
       {/* Solid background color shows instantly for fast FCP/LCP perception */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a] to-[#2d2d2d]" />
       
@@ -75,18 +75,8 @@ const HeroWhatsAppCTA = ({ heroImageUrl, onWhatsAppClick }: HeroWhatsAppCTAProps
           <span className="block mt-1">{t("homepage.heroSubtitle2")}</span>
         </p>
         
-        {/* PRIMARY CTA */}
-        <div>
-          <Button 
-            onClick={onWhatsAppClick}
-            size="lg"
-            className="bg-[#25D366] hover:bg-[#128C7E] text-white text-lg px-8 py-6 h-auto rounded-full shadow-2xl hover:shadow-[#25D366]/30 transition-all duration-300 hover:scale-105 font-semibold"
-          >
-            <MessageCircle className="w-6 h-6 mr-3" />
-            {t("homepage.heroCTA")}
-          </Button>
-          <p className="text-white/70 text-sm mt-4">{t("homepage.heroNote")}</p>
-        </div>
+        {/* Rental Request Form */}
+        <RentalRequestForm />
       </div>
     </section>
   );
