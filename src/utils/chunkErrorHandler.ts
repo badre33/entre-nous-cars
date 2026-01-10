@@ -159,15 +159,18 @@ function isChunkLoadError(error: Error | unknown): boolean {
   ];
 
   // Check if error is related to asset loading (JS/CSS chunks)
-  const isAssetRelated = errorString.includes('/assets/') || 
-                         errorString.includes('.js') || 
-                         errorString.includes('.css');
+  // IMPORTANT: avoid false positives (e.g. Service Worker registration /sw.js)
+  // We only treat network errors as chunk errors when they clearly target hashed build assets.
+  const isAssetRelated =
+    errorString.includes('/assets/') ||
+    /\/assets\/.*\.(js|css)(\?|#|$)/.test(errorString) ||
+    /\/assets\/.*\.(js|css)(\?|#|$)/.test(errorMessage);
 
-  const matchesPattern = chunkErrorPatterns.some(pattern => 
+  const matchesPattern = chunkErrorPatterns.some(pattern =>
     pattern.test(errorMessage) || pattern.test(errorName) || pattern.test(errorString)
   );
 
-  // For generic fetch errors, only treat as chunk error if asset-related
+  // For generic fetch errors, only treat as chunk error if it is clearly an asset request
   const isGenericFetchError = /Failed to fetch|NetworkError|Load failed|fetch failed/i.test(errorMessage);
   
   return matchesPattern && (!isGenericFetchError || isAssetRelated);
