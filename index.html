@@ -158,7 +158,11 @@
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           setTimeout(() => {
-            navigator.serviceWorker.register('/sw.js');
+            // IMPORTANT: always catch registration errors to avoid unhandled rejections
+            // that could be misinterpreted as chunk loading failures.
+            navigator.serviceWorker
+              .register('/sw.js')
+              .catch((err) => console.warn('[ServiceWorker] Registration failed:', err));
           }, 2000);
         });
       }
