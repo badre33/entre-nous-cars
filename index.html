@@ -196,6 +196,161 @@
     <!-- End Google Tag Manager (noscript) -->
     
     <div id="root"></div>
+
+    <!-- Boot watchdog: if React doesn't mount, show a repair UI (fixes blank-screen loops caused by stale SW/cache) -->
+    <script>
+      (function () {
+        var BOOT_FLAG = '__APP_BOOTED__';
+        var BOOT_EVENT = 'app:booted';
+        var REPAIR_ATTEMPT_KEY = '__app_repair_attempted';
+
+        function isBooted() {
+          try {
+            return window[BOOT_FLAG] === true;
+          } catch (_) {
+            return false;
+          }
+        }
+
+        async function runRepair(reason) {
+          try {
+            console.warn('[BootWatchdog] Repair started:', reason);
+
+            // Avoid chunk reload loops
+            try {
+              sessionStorage.removeItem('chunk_error_reload_count');
+              sessionStorage.removeItem('chunk_error_last_reload');
+            } catch (_) {}
+
+            // Clear caches
+            if ('caches' in window) {
+              var cacheNames = await caches.keys();
+              await Promise.all(cacheNames.map(function (name) { return caches.delete(name); }));
+            }
+
+            // Unregister service workers
+            if ('serviceWorker' in navigator) {
+              var regs = await navigator.serviceWorker.getRegistrations();
+              await Promise.all(regs.map(function (r) { return r.unregister(); }));
+            }
+          } catch (e) {
+            console.warn('[BootWatchdog] Repair failed:', e);
+          } finally {
+            // Reload without repair param + with cache bust
+            var url = new URL(window.location.href);
+            url.searchParams.delete('repair');
+            url.searchParams.set('_repair', Date.now().toString());
+            window.location.replace(url.toString());
+          }
+        }
+
+        function showOverlay() {
+          if (document.getElementById('boot-watchdog-overlay')) return;
+
+          var overlay = document.createElement('div');
+          overlay.id = 'boot-watchdog-overlay';
+          overlay.style.position = 'fixed';
+          overlay.style.inset = '0';
+          overlay.style.zIndex = '999999';
+          overlay.style.background = 'rgba(245, 255, 228, 0.98)';
+          overlay.style.display = 'flex';
+          overlay.style.alignItems = 'center';
+          overlay.style.justifyContent = 'center';
+          overlay.style.padding = '24px';
+
+          var card = document.createElement('div');
+          card.style.maxWidth = '520px';
+          card.style.width = '100%';
+          card.style.background = '#fff';
+          card.style.border = '1px solid rgba(0,0,0,0.12)';
+          card.style.borderRadius = '16px';
+          card.style.padding = '20px';
+          card.style.boxShadow = '0 20px 50px rgba(0,0,0,0.12)';
+          card.style.fontFamily = 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
+
+          var title = document.createElement('div');
+          title.textContent = 'Chargement bloqué';
+          title.style.fontSize = '18px';
+          title.style.fontWeight = '700';
+          title.style.marginBottom = '8px';
+
+          var desc = document.createElement('div');
+          desc.textContent = "Le site n'a pas réussi à démarrer. Cela arrive parfois à cause d'un cache ou d'un Service Worker obsolète.";
+          desc.style.fontSize = '14px';
+          desc.style.lineHeight = '1.5';
+          desc.style.color = 'rgba(0,0,0,0.7)';
+          desc.style.marginBottom = '16px';
+
+          var actions = document.createElement('div');
+          actions.style.display = 'flex';
+          actions.style.gap = '10px';
+          actions.style.flexWrap = 'wrap';
+
+          var btnReload = document.createElement('button');
+          btnReload.type = 'button';
+          btnReload.textContent = 'Recharger';
+          btnReload.style.padding = '10px 14px';
+          btnReload.style.borderRadius = '10px';
+          btnReload.style.border = '1px solid rgba(0,0,0,0.18)';
+          btnReload.style.background = '#fff';
+          btnReload.style.fontWeight = '600';
+          btnReload.onclick = function () {
+            var url = new URL(window.location.href);
+            url.searchParams.set('_cb', Date.now().toString());
+            window.location.replace(url.toString());
+          };
+
+          var btnRepair = document.createElement('button');
+          btnRepair.type = 'button';
+          btnRepair.textContent = 'Réparer (cache)';
+          btnRepair.style.padding = '10px 14px';
+          btnRepair.style.borderRadius = '10px';
+          btnRepair.style.border = 'none';
+          btnRepair.style.background = '#ffda00';
+          btnRepair.style.color = '#000';
+          btnRepair.style.fontWeight = '800';
+          btnRepair.onclick = function () {
+            if (sessionStorage.getItem(REPAIR_ATTEMPT_KEY) === '1') return;
+            sessionStorage.setItem(REPAIR_ATTEMPT_KEY, '1');
+            runRepair('manual_button');
+          };
+
+          actions.appendChild(btnReload);
+          actions.appendChild(btnRepair);
+
+          card.appendChild(title);
+          card.appendChild(desc);
+          card.appendChild(actions);
+          overlay.appendChild(card);
+          document.body.appendChild(overlay);
+        }
+
+        // Repair via URL: /?repair=1
+        try {
+          var params = new URLSearchParams(window.location.search);
+          if (params.get('repair') === '1' && sessionStorage.getItem(REPAIR_ATTEMPT_KEY) !== '1') {
+            sessionStorage.setItem(REPAIR_ATTEMPT_KEY, '1');
+            runRepair('query_param');
+            return;
+          }
+        } catch (_) {}
+
+        // Watchdog: if not booted after 9s, show overlay
+        var t = setTimeout(function () {
+          if (!isBooted()) showOverlay();
+        }, 9000);
+
+        window.addEventListener(
+          BOOT_EVENT,
+          function () {
+            clearTimeout(t);
+            var el = document.getElementById('boot-watchdog-overlay');
+            if (el) el.remove();
+          },
+          { once: true }
+        );
+      })();
+    </script>
     
     <!-- Initial skeleton for faster FCP - hidden when React hydrates -->
     <div class="initial-skeleton" id="initial-skeleton">
@@ -221,7 +376,7 @@
       });
       observer.observe(document.getElementById('root'), { childList: true });
     </script>
-    
+
     <!-- Fallback content for crawlers that don't execute JS -->
     <noscript>
       <div style="padding: 40px; text-align: center; font-family: system-ui, sans-serif;">

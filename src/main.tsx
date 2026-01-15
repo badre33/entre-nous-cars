@@ -6,6 +6,12 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
+declare global {
+  interface Window {
+    __APP_BOOTED__?: boolean;
+  }
+}
+
 // Defer non-critical initialization
 const initNonCritical = () => {
   import('./utils/versionCheck');
@@ -16,7 +22,11 @@ if (!rootElement) {
   console.error("Root element #root not found in DOM");
 } else {
   createRoot(rootElement).render(<App />);
-  
+
+  // Mark app as booted for the HTML watchdog (helps diagnose blank-screen issues)
+  window.__APP_BOOTED__ = true;
+  window.dispatchEvent(new Event('app:booted'));
+
   // Load non-critical utilities after render
   if ('requestIdleCallback' in window) {
     requestIdleCallback(initNonCritical, { timeout: 3000 });
