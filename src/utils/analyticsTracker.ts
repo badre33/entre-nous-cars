@@ -1,9 +1,4 @@
-// Dynamic import to avoid loading Supabase client in critical path
-// This reduces network dependency chain for better LCP/TTI
-const getSupabaseClient = async () => {
-  const { supabase } = await import("@/integrations/supabase/client");
-  return supabase;
-};
+import { supabase } from "@/integrations/supabase/client";
 
 // Generate unique visitor ID stored in localStorage
 const getVisitorId = (): string => {
@@ -142,27 +137,25 @@ class AnalyticsTracker {
   
   async trackEvent({ eventType, eventName, properties = {} }: TrackEventOptions) {
     try {
-      // Dynamically load Supabase client to avoid critical path
-      const supabase = await getSupabaseClient();
+      const event = {
+        event_type: eventType,
+        event_name: eventName,
+        page_path: window.location.pathname,
+        referrer: document.referrer,
+        source: getSource(),
+        device_type: getDeviceType(),
+        user_agent: navigator.userAgent,
+        session_id: getSessionId(),
+        visitor_id: getVisitorId(),
+        properties: JSON.parse(JSON.stringify(properties))
+      };
       
-      // Use validated RPC function instead of direct INSERT
-      // This enforces server-side validation for all inputs
-      await supabase.rpc('insert_analytics_event', {
-        p_event_type: eventType,
-        p_event_name: eventName,
-        p_page_path: window.location.pathname,
-        p_referrer: document.referrer || null,
-        p_source: getSource(),
-        p_device_type: getDeviceType(),
-        p_user_agent: navigator.userAgent,
-        p_session_id: getSessionId(),
-        p_visitor_id: getVisitorId(),
-        p_properties: JSON.parse(JSON.stringify(properties))
-      });
+      // Insert into database
+      await supabase.from('analytics_events').insert([event]);
       
       // Log in development
       if (import.meta.env.DEV) {
-        console.log('📊 Analytics:', eventName, { eventType, eventName, properties });
+        console.log('📊 Analytics:', eventName, event);
       }
     } catch (error) {
       console.error('Analytics tracking error:', error);
@@ -185,17 +178,34 @@ class AnalyticsTracker {
     const visitorId = getVisitorId();
     
     try {
-      // Dynamically load Supabase client to avoid critical path
-      const supabase = await getSupabaseClient();
+      // Try to update existing session
+      const { data: existing } = await supabase
+        .from('analytics_sessions')
+        .select('id, page_views')
+        .eq('session_id', sessionId)
+        .single();
       
-      // Use secure RPC function instead of direct table access
-      await supabase.rpc('touch_analytics_session', {
-        p_session_id: sessionId,
-        p_visitor_id: visitorId,
-        p_path: path,
-        p_device_type: getDeviceType(),
-        p_source: getSource()
-      });
+      if (existing) {
+        await supabase
+          .from('analytics_sessions')
+          .update({
+            page_views: (existing.page_views || 0) + 1,
+            exit_page: path,
+            end_time: new Date().toISOString()
+          })
+          .eq('session_id', sessionId);
+      } else {
+        await supabase
+          .from('analytics_sessions')
+          .insert({
+            session_id: sessionId,
+            visitor_id: visitorId,
+            entry_page: path,
+            exit_page: path,
+            device_type: getDeviceType(),
+            source: getSource()
+          });
+      }
     } catch (error) {
       console.error('Session tracking error:', error);
     }

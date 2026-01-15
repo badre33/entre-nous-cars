@@ -66,37 +66,35 @@ export function PWAUpdatePrompt() {
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    // Vérifier les mises à jour du Service Worker (seulement si un SW est enregistré)
+    // Vérifier les mises à jour du Service Worker
     if ('serviceWorker' in navigator) {
-      // D'abord vérifier s'il y a des SW enregistrés
-      navigator.serviceWorker.getRegistrations().then((registrations) => {
-        if (registrations.length === 0) {
-          // Pas de SW enregistré, ne rien faire
-          console.log('[PWAUpdatePrompt] Aucun Service Worker enregistré');
-          return;
-        }
+      navigator.serviceWorker.ready.then((reg) => {
+        setRegistration(reg);
         
-        navigator.serviceWorker.ready.then((reg) => {
-          setRegistration(reg);
-          
-          // Vérifier les mises à jour
-          reg.addEventListener('updatefound', () => {
-            const newWorker = reg.installing;
-            if (newWorker) {
-              newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // Nouvelle version disponible
-                  console.log('[PWAUpdatePrompt] Nouvelle version SW disponible');
-                  setShowUpdatePrompt(true);
-                }
-              });
-            }
-          });
+        // Vérifier les mises à jour
+        reg.addEventListener('updatefound', () => {
+          const newWorker = reg.installing;
+          if (newWorker) {
+            newWorker.addEventListener('statechange', () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // Nouvelle version disponible
+                console.log('[PWAUpdatePrompt] Nouvelle version SW disponible');
+                setShowUpdatePrompt(true);
+              }
+            });
+          }
+        });
 
-          // Vérifier immédiatement si une mise à jour est disponible
-          reg.update().catch(console.warn);
-        }).catch(console.warn);
+        // Vérifier immédiatement si une mise à jour est disponible
+        reg.update().catch(console.warn);
       }).catch(console.warn);
+
+      // Message du service worker
+      navigator.serviceWorker.addEventListener('message', (event) => {
+        if (event.data?.type === 'CACHE_UPDATED') {
+          console.log('✅ Cache mis à jour');
+        }
+      });
 
       // Écouter les changements de controller (nouveau SW actif)
       navigator.serviceWorker.addEventListener('controllerchange', () => {

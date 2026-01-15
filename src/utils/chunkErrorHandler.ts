@@ -73,37 +73,11 @@ async function clearServiceWorkerCaches(): Promise<void> {
 }
 
 /**
- * Track chunk error recovery for monitoring
- */
-function trackChunkErrorRecovery(errorType: string, errorMessage: string): void {
-  console.log('[ChunkErrorHandler] 📊 chunk_error_recovered:', { errorType, errorMessage });
-  
-  // Send to analytics if available
-  try {
-    // Google Analytics 4
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('event', 'chunk_error_recovered', {
-        event_category: 'error',
-        error_type: errorType,
-        error_message: errorMessage.slice(0, 100),
-        page_path: window.location.pathname,
-      });
-    }
-    
-    // Also log to console for Crisp/support debugging
-    console.warn(`[CHUNK_ERROR] Type: ${errorType}, Path: ${window.location.pathname}`);
-  } catch (e) {
-    // Silent fail - don't break recovery flow
-  }
-}
-
-/**
  * Force un hard reload avec cache-busting
  */
-function forceHardReload(errorType: string = 'unknown', errorMessage: string = ''): void {
+function forceHardReload(): void {
   if (isReloadLoop()) {
     console.error('[ChunkErrorHandler] Boucle de reload détectée. Abandon.');
-    trackChunkErrorRecovery('reload_loop_blocked', errorMessage);
     // Afficher un message à l'utilisateur
     document.body.innerHTML = `
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: system-ui, sans-serif; padding: 20px; text-align: center;">
@@ -121,9 +95,6 @@ function forceHardReload(errorType: string = 'unknown', errorMessage: string = '
     return;
   }
 
-  // Track successful recovery attempt
-  trackChunkErrorRecovery(errorType, errorMessage);
-  
   incrementReloadCount();
   console.log('[ChunkErrorHandler] Rechargement forcé de la page...');
   
@@ -151,29 +122,11 @@ function isChunkLoadError(error: Error | unknown): boolean {
     /Unable to preload CSS/i,
     /Importing a module script failed/i,
     /error loading dynamically imported module/i,
-    // NetworkOnly failures (new SW config)
-    /Failed to fetch/i,
-    /NetworkError when attempting to fetch/i,
-    /Load failed/i,
-    /fetch failed/i,
   ];
 
-  // Check if error is related to asset loading (JS/CSS chunks)
-  // IMPORTANT: avoid false positives (e.g. Service Worker registration /sw.js)
-  // We only treat network errors as chunk errors when they clearly target hashed build assets.
-  const isAssetRelated =
-    errorString.includes('/assets/') ||
-    /\/assets\/.*\.(js|css)(\?|#|$)/.test(errorString) ||
-    /\/assets\/.*\.(js|css)(\?|#|$)/.test(errorMessage);
-
-  const matchesPattern = chunkErrorPatterns.some(pattern =>
+  return chunkErrorPatterns.some(pattern => 
     pattern.test(errorMessage) || pattern.test(errorName) || pattern.test(errorString)
   );
-
-  // For generic fetch errors, only treat as chunk error if it is clearly an asset request
-  const isGenericFetchError = /Failed to fetch|NetworkError|Load failed|fetch failed/i.test(errorMessage);
-  
-  return matchesPattern && (!isGenericFetchError || isAssetRelated);
 }
 
 /**
@@ -198,13 +151,11 @@ function handleGlobalError(event: ErrorEvent): void {
   const isAssetFile = filename && /\/assets\/.*\.(js|css)/.test(filename);
   
   if (isChunkLoadError(error) || (isAssetFile && isSyntaxErrorOnAsset(error))) {
-    const errorType = isSyntaxErrorOnAsset(error) ? 'syntax_error_on_asset' : 'chunk_load_error';
-    const errorMessage = error instanceof Error ? error.message : String(error);
     console.error('[ChunkErrorHandler] Erreur de chunk détectée:', error);
     event.preventDefault();
     
     clearServiceWorkerCaches().then(() => {
-      forceHardReload(errorType, errorMessage);
+      forceHardReload();
     });
   }
 }
@@ -216,12 +167,11 @@ function handleUnhandledRejection(event: PromiseRejectionEvent): void {
   const { reason } = event;
   
   if (isChunkLoadError(reason)) {
-    const errorMessage = reason instanceof Error ? reason.message : String(reason);
     console.error('[ChunkErrorHandler] Erreur de chunk (promise) détectée:', reason);
     event.preventDefault();
     
     clearServiceWorkerCaches().then(() => {
-      forceHardReload('chunk_load_promise_rejection', errorMessage);
+      forceHardReload();
     });
   }
 }

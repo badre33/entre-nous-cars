@@ -2,127 +2,72 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google Tag Manager - Deferred for better TTI -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function loadGTM() {
+        if (window.gtmLoaded) return;
+        window.gtmLoaded = true;
+        window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var j = document.createElement('script');
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WK894PKV';
+        document.head.appendChild(j);
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGTM, { timeout: 3000 });
+      } else {
+        setTimeout(loadGTM, 2000);
+      }
+    </script>
+    <!-- End Google Tag Manager -->
     
-    <!-- Preconnect to critical origins - MUST be early in head for effectiveness -->
-    <link rel="preconnect" href="https://oaajsamymjhxggwxdfwn.supabase.co" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://client.crisp.chat" />
-    <link rel="dns-prefetch" href="https://connect.facebook.net" />
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="dns-prefetch" href="https://wa.me" />
+    <!-- ===== MOBILE-FIRST OPTIMIZATION (Critical for +15% mobile ranking) ===== -->
     
     <!-- Viewport - CRITICAL for mobile-first indexing -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Handheld Device Optimization -->
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    
+    <!-- ===== iOS OPTIMIZATION ===== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Benatna">
+    
+    <!-- ===== ANDROID CHROME OPTIMIZATION ===== -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Benatna">
+    
+    <!-- ===== FORMAT DETECTION ===== -->
+    <!-- Disable auto-detection to control which numbers are clickable -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="date=no">
+    <meta name="format-detection" content="address=no">
+    <meta name="format-detection" content="email=no">
+    
+    <!-- ===== WINDOWS TILE ===== -->
+    <meta name="msapplication-TileColor" content="#ffda00">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
+    
+    <!-- ===== ACCESSIBILITY ===== -->
+    <meta name="color-scheme" content="light dark">
     
     <title>Benatna – La mobilité, entre nous</title>
     <meta name="description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
     <meta name="author" content="Benatna" />
     
-    <!-- Mobile optimization meta tags -->
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="MobileOptimized" content="width" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Benatna">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Benatna">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="format-detection" content="date=no">
-    <meta name="format-detection" content="address=no">
-    <meta name="format-detection" content="email=no">
-    <meta name="msapplication-TileColor" content="#ffda00">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="msapplication-TileImage" content="/apple-touch-icon.png">
-    <meta name="color-scheme" content="light dark">
-    
-    <!-- Critical CSS for FCP - expanded above-the-fold styles -->
-    <style>
-      /* Critical reset */
-      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-      html{line-height:1.5;-webkit-text-size-adjust:100%;font-family:system-ui,-apple-system,sans-serif;scroll-behavior:smooth}
-      body{background:#f5ffe4;color:#000;min-height:100vh;font-family:Barlow,system-ui,-apple-system,sans-serif}
-      img,video{max-width:100%;height:auto;display:block}
-      button{cursor:pointer;font:inherit}
-      a{color:inherit;text-decoration:none}
-      /* Layout utilities */
-      #root{min-height:100vh;display:flex;flex-direction:column}
-      .min-h-screen{min-height:100vh}
-      .container{width:100%;max-width:1280px;margin:0 auto;padding:0 1rem}
-      /* Positioning */
-      .relative{position:relative}.absolute{position:absolute}.fixed{position:fixed}.sticky{position:sticky}
-      .inset-0{inset:0}.top-0{top:0}.left-0{left:0}.right-0{right:0}.z-50{z-index:50}
-      /* Display & Flex */
-      .flex{display:flex}.inline-flex{display:inline-flex}.hidden{display:none}.block{display:block}
-      .flex-col{flex-direction:column}.flex-row{flex-direction:row}
-      .items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}
-      .gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}
-      /* Sizing */
-      .w-full{width:100%}.h-full{height:100%}.w-auto{width:auto}
-      .h-8{height:2rem}.h-12{height:3rem}
-      /* Object fit */
-      .object-cover{object-fit:cover}
-      /* Spacing */
-      .p-4{padding:1rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}
-      .mx-auto{margin-left:auto;margin-right:auto}
-      /* Text */
-      .text-center{text-align:center}.text-white{color:#fff}.text-black{color:#000}
-      .font-bold{font-weight:700}.font-semibold{font-weight:600}
-      .text-sm{font-size:0.875rem}.text-lg{font-size:1.125rem}.text-xl{font-size:1.25rem}
-      .text-2xl{font-size:1.5rem}.text-3xl{font-size:1.875rem}.text-4xl{font-size:2.25rem}
-      /* Background & Colors */
-      .bg-white{background-color:#fff}.bg-black{background-color:#000}
-      .bg-primary{background-color:#ffda00}
-      /* Borders */
-      .rounded{border-radius:0.25rem}.rounded-lg{border-radius:0.5rem}.rounded-full{border-radius:9999px}
-      .border{border-width:1px}.border-b{border-bottom-width:1px}
-      /* Effects */
-      .shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1)}
-      .opacity-50{opacity:0.5}.opacity-70{opacity:0.7}.opacity-90{opacity:0.9}
-      /* Transitions */
-      .transition{transition:all 150ms ease}
-      /* Header critical */
-      .skeleton-header{height:64px;background:#fff;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;padding:0 16px}
-      .skeleton-logo{width:32px;height:32px;background:#e5e7eb;border-radius:4px}
-      /* Hero skeleton */
-      .skeleton-hero{height:70vh;min-height:500px;background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%);display:flex;align-items:center;justify-content:center}
-      .skeleton-hero-content{text-align:center;color:#fff;padding:20px}
-      .skeleton-hero h1{font-size:clamp(1.5rem,4vw,2.5rem);margin-bottom:16px;opacity:.9}
-      .skeleton-hero p{font-size:1rem;opacity:.7}
-      /* Prevent FOUC */
-      .loading-skeleton{animation:pulse 1.5s ease-in-out infinite}
-      @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
-      /* Font display swap */
-      @font-face{font-family:Barlow;font-display:swap;src:local('Barlow')}
-      /* Hide skeleton when app loads */
-      #root:not(:empty)+.initial-skeleton{display:none}
-      #root:not(:empty)~.initial-skeleton{display:none}
-      /* Responsive */
-      @media(min-width:768px){.md\\:h-12{height:3rem}.md\\:text-4xl{font-size:2.25rem}}
-    </style>
-    
-    <!-- Make Vite CSS non-render-blocking -->
-    <script>
-      (function(){
-        // Convert render-blocking CSS to async loading
-        var observer = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-            mutation.addedNodes.forEach(function(node) {
-              if (node.tagName === 'LINK' && node.rel === 'stylesheet' && node.href && node.href.includes('/assets/')) {
-                // Use media swap technique for async CSS loading
-                node.media = 'print';
-                node.onload = function() { this.media = 'all'; };
-              }
-            });
-          });
-        });
-        observer.observe(document.head, { childList: true });
-        // Disconnect after 5s to prevent memory leaks
-        setTimeout(function() { observer.disconnect(); }, 5000);
-      })();
-    </script>
+    <!-- Preconnect to external origins (must be early) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="dns-prefetch" href="https://wa.me">
     
     <!-- Preload critical fonts for better LCP -->
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/pacifico/v23/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff2" type="font/woff2" crossorigin>
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/barlow/v12/7cHpv4kjgoGqM7E_DMs5ynghnQci.woff2" type="font/woff2" crossorigin>
     
     <!-- PWA Manifest -->
@@ -145,9 +90,8 @@
     <!-- Preload main module for faster JS execution -->
     <link rel="modulepreload" href="/src/main.tsx" />
     
-    <!-- Preload LCP hero image - mobile version for faster mobile LCP -->
-    <link rel="preload" as="image" href="/hero-home-mobile-optimized.webp" type="image/webp" fetchpriority="high" media="(max-width: 767px)" />
-    <link rel="preload" as="image" href="/hero-home-new.webp" type="image/webp" fetchpriority="high" media="(min-width: 768px)" />
+    <!-- Preload LCP hero image for faster rendering - discoverable immediately in initial HTML -->
+    <link rel="preload" as="image" href="/hero-home-new.webp" type="image/webp" fetchpriority="high" />
     
     <!-- Load fonts with optimal loading strategy -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -158,11 +102,7 @@
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           setTimeout(() => {
-            // IMPORTANT: always catch registration errors to avoid unhandled rejections
-            // that could be misinterpreted as chunk loading failures.
-            navigator.serviceWorker
-              .register('/sw.js')
-              .catch((err) => console.warn('[ServiceWorker] Registration failed:', err));
+            navigator.serviceWorker.register('/sw.js');
           }, 2000);
         });
       }
@@ -196,231 +136,6 @@
     <!-- End Google Tag Manager (noscript) -->
     
     <div id="root"></div>
-
-    <!-- Boot watchdog: if React doesn't mount, show a repair UI (fixes blank-screen loops caused by stale SW/cache) -->
-    <script>
-      (function () {
-        var BOOT_FLAG = '__APP_BOOTED__';
-        var BOOT_EVENT = 'app:booted';
-        var REPAIR_ATTEMPT_KEY = '__app_repair_attempted';
-
-        function isBooted() {
-          try {
-            return window[BOOT_FLAG] === true;
-          } catch (_) {
-            return false;
-          }
-        }
-
-        async function runRepair(reason) {
-          try {
-            console.warn('[BootWatchdog] Repair started:', reason);
-
-            // Avoid chunk reload loops
-            try {
-              sessionStorage.removeItem('chunk_error_reload_count');
-              sessionStorage.removeItem('chunk_error_last_reload');
-            } catch (_) {}
-
-            // Clear caches
-            if ('caches' in window) {
-              var cacheNames = await caches.keys();
-              await Promise.all(cacheNames.map(function (name) { return caches.delete(name); }));
-            }
-
-            // Unregister service workers
-            if ('serviceWorker' in navigator) {
-              var regs = await navigator.serviceWorker.getRegistrations();
-              await Promise.all(regs.map(function (r) { return r.unregister(); }));
-            }
-          } catch (e) {
-            console.warn('[BootWatchdog] Repair failed:', e);
-          } finally {
-            // Reload without repair param + with cache bust
-            var url = new URL(window.location.href);
-            url.searchParams.delete('repair');
-            url.searchParams.set('_repair', Date.now().toString());
-            window.location.replace(url.toString());
-          }
-        }
-
-        function showOverlay() {
-          if (document.getElementById('boot-watchdog-overlay')) return;
-
-          var overlay = document.createElement('div');
-          overlay.id = 'boot-watchdog-overlay';
-          overlay.style.position = 'fixed';
-          overlay.style.inset = '0';
-          overlay.style.zIndex = '999999';
-          overlay.style.background = 'rgba(245, 255, 228, 0.98)';
-          overlay.style.display = 'flex';
-          overlay.style.alignItems = 'center';
-          overlay.style.justifyContent = 'center';
-          overlay.style.padding = '24px';
-
-          var card = document.createElement('div');
-          card.style.maxWidth = '520px';
-          card.style.width = '100%';
-          card.style.background = '#fff';
-          card.style.border = '1px solid rgba(0,0,0,0.12)';
-          card.style.borderRadius = '16px';
-          card.style.padding = '20px';
-          card.style.boxShadow = '0 20px 50px rgba(0,0,0,0.12)';
-          card.style.fontFamily = 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif';
-
-          var title = document.createElement('div');
-          title.textContent = 'Chargement bloqué';
-          title.style.fontSize = '18px';
-          title.style.fontWeight = '700';
-          title.style.marginBottom = '8px';
-
-          var desc = document.createElement('div');
-          desc.textContent = "Le site n'a pas réussi à démarrer. Cela arrive parfois à cause d'un cache ou d'un Service Worker obsolète.";
-          desc.style.fontSize = '14px';
-          desc.style.lineHeight = '1.5';
-          desc.style.color = 'rgba(0,0,0,0.7)';
-          desc.style.marginBottom = '16px';
-
-          var actions = document.createElement('div');
-          actions.style.display = 'flex';
-          actions.style.gap = '10px';
-          actions.style.flexWrap = 'wrap';
-
-          var btnReload = document.createElement('button');
-          btnReload.type = 'button';
-          btnReload.textContent = 'Recharger';
-          btnReload.style.padding = '10px 14px';
-          btnReload.style.borderRadius = '10px';
-          btnReload.style.border = '1px solid rgba(0,0,0,0.18)';
-          btnReload.style.background = '#fff';
-          btnReload.style.fontWeight = '600';
-          btnReload.onclick = function () {
-            var url = new URL(window.location.href);
-            url.searchParams.set('_cb', Date.now().toString());
-            window.location.replace(url.toString());
-          };
-
-          var btnRepair = document.createElement('button');
-          btnRepair.type = 'button';
-          btnRepair.textContent = 'Réparer (cache)';
-          btnRepair.style.padding = '10px 14px';
-          btnRepair.style.borderRadius = '10px';
-          btnRepair.style.border = 'none';
-          btnRepair.style.background = '#ffda00';
-          btnRepair.style.color = '#000';
-          btnRepair.style.fontWeight = '800';
-          btnRepair.onclick = function () {
-            if (sessionStorage.getItem(REPAIR_ATTEMPT_KEY) === '1') return;
-            sessionStorage.setItem(REPAIR_ATTEMPT_KEY, '1');
-            runRepair('manual_button');
-          };
-
-          actions.appendChild(btnReload);
-          actions.appendChild(btnRepair);
-
-          card.appendChild(title);
-          card.appendChild(desc);
-          card.appendChild(actions);
-          overlay.appendChild(card);
-          document.body.appendChild(overlay);
-        }
-
-        // Repair via URL: /?repair=1
-        try {
-          var params = new URLSearchParams(window.location.search);
-          if (params.get('repair') === '1' && sessionStorage.getItem(REPAIR_ATTEMPT_KEY) !== '1') {
-            sessionStorage.setItem(REPAIR_ATTEMPT_KEY, '1');
-            runRepair('query_param');
-            return;
-          }
-        } catch (_) {}
-
-        // Watchdog: if not booted after 9s, show overlay
-        var t = setTimeout(function () {
-          if (!isBooted()) showOverlay();
-        }, 9000);
-
-        window.addEventListener(
-          BOOT_EVENT,
-          function () {
-            clearTimeout(t);
-            var el = document.getElementById('boot-watchdog-overlay');
-            if (el) el.remove();
-          },
-          { once: true }
-        );
-      })();
-    </script>
-    
-    <!-- Initial skeleton for faster FCP - hidden when React hydrates -->
-    <div class="initial-skeleton" id="initial-skeleton">
-      <div class="skeleton-header">
-        <div class="skeleton-logo loading-skeleton"></div>
-      </div>
-      <div class="skeleton-hero">
-        <div class="skeleton-hero-content">
-          <h1>Location de Voiture au Maroc</h1>
-          <p>Chargement en cours...</p>
-        </div>
-      </div>
-    </div>
-    <script>
-      // Remove skeleton as soon as React renders
-      const observer = new MutationObserver(() => {
-        const root = document.getElementById('root');
-        if (root && root.children.length > 0) {
-          const skeleton = document.getElementById('initial-skeleton');
-          if (skeleton) skeleton.remove();
-          observer.disconnect();
-        }
-      });
-      observer.observe(document.getElementById('root'), { childList: true });
-    </script>
-
-    <!-- Fallback content for crawlers that don't execute JS -->
-    <noscript>
-      <div style="padding: 40px; text-align: center; font-family: system-ui, sans-serif;">
-        <h1>Benatna – Location de Voiture au Maroc</h1>
-        <p>La plateforme marocaine qui réunit les agences de location de voitures locales de confiance.</p>
-        <p>Prix transparents • Processus digital • Sans surprises</p>
-        <p>Disponible à Casablanca, Marrakech, Rabat, Agadir, Fès et Tanger.</p>
-        <p>Contact : +212 808 555 078 | contact@benatna.ma</p>
-        <nav style="margin-top: 20px;">
-          <a href="/location-voiture-casablanca">Casablanca</a> |
-          <a href="/location-voiture-marrakech">Marrakech</a> |
-          <a href="/location-voiture-rabat">Rabat</a> |
-          <a href="/location-voiture-agadir">Agadir</a> |
-          <a href="/louer">Voir les véhicules</a>
-        </nav>
-      </div>
-    </noscript>
-    
     <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Google Tag Manager - Load only after user interaction for best performance -->
-    <script>
-      (function() {
-        var gtmLoaded = false;
-        function loadGTM() {
-          if (gtmLoaded) return;
-          gtmLoaded = true;
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-          var j = document.createElement('script');
-          j.async = true;
-          j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-WK894PKV';
-          document.head.appendChild(j);
-          // Remove event listeners after loading
-          document.removeEventListener('scroll', loadGTM);
-          document.removeEventListener('click', loadGTM);
-          document.removeEventListener('touchstart', loadGTM);
-        }
-        // Load GTM on first user interaction OR after 10s max
-        document.addEventListener('scroll', loadGTM, {once: true, passive: true});
-        document.addEventListener('click', loadGTM, {once: true});
-        document.addEventListener('touchstart', loadGTM, {once: true, passive: true});
-        setTimeout(loadGTM, 10000);
-      })();
-    </script>
   </body>
 </html>

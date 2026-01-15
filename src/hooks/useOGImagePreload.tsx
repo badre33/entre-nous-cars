@@ -1,10 +1,5 @@
 import { useEffect } from "react";
-
-// Dynamic import to keep Supabase out of critical path
-const getSupabaseClient = async () => {
-  const { supabase } = await import("@/integrations/supabase/client");
-  return supabase;
-};
+import { supabase } from "@/integrations/supabase/client";
 
 interface UseOGImagePreloadProps {
   carName: string;
@@ -26,9 +21,6 @@ export const useOGImagePreload = ({
   useEffect(() => {
     const preloadOGImage = async () => {
       try {
-        // Load Supabase client dynamically
-        const supabase = await getSupabaseClient();
-        
         // Vérifier si l'image existe déjà
         const fileName = `og-${carName.replace(/\s+/g, "-").toLowerCase()}-${city.replace(/\s+/g, "-").toLowerCase()}.png`;
         const { data: existingFile } = await supabase.storage

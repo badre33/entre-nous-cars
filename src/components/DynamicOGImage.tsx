@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-
-// Dynamic import to keep Supabase out of critical path
-const getSupabaseClient = async () => {
-  const { supabase } = await import("@/integrations/supabase/client");
-  return supabase;
-};
+import { supabase } from "@/integrations/supabase/client";
 
 interface DynamicOGImageProps {
   carName: string;
@@ -39,9 +34,6 @@ export const DynamicOGImage = ({
     const generateOGImage = async () => {
       try {
         setIsLoading(true);
-        
-        // Load Supabase client dynamically
-        const supabase = await getSupabaseClient();
 
         // Vérifier d'abord si l'image existe déjà en cache
         const fileName = `og-${carName.replace(/\s+/g, "-").toLowerCase()}-${city.replace(/\s+/g, "-").toLowerCase()}.png`;

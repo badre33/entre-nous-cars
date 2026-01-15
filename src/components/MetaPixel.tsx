@@ -101,47 +101,37 @@ export const MetaPixel = () => {
   const location = useLocation();
 
   useEffect(() => {
-    let loaded = false;
-    
+    // Defer Meta Pixel loading to reduce FID impact
     const loadPixel = () => {
-      if (loaded || window.fbq) return;
-      loaded = true;
-      
-      const script = document.createElement('script');
-      script.innerHTML = `
-        !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-      `;
-      document.head.appendChild(script);
+      if (!window.fbq) {
+        const script = document.createElement('script');
+        script.innerHTML = `
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+        `;
+        document.head.appendChild(script);
 
-      // Initialize pixel
-      window.fbq('init', PIXEL_ID);
-      window.fbq('track', 'PageView');
-      
-      // Cleanup listeners
-      document.removeEventListener('scroll', loadPixel);
-      document.removeEventListener('click', loadPixel);
-      document.removeEventListener('touchstart', loadPixel);
+        // Initialize pixel
+        window.fbq('init', PIXEL_ID);
+        window.fbq('track', 'PageView');
+      }
     };
 
-    // Load on first user interaction OR after 10s max
-    document.addEventListener('scroll', loadPixel, { once: true, passive: true });
-    document.addEventListener('click', loadPixel, { once: true });
-    document.addEventListener('touchstart', loadPixel, { once: true, passive: true });
-    const timer = setTimeout(loadPixel, 10000);
-    
-    return () => {
-      clearTimeout(timer);
-      document.removeEventListener('scroll', loadPixel);
-      document.removeEventListener('click', loadPixel);
-      document.removeEventListener('touchstart', loadPixel);
-    };
+    // Use requestIdleCallback to defer loading and avoid blocking FID
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(loadPixel, { timeout: 4000 });
+      return () => cancelIdleCallback(idleId);
+    } else {
+      // Fallback for browsers without requestIdleCallback (Safari)
+      const timer = setTimeout(loadPixel, 2500);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   // Track page views on route change

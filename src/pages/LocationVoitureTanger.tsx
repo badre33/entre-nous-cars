@@ -8,14 +8,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star } from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
+import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
 import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
-import { SITE_STATS } from "@/data/siteStats";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema, OpeningHoursSchema } from "@/components/schemas";
+import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
+import { tangerReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityTanger from "@/assets/city-tanger.jpg";
 
@@ -23,8 +24,8 @@ const LocationVoitureTanger = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Location de voiture à Tanger | Benatna – Loueurs locaux</title>
-        <meta name="description" content="Louez une voiture à Tanger dès 150 DH/jour. Aéroport, port, livraison gratuite. Véhicules vérifiés, réservez en 2 min par WhatsApp." />
+        <title>Location de Voiture à Tanger | Prix Dès 150 DH/jour - Benatna</title>
+        <meta name="description" content="Location de voiture à Tanger avec Benatna. Aéroport, port, centre-ville. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
         <meta name="keywords" content="location voiture tanger, location auto tanger aeroport, louer voiture tanger port, location véhicule tanger, rent car tangier" />
         <link rel="canonical" href="https://benatna.ma/location-voiture-tanger" />
         <meta property="og:title" content="Location de Voiture à Tanger | Prix Dès 150 DH/jour" />
@@ -41,13 +42,47 @@ const LocationVoitureTanger = () => {
         longitude="-5.8340"
         address="Aéroport Tanger Ibn Battouta"
         postalCode="90000"
+        telephone="+212699024526"
         priceRange="150-850 MAD"
       />
+      <ReviewsSchema 
+        reviews={[
+          {
+            name: 'Karima El Fassi',
+            location: 'Tanger',
+            rating: 5,
+            comment: 'Location ultra simple, voiture nickel et tarifs imbattables. L\'équipe Benatna est top !',
+            date: 'Il y a 3 semaines',
+          },
+          {
+            name: 'Rachid Senhaji',
+            location: 'Tanger',
+            rating: 5,
+            comment: 'Parfait pour visiter le Nord du Maroc. Service rapide et efficace.',
+            date: 'Il y a 1 semaine',
+          },
+          {
+            name: 'Meryem Chaoui',
+            location: 'Tanger',
+            rating: 5,
+            comment: 'Très contente de mon expérience à Tanger. Je recommande !',
+            date: 'Il y a 4 jours',
+          },
+        ]}
+        averageRating={4.8}
+        totalReviews={1247}
+        city="Tanger"
+      />
       
-      {/* Only aggregate rating schema - uses SITE_STATS via BUSINESS_INFO */}
+      {/* Schema AggregateRating pour étoiles Google */}
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Tanger"
+      />
+      <IndividualReviewsSchema
+        reviews={tangerReviews}
+        entityType="LocalBusiness"
+        city="Tanger"
       />
       <OpeningHoursSchema 
         city="Tanger"

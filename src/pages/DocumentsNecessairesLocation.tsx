@@ -36,8 +36,8 @@ const DocumentsNecessairesLocation = () => {
   return (
     <>
       <Helmet>
-        <title>Documents Location Voiture Maroc | Liste Benatna</title>
-        <meta name="description" content="Documents pour louer une voiture au Maroc : pièce d'identité, permis de conduire, justificatif domicile. Checklist complète." />
+        <title>Documents Nécessaires Location Voiture Maroc - Liste Complète | Benatna</title>
+        <meta name="description" content="Documents obligatoires pour louer une voiture au Maroc : pièce d'identité, permis de conduire, justificatif de domicile. Guide complet et checklist à télécharger." />
         <meta name="keywords" content="documents location voiture maroc, permis conduire location maroc, pièces nécessaires location voiture, justificatif domicile location" />
       </Helmet>
 

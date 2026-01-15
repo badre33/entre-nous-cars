@@ -44,8 +44,8 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Contactez Benatna | Location Voiture Maroc</title>
-        <meta name="description" content="Besoin d'aide pour votre location ? Contactez Benatna par WhatsApp, téléphone ou email. Support client disponible 7j/7." />
+        <title>Contactez-nous - Benatna | Location de Voiture au Maroc</title>
+        <meta name="description" content="Contactez l'équipe Benatna pour toute question sur la location de voiture au Maroc. Support client disponible par téléphone, email ou formulaire en ligne." />
         <meta name="keywords" content="contact benatna, service client location voiture, aide location auto maroc, numéro téléphone benatna" />
         <link rel="canonical" href="https://benatna.ma/contact" />
         <meta property="og:title" content="Contactez-nous - Benatna" />

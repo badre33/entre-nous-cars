@@ -7,8 +7,8 @@ import { CheckCircle2, User, Clock, MapPin, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import { CanonicalTag } from "@/components/CanonicalTag";
 import { FAQSchemaEnriched } from "@/components/schemas/FAQSchemaEnriched";
+
 import { BreadcrumbsEnriched } from "@/components/BreadcrumbsEnriched";
-import { BUSINESS_INFO } from "@/constants/businessInfo";
 
 const LocationAvecChauffeur = () => {
   const faqs = [
@@ -54,8 +54,8 @@ const LocationAvecChauffeur = () => {
             "provider": {
               "@type": "Organization",
               "name": "Benatna",
-              "url": BUSINESS_INFO.website,
-              "telephone": BUSINESS_INFO.whatsapp
+              "url": "https://www.benatna.com",
+              "telephone": "+212699024526"
             },
             "areaServed": {
               "@type": "Country",

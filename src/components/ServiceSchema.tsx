@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { BUSINESS_INFO } from "@/constants/businessInfo";
 
 interface ServiceSchemaProps {
   city?: string;
@@ -20,7 +19,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "@type": "Organization",
         "name": "Benatna",
         "url": baseUrl,
-        "telephone": BUSINESS_INFO.whatsapp
+        "telephone": "+212699024526"
       },
       "areaServed": {
         "@type": city ? "City" : "Country",
@@ -71,7 +70,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "@type": "Organization",
         "name": "Benatna",
         "url": baseUrl,
-        "telephone": BUSINESS_INFO.whatsapp
+        "telephone": "+212699024526"
       },
       "areaServed": {
         "@type": city ? "City" : "Country",
@@ -94,7 +93,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "@type": "Organization",
         "name": "Benatna",
         "url": baseUrl,
-        "telephone": BUSINESS_INFO.whatsapp
+        "telephone": "+212699024526"
       },
       "areaServed": {
         "@type": "Country",
@@ -142,7 +141,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "@type": "Organization",
         "name": "Benatna",
         "url": baseUrl,
-        "telephone": BUSINESS_INFO.whatsapp
+        "telephone": "+212699024526"
       },
       "areaServed": {
         "@type": city ? "City" : "Country",
@@ -166,7 +165,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "@type": "Organization",
         "name": "Benatna",
         "url": baseUrl,
-        "telephone": BUSINESS_INFO.whatsapp
+        "telephone": "+212699024526"
       },
       "areaServed": {
         "@type": "Country",
@@ -197,7 +196,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "@type": "Organization",
         "name": "Benatna",
         "url": baseUrl,
-        "telephone": BUSINESS_INFO.whatsapp
+        "telephone": "+212699024526"
       },
       "areaServed": {
         "@type": city ? "City" : "Country",
@@ -225,7 +224,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
       "@type": "Organization",
       "name": "Benatna",
       "url": baseUrl,
-      "telephone": BUSINESS_INFO.whatsapp,
+      "telephone": "+212699024526",
       "logo": `${baseUrl}/logo-benatna.png`
     },
     "areaServed": {

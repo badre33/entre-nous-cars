@@ -32,14 +32,13 @@ export const CrispChat = () => {
       document.head.appendChild(script);
     };
 
-    // Load after idle to not impact TBT - significantly increased delay for TTI
+    // Load after idle to not impact TBT
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => {
-        // Additional delay after idle to ensure page is fully interactive
-        setTimeout(loadCrisp, 3000);
-      }, { timeout: 10000 });
+      const idleId = requestIdleCallback(loadCrisp, { timeout: 4000 });
+      return () => cancelIdleCallback(idleId);
     } else {
-      setTimeout(loadCrisp, 8000);
+      const timer = setTimeout(loadCrisp, 3000);
+      return () => clearTimeout(timer);
     }
   }, []);
 

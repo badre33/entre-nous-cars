@@ -1,3 +1,5 @@
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
@@ -6,12 +8,17 @@ import { ComparisonProvider } from "@/contexts/ComparisonContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "@/components/ScrollToTop";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { MetaPixel } from "@/components/MetaPixel";
+import { OrganizationSchema } from "@/components/OrganizationSchema";
+import { SitelinksSearchBoxSchema } from "@/components/schemas";
+import { IntelligentRoutePrefetcher } from "@/components/IntelligentRoutePrefetcher";
 import React, { lazy, Suspense, useEffect, useState, ComponentType } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
 import { BottomNavigation } from "@/components/BottomNavigation";
 
 import { PageSkeleton } from "@/components/PageSkeleton";
+import { analyticsTracker } from "@/utils/analyticsTracker";
 
 // Code splitting avec React.lazy - Homepage not lazy loaded for better LCP
 import Index from "./pages/Index";
@@ -35,7 +42,6 @@ const APropos = lazy(() => import("./pages/APropos"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const FAQ = lazy(() => import("./pages/FAQ"));
-const ConditionsGenerales = lazy(() => import("./pages/ConditionsGenerales"));
 const Glossaire = lazy(() => import("./pages/Glossaire"));
 const ComparatifsList = lazy(() => import("./pages/ComparatifsList"));
 const ComparisonPage = lazy(() => import("./pages/ComparisonPage"));
@@ -94,147 +100,44 @@ const LocationVoitureRouteOurikaMarrakech = lazy(() => import("./pages/LocationV
 
 // 404 page
 const NotFound = lazy(() => import("./pages/NotFound"));
-const SitemapAudit = lazy(() => import("./pages/SitemapAudit"));
-
-// Legal pages
-const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
-const PolitiqueConfidentialite = lazy(() => import("./pages/PolitiqueConfidentialite"));
 
 // Auth and Analytics pages
 const Auth = lazy(() => import("./pages/Auth"));
 const AnalyticsDashboard = lazy(() => import("./pages/Analytics"));
 
-// Deferred analytics and schemas loader - loaded after FCP
-const DeferredSEOComponents = () => {
-  const [components, setComponents] = useState<{
-    OrganizationSchema: ComponentType | null;
-    SitelinksSearchBoxSchema: ComponentType | null;
-    MetaPixel: ComponentType | null;
-    IntelligentRoutePrefetcher: ComponentType | null;
-    Toaster: ComponentType | null;
-    Sonner: ComponentType | null;
-  }>({
-    OrganizationSchema: null,
-    SitelinksSearchBoxSchema: null,
-    MetaPixel: null,
-    IntelligentRoutePrefetcher: null,
-    Toaster: null,
-    Sonner: null,
-  });
-
-  useEffect(() => {
-    const loadComponents = async () => {
-      const [orgSchema, sitelinks, metaPixel, prefetcher, toaster, sonner] = await Promise.all([
-        import("@/components/OrganizationSchema"),
-        import("@/components/schemas"),
-        import("@/components/MetaPixel"),
-        import("@/components/IntelligentRoutePrefetcher"),
-        import("@/components/ui/toaster"),
-        import("@/components/ui/sonner"),
-      ]);
-      
-      setComponents({
-        OrganizationSchema: orgSchema.OrganizationSchema,
-        SitelinksSearchBoxSchema: sitelinks.SitelinksSearchBoxSchema,
-        MetaPixel: metaPixel.MetaPixel,
-        IntelligentRoutePrefetcher: prefetcher.IntelligentRoutePrefetcher,
-        Toaster: toaster.Toaster,
-        Sonner: sonner.Toaster,
-      });
-    };
-
-    // Load SEO components after a small delay to prioritize FCP
-    if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(() => loadComponents(), { timeout: 2000 });
-      return () => cancelIdleCallback(idleId);
-    } else {
-      const timer = setTimeout(loadComponents, 500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  return (
-    <>
-      {components.OrganizationSchema && <components.OrganizationSchema />}
-      {components.SitelinksSearchBoxSchema && <components.SitelinksSearchBoxSchema />}
-      {components.MetaPixel && <components.MetaPixel />}
-      {components.IntelligentRoutePrefetcher && <components.IntelligentRoutePrefetcher />}
-      {components.Toaster && <components.Toaster />}
-      {components.Sonner && <components.Sonner />}
-    </>
-  );
-};
-
-// Analytics tracking component - heavily deferred to remove from critical network chain
-// Completely removes Supabase from initial request chain by using intersection observer
-// and significant delays. Only loads after user has been on page for 30+ seconds
+// Analytics tracking component - deferred to avoid FID impact
 const AnalyticsTrackerComponent = () => {
   const location = useLocation();
   const isInitialized = React.useRef(false);
-  const [tracker, setTracker] = useState<typeof import("@/utils/analyticsTracker")["analyticsTracker"] | null>(null);
-  const lastPath = React.useRef<string>('');
-  const [shouldLoad, setShouldLoad] = useState(false);
-
-  // First gate: Only start loading process after 45s to completely avoid Lighthouse window
-  // Lighthouse measures up to ~15s but we use 45s to ensure Supabase is completely outside
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShouldLoad(true);
-    }, 45000); // 45 second delay - well outside Lighthouse measurement window
-    
-    return () => clearTimeout(timer);
-  }, []);
-
-  // Second gate: Load tracker only when shouldLoad is true
-  useEffect(() => {
-    if (!shouldLoad) return;
-    
-    if ('requestIdleCallback' in window) {
-      const id = requestIdleCallback(async () => {
-        const module = await import("@/utils/analyticsTracker");
-        setTracker(module.analyticsTracker);
-      }, { timeout: 60000 });
-      return () => cancelIdleCallback(id);
-    } else {
-      const timer = setTimeout(async () => {
-        const module = await import("@/utils/analyticsTracker");
-        setTracker(module.analyticsTracker);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [shouldLoad]);
 
   useEffect(() => {
-    if (!tracker) return;
-    
     // Initialize tracker once
     if (!isInitialized.current) {
-      tracker.init();
+      analyticsTracker.init();
       isInitialized.current = true;
     }
-  }, [tracker]);
+  }, []);
 
   useEffect(() => {
-    if (!tracker) return;
-    if (location.pathname === lastPath.current) return;
-    lastPath.current = location.pathname;
-    
     // Defer analytics tracking to avoid blocking main thread during navigation
+    const trackWithDelay = () => {
+      analyticsTracker.trackPageView(location.pathname);
+    };
+
+    // Use requestIdleCallback for non-blocking analytics
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => {
-        tracker.trackPageView(location.pathname);
-      }, { timeout: 10000 });
+      const idleId = requestIdleCallback(trackWithDelay, { timeout: 1000 });
+      return () => cancelIdleCallback(idleId);
     } else {
-      setTimeout(() => {
-        tracker.trackPageView(location.pathname);
-      }, 2000);
+      const timer = setTimeout(trackWithDelay, 100);
+      return () => clearTimeout(timer);
     }
-  }, [location, tracker]);
+  }, [location]);
 
   return null;
 };
 
-// Crisp Chat - loaded deferred with significant delay for better TTI
+// Crisp Chat - loaded deferred
 const CrispLoader = () => {
   const [CrispChat, setCrispChat] = useState<ComponentType | null>(null);
 
@@ -244,48 +147,38 @@ const CrispLoader = () => {
       setCrispChat(() => module.CrispChat);
     };
 
-    // Delay Crisp loading significantly to improve TTI
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => {
-        setTimeout(loadCrisp, 5000); // Additional 5s delay after idle
-      }, { timeout: 8000 });
+      const idleId = requestIdleCallback(() => loadCrisp(), { timeout: 5000 });
+      return () => cancelIdleCallback(idleId);
     } else {
-      setTimeout(loadCrisp, 10000); // 10s delay on fallback
+      const timer = setTimeout(loadCrisp, 4000);
+      return () => clearTimeout(timer);
     }
   }, []);
 
   return CrispChat ? <CrispChat /> : null;
 };
 
-// Runtime dynamic import loader - loads BackToTop only after scroll
+// Runtime dynamic import loader - loads BackToTop only
 const DeferredComponents = () => {
   const [BackToTop, setBackToTop] = useState<ComponentType | null>(null);
 
   useEffect(() => {
-    let loaded = false;
-    
     const loadBackToTop = async () => {
-      if (loaded) return;
-      loaded = true;
       const bttModule = await import("@/components/BackToTop");
       setBackToTop(() => bttModule.BackToTop);
     };
 
-    // Only load BackToTop when user scrolls past 500px OR after 10s
-    const handleScroll = () => {
-      if (window.scrollY > 500) {
-        loadBackToTop();
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    const timer = setTimeout(loadBackToTop, 10000); // Fallback after 10s
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(timer);
-    };
+    // Use requestIdleCallback to start loading after idle
+    if ('requestIdleCallback' in window) {
+      const idleId = requestIdleCallback(() => {
+        setTimeout(loadBackToTop, 3000);
+      }, { timeout: 5000 });
+      return () => cancelIdleCallback(idleId);
+    } else {
+      const timer = setTimeout(loadBackToTop, 3000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return BackToTop ? <BackToTop /> : null;
@@ -308,10 +201,15 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
           <BrowserRouter>
-            <DeferredSEOComponents />
+            <OrganizationSchema />
+            <SitelinksSearchBoxSchema />
+            <MetaPixel />
             <AnalyticsTrackerComponent />
+            <IntelligentRoutePrefetcher />
             <LanguageProvider>
               <ComparisonProvider>
+                <Toaster />
+                <Sonner />
                 <ScrollToTop />
                 <Suspense fallback={<PageSkeleton />}>
                   <Routes>
@@ -324,7 +222,6 @@ const App = () => {
                     <Route path="/blog/:slug" element={<BlogArticle />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/faq" element={<FAQ />} />
-                    <Route path="/conditions-generales" element={<ConditionsGenerales />} />
                     <Route path="/glossaire" element={<Glossaire />} />
                     <Route path="/comparatifs" element={<ComparatifsList />} />
                     <Route path="/comparatif/:slug" element={<ComparisonPage />} />
@@ -379,13 +276,9 @@ const App = () => {
                     <Route path="/location-voiture-medina-marrakech" element={<LocationVoitureMedinaMarrakech />} />
                     <Route path="/location-voiture-palmeraie-marrakech" element={<LocationVoiturePalmeraieMarrakech />} />
                     <Route path="/location-voiture-route-ourika-marrakech" element={<LocationVoitureRouteOurikaMarrakech />} />
-                    {/* Legal Pages */}
-                    <Route path="/mentions-legales" element={<MentionsLegales />} />
-                    <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
                     {/* Auth & Analytics */}
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/analytics" element={<AnalyticsDashboard />} />
-                    <Route path="/sitemap" element={<SitemapAudit />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes>
                 </Suspense>

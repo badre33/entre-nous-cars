@@ -6,7 +6,6 @@ import { Home, Search, ArrowLeft, Car, MapPin } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { WHATSAPP_NUMBER } from "@/utils/whatsapp";
 
 const NotFound = () => {
   const location = useLocation();
@@ -139,7 +138,7 @@ const NotFound = () => {
                     </Button>
                   </Link>
                   <a 
-                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    href="https://wa.me/212699024526" 
                     target="_blank" 
                     rel="noopener noreferrer"
                   >

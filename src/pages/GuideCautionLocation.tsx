@@ -36,8 +36,8 @@ const GuideCautionLocation = () => {
   return (
     <>
       <Helmet>
-        <title>Caution Location Voiture Maroc | Guide Benatna</title>
-        <meta name="description" content="Guide caution location voiture au Maroc : montants 2000-10000 DH, paiement carte ou espèces, délai remboursement. Tout savoir." />
+        <title>Caution Location Voiture Maroc - Montant & Remboursement | Benatna</title>
+        <meta name="description" content="Guide complet caution location voiture Maroc : montants selon véhicule, paiement carte ou espèces, délai remboursement. Tout savoir sur la caution de garantie." />
         <meta name="keywords" content="caution location voiture maroc, montant caution maroc, depot garantie location, franchise location maroc, remboursement caution" />
       </Helmet>
 

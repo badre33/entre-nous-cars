@@ -44,24 +44,13 @@ const NosServices = () => {
 
   const getCategoryColor = (category: Service['category']) => {
     const colors = {
-      aeroport: 'bg-blue-500 text-white shadow-blue-500/30',
-      jeune: 'bg-emerald-500 text-white shadow-emerald-500/30',
-      'longue-duree': 'bg-violet-500 text-white shadow-violet-500/30',
-      suv: 'bg-amber-500 text-white shadow-amber-500/30',
-      special: 'bg-rose-500 text-white shadow-rose-500/30',
+      aeroport: 'bg-blue-500/10 text-blue-700 dark:text-blue-400',
+      jeune: 'bg-green-500/10 text-green-700 dark:text-green-400',
+      'longue-duree': 'bg-purple-500/10 text-purple-700 dark:text-purple-400',
+      suv: 'bg-orange-500/10 text-orange-700 dark:text-orange-400',
+      special: 'bg-pink-500/10 text-pink-700 dark:text-pink-400',
     };
     return colors[category];
-  };
-
-  const getCategoryGradient = (category: Service['category']) => {
-    const gradients = {
-      aeroport: 'from-blue-500/20 to-blue-600/5',
-      jeune: 'from-emerald-500/20 to-emerald-600/5',
-      'longue-duree': 'from-violet-500/20 to-violet-600/5',
-      suv: 'from-amber-500/20 to-amber-600/5',
-      special: 'from-rose-500/20 to-rose-600/5',
-    };
-    return gradients[category];
   };
 
   const getCategoryLabel = (category: Service['category']) => {
@@ -85,18 +74,18 @@ const NosServices = () => {
       />
       
       <Helmet>
-        <title>Services Location Voiture Maroc | Benatna</title>
+        <title>Nos Services de Location de Voiture au Maroc | Benatna</title>
         <meta 
           name="description" 
-          content="Services location voiture au Maroc : aéroports, jeune conducteur, longue durée, SUV 4x4. Dès 150 DH/jour. Réservez via WhatsApp." 
+          content="Découvrez tous nos services de location : aéroports, jeune conducteur, longue durée, SUV 4x4, véhicules de luxe et spéciaux. Tarifs dès 150 DH/jour partout au Maroc." 
         />
         <meta 
           name="keywords" 
           content="services location voiture maroc, location aéroport, jeune conducteur, longue durée, suv 4x4, voiture luxe" 
         />
         <link rel="canonical" href="https://benatna.ma/nos-services" />
-        <meta property="og:title" content="Services Location Voiture Maroc | Benatna" />
-        <meta property="og:description" content="Services location voiture au Maroc : aéroports, jeune conducteur, longue durée, SUV. Dès 150 DH/jour." />
+        <meta property="og:title" content="Nos Services de Location de Voiture au Maroc | Benatna" />
+        <meta property="og:description" content="Découvrez tous nos services de location adaptés à vos besoins : aéroports, jeune conducteur, longue durée, SUV, véhicules spéciaux." />
         <meta property="og:url" content="https://benatna.ma/nos-services" />
       </Helmet>
       <HreflangTags path="/nos-services" />
@@ -105,27 +94,26 @@ const NosServices = () => {
       <Breadcrumbs />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 md:py-24">
-        <div className="absolute inset-0 bg-[url('/hero-home-new.webp')] bg-cover bg-center opacity-20" />
-        <div className="container px-4 relative z-10">
+      <section className="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 py-16 md:py-20">
+        <div className="container px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 animate-fade-in text-white leading-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">
               Nos Services de Location de Voiture
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-white/80 mb-6 md:mb-8 animate-fade-in [animation-delay:200ms] px-2">
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in [animation-delay:200ms]">
               Une gamme complète de services adaptés à tous vos besoins de mobilité au Maroc. 
               Des tarifs transparents, une flotte récente et un service client disponible 24/7.
             </p>
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center text-sm animate-fade-in [animation-delay:400ms] text-white/90">
-              <div className="flex items-center gap-2 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center text-sm animate-fade-in [animation-delay:400ms]">
+              <div className="flex items-center gap-2">
                 <Check className="h-5 w-5 text-primary" />
                 <span>21+ services spécialisés</span>
               </div>
-              <div className="flex items-center gap-2 justify-center">
+              <div className="flex items-center gap-2">
                 <Check className="h-5 w-5 text-primary" />
                 <span>6 villes du Maroc</span>
               </div>
-              <div className="flex items-center gap-2 justify-center">
+              <div className="flex items-center gap-2">
                 <Check className="h-5 w-5 text-primary" />
                 <span>Tarifs dès 150 DH/jour</span>
               </div>
@@ -168,69 +156,53 @@ const NosServices = () => {
       <section className="container px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredServices.map((service) => (
-            <Card 
-              key={service.id} 
-              className={`group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col bg-gradient-to-br ${getCategoryGradient(service.category)}`}
-            >
-              {/* Animated border glow on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-primary/20 via-transparent to-secondary/20 pointer-events-none" />
-              
+            <Card key={service.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
               {/* Image */}
-              <div className="relative h-52 overflow-hidden">
+              <div className="relative h-48 overflow-hidden rounded-t-lg">
                 <img 
                   src={service.image} 
                   alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
-                
                 {service.popular && (
-                  <Badge className="absolute top-3 right-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-lg animate-pulse">
-                    ⭐ Populaire
+                  <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
+                    Populaire
                   </Badge>
                 )}
-                <Badge className={`absolute top-3 left-3 shadow-lg ${getCategoryColor(service.category)}`}>
+                <Badge className={`absolute top-3 left-3 ${getCategoryColor(service.category)}`}>
                   {getCategoryLabel(service.category)}
                 </Badge>
-                
-                {/* Price overlay on image */}
-                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-lg">
-                  <p className="text-xs text-muted-foreground">À partir de</p>
-                  <p className="text-lg font-bold text-primary">{service.priceFrom}</p>
-                </div>
               </div>
 
-              <CardHeader className="relative">
-                <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
+              <CardHeader>
+                <CardTitle className="text-lg group-hover:text-primary transition-colors">
                   {service.title}
                 </CardTitle>
-                <CardDescription className="text-sm text-muted-foreground">
+                <CardDescription className="text-sm">
                   {service.shortDescription}
                 </CardDescription>
               </CardHeader>
 
               <CardContent className="flex-1">
-                <ul className="space-y-2.5">
+                <ul className="space-y-2">
                   {service.features.slice(0, 4).map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-sm group/item">
-                      <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-primary/20 transition-colors">
-                        <Check className="h-3 w-3 text-primary" />
-                      </div>
-                      <span className="text-foreground/80">{feature}</span>
+                    <li key={idx} className="flex items-start gap-2 text-sm">
+                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{feature}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
 
-              <CardFooter className="pt-4 border-t border-border/50">
-                <Button 
-                  asChild 
-                  className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground shadow-lg hover:shadow-xl hover:shadow-primary/25 transition-all duration-300"
-                >
-                  <Link to={service.slug} className="flex items-center justify-center gap-2">
-                    Découvrir ce service
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-2 transition-transform duration-300" />
+              <CardFooter className="flex items-center justify-between pt-4 border-t">
+                <div>
+                  <p className="text-xs text-muted-foreground">À partir de</p>
+                  <p className="text-lg font-bold text-primary">{service.priceFrom}</p>
+                </div>
+                <Button asChild size="sm" className="group-hover:bg-primary group-hover:text-primary-foreground">
+                  <Link to={service.slug}>
+                    Découvrir
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
               </CardFooter>

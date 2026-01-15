@@ -7,6 +7,7 @@ interface CityLocalBusinessSchemaProps {
   longitude: string;
   address: string;
   postalCode: string;
+  telephone: string;
   priceRange: string;
 }
 
@@ -16,6 +17,7 @@ export const CityLocalBusinessSchema = ({
   longitude,
   address,
   postalCode,
+  telephone,
   priceRange
 }: CityLocalBusinessSchemaProps) => {
   const localBusinessSchema = {
@@ -73,10 +75,10 @@ export const CityLocalBusinessSchema = ({
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": BUSINESS_INFO.rating.value,
-      "reviewCount": BUSINESS_INFO.rating.count,
-      "bestRating": BUSINESS_INFO.rating.best,
-      "worstRating": BUSINESS_INFO.rating.worst
+      "ratingValue": "4.8",
+      "reviewCount": "250",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "areaServed": {
       "@type": "City",

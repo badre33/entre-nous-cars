@@ -17,8 +17,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logoLarge from "@/assets/logo-black.webp";
-import logoSmall from "@/assets/logo-black-small.webp";
+import logo from "@/assets/logo-black.webp";
 
 const Header = () => {
   const location = useLocation();
@@ -163,15 +162,7 @@ const Header = () => {
       <div className="container flex h-16 md:h-20 items-center justify-between px-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 transition-transform hover:scale-105">
-          <img 
-            src={logoSmall} 
-            srcSet={`${logoSmall} 48w, ${logoLarge} 96w`}
-            sizes="48px"
-            alt="Benatna" 
-            width="48" 
-            height="48" 
-            className="h-8 md:h-12 w-auto" 
-          />
+          <img src={logo} alt="Benatna" width="48" height="48" className="h-8 md:h-12 w-auto" />
           <span className="font-pacifico text-xl md:text-2xl text-foreground">benatna</span>
         </Link>
         
@@ -199,19 +190,17 @@ const Header = () => {
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] sm:w-[350px] flex flex-col">
-              <SheetHeader className="flex-shrink-0">
+            <SheetContent side="right" className="w-[280px] sm:w-[350px]">
+              <SheetHeader>
                 <SheetTitle className="text-left font-pacifico text-2xl">benatna</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-2 mt-6 flex-1 overflow-y-auto pb-safe">
+              <nav className="flex flex-col gap-2 mt-8">
                 <NavLinks mobile onLinkClick={() => setIsOpen(false)} />
-                <Link to="/louer" onClick={() => setIsOpen(false)} className="mt-4">
-                  <Button className="w-full rounded-full">
+                <Link to="/louer" onClick={() => setIsOpen(false)}>
+                  <Button className="w-full rounded-full mt-4">
                     {t('common.rent')}
                   </Button>
                 </Link>
-                {/* Espace en bas pour safe area */}
-                <div className="h-8" />
               </nav>
             </SheetContent>
           </Sheet>
