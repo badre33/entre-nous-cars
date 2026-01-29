@@ -271,13 +271,73 @@ const LocationVoitureCasablanca = () => {
                 Louer une voiture à Casablanca vous offre une liberté totale pour naviguer entre 
                 Ain Diab, le Morocco Mall, les quartiers des Habous et Sidi Maarouf sans dépendre 
                 des taxis ou des transports en commun. C'est aussi le point de départ idéal pour 
-                rejoindre Rabat (90 km), El Jadida (100 km) ou Marrakech (240 km).
+                rejoindre Rabat (90 km), El Jadida (100 km) ou Marrakech (240 km). Pour{" "}
+                <Link to="/louer?city=Casablanca" className="text-primary hover:underline">
+                  voir les voitures disponibles à Casablanca
+                </Link>, consultez notre catalogue.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Benatna connecte les voyageurs aux meilleures agences de location casablancaises. 
                 Notre plateforme 100 % digitale vous permet de comparer, réserver et récupérer 
                 votre véhicule en toute simplicité, avec la garantie de prix transparents et 
                 d'un accompagnement humain à chaque étape.
+              </p>
+            </div>
+          </section>
+
+          {/* Bloc A - Contexte local Casablanca */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              La mobilité à Casablanca : un enjeu quotidien
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Dans une ville aussi étendue que Casablanca, les déplacements représentent un défi 
+                permanent. Entre les quartiers d'affaires de Sidi Maarouf et Ain Sebaa, les zones 
+                commerciales du centre-ville et les secteurs résidentiels périphériques, les distances 
+                se comptent en dizaines de kilomètres. Pour les professionnels en déplacement, 
+                les cadres en mission ou les entrepreneurs locaux, la voiture devient un outil 
+                de productivité indispensable.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Contrairement aux taxis qui imposent leurs itinéraires ou aux applications VTC 
+                parfois indisponibles aux heures de pointe, la location de véhicule vous garantit 
+                une autonomie totale. Vous planifiez vos rendez-vous sans contrainte horaire, 
+                vous enchaînez les réunions dans différents quartiers, vous accédez aux zones 
+                industrielles excentrées. Cette flexibilité fait gagner un temps précieux aux 
+                professionnels qui souhaitent{" "}
+                <Link to="/louer?city=Casablanca" className="text-primary hover:underline">
+                  réserver une voiture à Casablanca
+                </Link>{" "}
+                pour optimiser leur agenda.
+              </p>
+            </div>
+          </section>
+
+          {/* Bloc B - MRE et visiteurs */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Location de voiture pour MRE et visiteurs internationaux
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Chaque année, des centaines de milliers de Marocains résidant à l'étranger (MRE) 
+                rentrent au pays pour les vacances, les fêtes ou les événements familiaux. 
+                À leur arrivée à l'aéroport Mohammed V, la question du transport se pose 
+                immédiatement. Plutôt que de dépendre de proches ou de multiplier les trajets 
+                en taxi, la location de voiture offre une solution simple et économique pour 
+                profiter pleinement de son séjour.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Que vous reveniez pour deux semaines ou deux mois, Benatna propose des formules 
+                adaptées à toutes les durées. Les visiteurs internationaux apprécient 
+                particulièrement la transparence de notre service : pas de frais cachés, 
+                pas de négociation au comptoir, un prix clair dès la réservation en ligne. 
+                Depuis l'aéroport ou votre hôtel en centre-ville, récupérez votre véhicule 
+                et partez sereinement explorer Casablanca et ses environs. Pour{" "}
+                <Link to="/louer?city=Casablanca" className="text-primary hover:underline">
+                  consulter les véhicules disponibles
+                </Link>, notre catalogue est accessible 24h/24.
               </p>
             </div>
           </section>
