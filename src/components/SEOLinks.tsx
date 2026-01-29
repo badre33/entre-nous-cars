@@ -76,6 +76,19 @@ export const SEOLinks = () => {
             Idéal pour le <strong>tourisme au Maroc</strong>, les déplacements professionnels ou les besoins locaux, 
             Benatna simplifie votre mobilité avec des tarifs compétitifs dès 250 MAD/jour.
           </p>
+          
+          {/* Bloc SEO Casablanca - Maillage interne stratégique */}
+          <div className="mt-8 p-6 bg-primary/5 rounded-xl border border-primary/10">
+            <h3 className="text-xl font-semibold mb-3">Location de voiture à Casablanca</h3>
+            <p className="text-muted-foreground leading-relaxed">
+              Première destination économique du Maroc, <strong>Casablanca</strong> concentre entreprises, 
+              aéroport international et quartiers d'affaires. Que vous arriviez à l'aéroport Mohammed V ou 
+              que vous ayez besoin d'un véhicule pour vos déplacements professionnels, nos agences locales 
+              partenaires vous proposent une <Link to="/location-voiture-casablanca" className="text-primary hover:underline font-medium">location de voiture à Casablanca</Link> simple 
+              et transparente. Réservation 100 % digitale, prix clairs, assistance réactive : 
+              découvrez pourquoi des milliers de clients nous font confiance pour leur mobilité casablancaise.
+            </p>
+          </div>
         </div>
       </div>
     </section>
