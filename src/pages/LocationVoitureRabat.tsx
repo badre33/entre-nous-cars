@@ -257,30 +257,35 @@ const LocationVoitureRabat = () => {
       <main className="flex-1 py-12 md:py-16">
         <div className="container px-4">
 
-          {/* Introduction Section */}
+          {/* Introduction Section - minimum 200 mots, mot-clé dans les 80 premiers mots */}
           <section className="max-w-4xl mx-auto mb-16">
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Rabat, capitale administrative du Royaume du Maroc, est une ville où se concentrent 
-                ministères, ambassades, sièges d'institutions et quartiers résidentiels haut de gamme. 
-                Avec près d'un million d'habitants et une agglomération étendue incluant Salé et Témara, 
-                les déplacements professionnels et familiaux nécessitent une mobilité optimale.
+                La <strong>location de voiture à Rabat</strong> est la solution privilégiée par 
+                les professionnels, les familles et les voyageurs qui souhaitent se déplacer 
+                librement dans la capitale administrative du Maroc. Ville où se concentrent 
+                ministères, ambassades, sièges d'institutions et quartiers résidentiels haut de gamme, 
+                Rabat exige une mobilité optimale pour naviguer efficacement entre ses différents pôles.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Louer une voiture à Rabat vous offre la flexibilité indispensable pour naviguer 
-                entre les rendez-vous à Hay Riad, les réunions à Agdal, les administrations de 
-                Souissi et les quartiers historiques de la médina. C'est aussi le point de départ 
-                idéal pour rejoindre Casablanca (90 km), Meknès (140 km) ou Chefchaouen (250 km). 
-                Pour{" "}
+                Avec près d'un million d'habitants et une agglomération étendue incluant Salé et Témara, 
+                les déplacements professionnels et familiaux nécessitent un véhicule personnel. 
+                Le réseau de tramway, bien que pratique, ne dessert pas tous les quartiers d'affaires. 
+                Les taxis peuvent être difficiles à trouver aux heures de pointe. Louer une voiture 
+                vous offre la flexibilité indispensable pour vos rendez-vous à Hay Riad, vos réunions 
+                à Agdal, vos visites aux administrations de Souissi et vos escapades dans les quartiers 
+                historiques de la médina. Pour{" "}
                 <Link to="/louer?city=Rabat" className="text-primary hover:underline">
                   voir les voitures disponibles à Rabat
                 </Link>, consultez notre catalogue.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
+                Rabat est également le point de départ idéal pour rejoindre Casablanca (90 km), 
+                Meknès (140 km), les plages de Moulay Bousselham ou la ville bleue de Chefchaouen (250 km). 
                 Benatna connecte les professionnels et voyageurs aux meilleures agences de location 
-                de la capitale. Notre plateforme 100 % digitale vous permet de comparer, réserver 
-                et récupérer votre véhicule en toute simplicité, avec la garantie de prix transparents 
-                et d'un accompagnement humain à chaque étape.
+                de la capitale. Notre plateforme 100 % digitale vous permet de comparer les offres, 
+                réserver en ligne et récupérer votre véhicule en toute simplicité, avec la garantie 
+                de prix transparents et d'un accompagnement humain à chaque étape de votre location.
               </p>
             </div>
           </section>
@@ -735,27 +740,24 @@ const LocationVoitureRabat = () => {
             </div>
           </section>
 
-          {/* Internal Links Section */}
+          {/* Internal Links Section - max 2 liens vers autres villes */}
           <section className="mb-16">
             <h2 className="text-xl md:text-2xl font-bold mb-6 text-center">
-              Location de voiture dans les autres villes du Maroc
+              Découvrez aussi nos autres destinations
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              {[
-                { name: "Casablanca", slug: "casablanca" },
-                { name: "Marrakech", slug: "marrakech" },
-                { name: "Tanger", slug: "tanger" },
-                { name: "Agadir", slug: "agadir" },
-                { name: "Fès", slug: "fes" }
-              ].map((city) => (
-                <Link 
-                  key={city.slug}
-                  to={`/location-voiture-${city.slug}`}
-                  className="px-4 py-2 bg-muted hover:bg-primary/10 rounded-full text-sm font-medium transition-colors"
-                >
-                  Location voiture {city.name}
-                </Link>
-              ))}
+              <Link 
+                to="/location-voiture-casablanca"
+                className="px-4 py-2 bg-muted hover:bg-primary/10 rounded-full text-sm font-medium transition-colors"
+              >
+                Location voiture Casablanca
+              </Link>
+              <Link 
+                to="/location-voiture-marrakech"
+                className="px-4 py-2 bg-muted hover:bg-primary/10 rounded-full text-sm font-medium transition-colors"
+              >
+                Location voiture Marrakech
+              </Link>
             </div>
           </section>
 
