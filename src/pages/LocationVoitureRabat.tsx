@@ -1,41 +1,125 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { EnhancedBreadcrumbs } from "@/components/EnhancedBreadcrumbs";
+import { createBreadcrumbs } from "@/components/schemas";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, CheckCircle, Star } from "lucide-react";
+import { 
+  MapPin, 
+  CheckCircle, 
+  Star, 
+  Car, 
+  Shield, 
+  Clock, 
+  Headphones,
+  Building2,
+  Plane,
+  Navigation,
+  ParkingCircle,
+  Fuel,
+  AlertTriangle,
+  Quote,
+  Briefcase
+} from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
-import { CallButton } from "@/components/CallButton";
-import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema } from "@/components/schemas";
-import { rabatReviews } from "@/data/reviewsData";
+import { HreflangTags } from "@/utils/hreflangHelper";
+import { 
+  EnhancedAggregateRatingSchema, 
+  PriceRangeOfferSchema, 
+  FAQSchemaEnriched,
+  MultiLocationSchema,
+  OpeningHoursSchema
+} from "@/components/schemas";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityRabat from "@/assets/city-rabat.jpg";
 
+// FAQ data for schema and display
+const rabatFAQs = [
+  {
+    question: "Proposez-vous des locations longue durée à Rabat ?",
+    answer: "Oui, la location longue durée est notre spécialité à Rabat. Nous proposons des tarifs dégressifs attractifs : -10% à partir de 7 jours, -15% à partir de 30 jours. Idéal pour les missions professionnelles, les expatriés en transition ou les MRE de retour pour plusieurs mois."
+  },
+  {
+    question: "Peut-on louer une voiture à l'aéroport Rabat-Salé ?",
+    answer: "Absolument. Nos agences partenaires proposent un service de livraison gratuite à l'aéroport Rabat-Salé, disponible 24h/24. Un agent vous attend à votre arrivée avec les clés du véhicule, pour un départ immédiat vers le centre-ville ou Hay Riad."
+  },
+  {
+    question: "Livrez-vous les véhicules aux bureaux et administrations ?",
+    answer: "Oui, c'est un service très demandé à Rabat. Nous livrons gratuitement dans les quartiers administratifs (Agdal, Hay Riad, Souissi) et aux sièges d'entreprises. Pratique pour les professionnels qui enchaînent les réunions dans différents ministères."
+  },
+  {
+    question: "Quels documents sont nécessaires pour louer une voiture à Rabat ?",
+    answer: "Vous aurez besoin d'un permis de conduire valide (depuis au moins 1 an), d'une pièce d'identité (CIN pour les résidents marocains ou passeport pour les étrangers), et d'un justificatif de domicile récent. Pour les touristes, un permis international peut être requis."
+  },
+  {
+    question: "L'assurance est-elle incluse dans le tarif de location ?",
+    answer: "Oui, tous nos véhicules sont couverts par une assurance responsabilité civile incluse dans le prix. Pour les locations professionnelles, nous recommandons l'assurance tous risques avec franchise réduite, particulièrement adaptée aux déplacements intensifs."
+  },
+  {
+    question: "Peut-on restituer le véhicule dans une autre ville que Rabat ?",
+    answer: "Oui, le service aller-simple est disponible vers Casablanca (très demandé pour l'axe économique), Tanger, Marrakech et Agadir. Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un devis personnalisé."
+  }
+];
+
+// Customer reviews localized to Rabat
+const rabatTestimonials = [
+  {
+    name: "Karim A.",
+    location: "Rabat",
+    rating: 5,
+    comment: "Location de 3 mois pour une mission professionnelle. Tarif très compétitif, véhicule fiable et service irréprochable. La livraison au bureau à Hay Riad était parfaite.",
+    date: "Janvier 2025"
+  },
+  {
+    name: "Sophie M.",
+    location: "France",
+    rating: 5,
+    comment: "De retour au Maroc pour deux mois de vacances. Récupération simple à l'aéroport Rabat-Salé, Dacia Duster impeccable. J'ai pu visiter Chefchaouen et Meknès sans contrainte.",
+    date: "Décembre 2024"
+  },
+  {
+    name: "Mohamed B.",
+    location: "Rabat",
+    rating: 5,
+    comment: "Consultant indépendant, j'ai besoin d'un véhicule flexible pour mes rendez-vous entre Rabat et Casablanca. Benatna m'offre cette souplesse avec un excellent rapport qualité-prix.",
+    date: "Novembre 2024"
+  }
+];
+
 const LocationVoitureRabat = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
+      {/* SEO Meta Tags */}
       <Helmet>
-        <title>Location de Voiture à Rabat | Prix Dès 150 DH/jour - Benatna</title>
-        <meta name="description" content="Location de voiture à Rabat avec Benatna. Capitale du Maroc, centre-ville, gare. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
-        <meta name="keywords" content="location voiture rabat, location auto rabat centre ville, louer voiture rabat pas cher, location véhicule capitale maroc, rent car rabat" />
+        <title>Location Voiture Rabat | Agences Locales - Benatna</title>
+        <meta 
+          name="description" 
+          content="Louez une voiture à Rabat avec Benatna. Agences locales fiables, prix transparents, idéal pour déplacements professionnels et longue durée. Livraison aéroport." 
+        />
         <link rel="canonical" href="https://benatna.ma/location-voiture-rabat" />
-        <meta property="og:title" content="Location de Voiture à Rabat | Prix Dès 150 DH/jour" />
-        <meta property="og:description" content="Louez une voiture à Rabat avec Benatna. Centre-ville, gare, livraison gratuite. Prix transparents, capitale du Maroc." />
+        <meta property="og:title" content="Location Voiture Rabat | Agences Locales - Benatna" />
+        <meta property="og:description" content="Louez une voiture à Rabat avec Benatna. Agences locales fiables, prix transparents, réservation simple." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-rabat" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://benatna.ma/og-image.png" />
       </Helmet>
+
+      {/* Hreflang Tags */}
+      <HreflangTags path="/location-voiture-rabat" />
+
+      {/* Structured Data Schemas */}
       <StructuredData type="rental" />
       <ServiceSchema city="Rabat" />
       <HowToSchema city="Rabat" />
       <OfferSchema city="Rabat" />
+      
       <CityLocalBusinessSchema
         cityName="Rabat"
         latitude="33.9716"
@@ -45,59 +129,88 @@ const LocationVoitureRabat = () => {
         telephone="+212699024526"
         priceRange="150-800 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Youssef Alami',
-            location: 'Rabat',
-            rating: 5,
-            comment: 'Excellente expérience du début à la fin. L\'assistance client est réactive et professionnelle. J\'ai eu un surclassement gratuit vers un SUV.',
-            date: 'Il y a 5 jours',
-          },
-          {
-            name: 'Nadia Tahiri',
-            location: 'Rabat',
-            rating: 5,
-            comment: 'Service impeccable à Rabat. Livraison à l\'heure et voiture en excellent état.',
-            date: 'Il y a 1 semaine',
-          },
-          {
-            name: 'Omar Benjelloun',
-            location: 'Rabat',
-            rating: 5,
-            comment: 'Très professionnel. Je recommande pour la location à Rabat.',
-            date: 'Il y a 10 jours',
-          },
-        ]}
-        averageRating={4.8}
-        totalReviews={1247}
-        city="Rabat"
-      />
-      
-      {/* Schema AggregateRating pour étoiles Google */}
+
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Rabat"
       />
-      <IndividualReviewsSchema
-        reviews={rabatReviews}
-        entityType="LocalBusiness"
+
+      <PriceRangeOfferSchema 
+        minPrice="150"
+        maxPrice="800"
         city="Rabat"
+        discount={{ percentage: 15, minDays: 30 }}
       />
+
+      <MultiLocationSchema 
+        locations={[
+          {
+            name: "Aéroport Rabat-Salé",
+            address: "Aéroport International Rabat-Salé",
+            city: "Rabat",
+            postalCode: "11000",
+            latitude: "34.0531",
+            longitude: "-6.7519",
+            description: "Livraison gratuite 24/7 à l'aéroport Rabat-Salé."
+          },
+          {
+            name: "Centre-ville Rabat",
+            address: "Avenue Mohammed V",
+            city: "Rabat",
+            postalCode: "10000",
+            latitude: "33.9716",
+            longitude: "-6.8498",
+            description: "Point de retrait central, proche des administrations et hôtels."
+          },
+          {
+            name: "Agdal",
+            address: "Quartier Agdal",
+            city: "Rabat",
+            postalCode: "10090",
+            latitude: "33.9850",
+            longitude: "-6.8600",
+            description: "Quartier résidentiel et commercial, nombreux bureaux d'entreprises."
+          },
+          {
+            name: "Hay Riad",
+            address: "Hay Riad",
+            city: "Rabat",
+            postalCode: "10100",
+            latitude: "33.9580",
+            longitude: "-6.8890",
+            description: "Zone ministérielle et d'affaires, idéal pour les professionnels."
+          }
+        ]}
+      />
+
       <OpeningHoursSchema 
         city="Rabat"
         entityType="LocalBusiness"
         address="Aéroport Rabat-Salé"
-        latitude="34.0331"
+        latitude="34.0531"
         longitude="-6.7519"
       />
-      
-      {/* Product Schema véhicules Rabat */}
-      <VehicleProductSchemas city="Rabat" />
-      
-      <Header />
-      <Breadcrumbs />
 
+      <VehicleProductSchemas city="Rabat" />
+
+      <FAQSchemaEnriched 
+        pageName="Location de Voiture à Rabat"
+        faqs={rabatFAQs}
+      />
+
+      <Header />
+
+      {/* Breadcrumbs */}
+      <EnhancedBreadcrumbs 
+        items={[
+          createBreadcrumbs.home(),
+          createBreadcrumbs.services(),
+          createBreadcrumbs.city("Rabat", "rabat")
+        ]}
+        showIcons={true}
+      />
+
+      {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] flex items-center">
         <img 
           src={cityRabat}
@@ -107,300 +220,572 @@ const LocationVoitureRabat = () => {
           sizes="100vw"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 to-black/40" />
         <div className="container relative z-10 px-4">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Location de Voiture à Rabat
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              Location de Voiture à Rabat – Louez Simplement avec Benatna
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8">
-              Prix transparents dès 150 DH/jour • Capitale du Maroc • Livraison gratuite
+            <p className="text-lg md:text-xl text-white/90 mb-8">
+              Agences locales fiables • Prix transparents • Idéal longue durée et professionnels
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/louer?city=Rabat">
-                <Button size="lg" className="text-lg px-8">
-                  Réserver Maintenant
+                <Button size="lg" className="text-lg px-8 bg-primary hover:bg-primary/90">
+                  Trouver ma voiture à Rabat
                 </Button>
               </Link>
-              <CallButton 
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20"
+              <a 
+                href="https://wa.me/212699024526?text=Bonjour, je souhaite louer une voiture à Rabat."
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Appeler
-              </CallButton>
+                <Button 
+                  variant="outline"
+                  size="lg"
+                  className="text-lg px-6 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20"
+                >
+                  Contacter un conseiller
+                </Button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-
-      <main className="flex-1 py-12">
+      {/* Main Content */}
+      <main className="flex-1 py-12 md:py-16">
         <div className="container px-4">
-          <div className="grid md:grid-cols-4 gap-4 mb-12">
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">50+</div>
-                <div className="text-sm text-muted-foreground">Véhicules Disponibles</div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">150 DH</div>
-                <div className="text-sm text-muted-foreground">Prix à partir de</div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-                <div className="text-sm text-muted-foreground">Service Client</div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="flex items-center justify-center gap-1 text-3xl font-bold text-primary mb-2">
-                  4.8 <Star className="h-6 w-6 fill-primary" />
-                </div>
-                <div className="text-sm text-muted-foreground">Note Moyenne</div>
-              </CardContent>
-            </Card>
-          </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            <div className="lg:col-span-2 space-y-8">
-              <section>
-                <h2 className="text-3xl font-bold mb-4">Location de Voiture à Rabat : Capitale du Maroc</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    Vous cherchez à <strong>louer une voiture à Rabat</strong> ? Benatna vous propose le meilleur service de location dans la capitale administrative du Maroc. Que vous soyez en déplacement professionnel ou touristique, explorez Rabat et ses environs en toute liberté.
-                  </p>
-                  <p>
-                    Notre <strong>service de location de voiture à Rabat</strong> se distingue par sa simplicité et sa transparence. Plus de 50 véhicules disponibles, des prix clairs dès 150 DH/jour. Visitez la Tour Hassan, le Mausolée Mohammed V, la Kasbah des Oudayas ou partez en excursion vers Casablanca ou Meknès !
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Rabat ?</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    Rabat, capitale politique et administrative du Royaume du Maroc, est une ville moderne et verdoyante qui allie harmonieusement patrimoine historique et développement contemporain. <strong>Louer une voiture à Rabat</strong> vous permet d&apos;optimiser vos déplacements dans cette ville étendue où les points d&apos;intérêt sont dispersés : des institutions gouvernementales d&apos;Agdal aux plages de Salé, de la médina historique aux quartiers résidentiels de Souissi.
-                  </p>
-                  <p>
-                    Pour les voyageurs d&apos;affaires, la voiture est quasiment indispensable à Rabat. Les ministères, ambassades et sièges d&apos;entreprises sont répartis dans toute la ville, et les réunions professionnelles nécessitent souvent de traverser plusieurs quartiers. Les taxis peuvent être difficiles à trouver aux heures de pointe, et le tramway, bien qu&apos;efficace, ne dessert pas tous les quartiers d&apos;affaires.
-                  </p>
-                  <p>
-                    Rabat offre également une position géographique stratégique pour explorer le nord du Maroc. En moins de deux heures, vous pouvez rejoindre Casablanca (90 km), Meknès (140 km) ou Asilah (100 km). La route vers Chefchaouen (250 km), la fameuse ville bleue, traverse des paysages magnifiques du Rif. Le réseau routier depuis Rabat est excellent, avec des autoroutes modernes et une signalisation claire. De plus, le trafic est généralement plus fluide qu&apos;à Casablanca, ce qui rend la conduite agréable et peu stressante.
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Top 10 des Lieux à Visiter en Voiture à Rabat</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    Avec votre <strong>voiture de location à Rabat</strong>, découvrez les trésors de la capitale :
-                  </p>
-                  <ul className="space-y-3">
-                    <li>
-                      <strong>Kasbah des Oudayas :</strong> Forteresse du XIIe siècle avec ruelles bleues et blanches, vue panoramique sur l&apos;océan et l&apos;embouchure du Bouregreg. Café maure authentique avec thé à la menthe. Parking à proximité.
-                    </li>
-                    <li>
-                      <strong>Tour Hassan et Mausolée Mohammed V :</strong> Monument emblématique de Rabat, minaret inachevé de 44m, colonnes romaines, architecture mauresque majestueuse. Site classé UNESCO. Parking gratuit disponible.
-                    </li>
-                    <li>
-                      <strong>Chellah :</strong> Nécropole mérinide et site romain antique (Sala Colonia), jardins luxuriants, cigognes nichant sur les ruines. Ambiance paisible. Entrée 70 DH. Parking à l&apos;entrée.
-                    </li>
-                    <li>
-                      <strong>Médina de Rabat :</strong> Souk traditionnel authentique moins touristique que Marrakech, Souk Sebbat (artisanat), Rue des Consuls (bijoux, tapis). Architecture andalouse. Parkings en périphérie.
-                    </li>
-                    <li>
-                      <strong>Palais Royal :</strong> Résidence officielle du Roi (non visitable), architecture impressionnante, gardes à cheval en costume traditionnel. Place du Mechouar. Photos autorisées de l&apos;extérieur.
-                    </li>
-                    <li>
-                      <strong>Plage de Rabat :</strong> Longue plage familiale, surf, restaurants de poissons grillés, corniche animée le week-end. Accès facile en voiture. Parkings payants (10 DH).
-                    </li>
-                    <li>
-                      <strong>Jardins d&apos;Essais Botaniques :</strong> Plus de 650 espèces végétales, jardins français, japonais, andalou. Oasis de calme de 17 hectares. Parfait pour pique-nique. Entrée gratuite.
-                    </li>
-                    <li>
-                      <strong>Musée Mohammed VI d&apos;Art Moderne :</strong> Architecture contemporaine, collections d&apos;art moderne marocain et africain, expositions temporaires. Quartier Hay Riad. Parking sur place.
-                    </li>
-                    <li>
-                      <strong>Forêt de Maâmora :</strong> Plus grande forêt de chênes-lièges au monde (130 000 ha), pistes cyclables, aires de pique-nique. À 20 km de Rabat. Échappée nature.
-                    </li>
-                    <li>
-                      <strong>Marina Bouregreg :</strong> Port de plaisance moderne, restaurants chics, promenade le long du fleuve, vue sur Salé. Animations culturelles. Parking sécurisé.
-                    </li>
-                  </ul>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Conseils de Conduite à Rabat</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    <strong>Circulation :</strong> Rabat est moins chaotique que Casablanca. Heures de pointe à éviter : 8h-9h30 et 17h-18h30 sur les grands axes (Avenue Mohammed V, Avenue Hassan II). Le tramway partage certaines voies, respectez les feux tricolores spécifiques.
-                  </p>
-                  <p>
-                    <strong>Stationnement :</strong> Zones bleues payantes en centre-ville (5 DH/heure). Parkings souterrains : Avenue Allal Ben Abdellah, Bab El Had (20-30 DH/jour). Les gardiens informels vous aident à vous garer moyennant pourboire (5-10 DH).
-                  </p>
-                  <p>
-                    <strong>Quartiers d&apos;affaires :</strong> Agdal et Hay Riad concentrent ministères et entreprises. Circulation fluide mais stationnement limité. Prévoyez d&apos;arriver 15 minutes en avance pour trouver une place.
-                  </p>
-                  <p>
-                    <strong>Routes vers autres villes :</strong> Autoroute A1 vers Casablanca (péage 20 DH), A2 vers Tanger (péage 70 DH). Routes nationales bien entretenues. GPS recommandé pour quartiers périphériques.
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Rabat avec Benatna ?</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    "Prix transparents sans frais cachés",
-                    "Livraison gratuite en centre-ville",
-                    "Sans carte de crédit nécessaire",
-                    "Parfait pour déplacements professionnels",
-                    "Kilométrage illimité",
-                    "Réservation instantanée",
-                    "Service client 24/7",
-                    "Véhicules récents et confortables"
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Points de Retrait à Rabat</h2>
-                <div className="space-y-4">
-                  <Card>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="font-semibold mb-1">Gare Rabat-Ville</h3>
-                          <p className="text-sm text-muted-foreground">Centre-ville - Accessible TGV - Horaires flexibles</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="font-semibold mb-1">Centre-Ville Rabat</h3>
-                          <p className="text-sm text-muted-foreground">Avenue Mohammed V - Quartier administratif - Service premium</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="font-semibold mb-1">Quartier Agdal</h3>
-                          <p className="text-sm text-muted-foreground">Livraison à votre hôtel - Zone résidentielle</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Excursions au Départ de Rabat</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <ul className="space-y-2">
-                    <li><strong>Casablanca (90 km) :</strong> Capitale économique, mosquée Hassan II</li>
-                    <li><strong>Meknès (140 km) :</strong> Ville impériale, patrimoine UNESCO</li>
-                    <li><strong>Chefchaouen (250 km) :</strong> La perle bleue du Rif</li>
-                    <li><strong>Asilah (100 km) :</strong> Ville côtière fortifiée</li>
-                  </ul>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Questions Fréquentes - Location Rabat</h2>
-                <div className="space-y-4">
-                  <Card>
-                    <CardContent className="pt-6">
-                      <h3 className="font-semibold mb-2">Proposez-vous des tarifs préférentiels pour déplacements professionnels ?</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Oui ! Nous offrons des tarifs dégressifs pour les locations de moyenne et longue durée, parfaits pour les déplacements professionnels à Rabat. Contactez-nous pour un devis personnalisé.
-                      </p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="pt-6">
-                      <h3 className="font-semibold mb-2">Puis-je récupérer ma voiture à la gare de Rabat ?</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Absolument ! Nous proposons la livraison gratuite à la gare Rabat-Ville. Idéal si vous arrivez par TGV depuis Casablanca ou Tanger.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </section>
+          {/* Introduction Section */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Rabat, capitale administrative du Royaume du Maroc, est une ville où se concentrent 
+                ministères, ambassades, sièges d'institutions et quartiers résidentiels haut de gamme. 
+                Avec près d'un million d'habitants et une agglomération étendue incluant Salé et Témara, 
+                les déplacements professionnels et familiaux nécessitent une mobilité optimale.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Louer une voiture à Rabat vous offre la flexibilité indispensable pour naviguer 
+                entre les rendez-vous à Hay Riad, les réunions à Agdal, les administrations de 
+                Souissi et les quartiers historiques de la médina. C'est aussi le point de départ 
+                idéal pour rejoindre Casablanca (90 km), Meknès (140 km) ou Chefchaouen (250 km). 
+                Pour{" "}
+                <Link to="/louer?city=Rabat" className="text-primary hover:underline">
+                  voir les voitures disponibles à Rabat
+                </Link>, consultez notre catalogue.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Benatna connecte les professionnels et voyageurs aux meilleures agences de location 
+                de la capitale. Notre plateforme 100 % digitale vous permet de comparer, réserver 
+                et récupérer votre véhicule en toute simplicité, avec la garantie de prix transparents 
+                et d'un accompagnement humain à chaque étape.
+              </p>
             </div>
+          </section>
 
-            <div className="space-y-6">
-              <Card className="sticky top-24">
+          {/* Bloc A - Contexte local Rabat */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Rabat : la mobilité au cœur de la vie professionnelle
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Dans la capitale administrative, les déplacements font partie intégrante du quotidien 
+                professionnel. Les ministères sont répartis entre Agdal, Hay Riad et le centre-ville, 
+                les entreprises occupent des zones d'activité éloignées les unes des autres, et les 
+                réunions s'enchaînent dans différents quartiers. Pour les consultants, les cadres 
+                en mission ou les entrepreneurs, la voiture devient un outil de productivité essentiel.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Contrairement aux taxis parfois difficiles à trouver aux heures de pointe, ou au 
+                tramway qui ne dessert pas tous les quartiers d'affaires, la location de véhicule 
+                vous garantit une autonomie totale. Vous planifiez vos rendez-vous sans contrainte, 
+                vous rejoignez facilement Casablanca par l'autoroute pour une journée de travail, 
+                vous accédez aux zones périphériques. Cette flexibilité est précieuse pour ceux 
+                qui souhaitent{" "}
+                <Link to="/louer?city=Rabat" className="text-primary hover:underline">
+                  réserver une voiture à Rabat
+                </Link>{" "}
+                pour optimiser leur emploi du temps.
+              </p>
+            </div>
+          </section>
+
+          {/* Bloc B - MRE et familles */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Location de voiture pour MRE et familles établies à Rabat
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Chaque année, de nombreux Marocains résidant à l'étranger (MRE) reviennent à Rabat 
+                pour les vacances, les fêtes religieuses ou les événements familiaux. À leur arrivée 
+                à l'aéroport Rabat-Salé, disposer d'un véhicule simplifie considérablement le séjour : 
+                courses au Morocco Mall, visites aux proches à Témara ou Salé, escapades vers les 
+                plages de Harhoura.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Pour les familles résidentes, la location longue durée représente souvent une 
+                alternative économique à l'achat d'un second véhicule. Benatna propose des formules 
+                adaptées à toutes les durées, avec des tarifs dégressifs attractifs. Depuis l'aéroport 
+                ou votre domicile à Souissi, récupérez votre véhicule et profitez de votre séjour 
+                en toute sérénité. Pour{" "}
+                <Link to="/louer?city=Rabat" className="text-primary hover:underline">
+                  consulter les véhicules disponibles
+                </Link>, notre catalogue est accessible 24h/24.
+              </p>
+            </div>
+          </section>
+
+          {/* Section: Pourquoi louer avec Benatna */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Pourquoi louer une voiture à Rabat avec Benatna ?
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Agences locales vérifiées</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Nous sélectionnons uniquement des partenaires de confiance à Rabat, 
+                    évalués pour leur sérieux et la qualité de leur flotte.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Briefcase className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Adapté aux professionnels</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Tarifs longue durée, livraison au bureau, véhicules confort : 
+                    notre offre répond aux besoins des professionnels en mission.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Clock className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Processus 100 % digital</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Réservez en quelques clics depuis votre téléphone. Confirmation 
+                    instantanée et gestion complète depuis notre plateforme.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Headphones className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Support client réactif</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Une question ? Un imprévu ? Notre équipe vous répond par WhatsApp 7j/7, 
+                    en français et en arabe.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Section: Types de véhicules */}
+          <section className="mb-16 bg-muted/30 rounded-2xl p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Types de véhicules disponibles à Rabat
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Car className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Citadines</h3>
+                    <p className="text-muted-foreground text-sm mb-2">
+                      Renault Clio, Dacia Sandero, Peugeot 208
+                    </p>
+                    <p className="text-muted-foreground">
+                      Parfaites pour les déplacements urbains et le stationnement en centre-ville. 
+                      Économiques en carburant, idéales pour les trajets quotidiens.
+                    </p>
+                    <p className="text-primary font-medium mt-2">À partir de 150 DH/jour</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Car className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Berlines confort</h3>
+                    <p className="text-muted-foreground text-sm mb-2">
+                      Toyota Corolla, Volkswagen Jetta, Peugeot 308
+                    </p>
+                    <p className="text-muted-foreground">
+                      Confort et prestance pour vos déplacements professionnels. 
+                      Idéales pour les rendez-vous clients et les trajets Rabat-Casablanca.
+                    </p>
+                    <p className="text-primary font-medium mt-2">À partir de 250 DH/jour</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Car className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">SUV</h3>
+                    <p className="text-muted-foreground text-sm mb-2">
+                      Dacia Duster, Hyundai Tucson, Volkswagen Tiguan
+                    </p>
+                    <p className="text-muted-foreground">
+                      Polyvalents pour la ville comme pour les excursions vers Meknès ou le Rif. 
+                      Position de conduite surélevée, parfaits pour les familles.
+                    </p>
+                    <p className="text-primary font-medium mt-2">À partir de 350 DH/jour</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Briefcase className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Véhicules longue durée</h3>
+                    <p className="text-muted-foreground text-sm mb-2">
+                      Berlines et SUV récents, contrats flexibles
+                    </p>
+                    <p className="text-muted-foreground">
+                      Pour les missions de plusieurs semaines ou mois. Tarifs dégressifs, 
+                      kilométrage adapté, maintenance incluse. La solution professionnelle.
+                    </p>
+                    <p className="text-primary font-medium mt-2">Tarifs dégressifs sur devis</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section: Aéroport et quartiers clés */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Louer une voiture à Rabat : aéroport et quartiers clés
+            </h2>
+            <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-10">
+              Nos agences partenaires vous livrent votre véhicule où vous le souhaitez à Rabat. 
+              Flexibilité totale pour récupérer et restituer votre voiture.
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="overflow-hidden">
                 <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-4">Réservez Maintenant</h3>
-                  <div className="space-y-4">
-                    <Link to="/louer?city=Rabat">
-                      <Button className="w-full" size="lg">
-                        Voir les Véhicules
-                      </Button>
-                    </Link>
-                    <div className="text-center">
-                      <p className="text-sm text-muted-foreground mb-2">Besoin d&apos;aide ?</p>
-                      <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-primary font-semibold hover:underline">
-                        {BUSINESS_INFO.phone}
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Plane className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Aéroport Rabat-Salé</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Principal aéroport de la capitale. Service de livraison gratuite 
+                        disponible 24h/24, 7j/7. Notre agent vous attend à la sortie des arrivées.
+                      </p>
+                      <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                        Livraison gratuite
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Building2 className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Centre-ville</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Avenue Mohammed V, gare Rabat-Ville. Idéal si vous arrivez 
+                        par TGV ou si vous logez dans un hôtel du centre historique.
+                      </p>
+                      <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                        Livraison possible
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Building2 className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Agdal</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Quartier résidentiel et commercial animé. Nombreux bureaux d'entreprises, 
+                        restaurants et commerces. Accès facile au tramway.
+                      </p>
+                      <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                        Livraison possible
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Hay Riad</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Zone ministérielle et d'affaires. Mega Mall, sièges d'entreprises 
+                        et administrations. Très demandé par les professionnels.
+                      </p>
+                      <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                        Livraison possible
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Souissi</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Quartier résidentiel huppé, ambassades et villas. Calme et verdoyant, 
+                        proche des institutions internationales.
+                      </p>
+                      <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                        Livraison possible
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden bg-primary/5 border-primary/20">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Navigation className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Salé ou autre lieu ?</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Vous souhaitez être livré à Salé, Témara ou ailleurs ? Contactez-nous 
+                        et nous organisons la livraison selon vos besoins.
+                      </p>
+                      <a 
+                        href="https://wa.me/212699024526?text=Bonjour, je souhaite une livraison personnalisée à Rabat."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline font-medium"
+                      >
+                        Demander un devis →
                       </a>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-
-              <Card>
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-4">Autres Villes Populaires</h3>
-                  <div className="space-y-2">
-                    {['Casablanca', 'Marrakech', 'Tanger', 'Agadir', 'Fès'].map(city => (
-                      <Link 
-                        key={city}
-                        to={`/location-voiture-${city.toLowerCase()}`}
-                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        Location voiture {city} →
-                      </Link>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
             </div>
-          </div>
+          </section>
 
-          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-none">
-            <CardContent className="pt-6 text-center">
-              <h2 className="text-2xl font-bold mb-4">Prêt à Louer Votre Voiture à Rabat ?</h2>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Explorez la capitale du Maroc avec Benatna
-              </p>
+          {/* Section: Conseils pratiques */}
+          <section className="mb-16 bg-muted/30 rounded-2xl p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Conseils pratiques pour conduire à Rabat
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="h-5 w-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Circulation</h3>
+                    <p className="text-muted-foreground">
+                      Rabat est moins dense que Casablanca, mais les heures de pointe 
+                      (8h-9h30 et 17h-18h30) peuvent être chargées sur les grands axes : 
+                      Avenue Mohammed V, Avenue Hassan II, route de Hay Riad. Le tramway 
+                      partage certaines voies, attention aux feux spécifiques.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <ParkingCircle className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Stationnement</h3>
+                    <p className="text-muted-foreground">
+                      Zones bleues payantes en centre-ville (5 DH/heure). Parkings souterrains : 
+                      Bab El Had, gare Rabat-Ville (20-30 DH/jour). Hay Riad et Agdal offrent 
+                      plus de facilités. Les gardiens informels attendent 5-10 DH de pourboire.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Building2 className="h-5 w-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Zones administratives</h3>
+                    <p className="text-muted-foreground">
+                      Les ministères sont répartis entre Agdal, Hay Riad et le centre-ville. 
+                      Prévoyez 15-20 minutes de trajet entre les quartiers aux heures de pointe. 
+                      Le stationnement est souvent limité près des administrations.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Fuel className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Axe Rabat–Casablanca</h3>
+                    <p className="text-muted-foreground">
+                      Autoroute A1 moderne et fluide (péage 20 DH). 90 km en environ 1h. 
+                      Nombreuses stations-service 24h/24. Gasoil : ~13-14 DH/L, essence : ~15-16 DH/L. 
+                      Trajets quotidiens fréquents pour les professionnels.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Questions fréquentes – Location de voiture à Rabat
+            </h2>
+            <div className="max-w-3xl mx-auto space-y-4">
+              {rabatFAQs.map((faq, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <CardContent className="pt-6">
+                    <h3 className="font-semibold text-lg mb-3">{faq.question}</h3>
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Customer Reviews Section */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Avis de nos clients à Rabat
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {rabatTestimonials.map((testimonial, index) => (
+                <Card key={index} className="border-none shadow-md">
+                  <CardContent className="pt-6">
+                    <div className="flex items-center gap-1 mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <Quote className="h-8 w-8 text-primary/20 mb-2" />
+                    <p className="text-muted-foreground mb-4 italic">
+                      "{testimonial.comment}"
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-semibold">{testimonial.name}</p>
+                        <p className="text-xs text-muted-foreground">{testimonial.location}</p>
+                      </div>
+                      <span className="text-xs text-muted-foreground">{testimonial.date}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Internal Links Section */}
+          <section className="mb-16">
+            <h2 className="text-xl md:text-2xl font-bold mb-6 text-center">
+              Location de voiture dans les autres villes du Maroc
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                { name: "Casablanca", slug: "casablanca" },
+                { name: "Marrakech", slug: "marrakech" },
+                { name: "Tanger", slug: "tanger" },
+                { name: "Agadir", slug: "agadir" },
+                { name: "Fès", slug: "fes" }
+              ].map((city) => (
+                <Link 
+                  key={city.slug}
+                  to={`/location-voiture-${city.slug}`}
+                  className="px-4 py-2 bg-muted hover:bg-primary/10 rounded-full text-sm font-medium transition-colors"
+                >
+                  Location voiture {city.name}
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Final CTA Section */}
+          <section className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
+              Prêt à louer votre voiture à Rabat ?
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Que ce soit pour une mission professionnelle, un séjour familial ou une exploration 
+              du nord du Maroc, Benatna vous connecte aux meilleures agences de la capitale.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
               <Link to="/louer?city=Rabat">
                 <Button size="lg" className="text-lg px-8">
-                  Réserver Maintenant
+                  Trouver ma voiture à Rabat
                 </Button>
               </Link>
-            </CardContent>
-          </Card>
+              <a 
+                href="https://wa.me/212699024526?text=Bonjour, je souhaite un devis pour une location à Rabat."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="outline" size="lg" className="text-lg px-8">
+                  Demander un devis
+                </Button>
+              </a>
+            </div>
+          </section>
+
         </div>
       </main>
 
