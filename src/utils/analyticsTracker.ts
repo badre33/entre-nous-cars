@@ -32,7 +32,7 @@ const getSessionId = (): string => {
 };
 
 // Detect device type
-const getDeviceType = (): string => {
+const getDeviceType = (): 'mobile' | 'tablet' | 'desktop' => {
   const ua = navigator.userAgent;
   if (/tablet|ipad|playbook|silk/i.test(ua)) return 'tablet';
   if (/mobile|iphone|ipod|android|blackberry|opera mini|iemobile/i.test(ua)) return 'mobile';
@@ -44,19 +44,22 @@ const getSource = (): string => {
   const referrer = document.referrer;
   if (!referrer) return 'Direct';
   
-  const domain = new URL(referrer).hostname;
-  if (domain.includes('facebook') || domain.includes('fb.')) return 'Facebook';
-  if (domain.includes('instagram')) return 'Instagram';
-  if (domain.includes('google')) return 'Google';
-  if (domain.includes('bing')) return 'Bing';
-  if (domain.includes('twitter') || domain.includes('x.com')) return 'Twitter/X';
-  if (domain.includes('linkedin')) return 'LinkedIn';
-  if (domain.includes('youtube')) return 'YouTube';
-  
-  return domain;
+  try {
+    const domain = new URL(referrer).hostname;
+    if (domain.includes('facebook') || domain.includes('fb.')) return 'Facebook';
+    if (domain.includes('instagram')) return 'Instagram';
+    if (domain.includes('google')) return 'Google';
+    if (domain.includes('bing')) return 'Bing';
+    if (domain.includes('twitter') || domain.includes('x.com')) return 'Twitter/X';
+    if (domain.includes('linkedin')) return 'LinkedIn';
+    if (domain.includes('youtube')) return 'YouTube';
+    return domain.substring(0, 200); // Limit domain length
+  } catch {
+    return 'Unknown';
+  }
 };
 
-// Event types for categorization
+// Event types for categorization - must match database enum
 export type EventType = 
   | 'traffic'      // visites, visiteurs, pages vues
   | 'behavior'     // temps sur page, taux rebond, clics, parcours
@@ -107,7 +110,7 @@ class AnalyticsTracker {
           this.trackEvent({
             eventType: 'conversion',
             eventName: 'whatsapp_click',
-            properties: { button_text: text, href }
+            properties: { button_text: text, href: href.substring(0, 200) }
           });
         }
         
@@ -116,7 +119,7 @@ class AnalyticsTracker {
           this.trackEvent({
             eventType: 'conversion',
             eventName: 'phone_click',
-            properties: { phone: href.replace('tel:', '') }
+            properties: { phone: href.replace('tel:', '').substring(0, 50) }
           });
         }
         
@@ -128,37 +131,61 @@ class AnalyticsTracker {
           this.trackEvent({
             eventType: 'marketing',
             eventName: 'cta_click',
-            properties: { button_text: text, href }
+            properties: { button_text: text, href: href.substring(0, 200) }
           });
         }
       }
     });
   }
   
+  /**
+   * Track an analytics event using the secure RPC function
+   * This ensures server-side validation and bypasses restrictive RLS policies
+   */
   async trackEvent({ eventType, eventName, properties = {} }: TrackEventOptions) {
     try {
-      const event = {
-        event_type: eventType,
-        event_name: eventName,
-        page_path: window.location.pathname,
-        referrer: document.referrer,
-        source: getSource(),
-        device_type: getDeviceType(),
-        user_agent: navigator.userAgent,
-        session_id: getSessionId(),
-        visitor_id: getVisitorId(),
-        properties: JSON.parse(JSON.stringify(properties))
-      };
+      // Sanitize and limit property values to prevent oversized payloads
+      const sanitizedProperties = JSON.parse(JSON.stringify(properties));
+      const propertiesString = JSON.stringify(sanitizedProperties);
       
-      // Insert into database
-      await supabase.from('analytics_events').insert([event]);
+      // Skip if properties are too large (max 10KB)
+      if (propertiesString.length > 10000) {
+        console.warn('Analytics: Properties too large, skipping event');
+        return;
+      }
+
+      // Use the secure RPC function instead of direct insert
+      // This bypasses RLS and validates input server-side
+      const { error } = await supabase.rpc('insert_analytics_event', {
+        p_event_type: eventType,
+        p_event_name: eventName.substring(0, 100),
+        p_page_path: window.location.pathname.substring(0, 2048),
+        p_referrer: document.referrer.substring(0, 2048) || null,
+        p_source: getSource(),
+        p_device_type: getDeviceType(),
+        p_user_agent: navigator.userAgent.substring(0, 500),
+        p_session_id: getSessionId(),
+        p_visitor_id: getVisitorId(),
+        p_properties: sanitizedProperties
+      });
+      
+      if (error) {
+        // Log error in development only
+        if (import.meta.env.DEV) {
+          console.error('Analytics RPC error:', error);
+        }
+        return;
+      }
       
       // Log in development
       if (import.meta.env.DEV) {
-        console.log('📊 Analytics:', eventName, event);
+        console.log('📊 Analytics:', eventName);
       }
     } catch (error) {
-      console.error('Analytics tracking error:', error);
+      // Silently fail in production to avoid affecting user experience
+      if (import.meta.env.DEV) {
+        console.error('Analytics tracking error:', error);
+      }
     }
   }
   
@@ -168,83 +195,78 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'traffic',
       eventName: 'page_view',
-      properties: { path }
+      properties: { path: path.substring(0, 500) }
     });
     this.updateSession(path);
   }
   
+  /**
+   * Update session using the secure RPC function
+   * This ensures server-side validation and proper session management
+   */
   private async updateSession(path: string) {
-    const sessionId = getSessionId();
-    const visitorId = getVisitorId();
-    
     try {
-      // Try to update existing session
-      const { data: existing } = await supabase
-        .from('analytics_sessions')
-        .select('id, page_views')
-        .eq('session_id', sessionId)
-        .single();
+      // Use the secure RPC function for session updates
+      const { error } = await supabase.rpc('touch_analytics_session', {
+        p_session_id: getSessionId(),
+        p_visitor_id: getVisitorId(),
+        p_path: path.substring(0, 2048),
+        p_device_type: getDeviceType(),
+        p_source: getSource()
+      });
       
-      if (existing) {
-        await supabase
-          .from('analytics_sessions')
-          .update({
-            page_views: (existing.page_views || 0) + 1,
-            exit_page: path,
-            end_time: new Date().toISOString()
-          })
-          .eq('session_id', sessionId);
-      } else {
-        await supabase
-          .from('analytics_sessions')
-          .insert({
-            session_id: sessionId,
-            visitor_id: visitorId,
-            entry_page: path,
-            exit_page: path,
-            device_type: getDeviceType(),
-            source: getSource()
-          });
+      if (error && import.meta.env.DEV) {
+        console.error('Session RPC error:', error);
       }
     } catch (error) {
-      console.error('Session tracking error:', error);
+      // Silently fail in production
+      if (import.meta.env.DEV) {
+        console.error('Session tracking error:', error);
+      }
     }
   }
   
   // Behavior events
   trackTimeOnPage() {
     const timeSpent = Math.round((Date.now() - this.pageStartTime) / 1000);
-    if (timeSpent > 1) {
+    if (timeSpent > 1 && timeSpent < 7200) { // Max 2 hours to filter outliers
       this.trackEvent({
         eventType: 'behavior',
         eventName: 'time_on_page',
-        properties: { seconds: timeSpent, page: window.location.pathname }
+        properties: { seconds: timeSpent, page: window.location.pathname.substring(0, 500) }
       });
     }
   }
   
   trackScroll(percentage: number) {
-    this.trackEvent({
-      eventType: 'behavior',
-      eventName: 'scroll_depth',
-      properties: { percentage }
-    });
+    if (percentage >= 0 && percentage <= 100) {
+      this.trackEvent({
+        eventType: 'behavior',
+        eventName: 'scroll_depth',
+        properties: { percentage: Math.round(percentage) }
+      });
+    }
   }
   
   trackClick(elementId: string, elementType: string) {
     this.trackEvent({
       eventType: 'behavior',
       eventName: 'click',
-      properties: { element_id: elementId, element_type: elementType }
+      properties: { 
+        element_id: elementId.substring(0, 100), 
+        element_type: elementType.substring(0, 50) 
+      }
     });
   }
   
   // Conversion events
   trackFormSubmit(formName: string, formData?: Record<string, unknown>) {
+    // Don't log sensitive form data
+    const safeData = formData ? { fields_count: Object.keys(formData).length } : {};
     this.trackEvent({
       eventType: 'conversion',
       eventName: 'form_submit',
-      properties: { form_name: formName, ...formData }
+      properties: { form_name: formName.substring(0, 100), ...safeData }
     });
   }
   
@@ -252,7 +274,10 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'conversion',
       eventName: 'booking_started',
-      properties: { vehicle_id: vehicleId, vehicle_name: vehicleName }
+      properties: { 
+        vehicle_id: vehicleId.substring(0, 100), 
+        vehicle_name: vehicleName.substring(0, 100) 
+      }
     });
   }
   
@@ -260,7 +285,11 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'conversion',
       eventName: 'booking_completed',
-      properties: { vehicle_id: vehicleId, vehicle_name: vehicleName, price }
+      properties: { 
+        vehicle_id: vehicleId.substring(0, 100), 
+        vehicle_name: vehicleName.substring(0, 100), 
+        price: Math.max(0, price) 
+      }
     });
   }
   
@@ -268,7 +297,7 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'conversion',
       eventName: 'download',
-      properties: { file_name: fileName }
+      properties: { file_name: fileName.substring(0, 200) }
     });
   }
   
@@ -277,7 +306,10 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'marketing',
       eventName: 'cta_click',
-      properties: { cta_name: ctaName, cta_location: ctaLocation }
+      properties: { 
+        cta_name: ctaName.substring(0, 100), 
+        cta_location: ctaLocation.substring(0, 100) 
+      }
     });
   }
   
@@ -285,7 +317,10 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'marketing',
       eventName: 'campaign_view',
-      properties: { campaign_id: campaignId, campaign_name: campaignName }
+      properties: { 
+        campaign_id: campaignId.substring(0, 100), 
+        campaign_name: campaignName.substring(0, 100) 
+      }
     });
   }
   
@@ -294,7 +329,10 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'engagement',
       eventName: 'share',
-      properties: { platform, content_type: contentType }
+      properties: { 
+        platform: platform.substring(0, 50), 
+        content_type: contentType.substring(0, 50) 
+      }
     });
   }
   
@@ -302,7 +340,10 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'engagement',
       eventName: 'like',
-      properties: { content_id: contentId, content_type: contentType }
+      properties: { 
+        content_id: contentId.substring(0, 100), 
+        content_type: contentType.substring(0, 50) 
+      }
     });
   }
   
@@ -310,7 +351,7 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'engagement',
       eventName: 'comment',
-      properties: { content_id: contentId }
+      properties: { content_id: contentId.substring(0, 100) }
     });
   }
   
@@ -319,7 +360,10 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'behavior',
       eventName: 'search',
-      properties: { query, results_count: resultsCount }
+      properties: { 
+        query: query.substring(0, 200), 
+        results_count: Math.max(0, resultsCount) 
+      }
     });
   }
   
@@ -328,7 +372,10 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'behavior',
       eventName: 'vehicle_view',
-      properties: { vehicle_id: vehicleId, vehicle_name: vehicleName }
+      properties: { 
+        vehicle_id: vehicleId.substring(0, 100), 
+        vehicle_name: vehicleName.substring(0, 100) 
+      }
     });
   }
   
@@ -336,7 +383,7 @@ class AnalyticsTracker {
     this.trackEvent({
       eventType: 'behavior',
       eventName: 'vehicle_compare',
-      properties: { vehicle_ids: vehicleIds }
+      properties: { vehicle_ids: vehicleIds.slice(0, 10).map(id => id.substring(0, 100)) }
     });
   }
 }
