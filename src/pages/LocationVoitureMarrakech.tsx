@@ -1,18 +1,34 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { EnhancedBreadcrumbs } from "@/components/EnhancedBreadcrumbs";
+import { createBreadcrumbs } from "@/components/schemas";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, CheckCircle, Star } from "lucide-react";
+import { 
+  MapPin, 
+  CheckCircle, 
+  Star, 
+  Car, 
+  Shield, 
+  Clock, 
+  Headphones,
+  Building2,
+  Plane,
+  Navigation,
+  ParkingCircle,
+  Fuel,
+  AlertTriangle,
+  Quote,
+  Mountain,
+  Camera
+} from "lucide-react";
 import { StructuredData } from "@/components/StructuredData";
 import { CityLocalBusinessSchema } from "@/components/CityLocalBusinessSchema";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
 import { ServiceSchema } from "@/components/ServiceSchema";
 import HowToSchema from "@/components/HowToSchema";
 import { OfferSchema } from "@/components/OfferSchema";
-import { CallButton } from "@/components/CallButton";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { generateCityImageAlt } from "@/utils/seoHelpers";
 import { HreflangTags } from "@/utils/hreflangHelper";
@@ -21,107 +37,123 @@ import {
   PriceRangeOfferSchema, 
   FAQSchemaEnriched,
   MultiLocationSchema,
-  IndividualReviewsSchema,
   OpeningHoursSchema
 } from "@/components/schemas";
-import { marrakechReviews } from "@/data/reviewsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityMarrakech from "@/assets/city-marrakech.jpg";
 
+// FAQ data for schema and display
+const marrakechFAQs = [
+  {
+    question: "Faut-il une caution pour louer une voiture à Marrakech ?",
+    answer: "Oui, une caution est généralement demandée. Son montant varie selon le véhicule choisi (entre 2 000 et 5 000 DH). Chez Benatna, plusieurs de nos agences partenaires acceptent le paiement de la caution en espèces, ce qui vous évite d'avoir une carte de crédit."
+  },
+  {
+    question: "Peut-on louer une voiture à l'aéroport Marrakech-Menara ?",
+    answer: "Absolument. Nos agences partenaires proposent un service de livraison gratuite à l'aéroport Marrakech-Menara, disponible 24h/24. Un agent vous attend à votre arrivée avec les clés du véhicule, pour un départ immédiat vers la Médina ou Guéliz."
+  },
+  {
+    question: "Quels documents sont nécessaires pour louer une voiture à Marrakech ?",
+    answer: "Vous aurez besoin d'un permis de conduire valide (depuis au moins 1 an), d'une pièce d'identité (CIN pour les résidents marocains ou passeport pour les étrangers), et d'un justificatif de domicile récent. Pour les touristes, un permis international peut être requis selon le pays d'origine."
+  },
+  {
+    question: "Quel véhicule choisir pour explorer l'Atlas depuis Marrakech ?",
+    answer: "Pour les routes de montagne vers l'Ourika, Ouirgane ou le col du Tizi n'Tichka, un SUV comme le Dacia Duster ou Hyundai Tucson offre le meilleur compromis confort/praticité. Pour les routes goudronnées vers Essaouira ou Agafay, une berline ou citadine suffit amplement."
+  },
+  {
+    question: "L'assurance est-elle incluse dans le tarif de location ?",
+    answer: "Oui, tous nos véhicules sont couverts par une assurance responsabilité civile incluse dans le prix. Vous pouvez également opter pour une assurance tous risques avec franchise réduite pour une tranquillité totale pendant votre séjour."
+  },
+  {
+    question: "Peut-on restituer le véhicule dans une autre ville que Marrakech ?",
+    answer: "Oui, le service aller-simple est disponible vers les principales villes du Maroc (Casablanca, Rabat, Tanger, Agadir, Fès). Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un devis personnalisé."
+  }
+];
+
+// Customer reviews localized to Marrakech
+const marrakechTestimonials = [
+  {
+    name: "Sophie L.",
+    location: "France",
+    rating: 5,
+    comment: "Parfait pour notre road trip vers l'Atlas ! La Duster nous attendait à Menara et nous avons pu partir directement vers la vallée de l'Ourika. Service impeccable et prix transparent.",
+    date: "Janvier 2025"
+  },
+  {
+    name: "Karim A.",
+    location: "Marrakech",
+    rating: 5,
+    comment: "Location longue durée pour 2 mois. Tarif très compétitif comparé aux grandes enseignes. Véhicule récent et bien entretenu. Le support WhatsApp répond rapidement.",
+    date: "Décembre 2024"
+  },
+  {
+    name: "Maria G.",
+    location: "Espagne",
+    rating: 5,
+    comment: "Nous avons loué une voiture pour visiter Essaouira et les cascades d'Ouzoud. Réservation simple, livraison à notre riad dans la Médina. Je recommande vivement !",
+    date: "Novembre 2024"
+  }
+];
+
 const LocationVoitureMarrakech = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
+      {/* SEO Meta Tags */}
       <Helmet>
-        <title>Location de Voiture à Marrakech | Prix Dès 150 DH/jour - Benatna</title>
-        <meta name="description" content="Location de voiture à Marrakech avec Benatna. Aéroport Menara, Médina, Guéliz. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
-        <meta name="keywords" content="location voiture marrakech, location auto marrakech aeroport, louer voiture marrakech pas cher, location véhicule marrakech, rent car marrakech menara" />
+        <title>Location Voiture Marrakech | Agences Locales - Benatna</title>
+        <meta 
+          name="description" 
+          content="Louez une voiture à Marrakech avec Benatna. Agences locales vérifiées, prix transparents, livraison aéroport Menara 24/7. Explorez l'Atlas et le Sud." 
+        />
         <link rel="canonical" href="https://benatna.ma/location-voiture-marrakech" />
-        <meta property="og:title" content="Location de Voiture à Marrakech | Prix Dès 150 DH/jour" />
-        <meta property="og:description" content="Louez une voiture à Marrakech avec Benatna. Aéroport Menara, Médina, Guéliz, livraison gratuite. Prix transparents, sans surprises." />
+        <meta property="og:title" content="Location Voiture Marrakech | Agences Locales - Benatna" />
+        <meta property="og:description" content="Louez une voiture à Marrakech avec Benatna. Agences locales vérifiées, prix transparents, réservation simple." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-marrakech" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://benatna.ma/og-image.png" />
       </Helmet>
+
+      {/* Hreflang Tags */}
       <HreflangTags path="/location-voiture-marrakech" />
+
+      {/* Structured Data Schemas */}
       <StructuredData type="rental" />
       <ServiceSchema city="Marrakech" />
       <HowToSchema city="Marrakech" />
       <OfferSchema city="Marrakech" />
+      
       <CityLocalBusinessSchema
         cityName="Marrakech"
         latitude="31.6295"
         longitude="-7.9811"
-        address="Aéroport Marrakech Menara"
+        address="Aéroport Marrakech-Menara"
         postalCode="40000"
         telephone="+212699024526"
         priceRange="150-900 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Sofia Mansouri',
-            location: 'Marrakech',
-            rating: 5,
-            comment: 'Parfait pour mon séjour touristique ! La réservation en ligne est simple et rapide. La voiture m\'attendait à l\'aéroport.',
-            date: 'Il y a 1 semaine',
-          },
-          {
-            name: 'Hassan Idrissi',
-            location: 'Marrakech',
-            rating: 5,
-            comment: 'Service excellent à Marrakech. Voiture propre et récente.',
-            date: 'Il y a 3 jours',
-          },
-          {
-            name: 'Laila Benani',
-            location: 'Marrakech',
-            rating: 5,
-            comment: 'Très satisfaite de ma location. Prix compétitifs et équipe professionnelle.',
-            date: 'Il y a 2 semaines',
-          },
-        ]}
-        averageRating={4.8}
-        totalReviews={1247}
-        city="Marrakech"
-      />
-      
-      {/* Schema AggregateRating pour étoiles Google */}
+
       <EnhancedAggregateRatingSchema 
         entityType="LocalBusiness"
         entityName="Benatna Location de Voiture Marrakech"
       />
-      <IndividualReviewsSchema
-        reviews={marrakechReviews}
-        entityType="LocalBusiness"
-        city="Marrakech"
-      />
-      
-      {/* Schema Prix pour affichage dans Google */}
+
       <PriceRangeOfferSchema 
         minPrice="150"
         maxPrice="900"
         city="Marrakech"
-        discount={{ percentage: 10, minDays: 30 }}
+        discount={{ percentage: 15, minDays: 30 }}
       />
-      
-      {/* Multi-Location pour SEO local */}
+
       <MultiLocationSchema 
         locations={[
           {
-            name: "Aéroport Marrakech-Ménara",
-            address: "Aéroport Marrakech-Ménara, Hall Arrivées",
+            name: "Aéroport Marrakech-Menara",
+            address: "Aéroport Marrakech-Menara, Terminal Arrivées",
             city: "Marrakech",
             postalCode: "40000",
             latitude: "31.6069",
             longitude: "-8.0363",
-            description: "Point de retrait principal à l'aéroport de Marrakech, disponible 24/7 avec service express."
-          },
-          {
-            name: "Place Jemaa El-Fna",
-            address: "Place Jemaa El-Fna, Médina",
-            city: "Marrakech",
-            postalCode: "40000",
-            latitude: "31.6259",
-            longitude: "-7.9893",
-            description: "Point de retrait en plein cœur de la médina, idéal pour les touristes."
+            description: "Livraison gratuite 24/7 à l'aéroport international de Marrakech."
           },
           {
             name: "Guéliz Centre-ville",
@@ -130,51 +162,55 @@ const LocationVoitureMarrakech = () => {
             postalCode: "40000",
             latitude: "31.6295",
             longitude: "-7.9811",
-            description: "Agence au centre du quartier moderne de Guéliz, proche des commerces."
+            description: "Quartier moderne de Marrakech, proche des commerces et restaurants."
+          },
+          {
+            name: "Médina - Place Jemaa el-Fna",
+            address: "Périphérie Médina, Marrakech",
+            city: "Marrakech",
+            postalCode: "40000",
+            latitude: "31.6259",
+            longitude: "-7.9893",
+            description: "Livraison à votre riad ou hôtel dans la Médina historique."
+          },
+          {
+            name: "Hivernage",
+            address: "Quartier Hivernage",
+            city: "Marrakech",
+            postalCode: "40000",
+            latitude: "31.6185",
+            longitude: "-8.0125",
+            description: "Quartier huppé, proche des hôtels de luxe et du Palais des Congrès."
           }
         ]}
       />
-      
-      {/* Opening Hours Schema pour Google Maps */}
+
       <OpeningHoursSchema 
         city="Marrakech"
         entityType="LocalBusiness"
-        address="Aéroport Marrakech-Ménara"
+        address="Aéroport Marrakech-Menara"
         latitude="31.6069"
         longitude="-8.0363"
       />
-      
-      {/* Product Schema véhicules Marrakech */}
+
       <VehicleProductSchemas city="Marrakech" />
-      
-      {/* FAQ Schema pour Rich Snippets */}
+
       <FAQSchemaEnriched 
         pageName="Location de Voiture à Marrakech"
-        faqs={[
-          {
-            question: "Quel est le prix de la location de voiture à Marrakech ?",
-            answer: "Les tarifs démarrent à 150 DH/jour pour une voiture économique à Marrakech. Réductions longue durée : -5% dès 7 jours, -10% dès 30 jours. Assurance tous risques incluse."
-          },
-          {
-            question: "Peut-on louer une voiture à l'aéroport de Marrakech ?",
-            answer: "Oui, nous proposons un service de livraison gratuite à l'aéroport Marrakech-Ménara 24/7. Votre véhicule vous attend dès votre arrivée au hall des arrivées."
-          },
-          {
-            question: "Est-ce possible de louer sans carte de crédit à Marrakech ?",
-            answer: "Absolument ! Chez Benatna, la location sans carte de crédit est notre spécialité. Paiement en espèces, virement ou carte bancaire classique accepté."
-          },
-          {
-            question: "Quels sont les meilleurs endroits à visiter en voiture depuis Marrakech ?",
-            answer: "Depuis Marrakech, vous pouvez facilement rejoindre Essaouira (2h30), la vallée de l'Ourika (1h), le désert d'Agafay (45min) et les cascades d'Ouzoud (2h30) avec votre voiture de location."
-          },
-          {
-            question: "L'assurance est-elle obligatoire pour louer une voiture à Marrakech ?",
-            answer: "Oui, l'assurance est obligatoire et INCLUSE dans tous nos tarifs. Vous bénéficiez d'une couverture tous risques avec franchise réduite, sans frais supplémentaires."
-          }
-        ]}
+        faqs={marrakechFAQs}
       />
+
       <Header />
-      <Breadcrumbs />
+
+      {/* Breadcrumbs */}
+      <EnhancedBreadcrumbs 
+        items={[
+          createBreadcrumbs.home(),
+          createBreadcrumbs.services(),
+          createBreadcrumbs.city("Marrakech", "marrakech")
+        ]}
+        showIcons={true}
+      />
 
       {/* Hero Section */}
       <section className="relative h-[400px] md:h-[500px] flex items-center">
@@ -186,323 +222,589 @@ const LocationVoitureMarrakech = () => {
           sizes="100vw"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 to-black/40" />
         <div className="container relative z-10 px-4">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Location de Voiture à Marrakech
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              Location de Voiture à Marrakech – Louez Simplement avec Benatna
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8">
-              Prix transparents dès 150 DH/jour • Aéroport Menara • Livraison gratuite
+            <p className="text-lg md:text-xl text-white/90 mb-8">
+              Agences locales vérifiées • Prix transparents • Livraison aéroport 24/7
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/louer?city=Marrakech">
-                <Button size="lg" className="text-lg px-8">
-                  Réserver Maintenant
+                <Button size="lg" className="text-lg px-8 bg-primary hover:bg-primary/90">
+                  Trouver ma voiture à Marrakech
                 </Button>
               </Link>
-              <CallButton 
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20"
+              <a 
+                href="https://wa.me/212699024526?text=Bonjour, je souhaite louer une voiture à Marrakech."
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Appeler
-              </CallButton>
+                <Button 
+                  variant="outline"
+                  size="lg"
+                  className="text-lg px-6 bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20"
+                >
+                  Contacter un conseiller
+                </Button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-
       {/* Main Content */}
-      <main className="flex-1 py-12">
+      <main className="flex-1 py-12 md:py-16">
         <div className="container px-4">
-          {/* Quick Stats */}
-          <div className="grid md:grid-cols-4 gap-4 mb-12">
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">50+</div>
-                <div className="text-sm text-muted-foreground">Véhicules Disponibles</div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">150 DH</div>
-                <div className="text-sm text-muted-foreground">Prix à partir de</div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-                <div className="text-sm text-muted-foreground">Service Client</div>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="flex items-center justify-center gap-1 text-3xl font-bold text-primary mb-2">
-                  4.8 <Star className="h-6 w-6 fill-primary" />
-                </div>
-                <div className="text-sm text-muted-foreground">Note Moyenne</div>
-              </CardContent>
-            </Card>
-          </div>
 
-          {/* SEO Content */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            <div className="lg:col-span-2 space-y-8">
-              <section>
-                <h2 className="text-3xl font-bold mb-4">Location de Voiture à Marrakech : Guide Complet 2025</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    Vous cherchez à <strong>louer une voiture à Marrakech</strong> ? Benatna vous propose le plus grand choix de véhicules dans la ville ocre. Que vous arriviez à l&apos;aéroport Marrakech-Menara, que vous séjourniez dans la Médina ou au quartier Guéliz, nous avons la solution parfaite pour explorer Marrakech et ses environs.
-                  </p>
-                  <p>
-                    Notre <strong>service de location de voiture à Marrakech</strong> se distingue par sa simplicité et sa transparence. Plus de 50 véhicules disponibles, des prix clairs dès 150 DH/jour, et une réservation en 2 minutes. Partez à la découverte des jardins Majorelle, de la place Jemaa el-Fna, de l&apos;Atlas ou du désert d&apos;Agafay en toute liberté !
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Pourquoi Louer une Voiture à Marrakech ?</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    Marrakech, perle du Sud marocain, est bien plus qu&apos;une simple ville touristique : c&apos;est une porte d&apos;entrée vers des paysages exceptionnels. <strong>Louer une voiture à Marrakech</strong> transforme complètement votre expérience de voyage. La ville elle-même s&apos;étend largement au-delà de la Médina historique, avec des quartiers modernes comme Guéliz et l&apos;Hivernage, ainsi que des attractions éloignées comme les jardins de la Palmeraie (8 km du centre).
-                  </p>
-                  <p>
-                    Mais surtout, c&apos;est dans les alentours que la magie opère vraiment. À moins d&apos;une heure de route, vous accédez à la vallée de l&apos;Ourika avec ses cascades rafraîchissantes et ses villages berbères authentiques, au désert d&apos;Agafay qui offre des paysages lunaires spectaculaires, ou encore aux contreforts du Haut Atlas. Sans voiture, ces merveilles restent difficiles d&apos;accès et nécessitent des tours organisés coûteux avec horaires imposés.
-                  </p>
-                  <p>
-                    Avec votre propre véhicule, vous partez quand vous voulez, vous vous arrêtez où vous voulez, et vous explorez à votre rythme. Vous pouvez facilement rejoindre Essaouira (180 km, 2h30) pour une journée au bord de l&apos;Atlantique, ou pousser jusqu&apos;à Ait Ben Haddou (190 km, 3h30), la célèbre kasbah classée UNESCO. Les routes marocaines autour de Marrakech sont en excellent état, bien signalisées, et offrent des panoramas à couper le souffle.
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Top 12 des Lieux à Visiter en Voiture depuis Marrakech</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    Avec votre <strong>voiture de location à Marrakech</strong>, explorez ces destinations incontournables :
-                  </p>
-                  <ul className="space-y-3">
-                    <li>
-                      <strong>Vallée de l&apos;Ourika (60 km, 1h) :</strong> Villages berbères en terrasses, cascades de Setti Fatma, restaurants au bord de la rivière. Route panoramique magnifique. Idéal en été pour la fraîcheur.
-                    </li>
-                    <li>
-                      <strong>Essaouira (180 km, 2h30) :</strong> Ville côtière fortifiée UNESCO, médina blanche et bleue, port de pêche animé, plages de surf. Spécialités fruits de mer. Parfait pour un week-end.
-                    </li>
-                    <li>
-                      <strong>Désert d&apos;Agafay (40 km, 45min) :</strong> Paysages désertiques lunaires à deux pas de Marrakech. Camps de luxe, balades à dromadaire, couchers de soleil spectaculaires. Route accessible en citadine.
-                    </li>
-                    <li>
-                      <strong>Cascades d&apos;Ouzoud (150 km, 2h30) :</strong> Les plus belles cascades du Maroc (110m de haut), singes magots, restaurants panoramiques, baignade possible. Incontournable en été.
-                    </li>
-                    <li>
-                      <strong>Ait Ben Haddou (190 km, 3h30) :</strong> Kasbah fortifiée UNESCO, décor de Game of Thrones et Gladiator. Route du col Tizi n&apos;Tichka (2 260m d&apos;altitude) avec vues époustouflantes sur l&apos;Atlas.
-                    </li>
-                    <li>
-                      <strong>Lac Lalla Takerkoust (40 km, 50min) :</strong> Lac artificiel au pied de l&apos;Atlas, restaurants flottants, sports nautiques, vue sur les montagnes enneigées (hiver). Atmosphère paisible.
-                    </li>
-                    <li>
-                      <strong>Vallée du Zat (70 km, 1h30) :</strong> Vallée secrète avec villages traditionnels, arganiers, vergers, vue sur le Jbel Toubkal (4 167m). Route moins fréquentée que l&apos;Ourika.
-                    </li>
-                    <li>
-                      <strong>Jardins de la Palmeraie (8 km, 15min) :</strong> Oasis de 15 000 palmiers, circuits quad et buggy, golfs, hôtels de luxe. Échappée nature à deux pas de la ville.
-                    </li>
-                    <li>
-                      <strong>Barrage Moulay Hassan (85 km, 1h30) :</strong> Grand lac de retenue, pêche, pique-nique, villages alentours. Cadre montagnard apaisant. Route panoramique.
-                    </li>
-                    <li>
-                      <strong>Amizmiz (55 km, 1h15) :</strong> Ville berbère authentique, souk hebdomadaire le mardi (le plus grand de la région), artisanat local, tapis berbères. Peu touristique.
-                    </li>
-                    <li>
-                      <strong>Ouirgane (60 km, 1h15) :</strong> Village de montagne, randonnées dans le Parc National du Toubkal, auberges de charme, cuisine du terroir. Point de départ pour trek atlas.
-                    </li>
-                    <li>
-                      <strong>Sidi Kaouki (200 km, 3h) :</strong> Village de surf hippie chic près d&apos;Essaouira, plages sauvages, camps bohèmes, école de surf. Ambiance décontractée.
-                    </li>
-                  </ul>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Conseils de Conduite à Marrakech</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    <strong>En ville :</strong> La circulation à Marrakech peut être dense, surtout autour de la place Jemaa el-Fna et dans Guéliz. Soyez vigilants aux scooters et vélos. Les ronds-points sont nombreux - priorité à droite sauf indication contraire.
-                  </p>
-                  <p>
-                    <strong>Stationnement :</strong> La Médina est piétonne. Parkings recommandés : Jemaa el-Fna (15 DH/h), Bab Doukkala, Parking Koutoubia. Gardiens de parking omniprésents (5-10 DH pourboire apprécié).
-                  </p>
-                  <p>
-                    <strong>Routes montagneuses :</strong> Pour l&apos;Atlas (Ourika, Ouzoud, Ait Ben Haddou), les routes sont sinueuses mais bien entretenues. Un SUV est recommandé pour plus de confort. Vérifiez la météo en hiver (neige possible sur les cols).
-                  </p>
-                  <p>
-                    <strong>Distances :</strong> GPS indispensable pour les villages reculés. Prévoyez eau et snacks pour les longues routes. Stations-service régulières sur les axes principaux. Prix carburant : 13-14 DH/l (gasoil), 15-16 DH/l (essence).
-                  </p>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Pourquoi Choisir Benatna pour Louer une Voiture à Marrakech ?</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    "Prix transparents sans frais cachés",
-                    "Livraison gratuite à l'aéroport Menara",
-                    "Sans carte de crédit nécessaire",
-                    "Assurance tous risques incluse",
-                    "Kilométrage illimité sur tous les véhicules",
-                    "Réservation en ligne en 2 minutes",
-                    "Service client 24/7 en français et arabe",
-                    "Véhicules récents et bien entretenus"
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Points de Retrait à Marrakech</h2>
-                <div className="space-y-4">
-                  <Card>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="font-semibold mb-1">Aéroport Marrakech-Menara</h3>
-                          <p className="text-sm text-muted-foreground">Terminal principal - Livraison gratuite - Disponible 24h/24</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="font-semibold mb-1">Guéliz - Centre Ville</h3>
-                          <p className="text-sm text-muted-foreground">Avenue Mohammed V - À proximité des hôtels - Horaires flexibles</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
-                        <div>
-                          <h3 className="font-semibold mb-1">Médina de Marrakech</h3>
-                          <p className="text-sm text-muted-foreground">Livraison à votre riad - Service premium - Proximité Jemaa el-Fna</p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Excursions au Départ de Marrakech en Voiture</h2>
-                <div className="prose prose-lg max-w-none text-muted-foreground">
-                  <p>
-                    Avec votre voiture de location, explorez les merveilles autour de Marrakech :
-                  </p>
-                  <ul className="space-y-2">
-                    <li><strong>Vallée de l&apos;Ourika (60 km) :</strong> Cascades, villages berbères et paysages montagneux</li>
-                    <li><strong>Essaouira (180 km) :</strong> Ville côtière fortifiée, parfaite pour un week-end</li>
-                    <li><strong>Désert d&apos;Agafay (40 km) :</strong> Paysages désertiques à 30 minutes de Marrakech</li>
-                    <li><strong>Ouzoud (150 km) :</strong> Les plus belles cascades du Maroc</li>
-                    <li><strong>Ait Ben Haddou (190 km) :</strong> Kasbah classée UNESCO, décor de Game of Thrones</li>
-                  </ul>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-2xl font-bold mb-4">Questions Fréquentes - Location Voiture Marrakech</h2>
-                <div className="space-y-4">
-                  <Card>
-                    <CardContent className="pt-6">
-                      <h3 className="font-semibold mb-2">Quel est le prix pour louer une voiture à Marrakech ?</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Nos prix commencent à partir de 150 DH/jour pour une citadine. Le prix varie selon le type de véhicule (citadine, SUV, berline) et la durée de location. Tous nos tarifs incluent l&apos;assurance de base et le kilométrage illimité.
-                      </p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="pt-6">
-                      <h3 className="font-semibold mb-2">La livraison à l&apos;aéroport Menara est-elle gratuite ?</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Oui, nous offrons la livraison et la récupération gratuites à l&apos;aéroport Marrakech-Menara, 24h/24. Votre véhicule vous attend dès votre arrivée au terminal.
-                      </p>
-                    </CardContent>
-                  </Card>
-                  <Card>
-                    <CardContent className="pt-6">
-                      <h3 className="font-semibold mb-2">Puis-je aller dans l&apos;Atlas avec une voiture de location ?</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Oui ! Pour les routes montagneuses de l&apos;Atlas, nous recommandons un SUV ou un 4x4 pour plus de confort et de sécurité. Ces véhicules sont parfaits pour explorer la vallée de l&apos;Ourika ou aller jusqu&apos;à Ait Ben Haddou.
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </section>
+          {/* Introduction Section */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Marrakech, la ville ocre, est l'une des destinations les plus emblématiques du Maroc. 
+                Entre sa Médina millénaire classée UNESCO, ses souks envoûtants et la majestueuse 
+                chaîne de l'Atlas en toile de fond, la ville fascine des millions de visiteurs chaque année. 
+                Que vous arriviez pour un week-end romantique, un voyage en famille ou une aventure 
+                dans le désert, disposer de votre propre véhicule transforme complètement votre expérience.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Louer une voiture à Marrakech vous offre une liberté totale pour explorer non seulement 
+                la ville – de Guéliz moderne à la Palmeraie verdoyante – mais aussi ses environs 
+                exceptionnels : la vallée de l'Ourika (1h), le désert d'Agafay (45 min), Essaouira (2h30) 
+                ou les cascades d'Ouzoud (2h30). Pour{" "}
+                <Link to="/louer?city=Marrakech" className="text-primary hover:underline">
+                  voir les voitures disponibles à Marrakech
+                </Link>, consultez notre catalogue.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Benatna connecte les voyageurs aux meilleures agences de location marrakchies. 
+                Notre plateforme 100 % digitale vous permet de comparer, réserver et récupérer 
+                votre véhicule en toute simplicité, avec la garantie de prix transparents et 
+                d'un accompagnement humain à chaque étape.
+              </p>
             </div>
+          </section>
 
-            {/* Sidebar */}
-            <div className="space-y-6">
-              <Card className="sticky top-24">
+          {/* Bloc A - Contexte local Marrakech */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Marrakech : une ville à explorer au volant
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Contrairement à ce que l'on pourrait croire, Marrakech ne se limite pas à sa Médina 
+                piétonne. La ville s'étend sur plus de 230 km², englobant des quartiers très différents : 
+                Guéliz et l'Hivernage au nord-ouest avec leurs boulevards modernes, la Palmeraie au 
+                nord-est avec ses milliers de palmiers et complexes hôteliers, ou encore la route de 
+                l'Ourika au sud qui mène directement vers les montagnes de l'Atlas.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Pour les touristes comme pour les professionnels en déplacement, la voiture devient 
+                rapidement indispensable. Elle permet de relier l'aéroport Menara à votre hébergement 
+                en 20 minutes, d'enchaîner les visites (Jardin Majorelle, Palais Bahia, Ménara) sans 
+                attendre de taxi, ou de partir en excursion à la journée vers des sites naturels 
+                inaccessibles autrement. Cette autonomie fait gagner un temps précieux aux voyageurs 
+                qui souhaitent{" "}
+                <Link to="/louer?city=Marrakech" className="text-primary hover:underline">
+                  réserver une voiture à Marrakech
+                </Link>{" "}
+                pour profiter pleinement de leur séjour.
+              </p>
+            </div>
+          </section>
+
+          {/* Bloc B - MRE et visiteurs */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Location de voiture pour MRE et visiteurs internationaux
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Marrakech attire chaque année des centaines de milliers de Marocains résidant à 
+                l'étranger (MRE) et de touristes internationaux. À leur arrivée à l'aéroport 
+                Marrakech-Menara, la question du transport se pose immédiatement. Entre les taxis 
+                parfois peu fiables et les navettes organisées aux horaires rigides, la location 
+                de voiture s'impose comme la solution la plus flexible et économique.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Que vous reveniez au pays pour les fêtes ou que vous découvriez le Maroc pour 
+                la première fois, Benatna propose des formules adaptées à toutes les durées. 
+                Les visiteurs internationaux apprécient particulièrement la transparence de 
+                notre service : pas de frais cachés, pas de négociation au comptoir, un prix 
+                clair dès la réservation en ligne. Depuis l'aéroport ou votre riad dans la Médina, 
+                récupérez votre véhicule et partez sereinement explorer Marrakech et le Sud marocain. 
+                Pour{" "}
+                <Link to="/louer?city=Marrakech" className="text-primary hover:underline">
+                  consulter les véhicules disponibles
+                </Link>, notre catalogue est accessible 24h/24.
+              </p>
+            </div>
+          </section>
+
+          {/* Section: Pourquoi louer avec Benatna */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Pourquoi louer une voiture à Marrakech avec Benatna ?
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Agences locales vérifiées</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Nous sélectionnons uniquement des partenaires de confiance, évalués et validés 
+                    pour leur sérieux et la qualité de leur flotte.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Prix transparents</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Le tarif affiché est le tarif final. Pas de frais cachés, pas de mauvaises 
+                    surprises au moment de récupérer votre véhicule.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Clock className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Processus 100 % digital</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Réservez en quelques clics depuis votre téléphone. Recevez votre confirmation 
+                    instantanément et gérez tout depuis notre plateforme.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6 text-center">
+                  <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Headphones className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Support client réactif</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Une question ? Un imprévu ? Notre équipe vous répond par WhatsApp 7j/7, 
+                    en français et en arabe.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </section>
+
+          {/* Section: Types de véhicules */}
+          <section className="mb-16 bg-muted/30 rounded-2xl p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Types de véhicules disponibles à Marrakech
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Car className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Citadines</h3>
+                    <p className="text-muted-foreground text-sm mb-2">
+                      Renault Clio, Dacia Sandero, Peugeot 208
+                    </p>
+                    <p className="text-muted-foreground">
+                      Parfaites pour circuler dans Guéliz et les environs de Marrakech. 
+                      Compactes, économiques et faciles à garer près des souks et restaurants.
+                    </p>
+                    <p className="text-primary font-medium mt-2">À partir de 150 DH/jour</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Car className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Berlines</h3>
+                    <p className="text-muted-foreground text-sm mb-2">
+                      Toyota Corolla, Volkswagen Jetta, Peugeot 308
+                    </p>
+                    <p className="text-muted-foreground">
+                      Confort et espace pour les longs trajets vers Essaouira, Ouarzazate ou Agadir. 
+                      Climatisation performante, coffre spacieux pour les bagages.
+                    </p>
+                    <p className="text-primary font-medium mt-2">À partir de 250 DH/jour</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mountain className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">SUV</h3>
+                    <p className="text-muted-foreground text-sm mb-2">
+                      Dacia Duster, Hyundai Tucson, Volkswagen Tiguan
+                    </p>
+                    <p className="text-muted-foreground">
+                      Idéaux pour les routes de montagne vers l'Atlas et les excursions hors des 
+                      sentiers battus. Position de conduite surélevée, robustes et polyvalents.
+                    </p>
+                    <p className="text-primary font-medium mt-2">À partir de 350 DH/jour</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Car className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Vans & véhicules familiaux</h3>
+                    <p className="text-muted-foreground text-sm mb-2">
+                      Dacia Jogger, Peugeot Rifter, Renault Kangoo
+                    </p>
+                    <p className="text-muted-foreground">
+                      7 à 9 places pour les familles nombreuses ou les groupes d'amis. 
+                      Parfaits pour les circuits d'une semaine à travers le Sud marocain.
+                    </p>
+                    <p className="text-primary font-medium mt-2">À partir de 400 DH/jour</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section: Aéroport et quartiers clés */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Louer une voiture à Marrakech : aéroport et quartiers clés
+            </h2>
+            <p className="text-center text-muted-foreground max-w-3xl mx-auto mb-10">
+              Nos agences partenaires vous livrent votre véhicule où vous le souhaitez à Marrakech. 
+              Flexibilité totale pour récupérer et restituer votre voiture.
+            </p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Card className="overflow-hidden">
                 <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-4">Réservez Maintenant</h3>
-                  <div className="space-y-4">
-                    <Link to="/louer?city=Marrakech">
-                      <Button className="w-full" size="lg">
-                        Voir les Véhicules
-                      </Button>
-                    </Link>
-                    <div className="text-center">
-                      <p className="text-sm text-muted-foreground mb-2">Besoin d&apos;aide ?</p>
-                      <a href={`tel:${BUSINESS_INFO.phoneRaw}`} className="text-primary font-semibold hover:underline">
-                        {BUSINESS_INFO.phone}
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Plane className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Aéroport Marrakech-Menara</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Principal aéroport de Marrakech, à 6 km du centre. Service de livraison 
+                        gratuite disponible 24h/24. Notre agent vous attend à la sortie des arrivées.
+                      </p>
+                      <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
+                        Livraison gratuite
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Building2 className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Guéliz</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Quartier moderne de Marrakech, avenue Mohammed V. Commerces, restaurants, 
+                        hôtels de standing. Accès facile vers toutes les directions.
+                      </p>
+                      <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                        Livraison possible
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Camera className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Médina / Place Jemaa el-Fna</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Cœur historique de Marrakech. Livraison possible en périphérie de la Médina 
+                        (parkings Bab Doukkala, Koutoubia). Idéal pour les riads.
+                      </p>
+                      <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                        Livraison possible
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Hivernage</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Quartier huppé avec ses hôtels de luxe, casinos et le Palais des Congrès. 
+                        Proche du centre, ambiance chic et internationale.
+                      </p>
+                      <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                        Livraison possible
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Palmeraie</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Oasis de 15 000 palmiers au nord de Marrakech. Resorts, golfs, activités 
+                        quad. Ambiance nature à 15 min du centre-ville.
+                      </p>
+                      <span className="text-xs bg-muted text-muted-foreground px-2 py-1 rounded">
+                        Livraison possible
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="overflow-hidden bg-primary/5 border-primary/20">
+                <CardContent className="pt-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Navigation className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Autre lieu ?</h3>
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Vous souhaitez être livré ailleurs à Marrakech ? Contactez-nous et 
+                        nous organisons la livraison selon vos besoins.
+                      </p>
+                      <a 
+                        href="https://wa.me/212699024526?text=Bonjour, je souhaite une livraison personnalisée à Marrakech."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline font-medium"
+                      >
+                        Demander un devis →
                       </a>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-
-              <Card>
-                <CardContent className="pt-6">
-                  <h3 className="font-semibold mb-4">Autres Villes Populaires</h3>
-                  <div className="space-y-2">
-                    {['Casablanca', 'Rabat', 'Tanger', 'Agadir', 'Fès'].map(city => (
-                      <Link 
-                        key={city}
-                        to={`/location-voiture-${city.toLowerCase()}`}
-                        className="block text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        Location voiture {city} →
-                      </Link>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
             </div>
-          </div>
+          </section>
 
-          {/* CTA Section */}
-          <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-none">
-            <CardContent className="pt-6 text-center">
-              <h2 className="text-2xl font-bold mb-4">Prêt à Explorer Marrakech en Voiture ?</h2>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Rejoignez des milliers de voyageurs qui ont choisi Benatna pour leur location de voiture à Marrakech
+          {/* Section: Conseils pratiques */}
+          <section className="mb-16 bg-muted/30 rounded-2xl p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Conseils pratiques pour conduire à Marrakech
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="h-5 w-5 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Circulation</h3>
+                    <p className="text-muted-foreground">
+                      La circulation à Marrakech est dense autour de Guéliz et de la Médina, 
+                      surtout aux heures de pointe (8h-10h et 17h-19h). Les scooters et vélos 
+                      sont nombreux. Restez vigilant aux ronds-points et dans les ruelles 
+                      étroites des quartiers résidentiels.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <ParkingCircle className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Stationnement</h3>
+                    <p className="text-muted-foreground">
+                      La Médina est entièrement piétonne. Parkings recommandés : Place Jemaa el-Fna 
+                      (15 DH/h), Bab Doukkala, Koutoubia. Gardiens de parking présents partout 
+                      (5-10 DH pourboire). Les hôtels et riads proposent souvent des parkings sécurisés.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mountain className="h-5 w-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Routes de montagne</h3>
+                    <p className="text-muted-foreground">
+                      Les routes vers l'Atlas (Ourika, Tizi n'Tichka) sont bien goudronnées mais 
+                      sinueuses. Prévoyez 30 % de temps supplémentaire par rapport au GPS. 
+                      En hiver, vérifiez l'état des cols (neige possible au-dessus de 2 000 m). 
+                      Un SUV est recommandé pour les pistes secondaires.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Fuel className="h-5 w-5 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Carburant et autoroutes</h3>
+                    <p className="text-muted-foreground">
+                      Nombreuses stations-service 24h/24 (Afriquia, Total, Shell). 
+                      Gasoil : ~13-14 DH/L, essence : ~15-16 DH/L. 
+                      Péages : Marrakech-Casablanca (90 DH), Marrakech-Agadir (75 DH). 
+                      Faites le plein avant de partir vers les zones montagneuses.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Questions fréquentes – Location de voiture à Marrakech
+            </h2>
+            <div className="max-w-3xl mx-auto space-y-4">
+              {marrakechFAQs.map((faq, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <CardContent className="pt-6">
+                    <h3 className="font-semibold text-lg mb-3">{faq.question}</h3>
+                    <p className="text-muted-foreground">{faq.answer}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          {/* Customer Reviews Section */}
+          <section className="mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
+              Avis de nos clients à Marrakech
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {marrakechTestimonials.map((testimonial, index) => (
+                <Card key={index} className="border-none shadow-md">
+                  <CardContent className="pt-6">
+                    <div className="flex items-center gap-1 mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                    <Quote className="h-8 w-8 text-primary/20 mb-2" />
+                    <p className="text-muted-foreground mb-4 italic">
+                      "{testimonial.comment}"
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="font-semibold">{testimonial.name}</p>
+                        <p className="text-sm text-muted-foreground">{testimonial.location}</p>
+                      </div>
+                      <span className="text-xs text-muted-foreground">{testimonial.date}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <div className="text-center mt-6">
+              <p className="text-muted-foreground">
+                Note moyenne : <span className="font-semibold">4.8/5</span> basée sur plus de 1 200 avis clients
               </p>
+            </div>
+          </section>
+
+          {/* Final CTA Section */}
+          <section className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground mb-4">
+              Prêt à explorer Marrakech et le Sud marocain ?
+            </h2>
+            <p className="text-primary-foreground/90 mb-8 max-w-2xl mx-auto text-lg">
+              Comparez les offres de nos agences partenaires et réservez votre véhicule 
+              en quelques clics. Prix transparents, sans mauvaises surprises.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/louer?city=Marrakech">
-                <Button size="lg" className="text-lg px-8">
-                  Réserver Maintenant
+                <Button 
+                  size="lg" 
+                  variant="secondary"
+                  className="text-lg px-8 w-full sm:w-auto"
+                >
+                  Trouver ma voiture à Marrakech
                 </Button>
               </Link>
-            </CardContent>
-          </Card>
+              <a 
+                href="https://wa.me/212699024526?text=Bonjour, je souhaite louer une voiture à Marrakech."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
+                >
+                  Parler à un conseiller
+                </Button>
+              </a>
+            </div>
+          </section>
+
+          {/* Internal Links Section */}
+          <section className="mt-16">
+            <h2 className="text-xl font-semibold mb-6 text-center">
+              Autres destinations populaires
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              {[
+                { name: 'Casablanca', slug: 'casablanca' },
+                { name: 'Rabat', slug: 'rabat' },
+                { name: 'Tanger', slug: 'tanger' },
+                { name: 'Agadir', slug: 'agadir' },
+                { name: 'Fès', slug: 'fes' }
+              ].map(city => (
+                <Link 
+                  key={city.slug}
+                  to={`/location-voiture-${city.slug}`}
+                  className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"
+                >
+                  Location voiture {city.name}
+                </Link>
+              ))}
+            </div>
+          </section>
+
         </div>
       </main>
 
