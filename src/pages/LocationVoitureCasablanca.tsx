@@ -781,27 +781,24 @@ const LocationVoitureCasablanca = () => {
             </div>
           </section>
 
-          {/* Internal Links Section */}
+          {/* Internal Links Section - max 2 liens vers autres villes */}
           <section className="mt-16">
             <h2 className="text-xl font-semibold mb-6 text-center">
-              Autres destinations populaires
+              Découvrez aussi nos autres destinations
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              {[
-                { name: 'Marrakech', slug: 'marrakech' },
-                { name: 'Rabat', slug: 'rabat' },
-                { name: 'Tanger', slug: 'tanger' },
-                { name: 'Agadir', slug: 'agadir' },
-                { name: 'Fès', slug: 'fes' }
-              ].map(city => (
-                <Link 
-                  key={city.slug}
-                  to={`/location-voiture-${city.slug}`}
-                  className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"
-                >
-                  Location voiture {city.name}
-                </Link>
-              ))}
+              <Link 
+                to="/location-voiture-marrakech"
+                className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"
+              >
+                Location voiture Marrakech
+              </Link>
+              <Link 
+                to="/location-voiture-rabat"
+                className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"
+              >
+                Location voiture Rabat
+              </Link>
             </div>
           </section>
 
