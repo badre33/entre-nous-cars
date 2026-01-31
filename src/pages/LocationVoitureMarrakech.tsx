@@ -343,6 +343,31 @@ const LocationVoitureMarrakech = () => {
             </div>
           </section>
 
+          {/* Bloc C - Marrakech point de départ excursions */}
+          <section className="max-w-4xl mx-auto mb-16">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">
+              Marrakech : porte d'entrée vers l'Atlas, le désert et la côte
+            </h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Louer une voiture à Marrakech, c'est s'ouvrir un monde d'excursions inoubliables. 
+                En moins d'une heure, vous atteignez la vallée de l'Ourika, ses cascades et ses villages 
+                berbères accrochés à flanc de montagne. Le désert d'Agafay, aux portes de la ville, offre 
+                un avant-goût des dunes avec ses camps de luxe étoilés. Les amateurs de routes sinueuses 
+                empruntent le mythique col du Tizi n'Tichka pour rejoindre Ouarzazate et les studios de cinéma.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Côté océan, Essaouira et ses remparts portugais se situent à 2h30 de route – idéal pour 
+                une escapade de 2 jours. Les cascades d'Ouzoud, les plus hautes du Maroc, méritent également 
+                le détour. Avec un véhicule adapté, ces destinations deviennent accessibles en toute autonomie, 
+                sans dépendre d'excursions organisées. Pour{" "}
+                <Link to="/louer?city=Marrakech" className="text-primary hover:underline">
+                  explorer les voitures disponibles à Marrakech
+                </Link>, consultez notre sélection de SUV, berlines et citadines adaptés à chaque aventure.
+              </p>
+            </div>
+          </section>
+
           {/* Section: Pourquoi louer avec Benatna */}
           <section className="mb-16">
             <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
