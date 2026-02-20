@@ -25,36 +25,45 @@ export function StickyProgress({ sections, className }: StickyProgressProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let rafId: number | null = null;
+    let ticking = false;
+
     const handleScroll = () => {
-      // Calculate scroll progress
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight - windowHeight;
-      const scrolled = window.scrollY;
-      const progress = (scrolled / documentHeight) * 100;
-      setScrollProgress(Math.min(progress, 100));
+      if (!ticking) {
+        ticking = true;
+        rafId = requestAnimationFrame(() => {
+          // Batch all layout reads together to avoid forced reflows
+          const scrolled = window.scrollY;
+          const documentHeight = document.documentElement.scrollHeight;
+          const viewportHeight = document.documentElement.clientHeight;
+          
+          // Read all getBoundingClientRect at once before any state updates
+          const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean);
+          const rects = sectionElements.map(el => el!.getBoundingClientRect());
 
-      // Show/hide based on scroll position (show after 200px)
-      setIsVisible(scrolled > 200);
+          // Now do all writes (state updates) — no more layout reads after this
+          const progress = (scrolled / (documentHeight - viewportHeight)) * 100;
+          setScrollProgress(Math.min(progress, 100));
+          setIsVisible(scrolled > 200);
 
-      // Detect active section
-      const sectionElements = sections.map(s => document.getElementById(s.id)).filter(Boolean);
-      
-      for (let i = sectionElements.length - 1; i >= 0; i--) {
-        const element = sectionElements[i];
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 150) {
-            setActiveSection(sections[i].id);
-            break;
+          for (let i = rects.length - 1; i >= 0; i--) {
+            if (rects[i].top <= 150) {
+              setActiveSection(sections[i].id);
+              break;
+            }
           }
-        }
+          ticking = false;
+        });
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Initial call
     
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, [sections]);
 
   const scrollToSection = (id: string) => {

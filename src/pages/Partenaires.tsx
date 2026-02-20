@@ -22,6 +22,7 @@ const Partenaires = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [parallaxOffset, setParallaxOffset] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const offersAnimation = useScrollAnimation(0.2);
@@ -30,13 +31,32 @@ const Partenaires = () => {
   const calculatorAnimation = useScrollAnimation(0.2);
   
   useEffect(() => {
+    const mql = window.matchMedia('(min-width: 768px)');
+    setIsDesktop(mql.matches);
+    const handleResize = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mql.addEventListener('change', handleResize);
+
+    let rafId: number | null = null;
+    let isScrolling = false;
+    const updateParallax = () => {
+      if (mql.matches) {
+        setParallaxOffset(window.scrollY * 0.5);
+      }
+      isScrolling = false;
+    };
     const handleScroll = () => {
-      const offset = window.scrollY;
-      setParallaxOffset(offset * 0.5);
+      if (!isScrolling) {
+        isScrolling = true;
+        rafId = requestAnimationFrame(updateParallax);
+      }
     };
     
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      mql.removeEventListener('change', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
   
   const scrollToForm = () => {
@@ -62,7 +82,7 @@ const Partenaires = () => {
           className="absolute inset-0 bg-cover bg-center parallax-bg"
           style={{ 
             backgroundImage: `url(${heroImage})`,
-            transform: window.innerWidth >= 768 ? `translateY(${parallaxOffset}px)` : 'none'
+            transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
