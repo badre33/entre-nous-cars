@@ -59,6 +59,20 @@
     <meta name="description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
     <meta name="author" content="Benatna" />
     
+    <!-- Critical CSS inlined for fastest FCP -->
+    <style>
+      /* Critical reset + above-the-fold styles inlined to avoid render-blocking CSS */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+      body { font-family: 'Barlow', system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background: #f5ffe4; color: #000; }
+      #root { min-height: 100vh; }
+      img, video { max-width: 100%; height: auto; display: block; }
+      /* Header skeleton */
+      header { position: sticky; top: 0; z-index: 50; background: rgba(245, 255, 228, 0.95); backdrop-filter: blur(8px); }
+      /* Hero section skeleton to prevent CLS */
+      .hero-skeleton { position: relative; width: 100%; min-height: 60vh; background: #e8f5d0; }
+    </style>
+    
     <!-- Preconnect to external origins (must be early) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,8 +80,7 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
     <link rel="dns-prefetch" href="https://wa.me">
     
-    <!-- Preload critical fonts for better LCP -->
-    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/pacifico/v23/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff2" type="font/woff2" crossorigin>
+    <!-- Preload only the body font (critical); heading font deferred -->
     <link rel="preload" as="font" href="https://fonts.gstatic.com/s/barlow/v12/7cHpv4kjgoGqM7E_DMs5ynghnQci.woff2" type="font/woff2" crossorigin>
     
     <!-- PWA Manifest -->
@@ -90,10 +103,10 @@
     <!-- Preload main module for faster JS execution -->
     <link rel="modulepreload" href="/src/main.tsx" />
     
-    <!-- Preload LCP hero image for faster rendering - discoverable immediately in initial HTML -->
+    <!-- Preload LCP hero image for faster rendering -->
     <link rel="preload" as="image" href="/hero-home-new.webp" type="image/webp" fetchpriority="high" />
     
-    <!-- Load fonts with optimal loading strategy -->
+    <!-- Load fonts asynchronously - non-render-blocking -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
