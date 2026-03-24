@@ -18,12 +18,12 @@ export const generateCarImageAlt = (
  * Génère un attribut alt pour les images de villes
  */
 export const generateCityImageAlt = (cityName: string): string => {
-  return `Location de voiture à ${cityName} - Prix dès 150 DH/jour - Benatna`;
+  return `Location de voiture à ${cityName} - Prix dès 200 DH/jour - Benatna`;
 };
 
 /**
  * Génère un attribut alt pour l'image hero
  */
 export const generateHeroImageAlt = (): string => {
-  return "Benatna - Location de voitures au Maroc - Prix transparents dès 150 DH/jour";
+  return "Benatna - Location de voitures au Maroc - Prix transparents dès 200 DH/jour";
 };

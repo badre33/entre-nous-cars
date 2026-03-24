@@ -185,7 +185,7 @@ export const comparisons: Comparison[] = [
         'Type': 'Citadine économique'
       },
       pros: [
-        '✅ Prix imbattable (150-180 DH/jour)',
+        '✅ Prix imbattable (200-280 DH/jour)',
         '✅ Robustesse et fiabilité',
         '✅ Entretien économique',
         '✅ Habitabilité excellente',
@@ -540,7 +540,7 @@ export const comparisons: Comparison[] = [
     metaTitle: 'Location Voiture Économique vs Premium Maroc - Quel Budget ? | Benatna',
     metaDescription: 'Voiture économique ou premium pour votre location au Maroc ? Comparatif prix, confort, équipements. Optimisez votre budget selon vos besoins.',
     category: 'categories',
-    introduction: 'Catégorie économique ou premium : un choix qui peut doubler votre budget location. Entre Dacia Sandero à 150 DH/jour et Mercedes Classe E à 800 DH/jour, explorons les différences réelles pour vous aider à choisir judicieusement.',
+    introduction: 'Catégorie économique ou premium : un choix qui peut doubler votre budget location. Entre Dacia Sandero à 200 DH/jour et Mercedes Classe A à 650 DH/jour, explorons les différences réelles pour vous aider à choisir judicieusement.',
     item1: {
       name: 'Catégorie Économique',
       image: '/car-dacia-sandero.jpg',

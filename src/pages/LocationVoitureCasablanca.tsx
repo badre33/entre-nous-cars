@@ -422,7 +422,7 @@ const LocationVoitureCasablanca = () => {
                       Idéales pour circuler dans les ruelles du centre-ville et se garer facilement. 
                       Économiques en carburant, parfaites pour les trajets urbains quotidiens.
                     </p>
-                    <p className="text-primary font-medium mt-2">À partir de 150 DH/jour</p>
+                    <p className="text-primary font-medium mt-2">À partir de 200 DH/jour</p>
                   </div>
                 </div>
 

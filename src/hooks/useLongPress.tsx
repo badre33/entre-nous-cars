@@ -16,7 +16,7 @@ export const useLongPress = ({
   delay = 500,
   hapticFeedback = true
 }: LongPressOptions) => {
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const isLongPress = useRef<boolean>(false);
 
   const handleStart = useCallback(() => {

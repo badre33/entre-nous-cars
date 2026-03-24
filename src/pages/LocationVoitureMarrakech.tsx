@@ -448,7 +448,7 @@ const LocationVoitureMarrakech = () => {
                       Parfaites pour circuler dans Guéliz et les environs de Marrakech. 
                       Compactes, économiques et faciles à garer près des souks et restaurants.
                     </p>
-                    <p className="text-primary font-medium mt-2">À partir de 150 DH/jour</p>
+                    <p className="text-primary font-medium mt-2">À partir de 200 DH/jour</p>
                   </div>
                 </div>
 

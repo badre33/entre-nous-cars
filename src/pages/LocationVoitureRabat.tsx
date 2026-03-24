@@ -424,7 +424,7 @@ const LocationVoitureRabat = () => {
                       Parfaites pour les déplacements urbains et le stationnement en centre-ville. 
                       Économiques en carburant, idéales pour les trajets quotidiens.
                     </p>
-                    <p className="text-primary font-medium mt-2">À partir de 150 DH/jour</p>
+                    <p className="text-primary font-medium mt-2">À partir de 200 DH/jour</p>
                   </div>
                 </div>
 
