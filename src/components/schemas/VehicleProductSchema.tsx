@@ -196,7 +196,7 @@ export const VehicleProductSchema = ({
       "name": BUSINESS_INFO.name,
       "url": BUSINESS_INFO.website,
       "telephone": BUSINESS_INFO.phone,
-      "priceRange": "150-900 MAD"
+      "priceRange": "200-700 MAD"
     },
     
     "isRelatedTo": {
