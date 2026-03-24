@@ -25,5 +25,5 @@ export const generateCityImageAlt = (cityName: string): string => {
  * Génère un attribut alt pour l'image hero
  */
 export const generateHeroImageAlt = (): string => {
-  return "Benatna - Location de voitures au Maroc - Prix transparents dès 150 DH/jour";
+  return "Benatna - Location de voitures au Maroc - Prix transparents dès 200 DH/jour";
 };
