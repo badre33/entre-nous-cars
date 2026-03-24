@@ -56,7 +56,7 @@ const FAQ = () => {
         "name": "Quels sont les prix de location de voiture au Maroc ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nos prix varient selon le type de véhicule : Citadines (Clio, Sandero) à partir de 200 DH/jour, Berlines (Corolla, Jetta) à partir de 250 DH/jour, SUV (Duster, Tiguan) à partir de 350 DH/jour, Véhicules premium à partir de 800 DH/jour. Tous nos prix incluent l'assurance de base et le kilométrage illimité."
+          "text": "Nos prix varient selon le type de véhicule : Citadines (Clio, Sandero) à partir de 200 DH/jour, Berlines (Corolla, Golf) à partir de 450 DH/jour, SUV (Duster, Tucson) à partir de 350 DH/jour, Véhicules premium à partir de 650 DH/jour. Tous nos prix incluent l'assurance de base et le kilométrage illimité."
         }
       },
       {
@@ -365,8 +365,8 @@ const FAQ = () => {
                         Nos prix varient selon le type de véhicule et la durée de location :
                         <ul className="list-disc list-inside mt-2 space-y-1">
                           <li><strong>Citadines (Clio, Sandero) :</strong> à partir de 200 DH/jour</li>
-                          <li><strong>Berlines (Corolla, Jetta) :</strong> à partir de 250 DH/jour</li>
-                          <li><strong>SUV (Duster, Tiguan) :</strong> à partir de 350 DH/jour</li>
+                          <li><strong>Berlines (Corolla, Golf) :</strong> à partir de 450 DH/jour</li>
+                          <li><strong>SUV (Duster, Tucson) :</strong> à partir de 350 DH/jour</li>
                           <li><strong>Véhicules premium :</strong> à partir de 800 DH/jour</li>
                         </ul>
                         Tous nos prix incluent l&apos;assurance de base et le kilométrage illimité.
