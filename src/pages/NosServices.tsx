@@ -77,7 +77,7 @@ const NosServices = () => {
         <title>Nos Services de Location de Voiture au Maroc | Benatna</title>
         <meta 
           name="description" 
-          content="Découvrez tous nos services de location : aéroports, jeune conducteur, longue durée, SUV 4x4, véhicules de luxe et spéciaux. Tarifs dès 150 DH/jour partout au Maroc." 
+          content="Découvrez tous nos services de location : aéroports, jeune conducteur, longue durée, SUV 4x4, véhicules de luxe et spéciaux. Tarifs dès 200 DH/jour partout au Maroc." 
         />
         <meta 
           name="keywords" 
@@ -115,7 +115,7 @@ const NosServices = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Check className="h-5 w-5 text-primary" />
-                <span>Tarifs dès 150 DH/jour</span>
+                <span>Tarifs dès 200 DH/jour</span>
               </div>
             </div>
           </div>

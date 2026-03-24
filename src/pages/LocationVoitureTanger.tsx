@@ -24,11 +24,11 @@ const LocationVoitureTanger = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Location de Voiture à Tanger | Prix Dès 150 DH/jour - Benatna</title>
-        <meta name="description" content="Location de voiture à Tanger avec Benatna. Aéroport, port, centre-ville. Prix transparents dès 150 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
+        <title>Location de Voiture à Tanger | Prix Dès 200 DH/jour - Benatna</title>
+        <meta name="description" content="Location de voiture à Tanger avec Benatna. Aéroport, port, centre-ville. Prix transparents dès 200 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
         <meta name="keywords" content="location voiture tanger, location auto tanger aeroport, louer voiture tanger port, location véhicule tanger, rent car tangier" />
         <link rel="canonical" href="https://benatna.ma/location-voiture-tanger" />
-        <meta property="og:title" content="Location de Voiture à Tanger | Prix Dès 150 DH/jour" />
+        <meta property="og:title" content="Location de Voiture à Tanger | Prix Dès 200 DH/jour" />
         <meta property="og:description" content="Louez une voiture à Tanger avec Benatna. Aéroport, port, livraison gratuite. Explorez le détroit de Gibraltar." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-tanger" />
       </Helmet>
@@ -114,7 +114,7 @@ const LocationVoitureTanger = () => {
               Location de Voiture à Tanger
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8">
-              Prix transparents dès 150 DH/jour • Aéroport & Port • Livraison gratuite
+              Prix transparents dès 200 DH/jour • Aéroport & Port • Livraison gratuite
             </p>
             <div className="flex flex-wrap gap-4">
               <Link to="/louer?city=Tanger">
@@ -175,7 +175,7 @@ const LocationVoitureTanger = () => {
                     Vous cherchez à <strong>louer une voiture à Tanger</strong> ? Benatna vous propose le meilleur service de location dans la perle du Nord. Que vous arriviez par l&apos;aéroport, le port Tanger Med ou le port ville, explorez cette ville cosmopolite et ses environs en toute liberté.
                   </p>
                   <p>
-                    Notre <strong>service de location de voiture à Tanger</strong> se distingue par sa disponibilité 24/7. Plus de 50 véhicules, des prix clairs dès 150 DH/jour. Visitez le Cap Spartel, les grottes d&apos;Hercule, Asilah ou partez explorer Chefchaouen et Tétouan !
+                    Notre <strong>service de location de voiture à Tanger</strong> se distingue par sa disponibilité 24/7. Plus de 50 véhicules, des prix clairs dès 200 DH/jour. Visitez le Cap Spartel, les grottes d&apos;Hercule, Asilah ou partez explorer Chefchaouen et Tétouan !
                   </p>
                 </div>
               </section>

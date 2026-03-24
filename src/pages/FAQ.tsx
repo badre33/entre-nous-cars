@@ -56,7 +56,7 @@ const FAQ = () => {
         "name": "Quels sont les prix de location de voiture au Maroc ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nos prix varient selon le type de véhicule : Citadines (Clio, Sandero) à partir de 150 DH/jour, Berlines (Corolla, Jetta) à partir de 250 DH/jour, SUV (Duster, Tiguan) à partir de 350 DH/jour, Véhicules premium à partir de 800 DH/jour. Tous nos prix incluent l'assurance de base et le kilométrage illimité."
+          "text": "Nos prix varient selon le type de véhicule : Citadines (Clio, Sandero) à partir de 200 DH/jour, Berlines (Corolla, Jetta) à partir de 250 DH/jour, SUV (Duster, Tiguan) à partir de 350 DH/jour, Véhicules premium à partir de 800 DH/jour. Tous nos prix incluent l'assurance de base et le kilométrage illimité."
         }
       },
       {
@@ -120,7 +120,7 @@ const FAQ = () => {
         "name": "Dois-je prendre l'assurance tous risques ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "L'assurance tous risques (CDW) est optionnelle mais fortement recommandée. Elle vous protège contre les dommages au véhicule loué (accident, vandalisme), le vol du véhicule et le bris de glace. Prix : environ 80-150 DH/jour selon le véhicule."
+          "text": "L'assurance tous risques (CDW) est optionnelle mais fortement recommandée. Elle vous protège contre les dommages au véhicule loué (accident, vandalisme), le vol du véhicule et le bris de glace. Prix : environ 80-200 DH/jour selon le véhicule."
         }
       },
       {
@@ -364,7 +364,7 @@ const FAQ = () => {
                       <AccordionContent className="text-muted-foreground">
                         Nos prix varient selon le type de véhicule et la durée de location :
                         <ul className="list-disc list-inside mt-2 space-y-1">
-                          <li><strong>Citadines (Clio, Sandero) :</strong> à partir de 150 DH/jour</li>
+                          <li><strong>Citadines (Clio, Sandero) :</strong> à partir de 200 DH/jour</li>
                           <li><strong>Berlines (Corolla, Jetta) :</strong> à partir de 250 DH/jour</li>
                           <li><strong>SUV (Duster, Tiguan) :</strong> à partir de 350 DH/jour</li>
                           <li><strong>Véhicules premium :</strong> à partir de 800 DH/jour</li>
@@ -491,7 +491,7 @@ const FAQ = () => {
                           <li>Le vol du véhicule</li>
                           <li>Le bris de glace</li>
                         </ul>
-                        Prix : environ 80-150 DH/jour selon le véhicule. Cela vous évite de payer des frais importants en cas d&apos;incident.
+                        Prix : environ 80-200 DH/jour selon le véhicule. Cela vous évite de payer des frais importants en cas d&apos;incident.
                       </AccordionContent>
                     </AccordionItem>
 
