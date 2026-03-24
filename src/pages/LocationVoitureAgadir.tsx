@@ -146,7 +146,7 @@ const LocationVoitureAgadir = () => {
             </Card>
             <Card>
               <CardContent className="pt-6 text-center">
-                <div className="text-3xl font-bold text-primary mb-2">150 DH</div>
+                <div className="text-3xl font-bold text-primary mb-2">200 DH</div>
                 <div className="text-sm text-muted-foreground">Prix à partir de</div>
               </CardContent>
             </Card>

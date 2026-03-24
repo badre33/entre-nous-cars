@@ -117,7 +117,7 @@ const PaiementEspecesSansCarte = () => {
                   <div className="text-sm text-muted-foreground">Remb. Caution</div>
                 </div>
                 <div className="bg-card p-4 rounded-lg border border-border">
-                  <div className="text-2xl font-bold text-primary mb-1">150 DH</div>
+                  <div className="text-2xl font-bold text-primary mb-1">200 DH</div>
                   <div className="text-sm text-muted-foreground">Dès /jour</div>
                 </div>
               </div>
