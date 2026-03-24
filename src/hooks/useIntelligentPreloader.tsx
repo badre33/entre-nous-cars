@@ -82,7 +82,7 @@ export const useIntelligentPreloader = (
 
   useEffect(() => {
     // Throttle scroll event
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: ReturnType<typeof setTimeout>;
     const throttledScroll = () => {
       if (timeoutId) return;
       
