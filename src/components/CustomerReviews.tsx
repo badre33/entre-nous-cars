@@ -82,7 +82,7 @@ export const CustomerReviews = () => {
                     </Avatar>
                     <div>
                       <div className="flex items-center gap-2">
-                        <h4 className="font-semibold text-xs sm:text-sm">{review.name}</h4>
+                        <p className="font-semibold text-xs sm:text-sm">{review.name}</p>
                         {review.verified && (
                           <Badge variant="secondary" className="text-xs">
                             ✓ Vérifié
