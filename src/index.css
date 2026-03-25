@@ -18,19 +18,19 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 51 100% 50%;     /* #ffda00 - vibrant yellow */
-    --primary-foreground: 0 0% 0%;
+    --primary: 45 100% 33%;     /* Dark amber/gold - WCAG AA compliant on white */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 88 65% 55%;    /* Green accent with better contrast */
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 88 70% 28%;    /* Dark green - WCAG AA compliant on white */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 88 65% 55%;
+    --muted: 88 70% 28%;
     --muted-foreground: 0 0% 40%;
 
-    --accent: 186 85% 35%;      /* Darker teal with better contrast */
+    --accent: 186 85% 25%;      /* Dark teal - WCAG AA compliant on white */
     --accent-foreground: 0 0% 100%;
     
-    --partner: 100 80% 45%;     /* #33cc33 - vibrant green for partner CTA */
+    --partner: 100 80% 28%;     /* Dark green - WCAG AA compliant */
     --partner-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
