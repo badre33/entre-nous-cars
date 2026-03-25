@@ -26,7 +26,7 @@ export const SEOLinks = () => {
                   key={link.to}
                   to={link.to}
                   className="block text-muted-foreground hover:text-primary transition-colors py-1"
-                  aria-label={link.keywords}
+                  aria-label={`${link.text} - ${link.keywords}`}
                 >
                   {link.text}
                 </Link>
