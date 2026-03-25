@@ -40,7 +40,7 @@ const Blog = () => {
     <div className="min-h-screen flex flex-col">
       <Helmet>
         <title>Blog Benatna - Guides et Conseils Location de Voiture au Maroc</title>
-        <meta name="description" content="Découvrez nos guides et conseils pour louer une voiture au Maroc : itinéraires, assurance, conduite locale, destinations touristiques et économies." />
+        <meta name="description" content="Guides pratiques et conseils pour louer une voiture au Maroc. Documents, assurance, prix, road trips : tout ce qu'il faut savoir avant de partir." />
         <meta name="keywords" content="blog location voiture maroc, guide tourisme maroc, conseils conduite maroc, itinéraires touristiques, assurance auto maroc" />
         <link rel="canonical" href="https://benatna.ma/blog" />
         <meta property="og:title" content="Blog Benatna - Guides et Conseils Location de Voiture" />

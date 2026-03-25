@@ -103,7 +103,7 @@ const LocationVoitureMarrakech = () => {
         <title>Location Voiture Marrakech | Agences Locales - Benatna</title>
         <meta 
           name="description" 
-          content="Louez une voiture à Marrakech avec Benatna. Agences locales vérifiées, prix transparents, livraison aéroport Menara 24/7. Explorez l'Atlas et le Sud." 
+          content="Location voiture Marrakech dès 150 DH/jour. Livraison aéroport Menara, SUV pour l'Atlas, véhicules récents. Réservation rapide et prix transparents." 
         />
         <link rel="canonical" href="https://benatna.ma/location-voiture-marrakech" />
         <meta property="og:title" content="Location Voiture Marrakech | Agences Locales - Benatna" />

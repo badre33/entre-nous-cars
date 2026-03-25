@@ -101,7 +101,7 @@ const LocationVoitureCasablanca = () => {
         <title>Location Voiture Casablanca | Agences Locales - Benatna</title>
         <meta 
           name="description" 
-          content="Louez une voiture à Casablanca avec Benatna. Agences locales vérifiées, prix transparents, réservation simple. Livraison aéroport Mohammed V 24/7." 
+          content="Louez une voiture à Casablanca dès 150 DH/jour. Livraison gratuite aéroport Mohammed V, large choix de véhicules, agences locales vérifiées. Réservez en ligne." 
         />
         <link rel="canonical" href="https://benatna.ma/location-voiture-casablanca" />
         <meta property="og:title" content="Location Voiture Casablanca | Agences Locales - Benatna" />
