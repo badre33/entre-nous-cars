@@ -1083,6 +1083,7 @@ const Index = () => {
 
       {/* SEO Links & Content */}
       <SEOLinks />
+      </main>
 
       <Footer />
       
