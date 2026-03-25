@@ -7,7 +7,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { blogArticles } from "@/data/blogArticles";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -15,7 +14,6 @@ import { ShareButton } from "@/components/ShareButton";
 
 const BlogArticle = () => {
   const { slug } = useParams();
-  const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const headerAnimation = useScrollAnimation(0.2);
   const contentAnimation = useScrollAnimation(0.1);
@@ -32,9 +30,9 @@ const BlogArticle = () => {
         <Header />
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">{t('blogArticle.notFound')}</h1>
+            <h1 className="text-4xl font-bold mb-4">Article non trouvé</h1>
             <Link to="/blog">
-              <Button>{t('blogArticle.backToBlog')}</Button>
+              <Button>Retour au blog</Button>
             </Link>
           </div>
         </div>
@@ -42,17 +40,6 @@ const BlogArticle = () => {
       </div>
     );
   }
-
-  // Get translated content if available
-  const articleIndex = blogArticles.findIndex(a => a.slug === slug);
-  const articleKey = `article${articleIndex + 1}`;
-  const translatedTitle = t(`blogArticles.${articleKey}.title`);
-  const translatedExcerpt = t(`blogArticles.${articleKey}.excerpt`);
-  const translatedCategory = t(`blogArticles.${articleKey}.category`);
-  const translatedContent = t(`blogArticles.${articleKey}.content`);
-  
-  // Use translated content if available, otherwise fallback to original
-  const content = Array.isArray(translatedContent) ? translatedContent : article.content;
 
   if (isLoading) {
     return (
@@ -86,16 +73,16 @@ const BlogArticle = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>{translatedTitle} | Benatna</title>
+        <title>{article.title} | Benatna</title>
         <meta name="description" content={article.metaDescription} />
-        <meta property="og:title" content={translatedTitle} />
+        <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.metaDescription} />
         <meta property="og:image" content={article.image} />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={article.date} />
-        <meta property="article:section" content={translatedCategory} />
+        <meta property="article:section" content={article.category} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={translatedTitle} />
+        <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.metaDescription} />
         <meta name="twitter:image" content={article.image} />
         <link rel="canonical" href={`https://benatna.ma/blog/${article.slug}`} />
@@ -115,7 +102,7 @@ const BlogArticle = () => {
             <Link to="/blog">
               <Button variant="ghost" className="mb-8 group hover:shadow-lg transition-all duration-300">
                 <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-2 transition-transform duration-300" />
-                {t('blogArticle.backToArticles')}
+                Retour aux articles
               </Button>
             </Link>
           </div>
@@ -128,13 +115,13 @@ const BlogArticle = () => {
             }`}
           >
             <Badge className="mb-4 animate-fade-in hover:scale-110 transition-transform duration-300">
-              {translatedCategory}
+              {article.category}
             </Badge>
             <h1 className="text-4xl md:text-5xl font-barlow font-bold mb-4 animate-fade-in [animation-delay:100ms]">
-              {translatedTitle}
+              {article.title}
             </h1>
             <p className="text-xl text-muted-foreground mb-6 animate-fade-in [animation-delay:200ms]">
-              {translatedExcerpt}
+              {article.excerpt}
             </p>
             <div className="flex items-center gap-4 text-muted-foreground animate-fade-in [animation-delay:300ms]">
               <div className="flex items-center gap-2">
@@ -147,8 +134,8 @@ const BlogArticle = () => {
           {/* Share Button with Native API */}
           <div className="mb-8 animate-fade-in [animation-delay:400ms]">
             <ShareButton
-              title={translatedTitle}
-              text={translatedExcerpt}
+              title={article.title}
+              text={article.excerpt}
               url={window.location.href}
               variant="outline"
               size="default"
@@ -159,14 +146,14 @@ const BlogArticle = () => {
           <div className="mb-12 rounded-xl overflow-hidden group animate-fade-in [animation-delay:500ms]">
             <img 
               src={article.image} 
-              alt={translatedTitle}
+              alt={article.title}
               className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
             />
           </div>
 
           {/* Article Content */}
           <div className="prose prose-lg max-w-none animate-fade-in [animation-delay:600ms]">
-            {content.map((paragraph, index) => {
+            {article.content.map((paragraph, index) => {
                 if (paragraph.startsWith('##')) {
                   return (
                     <h2 key={index} className="text-3xl font-bold mt-12 mb-6">
@@ -203,13 +190,13 @@ const BlogArticle = () => {
 
           {/* CTA */}
           <div className="mt-16 p-8 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl text-center hover:shadow-xl transition-shadow duration-300">
-            <h3 className="text-2xl font-bold mb-4">{t('blogArticle.readyToRent')}</h3>
+            <h3 className="text-2xl font-bold mb-4">Prêt à louer votre voiture ?</h3>
             <p className="text-muted-foreground mb-6">
-              {t('blogArticle.findPerfectCar')}
+              Trouvez le véhicule idéal pour votre voyage au Maroc.
             </p>
             <Link to="/louer">
               <Button size="lg" className="rounded-full hover:scale-110 transition-transform duration-300">
-                {t('blogArticle.viewCars')}
+                Voir les véhicules
               </Button>
             </Link>
           </div>
