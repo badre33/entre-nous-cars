@@ -192,6 +192,7 @@ const Index = () => {
       
       <Header />
       
+      <main>
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
         {/* LCP-optimized WebP hero image from public folder for fast discovery */}
@@ -1082,6 +1083,7 @@ const Index = () => {
 
       {/* SEO Links & Content */}
       <SEOLinks />
+      </main>
 
       <Footer />
       
