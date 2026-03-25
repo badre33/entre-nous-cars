@@ -109,8 +109,8 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Benatna - Location de Voiture au Maroc | Prix Transparents & Sans Surprises</title>
-        <meta name="description" content="Louez une voiture au Maroc avec Benatna. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Prix transparents, processus 100% digital, 300+ véhicules disponibles. Réservez maintenant !" />
+        <title>Benatna - Location de Voiture au Maroc | Prix dès 150 DH/jour</title>
+        <meta name="description" content="Location de voiture au Maroc avec Benatna. Casablanca, Marrakech, Rabat, Agadir. Prix dès 150 DH/jour, livraison aéroport, agences vérifiées." />
         <meta name="keywords" content="location voiture maroc, location auto casablanca, louer voiture marrakech, location véhicule rabat, rent car morocco, agence location voiture, voiture de tourisme maroc" />
         <link rel="canonical" href="https://benatna.ma/" />
         <meta property="og:title" content="Benatna - Location de Voiture au Maroc" />

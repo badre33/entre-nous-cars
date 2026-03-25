@@ -10,7 +10,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   slug: `location-voiture-aeroport-${citySlug}`,
   title: `Location Voiture Aéroport ${city}`,
   metaTitle: `Location Voiture Aéroport ${city} - Livraison Gratuite | Benatna`,
-  metaDescription: `Louez une voiture directement à l'aéroport ${airport}. Livraison gratuite au terminal. Réservation en ligne, gain de temps, prix dès 150 DH/jour.`,
+  metaDescription: city === 'Casablanca' ? "Location voiture aéroport Mohammed V Casablanca. Livraison gratuite au terminal, disponible 24h/24. Réservez en ligne, dès 150 DH/jour." : `Louez une voiture directement à l'aéroport ${airport}. Livraison gratuite au terminal. Réservation en ligne, gain de temps, prix dès 150 DH/jour.`,
   keywords: `location voiture aéroport ${citySlug}, ${airport} location auto, louer voiture terminal ${city}`,
   h1: `Location de Voiture à l'Aéroport ${airport}`,
   heroSubtitle: `Livraison gratuite au terminal • Pas de file d'attente • Dès 150 DH/jour`,
