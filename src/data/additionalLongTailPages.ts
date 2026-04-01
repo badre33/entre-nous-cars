@@ -10,10 +10,10 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   slug: `location-voiture-aeroport-${citySlug}`,
   title: `Location Voiture Aéroport ${city}`,
   metaTitle: `Location Voiture Aéroport ${city} - Livraison Gratuite | Benatna`,
-  metaDescription: city === 'Casablanca' ? "Location voiture aéroport Mohammed V Casablanca. Livraison gratuite au terminal, disponible 24h/24. Réservez en ligne, dès 150 DH/jour." : `Louez une voiture directement à l'aéroport ${airport}. Livraison gratuite au terminal. Réservation en ligne, gain de temps, prix dès 150 DH/jour.`,
+  metaDescription: city === 'Casablanca' ? "Location voiture aéroport Mohammed V Casablanca. Livraison gratuite au terminal, disponible 24h/24. Réservez en ligne, dès 200 DH/jour." : `Louez une voiture directement à l'aéroport ${airport}. Livraison gratuite au terminal. Réservation en ligne, gain de temps, prix dès 200 DH/jour.`,
   keywords: `location voiture aéroport ${citySlug}, ${airport} location auto, louer voiture terminal ${city}`,
   h1: `Location de Voiture à l'Aéroport ${airport}`,
-  heroSubtitle: `Livraison gratuite au terminal • Pas de file d'attente • Dès 150 DH/jour`,
+  heroSubtitle: `Livraison gratuite au terminal • Pas de file d'attente • Dès 200 DH/jour`,
   category: {
     label: "Locations Aéroports",
     href: "/nos-services?category=aeroport"
@@ -23,7 +23,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
     sections: [
       {
         title: `Pourquoi Louer à l'Aéroport ${airport} avec Benatna ?`,
-        content: `Les comptoirs de location dans les aéroports pratiquent des tarifs majorés (souvent 30-50% plus chers qu'en ville) en raison des frais de concession élevés qu'ils paient aux gestionnaires aéroportuaires. Benatna contourne ce système en vous livrant votre voiture gratuitement directement au terminal, vous faisant bénéficier de nos tarifs ville (dès 150 DH/jour pour une citadine). Plus besoin de faire la queue pendant 30-60 minutes aux comptoirs bondés : nous vous retrouvons dans le hall des arrivées avec votre véhicule prêt à partir. C'est particulièrement apprécié lors des arrivées tardives (vols de nuit) ou matinales où vous voulez gagner du temps. Notre service fonctionne 24h/24 et 7j/7 pour s'adapter à tous les horaires de vol. De plus, contrairement aux loueurs d'aéroport qui sous-traitent parfois la livraison du véhicule (navettes vers des parkings éloignés), nous vous remettons les clés directement au terminal : vous êtes sur la route 15 minutes après avoir récupéré vos bagages.`
+        content: `Les comptoirs de location dans les aéroports pratiquent des tarifs majorés (souvent 30-50% plus chers qu'en ville) en raison des frais de concession élevés qu'ils paient aux gestionnaires aéroportuaires. Benatna contourne ce système en vous livrant votre voiture gratuitement directement au terminal, vous faisant bénéficier de nos tarifs ville (dès 200 DH/jour pour une citadine). Plus besoin de faire la queue pendant 30-60 minutes aux comptoirs bondés : nous vous retrouvons dans le hall des arrivées avec votre véhicule prêt à partir. C'est particulièrement apprécié lors des arrivées tardives (vols de nuit) ou matinales où vous voulez gagner du temps. Notre service fonctionne 24h/24 et 7j/7 pour s'adapter à tous les horaires de vol. De plus, contrairement aux loueurs d'aéroport qui sous-traitent parfois la livraison du véhicule (navettes vers des parkings éloignés), nous vous remettons les clés directement au terminal : vous êtes sur la route 15 minutes après avoir récupéré vos bagages.`
       },
       {
         title: `Procédure de Récupération à l'Aéroport ${airport}`,
@@ -31,7 +31,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
       },
       {
         title: `Types de Véhicules Disponibles à l'Aéroport ${airport}`,
-        content: `Toute notre flotte est disponible en livraison aéroport. Citadines économiques (Clio, Sandero, 208) à 150-180 DH/jour : idéales si vous voyagez léger, parfaites pour ${city} et ses alentours, consommation réduite. Berlines confortables (Corolla, Jetta) à 250-300 DH/jour : recommandées pour familles avec bagages ou longs trajets vers autres villes, climatisation efficace, coffre spacieux. SUV tout-terrain (Duster, Qashqai, Tiguan) à 350-450 DH/jour : essentiels si vous prévoyez des excursions hors des sentiers battus, dans les montagnes ou le désert, hauteur de caisse adaptée aux pistes. Véhicules premium (Mercedes, BMW, Audi) à 800-1000 DH/jour : image professionnelle pour déplacements d'affaires ou occasions spéciales. Tous les véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise. Si vous avez des besoins spécifiques (siège bébé, GPS, chaînes neige en hiver), précisez-le lors de la réservation : nous préparons tout à l'avance.`
+        content: `Toute notre flotte est disponible en livraison aéroport. Citadines économiques (Clio, Sandero, 208) à 200-280 DH/jour : idéales si vous voyagez léger, parfaites pour ${city} et ses alentours, consommation réduite. Berlines confortables (Corolla, Jetta) à 250-300 DH/jour : recommandées pour familles avec bagages ou longs trajets vers autres villes, climatisation efficace, coffre spacieux. SUV tout-terrain (Duster, Qashqai, Tiguan) à 350-450 DH/jour : essentiels si vous prévoyez des excursions hors des sentiers battus, dans les montagnes ou le désert, hauteur de caisse adaptée aux pistes. Véhicules premium (Mercedes, BMW, Audi) à 800-1000 DH/jour : image professionnelle pour déplacements d'affaires ou occasions spéciales. Tous les véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise. Si vous avez des besoins spécifiques (siège bébé, GPS, chaînes neige en hiver), précisez-le lors de la réservation : nous préparons tout à l'avance.`
       }
     ],
     faq: [
@@ -61,7 +61,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   },
   relatedServices: citySlug === 'casablanca' ? [
     { title: 'Location Jeune Conducteur Casablanca', description: 'Dès 21 ans avec supplément raisonnable. Assurance adaptée incluse.', link: '/location-jeune-conducteur-casablanca' },
-    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dégressifs dès 3500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dégressifs dès 5 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 avec recharge gratuite à nos bornes.', link: '/location-voiture-electrique-casablanca' }
   ] : citySlug === 'marrakech' ? [
     { title: 'Location Weekend Marrakech', description: 'Offre spéciale weekend : 2 jours facturés pour 3 jours de location.', link: '/location-weekend-marrakech' },
@@ -151,7 +151,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
   slug: `location-longue-duree-${citySlug}`,
   title: `Location Longue Durée ${city}`,
   metaTitle: `Location Voiture Longue Durée ${city} - Tarifs Mensuels | Benatna`,
-  metaDescription: `Location de voiture longue durée à ${city}. Tarifs dégressifs dès 3 mois. Entretien et assurance inclus. Dès 3500 DH/mois tout compris.`,
+  metaDescription: `Location de voiture longue durée à ${city}. Tarifs dégressifs dès 3 mois. Entretien et assurance inclus. Dès 5 500 DH/mois tout compris.`,
   keywords: `location longue durée ${citySlug}, leasing voiture ${city}, location mensuelle auto`,
   h1: `Location de Voiture Longue Durée à ${city}`,
   heroSubtitle: 'Tarifs mensuels • Entretien inclus • Flexibilité maximale',
@@ -205,7 +205,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle, recharge gratuite.', link: '/location-voiture-electrique-casablanca' },
     { title: 'Location Utilitaire Casablanca', description: 'Fiat Ducato, Mercedes Sprinter en location mensuelle.', link: '/location-utilitaire-demenagement-casablanca' }
   ] : [
-    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca avec tarifs dégressifs dès 3500 DH/mois.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca avec tarifs dégressifs dès 5 500 DH/mois.', link: '/location-longue-duree-casablanca' },
     { title: 'Location Jeune Conducteur Marrakech', description: 'Formules longue durée adaptées aux jeunes conducteurs.', link: '/location-jeune-conducteur-marrakech' },
     { title: 'Location SUV Atlas', description: 'SUV 4x4 en forfait mensuel pour usage régulier montagne.', link: '/location-suv-atlas' }
   ],
