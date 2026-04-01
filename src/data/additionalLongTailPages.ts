@@ -205,7 +205,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle, recharge gratuite.', link: '/location-voiture-electrique-casablanca' },
     { title: 'Location Utilitaire Casablanca', description: 'Fiat Ducato, Mercedes Sprinter en location mensuelle.', link: '/location-utilitaire-demenagement-casablanca' }
   ] : [
-    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca avec tarifs dégressifs dès 5 500 DH/mois.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca dès 5 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
     { title: 'Location Jeune Conducteur Marrakech', description: 'Formules longue durée adaptées aux jeunes conducteurs.', link: '/location-jeune-conducteur-marrakech' },
     { title: 'Location SUV Atlas', description: 'SUV 4x4 en forfait mensuel pour usage régulier montagne.', link: '/location-suv-atlas' }
   ],
