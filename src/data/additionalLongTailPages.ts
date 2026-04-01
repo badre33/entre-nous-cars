@@ -61,7 +61,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   },
   relatedServices: citySlug === 'casablanca' ? [
     { title: 'Location Jeune Conducteur Casablanca', description: 'Dès 21 ans avec supplément raisonnable. Assurance adaptée incluse.', link: '/location-jeune-conducteur-casablanca' },
-    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dégressifs dès 5 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dès 5 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 avec recharge gratuite à nos bornes.', link: '/location-voiture-electrique-casablanca' }
   ] : citySlug === 'marrakech' ? [
     { title: 'Location Weekend Marrakech', description: 'Offre spéciale weekend : 2 jours facturés pour 3 jours de location.', link: '/location-weekend-marrakech' },
