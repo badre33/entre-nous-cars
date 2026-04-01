@@ -151,7 +151,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
   slug: `location-longue-duree-${citySlug}`,
   title: `Location Longue Durée ${city}`,
   metaTitle: `Location Voiture Longue Durée ${city} - Tarifs Mensuels | Benatna`,
-  metaDescription: `Location de voiture longue durée à ${city}. Tarifs dégressifs dès 3 mois. Entretien et assurance inclus. Dès 5 500 DH/mois tout compris.`,
+  metaDescription: `Location de voiture longue durée à ${city}. Entretien et assurance inclus. Dès 5 500 DH/mois tout compris.`,
   keywords: `location longue durée ${citySlug}, leasing voiture ${city}, location mensuelle auto`,
   h1: `Location de Voiture Longue Durée à ${city}`,
   heroSubtitle: 'Tarifs mensuels • Entretien inclus • Flexibilité maximale',
