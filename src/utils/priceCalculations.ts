@@ -1,33 +1,24 @@
 /**
- * Calcule le prix dégressif selon la durée de location
+ * Calcule le prix par jour (pas de réduction, tarif fixe)
  * @param basePrice - Prix de base par jour
  * @param days - Nombre de jours de location
- * @returns Prix par jour avec remise appliquée
+ * @returns Prix par jour (identique au prix de base)
  */
 export function calculateDailyPrice(basePrice: number, days: number): number {
-  if (days >= 30) {
-    // 10% de réduction pour 30+ jours
-    return basePrice * 0.90;
-  } else if (days >= 7) {
-    // 5% de réduction pour 7-29 jours
-    return basePrice * 0.95;
-  }
   return basePrice;
 }
 
 /**
  * Récupère le pourcentage de réduction selon la durée
  * @param days - Nombre de jours de location
- * @returns Pourcentage de réduction (0, 5 ou 10)
+ * @returns Pourcentage de réduction (toujours 0, pas de remise)
  */
 export function getDiscountPercentage(days: number): number {
-  if (days >= 30) return 10;
-  if (days >= 7) return 5;
   return 0;
 }
 
 /**
- * Calcule le prix total de la location avec tarifs dégressifs
+ * Calcule le prix total de la location
  * @param basePrice - Prix de base par jour
  * @param days - Nombre de jours de location
  * @returns Prix total de la location
