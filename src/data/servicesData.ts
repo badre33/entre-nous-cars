@@ -127,7 +127,7 @@ export const services: Service[] = [
     title: 'Location Longue Durée Casablanca',
     slug: '/location-longue-duree-casablanca',
     category: 'longue-duree',
-    shortDescription: 'Tarifs mensuels dégressifs. Entretien, assurance et assistance inclus. Dès 5 500 DH/mois.',
+    shortDescription: 'Tarifs mensuels tout compris. Entretien, assurance et assistance inclus. Dès 5 500 DH/mois.',
     features: ['Dès 5 500 DH/mois', 'Entretien inclus', 'Km illimités', 'Résiliable 1 mois préavis'],
     priceFrom: '5 500 DH/mois',
     image: '/car-corolla.jpg',
