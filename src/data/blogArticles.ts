@@ -2653,7 +2653,7 @@ export const blogArticles: BlogArticle[] = [
       
       "⚠️ **À éviter** :\n❌ Stationnement sauvage près des clubs (risque d'amende 300 DH)\n❌ Week-end après 18h : forte affluence, prévoir +30 min parking\n❌ Laisser objets de valeur visibles dans voiture",
       
-      "Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 150 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà."
+      "Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 200 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà."
     ]
   },
   {
@@ -2706,7 +2706,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Infos :**\n- 🅿️ Parking gratuit premières 2h\n- 🕐 Ouvert 10h-22h\n- 🍽️ 20+ restaurants\n- 🏢 Tours iconiques Casablanca",
       
-      "Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 150 DH/jour."
+      "Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 200 DH/jour."
     ]
   },
   {

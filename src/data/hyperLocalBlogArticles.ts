@@ -194,7 +194,7 @@ export const hyperLocalArticles: HyperLocalArticle[] = [
           content: `**Zones parking recommandées** :\n\n✅ **Morocco Mall** : 3000 places couvertes, 10 DH/h (gratuit si achats)\n✅ **Anfa Place** : 2000 places, gratuit\n✅ **Rue de la Corniche** : Parking payant 5 DH/h (surveillé)\n✅ **Restaurants haut de gamme** : Parking privé gratuit clients\n\n⚠️ **À éviter** :\n❌ Stationnement sauvage près des clubs (risque d'amende 300 DH)\n❌ Week-end après 18h : forte affluence, prévoir +30 min parking\n❌ Laisser objets de valeur visibles dans voiture`
         }
       ],
-      conclusion: 'Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c\'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 150 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà.'
+      conclusion: 'Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c\'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 200 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà.'
     },
     relatedArticles: ['itineraire-casa-journee', 'parking-casablanca-guide', 'restaurants-casa-mer']
   },
@@ -266,7 +266,7 @@ export const hyperLocalArticles: HyperLocalArticle[] = [
           content: `**Options parking Maarif** :\n\n1. **Twin Center** : 1000 places, 10 DH/h, sécurisé 24h/24\n2. **Zerktouni Mall** : 500 places, 5 DH/h\n3. **Parking rue Abdelmoumen** : Gratuit mais limité\n4. **Parkings restaurants** : Gratuits pour clients`
         }
       ],
-      conclusion: 'Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c\'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 150 DH/jour.'
+      conclusion: 'Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c\'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 200 DH/jour.'
     },
     relatedArticles: ['spots-ain-diab-voiture', 'shopping-casablanca-guide']
   },
