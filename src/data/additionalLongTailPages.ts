@@ -10,10 +10,10 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   slug: `location-voiture-aeroport-${citySlug}`,
   title: `Location Voiture Aéroport ${city}`,
   metaTitle: `Location Voiture Aéroport ${city} - Livraison Gratuite | Benatna`,
-  metaDescription: city === 'Casablanca' ? "Location voiture aéroport Mohammed V Casablanca. Livraison gratuite au terminal, disponible 24h/24. Réservez en ligne, dès 150 DH/jour." : `Louez une voiture directement à l'aéroport ${airport}. Livraison gratuite au terminal. Réservation en ligne, gain de temps, prix dès 150 DH/jour.`,
+  metaDescription: city === 'Casablanca' ? "Location voiture aéroport Mohammed V Casablanca. Livraison gratuite au terminal, disponible 24h/24. Réservez en ligne, dès 200 DH/jour." : `Louez une voiture directement à l'aéroport ${airport}. Livraison gratuite au terminal. Réservation en ligne, gain de temps, prix dès 200 DH/jour.`,
   keywords: `location voiture aéroport ${citySlug}, ${airport} location auto, louer voiture terminal ${city}`,
   h1: `Location de Voiture à l'Aéroport ${airport}`,
-  heroSubtitle: `Livraison gratuite au terminal • Pas de file d'attente • Dès 150 DH/jour`,
+  heroSubtitle: `Livraison gratuite au terminal • Pas de file d'attente • Dès 200 DH/jour`,
   category: {
     label: "Locations Aéroports",
     href: "/nos-services?category=aeroport"
@@ -23,7 +23,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
     sections: [
       {
         title: `Pourquoi Louer à l'Aéroport ${airport} avec Benatna ?`,
-        content: `Les comptoirs de location dans les aéroports pratiquent des tarifs majorés (souvent 30-50% plus chers qu'en ville) en raison des frais de concession élevés qu'ils paient aux gestionnaires aéroportuaires. Benatna contourne ce système en vous livrant votre voiture gratuitement directement au terminal, vous faisant bénéficier de nos tarifs ville (dès 150 DH/jour pour une citadine). Plus besoin de faire la queue pendant 30-60 minutes aux comptoirs bondés : nous vous retrouvons dans le hall des arrivées avec votre véhicule prêt à partir. C'est particulièrement apprécié lors des arrivées tardives (vols de nuit) ou matinales où vous voulez gagner du temps. Notre service fonctionne 24h/24 et 7j/7 pour s'adapter à tous les horaires de vol. De plus, contrairement aux loueurs d'aéroport qui sous-traitent parfois la livraison du véhicule (navettes vers des parkings éloignés), nous vous remettons les clés directement au terminal : vous êtes sur la route 15 minutes après avoir récupéré vos bagages.`
+        content: `Les comptoirs de location dans les aéroports pratiquent des tarifs majorés (souvent 30-50% plus chers qu'en ville) en raison des frais de concession élevés qu'ils paient aux gestionnaires aéroportuaires. Benatna contourne ce système en vous livrant votre voiture gratuitement directement au terminal, vous faisant bénéficier de nos tarifs ville (dès 200 DH/jour pour une citadine). Plus besoin de faire la queue pendant 30-60 minutes aux comptoirs bondés : nous vous retrouvons dans le hall des arrivées avec votre véhicule prêt à partir. C'est particulièrement apprécié lors des arrivées tardives (vols de nuit) ou matinales où vous voulez gagner du temps. Notre service fonctionne 24h/24 et 7j/7 pour s'adapter à tous les horaires de vol. De plus, contrairement aux loueurs d'aéroport qui sous-traitent parfois la livraison du véhicule (navettes vers des parkings éloignés), nous vous remettons les clés directement au terminal : vous êtes sur la route 15 minutes après avoir récupéré vos bagages.`
       },
       {
         title: `Procédure de Récupération à l'Aéroport ${airport}`,
@@ -31,7 +31,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
       },
       {
         title: `Types de Véhicules Disponibles à l'Aéroport ${airport}`,
-        content: `Toute notre flotte est disponible en livraison aéroport. Citadines économiques (Clio, Sandero, 208) à 150-180 DH/jour : idéales si vous voyagez léger, parfaites pour ${city} et ses alentours, consommation réduite. Berlines confortables (Corolla, Jetta) à 250-300 DH/jour : recommandées pour familles avec bagages ou longs trajets vers autres villes, climatisation efficace, coffre spacieux. SUV tout-terrain (Duster, Qashqai, Tiguan) à 350-450 DH/jour : essentiels si vous prévoyez des excursions hors des sentiers battus, dans les montagnes ou le désert, hauteur de caisse adaptée aux pistes. Véhicules premium (Mercedes, BMW, Audi) à 800-1000 DH/jour : image professionnelle pour déplacements d'affaires ou occasions spéciales. Tous les véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise. Si vous avez des besoins spécifiques (siège bébé, GPS, chaînes neige en hiver), précisez-le lors de la réservation : nous préparons tout à l'avance.`
+        content: `Toute notre flotte est disponible en livraison aéroport. Citadines économiques (Clio, Sandero, 208) à 200-280 DH/jour : idéales si vous voyagez léger, parfaites pour ${city} et ses alentours, consommation réduite. Berlines confortables (Corolla, Jetta) à 250-300 DH/jour : recommandées pour familles avec bagages ou longs trajets vers autres villes, climatisation efficace, coffre spacieux. SUV tout-terrain (Duster, Qashqai, Tiguan) à 350-450 DH/jour : essentiels si vous prévoyez des excursions hors des sentiers battus, dans les montagnes ou le désert, hauteur de caisse adaptée aux pistes. Véhicules premium (Mercedes, BMW, Audi) à 800-1000 DH/jour : image professionnelle pour déplacements d'affaires ou occasions spéciales. Tous les véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise. Si vous avez des besoins spécifiques (siège bébé, GPS, chaînes neige en hiver), précisez-le lors de la réservation : nous préparons tout à l'avance.`
       }
     ],
     faq: [
@@ -61,7 +61,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   },
   relatedServices: citySlug === 'casablanca' ? [
     { title: 'Location Jeune Conducteur Casablanca', description: 'Dès 21 ans avec supplément raisonnable. Assurance adaptée incluse.', link: '/location-jeune-conducteur-casablanca' },
-    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dégressifs dès 3500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dès 5 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 avec recharge gratuite à nos bornes.', link: '/location-voiture-electrique-casablanca' }
   ] : citySlug === 'marrakech' ? [
     { title: 'Location Weekend Marrakech', description: 'Offre spéciale weekend : 2 jours facturés pour 3 jours de location.', link: '/location-weekend-marrakech' },
@@ -151,7 +151,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
   slug: `location-longue-duree-${citySlug}`,
   title: `Location Longue Durée ${city}`,
   metaTitle: `Location Voiture Longue Durée ${city} - Tarifs Mensuels | Benatna`,
-  metaDescription: `Location de voiture longue durée à ${city}. Tarifs dégressifs dès 3 mois. Entretien et assurance inclus. Dès 3500 DH/mois tout compris.`,
+  metaDescription: `Location de voiture longue durée à ${city}. Entretien et assurance inclus. Dès 5 500 DH/mois tout compris.`,
   keywords: `location longue durée ${citySlug}, leasing voiture ${city}, location mensuelle auto`,
   h1: `Location de Voiture Longue Durée à ${city}`,
   heroSubtitle: 'Tarifs mensuels • Entretien inclus • Flexibilité maximale',
@@ -164,7 +164,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     sections: [
       {
         title: 'Tarifs Longue Durée Dégressifs',
-        content: `Catégorie Économique (Sandero, Clio) : 3 mois = 4200 DH/mois, 6 mois = 3800 DH/mois, 12 mois = 3500 DH/mois. Soit jusqu'à 700 DH d'économie par mois sur un an vs location classique. Catégorie Berline (Corolla, Jetta) : 3 mois = 5500 DH/mois, 6 mois = 5000 DH/mois, 12 mois = 4500 DH/mois. Idéale pour usage professionnel ou famille. Catégorie SUV (Duster, Qashqai) : 3 mois = 6500 DH/mois, 6 mois = 6000 DH/mois, 12 mois = 5500 DH/mois. Robustesse et confort pour longs trajets. Catégorie Premium (Mercedes, BMW) : Sur devis selon modèle et durée. À partir de 12 000 DH/mois pour Classe C ou Série 3. Tous ces tarifs incluent : assurance tous risques (0 DH franchise), entretien complet selon planning constructeur, assistance et dépannage 24/7, remplacement véhicule en cas de panne (sous 4h), kilométrage illimité (pas de surcoût même si vous faites 5000 km/mois). Modes de paiement : mensuel par prélèvement automatique (carte ou virement), ou paiement trimestriel avec 5% de remise supplémentaire.`
+        content: `Catégorie Économique (Sandero) : 5 500 DH/mois, tout compris. Catégorie Économique (Clio manuelle) : 6 000 DH/mois. Clio automatique : 6 500 DH/mois. Catégorie Berline (Corolla, Jetta) : 9 500 DH/mois. Idéale pour usage professionnel ou famille. Catégorie SUV (Duster, Qashqai) : 10 500 DH/mois. Robustesse et confort pour longs trajets. Catégorie Premium (Mercedes, BMW) : Sur devis selon modèle et durée. À partir de 15 000 DH/mois pour Classe C ou Série 3. Tous ces tarifs incluent : assurance tous risques (0 DH franchise), entretien complet selon planning constructeur, assistance et dépannage 24/7, remplacement véhicule en cas de panne (sous 4h), kilométrage illimité (pas de surcoût même si vous faites 5000 km/mois). Modes de paiement : mensuel par prélèvement automatique (carte ou virement).`
       },
       {
         title: 'Ce Qui Est Inclus dans Nos Forfaits Longue Durée',
@@ -172,7 +172,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
       },
       {
         title: 'Qui Choisit la Location Longue Durée ?',
-        content: `Expatriés et détachés : Vous travaillez au Maroc pour une mission de 6 mois à 2 ans ? La location longue durée évite l'achat d'un véhicule local, l'immatriculation complexe et surtout la revente difficile au moment du départ. Nos clients expatriés apprécient la flexibilité : un mois de préavis suffit si votre mission est écourtée. Nous gérons aussi la facturation mensuelle avec TVA récupérable pour les entreprises. Entrepreneurs et startups : Optimisez votre trésorerie ! Au lieu d'immobiliser 200 000 DH dans l'achat d'un véhicule, payez 4500 DH/mois charges comprises. Les mensualités sont déductibles fiscalement comme charge d'exploitation. Plus besoin de budget entretien surprise (pneus, révisions) : tout est inclus. Particuliers sans apport : Pas les 50 000 DH d'apport pour un crédit auto ? La location longue durée ne demande qu'un mois de caution (remboursable à la restitution). Vous roulez immédiatement dans un véhicule récent sans endettement bancaire. Travailleurs saisonniers : Vous travaillez 6 mois à ${city} puis 6 mois ailleurs ? Nos contrats de 6 mois avec possibilité de gel sont parfaits. Pas besoin de laisser un véhicule dormir dans un garage pendant votre absence.`
+        content: `Expatriés et détachés : Vous travaillez au Maroc pour une mission de 6 mois à 2 ans ? La location longue durée évite l'achat d'un véhicule local, l'immatriculation complexe et surtout la revente difficile au moment du départ. Nos clients expatriés apprécient la flexibilité : un mois de préavis suffit si votre mission est écourtée. Nous gérons aussi la facturation mensuelle avec TVA récupérable pour les entreprises. Entrepreneurs et startups : Optimisez votre trésorerie ! Au lieu d'immobiliser 200 000 DH dans l'achat d'un véhicule, payez 6 000 DH/mois charges comprises. Les mensualités sont déductibles fiscalement comme charge d'exploitation. Plus besoin de budget entretien surprise (pneus, révisions) : tout est inclus. Particuliers sans apport : Pas les 50 000 DH d'apport pour un crédit auto ? La location longue durée ne demande qu'un mois de caution (remboursable à la restitution). Vous roulez immédiatement dans un véhicule récent sans endettement bancaire. Travailleurs saisonniers : Vous travaillez 6 mois à ${city} puis 6 mois ailleurs ? Nos contrats flexibles avec possibilité de gel sont parfaits. Pas besoin de laisser un véhicule dormir dans un garage pendant votre absence.`
       }
     ],
     faq: [
@@ -205,7 +205,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle, recharge gratuite.', link: '/location-voiture-electrique-casablanca' },
     { title: 'Location Utilitaire Casablanca', description: 'Fiat Ducato, Mercedes Sprinter en location mensuelle.', link: '/location-utilitaire-demenagement-casablanca' }
   ] : [
-    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca avec tarifs dégressifs dès 3500 DH/mois.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca dès 5 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
     { title: 'Location Jeune Conducteur Marrakech', description: 'Formules longue durée adaptées aux jeunes conducteurs.', link: '/location-jeune-conducteur-marrakech' },
     { title: 'Location SUV Atlas', description: 'SUV 4x4 en forfait mensuel pour usage régulier montagne.', link: '/location-suv-atlas' }
   ],
@@ -232,7 +232,7 @@ const createJeuneConducteurPage = (city: string, citySlug: string): LongTailPage
     sections: [
       {
         title: 'Conditions et Tarifs Jeune Conducteur',
-        content: `Âge minimum : 21 ans pour berlines et SUV, 20 ans pour citadines (Clio, Sandero, 208), 25 ans pour véhicules premium (Mercedes, BMW, Audi). Permis : Minimum 1 an de permis (2 ans pour SUV et premium), permis probatoire accepté, carte rose jeune conducteur pas obligatoire au Maroc. Supplément jeune conducteur : 50 DH/jour pour 21-24 ans (vs 150-300 DH chez les concurrents), 0 DH à partir de 25 ans. Ce supplément couvre l'assurance spécifique jeune conducteur avec surprime. Caution : 3000 DH préautorisation carte bancaire pour 21-24 ans (bloquée mais non débitée), 2000 DH à partir de 25 ans, débloquée 7 jours après restitution si aucun dommage. Exemple de tarif réel jeune conducteur : Clio 3 jours = (150 DH/jour + 50 DH supplément jeune) × 3 = 600 DH total. Chez les concurrents : (200 DH/jour + 200 DH supplément) × 3 = 1200 DH. Vous économisez 600 DH ! Documents requis : Carte d\'identité nationale ou passeport, permis de conduire (recto-verso en couleur), justificatif de domicile de moins de 3 mois (facture eau/électricité ou attestation hébergement), carte bancaire au nom du locataire pour caution.`
+        content: `Âge minimum : 21 ans pour berlines et SUV, 20 ans pour citadines (Clio, Sandero, 208), 25 ans pour véhicules premium (Mercedes, BMW, Audi). Permis : Minimum 1 an de permis (2 ans pour SUV et premium), permis probatoire accepté, carte rose jeune conducteur pas obligatoire au Maroc. Supplément jeune conducteur : 50 DH/jour pour 21-24 ans (vs 150-300 DH chez les concurrents), 0 DH à partir de 25 ans. Ce supplément couvre l'assurance spécifique jeune conducteur avec surprime. Caution : 3000 DH préautorisation carte bancaire pour 21-24 ans (bloquée mais non débitée), 2000 DH à partir de 25 ans, débloquée 7 jours après restitution si aucun dommage. Exemple de tarif réel jeune conducteur : Clio 3 jours = (280 DH/jour + 50 DH supplément jeune) × 3 = 990 DH total. Chez les concurrents : (350 DH/jour + 200 DH supplément) × 3 = 1650 DH. Vous économisez 660 DH ! Documents requis : Carte d\'identité nationale ou passeport, permis de conduire (recto-verso en couleur), justificatif de domicile de moins de 3 mois (facture eau/électricité ou attestation hébergement), carte bancaire au nom du locataire pour caution.`
       },
       {
         title: 'Assurance et Couverture Jeune Conducteur',

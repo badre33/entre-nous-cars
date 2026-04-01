@@ -49,10 +49,10 @@ export const longTailPages: LongTailPageConfig[] = [
     slug: "location-voiture-sans-carte-credit-marrakech",
     title: "Location Voiture Sans Carte Crédit Marrakech",
     metaTitle: "Location Voiture Sans Carte de Crédit à Marrakech | Benatna",
-    metaDescription: "Louez une voiture à Marrakech sans carte de crédit avec Benatna. Paiement flexible en espèces ou virement. Prix dès 150 DH/jour. Réservation simple et rapide.",
+    metaDescription: "Louez une voiture à Marrakech sans carte de crédit avec Benatna. Paiement flexible en espèces ou virement. Prix dès 200 DH/jour. Réservation simple et rapide.",
     keywords: "location voiture sans carte crédit marrakech, louer auto sans cb marrakech, location véhicule espèces marrakech",
     h1: "Location de Voiture Sans Carte de Crédit à Marrakech",
-    heroSubtitle: "Louez votre véhicule facilement • Paiement en espèces accepté • Dès 150 DH/jour",
+    heroSubtitle: "Louez votre véhicule facilement • Paiement en espèces accepté • Dès 200 DH/jour",
     category: {
       label: "Formules Flexibles",
       href: "/nos-services"
@@ -70,7 +70,7 @@ export const longTailPages: LongTailPageConfig[] = [
         },
         {
           title: "Véhicules Disponibles en Location Sans Carte de Crédit à Marrakech",
-          content: "Tous nos véhicules sont disponibles en location sans carte de crédit. Notre flotte à Marrakech comprend plus de 50 voitures récentes et bien entretenues. Pour les petits budgets et la conduite urbaine, nous proposons des citadines économiques comme la Renault Clio, Dacia Sandero, Peugeot 208 ou Fiat 500 à partir de 150 DH/jour. Ces véhicules sont parfaits pour circuler dans Marrakech, se garer facilement près de la Médina et consomment peu de carburant. Pour les familles ou groupes, nos berlines spacieuses (Toyota Corolla, Volkswagen Jetta, Skoda Octavia) offrent confort et espace bagages à partir de 250 DH/jour. Si vous prévoyez des excursions vers l'Atlas, Paradise Valley ou le désert d'Agafay, nos SUV (Dacia Duster, Nissan Qashqai, Renault Captur) sont recommandés à partir de 350 DH/jour grâce à leur garde au sol élevée et leur robustesse sur pistes. Pour les occasions spéciales (mariages, événements professionnels, voyage de luxe), nous proposons aussi des véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à partir de 800 DH/jour. Tous nos véhicules sont climatisés, assurés tous risques et bénéficient d'un kilométrage illimité. L'âge minimum pour louer est de 21 ans avec au moins 1 an de permis."
+          content: "Tous nos véhicules sont disponibles en location sans carte de crédit. Notre flotte à Marrakech comprend plus de 50 voitures récentes et bien entretenues. Pour les petits budgets et la conduite urbaine, nous proposons des citadines économiques comme la Renault Clio, Dacia Sandero, Peugeot 208 ou Fiat 500 à partir de 200 DH/jour. Ces véhicules sont parfaits pour circuler dans Marrakech, se garer facilement près de la Médina et consomment peu de carburant. Pour les familles ou groupes, nos berlines spacieuses (Toyota Corolla, Volkswagen Jetta, Skoda Octavia) offrent confort et espace bagages à partir de 250 DH/jour. Si vous prévoyez des excursions vers l'Atlas, Paradise Valley ou le désert d'Agafay, nos SUV (Dacia Duster, Nissan Qashqai, Renault Captur) sont recommandés à partir de 350 DH/jour grâce à leur garde au sol élevée et leur robustesse sur pistes. Pour les occasions spéciales (mariages, événements professionnels, voyage de luxe), nous proposons aussi des véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à partir de 800 DH/jour. Tous nos véhicules sont climatisés, assurés tous risques et bénéficient d'un kilométrage illimité. L'âge minimum pour louer est de 21 ans avec au moins 1 an de permis."
         },
         {
           title: "Avantages de Louer Sans Carte de Crédit à Marrakech",
@@ -120,10 +120,10 @@ export const longTailPages: LongTailPageConfig[] = [
     slug: "location-voiture-sans-carte-credit-casablanca",
     title: "Location Voiture Sans Carte Crédit Casablanca",
     metaTitle: "Location Voiture Sans Carte de Crédit Casablanca | Benatna",
-    metaDescription: "Louer une voiture à Casablanca sans carte bancaire. Paiement en espèces ou virement. Aéroport Mohammed V, centre-ville. Dès 150 DH/jour sans caution CB.",
+    metaDescription: "Louer une voiture à Casablanca sans carte bancaire. Paiement en espèces ou virement. Aéroport Mohammed V, centre-ville. Dès 200 DH/jour sans caution CB.",
     keywords: "location voiture sans carte crédit casablanca, louer auto sans cb casa, location véhicule espèces casablanca",
     h1: "Location de Voiture Sans Carte de Crédit à Casablanca",
-    heroSubtitle: "Aéroport Mohammed V • Centre-ville • Paiement flexible • Dès 150 DH/jour",
+    heroSubtitle: "Aéroport Mohammed V • Centre-ville • Paiement flexible • Dès 200 DH/jour",
     category: {
       label: "Formules Flexibles",
       href: "/nos-services"
@@ -133,7 +133,7 @@ export const longTailPages: LongTailPageConfig[] = [
       sections: [
         {
           title: "Location Sans Carte de Crédit à l'Aéroport Mohammed V",
-          content: "L'aéroport international Mohammed V de Casablanca est la principale porte d'entrée du Maroc avec plus de 10 millions de passagers par an. Benatna vous propose un service de livraison gratuite de votre véhicule directement au terminal des arrivées, sans besoin de carte de crédit. Après avoir récupéré vos bagages, vous nous contactez et notre agent vous retrouve dans le hall avec votre véhicule réservé. Le paiement s'effectue en espèces (dirhams marocains ou euros) ou si vous avez effectué un virement bancaire avant votre arrivée, vous recevez simplement les clés et les documents du véhicule. Cette solution est particulièrement appréciée des voyageurs d'affaires qui arrivent tard le soir ou tôt le matin et ne veulent pas perdre de temps dans les files d'attente des agences de location traditionnelles de l'aéroport. De plus, nos tarifs sont plus compétitifs que ceux pratiqués dans les kiosques des terminaux : à partir de 150 DH/jour pour une citadine contre 250-300 DH dans les agences d'aéroport. La procédure est rapide (15 minutes maximum) et vous pouvez immédiatement prendre la route vers votre destination à Casablanca, que ce soit le quartier d'affaires de Sidi Maarouf, les hôtels de la corniche Ain Diab, le centre-ville ou les zones industrielles."
+          content: "L'aéroport international Mohammed V de Casablanca est la principale porte d'entrée du Maroc avec plus de 10 millions de passagers par an. Benatna vous propose un service de livraison gratuite de votre véhicule directement au terminal des arrivées, sans besoin de carte de crédit. Après avoir récupéré vos bagages, vous nous contactez et notre agent vous retrouve dans le hall avec votre véhicule réservé. Le paiement s'effectue en espèces (dirhams marocains ou euros) ou si vous avez effectué un virement bancaire avant votre arrivée, vous recevez simplement les clés et les documents du véhicule. Cette solution est particulièrement appréciée des voyageurs d'affaires qui arrivent tard le soir ou tôt le matin et ne veulent pas perdre de temps dans les files d'attente des agences de location traditionnelles de l'aéroport. De plus, nos tarifs sont plus compétitifs que ceux pratiqués dans les kiosques des terminaux : à partir de 200 DH/jour pour une citadine contre 250-300 DH dans les agences d'aéroport. La procédure est rapide (15 minutes maximum) et vous pouvez immédiatement prendre la route vers votre destination à Casablanca, que ce soit le quartier d'affaires de Sidi Maarouf, les hôtels de la corniche Ain Diab, le centre-ville ou les zones industrielles."
         },
         {
           title: "Pourquoi Casablanca Nécessite une Voiture de Location",

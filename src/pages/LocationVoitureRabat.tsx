@@ -101,7 +101,7 @@ const LocationVoitureRabat = () => {
         <title>Location Voiture Rabat | Agences Locales - Benatna</title>
         <meta 
           name="description" 
-          content="Louez une voiture à Rabat dès 150 DH/jour. Livraison aéroport Rabat-Salé, agences locales vérifiées, processus 100% digital. Sans frais cachés." 
+          content="Louez une voiture à Rabat dès 200 DH/jour. Livraison aéroport Rabat-Salé, agences locales vérifiées, processus 100% digital. Sans frais cachés." 
         />
         <link rel="canonical" href="https://benatna.ma/location-voiture-rabat" />
         <meta property="og:title" content="Location Voiture Rabat | Agences Locales - Benatna" />

@@ -62,7 +62,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Où louer :** Aéroport Mohammed V (terminal 1 et 2), centre-ville Mers Sultan, quartier Aïn Diab. Réservez dès maintenant : la demande sera énorme pendant la CAN.",
       
-      "**Tarifs CAN 2025 :** Citadine 250-350 MAD/jour, SUV 400-600 MAD/jour, Monospace 450-700 MAD/jour. Tarifs dégressifs à partir de 7 jours.",
+      "**Tarifs CAN 2025 :** Citadine 280-400 MAD/jour, SUV 450-700 MAD/jour, Monospace 450-700 MAD/jour. Kilométrage illimité inclus.",
       
       "### Rabat - Complexe Sportif Prince Moulay Abdellah (52 000 places)",
       "La capitale administrative du Maroc dispose d'un complexe sportif ultramoderne. Le stade principal, entièrement rénové, accueillera les matchs de la phase de groupes et potentiellement une demi-finale.",
@@ -73,7 +73,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Où louer :** Aéroport Rabat-Salé, gare Rabat Agdal, Avenue Mohammed V centre-ville. La concurrence est forte à Rabat : les prix restent compétitifs.",
       
-      "**Tarifs CAN 2025 :** Citadine 220-320 MAD/jour, Berline 350-500 MAD/jour, SUV 380-580 MAD/jour. Kilométrage illimité inclus.",
+      "**Tarifs CAN 2025 :** Citadine 280-400 MAD/jour, Berline 450-600 MAD/jour, SUV 450-700 MAD/jour. Kilométrage illimité inclus.",
       
       "### Marrakech - Stade de Marrakech (45 000 places)",
       "La perle du Sud accueillera plusieurs matchs de groupes dans son stade récent. Profitez-en pour explorer la médina, les souks, le jardin Majorelle et les montagnes de l'Atlas toutes proches.",
@@ -84,7 +84,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Où louer :** Aéroport Marrakech Menara (le plus pratique), Place Jemaa el-Fna, quartier Guéliz, Hivernage. Forte demande touristique : réservez tôt.",
       
-      "**Tarifs CAN 2025 :** Citadine 280-380 MAD/jour, 4x4 450-700 MAD/jour, Cabriolet 500-800 MAD/jour. Réductions groupes disponibles.",
+      "**Tarifs CAN 2025 :** Citadine 280-400 MAD/jour, 4x4 450-700 MAD/jour, Cabriolet 500-800 MAD/jour. Réductions groupes disponibles.",
       
       "### Agadir - Stade d'Agadir (45 000 places)",
       "Ville balnéaire par excellence, Agadir combine football et détente. Son climat doux en hiver (20-25°C) et ses plages en font une destination idéale pour prolonger votre séjour après les matchs.",
@@ -95,7 +95,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Où louer :** Aéroport Agadir Al Massira, Boulevard Hassan II centre-ville, marina d'Agadir. Prix généralement plus compétitifs qu'à Marrakech.",
       
-      "**Tarifs CAN 2025 :** Citadine 200-300 MAD/jour, SUV 350-550 MAD/jour, Monospace familial 400-600 MAD/jour. Promos longue durée fréquentes.",
+      "**Tarifs CAN 2025 :** Citadine 280-400 MAD/jour, SUV 450-700 MAD/jour, Monospace familial 400-600 MAD/jour. Kilométrage illimité inclus.",
       
       "### Fès - Stade de Fès (45 000 places)",
       "La ville impériale aux 1 000 ans d'histoire accueille la CAN 2025 dans son stade moderne. Entre deux matchs, explorez la plus grande médina médiévale du monde, classée UNESCO.",
@@ -106,7 +106,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Où louer :** Aéroport Fès-Saïss, gare ONCF Fès Ville, Avenue Hassan II. Offre moins dense qu'à Casablanca : réservez à l'avance.",
       
-      "**Tarifs CAN 2025 :** Citadine 210-310 MAD/jour, Berline confort 330-480 MAD/jour, SUV 370-570 MAD/jour. GPS recommandé pour la médina.",
+      "**Tarifs CAN 2025 :** Citadine 280-400 MAD/jour, Berline confort 450-600 MAD/jour, SUV 450-700 MAD/jour. GPS recommandé pour la médina.",
       
       "### Tanger - Stade Ibn Batouta (45 000 places)",
       "Porte de l'Afrique face à l'Europe, Tanger combine modernité et charme méditerranéen. Son nouveau stade ultramoderne accueillera plusieurs rencontres passionnantes.",
@@ -2653,7 +2653,7 @@ export const blogArticles: BlogArticle[] = [
       
       "⚠️ **À éviter** :\n❌ Stationnement sauvage près des clubs (risque d'amende 300 DH)\n❌ Week-end après 18h : forte affluence, prévoir +30 min parking\n❌ Laisser objets de valeur visibles dans voiture",
       
-      "Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 150 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà."
+      "Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 200 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà."
     ]
   },
   {
@@ -2706,7 +2706,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Infos :**\n- 🅿️ Parking gratuit premières 2h\n- 🕐 Ouvert 10h-22h\n- 🍽️ 20+ restaurants\n- 🏢 Tours iconiques Casablanca",
       
-      "Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 150 DH/jour."
+      "Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 200 DH/jour."
     ]
   },
   {
