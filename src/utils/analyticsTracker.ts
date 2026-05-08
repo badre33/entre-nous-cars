@@ -104,13 +104,24 @@ class AnalyticsTracker {
         const element = target.closest('button, a') as HTMLElement;
         const text = element.textContent?.trim().substring(0, 50) || '';
         const href = element.getAttribute('href') || '';
+        const ariaLabel = (element.getAttribute('aria-label') || '').toLowerCase();
+        const dataAction = (element.getAttribute('data-action') || '').toLowerCase();
+        const className = (element.className || '').toString().toLowerCase();
+        const haystack = `${href} ${ariaLabel} ${dataAction} ${className} ${text.toLowerCase()}`;
         
-        // Track WhatsApp clicks
-        if (href.includes('whatsapp') || href.includes('wa.me')) {
+        // Track WhatsApp clicks (covers <a href>, window.open handlers, aria-labels, data-action, class names, text)
+        const isWhatsApp =
+          href.includes('whatsapp') ||
+          href.includes('wa.me') ||
+          ariaLabel.includes('whatsapp') ||
+          dataAction.includes('whatsapp') ||
+          className.includes('whatsapp') ||
+          /\bwhatsapp\b/i.test(text);
+        if (isWhatsApp) {
           this.trackEvent({
             eventType: 'conversion',
             eventName: 'whatsapp_click',
-            properties: { button_text: text, href: href.substring(0, 200) }
+            properties: { button_text: text, href: href.substring(0, 200), source_attr: ariaLabel ? 'aria' : (href ? 'href' : 'text') }
           });
         }
         
@@ -123,11 +134,12 @@ class AnalyticsTracker {
           });
         }
         
-        // Track CTA buttons
-        if (element.classList.contains('cta') || 
+        // Track CTA buttons (skip if already counted as WhatsApp to avoid double counting)
+        if (!isWhatsApp && (
+            element.classList.contains('cta') || 
             text.toLowerCase().includes('réserver') ||
             text.toLowerCase().includes('louer') ||
-            text.toLowerCase().includes('voir')) {
+            text.toLowerCase().includes('voir'))) {
           this.trackEvent({
             eventType: 'marketing',
             eventName: 'cta_click',
@@ -135,6 +147,33 @@ class AnalyticsTracker {
           });
         }
       }
+    });
+
+    // Catch-all: intercept window.open to track any programmatic WhatsApp opening
+    try {
+      const originalOpen = window.open.bind(window);
+      window.open = ((url?: string | URL, target?: string, features?: string) => {
+        try {
+          const urlStr = typeof url === 'string' ? url : url?.toString() || '';
+          if (urlStr.includes('wa.me') || urlStr.includes('whatsapp')) {
+            this.trackEvent({
+              eventType: 'conversion',
+              eventName: 'whatsapp_click',
+              properties: { href: urlStr.substring(0, 200), source_attr: 'window_open' }
+            });
+          }
+        } catch (_) { /* noop */ }
+        return originalOpen(url as string, target, features);
+      }) as typeof window.open;
+    } catch (_) { /* noop */ }
+  }
+
+  // Explicit tracker for code paths that build the WhatsApp URL programmatically
+  trackWhatsAppClick(context?: Record<string, unknown>) {
+    this.trackEvent({
+      eventType: 'conversion',
+      eventName: 'whatsapp_click',
+      properties: { source_attr: 'explicit', ...(context || {}) }
     });
   }
   
