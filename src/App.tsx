@@ -12,6 +12,8 @@ import { MetaPixel } from "@/components/MetaPixel";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
 import { IntelligentRoutePrefetcher } from "@/components/IntelligentRoutePrefetcher";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import React, { lazy, Suspense, useEffect, useState, ComponentType } from "react";
 
 // Import critical navigation component directly to avoid dependency chain
@@ -206,6 +208,8 @@ const App = () => {
             <MetaPixel />
             <AnalyticsTrackerComponent />
             <IntelligentRoutePrefetcher />
+            <Analytics />
+            <SpeedInsights />
             <LanguageProvider>
               <ComparisonProvider>
                 <Toaster />

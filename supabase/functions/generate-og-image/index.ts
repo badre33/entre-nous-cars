@@ -6,15 +6,13 @@ import { z } from "https://deno.land/x/zod@v3.22.4/mod.ts";
 const ALLOWED_ORIGINS = [
   "https://benatna.ma",
   "https://www.benatna.ma", 
-  "https://lovable.dev",
-  "https://id-preview--oaajsamymjhxggwxdfwn.lovable.app",
   "http://localhost:5173",
   "http://localhost:3000"
 ];
 
 function getCorsHeaders(origin: string | null): Record<string, string> {
   const allowedOrigin = origin && ALLOWED_ORIGINS.some(allowed => 
-    origin === allowed || origin.endsWith('.lovable.app') || origin.endsWith('.lovable.dev')
+    origin === allowed || origin.endsWith('.vercel.app')
   ) ? origin : ALLOWED_ORIGINS[0];
   
   return {
