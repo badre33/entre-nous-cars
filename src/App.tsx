@@ -11,6 +11,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { MetaPixel } from "@/components/MetaPixel";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
+import { CanonicalUrl } from "@/components/CanonicalUrl";
 import { IntelligentRoutePrefetcher } from "@/components/IntelligentRoutePrefetcher";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
@@ -203,6 +204,7 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
           <BrowserRouter>
+            <CanonicalUrl />
             <OrganizationSchema />
             <SitelinksSearchBoxSchema />
             <MetaPixel />
