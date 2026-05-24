@@ -141,29 +141,39 @@ const AnalyticsTrackerComponent = () => {
 };
 
 
-// Runtime dynamic import loader - loads BackToTop only
+// Runtime dynamic import loader - loads BackToTop + WhatsAppButton
 const DeferredComponents = () => {
   const [BackToTop, setBackToTop] = useState<ComponentType | null>(null);
+  const [WhatsApp, setWhatsApp] = useState<ComponentType | null>(null);
 
   useEffect(() => {
-    const loadBackToTop = async () => {
-      const bttModule = await import("@/components/BackToTop");
+    const loadDeferred = async () => {
+      const [bttModule, waModule] = await Promise.all([
+        import("@/components/BackToTop"),
+        import("@/components/WhatsAppButton"),
+      ]);
       setBackToTop(() => bttModule.BackToTop);
+      setWhatsApp(() => waModule.default);
     };
 
-    // Use requestIdleCallback to start loading after idle
+    // WhatsApp is critical for conversion — load 1s after idle (vs 3s for BackToTop only)
     if ('requestIdleCallback' in window) {
       const idleId = requestIdleCallback(() => {
-        setTimeout(loadBackToTop, 3000);
-      }, { timeout: 5000 });
+        setTimeout(loadDeferred, 1000);
+      }, { timeout: 3000 });
       return () => cancelIdleCallback(idleId);
     } else {
-      const timer = setTimeout(loadBackToTop, 3000);
+      const timer = setTimeout(loadDeferred, 1500);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  return BackToTop ? <BackToTop /> : null;
+  return (
+    <>
+      {BackToTop && <BackToTop />}
+      {WhatsApp && <WhatsApp />}
+    </>
+  );
 };
 
 const App = () => {
