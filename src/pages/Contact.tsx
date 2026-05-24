@@ -112,14 +112,19 @@ const Contact = () => {
                         description: "Nous vous répondrons dans les plus brefs délais",
                       });
                       
+                      // Capture form ref BEFORE setTimeout to avoid TypeError:
+                      // e.currentTarget becomes null after React pools the event.
+                      const formEl = e.currentTarget;
                       setTimeout(() => {
                         setIsSubmitting(false);
                         window.open(
                           `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,
                           '_blank'
                         );
-                        // Reset form
-                        e.currentTarget.reset();
+                        // Reset form (guarded — formEl might be detached if user navigated away)
+                        if (formEl && typeof formEl.reset === 'function') {
+                          formEl.reset();
+                        }
                       }, 1000);
                     } catch (error) {
                       setIsSubmitting(false);

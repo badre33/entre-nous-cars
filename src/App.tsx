@@ -140,27 +140,6 @@ const AnalyticsTrackerComponent = () => {
   return null;
 };
 
-// Crisp Chat - loaded deferred
-const CrispLoader = () => {
-  const [CrispChat, setCrispChat] = useState<ComponentType | null>(null);
-
-  useEffect(() => {
-    const loadCrisp = async () => {
-      const module = await import("@/components/CrispChat");
-      setCrispChat(() => module.CrispChat);
-    };
-
-    if ('requestIdleCallback' in window) {
-      const idleId = requestIdleCallback(() => loadCrisp(), { timeout: 5000 });
-      return () => cancelIdleCallback(idleId);
-    } else {
-      const timer = setTimeout(loadCrisp, 4000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  return CrispChat ? <CrispChat /> : null;
-};
 
 // Runtime dynamic import loader - loads BackToTop only
 const DeferredComponents = () => {
@@ -290,7 +269,6 @@ const App = () => {
                 </Suspense>
                 <BottomNavigation />
                 <DeferredComponents />
-                <CrispLoader />
               </ComparisonProvider>
             </LanguageProvider>
           </BrowserRouter>
