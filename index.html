@@ -22,6 +22,29 @@
     </script>
     <!-- End Google Tag Manager -->
     
+    <!-- Google Analytics 4 (gtag.js) - Deferred for better TTI -->
+    <script>
+      function loadGA4() {
+        if (window.ga4Loaded) return;
+        window.ga4Loaded = true;
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-W46ETH2KPN';
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-W46ETH2KPN', { send_page_view: true });
+      }
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(loadGA4, { timeout: 3000 });
+      } else {
+        setTimeout(loadGA4, 2000);
+      }
+    </script>
+    <!-- End Google Analytics 4 -->
+    
     <!-- ===== MOBILE-FIRST OPTIMIZATION (Critical for +15% mobile ranking) ===== -->
     
     <!-- Viewport - CRITICAL for mobile-first indexing -->
