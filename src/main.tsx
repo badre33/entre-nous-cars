@@ -1,4 +1,4 @@
-// ChunkErrorHandler doit être importé en premier pour intercepter les erreurs de chargement
+// IMPORTANT: chunk error handler imported FIRST to intercept loading errors
 import './utils/chunkErrorHandler';
 import './utils/versionCheck';
 
@@ -11,7 +11,9 @@ if (SENTRY_DSN && import.meta.env.PROD) {
   Sentry.init({
     dsn: SENTRY_DSN,
     environment: import.meta.env.MODE,
+    // Performance monitoring — adjust if quota becomes an issue
     tracesSampleRate: 0.1,
+    // Session Replay — captures user sessions when errors happen (very useful)
     replaysSessionSampleRate: 0.05,
     replaysOnErrorSampleRate: 1.0,
     integrations: [
@@ -21,11 +23,15 @@ if (SENTRY_DSN && import.meta.env.PROD) {
         blockAllMedia: false,
       }),
     ],
+    // Filter out noisy errors
     ignoreErrors: [
+      // Browser extensions
       /chrome-extension:\/\//,
       /moz-extension:\/\//,
+      // ResizeObserver warnings (browser quirk, not actionable)
       'ResizeObserver loop limit exceeded',
       'ResizeObserver loop completed with undelivered notifications',
+      // Network errors that aren't our fault
       'NetworkError when attempting to fetch resource',
       'Failed to fetch',
     ],
@@ -33,24 +39,16 @@ if (SENTRY_DSN && import.meta.env.PROD) {
 }
 
 import React from "react";
-import { createRoot, hydrateRoot } from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
 console.log("React version (runtime):", React.version);
 
 const rootElement = document.getElementById("root");
-
 if (!rootElement) {
   console.error("Root element #root not found in DOM");
   Sentry.captureMessage("Root element #root not found in DOM", "fatal");
 } else {
-  // If react-snap has pre-rendered HTML into #root, hydrate it (don't re-render).
-  // Otherwise (dev mode, or route not in reactSnap config), do a normal render.
-  const hasPreRenderedContent = rootElement.hasChildNodes() && rootElement.children.length > 0;
-  if (hasPreRenderedContent) {
-    hydrateRoot(rootElement, <App />);
-  } else {
-    createRoot(rootElement).render(<App />);
-  }
+  createRoot(rootElement).render(<App />);
 }
