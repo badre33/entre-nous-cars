@@ -59,12 +59,12 @@ export const SEOLinks = () => {
           <p className="text-muted-foreground leading-relaxed">
             <strong>Benatna</strong> est la plateforme de référence pour la <strong>location de voiture au Maroc</strong>. 
             Nous facilitons l'accès à plus de 300 véhicules dans les principales villes : 
-            <Link to="/louer" className="text-primary hover:underline"> location voiture Casablanca</Link>, 
-            <Link to="/louer" className="text-primary hover:underline"> Marrakech</Link>, 
-            <Link to="/louer" className="text-primary hover:underline"> Rabat</Link>, 
-            <Link to="/louer" className="text-primary hover:underline"> Tanger</Link>, 
-            <Link to="/louer" className="text-primary hover:underline"> Agadir</Link> et 
-            <Link to="/louer" className="text-primary hover:underline"> Fès</Link>.
+            <Link to="/location-voiture-casablanca" className="text-primary hover:underline"> location voiture Casablanca</Link>, 
+            <Link to="/location-voiture-marrakech" className="text-primary hover:underline"> Marrakech</Link>, 
+            <Link to="/location-voiture-rabat" className="text-primary hover:underline"> Rabat</Link>, 
+            <Link to="/location-voiture-tanger" className="text-primary hover:underline"> Tanger</Link>, 
+            <Link to="/location-voiture-agadir" className="text-primary hover:underline"> Agadir</Link> et 
+            <Link to="/location-voiture-fes" className="text-primary hover:underline"> Fès</Link>.
           </p>
           <p className="text-muted-foreground leading-relaxed mt-4">
             Notre service de <strong>location automobile</strong> se distingue par sa transparence totale des prix, 
@@ -74,7 +74,7 @@ export const SEOLinks = () => {
           </p>
           <p className="text-muted-foreground leading-relaxed mt-4">
             Idéal pour le <strong>tourisme au Maroc</strong>, les déplacements professionnels ou les besoins locaux, 
-            Benatna simplifie votre mobilité avec des tarifs compétitifs dès 250 MAD/jour.
+            Benatna simplifie votre mobilité avec des tarifs compétitifs dès 200 MAD/jour.
           </p>
           
           {/* Bloc SEO Casablanca - Maillage interne stratégique */}
