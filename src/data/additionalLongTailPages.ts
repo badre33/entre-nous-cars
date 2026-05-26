@@ -5,56 +5,152 @@
 
 import { LongTailPageConfig } from "./longTailPages";
 
-// Template pour aéroport
-const createAeroportPage = (city: string, citySlug: string, airport: string): LongTailPageConfig => ({
+// Données vraiment uniques par aéroport pour différencier le contenu SEO
+// (résout le near-duplicate content qui empêchait Google d'indexer les 6 pages)
+interface AirportData {
+  iata: string;
+  fullName: string;
+  terminals: string;
+  distanceFromCenter: string;
+  travelTime: string;
+  mainRoad: string;
+  parkingInfo: string;
+  practicalNotes: string;
+  cityAttractions: string;
+}
+
+const AIRPORT_DATA: Record<string, AirportData> = {
+  casablanca: {
+    iata: "CMN",
+    fullName: "Aéroport international Mohammed V",
+    terminals: "2 terminaux passagers (T1 dédié aux compagnies low-cost et charters, T2 pour les compagnies régulières Air France, Royal Air Maroc, Lufthansa, etc.)",
+    distanceFromCenter: "30 km au sud-est du centre-ville de Casablanca",
+    travelTime: "35-50 minutes en heure de pointe, 25-30 min hors pointe",
+    mainRoad: "Autoroute A7 (péage ~25 DH depuis Casablanca-centre) ou route N1 gratuite mais plus longue",
+    parkingInfo: "P1 (très courte durée, 10 min gratuites), P2 (courte durée, premiers 30 min à 20 DH), P3-P4 (longue durée, 80 DH/jour, navette gratuite vers terminaux toutes les 15 min)",
+    practicalNotes: "Le terminal 1 et le terminal 2 sont reliés par une passerelle couverte de 8 minutes à pied. Train ONCF direct vers Casa-Voyageurs (40 min, 43 DH) toutes les heures depuis le sous-sol du T1. Wi-Fi gratuit illimité. Zone arrivées : sortie centrale du hall pour récupération de véhicule sans gêner le flux.",
+    cityAttractions: "Mosquée Hassan II (35 min), Médina de Casablanca (40 min), Corniche d'Aïn Diab (35 min), Morocco Mall (40 min). Pour Marrakech depuis CMN : A7 directe, 2h45."
+  },
+  marrakech: {
+    iata: "RAK",
+    fullName: "Aéroport international Marrakech-Menara",
+    terminals: "1 grand terminal moderne unique (rénové en 2024), avec ailes A (arrivées) et B (départs)",
+    distanceFromCenter: "6 km à l'ouest du centre-ville de Marrakech (l'un des aéroports les plus proches du centre au monde)",
+    travelTime: "15-20 minutes vers Jemaa el-Fna, 10 min vers Guéliz/Hivernage",
+    mainRoad: "Avenue Mohammed VI puis route P10. Pas d'autoroute nécessaire — trajet 100% gratuit",
+    parkingInfo: "P1 (10 min gratuites), P2 (15 DH/h), parking longue durée P3 (60 DH/jour). Files de taxi régulées avec compteur obligatoire (70 DH jour, 100 DH nuit vers Médina)",
+    practicalNotes: "Terminal climatisé indispensable en été (>40°C juin-août). Distributeurs ATM dans les arrivées (commission 25-40 DH selon banque). Bureau de change ouvert 24/7 mais taux moyen — préférer les banques en ville. Point de rencontre conseillé : sortie principale côté avenue, après les taxis.",
+    cityAttractions: "Jemaa el-Fna (15 min), Jardin Majorelle (10 min), Palmeraie (20 min), Ourika Valley (50 min), Atlas (1h30). Essaouira en 3h par la N8."
+  },
+  agadir: {
+    iata: "AGA",
+    fullName: "Aéroport d'Agadir Al-Massira",
+    terminals: "1 terminal récemment agrandi (capacité 3M passagers/an), bien dimensionné pour les flux touristiques saisonniers",
+    distanceFromCenter: "25 km au sud-est d'Agadir, à côté de la commune de Aït Melloul",
+    travelTime: "25-35 minutes vers la baie d'Agadir et la zone touristique",
+    mainRoad: "Route nationale N10 puis sortie aéroport. Pas de péage. Attention au radar fixe à 90 km/h à 5 km de l'aéroport",
+    parkingInfo: "P1 dépose-minute (15 min gratuites), P2 (50 DH/jour), P3 longue durée (35 DH/jour, parking sécurisé)",
+    practicalNotes: "Aéroport saisonnier : très chargé novembre-mars (vols charters européens), plus calme en été. Climat doux toute l'année (15-28°C). Taxis grand bleu : 250-350 DH vers les hôtels de la zone touristique. Beaucoup de loueurs internationaux mais souvent comptoir fermé entre les vols.",
+    cityAttractions: "Plage d'Agadir (25 min), Marina (28 min), Souk El Had (25 min), Taghazout (45 min, spot de surf), Paradise Valley (1h), Essaouira (2h30), Taroudant (1h)."
+  },
+  tanger: {
+    iata: "TNG",
+    fullName: "Aéroport international Ibn Battouta de Tanger",
+    terminals: "1 terminal moderne réorganisé en 2023 (capacité 2.5M passagers/an), nommé en hommage au célèbre explorateur tangérois du XIVᵉ siècle",
+    distanceFromCenter: "15 km au sud-ouest du centre de Tanger, près de Boukhalef",
+    travelTime: "20-25 minutes vers la médina de Tanger, 30 min vers le port Tanger-Med",
+    mainRoad: "Route N1 puis raccord rapide vers l'autoroute A4. Trajet aéroport-centre quasi entièrement à 2x2 voies",
+    parkingInfo: "P1 (dépose 10 min gratuites), parking principal (30 DH les 2 premières heures, puis 10 DH/h), longue durée (60 DH/jour)",
+    practicalNotes: "Aéroport en pleine croissance (+15% trafic/an), capte les flux européens vers l'Espagne du Sud. Climat océanique : prévoir un vêtement même en été. Possibilité train ONCF Al Boraq depuis Tanger Ville vers Casa/Rabat. Forte communauté espagnole et française résidente.",
+    cityAttractions: "Médina de Tanger (20 min), Cap Spartel et grottes d'Hercule (40 min), Asilah (40 min), Tétouan (1h), Chefchaouen (2h depuis l'aéroport)."
+  },
+  fes: {
+    iata: "FEZ",
+    fullName: "Aéroport Fès-Saïss",
+    terminals: "1 terminal de taille modeste (1.5M passagers/an), efficace et rapide à traverser",
+    distanceFromCenter: "15 km au sud-ouest de la médina de Fès, plateau de Saïss",
+    travelTime: "20-25 minutes vers Fès el-Bali (médina), 15 min vers Fès el-Jdid",
+    mainRoad: "Route R713 puis N6. Pas d'autoroute mais trajet rapide via la rocade. Travaux d'élargissement en cours sur la route principale",
+    parkingInfo: "Parking unique (P1) : 15 min gratuites, puis 25 DH les premières 4h, 60 DH/jour. Surveillance permanente",
+    practicalNotes: "Aéroport beaucoup plus calme que Casa/Marrakech : récupération bagages en 10 min en moyenne. Peu de loueurs internationaux installés (avantage tarif pour Benatna). Idéal point d'entrée pour découvrir le Nord/Centre du Maroc. Train ONCF depuis Fès Ville vers Meknès/Tanger.",
+    cityAttractions: "Médina de Fès (20 min, classée UNESCO), Meknès et Volubilis (1h), Moulay Idriss (50 min), Ifrane (1h), gorges du Ziz (3h)."
+  },
+  rabat: {
+    iata: "RBA",
+    fullName: "Aéroport international Rabat-Salé",
+    terminals: "1 terminal compact (1M passagers/an), parmi les plus petits aéroports internationaux du Maroc — d'où sa rapidité",
+    distanceFromCenter: "8 km au nord-est du centre de Rabat (de l'autre côté du Bouregreg, sur Salé)",
+    travelTime: "15-25 minutes vers les ministères de Rabat-centre ou Agdal, 10 min vers Salé",
+    mainRoad: "Route R401, puis pont Hassan II ou pont Moulay Hassan vers Rabat. Tramway envisagé à l'horizon 2027",
+    parkingInfo: "Parking unique : 15 min gratuites, 20 DH/h, 50 DH/jour. Petite taille — saturé en heures d'affluence diplomatique",
+    practicalNotes: "Aéroport principalement diplomatique et corporate : moins de touristes, plus de cadres et fonctionnaires. Vols limités (Air France, RAM, Lufthansa principalement). Service rapide grâce à la taille modeste. Capitale administrative : prévoir embouteillages 8h-9h et 17h-19h en semaine.",
+    cityAttractions: "Tour Hassan et mausolée Mohammed V (15 min), Kasbah des Oudayas (20 min), Médina de Salé (10 min), plage des Nations (25 min). Rabat-Casa par autoroute A1 en 1h."
+  }
+};
+
+
+// Template pour aéroport — avec sections vraiment uniques par aéroport (anti-duplicate content)
+const createAeroportPage = (city: string, citySlug: string, airport: string): LongTailPageConfig => {
+  const data = AIRPORT_DATA[citySlug];
+  if (!data) throw new Error(`Missing AIRPORT_DATA for ${citySlug}`);
+
+  return {
   slug: `location-voiture-aeroport-${citySlug}`,
-  title: `Location Voiture Aéroport ${city}`,
-  metaTitle: `Location Voiture Aéroport ${city} - Livraison Gratuite | Benatna`,
-  metaDescription: city === 'Casablanca' ? "Location voiture aéroport Mohammed V Casablanca. Livraison gratuite au terminal, disponible 24h/24. Réservez en ligne, dès 200 DH/jour." : `Louez une voiture directement à l'aéroport ${airport}. Livraison gratuite au terminal. Réservation en ligne, gain de temps, prix dès 200 DH/jour.`,
-  keywords: `location voiture aéroport ${citySlug}, ${airport} location auto, louer voiture terminal ${city}`,
-  h1: `Location de Voiture à l'Aéroport ${airport}`,
-  heroSubtitle: `Livraison gratuite au terminal • Pas de file d'attente • Dès 200 DH/jour`,
+  title: `Location Voiture Aéroport ${city} (${data.iata})`,
+  metaTitle: `Location Voiture Aéroport ${city} ${data.iata} - Livraison Terminal | Benatna`,
+  metaDescription: `Location voiture ${data.fullName} (${data.iata}). Livraison gratuite au terminal, ${data.distanceFromCenter}. Réservation en ligne, prix dès 200 DH/jour.`,
+  keywords: `location voiture aéroport ${citySlug}, ${data.iata} location auto, louer voiture terminal ${city}, ${data.fullName}`,
+  h1: `Location de Voiture à l'${data.fullName} (${data.iata})`,
+  heroSubtitle: `${data.distanceFromCenter} • Livraison gratuite au terminal • Dès 200 DH/jour`,
   category: {
     label: "Locations Aéroports",
     href: "/nos-services?category=aeroport"
   },
   content: {
-    intro: `Arrivez à l'aéroport ${airport} et récupérez votre voiture de location en quelques minutes avec Benatna. Notre service de livraison gratuite au terminal vous évite les files d'attente des comptoirs d'aéroport et vous fait économiser jusqu'à 40% par rapport aux tarifs pratiqués dans les kiosques du hall des arrivées. Réservez en ligne avant votre vol, et votre véhicule vous attend dès votre atterrissage. Simple, rapide et économique.`,
+    intro: `Arrivez à l'${data.fullName} (code IATA ${data.iata}) et récupérez votre voiture de location en quelques minutes avec Benatna. L'aéroport se situe à ${data.distanceFromCenter}, soit ${data.travelTime} en voiture. Notre service de livraison gratuite au terminal vous évite les files d'attente des comptoirs aéroportuaires et vous fait économiser jusqu'à 40% par rapport aux tarifs des kiosques. Réservez en ligne avant votre vol — votre véhicule vous attend dès votre atterrissage à ${city}.`,
     sections: [
       {
-        title: `Pourquoi Louer à l'Aéroport ${airport} avec Benatna ?`,
-        content: `Les comptoirs de location dans les aéroports pratiquent des tarifs majorés (souvent 30-50% plus chers qu'en ville) en raison des frais de concession élevés qu'ils paient aux gestionnaires aéroportuaires. Benatna contourne ce système en vous livrant votre voiture gratuitement directement au terminal, vous faisant bénéficier de nos tarifs ville (dès 200 DH/jour pour une citadine). Plus besoin de faire la queue pendant 30-60 minutes aux comptoirs bondés : nous vous retrouvons dans le hall des arrivées avec votre véhicule prêt à partir. C'est particulièrement apprécié lors des arrivées tardives (vols de nuit) ou matinales où vous voulez gagner du temps. Notre service fonctionne 24h/24 et 7j/7 pour s'adapter à tous les horaires de vol. De plus, contrairement aux loueurs d'aéroport qui sous-traitent parfois la livraison du véhicule (navettes vers des parkings éloignés), nous vous remettons les clés directement au terminal : vous êtes sur la route 15 minutes après avoir récupéré vos bagages.`
+        title: `L'aéroport ${data.fullName} (${data.iata}) en pratique`,
+        content: `Le ${data.fullName} compte ${data.terminals}. ${data.practicalNotes} Pour le stationnement : ${data.parkingInfo}. Si vous récupérez votre véhicule Benatna, vous évitez totalement la question parking puisque notre agent vous attend en dépose-minute (P1) avec votre voiture, juste avant les barrières — comptez 5 minutes maximum après votre sortie du hall.`
       },
       {
-        title: `Procédure de Récupération à l'Aéroport ${airport}`,
-        content: `La récupération de votre véhicule est ultra-simple. Lors de votre réservation en ligne, vous indiquez votre numéro de vol et votre heure d'arrivée. Nous suivons votre vol en temps réel : en cas de retard, nous ajustons automatiquement l'heure de livraison, sans frais supplémentaires. Une fois atterri, récupérez vos bagages comme d'habitude. Avant de sortir du hall des arrivées, appelez ou envoyez un message WhatsApp au numéro indiqué dans votre confirmation de réservation. Notre agent, déjà sur place avec votre véhicule, vous rejoint en 5-10 minutes maximum au point de rendez-vous convenu (généralement la sortie du terminal, facilement identifiable). Il vous remet les clés, les papiers du véhicule (carte grise, attestation d'assurance) et vous fait un rapide tour du véhicule pour vous montrer les commandes essentielles (climatisation, GPS si inclus, comment ouvrir le coffre). Vous réglez le montant de la location (espèces, carte ou virement selon votre choix) et c'est parti : vous pouvez immédiatement prendre la route vers votre destination à ${city}. Comptez 15 minutes maximum entre votre sortie du hall et votre départ de l'aéroport.`
+        title: `Comment rejoindre ${city} depuis l'aéroport ${data.iata}`,
+        content: `Depuis l'${data.fullName}, l'accès au centre-ville se fait via ${data.mainRoad}. La distance de ${data.distanceFromCenter.split(' ').slice(0, 3).join(' ')} se parcourt en ${data.travelTime}. Une fois votre véhicule récupéré, vous êtes immédiatement autonome pour votre séjour. À proximité depuis l'aéroport : ${data.cityAttractions}`
       },
       {
-        title: `Types de Véhicules Disponibles à l'Aéroport ${airport}`,
-        content: `Toute notre flotte est disponible en livraison aéroport. Citadines économiques (Clio, Sandero, 208) à 200-280 DH/jour : idéales si vous voyagez léger, parfaites pour ${city} et ses alentours, consommation réduite. Berlines confortables (Corolla, Jetta) à 250-300 DH/jour : recommandées pour familles avec bagages ou longs trajets vers autres villes, climatisation efficace, coffre spacieux. SUV tout-terrain (Duster, Qashqai, Tiguan) à 350-450 DH/jour : essentiels si vous prévoyez des excursions hors des sentiers battus, dans les montagnes ou le désert, hauteur de caisse adaptée aux pistes. Véhicules premium (Mercedes, BMW, Audi) à 800-1000 DH/jour : image professionnelle pour déplacements d'affaires ou occasions spéciales. Tous les véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise. Si vous avez des besoins spécifiques (siège bébé, GPS, chaînes neige en hiver), précisez-le lors de la réservation : nous préparons tout à l'avance.`
+        title: `Procédure de récupération à l'${data.fullName}`,
+        content: `Lors de votre réservation en ligne, indiquez votre numéro de vol et heure d'arrivée. Nous suivons votre vol en temps réel : retard, avance, déroutement — l'heure de rendez-vous s'ajuste automatiquement sans frais. Une fois atterri à ${data.iata}, récupérez vos bagages comme d'habitude. Avant de sortir du hall des arrivées, contactez-nous via WhatsApp au numéro de votre confirmation. Notre agent, déjà sur place, vous rejoint en 5-10 minutes au point de rendez-vous. Remise des clés, signature de la carte grise et assistance, paiement (espèces, virement ou carte au choix), petit tour du véhicule — vous êtes en route vers ${city} en 15 minutes maximum après votre sortie du hall.`
+      },
+      {
+        title: `Types de véhicules disponibles à l'aéroport ${city}`,
+        content: `Toute notre flotte est livrable à ${data.fullName}. ${citySlug === 'agadir' || citySlug === 'marrakech' ? 'Compte tenu du climat chaud de la région, nous recommandons systématiquement la climatisation (incluse sur tous nos véhicules).' : ''} ${citySlug === 'marrakech' || citySlug === 'fes' || citySlug === 'agadir' ? 'Pour les excursions hors-ville (Atlas, désert, plages reculées), un SUV est conseillé.' : 'Pour les déplacements urbains et inter-villes (autoroutes A1/A7), une citadine ou berline est idéale.'} Citadines économiques (Clio, Sandero, 208) dès 200 DH/jour. Berlines confortables (Corolla, Jetta) à 250-300 DH/jour. SUV tout-chemin (Duster, Qashqai, Tiguan) à 350-450 DH/jour. Véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à 800-1000 DH/jour. Tous nos véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise.`
       }
     ],
     faq: [
       {
-        question: `Y a-t-il des frais de livraison à l'aéroport ${airport} ?`,
+        question: `Quelle est la distance entre l'${data.fullName} et le centre de ${city} ?`,
+        answer: `${data.distanceFromCenter}, soit environ ${data.travelTime} de trajet en voiture via ${data.mainRoad}.`
+      },
+      {
+        question: `Y a-t-il des frais de livraison à l'aéroport ${data.iata} ?`,
         answer: "Non, la livraison à l'aéroport est totalement gratuite. Nous ne facturons aucun supplément, contrairement aux comptoirs d'aéroport qui intègrent des frais de concession dans leurs tarifs."
       },
       {
         question: "Que se passe-t-il si mon vol a du retard ?",
-        answer: "Nous suivons votre vol en temps réel. En cas de retard, nous ajustons automatiquement l'heure de rendez-vous sans frais supplémentaires. Vous n'avez rien à faire."
+        answer: "Nous suivons votre vol en temps réel via son numéro. En cas de retard, l'heure de rendez-vous est ajustée automatiquement sans frais supplémentaires. Vous n'avez rien à faire."
       },
       {
-        question: "Puis-je réserver une voiture pour une arrivée de nuit (après 23h) ?",
-        answer: "Oui ! Notre service fonctionne 24h/24. Que votre vol arrive à minuit, 3h du matin ou 6h, nous serons là pour vous livrer votre véhicule."
+        question: `Puis-je réserver une voiture pour une arrivée de nuit à ${data.iata} ?`,
+        answer: "Oui, notre service fonctionne 24h/24, 7j/7. Que votre vol arrive à minuit, 3h ou 6h du matin, nous serons là pour vous livrer votre véhicule au terminal."
       },
       {
-        question: "Combien de temps faut-il entre ma sortie du terminal et mon départ de l'aéroport ?",
-        answer: "Environ 15 minutes : 5-10 minutes pour que notre agent vous rejoigne avec le véhicule, puis 5 minutes pour la remise des clés et des documents. C'est beaucoup plus rapide que les files d'attente des comptoirs traditionnels."
+        question: `Combien de temps entre l'atterrissage et le départ de l'aéroport ${city} ?`,
+        answer: `Environ 15 minutes après votre sortie du hall : 5-10 min pour que notre agent vous rejoigne avec le véhicule, puis 5 min pour la remise des clés, signature des documents et présentation du véhicule. Plus rapide que les files d'attente aux comptoirs classiques (souvent 30-60 min).`
       }
     ]
   },
   cta: {
-    title: `Réservez Votre Voiture pour l'Aéroport ${city}`,
+    title: `Réservez Votre Voiture pour l'Aéroport ${city} (${data.iata})`,
     subtitle: "Livraison gratuite • Service 24/7 • Tarifs transparents",
     buttonText: "Réserver Maintenant",
     buttonLink: `/louer?city=${city}`
@@ -79,7 +175,8 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   relatedPages: [
     { title: `Location Voiture ${city}`, link: `/location-voiture-${citySlug}` }
   ]
-});
+  };
+};
 
 // Template pour mariage
 const createMariagePage = (): LongTailPageConfig => ({
