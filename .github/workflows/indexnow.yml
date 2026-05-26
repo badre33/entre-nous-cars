@@ -1,0 +1,101 @@
+name: IndexNow — push sitemap to Bing/Yandex/Naver after deploy
+
+# Auto-runs after each push to main (waits ~90s for Vercel to deploy first),
+# or can be triggered manually via the "Run workflow" button.
+#
+# Why it matters: IndexNow notifies Bing, Yandex, Naver, Seznam — which in turn
+# feed ChatGPT Search, DuckDuckGo, and Yahoo. Single push = 7+ engines updated.
+#
+# Key file: /135ed2a3d6d84197acca12261103a581.txt (deployed in public/)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      wait_seconds:
+        description: 'Seconds to wait for Vercel deploy before submitting'
+        required: false
+        default: '90'
+
+jobs:
+  submit:
+    name: Submit sitemap URLs to IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Wait for Vercel deploy to be live
+        run: |
+          WAIT="${{ github.event.inputs.wait_seconds || 90 }}"
+          echo "Waiting ${WAIT}s for Vercel to deploy the latest commit..."
+          sleep "$WAIT"
+
+      - name: Fetch live sitemap from benatna.ma
+        id: fetch-sitemap
+        run: |
+          curl -sSfL https://benatna.ma/sitemap.xml -o sitemap.xml
+          URL_COUNT=$(grep -oP '(?<=<loc>)[^<]+' sitemap.xml | wc -l)
+          echo "Found $URL_COUNT URLs in sitemap"
+          echo "url_count=$URL_COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Verify IndexNow key file is reachable
+        run: |
+          STATUS=$(curl -sSL -o /dev/null -w "%{http_code}" https://benatna.ma/135ed2a3d6d84197acca12261103a581.txt)
+          if [ "$STATUS" != "200" ]; then
+            echo "::error::IndexNow key file returned HTTP $STATUS (expected 200). Aborting."
+            exit 1
+          fi
+          echo "Key file OK (HTTP 200)"
+
+      - name: Build IndexNow payload from sitemap URLs
+        run: |
+          urls=$(grep -oP '(?<=<loc>)[^<]+' sitemap.xml | jq -R . | jq -s .)
+          jq -n \
+            --arg host "benatna.ma" \
+            --arg key "135ed2a3d6d84197acca12261103a581" \
+            --arg keyLoc "https://benatna.ma/135ed2a3d6d84197acca12261103a581.txt" \
+            --argjson urls "$urls" \
+            '{host: $host, key: $key, keyLocation: $keyLoc, urlList: $urls}' \
+            > payload.json
+          echo "Payload preview:"
+          jq '.urlList | length as $n | "Submitting \($n) URLs"' payload.json
+          jq '.urlList | .[0:3]' payload.json
+
+      - name: Submit to IndexNow (api.indexnow.org)
+        run: |
+          HTTP_CODE=$(curl -sSL -o response.txt -w "%{http_code}" \
+            -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data-binary @payload.json)
+          echo "IndexNow responded HTTP $HTTP_CODE"
+          cat response.txt || true
+          # 200 = accepted, 202 = accepted but URLs still queued, both OK
+          if [ "$HTTP_CODE" != "200" ] && [ "$HTTP_CODE" != "202" ]; then
+            echo "::warning::Non-success HTTP $HTTP_CODE from IndexNow"
+          fi
+
+      - name: Submit to Bing directly as backup (single-URL endpoint)
+        run: |
+          # Bing also accepts single-URL GETs which is more forgiving than the bulk POST
+          OK=0
+          FAIL=0
+          while read -r url; do
+            STATUS=$(curl -sSL -o /dev/null -w "%{http_code}" \
+              "https://www.bing.com/IndexNow?url=$(jq -rn --arg u "$url" '$u|@uri')&key=135ed2a3d6d84197acca12261103a581")
+            if [ "$STATUS" = "200" ] || [ "$STATUS" = "202" ]; then
+              OK=$((OK+1))
+            else
+              FAIL=$((FAIL+1))
+              echo "  ! $url returned $STATUS"
+            fi
+          done < <(grep -oP '(?<=<loc>)[^<]+' sitemap.xml)
+          echo "Bing direct submit: $OK ok / $FAIL failed"
+
+      - name: Summary
+        run: |
+          echo "### IndexNow run summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Sitemap URLs found: **${{ steps.fetch-sitemap.outputs.url_count }}**" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Triggered by: \`${{ github.event_name }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Commit: \`${{ github.sha }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Engines notified: Bing, Yandex, Naver, Seznam (and downstream: ChatGPT Search, DuckDuckGo, Yahoo)" >> "$GITHUB_STEP_SUMMARY"
