@@ -697,5 +697,156 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Location Aéroport Casablanca', description: 'Livraison d\'utilitaires au terminal pour déménagements internationaux.', link: '/location-voiture-aeroport-casablanca' }
     ],
     relatedPages: []
+  },
+  // ============================================================
+  // ÉVÉNEMENT 2026 — Coupe du Monde (Maroc qualifié, groupe C)
+  // Match Maroc-Brésil le 13/14 juin 2026 (MetLife Stadium, NY)
+  // Forte demande MRE qui rentrent + tourisme ambiance
+  // ============================================================
+  {
+    slug: 'location-voiture-coupe-monde-2026-maroc',
+    title: 'Location Voiture Coupe du Monde 2026 Maroc',
+    metaTitle: 'Location Voiture Coupe du Monde 2026 Maroc - Spécial MRE dès 200 DH | Benatna',
+    metaDescription: 'Réservez votre voiture pour vivre la Coupe du Monde 2026 au Maroc avec votre famille. Tarifs MRE dès 200 DH/jour, livraison aéroport, sans carte de crédit. Maroc-Brésil 13 juin.',
+    keywords: 'location voiture coupe du monde 2026, voiture mre maroc juin 2026, location voiture maroc bresil 13 juin, location famille mondial maroc, location voiture aeroport mre',
+    h1: 'Location de Voiture pour la Coupe du Monde 2026 au Maroc',
+    heroSubtitle: 'Maroc qualifié, groupe C • Vivez les matchs en famille • Livraison aéroport gratuite • Dès 200 DH/jour',
+    category: {
+      label: 'Événements 2026',
+      href: '/nos-services'
+    },
+    content: {
+      intro: `Le Maroc est qualifié pour la **Coupe du Monde 2026** (USA / Canada / Mexique) et joue son premier match contre le Brésil le **13 juin 2026** au MetLife Stadium de New York. Si vous êtes MRE et que vous rentrez au Maroc pour vivre la Coupe du Monde en famille — ambiance dans les cafés, fan zones dans les grandes villes, retrouvailles entre supporteurs — Benatna vous équipe d'une voiture dès votre atterrissage. Tarifs ville (sans surcharge aéroport), réservation 100% digitale par WhatsApp, paiement en espèces ou virement à votre arrivée. Pas besoin de carte de crédit internationale : ouvert spécialement à la diaspora.`,
+      sections: [
+        {
+          title: 'Pourquoi louer une voiture au Maroc pendant la Coupe du Monde 2026 ?',
+          content: `La Coupe du Monde 2026 a lieu aux USA, au Canada et au Mexique du 11 juin au 19 juillet 2026. Pour les MRE et les supporteurs marocains, c'est l'occasion de rentrer au Maroc pour vivre les matchs entre amis et en famille — ambiance dans les quartiers (Maarif Casablanca, Guéliz Marrakech, Centre-ville Rabat), fan zones officielles probablement installées dans les grandes villes, terrasses cafés bondées. Avoir sa voiture sur place vous permet de circuler librement entre les villes pour rejoindre les vôtres après chaque match — particulièrement utile pour le match Maroc-Brésil du 13 juin (samedi soir, parfait pour rentrer voir la famille à l'intérieur du pays), Maroc-Écosse autour du 19-20 juin, et Maroc-Haïti fin juin. Benatna vous propose des tarifs MRE transparents : pas de "tarif touriste" majoré, pas de surcharge aéroport, pas de carte de crédit requise. Le tout réservable en 2 minutes via WhatsApp avant votre départ.`
+        },
+        {
+          title: 'Tarifs MRE — Spécial Coupe du Monde 2026',
+          content: `Notre grille tarifaire pour la période 11 juin - 19 juillet 2026 (durée Coupe du Monde) : Citadines économiques (Clio, Sandero, Hyundai i10) à partir de 200 DH/jour — parfaites pour les trajets urbains et inter-villes courtes (Casa-Rabat, Marrakech-Essaouira). Berlines familiales (Toyota Corolla, VW Jetta) à 250-300 DH/jour — confort sur autoroute pour les longs trajets en famille. SUV (Dacia Duster, Nissan Qashqai, VW Tiguan) à 350-450 DH/jour — capacité bagages pour les retours MRE avec valises pleines, garde au sol pour routes secondaires. Premium (Mercedes Classe C, BMW Série 3) à 800-1000 DH/jour — pour ceux qui veulent voyager avec style pendant l'événement. **Tous nos prix sont transparents en MAD, sans surprise au comptoir.** Réservez 3-4 semaines avant votre arrivée pour garantir le véhicule de votre choix — la demande explose en juin-juillet à cause de la combinaison Coupe du Monde + vacances été + Aïd al-Adha probable.`
+        },
+        {
+          title: 'Livraison gratuite aux 6 aéroports principaux',
+          content: `Si vous arrivez par avion (probable pour les MRE de France, Belgique, Espagne, Italie, Pays-Bas, Allemagne), nous livrons votre véhicule directement au terminal de votre aéroport d'arrivée — sans frais supplémentaires. Aéroports couverts : Mohammed V Casablanca (CMN), Marrakech-Menara (RAK), Rabat-Salé (RBA), Tanger Ibn Battouta (TNG), Agadir Al-Massira (AGA), Fès Saïss (FEZ). Indiquez simplement votre numéro de vol et heure d'arrivée dans votre réservation WhatsApp. Nous suivons votre vol en temps réel : en cas de retard, l'heure de rendez-vous s'ajuste automatiquement sans frais. Récupération en 5-10 minutes après votre sortie du hall : remise des clés, signature documents, paiement (espèces, virement, carte au choix), petit tour du véhicule. Vous êtes en route en 15 minutes après votre atterrissage — bien plus rapide que les files d'attente des comptoirs traditionnels (souvent 30-60 min).`
+        },
+        {
+          title: 'Idées d\'usage pendant la Coupe du Monde 2026 au Maroc',
+          content: `**Trajets MRE typiques** : Aéroport CMN → famille à Settat / El Jadida / Mohammedia (1h-1h30). Aéroport Marrakech → famille à Beni Mellal / Safi (2h-3h). Aéroport Agadir → famille à Taroudant / Tiznit (1h-2h). **Combinaisons match + tourisme** : profitez du Maroc-Brésil samedi 13 juin pour faire un weekend Marrakech avec excursion Ourika dimanche. Maroc-Écosse autour du 19-20 juin : si vous êtes côté nord, weekend Tanger-Chefchaouen-Asilah possible. **Fan zones probables** (à confirmer par les municipalités) : Casablanca corniche Aïn Diab, Marrakech Jemaa el-Fna, Rabat esplanade Hassan, Tanger Marina, Agadir baie. Une voiture vous permet d'éviter les transports en commun bondés en sortie de match.`
+        }
+      ],
+      faq: [
+        {
+          question: 'Quand jouent les matchs du Maroc à la Coupe du Monde 2026 ?',
+          answer: 'Le Maroc est dans le groupe C avec le Brésil, l\'Écosse et Haïti. Premier match Maroc-Brésil le 13/14 juin 2026 au MetLife Stadium (New York). Calendrier complet à confirmer auprès de la FIFA — vérifiez l\'horaire de votre fuseau marocain (UTC+1) car les matchs sont en soirée heure US.'
+        },
+        {
+          question: 'Faut-il une carte de crédit internationale pour louer chez Benatna ?',
+          answer: 'Non, c\'est notre différence pour les MRE : nous acceptons les espèces (MAD), le virement bancaire, et les portefeuilles mobiles marocains (Cash Plus, Wafacash). Pas besoin de bloquer une caution sur une carte Visa/MasterCard étrangère.'
+        },
+        {
+          question: 'Combien de temps à l\'avance dois-je réserver pour juin 2026 ?',
+          answer: 'Au minimum 3-4 semaines avant votre arrivée. La période 11 juin - 19 juillet 2026 cumule plusieurs facteurs de forte demande : Coupe du Monde, retours MRE, vacances scolaires européennes, et probablement Aïd al-Adha. Les véhicules populaires (SUV, monospaces 7 places) partent en premier.'
+        },
+        {
+          question: 'Puis-je laisser la voiture dans une autre ville que celle de récupération ?',
+          answer: 'Oui, livraison aller-retour différente est possible (ex : récupération aéroport Casablanca, retour aéroport Marrakech ou Agadir). Supplément modeste selon distance. Idéal pour les MRE qui combinent visite famille + tourisme.'
+        },
+        {
+          question: 'Mes parents/cousins peuvent-ils conduire la voiture ?',
+          answer: 'Oui, conducteurs additionnels (24 ans+ avec permis valide depuis 2 ans+) sans surcoût. Communiquez leurs noms à la livraison pour qu\'ils soient sur le contrat.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture pour la Coupe du Monde 2026',
+      subtitle: 'WhatsApp 2 min • Livraison aéroport gratuite • Tarifs MRE transparents',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Été 2026 Maroc', description: 'Guide complet haute saison juin-août 2026 : prix, conseils, anticipation.', link: '/location-voiture-ete-2026-maroc' },
+      { title: 'Location Sans Carte de Crédit', description: 'Paiement en MAD, espèces ou virement acceptés. Spécial MRE et locaux.', link: '/location-voiture-sans-carte-credit-casablanca' },
+      { title: 'Location Aéroport Casablanca', description: 'Livraison gratuite au terminal Mohammed V CMN, service 24/7.', link: '/location-voiture-aeroport-casablanca' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Casablanca', link: '/location-voiture-casablanca' },
+      { title: 'Location Voiture Marrakech', link: '/location-voiture-marrakech' }
+    ]
+  },
+  // ============================================================
+  // ÉVÉNEMENT 2026 — Été (peak season tourisme + MRE)
+  // Prix +40-60% en juillet-août, recommandation : réserver 2-3 mois avant
+  // ============================================================
+  {
+    slug: 'location-voiture-ete-2026-maroc',
+    title: 'Location Voiture Été 2026 Maroc',
+    metaTitle: 'Location Voiture Été 2026 Maroc - Anticipez Juin-Août dès 200 DH | Benatna',
+    metaDescription: 'Réservez votre voiture pour l\'été 2026 au Maroc : juin, juillet, août. Anticipez 2-3 mois pour les meilleurs tarifs. Livraison aéroport, sans carte de crédit. Dès 200 DH/jour.',
+    keywords: 'location voiture maroc ete 2026, location voiture juillet aout maroc, location voiture haute saison maroc, location voiture mre ete, location voiture vacances maroc',
+    h1: 'Location de Voiture pour l\'Été 2026 au Maroc',
+    heroSubtitle: 'Juin-Août : haute saison • Réservez 2-3 mois avant • Tarifs dès 200 DH/jour',
+    category: {
+      label: 'Saison Été 2026',
+      href: '/nos-services'
+    },
+    content: {
+      intro: `L'été au Maroc — **juin, juillet, août, septembre** — est la haute saison touristique. La demande explose pour 3 raisons cumulées en 2026 : la **Coupe du Monde** (11 juin - 19 juillet), les **vacances scolaires européennes**, et le **retour massif des MRE** pour les fêtes familiales et l'**Aïd al-Adha**. Conséquence : les prix montent de 40 à 60% par rapport à l'hiver, et les véhicules populaires (SUV, monospaces 7 places, cabriolets côtiers) partent 6-8 semaines à l'avance. Benatna vous garantit des **tarifs transparents en MAD** et un véhicule sécurisé si vous réservez dès maintenant.`,
+      sections: [
+        {
+          title: 'Tarifs été 2026 — Anticipez pour économiser',
+          content: `Période juillet-août 2026 (pic absolu) : citadines économiques 280-420 DH/jour (vs 200-280 hors saison), berlines confortables 350-500 DH/jour, SUV/Crossover 550-850 DH/jour, premium (Mercedes/BMW/Audi) 1000-1500 DH/jour, monospaces 7-9 places 600-900 DH/jour (très demandés par les familles MRE — quasi épuisés dès mi-mai). Période juin et fin août/septembre (saison intermédiaire) : -15-25% sur ces tarifs. **Astuce économique** : réservez avant fin mai pour bénéficier des tarifs intermédiaires, même si vous utilisez la voiture en juillet-août. Benatna respecte le tarif initial au moment de votre réservation — pas d\'ajustement à la hausse même si la demande explose.`
+        },
+        {
+          title: 'Pourquoi anticiper 2-3 mois en été 2026',
+          content: `**Premier facteur** : la Coupe du Monde 2026 (Maroc qualifié, groupe C avec Brésil) va déclencher un afflux MRE inhabituel mi-juin. Les voitures partent vite. **Deuxième facteur** : les vacances scolaires français/belges/allemands démarrent vers le 5 juillet — vague touristique européenne classique. **Troisième facteur** : Aïd al-Adha tombera probablement début juin 2026 (date à confirmer) — les MRE qui restent jusqu\'à fin juin pour les fêtes prolongent leurs locations. Les agences ont une flotte finie — quand c\'est complet, c\'est complet. Benatna agrège **300+ voitures** auprès d\'agences locales vérifiées dans les 6 grandes villes : on absorbe mieux les pics, mais on ne fait pas de miracle au-delà de notre stock total.`
+        },
+        {
+          title: 'Idéal pour quel type d\'usage en été 2026 ?',
+          content: `**MRE en visite famille** : SUV ou monospace 7 places pour porter les valises, voyager à plusieurs, climatisation efficace contre la chaleur (jusqu\'à 45°C dans le sud). Livraison aéroport gratuite. **Tourisme côtier** : citadine pour Tanger-Tétouan-Asilah-Chefchaouen, SUV pour Agadir-Essaouira-Taghazout, cabriolet pour profiter de la corniche d\'Agadir. **Road trip atlas/désert** : 4x4 ou SUV haute garde au sol, à louer à Marrakech ou Ouarzazate, attention à la chaleur extrême en juin-juillet (privilégier départs matinaux). **Tourisme urbain** : citadine économique, attention au stationnement en médina (souvent payant 10-20 DH/jour). **Mariages d\'été** : véhicules premium pour la cérémonie + flotte pour les invités — devis sur mesure si vous nous prévenez 6+ semaines à l\'avance.`
+        },
+        {
+          title: 'Conseils pratiques été 2026 au Maroc',
+          content: `**Climatisation** : tous nos véhicules en sont équipés, mais vérifiez à la livraison qu\'elle fonctionne (les agences les moins sérieuses négligent l\'entretien). **Carburant** : prix moyen essence 11-12 DH/L en mai 2026 — comptez 80-100 DH/100 km pour une citadine, 120-150 DH pour un SUV. **Heures de pointe** : éviter 8h-9h30 et 17h-19h dans Casa, Rabat, Marrakech intra-muros. **Chaleur** : si vous laissez la voiture au soleil, pare-soleil pare-brise indispensable (5 DH au souk). **Routes** : autoroutes A1 (Casa-Tanger), A2 (Rabat-Fès), A3 (Casa-Marrakech), A7 (Casa-Agadir) — toutes payantes mais fluides et bien entretenues. Routes secondaires : prudence avec les charrettes, troupeaux, contrôles vitesse fréquents (radars fixes).`
+        }
+      ],
+      faq: [
+        {
+          question: 'Combien d\'avance faut-il réserver pour juillet-août 2026 ?',
+          answer: 'Minimum 6-8 semaines pour les véhicules populaires (SUV, monospaces, cabriolets). Idéalement 2-3 mois pour avoir le choix complet de notre flotte. Benatna garantit le tarif initial même si les prix marché augmentent.'
+        },
+        {
+          question: 'Les tarifs sont-ils négociables en été 2026 ?',
+          answer: 'Pour les locations longue durée (15+ jours typique des MRE), oui : remise dégressive. Pour les courtes durées en pleine saison, les marges sont serrées — mais nous restons systématiquement moins chers que les comptoirs aéroport internationaux (Hertz, Avis, Sixt).'
+        },
+        {
+          question: 'Quel véhicule pour aller à Essaouira / Chefchaouen / Ouarzazate depuis Marrakech ?',
+          answer: 'Essaouira (175 km, route N8 sinueuse mais asphaltée) : citadine OK. Ouarzazate (200 km, col Tichka 2260m, climatisation indispensable) : berline ou SUV recommandé. Chefchaouen depuis Marrakech (700 km, faire étape) : SUV ou berline confort.'
+        },
+        {
+          question: 'Et si je dois annuler à cause d\'un imprévu (vol annulé, maladie) ?',
+          answer: 'Annulation gratuite jusqu\'à 7 jours avant la date de location (été 2026 inclus). Au-delà, frais variables selon la situation — toujours discutables avec notre équipe via WhatsApp.'
+        },
+        {
+          question: 'Acceptez-vous les chèques bancaires marocains pour le paiement ?',
+          answer: 'Oui, sur présentation d\'une pièce d\'identité valide et confirmation auprès de votre banque. Plus simple : espèces ou virement (RIB fourni à la réservation). Pas besoin de carte de crédit internationale, idéal pour les MRE.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Été 2026 au Maroc',
+      subtitle: 'Anticipez maintenant • 300+ véhicules • Tarifs garantis en MAD',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Coupe du Monde 2026 Maroc', description: 'Spécial MRE pour vivre la Coupe du Monde en famille au Maroc.', link: '/location-voiture-coupe-monde-2026-maroc' },
+      { title: 'Location Sans Carte de Crédit', description: 'Paiement MAD : espèces, virement, mobile money. Spécial MRE.', link: '/location-voiture-sans-carte-credit-casablanca' },
+      { title: 'Location SUV Sud Marocain', description: 'SUV pour road trip Essaouira-Agadir-Taroudant en été.', link: '/location-suv-sud-maroc' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Marrakech', link: '/location-voiture-marrakech' },
+      { title: 'Location Voiture Agadir', link: '/location-voiture-agadir' }
+    ]
   }
 ];

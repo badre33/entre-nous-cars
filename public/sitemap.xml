@@ -328,42 +328,57 @@
     <priority>0.6</priority>
   </url>
 
+
+  <!-- ============================================================ -->
+  <!-- ÉVÉNEMENTS 2026 (haute priorité — événements imminents)      -->
+  <!-- ============================================================ -->
+  <url>
+    <loc>https://benatna.ma/location-voiture-coupe-monde-2026-maroc</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-ete-2026-maroc</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- ============================================================ -->
   <!-- CAN 2025 (événement passé, conservé pour SEO résiduel)        -->
   <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/location-voiture-can-2025-maroc</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://benatna.ma/location-voiture-can-2025-casablanca</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <priority> 0.2</priority>
   </url>
   <url>
     <loc>https://benatna.ma/location-voiture-can-2025-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <priority> 0.2</priority>
   </url>
   <url>
     <loc>https://benatna.ma/location-voiture-can-2025-rabat</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <priority> 0.2</priority>
   </url>
   <url>
     <loc>https://benatna.ma/location-voiture-can-2025-tanger</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <priority> 0.2</priority>
   </url>
   <url>
     <loc>https://benatna.ma/location-voiture-can-2025-agadir</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <priority> 0.2</priority>
   </url>
   <url>
     <loc>https://benatna.ma/location-voiture-can-2025-fes</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+    <priority> 0.2</priority>
   </url>
 </urlset>

@@ -61,6 +61,10 @@ const LocationAeroportRabat = lazy(() => import("./pages/LocationAeroportRabat")
 
 // Thématiques (15 pages)
 const LocationMariageMaroc = lazy(() => import("./pages/LocationMariageMaroc"));
+
+// Évènements 2026 (Coupe du Monde + Été — peak season)
+const LocationCoupeMonde2026 = lazy(() => import("./pages/LocationCoupeMonde2026"));
+const LocationEte2026 = lazy(() => import("./pages/LocationEte2026"));
 const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
 const LocationLongueDureeMarrakech = lazy(() => import("./pages/LocationLongueDureeMarrakech"));
 const LocationJeuneConducteurCasablanca = lazy(() => import("./pages/LocationJeuneConducteurCasablanca"));
@@ -283,6 +287,8 @@ const App = () => {
                     <Route path="/location-voiture-aeroport-fes" element={<LocationAeroportFes />} />
                     <Route path="/location-voiture-aeroport-rabat" element={<LocationAeroportRabat />} />
                     {/* Thématiques */}
+                    <Route path="/location-voiture-coupe-monde-2026-maroc" element={<LocationCoupeMonde2026 />} />
+                    <Route path="/location-voiture-ete-2026-maroc" element={<LocationEte2026 />} />
                     <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
                     <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
                     <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />
