@@ -67,13 +67,13 @@ const Header = () => {
         Services
       </Link>
       <Link 
-        to="/location-voiture-can-2025-maroc" 
+        to="/location-voiture-coupe-monde-2026-maroc" 
         onClick={onLinkClick}
         className={`${mobile ? 'text-lg py-3 px-4 rounded-lg' : 'text-sm'} font-medium transition-colors hover:text-primary ${
-          isActive('/location-voiture-can-2025-maroc') ? 'text-foreground bg-accent' : 'text-muted-foreground'
+          isActive('/location-voiture-coupe-monde-2026-maroc') ? 'text-foreground bg-accent' : 'text-muted-foreground'
         }`}
       >
-        🏆 CAN 2025
+        ⚽ Mondial 2026
       </Link>
       
       {mobile ? (

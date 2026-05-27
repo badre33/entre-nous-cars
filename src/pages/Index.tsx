@@ -220,23 +220,7 @@ const Index = () => {
             {t('home.heroSubtitle')}
           </p>
 
-          {/* USP badges — 3 differentiators competitors don't have (marketplace 300+, transparent MAD, WhatsApp 2 min) */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 animate-fade-in [animation-delay:300ms] px-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
-              <span className="text-sm sm:text-base">💰</span>
-              <span>Dès <strong>200 DH</strong>/jour</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
-              <span className="text-sm sm:text-base">💳</span>
-              <span>Sans carte de crédit</span>
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
-              <span className="text-sm sm:text-base">📱</span>
-              <span>WhatsApp en 2 min</span>
-            </span>
-          </div>
-
-          {/* USP badges — 3 differentiators competitors don't have (marketplace 300+, transparent MAD, WhatsApp 2 min) */}
+          {/* USP badges — Coupe du Monde 2026 angle + 3 differentiators */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 animate-fade-in [animation-delay:300ms] px-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <span className="text-sm sm:text-base">💰</span>
@@ -664,7 +648,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CAN 2025 Special Event Section */}
+      {/* World Cup 2026 — Morocco qualified, group C — first match Morocco-Brazil June 13 */}
       <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl" />
@@ -677,7 +661,7 @@ const Index = () => {
                 🏆 Événement Spécial
               </Badge>
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                CAN 2025 au Maroc
+                Coupe du Monde 2026 — Maroc qualifié
               </h2>
               <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                 Coupe d'Afrique des Nations • 21 Déc 2025 - 18 Jan 2026
@@ -729,14 +713,14 @@ const Index = () => {
             </div>
             
             <div className="text-center">
-              <Link to="/location-voiture-can-2025-maroc">
+              <Link to="/location-voiture-coupe-monde-2026-maroc">
                 <Button size="lg" className="rounded-full text-lg px-10 h-14 bg-gradient-to-r from-primary to-accent hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Voir Nos Offres CAN 2025
+                  Voir Nos Offres Coupe du Monde 2026
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <p className="text-sm text-muted-foreground mt-4">
-                Réservez maintenant et profitez des meilleurs tarifs pour la CAN 2025
+                Réservez maintenant pour la Coupe du Monde 2026. Maroc-Brésil le 13 juin. Tarifs MRE spéciaux.
               </p>
             </div>
           </div>
