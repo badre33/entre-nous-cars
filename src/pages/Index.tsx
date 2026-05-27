@@ -219,7 +219,39 @@ const Index = () => {
           <p className="text-sm sm:text-lg md:text-xl lg:text-2xl mb-4 sm:mb-7 max-w-3xl mx-auto text-white/90 font-medium animate-fade-in [animation-delay:200ms] leading-relaxed px-1">
             {t('home.heroSubtitle')}
           </p>
-          
+
+          {/* USP badges — 3 differentiators competitors don't have (marketplace 300+, transparent MAD, WhatsApp 2 min) */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 animate-fade-in [animation-delay:300ms] px-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
+              <span className="text-sm sm:text-base">💰</span>
+              <span>Dès <strong>200 DH</strong>/jour</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
+              <span className="text-sm sm:text-base">💳</span>
+              <span>Sans carte de crédit</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
+              <span className="text-sm sm:text-base">📱</span>
+              <span>WhatsApp en 2 min</span>
+            </span>
+          </div>
+
+          {/* USP badges — 3 differentiators competitors don't have (marketplace 300+, transparent MAD, WhatsApp 2 min) */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 animate-fade-in [animation-delay:300ms] px-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
+              <span className="text-sm sm:text-base">💰</span>
+              <span>Dès <strong>200 DH</strong>/jour</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
+              <span className="text-sm sm:text-base">💳</span>
+              <span>Sans carte de crédit</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
+              <span className="text-sm sm:text-base">📱</span>
+              <span>WhatsApp en 2 min</span>
+            </span>
+          </div>
+
           {/* Search Form */}
           <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-4 sm:mb-7 px-0 sm:px-4">
             <HeroSearchForm />

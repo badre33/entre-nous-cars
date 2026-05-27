@@ -48,7 +48,7 @@ export const longTailPages: LongTailPageConfig[] = [
   {
     slug: "location-voiture-sans-carte-credit-marrakech",
     title: "Location Voiture Sans Carte Crédit Marrakech",
-    metaTitle: "Location Voiture Sans Carte de Crédit à Marrakech | Benatna",
+    metaTitle: "Location Voiture Sans Carte de Crédit Marrakech - Cash Accepté dès 200 DH/jour | Benatna",
     metaDescription: "Louez une voiture à Marrakech sans carte de crédit avec Benatna. Paiement flexible en espèces ou virement. Prix dès 200 DH/jour. Réservation simple et rapide.",
     keywords: "location voiture sans carte crédit marrakech, louer auto sans cb marrakech, location véhicule espèces marrakech",
     h1: "Location de Voiture Sans Carte de Crédit à Marrakech",
@@ -119,7 +119,7 @@ export const longTailPages: LongTailPageConfig[] = [
   {
     slug: "location-voiture-sans-carte-credit-casablanca",
     title: "Location Voiture Sans Carte Crédit Casablanca",
-    metaTitle: "Location Voiture Sans Carte de Crédit Casablanca | Benatna",
+    metaTitle: "Location Voiture Sans Carte de Crédit Casablanca - Espèces & Virement dès 200 DH | Benatna",
     metaDescription: "Louer une voiture à Casablanca sans carte bancaire. Paiement en espèces ou virement. Aéroport Mohammed V, centre-ville. Dès 200 DH/jour sans caution CB.",
     keywords: "location voiture sans carte crédit casablanca, louer auto sans cb casa, location véhicule espèces casablanca",
     h1: "Location de Voiture Sans Carte de Crédit à Casablanca",

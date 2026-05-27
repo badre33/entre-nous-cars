@@ -97,7 +97,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   return {
   slug: `location-voiture-aeroport-${citySlug}`,
   title: `Location Voiture Aéroport ${city} (${data.iata})`,
-  metaTitle: `Location Voiture Aéroport ${city} ${data.iata} - Livraison Terminal | Benatna`,
+  metaTitle: `Location Voiture Aéroport ${city} ${data.iata} dès 200 DH/jour - Sans Carte de Crédit | Benatna`,
   metaDescription: `Location voiture ${data.fullName} (${data.iata}). Livraison gratuite au terminal, ${data.distanceFromCenter}. Réservation en ligne, prix dès 200 DH/jour.`,
   keywords: `location voiture aéroport ${citySlug}, ${data.iata} location auto, louer voiture terminal ${city}, ${data.fullName}`,
   h1: `Location de Voiture à l'${data.fullName} (${data.iata})`,
