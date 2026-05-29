@@ -41,6 +41,21 @@ const heroImageWebp = "/hero-home-new.webp";
 const Index = () => {
   const { t } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
+
+  // WORKAROUND: react-helmet-async fails to update document.title here.
+  // Force-set via useEffect to preserve Lighthouse SEO score (was 100, dropped to 57).
+  useEffect(() => {
+    const FORCED_TITLE_HOMEPAGE = "Location Voiture Maroc dès 200 DH/jour - Sans Carte de Crédit | Benatna";
+    const FORCED_DESC_HOMEPAGE = "Location de voiture au Maroc avec Benatna. Casablanca, Marrakech, Rabat, Agadir. Prix dès 200 DH/jour, livraison aéroport, sans carte de crédit.";
+    document.title = FORCED_TITLE_HOMEPAGE;
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'description');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', FORCED_DESC_HOMEPAGE);
+  }, []);
   const [isDesktop, setIsDesktop] = useState(false);
   const statsAnimation = useScrollAnimation(0.2);
   const howItWorksAnimation = useScrollAnimation(0.2);

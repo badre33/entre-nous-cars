@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -30,6 +31,28 @@ interface LongTailPageProps {
  */
 export const LongTailPage = ({ config }: LongTailPageProps) => {
   const navigate = useNavigate();
+
+  // WORKAROUND: react-helmet-async fails to update document.title here.
+  // Direct DOM manipulation ensures Lighthouse SEO score is preserved.
+  useEffect(() => {
+    if (config.metaTitle) document.title = config.metaTitle;
+    if (config.metaDescription) {
+      let meta = document.querySelector('meta[name="description"]');
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('name', 'description');
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', config.metaDescription);
+    }
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `https://benatna.ma/${config.slug}`);
+  }, [config.metaTitle, config.metaDescription, config.slug]);
 
   // Pull to refresh - mobile only
   const { isPulling, isRefreshing, pullDistance, pullPercentage } = usePullToRefresh({
