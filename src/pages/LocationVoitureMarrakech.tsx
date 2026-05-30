@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { EnhancedBreadcrumbs } from "@/components/EnhancedBreadcrumbs";
@@ -96,6 +97,26 @@ const marrakechTestimonials = [
 ];
 
 const LocationVoitureMarrakech = () => {
+
+  // WORKAROUND react-helmet-async: force-set document.title, meta description,
+  // canonical and OG tags via direct DOM API. Helmet leaks default values.
+  useEffect(() => {
+    document.title = "Location Voiture Marrakech dès 200 DH/jour | Sans Carte de Crédit - Benatna";
+    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
+        el.setAttribute(key, keyVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', 'content', "Location de voiture à Marrakech dès 200 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté.", 'name', 'description');
+    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/location-voiture-marrakech", 'rel', 'canonical');
+    setMeta('meta[property="og:title"]', 'content', "Location Voiture Marrakech dès 200 DH/jour | Sans Carte de Crédit - Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Marrakech dès 200 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté.", 'property', 'og:description');
+    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/location-voiture-marrakech", 'property', 'og:url');
+  }, []);
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* SEO Meta Tags */}
@@ -213,7 +234,7 @@ const LocationVoitureMarrakech = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative h-[400px] md:h-[500px] flex items-center">
+      <section className="relative min-h-[320px] sm:min-h-[400px] md:h-[500px] flex items-center">
         <img 
           src={cityMarrakech}
           alt={generateCityImageAlt("Marrakech")}

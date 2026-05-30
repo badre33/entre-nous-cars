@@ -85,7 +85,7 @@ const CAN2025Rabat = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Complexe Sportif Moulay Abdellah</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Complexe Sportif Moulay Abdellah</h2>
             
             <div className="grid md:grid-cols-4 gap-6 mb-12">
               <Card>
@@ -198,7 +198,7 @@ const CAN2025Rabat = () => {
 
         <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Louez Votre Voiture à Rabat</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Louez Votre Voiture à Rabat</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Découvrez la capitale pendant la CAN 2025. Tarifs spéciaux dès 200 DH/jour.
             </p>

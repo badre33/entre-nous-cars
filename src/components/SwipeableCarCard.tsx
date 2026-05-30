@@ -142,16 +142,16 @@ export default function SwipeableCarCard({
                 <span className="truncate">{car.city}</span>
               </div>
               <div className="flex gap-1.5">
-                <Button size="sm" variant="outline" className="h-7 text-xs flex-1" onClick={onShowAvailability}>
+                <Button size="sm" variant="outline" className="h-11 text-sm flex-1" onClick={onShowAvailability}>
                   <CalendarCheck className="w-3 h-3 mr-1" />
                   Dispo
                 </Button>
-                <Button size="sm" className="h-7 text-xs flex-1" onClick={onWhatsAppClick}>
+                <Button size="sm" className="h-11 text-sm flex-1" onClick={onWhatsAppClick}>
                   WhatsApp
                 </Button>
                 <div
                   className={cn(
-                    "h-7 w-7 flex items-center justify-center rounded border cursor-pointer transition-all",
+                    "h-11 w-11 flex items-center justify-center rounded border cursor-pointer transition-all",
                     isInComparison ? "bg-primary border-primary" : "border-border"
                   )}
                   onClick={() => {
@@ -203,7 +203,7 @@ export default function SwipeableCarCard({
           <div className="absolute top-1.5 right-1.5 z-10">
             <div
               className={cn(
-                "h-7 w-7 flex items-center justify-center rounded-full backdrop-blur-sm cursor-pointer transition-all",
+                "h-11 w-11 flex items-center justify-center rounded-full backdrop-blur-sm cursor-pointer transition-all",
                 isInComparison ? "bg-primary" : "bg-background/80 border border-border"
               )}
               onClick={() => {
@@ -249,11 +249,11 @@ export default function SwipeableCarCard({
             </div>
           </div>
           <div className="space-y-1.5">
-            <Button size="sm" variant="outline" className="w-full h-7 text-xs" onClick={onShowAvailability}>
+            <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={onShowAvailability}>
               <CalendarCheck className="w-3 h-3 mr-1" />
               Disponibilités
             </Button>
-            <Button size="sm" className="w-full h-7 text-xs" onClick={onWhatsAppClick}>
+            <Button size="sm" className="w-full h-11 text-sm" onClick={onWhatsAppClick}>
               WhatsApp
             </Button>
           </div>

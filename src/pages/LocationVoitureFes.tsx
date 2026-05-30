@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -21,6 +22,26 @@ import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityFes from "@/assets/city-fes.jpg";
 
 const LocationVoitureFes = () => {
+
+  // WORKAROUND react-helmet-async: force-set document.title, meta description,
+  // canonical and OG tags via direct DOM API. Helmet leaks default values.
+  useEffect(() => {
+    document.title = "Location Voiture Fès dès 200 DH/jour | Sans Carte de Crédit - Benatna";
+    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
+        el.setAttribute(key, keyVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', 'content', "Location de voiture à Fès dès 200 DH/jour. Livraison aéroport Saïss, accès médina, Meknès, Volubilis, sans carte de crédit.", 'name', 'description');
+    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/location-voiture-fes", 'rel', 'canonical');
+    setMeta('meta[property="og:title"]', 'content', "Location Voiture Fès dès 200 DH/jour | Sans Carte de Crédit - Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Fès dès 200 DH/jour. Livraison aéroport Saïss, accès médina, Meknès, Volubilis, sans carte de crédit.", 'property', 'og:description');
+    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/location-voiture-fes", 'property', 'og:url');
+  }, []);
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
@@ -98,7 +119,7 @@ const LocationVoitureFes = () => {
       <Header />
       <Breadcrumbs />
 
-      <section className="relative h-[400px] md:h-[500px] flex items-center">
+      <section className="relative min-h-[320px] sm:min-h-[400px] md:h-[500px] flex items-center">
         <img 
           src={cityFes}
           alt={generateCityImageAlt("Fès")}
@@ -169,7 +190,7 @@ const LocationVoitureFes = () => {
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
             <div className="lg:col-span-2 space-y-8">
               <section>
-                <h2 className="text-3xl font-bold mb-4">Location de Voiture à Fès : Capitale Spirituelle du Maroc</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4">Location de Voiture à Fès : Capitale Spirituelle du Maroc</h2>
                 <div className="prose prose-lg max-w-none text-muted-foreground">
                   <p>
                     Vous cherchez à <strong>louer une voiture à Fès</strong> ? Benatna vous propose le meilleur service de location dans la plus ancienne ville impériale du Maroc. Que vous arriviez à l&apos;aéroport Fès-Saïss, que vous séjourniez dans la Médina ou en ville nouvelle, explorez Fès et ses environs en toute liberté.

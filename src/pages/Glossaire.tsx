@@ -175,7 +175,7 @@ export default function Glossaire() {
                 {/* Terms by Letter */}
                 {alphabetLetters.map((letter) => (
                   <div key={letter} id={`letter-${letter}`} className="scroll-mt-32">
-                    <h2 className="text-3xl font-bold mb-6 text-primary">{letter}</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-primary">{letter}</h2>
                     <div className="space-y-6">
                       {groupedTerms[letter].map((term) => {
                         const category = categories.find(c => c.id === term.category);
@@ -293,7 +293,7 @@ export default function Glossaire() {
         <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto prose prose-lg">
-              <h2 className="text-3xl font-bold mb-6">Comprendre la Location de Voiture au Maroc</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold mb-6">Comprendre la Location de Voiture au Maroc</h2>
               <p>
                 Ce glossaire complet vous aide à comprendre tous les termes techniques et administratifs liés à la <strong>location de voiture au Maroc</strong>. 
                 Que vous soyez touriste, expatrié ou professionnel, maîtriser ce vocabulaire vous permettra de louer en toute confiance.

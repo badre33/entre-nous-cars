@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import Header from "@/components/Header";
@@ -15,6 +16,26 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const FAQ = () => {
+
+  // WORKAROUND react-helmet-async: force-set document.title, meta description,
+  // canonical and OG tags via direct DOM API. Helmet leaks default values.
+  useEffect(() => {
+    document.title = "FAQ Location Voiture Maroc - Questions Fréquentes | Benatna";
+    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
+        el.setAttribute(key, keyVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', 'content', "Réponses aux questions fréquentes sur la location de voiture au Maroc : prix, assurance, paiement, livraison, conditions, jeune conducteur.", 'name', 'description');
+    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/faq", 'rel', 'canonical');
+    setMeta('meta[property="og:title"]', 'content', "FAQ Location Voiture Maroc - Questions Fréquentes | Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "Réponses aux questions fréquentes sur la location de voiture au Maroc : prix, assurance, paiement, livraison, conditions, jeune conducteur.", 'property', 'og:description');
+    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/faq", 'property', 'og:url');
+  }, []);
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",

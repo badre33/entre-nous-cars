@@ -52,6 +52,21 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       document.head.appendChild(canonical);
     }
     canonical.setAttribute('href', `https://benatna.ma/${config.slug}`);
+
+    // OG meta tags (for WhatsApp/Facebook/Twitter share previews)
+    const setMeta = (property: string, content: string) => {
+      let meta = document.querySelector(`meta[property="${property}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+    setMeta('og:title', config.metaTitle);
+    setMeta('og:description', config.metaDescription);
+    setMeta('og:url', `https://benatna.ma/${config.slug}`);
+    setMeta('og:type', 'website');
   }, [config.metaTitle, config.metaDescription, config.slug]);
 
   // Pull to refresh - mobile only

@@ -35,6 +35,26 @@ const contactSchema = z.object({
 });
 
 const Contact = () => {
+
+  // WORKAROUND react-helmet-async: force-set document.title, meta description,
+  // canonical and OG tags via direct DOM API. Helmet leaks default values.
+  useEffect(() => {
+    document.title = "Contact Benatna - WhatsApp +212 699 024 526 | Location Voiture Maroc";
+    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
+        el.setAttribute(key, keyVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', 'content', "Contactez Benatna par WhatsApp +212 699 024 526, formulaire ou email. Service 7j/7. Location de voiture au Maroc dès 200 DH/jour.", 'name', 'description');
+    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/contact", 'rel', 'canonical');
+    setMeta('meta[property="og:title"]', 'content', "Contact Benatna - WhatsApp +212 699 024 526 | Location Voiture Maroc", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "Contactez Benatna par WhatsApp +212 699 024 526, formulaire ou email. Service 7j/7. Location de voiture au Maroc dès 200 DH/jour.", 'property', 'og:description');
+    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/contact", 'property', 'og:url');
+  }, []);
   const { t } = useLanguage();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);

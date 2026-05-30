@@ -251,7 +251,7 @@ export default function ComparisonPage() {
                 <CardContent className="pt-8">
                   <div className="flex items-center gap-3 mb-6">
                     <Trophy className="h-8 w-8 text-primary" />
-                    <h2 className="text-3xl font-bold">Notre Verdict</h2>
+                    <h2 className="text-2xl sm:text-3xl font-bold">Notre Verdict</h2>
                   </div>
                   
                   <p className="text-xl font-semibold mb-6 text-foreground">
@@ -288,7 +288,7 @@ export default function ComparisonPage() {
           <section className="py-12 bg-muted/30">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold mb-8 text-center">Questions Fréquentes</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">Questions Fréquentes</h2>
                 <div className="space-y-6">
                   {comparison.faq.map((faq, idx) => (
                     <Card key={idx}>
@@ -309,7 +309,7 @@ export default function ComparisonPage() {
           <section className="py-12">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-3xl font-bold mb-8 text-center">Comparatifs Similaires</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">Comparatifs Similaires</h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {comparison.relatedComparisons.map(relatedId => {
                     const related = comparisons.find(c => c.id === relatedId);

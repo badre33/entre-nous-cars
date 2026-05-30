@@ -111,7 +111,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
           
           {/* Points Forts */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Pourquoi Louer une Voiture à {neighborhood.name} ?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Pourquoi Louer une Voiture à {neighborhood.name} ?</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {neighborhood.highlights.map((highlight, index) => (
                 <Card key={index}>
@@ -128,7 +128,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* Points de Livraison */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Points de Livraison à {neighborhood.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Points de Livraison à {neighborhood.name}</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {neighborhood.deliveryPoints.map((point, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -149,7 +149,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* Lieux d'Intérêt */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Lieux d'Intérêt Proches</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Lieux d'Intérêt Proches</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {neighborhood.landmarks.map((landmark, index) => (
                 <div key={index} className="flex items-center gap-3 p-4 bg-card rounded-lg border">
@@ -162,7 +162,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* Véhicules Populaires */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Véhicules Populaires à {neighborhood.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Véhicules Populaires à {neighborhood.name}</h2>
             <div className="flex flex-wrap gap-3">
               {neighborhood.popularVehicles.map((vehicle, index) => (
                 <div key={index} className="px-6 py-3 bg-primary/10 rounded-full text-primary font-semibold">
@@ -174,7 +174,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* Conseils */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Conseils pour {neighborhood.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Conseils pour {neighborhood.name}</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {neighborhood.tips.map((tip, index) => (
                 <Card key={index}>
@@ -191,7 +191,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* FAQ */}
           <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Questions Fréquentes - {neighborhood.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Questions Fréquentes - {neighborhood.name}</h2>
             <div className="space-y-4">
               {neighborhood.faqs.map((faq, index) => (
                 <Card key={index}>
@@ -206,7 +206,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* CTA Final */}
           <section className="text-center py-12 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl">
-            <h2 className="text-3xl font-bold mb-4">Prêt à Explorer {neighborhood.name} ?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Prêt à Explorer {neighborhood.name} ?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Réservez votre voiture maintenant et profitez de la livraison gratuite à {neighborhood.name}
             </p>

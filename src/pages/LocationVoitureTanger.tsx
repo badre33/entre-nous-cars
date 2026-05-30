@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -21,6 +22,26 @@ import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import cityTanger from "@/assets/city-tanger.jpg";
 
 const LocationVoitureTanger = () => {
+
+  // WORKAROUND react-helmet-async: force-set document.title, meta description,
+  // canonical and OG tags via direct DOM API. Helmet leaks default values.
+  useEffect(() => {
+    document.title = "Location Voiture Tanger dès 200 DH/jour | Sans Carte de Crédit - Benatna";
+    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
+        el.setAttribute(key, keyVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', 'content', "Location de voiture à Tanger dès 200 DH/jour. Livraison aéroport Ibn Battouta, port Tanger-Med, sans carte de crédit.", 'name', 'description');
+    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/location-voiture-tanger", 'rel', 'canonical');
+    setMeta('meta[property="og:title"]', 'content', "Location Voiture Tanger dès 200 DH/jour | Sans Carte de Crédit - Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Tanger dès 200 DH/jour. Livraison aéroport Ibn Battouta, port Tanger-Med, sans carte de crédit.", 'property', 'og:description');
+    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/location-voiture-tanger", 'property', 'og:url');
+  }, []);
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
@@ -98,7 +119,7 @@ const LocationVoitureTanger = () => {
       <Header />
       <Breadcrumbs />
 
-      <section className="relative h-[400px] md:h-[500px] flex items-center">
+      <section className="relative min-h-[320px] sm:min-h-[400px] md:h-[500px] flex items-center">
         <img 
           src={cityTanger}
           alt={generateCityImageAlt("Tanger")}
@@ -169,7 +190,7 @@ const LocationVoitureTanger = () => {
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
             <div className="lg:col-span-2 space-y-8">
               <section>
-                <h2 className="text-3xl font-bold mb-4">Location de Voiture à Tanger : Porte de l&apos;Afrique</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4">Location de Voiture à Tanger : Porte de l&apos;Afrique</h2>
                 <div className="prose prose-lg max-w-none text-muted-foreground">
                   <p>
                     Vous cherchez à <strong>louer une voiture à Tanger</strong> ? Benatna vous propose le meilleur service de location dans la perle du Nord. Que vous arriviez par l&apos;aéroport, le port Tanger Med ou le port ville, explorez cette ville cosmopolite et ses environs en toute liberté.

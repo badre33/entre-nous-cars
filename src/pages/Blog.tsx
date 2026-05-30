@@ -15,6 +15,26 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useState, useEffect } from "react";
 
 const Blog = () => {
+
+  // WORKAROUND react-helmet-async: force-set document.title, meta description,
+  // canonical and OG tags via direct DOM API. Helmet leaks default values.
+  useEffect(() => {
+    document.title = "Blog Location Voiture Maroc - Guides & Conseils | Benatna";
+    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
+        el.setAttribute(key, keyVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', 'content', "Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna.", 'name', 'description');
+    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/blog", 'rel', 'canonical');
+    setMeta('meta[property="og:title"]', 'content', "Blog Location Voiture Maroc - Guides & Conseils | Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna.", 'property', 'og:description');
+    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/blog", 'property', 'og:url');
+  }, []);
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const heroAnimation = useScrollAnimation(0.2);

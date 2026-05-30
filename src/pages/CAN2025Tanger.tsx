@@ -60,7 +60,7 @@ const CAN2025Tanger = () => {
 
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Tanger - Football & Méditerranée</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Tanger - Football & Méditerranée</h2>
             
             <div className="grid md:grid-cols-4 gap-6 mb-12">
               <Card><CardContent className="pt-6 text-center"><Users className="w-12 h-12 mx-auto mb-4 text-primary" /><p className="text-2xl font-bold">65,000</p><p className="text-sm text-muted-foreground">Plus grand stade CAN</p></CardContent></Card>
@@ -107,7 +107,7 @@ const CAN2025Tanger = () => {
 
         <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">CAN 2025 à Tanger = Football International</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">CAN 2025 à Tanger = Football International</h2>
             <p className="text-xl mb-8">Plus grand stade de la compétition 🏆</p>
             <Link to="/louer"><Button size="lg" className="bg-white text-primary">Réserver Ma Voiture</Button></Link>
           </div>

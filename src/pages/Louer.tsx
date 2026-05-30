@@ -4084,6 +4084,26 @@ const cars = [
 ];
 
 const Louer = () => {
+
+  // WORKAROUND react-helmet-async: force-set document.title, meta description,
+  // canonical and OG tags via direct DOM API. Helmet leaks default values.
+  useEffect(() => {
+    document.title = "Location Voiture Maroc dès 200 DH/jour - 300+ Véhicules | Benatna";
+    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
+      let el = document.querySelector(selector);
+      if (!el) {
+        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
+        el.setAttribute(key, keyVal);
+        document.head.appendChild(el);
+      }
+      el.setAttribute(attr, value);
+    };
+    setMeta('meta[name="description"]', 'content', "300+ véhicules disponibles à la location au Maroc dès 200 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Sans carte de crédit, WhatsApp.", 'name', 'description');
+    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/louer", 'rel', 'canonical');
+    setMeta('meta[property="og:title"]', 'content', "Location Voiture Maroc dès 200 DH/jour - 300+ Véhicules | Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "300+ véhicules disponibles à la location au Maroc dès 200 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Sans carte de crédit, WhatsApp.", 'property', 'og:description');
+    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/louer", 'property', 'og:url');
+  }, []);
   const { t } = useLanguage();
   const [searchParams] = useSearchParams();
   const [selectedCity, setSelectedCity] = useState<string>("all");

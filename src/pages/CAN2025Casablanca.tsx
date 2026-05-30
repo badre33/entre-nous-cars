@@ -112,7 +112,7 @@ const CAN2025Casablanca = () => {
         {/* Info Stade */}
         <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Stade Mohammed V - Informations Pratiques</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-12">Stade Mohammed V - Informations Pratiques</h2>
             
             <div className="grid md:grid-cols-4 gap-6 mb-12">
               <Card>
@@ -244,7 +244,7 @@ const CAN2025Casablanca = () => {
         {/* CTA */}
         <section className="py-16 bg-gradient-to-r from-primary to-accent text-white">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">Réservez Votre Voiture pour la CAN 2025</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Réservez Votre Voiture pour la CAN 2025</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
               Profitez des matchs à Casablanca en toute liberté. Tarifs spéciaux supporters dès 200 DH/jour.
             </p>

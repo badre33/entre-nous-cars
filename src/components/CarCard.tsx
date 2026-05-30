@@ -96,11 +96,11 @@ export default function CarCard({
                 <span className="truncate">{car.city}</span>
               </div>
               <div className="flex gap-1.5">
-                <Button size="sm" variant="outline" className="h-10 text-xs flex-1" onClick={onShowAvailability}>
+                <Button size="sm" variant="outline" className="h-11 text-sm flex-1" onClick={onShowAvailability}>
                   <CalendarCheck className="w-3 h-3 mr-1" />
                   Dispo
                 </Button>
-                <Button size="sm" className="h-10 text-xs flex-1" onClick={onWhatsAppClick}>
+                <Button size="sm" className="h-11 text-sm flex-1" onClick={onWhatsAppClick}>
                   WhatsApp
                 </Button>
                 <div
@@ -182,11 +182,11 @@ export default function CarCard({
             </div>
           </div>
           <div className="space-y-1.5">
-            <Button size="sm" variant="outline" className="w-full h-10 text-xs" onClick={onShowAvailability}>
+            <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={onShowAvailability}>
               <CalendarCheck className="w-3 h-3 mr-1" />
               Disponibilités
             </Button>
-            <Button size="sm" className="w-full h-10 text-xs" onClick={onWhatsAppClick}>
+            <Button size="sm" className="w-full h-11 text-sm" onClick={onWhatsAppClick}>
               WhatsApp
             </Button>
           </div>

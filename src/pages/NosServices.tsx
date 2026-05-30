@@ -215,7 +215,7 @@ const NosServices = () => {
       <section className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16 mb-20">
         <div className="container px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
               Vous ne trouvez pas le service adapté ?
             </h2>
             <p className="text-lg mb-8 opacity-90">
