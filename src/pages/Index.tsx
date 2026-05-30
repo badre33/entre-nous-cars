@@ -209,7 +209,7 @@ const Index = () => {
       
       <main>
       {/* Hero Section with Parallax */}
-      <section className="relative min-h-[480px] sm:min-h-[550px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[560px] sm:min-h-[600px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
         {/* LCP-optimized WebP hero image from public folder for fast discovery */}
         <img 
           src={heroImageWebp} 

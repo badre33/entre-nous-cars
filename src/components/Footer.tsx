@@ -241,7 +241,7 @@ const Footer = () => {
         
         
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          © 2025 Benatna - {t('footer.tagline')}
+          © 2026 Benatna - {t('footer.tagline')}
         </div>
       </div>
     </footer>

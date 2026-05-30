@@ -4326,7 +4326,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
       <Breadcrumbs />
       
       {/* Hero with Search and Parallax */}
-      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[480px] sm:min-h-[520px] md:h-[450px] flex items-center justify-center overflow-hidden py-6 md:py-0">
         <div 
           className="absolute inset-0 bg-cover bg-center parallax-bg"
           style={{ 
@@ -4338,14 +4338,14 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
         </div>
         
         <div className="container relative z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl text-center mb-8 text-white drop-shadow-lg">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-center mb-4 sm:mb-8 text-white drop-shadow-lg leading-tight">
             {t('rent.findIdealCar')}
           </h1>
           
           {/* Search Bar */}
           <Card className="max-w-4xl mx-auto rounded-2xl shadow-xl">
-            <CardContent className="p-6">
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-4">
+            <CardContent className="p-3 sm:p-6">
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-2 sm:gap-4 mb-4">
                 <div className="space-y-2 col-span-2 md:col-span-1">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <MapPin className="w-4 h-4" />
@@ -4407,7 +4407,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                   <input
                     type="time"
                     defaultValue="10:00"
-                    className="w-full px-3 py-2 bg-secondary/20 border-0 rounded-lg focus:ring-2 focus:ring-primary text-sm"
+                    className="w-full px-2 py-2 h-11 bg-secondary/20 border-0 rounded-lg focus:ring-2 focus:ring-primary text-sm"
                   />
                 </div>
 
@@ -4454,7 +4454,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                   <input
                     type="time"
                     defaultValue="10:00"
-                    className="w-full px-3 py-2 bg-secondary/20 border-0 rounded-lg focus:ring-2 focus:ring-primary text-sm"
+                    className="w-full px-2 py-2 h-11 bg-secondary/20 border-0 rounded-lg focus:ring-2 focus:ring-primary text-sm"
                   />
                 </div>
               </div>
@@ -4597,7 +4597,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                 <Button
                   size="sm"
                   variant={viewMode === 'carousel' ? 'default' : 'ghost'}
-                  className="h-8 w-8 p-0"
+                  className="h-11 w-11 p-0"
                   onClick={() => setViewMode('carousel')}
                   aria-label={t('rent.viewCarousel')}
                 >
@@ -4606,7 +4606,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                 <Button
                   size="sm"
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}
-                  className="h-8 w-8 p-0"
+                  className="h-11 w-11 p-0"
                   onClick={() => setViewMode('grid')}
                   aria-label={t('rent.viewGrid')}
                 >
@@ -4615,7 +4615,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                 <Button
                   size="sm"
                   variant={viewMode === 'list' ? 'default' : 'ghost'}
-                  className="h-8 w-8 p-0"
+                  className="h-11 w-11 p-0"
                   onClick={() => setViewMode('list')}
                   aria-label={t('rent.viewList')}
                 >
@@ -4701,8 +4701,8 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
                           </CarouselItem>
                         ))}
                       </CarouselContent>
-                      <CarouselPrevious className="left-1 h-8 w-8" />
-                      <CarouselNext className="right-1 h-8 w-8" />
+                      <CarouselPrevious className="left-2 h-10 w-10" />
+                      <CarouselNext className="right-2 h-10 w-10" />
                     </Carousel>
                     <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
                       <p className="text-xs text-center text-muted-foreground">

@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,8 @@ import { Car } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export const FloatingCTA = () => {
+  const { pathname } = useLocation();
+  if (pathname === "/louer" || pathname === "/partenaires") return null;
   const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
 
