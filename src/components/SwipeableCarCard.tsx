@@ -112,7 +112,7 @@ export default function SwipeableCarCard({
                 className="w-full h-full object-cover"
               />
               {car.badges && car.badges.length > 0 && (
-                <Badge className="absolute top-1 left-1 text-[9px] py-0 px-1.5 bg-destructive/90">
+                <Badge className="absolute top-1 left-1 text-xs py-0 px-1.5 bg-destructive/90">
                   {car.badges[0].replace('🔥 ', '')}
                 </Badge>
               )}
@@ -121,32 +121,32 @@ export default function SwipeableCarCard({
               <div className="flex items-start justify-between mb-1.5">
                 <div className="flex-1 min-w-0 pr-2">
                   <h3 className="text-sm font-semibold truncate">{car.name}</h3>
-                  <p className="text-[10px] text-muted-foreground truncate">{car.category} • {car.type}</p>
+                  <p className="text-xs text-muted-foreground truncate">{car.category} • {car.type}</p>
                 </div>
                 <div className="text-right flex-shrink-0">
                   {priceInfo ? (
                     <>
                       <p className="text-base font-bold text-primary">{priceInfo.total}</p>
-                      <p className="text-[9px] text-muted-foreground">{priceInfo.days}j</p>
+                      <p className="text-xs text-muted-foreground">{priceInfo.days}j</p>
                     </>
                   ) : (
                     <>
                       <p className="text-base font-bold text-primary">{car.priceDisplay}</p>
-                      <p className="text-[9px] text-muted-foreground">/j</p>
+                      <p className="text-xs text-muted-foreground">/j</p>
                     </>
                   )}
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-[10px] text-muted-foreground mb-2">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
                 <MapPin className="w-2.5 h-2.5" />
                 <span className="truncate">{car.city}</span>
               </div>
               <div className="flex gap-1.5">
-                <Button size="sm" variant="outline" className="h-7 text-[10px] flex-1" onClick={onShowAvailability}>
+                <Button size="sm" variant="outline" className="h-7 text-xs flex-1" onClick={onShowAvailability}>
                   <CalendarCheck className="w-3 h-3 mr-1" />
                   Dispo
                 </Button>
-                <Button size="sm" className="h-7 text-[10px] flex-1" onClick={onWhatsAppClick}>
+                <Button size="sm" className="h-7 text-xs flex-1" onClick={onWhatsAppClick}>
                   WhatsApp
                 </Button>
                 <div
@@ -219,7 +219,7 @@ export default function SwipeableCarCard({
             </div>
           </div>
           {car.badges && car.badges.length > 0 && (
-            <Badge className="absolute top-1.5 left-1.5 text-[9px] py-0 px-1.5 bg-destructive/90">
+            <Badge className="absolute top-1.5 left-1.5 text-xs py-0 px-1.5 bg-destructive/90">
               {car.badges[0].replace('🔥 ', '')}
             </Badge>
           )}
@@ -227,10 +227,10 @@ export default function SwipeableCarCard({
         <CardContent className="p-3">
           <div className="mb-2">
             <h3 className="text-sm font-semibold truncate mb-0.5">{car.name}</h3>
-            <p className="text-[10px] text-muted-foreground truncate">{car.category}</p>
+            <p className="text-xs text-muted-foreground truncate">{car.category}</p>
           </div>
           <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+            <div className="flex items-center gap-1 text-xs text-muted-foreground">
               <MapPin className="w-2.5 h-2.5" />
               <span className="truncate">{car.city}</span>
             </div>
@@ -238,22 +238,22 @@ export default function SwipeableCarCard({
               {priceInfo ? (
                 <>
                   <p className="text-sm font-bold text-primary">{priceInfo.total}</p>
-                  <p className="text-[9px] text-muted-foreground">{priceInfo.days}j</p>
+                  <p className="text-xs text-muted-foreground">{priceInfo.days}j</p>
                 </>
               ) : (
                 <>
                   <p className="text-sm font-bold text-primary">{car.priceDisplay}</p>
-                  <p className="text-[9px] text-muted-foreground">/j</p>
+                  <p className="text-xs text-muted-foreground">/j</p>
                 </>
               )}
             </div>
           </div>
           <div className="space-y-1.5">
-            <Button size="sm" variant="outline" className="w-full h-7 text-[10px]" onClick={onShowAvailability}>
+            <Button size="sm" variant="outline" className="w-full h-7 text-xs" onClick={onShowAvailability}>
               <CalendarCheck className="w-3 h-3 mr-1" />
               Disponibilités
             </Button>
-            <Button size="sm" className="w-full h-7 text-[10px]" onClick={onWhatsAppClick}>
+            <Button size="sm" className="w-full h-7 text-xs" onClick={onWhatsAppClick}>
               WhatsApp
             </Button>
           </div>
@@ -287,7 +287,7 @@ export default function SwipeableCarCard({
         />
         
         {/* Instructions de swipe au premier affichage */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 text-[9px] text-white/80 backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 text-xs text-white/80 backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
           <span>← Comparer</span>
           <span>Dispo →</span>
         </div>
@@ -344,15 +344,15 @@ export default function SwipeableCarCard({
             {priceInfo ? (
               <>
                 <p className="text-xl font-bold text-primary">{priceInfo.total}</p>
-                <p className="text-[10px] text-muted-foreground">{priceInfo.days} jour{priceInfo.days > 1 ? 's' : ''}</p>
+                <p className="text-xs text-muted-foreground">{priceInfo.days} jour{priceInfo.days > 1 ? 's' : ''}</p>
                 {priceInfo.discount > 0 && (
-                  <p className="text-[10px] text-secondary font-medium">-{priceInfo.discount}%</p>
+                  <p className="text-xs text-secondary font-medium">-{priceInfo.discount}%</p>
                 )}
               </>
             ) : (
               <>
                 <p className="text-xl font-bold text-primary">{car.priceDisplay}</p>
-                <p className="text-[10px] text-muted-foreground">par jour</p>
+                <p className="text-xs text-muted-foreground">par jour</p>
               </>
             )}
           </div>

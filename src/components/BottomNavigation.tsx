@@ -95,7 +95,7 @@ export const BottomNavigation = () => {
                 )}
               </div>
               <span className={cn(
-                "text-[11px] font-medium leading-tight text-center",
+                "text-xs font-medium leading-tight text-center",
                 active && "font-semibold text-primary",
                 isHighlight && !active && "text-primary font-medium"
               )}>
