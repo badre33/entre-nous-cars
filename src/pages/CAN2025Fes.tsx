@@ -16,7 +16,7 @@ const CAN2025Fes = () => {
     <>
       <Helmet>
         <title>Location Voiture CAN 2025 Fès - Complexe Sportif | Benatna</title>
-        <meta name="description" content="Location voiture CAN 2025 à Fès. Médina UNESCO, parking stade. 5 matchs. Réservez dès 200 DH/jour." />
+        <meta name="description" content="Location voiture CAN 2025 à Fès. Médina UNESCO, parking stade. 5 matchs. Réservez dès 300 DH/jour." />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-fes" />
       </Helmet>
       

@@ -29,7 +29,7 @@ const CAN2025Rabat = () => {
     <>
       <Helmet>
         <title>Location Voiture CAN 2025 Rabat - Complexe Moulay Abdellah | Benatna</title>
-        <meta name="description" content="Location voiture CAN 2025 à Rabat. Parking Complexe Sportif, navettes, hébergements. 7 matchs CAN. Réservez dès 200 DH/jour." />
+        <meta name="description" content="Location voiture CAN 2025 à Rabat. Parking Complexe Sportif, navettes, hébergements. 7 matchs CAN. Réservez dès 300 DH/jour." />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-rabat" />
       </Helmet>
       
@@ -200,7 +200,7 @@ const CAN2025Rabat = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">Louez Votre Voiture à Rabat</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Découvrez la capitale pendant la CAN 2025. Tarifs spéciaux dès 200 DH/jour.
+              Découvrez la capitale pendant la CAN 2025. Tarifs spéciaux dès 300 DH/jour.
             </p>
             <Link to="/louer">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90">

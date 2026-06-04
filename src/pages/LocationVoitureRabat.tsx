@@ -99,7 +99,7 @@ const LocationVoitureRabat = () => {
   // WORKAROUND react-helmet-async: force-set document.title, meta description,
   // canonical and OG tags via direct DOM API. Helmet leaks default values.
   useEffect(() => {
-    document.title = "Location Voiture Rabat dès 200 DH/jour | Sans Carte de Crédit - Benatna";
+    document.title = "Location Voiture Rabat dès 300 DH/jour | Sans Carte de Crédit - Benatna";
     const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
       let el = document.querySelector(selector);
       if (!el) {
@@ -109,20 +109,20 @@ const LocationVoitureRabat = () => {
       }
       el.setAttribute(attr, value);
     };
-    setMeta('meta[name="description"]', 'content', "Location de voiture à Rabat dès 200 DH/jour. Agences locales vérifiées, livraison aéroport Rabat-Salé, sans carte de crédit.", 'name', 'description');
+    setMeta('meta[name="description"]', 'content', "Location de voiture à Rabat dès 300 DH/jour. Agences locales vérifiées, livraison aéroport Rabat-Salé, sans carte de crédit.", 'name', 'description');
     setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/location-voiture-rabat", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Location Voiture Rabat dès 200 DH/jour | Sans Carte de Crédit - Benatna", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Rabat dès 200 DH/jour. Agences locales vérifiées, livraison aéroport Rabat-Salé, sans carte de crédit.", 'property', 'og:description');
+    setMeta('meta[property="og:title"]', 'content', "Location Voiture Rabat dès 300 DH/jour | Sans Carte de Crédit - Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Rabat dès 300 DH/jour. Agences locales vérifiées, livraison aéroport Rabat-Salé, sans carte de crédit.", 'property', 'og:description');
     setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/location-voiture-rabat", 'property', 'og:url');
   }, []);
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* SEO Meta Tags */}
       <Helmet>
-        <title>Location Voiture Rabat dès 200 DH/jour | Sans Carte de Crédit - Benatna</title>
+        <title>Location Voiture Rabat dès 300 DH/jour | Sans Carte de Crédit - Benatna</title>
         <meta 
           name="description" 
-          content="Louez une voiture à Rabat dès 200 DH/jour. Livraison aéroport Rabat-Salé, agences locales vérifiées, processus 100% digital. Sans frais cachés." 
+          content="Louez une voiture à Rabat dès 300 DH/jour. Livraison aéroport Rabat-Salé, agences locales vérifiées, processus 100% digital. Sans frais cachés." 
         />
         <link rel="canonical" href="https://benatna.ma/location-voiture-rabat" />
         <meta property="og:title" content="Location Voiture Rabat | Agences Locales - Benatna" />
@@ -157,7 +157,7 @@ const LocationVoitureRabat = () => {
       />
 
       <PriceRangeOfferSchema 
-        minPrice="150"
+        minPrice="300"
         maxPrice="800"
         city="Rabat"
         discount={{ percentage: 15, minDays: 30 }}
@@ -445,7 +445,7 @@ const LocationVoitureRabat = () => {
                       Parfaites pour les déplacements urbains et le stationnement en centre-ville. 
                       Économiques en carburant, idéales pour les trajets quotidiens.
                     </p>
-                    <p className="text-primary font-medium mt-2">À partir de 200 DH/jour</p>
+                    <p className="text-primary font-medium mt-2">À partir de 300 DH/jour</p>
                   </div>
                 </div>
 

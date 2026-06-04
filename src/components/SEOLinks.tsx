@@ -74,7 +74,7 @@ export const SEOLinks = () => {
           </p>
           <p className="text-muted-foreground leading-relaxed mt-4">
             Idéal pour le <strong>tourisme au Maroc</strong>, les déplacements professionnels ou les besoins locaux, 
-            Benatna simplifie votre mobilité avec des tarifs compétitifs dès 200 MAD/jour.
+            Benatna simplifie votre mobilité avec des tarifs compétitifs dès 300 MAD/jour.
           </p>
           
           {/* Bloc SEO Casablanca - Maillage interne stratégique */}

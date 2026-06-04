@@ -4088,7 +4088,7 @@ const Louer = () => {
   // WORKAROUND react-helmet-async: force-set document.title, meta description,
   // canonical and OG tags via direct DOM API. Helmet leaks default values.
   useEffect(() => {
-    document.title = "Location Voiture Maroc dès 200 DH/jour - 300+ Véhicules | Benatna";
+    document.title = "Location Voiture Maroc dès 300 DH/jour - 300+ Véhicules | Benatna";
     const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
       let el = document.querySelector(selector);
       if (!el) {
@@ -4098,10 +4098,10 @@ const Louer = () => {
       }
       el.setAttribute(attr, value);
     };
-    setMeta('meta[name="description"]', 'content', "300+ véhicules disponibles à la location au Maroc dès 200 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Sans carte de crédit, WhatsApp.", 'name', 'description');
+    setMeta('meta[name="description"]', 'content', "300+ véhicules disponibles à la location au Maroc dès 300 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Sans carte de crédit, WhatsApp.", 'name', 'description');
     setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/louer", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Location Voiture Maroc dès 200 DH/jour - 300+ Véhicules | Benatna", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "300+ véhicules disponibles à la location au Maroc dès 200 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Sans carte de crédit, WhatsApp.", 'property', 'og:description');
+    setMeta('meta[property="og:title"]', 'content', "Location Voiture Maroc dès 300 DH/jour - 300+ Véhicules | Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "300+ véhicules disponibles à la location au Maroc dès 300 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Sans carte de crédit, WhatsApp.", 'property', 'og:description');
     setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/louer", 'property', 'og:url');
   }, []);
   const { t } = useLanguage();
@@ -4328,7 +4328,7 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
       */}
       
       <Helmet>
-        <title>Location Voiture Maroc dès 200 DH/jour - 300+ Véhicules | Benatna</title>
+        <title>Location Voiture Maroc dès 300 DH/jour - 300+ Véhicules | Benatna</title>
         <meta name="description" content="Comparez et réservez votre voiture de location au Maroc. 300+ véhicules disponibles à Casablanca, Marrakech, Rabat. Prix transparents, réservation en 2 min." />
         <meta name="keywords" content="location voiture maroc, louer auto casablanca, rent car marrakech, voiture tourisme maroc, location véhicule rabat, agence location tanger" />
         <link rel="canonical" href="https://benatna.ma/louer" />

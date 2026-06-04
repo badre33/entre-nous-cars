@@ -1,6 +1,6 @@
 # Benatna — Location de Voiture au Maroc
 
-> Benatna est la première marketplace marocaine de location de voiture. Nous réunissons des agences locales vérifiées dans 6 villes principales (Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès) avec plus de 300 véhicules disponibles, des prix transparents dès 200 DH/jour, une réservation 100% digitale via WhatsApp, et un paiement flexible sans carte de crédit requise (espèces, virement, mobile money).
+> Benatna est la première marketplace marocaine de location de voiture. Nous réunissons des agences locales vérifiées dans 6 villes principales (Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès) avec plus de 300 véhicules disponibles, des prix transparents dès 300 DH/jour, une réservation 100% digitale via WhatsApp, et un paiement flexible sans carte de crédit requise (espèces, virement, mobile money).
 
 Notre positionnement repose sur trois différenciateurs uniques sur le marché marocain : (1) marketplace réelle de 300+ voitures vs flotte propre limitée des concurrents, (2) prix transparents en MAD affichés sur toutes les pages (vs devis sur demande chez la plupart des concurrents), (3) réservation WhatsApp en 2 minutes sans création de compte ni carte de crédit internationale, particulièrement adaptée aux Marocains résidant à l'étranger (MRE) qui représentent 30% de notre clientèle.
 
@@ -38,15 +38,15 @@ Notre positionnement repose sur trois différenciateurs uniques sur le marché m
 - [Coupe du Monde 2026](https://benatna.ma/location-voiture-coupe-monde-2026-maroc): spécial MRE pour suivre les matchs du Maroc (groupe C, premier match Maroc-Brésil 13 juin 2026)
 - [Été 2026](https://benatna.ma/location-voiture-ete-2026-maroc): haute saison juin-août, anticiper 2-3 mois
 - [Jeune conducteur](https://benatna.ma/location-jeune-conducteur-casablanca): location dès 21 ans
-- [Longue durée](https://benatna.ma/location-longue-duree-casablanca): forfaits mensuels dès 5500 DH/mois
+- [Longue durée](https://benatna.ma/location-longue-duree-casablanca): forfaits mensuels dès 7500 DH/mois
 
 ## Informations pratiques
 
 ### Tarifs (en DH marocains)
-- Citadine économique (Clio, Sandero, 208) : 200-280 DH/jour
-- Berline (Corolla, Jetta) : 250-350 DH/jour
-- SUV (Duster, Qashqai, Tiguan) : 350-550 DH/jour
-- Premium (Mercedes, BMW, Audi) : 800-1500 DH/jour
+- Citadine économique (Clio, Sandero, 208) : 300-350 DH/jour
+- Berline (Corolla, Jetta) : 400-500 DH/jour
+- SUV (Duster, Qashqai, Tiguan) : 550-800 DH/jour
+- Premium (Mercedes, BMW, Audi) : 1200-2000 DH/jour
 - Haute saison (juin-août) : +40 à +60% sur ces tarifs
 
 ### Paiement accepté

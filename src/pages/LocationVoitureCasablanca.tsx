@@ -99,7 +99,7 @@ const LocationVoitureCasablanca = () => {
   // WORKAROUND react-helmet-async: force-set document.title, meta description,
   // canonical and OG tags via direct DOM API. Helmet leaks default values.
   useEffect(() => {
-    document.title = "Location Voiture Casablanca dès 200 DH/jour | Sans Carte de Crédit - Benatna";
+    document.title = "Location Voiture Casablanca dès 300 DH/jour | Sans Carte de Crédit - Benatna";
     const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
       let el = document.querySelector(selector);
       if (!el) {
@@ -109,20 +109,20 @@ const LocationVoitureCasablanca = () => {
       }
       el.setAttribute(attr, value);
     };
-    setMeta('meta[name="description"]', 'content', "Location de voiture à Casablanca dès 200 DH/jour. Agences locales vérifiées, livraison aéroport Mohammed V, sans carte de crédit.", 'name', 'description');
+    setMeta('meta[name="description"]', 'content', "Location de voiture à Casablanca dès 300 DH/jour. Agences locales vérifiées, livraison aéroport Mohammed V, sans carte de crédit.", 'name', 'description');
     setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/location-voiture-casablanca", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Location Voiture Casablanca dès 200 DH/jour | Sans Carte de Crédit - Benatna", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Casablanca dès 200 DH/jour. Agences locales vérifiées, livraison aéroport Mohammed V, sans carte de crédit.", 'property', 'og:description');
+    setMeta('meta[property="og:title"]', 'content', "Location Voiture Casablanca dès 300 DH/jour | Sans Carte de Crédit - Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Casablanca dès 300 DH/jour. Agences locales vérifiées, livraison aéroport Mohammed V, sans carte de crédit.", 'property', 'og:description');
     setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/location-voiture-casablanca", 'property', 'og:url');
   }, []);
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* SEO Meta Tags */}
       <Helmet>
-        <title>Location Voiture Casablanca dès 200 DH/jour | Sans Carte de Crédit - Benatna</title>
+        <title>Location Voiture Casablanca dès 300 DH/jour | Sans Carte de Crédit - Benatna</title>
         <meta 
           name="description" 
-          content="Louez une voiture à Casablanca dès 200 DH/jour. Livraison gratuite aéroport Mohammed V, large choix de véhicules, agences locales vérifiées. Réservez en ligne." 
+          content="Louez une voiture à Casablanca dès 300 DH/jour. Livraison gratuite aéroport Mohammed V, large choix de véhicules, agences locales vérifiées. Réservez en ligne." 
         />
         <link rel="canonical" href="https://benatna.ma/location-voiture-casablanca" />
         <meta property="og:title" content="Location Voiture Casablanca | Agences Locales - Benatna" />
@@ -157,7 +157,7 @@ const LocationVoitureCasablanca = () => {
       />
 
       <PriceRangeOfferSchema 
-        minPrice="150"
+        minPrice="300"
         maxPrice="900"
         city="Casablanca"
         discount={{ percentage: 15, minDays: 30 }}
@@ -443,7 +443,7 @@ const LocationVoitureCasablanca = () => {
                       Idéales pour circuler dans les ruelles du centre-ville et se garer facilement. 
                       Économiques en carburant, parfaites pour les trajets urbains quotidiens.
                     </p>
-                    <p className="text-primary font-medium mt-2">À partir de 200 DH/jour</p>
+                    <p className="text-primary font-medium mt-2">À partir de 300 DH/jour</p>
                   </div>
                 </div>
 

@@ -126,7 +126,7 @@ export const hyperLocalArticles: HyperLocalArticle[] = [
               description: 'Poissons et fruits de mer sur pilotis. Vue mer à 180°.',
               tips: [
                 '🅿️ Parking privé 30 places',
-                '💰 Budget : 350-500 DH/pers',
+                '💰 Budget : 500-700 DH/pers',
                 '🐟 Poissons frais du jour',
                 '⏰ Déjeuner vue mer imbattable'
               ]
@@ -194,7 +194,7 @@ export const hyperLocalArticles: HyperLocalArticle[] = [
           content: `**Zones parking recommandées** :\n\n✅ **Morocco Mall** : 3000 places couvertes, 10 DH/h (gratuit si achats)\n✅ **Anfa Place** : 2000 places, gratuit\n✅ **Rue de la Corniche** : Parking payant 5 DH/h (surveillé)\n✅ **Restaurants haut de gamme** : Parking privé gratuit clients\n\n⚠️ **À éviter** :\n❌ Stationnement sauvage près des clubs (risque d'amende 300 DH)\n❌ Week-end après 18h : forte affluence, prévoir +30 min parking\n❌ Laisser objets de valeur visibles dans voiture`
         }
       ],
-      conclusion: 'Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c\'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 200 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà.'
+      conclusion: 'Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c\'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 300 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà.'
     },
     relatedArticles: ['itineraire-casa-journee', 'parking-casablanca-guide', 'restaurants-casa-mer']
   },
@@ -266,7 +266,7 @@ export const hyperLocalArticles: HyperLocalArticle[] = [
           content: `**Options parking Maarif** :\n\n1. **Twin Center** : 1000 places, 10 DH/h, sécurisé 24h/24\n2. **Zerktouni Mall** : 500 places, 5 DH/h\n3. **Parking rue Abdelmoumen** : Gratuit mais limité\n4. **Parkings restaurants** : Gratuits pour clients`
         }
       ],
-      conclusion: 'Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c\'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 200 DH/jour.'
+      conclusion: 'Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c\'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 300 DH/jour.'
     },
     relatedArticles: ['spots-ain-diab-voiture', 'shopping-casablanca-guide']
   },
@@ -310,7 +310,7 @@ export const hyperLocalArticles: HyperLocalArticle[] = [
               description: 'Cuisine marocaine raffinée. Tenu par des femmes.',
               tips: [
                 '🅿️ Parking privé gratuit',
-                '💰 Budget : 250-350 DH/pers',
+                '💰 Budget : 400-500 DH/pers',
                 '👩‍🍳 Équipe 100% féminine',
                 '🥘 Spécialités : méchoui, pastilla'
               ]
@@ -567,7 +567,7 @@ export const hyperLocalArticles: HyperLocalArticle[] = [
         },
         {
           title: '💡 Conseils Pratiques Road Trip',
-          content: `**Préparation essentielle** :\n\n✅ **Avant départ** :\n- Plein d'essence Marrakech (stations rares montagne)\n- Vérifier pression pneus + roue secours\n- Eau (6L minimum), snacks énergétiques\n- Carte papier + GPS hors ligne (Maps.me)\n- Trousse premiers secours\n\n✅ **Conduite montagne** :\n- Rouler en 2ème/3ème dans pistes\n- Klaxonner avant virages aveugles\n- Céder priorité mules/moutons\n- Éviter dépassements risqués\n\n✅ **Budget total 3 jours** :\n- Location 4x4 : 840-1050 DH\n- Essence : 400-500 DH\n- Hébergement (2 nuits) : 600-1600 DH\n- Repas : 600-900 DH\n- Divers : 200 DH\n**TOTAL : 2640-4250 DH pour 2 personnes**\n\n⚠️ **Période idéale** :\n- **Printemps (mars-mai)** : Verdure, cascades en eau\n- **Automne (sept-nov)** : Températures agréables\n- **Éviter juillet-août** : Chaleur intense basse altitude\n- **Hiver (déc-fév)** : Neige possible, 4x4 obligatoire`
+          content: `**Préparation essentielle** :\n\n✅ **Avant départ** :\n- Plein d'essence Marrakech (stations rares montagne)\n- Vérifier pression pneus + roue secours\n- Eau (6L minimum), snacks énergétiques\n- Carte papier + GPS hors ligne (Maps.me)\n- Trousse premiers secours\n\n✅ **Conduite montagne** :\n- Rouler en 2ème/3ème dans pistes\n- Klaxonner avant virages aveugles\n- Céder priorité mules/moutons\n- Éviter dépassements risqués\n\n✅ **Budget total 3 jours** :\n- Location 4x4 : 840-1050 DH\n- Essence : 400-500 DH\n- Hébergement (2 nuits) : 600-1600 DH\n- Repas : 900-1200 DH\n- Divers : 200 DH\n**TOTAL : 2640-4250 DH pour 2 personnes**\n\n⚠️ **Période idéale** :\n- **Printemps (mars-mai)** : Verdure, cascades en eau\n- **Automne (sept-nov)** : Températures agréables\n- **Éviter juillet-août** : Chaleur intense basse altitude\n- **Hiver (déc-fév)** : Neige possible, 4x4 obligatoire`
         }
       ],
       conclusion: 'Ce road trip Atlas en 4x4 est une expérience inoubliable à 1h de Marrakech. Vallées verdoyantes, villages berbères authentiques, panoramas à couper le souffle : l\'Atlas révèle la diversité du Maroc. Pour ce circuit, nous recommandons le Dacia Duster 4x4 (excellent rapport qualité-prix) ou un SUV robuste. Réservez votre véhicule chez Benatna dès 280 DH/jour avec kilométrage illimité et assurance tous risques pour partir l\'esprit tranquille.'

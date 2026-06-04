@@ -16,7 +16,7 @@ const CAN2025Agadir = () => {
     <>
       <Helmet>
         <title>Location Voiture CAN 2025 Agadir - Stade d'Agadir | Benatna</title>
-        <meta name="description" content="Location voiture CAN 2025 à Agadir. Plages, stade moderne, parking. 6 matchs. Réservez dès 200 DH/jour." />
+        <meta name="description" content="Location voiture CAN 2025 à Agadir. Plages, stade moderne, parking. 6 matchs. Réservez dès 300 DH/jour." />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-agadir" />
       </Helmet>
       

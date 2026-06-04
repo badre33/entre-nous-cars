@@ -38,7 +38,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Casablanca",
     citySlug: "casablanca",
     title: "Location Voiture Ain Diab Casablanca | Corniche & Plages - Benatna",
-    metaDescription: "Location de voiture à Ain Diab Casablanca. Livraison corniche, plages, Morocco Mall. Prix dès 200 DH/jour. Idéal sorties balnéaires et shopping.",
+    metaDescription: "Location de voiture à Ain Diab Casablanca. Livraison corniche, plages, Morocco Mall. Prix dès 300 DH/jour. Idéal sorties balnéaires et shopping.",
     h1: "Location de Voiture à Ain Diab - Corniche Casablanca",
     description: "Ain Diab, le quartier balnéaire chic de Casablanca avec sa corniche de 6 km, ses plages, clubs, restaurants et le Morocco Mall. Louez une voiture pour profiter pleinement de ce quartier dynamique en bord d'Atlantique.",
     highlights: [
@@ -106,7 +106,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Casablanca",
     citySlug: "casablanca",
     title: "Location Voiture Maarif Casablanca | Quartier Central - Benatna",
-    metaDescription: "Location de voiture au Maarif Casablanca. Livraison Twin Center, commerces, restaurants. Prix dès 200 DH/jour. Idéal business et shopping.",
+    metaDescription: "Location de voiture au Maarif Casablanca. Livraison Twin Center, commerces, restaurants. Prix dès 300 DH/jour. Idéal business et shopping.",
     h1: "Location de Voiture au Maarif - Centre Casablanca",
     description: "Le Maarif, quartier central et dynamique de Casablanca. Centre commercial, d'affaires et résidentiel avec le Twin Center, restaurants, cinémas et commerces de luxe. Parfait pour business et loisirs.",
     highlights: [
@@ -174,7 +174,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Casablanca",
     citySlug: "casablanca",
     title: "Location Voiture Anfa Casablanca | Quartier Résidentiel Chic - Benatna",
-    metaDescription: "Location de voiture à Anfa Casablanca. Livraison quartier résidentiel haut standing, villas, ambassades. Prix dès 200 DH/jour.",
+    metaDescription: "Location de voiture à Anfa Casablanca. Livraison quartier résidentiel haut standing, villas, ambassades. Prix dès 300 DH/jour.",
     h1: "Location de Voiture à Anfa - Quartier Résidentiel Casablanca",
     description: "Anfa, le quartier résidentiel le plus prestigieux de Casablanca. Villas de luxe, ambassades, Palais Royal, golfs. Cadre verdoyant et calme, proche centre-ville et corniche.",
     highlights: [
@@ -310,7 +310,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Casablanca",
     citySlug: "casablanca",
     title: "Location Voiture Quartier Hassan Casablanca | Centre Historique - Benatna",
-    metaDescription: "Location de voiture quartier Hassan Casablanca. Livraison Place Mohammed V, préfecture, centre historique. Prix dès 200 DH/jour.",
+    metaDescription: "Location de voiture quartier Hassan Casablanca. Livraison Place Mohammed V, préfecture, centre historique. Prix dès 300 DH/jour.",
     h1: "Location de Voiture Quartier Hassan - Centre Historique Casablanca",
     description: "Quartier Hassan, cœur administratif et historique de Casablanca. Place Mohammed V, préfecture, ancienne médina, bâtiments art déco. Centre névralgique de la ville avec son architecture coloniale française.",
     highlights: [
@@ -380,7 +380,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Guéliz Marrakech | Ville Nouvelle - Benatna",
-    metaDescription: "Location de voiture à Guéliz Marrakech. Livraison Avenue Mohammed V, Carré Eden, commerces. Prix dès 200 DH/jour. Idéal ville moderne.",
+    metaDescription: "Location de voiture à Guéliz Marrakech. Livraison Avenue Mohammed V, Carré Eden, commerces. Prix dès 300 DH/jour. Idéal ville moderne.",
     h1: "Location de Voiture à Guéliz - Ville Nouvelle Marrakech",
     description: "Guéliz, la ville nouvelle européenne de Marrakech. Quartier moderne avec cafés, restaurants internationaux, boutiques de luxe, galeries d'art. Le Marrakech contemporain et cosmopolite.",
     highlights: [
@@ -448,7 +448,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Hivernage Marrakech | Quartier Hôtelier Luxe - Benatna",
-    metaDescription: "Location de voiture à Hivernage Marrakech. Livraison hôtels 5 étoiles, Palais des Congrès, casinos. Prix dès 200 DH/jour.",
+    metaDescription: "Location de voiture à Hivernage Marrakech. Livraison hôtels 5 étoiles, Palais des Congrès, casinos. Prix dès 300 DH/jour.",
     h1: "Location de Voiture à Hivernage - Quartier Hôtelier Marrakech",
     description: "Hivernage, le quartier hôtelier de luxe de Marrakech. Hôtels 5 étoiles, riads de prestige, Palais des Congrès, casinos, restaurants gastronomiques. Le Marrakech chic et touristique.",
     highlights: [
@@ -516,7 +516,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Médina Marrakech | Jemaa el-Fna - Benatna",
-    metaDescription: "Location de voiture près Médina Marrakech. Livraison Jemaa el-Fna, remparts, riads. Prix dès 200 DH/jour. Parking sécurisé.",
+    metaDescription: "Location de voiture près Médina Marrakech. Livraison Jemaa el-Fna, remparts, riads. Prix dès 300 DH/jour. Parking sécurisé.",
     h1: "Location de Voiture près de la Médina - Jemaa el-Fna Marrakech",
     description: "La Médina de Marrakech, cœur historique classé UNESCO. Souks labyrinthiques, Place Jemaa el-Fna, palais, riads. Bien que piétonne, une voiture est utile pour accéder et explorer alentours.",
     highlights: [
@@ -584,7 +584,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Palmeraie Marrakech | Oasis Luxury - Benatna",
-    metaDescription: "Location de voiture à la Palmeraie Marrakech. Livraison resorts 5*, golfs, villas. Prix dès 200 DH/jour. Idéal séjour luxe.",
+    metaDescription: "Location de voiture à la Palmeraie Marrakech. Livraison resorts 5*, golfs, villas. Prix dès 300 DH/jour. Idéal séjour luxe.",
     h1: "Location de Voiture à la Palmeraie - Oasis de Luxe Marrakech",
     description: "La Palmeraie, oasis de 15 000 palmiers au nord de Marrakech. Resorts ultra-luxe, golfs prestigieux, villas de stars. Cadre unique mêlant nature et grand luxe.",
     highlights: [

@@ -50,7 +50,7 @@ const AIRPORT_DATA: Record<string, AirportData> = {
     travelTime: "25-35 minutes vers la baie d'Agadir et la zone touristique",
     mainRoad: "Route nationale N10 puis sortie aéroport. Pas de péage. Attention au radar fixe à 90 km/h à 5 km de l'aéroport",
     parkingInfo: "P1 dépose-minute (15 min gratuites), P2 (50 DH/jour), P3 longue durée (35 DH/jour, parking sécurisé)",
-    practicalNotes: "Aéroport saisonnier : très chargé novembre-mars (vols charters européens), plus calme en été. Climat doux toute l'année (15-28°C). Taxis grand bleu : 250-350 DH vers les hôtels de la zone touristique. Beaucoup de loueurs internationaux mais souvent comptoir fermé entre les vols.",
+    practicalNotes: "Aéroport saisonnier : très chargé novembre-mars (vols charters européens), plus calme en été. Climat doux toute l'année (15-28°C). Taxis grand bleu : 400-500 DH vers les hôtels de la zone touristique. Beaucoup de loueurs internationaux mais souvent comptoir fermé entre les vols.",
     cityAttractions: "Plage d'Agadir (25 min), Marina (28 min), Souk El Had (25 min), Taghazout (45 min, spot de surf), Paradise Valley (1h), Essaouira (2h30), Taroudant (1h)."
   },
   tanger: {
@@ -97,11 +97,11 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   return {
   slug: `location-voiture-aeroport-${citySlug}`,
   title: `Location Voiture Aéroport ${city} (${data.iata})`,
-  metaTitle: `Location Voiture Aéroport ${city} ${data.iata} dès 200 DH/jour - Sans Carte de Crédit | Benatna`,
-  metaDescription: `Location voiture ${data.fullName} (${data.iata}). Livraison gratuite au terminal, ${data.distanceFromCenter}. Réservation en ligne, prix dès 200 DH/jour.`,
+  metaTitle: `Location Voiture Aéroport ${city} ${data.iata} dès 300 DH/jour - Sans Carte de Crédit | Benatna`,
+  metaDescription: `Location voiture ${data.fullName} (${data.iata}). Livraison gratuite au terminal, ${data.distanceFromCenter}. Réservation en ligne, prix dès 300 DH/jour.`,
   keywords: `location voiture aéroport ${citySlug}, ${data.iata} location auto, louer voiture terminal ${city}, ${data.fullName}`,
   h1: `Location de Voiture à l'${data.fullName} (${data.iata})`,
-  heroSubtitle: `${data.distanceFromCenter} • Livraison gratuite au terminal • Dès 200 DH/jour`,
+  heroSubtitle: `${data.distanceFromCenter} • Livraison gratuite au terminal • Dès 300 DH/jour`,
   category: {
     label: "Locations Aéroports",
     href: "/nos-services?category=aeroport"
@@ -123,7 +123,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
       },
       {
         title: `Types de véhicules disponibles à l'aéroport ${city}`,
-        content: `Toute notre flotte est livrable à ${data.fullName}. ${citySlug === 'agadir' || citySlug === 'marrakech' ? 'Compte tenu du climat chaud de la région, nous recommandons systématiquement la climatisation (incluse sur tous nos véhicules).' : ''} ${citySlug === 'marrakech' || citySlug === 'fes' || citySlug === 'agadir' ? 'Pour les excursions hors-ville (Atlas, désert, plages reculées), un SUV est conseillé.' : 'Pour les déplacements urbains et inter-villes (autoroutes A1/A7), une citadine ou berline est idéale.'} Citadines économiques (Clio, Sandero, 208) dès 200 DH/jour. Berlines confortables (Corolla, Jetta) à 250-300 DH/jour. SUV tout-chemin (Duster, Qashqai, Tiguan) à 350-450 DH/jour. Véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à 800-1000 DH/jour. Tous nos véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise.`
+        content: `Toute notre flotte est livrable à ${data.fullName}. ${citySlug === 'agadir' || citySlug === 'marrakech' ? 'Compte tenu du climat chaud de la région, nous recommandons systématiquement la climatisation (incluse sur tous nos véhicules).' : ''} ${citySlug === 'marrakech' || citySlug === 'fes' || citySlug === 'agadir' ? 'Pour les excursions hors-ville (Atlas, désert, plages reculées), un SUV est conseillé.' : 'Pour les déplacements urbains et inter-villes (autoroutes A1/A7), une citadine ou berline est idéale.'} Citadines économiques (Clio, Sandero, 208) dès 300 DH/jour. Berlines confortables (Corolla, Jetta) à 400-500 DH/jour. SUV tout-chemin (Duster, Qashqai, Tiguan) à 550-800 DH/jour. Véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à 1200-1800 DH/jour. Tous nos véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise.`
       }
     ],
     faq: [
@@ -157,7 +157,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   },
   relatedServices: citySlug === 'casablanca' ? [
     { title: 'Location Jeune Conducteur Casablanca', description: 'Dès 21 ans avec supplément raisonnable. Assurance adaptée incluse.', link: '/location-jeune-conducteur-casablanca' },
-    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dès 5 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dès 7 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 avec recharge gratuite à nos bornes.', link: '/location-voiture-electrique-casablanca' }
   ] : citySlug === 'marrakech' ? [
     { title: 'Location Weekend Marrakech', description: 'Offre spéciale weekend : 2 jours facturés pour 3 jours de location.', link: '/location-weekend-marrakech' },
@@ -248,7 +248,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
   slug: `location-longue-duree-${citySlug}`,
   title: `Location Longue Durée ${city}`,
   metaTitle: `Location Voiture Longue Durée ${city} - Tarifs Mensuels | Benatna`,
-  metaDescription: `Location de voiture longue durée à ${city}. Entretien et assurance inclus. Dès 5 500 DH/mois tout compris.`,
+  metaDescription: `Location de voiture longue durée à ${city}. Entretien et assurance inclus. Dès 7 500 DH/mois tout compris.`,
   keywords: `location longue durée ${citySlug}, leasing voiture ${city}, location mensuelle auto`,
   h1: `Location de Voiture Longue Durée à ${city}`,
   heroSubtitle: 'Tarifs mensuels • Entretien inclus • Flexibilité maximale',
@@ -261,7 +261,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     sections: [
       {
         title: 'Tarifs Longue Durée Dégressifs',
-        content: `Catégorie Économique (Sandero) : 5 500 DH/mois, tout compris. Catégorie Économique (Clio manuelle) : 6 000 DH/mois. Clio automatique : 6 500 DH/mois. Catégorie Berline (Corolla, Jetta) : 9 500 DH/mois. Idéale pour usage professionnel ou famille. Catégorie SUV (Duster, Qashqai) : 10 500 DH/mois. Robustesse et confort pour longs trajets. Catégorie Premium (Mercedes, BMW) : Sur devis selon modèle et durée. À partir de 15 000 DH/mois pour Classe C ou Série 3. Tous ces tarifs incluent : assurance tous risques (0 DH franchise), entretien complet selon planning constructeur, assistance et dépannage 24/7, remplacement véhicule en cas de panne (sous 4h), kilométrage illimité (pas de surcoût même si vous faites 5000 km/mois). Modes de paiement : mensuel par prélèvement automatique (carte ou virement).`
+        content: `Catégorie Économique (Sandero) : 7 500 DH/mois, tout compris. Catégorie Économique (Clio manuelle) : 6 000 DH/mois. Clio automatique : 6 500 DH/mois. Catégorie Berline (Corolla, Jetta) : 9 500 DH/mois. Idéale pour usage professionnel ou famille. Catégorie SUV (Duster, Qashqai) : 10 500 DH/mois. Robustesse et confort pour longs trajets. Catégorie Premium (Mercedes, BMW) : Sur devis selon modèle et durée. À partir de 15 000 DH/mois pour Classe C ou Série 3. Tous ces tarifs incluent : assurance tous risques (0 DH franchise), entretien complet selon planning constructeur, assistance et dépannage 24/7, remplacement véhicule en cas de panne (sous 4h), kilométrage illimité (pas de surcoût même si vous faites 5000 km/mois). Modes de paiement : mensuel par prélèvement automatique (carte ou virement).`
       },
       {
         title: 'Ce Qui Est Inclus dans Nos Forfaits Longue Durée',
@@ -302,7 +302,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle, recharge gratuite.', link: '/location-voiture-electrique-casablanca' },
     { title: 'Location Utilitaire Casablanca', description: 'Fiat Ducato, Mercedes Sprinter en location mensuelle.', link: '/location-utilitaire-demenagement-casablanca' }
   ] : [
-    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca dès 5 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca dès 7 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
     { title: 'Location Jeune Conducteur Marrakech', description: 'Formules longue durée adaptées aux jeunes conducteurs.', link: '/location-jeune-conducteur-marrakech' },
     { title: 'Location SUV Atlas', description: 'SUV 4x4 en forfait mensuel pour usage régulier montagne.', link: '/location-suv-atlas' }
   ],
@@ -469,7 +469,7 @@ const createLuxeEvenementPage = (): LongTailPageConfig => ({
     sections: [
       {
         title: 'Flotte Prestige Disponible',
-        content: 'Mercedes Classe S (900 DH/jour) : La référence de l\'élégance automobile. Intérieur cuir Nappa, sièges massants et ventilés, éclairage d\'ambiance 64 couleurs, sono Burmester 3D. Moteur V6 essence ou diesel, conduite d\'une douceur exceptionnelle. Image professionnelle garantie. BMW Série 7 (880 DH/jour) : Sportivité et technologie de pointe. Écrans arrière tactiles, toit panoramique Sky Lounge à LED, sièges lounge avec repose-pieds. Moteur 6 cylindres en ligne, accélérations impressionnantes. Pour clients qui aiment dynamisme et modernité. Audi A8 (920 DH/jour) : Technologie Quattro intégrale, conduite semi-autonome niveau 3, sièges relax avec massage shiatsu, réfrigérateur et verres champagne intégrés. Le summum du raffinement allemand. Range Rover Velar (950 DH/jour) : SUV de luxe britannique. Design épuré, intérieur cuir Windsor, double écran tactile Touch Pro Duo, système audio Meridian 1600W. Parfait pour événements outdoor chic ou arrivées remarquées. Tous nos véhicules premium : moins de 2 ans et moins de 30 000 km, révision complète toutes les 5000 km, nettoyage extérieur/intérieur complet avant chaque événement, essence premium (98 octanes) ou diesel excellium. Options événementielles : chauffeur professionnel bilingue FR/EN en costume (300 DH/jour), décoration florale personnalisée (à partir de 200 DH), champagne Moët & Chandon à bord (500 DH la bouteille), photographe pour capturer l\'arrivée (1000 DH/2h).'
+        content: 'Mercedes Classe S (900 DH/jour) : La référence de l\'élégance automobile. Intérieur cuir Nappa, sièges massants et ventilés, éclairage d\'ambiance 64 couleurs, sono Burmester 3D. Moteur V6 essence ou diesel, conduite d\'une douceur exceptionnelle. Image professionnelle garantie. BMW Série 7 (880 DH/jour) : Sportivité et technologie de pointe. Écrans arrière tactiles, toit panoramique Sky Lounge à LED, sièges lounge avec repose-pieds. Moteur 6 cylindres en ligne, accélérations impressionnantes. Pour clients qui aiment dynamisme et modernité. Audi A8 (920 DH/jour) : Technologie Quattro intégrale, conduite semi-autonome niveau 3, sièges relax avec massage shiatsu, réfrigérateur et verres champagne intégrés. Le summum du raffinement allemand. Range Rover Velar (950 DH/jour) : SUV de luxe britannique. Design épuré, intérieur cuir Windsor, double écran tactile Touch Pro Duo, système audio Meridian 1600W. Parfait pour événements outdoor chic ou arrivées remarquées. Tous nos véhicules premium : moins de 2 ans et moins de 30 000 km, révision complète toutes les 5000 km, nettoyage extérieur/intérieur complet avant chaque événement, essence premium (98 octanes) ou diesel excellium. Options événementielles : chauffeur professionnel bilingue FR/EN en costume (300 DH/jour), décoration florale personnalisée (à partir de 300 DH), champagne Moët & Chandon à bord (500 DH la bouteille), photographe pour capturer l\'arrivée (1000 DH/2h).'
       },
       {
         title: 'Service Chauffeur Premium',
@@ -706,11 +706,11 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-voiture-coupe-monde-2026-maroc',
     title: 'Location Voiture Coupe du Monde 2026 Maroc',
-    metaTitle: 'Location Voiture Coupe du Monde 2026 Maroc - Spécial MRE dès 200 DH | Benatna',
-    metaDescription: 'Réservez votre voiture pour vivre la Coupe du Monde 2026 au Maroc avec votre famille. Tarifs MRE dès 200 DH/jour, livraison aéroport, sans carte de crédit. Maroc-Brésil 13 juin.',
+    metaTitle: 'Location Voiture Coupe du Monde 2026 Maroc - Spécial MRE dès 300 DH | Benatna',
+    metaDescription: 'Réservez votre voiture pour vivre la Coupe du Monde 2026 au Maroc avec votre famille. Tarifs MRE dès 300 DH/jour, livraison aéroport, sans carte de crédit. Maroc-Brésil 13 juin.',
     keywords: 'location voiture coupe du monde 2026, voiture mre maroc juin 2026, location voiture maroc bresil 13 juin, location famille mondial maroc, location voiture aeroport mre',
     h1: 'Location de Voiture pour la Coupe du Monde 2026 au Maroc',
-    heroSubtitle: 'Maroc qualifié, groupe C • Vivez les matchs en famille • Livraison aéroport gratuite • Dès 200 DH/jour',
+    heroSubtitle: 'Maroc qualifié, groupe C • Vivez les matchs en famille • Livraison aéroport gratuite • Dès 300 DH/jour',
     category: {
       label: 'Événements 2026',
       href: '/nos-services'
@@ -724,7 +724,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           title: 'Tarifs MRE — Spécial Coupe du Monde 2026',
-          content: `Notre grille tarifaire pour la période 11 juin - 19 juillet 2026 (durée Coupe du Monde) : Citadines économiques (Clio, Sandero, Hyundai i10) à partir de 200 DH/jour — parfaites pour les trajets urbains et inter-villes courtes (Casa-Rabat, Marrakech-Essaouira). Berlines familiales (Toyota Corolla, VW Jetta) à 250-300 DH/jour — confort sur autoroute pour les longs trajets en famille. SUV (Dacia Duster, Nissan Qashqai, VW Tiguan) à 350-450 DH/jour — capacité bagages pour les retours MRE avec valises pleines, garde au sol pour routes secondaires. Premium (Mercedes Classe C, BMW Série 3) à 800-1000 DH/jour — pour ceux qui veulent voyager avec style pendant l'événement. **Tous nos prix sont transparents en MAD, sans surprise au comptoir.** Réservez 3-4 semaines avant votre arrivée pour garantir le véhicule de votre choix — la demande explose en juin-juillet à cause de la combinaison Coupe du Monde + vacances été + Aïd al-Adha probable.`
+          content: `Notre grille tarifaire pour la période 11 juin - 19 juillet 2026 (durée Coupe du Monde) : Citadines économiques (Clio, Sandero, Hyundai i10) à partir de 300 DH/jour — parfaites pour les trajets urbains et inter-villes courtes (Casa-Rabat, Marrakech-Essaouira). Berlines familiales (Toyota Corolla, VW Jetta) à 400-500 DH/jour — confort sur autoroute pour les longs trajets en famille. SUV (Dacia Duster, Nissan Qashqai, VW Tiguan) à 550-800 DH/jour — capacité bagages pour les retours MRE avec valises pleines, garde au sol pour routes secondaires. Premium (Mercedes Classe C, BMW Série 3) à 1200-1800 DH/jour — pour ceux qui veulent voyager avec style pendant l'événement. **Tous nos prix sont transparents en MAD, sans surprise au comptoir.** Réservez 3-4 semaines avant votre arrivée pour garantir le véhicule de votre choix — la demande explose en juin-juillet à cause de la combinaison Coupe du Monde + vacances été + Aïd al-Adha probable.`
         },
         {
           title: 'Livraison gratuite aux 6 aéroports principaux',
@@ -781,11 +781,11 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-voiture-ete-2026-maroc',
     title: 'Location Voiture Été 2026 Maroc',
-    metaTitle: 'Location Voiture Été 2026 Maroc - Anticipez Juin-Août dès 200 DH | Benatna',
-    metaDescription: 'Réservez votre voiture pour l\'été 2026 au Maroc : juin, juillet, août. Anticipez 2-3 mois pour les meilleurs tarifs. Livraison aéroport, sans carte de crédit. Dès 200 DH/jour.',
+    metaTitle: 'Location Voiture Été 2026 Maroc - Anticipez Juin-Août dès 300 DH | Benatna',
+    metaDescription: 'Réservez votre voiture pour l\'été 2026 au Maroc : juin, juillet, août. Anticipez 2-3 mois pour les meilleurs tarifs. Livraison aéroport, sans carte de crédit. Dès 300 DH/jour.',
     keywords: 'location voiture maroc ete 2026, location voiture juillet aout maroc, location voiture haute saison maroc, location voiture mre ete, location voiture vacances maroc',
     h1: 'Location de Voiture pour l\'Été 2026 au Maroc',
-    heroSubtitle: 'Juin-Août : haute saison • Réservez 2-3 mois avant • Tarifs dès 200 DH/jour',
+    heroSubtitle: 'Juin-Août : haute saison • Réservez 2-3 mois avant • Tarifs dès 300 DH/jour',
     category: {
       label: 'Saison Été 2026',
       href: '/nos-services'
@@ -795,7 +795,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       sections: [
         {
           title: 'Tarifs été 2026 — Anticipez pour économiser',
-          content: `Période juillet-août 2026 (pic absolu) : citadines économiques 280-420 DH/jour (vs 200-280 hors saison), berlines confortables 350-500 DH/jour, SUV/Crossover 550-850 DH/jour, premium (Mercedes/BMW/Audi) 1000-1500 DH/jour, monospaces 7-9 places 600-900 DH/jour (très demandés par les familles MRE — quasi épuisés dès mi-mai). Période juin et fin août/septembre (saison intermédiaire) : -15-25% sur ces tarifs. **Astuce économique** : réservez avant fin mai pour bénéficier des tarifs intermédiaires, même si vous utilisez la voiture en juillet-août. Benatna respecte le tarif initial au moment de votre réservation — pas d\'ajustement à la hausse même si la demande explose.`
+          content: `Période juillet-août 2026 (pic absolu) : citadines économiques 400-550 DH/jour (vs 200-280 hors saison), berlines confortables 500-700 DH/jour, SUV/Crossover 750-1100 DH/jour, premium (Mercedes/BMW/Audi) 1500-2000 DH/jour, monospaces 7-9 places 900-1200 DH/jour (très demandés par les familles MRE — quasi épuisés dès mi-mai). Période juin et fin août/septembre (saison intermédiaire) : -15-25% sur ces tarifs. **Astuce économique** : réservez avant fin mai pour bénéficier des tarifs intermédiaires, même si vous utilisez la voiture en juillet-août. Benatna respecte le tarif initial au moment de votre réservation — pas d\'ajustement à la hausse même si la demande explose.`
         },
         {
           title: 'Pourquoi anticiper 2-3 mois en été 2026',

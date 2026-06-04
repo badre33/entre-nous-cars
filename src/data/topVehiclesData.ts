@@ -27,7 +27,7 @@ export const topVehicles: TopVehicle[] = [
     model: "Sandero",
     brand: "Dacia",
     category: "Économique",
-    description: "Citadine économique parfaite pour la ville. Consommation réduite, facile à garer, idéale pour 4 personnes. Prix imbattable dès 200 DH/jour.",
+    description: "Citadine économique parfaite pour la ville. Consommation réduite, facile à garer, idéale pour 4 personnes. Prix imbattable dès 300 DH/jour.",
     imageUrl: "/car-sandero-stepway.jpg",
     pricePerDay: "200",
     fuelType: "Essence",

@@ -38,7 +38,7 @@ const PaiementEspecesSansCarte = () => {
     <>
       <Helmet>
         <title>Location Voiture Paiement Espèces Maroc - Sans Carte Bancaire | Benatna</title>
-        <meta name="description" content="Louez votre voiture au Maroc en payant en espèces, sans carte bancaire. Caution cash acceptée. Citadines dès 200 DH/jour. Casablanca, Marrakech, Agadir." />
+        <meta name="description" content="Louez votre voiture au Maroc en payant en espèces, sans carte bancaire. Caution cash acceptée. Citadines dès 300 DH/jour. Casablanca, Marrakech, Agadir." />
         <meta name="keywords" content="location voiture paiement espèces maroc, location sans carte bancaire maroc, paiement cash location voiture, caution espèces maroc" />
       </Helmet>
 

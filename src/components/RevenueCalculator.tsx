@@ -93,7 +93,7 @@ export const RevenueCalculator = () => {
                   className="cursor-pointer"
                 />
                 <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>200 MAD</span>
+                  <span>300 MAD</span>
                   <span>1 000 MAD</span>
                 </div>
               </div>

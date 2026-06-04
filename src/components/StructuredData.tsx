@@ -229,7 +229,7 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
           name: "Quel est le prix moyen d'une location de voiture au Maroc ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Les prix varient de 250 MAD/jour pour une citadine à 2000 MAD/jour pour un véhicule de luxe. Nos tarifs sont transparents et incluent l'assurance de base."
+            text: "Les prix varient de 400 MAD/jour pour une citadine à 2000 MAD/jour pour un véhicule de luxe. Nos tarifs sont transparents et incluent l'assurance de base."
           }
         },
         {

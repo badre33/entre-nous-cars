@@ -23,7 +23,7 @@ const LocationCAN2025 = () => {
   const content = {
     fr: {
       title: "Location Voiture CAN 2025 Maroc | Coupe d'Afrique des Nations",
-      metaDescription: "Location de voiture pour la CAN 2025 au Maroc. Tarifs spéciaux supporters, véhicules disponibles toutes villes-stades. Réservation anticipée dès 200 DH/jour.",
+      metaDescription: "Location de voiture pour la CAN 2025 au Maroc. Tarifs spéciaux supporters, véhicules disponibles toutes villes-stades. Réservation anticipée dès 300 DH/jour.",
       h1: "Location de Voiture CAN 2025 Maroc",
       subtitle: "Suivez la Coupe d'Afrique des Nations en toute liberté",
       eventDates: "21 Décembre 2025 - 18 Janvier 2026",
@@ -31,7 +31,7 @@ const LocationCAN2025 = () => {
     },
     en: {
       title: "Car Rental AFCON 2025 Morocco | Africa Cup of Nations",
-      metaDescription: "Car rental for AFCON 2025 in Morocco. Special rates for supporters, vehicles available in all host cities. Early booking from 200 MAD/day.",
+      metaDescription: "Car rental for AFCON 2025 in Morocco. Special rates for supporters, vehicles available in all host cities. Early booking from 300 MAD/day.",
       h1: "Car Rental AFCON 2025 Morocco",
       subtitle: "Follow the Africa Cup of Nations with total freedom",
       eventDates: "December 21, 2025 - January 18, 2026",
@@ -39,7 +39,7 @@ const LocationCAN2025 = () => {
     },
     es: {
       title: "Alquiler Coches CAN 2025 Marruecos | Copa África Naciones",
-      metaDescription: "Alquiler de coches para la CAN 2025 en Marruecos. Tarifas especiales para aficionados, vehículos disponibles en todas las ciudades. Reserva desde 200 MAD/día.",
+      metaDescription: "Alquiler de coches para la CAN 2025 en Marruecos. Tarifas especiales para aficionados, vehículos disponibles en todas las ciudades. Reserva desde 300 MAD/día.",
       h1: "Alquiler Coches CAN 2025 Marruecos",
       subtitle: "Sigue la Copa de África con total libertad",
       eventDates: "21 Diciembre 2025 - 18 Enero 2026",
@@ -62,7 +62,7 @@ const LocationCAN2025 = () => {
     {
       category: language === 'en' ? "Individual Supporters & Couples" : language === 'es' ? "Aficionados Individuales y Parejas" : "Supporters Individuels & Couples",
       vehicles: language === 'en' ? "Economy car (Clio, 208, Sandero)" : language === 'es' ? "Coche económico (Clio, 208, Sandero)" : "Citadine automatique (Clio, 208, Sandero)",
-      price: "200 DH/jour",
+      price: "300 DH/jour",
       ideal: language === 'en' ? "City travel, easy parking near stadiums" : language === 'es' ? "Viajes urbanos, aparcamiento fácil cerca de estadios" : "Déplacements ville, parking facile près stades"
     },
     {
@@ -444,9 +444,9 @@ const LocationCAN2025 = () => {
                 </AccordionTrigger>
                 <AccordionContent>
                   {language === 'en'
-                    ? "Absolutely! We offer free airport delivery for rentals of 7+ days during AFCON. For shorter rentals, delivery costs 150-200 MAD depending on the city. Available at all major airports: Casablanca, Marrakech, Rabat, Agadir, Fes, Tangier."
+                    ? "Absolutely! We offer free airport delivery for rentals of 7+ days during AFCON. For shorter rentals, delivery costs 150-300 MAD depending on the city. Available at all major airports: Casablanca, Marrakech, Rabat, Agadir, Fes, Tangier."
                     : language === 'es'
-                    ? "¡Por supuesto! Ofrecemos entrega gratuita en el aeropuerto para alquileres de 7+ días durante la CAN. Para alquileres más cortos, la entrega cuesta 150-200 MAD según la ciudad. Disponible en todos los aeropuertos principales: Casablanca, Marrakech, Rabat, Agadir, Fez, Tánger."
+                    ? "¡Por supuesto! Ofrecemos entrega gratuita en el aeropuerto para alquileres de 7+ días durante la CAN. Para alquileres más cortos, la entrega cuesta 150-300 MAD según la ciudad. Disponible en todos los aeropuertos principales: Casablanca, Marrakech, Rabat, Agadir, Fez, Tánger."
                     : "Absolument ! Nous offrons la livraison gratuite à l'aéroport pour les locations de 7+ jours pendant la CAN. Pour les locations plus courtes, la livraison coûte 150-200 DH selon la ville. Disponible dans tous les aéroports majeurs : Casablanca, Marrakech, Rabat, Agadir, Fès, Tanger."}
                 </AccordionContent>
               </AccordionItem>

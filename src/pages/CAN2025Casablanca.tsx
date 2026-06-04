@@ -29,7 +29,7 @@ const CAN2025Casablanca = () => {
     <>
       <Helmet>
         <title>Location Voiture CAN 2025 Casablanca - Stade Mohammed V | Benatna</title>
-        <meta name="description" content="Location voiture CAN 2025 à Casablanca. Parking Stade Mohammed V, navettes aéroport, hébergements. 8 matchs CAN. Réservez dès 200 DH/jour." />
+        <meta name="description" content="Location voiture CAN 2025 à Casablanca. Parking Stade Mohammed V, navettes aéroport, hébergements. 8 matchs CAN. Réservez dès 300 DH/jour." />
         <meta name="keywords" content="location voiture CAN Casablanca, stade mohammed v parking, navette aeroport casablanca CAN, hotel proche stade casablanca" />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-casablanca" />
         
@@ -246,7 +246,7 @@ const CAN2025Casablanca = () => {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">Réservez Votre Voiture pour la CAN 2025</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Profitez des matchs à Casablanca en toute liberté. Tarifs spéciaux supporters dès 200 DH/jour.
+              Profitez des matchs à Casablanca en toute liberté. Tarifs spéciaux supporters dès 300 DH/jour.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/louer">

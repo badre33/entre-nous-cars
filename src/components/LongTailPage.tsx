@@ -150,7 +150,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       
       {/* Quick Wins SEO: Price Range pour affichage prix dans Google */}
       <PriceRangeOfferSchema 
-        minPrice="150"
+        minPrice="300"
         maxPrice="900"
         city={config.slug.includes('casablanca') ? 'Casablanca' : 
               config.slug.includes('marrakech') ? 'Marrakech' : 

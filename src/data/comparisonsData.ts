@@ -43,7 +43,7 @@ export const comparisons: Comparison[] = [
     item1: {
       name: 'Dacia Duster',
       image: '/car-duster.jpg',
-      price: '250-350 DH/jour',
+      price: '400-500 DH/jour',
       specs: {
         'Passagers': '5 places',
         'Coffre': '478 L',
@@ -52,7 +52,7 @@ export const comparisons: Comparison[] = [
         'Type': 'SUV robuste'
       },
       pros: [
-        '✅ Prix le plus économique (250-300 DH/jour)',
+        '✅ Prix le plus économique (400-500 DH/jour)',
         '✅ Garde au sol élevée (210mm) - idéal routes marocaines',
         '✅ Robustesse légendaire et fiabilité',
         '✅ Excellent rapport qualité-prix',
@@ -116,7 +116,7 @@ export const comparisons: Comparison[] = [
     faq: [
       {
         question: 'Quelle est la différence de prix entre Duster et Captur au Maroc ?',
-        answer: 'Le Dacia Duster coûte entre 250-350 DH/jour tandis que le Renault Captur se loue entre 300-400 DH/jour, soit environ 15-20% plus cher. Sur une semaine, l\'écart peut atteindre 350-500 DH.'
+        answer: 'Le Dacia Duster coûte entre 400-500 DH/jour tandis que le Renault Captur se loue entre 300-400 DH/jour, soit environ 15-20% plus cher. Sur une semaine, l\'écart peut atteindre 500-700 DH.'
       },
       {
         question: 'Quel SUV consomme le moins de carburant ?',
@@ -176,7 +176,7 @@ export const comparisons: Comparison[] = [
     item2: {
       name: 'Dacia Sandero',
       image: '/car-dacia-sandero.jpg',
-      price: '150-200 DH/jour',
+      price: '150-300 DH/jour',
       specs: {
         'Passagers': '5 places',
         'Coffre': '328 L',
@@ -185,7 +185,7 @@ export const comparisons: Comparison[] = [
         'Type': 'Citadine économique'
       },
       pros: [
-        '✅ Prix imbattable (200-280 DH/jour)',
+        '✅ Prix imbattable (300-350 DH/jour)',
         '✅ Robustesse et fiabilité',
         '✅ Entretien économique',
         '✅ Habitabilité excellente',
@@ -214,7 +214,7 @@ export const comparisons: Comparison[] = [
     faq: [
       {
         question: 'Quelle est la différence de prix entre Clio et Sandero ?',
-        answer: 'Le Sandero coûte 150-200 DH/jour contre 180-250 DH/jour pour la Clio, soit 20-30% moins cher. Sur un mois de location, l\'économie peut atteindre 900-1500 DH.'
+        answer: 'Le Sandero coûte 150-300 DH/jour contre 180-250 DH/jour pour la Clio, soit 20-30% moins cher. Sur un mois de location, l\'économie peut atteindre 900-1500 DH.'
       },
       {
         question: 'Quelle citadine a le coffre le plus grand ?',
@@ -540,7 +540,7 @@ export const comparisons: Comparison[] = [
     metaTitle: 'Location Voiture Économique vs Premium Maroc - Quel Budget ? | Benatna',
     metaDescription: 'Voiture économique ou premium pour votre location au Maroc ? Comparatif prix, confort, équipements. Optimisez votre budget selon vos besoins.',
     category: 'categories',
-    introduction: 'Catégorie économique ou premium : un choix qui peut doubler votre budget location. Entre Dacia Sandero à 200 DH/jour et Mercedes Classe A à 650 DH/jour, explorons les différences réelles pour vous aider à choisir judicieusement.',
+    introduction: 'Catégorie économique ou premium : un choix qui peut doubler votre budget location. Entre Dacia Sandero à 300 DH/jour et Mercedes Classe A à 650 DH/jour, explorons les différences réelles pour vous aider à choisir judicieusement.',
     item1: {
       name: 'Catégorie Économique',
       image: '/car-dacia-sandero.jpg',
@@ -579,7 +579,7 @@ export const comparisons: Comparison[] = [
     item2: {
       name: 'Catégorie Premium',
       image: '/car-mercedes-e.jpg',
-      price: '500-1200 DH/jour',
+      price: '500-1300 DH/jour',
       specs: {
         'Exemples': 'Mercedes E, BMW 5, Audi A6',
         'Budget semaine': '3500-8400 DH',
@@ -597,7 +597,7 @@ export const comparisons: Comparison[] = [
         '✅ Expérience de conduite exceptionnelle'
       ],
       cons: [
-        '❌ Prix élevé (500-1200 DH/jour)',
+        '❌ Prix élevé (500-1300 DH/jour)',
         '❌ Consommation supérieure',
         '❌ Assurance plus chère',
         '❌ Stationnement parfois complexe',
@@ -619,7 +619,7 @@ export const comparisons: Comparison[] = [
     faq: [
       {
         question: 'Quelle est la différence de prix entre économique et premium ?',
-        answer: 'Une voiture économique coûte 150-250 DH/jour contre 500-1200 DH/jour pour du premium, soit 3 à 5 fois plus cher. Sur une semaine, l\'écart est de 2500-6500 DH.'
+        answer: 'Une voiture économique coûte 150-250 DH/jour contre 500-1300 DH/jour pour du premium, soit 3 à 5 fois plus cher. Sur une semaine, l\'écart est de 2500-6500 DH.'
       },
       {
         question: 'Les voitures économiques sont-elles fiables au Maroc ?',

@@ -139,7 +139,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Groupe 5-7 personnes :** Monospace ou grand SUV (Lodgy, Doblo, Captiva). Idéal pour partager les frais et transporter matériel de supporters (400-700 MAD/jour).",
       
-      "**Confort maximum :** Berline premium ou SUV luxe (Mercedes Classe E, BMW Série 5, Audi Q5). Pour les journalistes, VIP ou amateurs de confort absolu (700-1200 MAD/jour).",
+      "**Confort maximum :** Berline premium ou SUV luxe (Mercedes Classe E, BMW Série 5, Audi Q5). Pour les journalistes, VIP ou amateurs de confort absolu (700-1300 MAD/jour).",
       
       "### Comparez les offres",
       "Ne vous précipitez pas sur la première offre. Comparez au moins 3 agences. Sur Benatna, vous voyez instantanément tous les prix et disponibilités. Vérifiez ce qui est inclus :",
@@ -147,7 +147,7 @@ export const blogArticles: BlogArticle[] = [
       "- **Kilométrage illimité :** Essentiel si vous voyagez entre plusieurs villes (Casa-Marrakech : 240 km, Tanger-Fès : 280 km)",
       "- **Assurance tous risques :** Franchise 0 MAD en cas d'accident, vol, bris de glace",
       "- **2e conducteur gratuit :** Pour partager la conduite sur les longs trajets",
-      "- **Livraison/retour aéroport :** Évite les frais de taxi (100-200 MAD économisés)",
+      "- **Livraison/retour aéroport :** Évite les frais de taxi (100-300 MAD économisés)",
       "- **GPS ou application :** Indispensable si vous ne connaissez pas les villes",
       
       "Méfiez-vous des offres trop alléchantes qui cachent des suppléments : assurance obligatoire non incluse, kilométrage limité, carburant non plein/plein, frais cachés.",
@@ -171,7 +171,7 @@ export const blogArticles: BlogArticle[] = [
       "- 1-6 jours : 250-350 MAD/jour",
       "- 7-13 jours : 220-300 MAD/jour",
       "- 14-20 jours : 200-270 MAD/jour",
-      "- 21-30 jours : 180-250 MAD/jour",
+      "- 21-30 jours : 180-400 MAD/jour",
       
       "**Berlines & SUV compacts** (Golf, Octavia, Qashqai, Tucson)",
       "- 1-6 jours : 350-500 MAD/jour",
@@ -186,7 +186,7 @@ export const blogArticles: BlogArticle[] = [
       "- 21-30 jours : 340-530 MAD/jour",
       
       "**Berlines Premium & SUV Luxe** (Mercedes, BMW, Audi, Range Rover)",
-      "- 1-6 jours : 700-1200 MAD/jour",
+      "- 1-6 jours : 700-1300 MAD/jour",
       "- 7-13 jours : 650-1100 MAD/jour",
       "- 14-20 jours : 600-1000 MAD/jour",
       "- 21-30 jours : 550-950 MAD/jour",
@@ -353,7 +353,7 @@ export const blogArticles: BlogArticle[] = [
       
       "L'après-midi, explorez la médina de Rabat, plus calme et authentique que celles de Marrakech ou Fès. Visitez la rue des Consuls avec ses échoppes de tapis et artisanat. Ne manquez pas le souk central pour les épices, olives et fruits secs.",
       
-      "Terminez par le quartier moderne avec l'Avenue Mohammed V, ses boutiques internationales et ses cafés branchés. Dîner au restaurant Dar Naji (spécialités marocaines, 100-150 MAD/pers) ou Ty Potes (cuisine française, 150-250 MAD/pers).",
+      "Terminez par le quartier moderne avec l'Avenue Mohammed V, ses boutiques internationales et ses cafés branchés. Dîner au restaurant Dar Naji (spécialités marocaines, 100-150 MAD/pers) ou Ty Potes (cuisine française, 150-400 MAD/pers).",
       
       "### Jour 2 : Route vers Meknès et Volubilis",
       "Partez tôt vers Meknès (140 km, 1h30 par l'autoroute A2). Meknès, 4e ville impériale, est souvent oubliée des touristes. C'est son charme : authentique, moins touristique, magnifique.",
@@ -366,7 +366,7 @@ export const blogArticles: BlogArticle[] = [
       
       "Sur le chemin du retour, arrêt à Moulay Idriss Zerhoun, ville sainte perchée sur une colline. Vue panoramique époustouflante. Retour à Rabat en soirée (140 km, 1h30).",
       
-      "**Budget total :** Carburant 200 MAD, péages 30 MAD, entrées sites 100 MAD, repas 350 MAD, soit environ 680 MAD pour 2 jours (hors hébergement).",
+      "**Budget total :** Carburant 300 MAD, péages 30 MAD, entrées sites 100 MAD, repas 350 MAD, soit environ 680 MAD pour 2 jours (hors hébergement).",
       
       "## Circuit 2 : Chefchaouen, la Perle Bleue (3-4 jours depuis Tanger)",
       
@@ -390,7 +390,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Cascade petite (facile, 45 min aller) :** Sentier balisé le long de la rivière, cascade de 20m, baignade possible l'été.",
       
-      "**Pont de Dieu (difficile, 3-4h aller-retour) :** Randonnée spectaculaire dans les gorges, pont naturel creusé dans la roche par l'eau. Vues époustouflantes. Guide local recommandé (150-200 MAD).",
+      "**Pont de Dieu (difficile, 3-4h aller-retour) :** Randonnée spectaculaire dans les gorges, pont naturel creusé dans la roche par l'eau. Vues époustouflantes. Guide local recommandé (150-300 MAD).",
       
       "Pique-nique au bord de la cascade (prévoyez sandwichs et fruits achetés à Chefchaouen). Retour en ville en fin d'après-midi. Soirée libre pour profiter de l'ambiance décontractée de Chefchaouen.",
       
@@ -401,7 +401,7 @@ export const blogArticles: BlogArticle[] = [
       
       "Après-midi direction Martil ou M'diq, stations balnéaires méditerranéennes. Baignade si la météo le permet (eau à 18-20°C en janvier). Retour à Tanger en soirée (60 km, 1h).",
       
-      "**Budget total :** Carburant 250 MAD, hébergement 600 MAD (2 nuits), repas 450 MAD, entrées/guides 300 MAD, soit environ 1 600 MAD pour 3 jours.",
+      "**Budget total :** Carburant 400 MAD, hébergement 600 MAD (2 nuits), repas 450 MAD, entrées/guides 300 MAD, soit environ 1 600 MAD pour 3 jours.",
       
       "## Circuit 3 : Essaouira, Perle Atlantique (2-3 jours depuis Marrakech)",
       
@@ -412,18 +412,18 @@ export const blogArticles: BlogArticle[] = [
       "### Jour 1 : Route côtière Marrakech-Essaouira",
       "Départ matinal de Marrakech (190 km, 2h30 de route agréable à travers les arganiers). Essaouira, ancienne Mogador portugaise, est une ville côtière au charme fou. Murailles blanches, médina bleue et blanche, port de pêche animé, plages ventées parfaites pour le surf et kitesurf.",
       
-      "Installez-vous dans un riad de la médina (400-800 MAD/nuit) ou un hôtel balnéaire moderne (600-1200 MAD/nuit). Déjeunez de poissons frais au port : achetez directement aux pêcheurs (50-100 MAD/kg), faites griller sur place (10 MAD/poisson), servez-vous une salade dans les échoppes (20 MAD). Repas complet pour 2-3 personnes : 150-200 MAD.",
+      "Installez-vous dans un riad de la médina (400-800 MAD/nuit) ou un hôtel balnéaire moderne (600-1200 MAD/nuit). Déjeunez de poissons frais au port : achetez directement aux pêcheurs (50-100 MAD/kg), faites griller sur place (10 MAD/poisson), servez-vous une salade dans les échoppes (20 MAD). Repas complet pour 2-3 personnes : 150-300 MAD.",
       
       "Promenez-vous sur les remparts, classés UNESCO, avec vue sur l'océan Atlantique. Visitez la Skala du Port avec ses canons portugais. Explorez la médina aux ruelles rectilignes (contrairement aux autres médinas marocaines labyrinthiques). Artisanat exceptionnel : marqueterie de thuya, peinture, bijoux en argent.",
       
-      "En fin d'après-midi, baladez-vous sur la grande plage. Les amateurs de sensations peuvent tester le surf (cours 2h : 250 MAD) ou le kitesurf (cours 3h : 600 MAD). Coucher de soleil garanti spectaculaire.",
+      "En fin d'après-midi, baladez-vous sur la grande plage. Les amateurs de sensations peuvent tester le surf (cours 2h : 400 MAD) ou le kitesurf (cours 3h : 600 MAD). Coucher de soleil garanti spectaculaire.",
       
-      "Dînez dans un restaurant de la médina : Taros (terrasse panoramique, cuisine fusion, 150-200 MAD/pers), La Licorne (français gastronomique, 200-300 MAD/pers) ou Ocean Vagabond (bar-resto face à la mer, 120-180 MAD/pers).",
+      "Dînez dans un restaurant de la médina : Taros (terrasse panoramique, cuisine fusion, 150-300 MAD/pers), La Licorne (français gastronomique, 200-300 MAD/pers) ou Ocean Vagabond (bar-resto face à la mer, 120-180 MAD/pers).",
       
       "### Jour 2 : Détente et culture",
       "Matinée farniente sur la plage ou séance spa dans un riad (hammam + massage 300-500 MAD). Essaouira est réputée pour ses spas authentiques.",
       
-      "Déjeuner chez Triskala (cuisine marocaine créative, 100-150 MAD/pers) ou Umia (poissons et fruits de mer, 150-200 MAD/pers).",
+      "Déjeuner chez Triskala (cuisine marocaine créative, 100-150 MAD/pers) ou Umia (poissons et fruits de mer, 150-300 MAD/pers).",
       
       "L'après-midi, visitez le Musée Sidi Mohammed Ben Abdallah (30 MAD) qui retrace l'histoire de la ville. Puis baladez-vous dans les galeries d'art (Essaouira attire de nombreux artistes marocains et internationaux).",
       
@@ -452,14 +452,14 @@ export const blogArticles: BlogArticle[] = [
       "Déjeunez dans un restaurant les pieds dans l'eau (nombreux établissements le long de l'oued : tajines, brochettes, salades, 60-100 MAD/pers). Ambiance familiale et conviviale garantie.",
       
       "### Après-midi : Culture berbère",
-      "Visitez un village berbère traditionnel. Rencontrez les habitants, découvrez leur mode de vie ancestral. Visite d'une coopérative d'huile d'argan (fabrication artisanale expliquée, dégustation, boutique). Achetez de l'huile d'argan pure à prix producteur (80-120 MAD/L au lieu de 150-200 MAD en ville).",
+      "Visitez un village berbère traditionnel. Rencontrez les habitants, découvrez leur mode de vie ancestral. Visite d'une coopérative d'huile d'argan (fabrication artisanale expliquée, dégustation, boutique). Achetez de l'huile d'argan pure à prix producteur (80-120 MAD/L au lieu de 150-300 MAD en ville).",
       
       "Si vous souhaitez prolonger, possibilité de dormir dans un gîte berbère (200-350 MAD/nuit) ou retour à Marrakech en fin de journée.",
       
       "**Option 2 jours :** Le lendemain, randonnée vers le Toubkal (4 167m, plus haut sommet d'Afrique du Nord). Depuis le village d'Imlil (1h30 depuis Marrakech), montée jusqu'au refuge Toubkal (3 207m). Randonnée difficile, guide obligatoire (400-600 MAD/jour). Vue exceptionnelle sur tout le Haut Atlas.",
       
-      "**Budget 1 jour :** Carburant 80 MAD, repas 150 MAD, guide/entrées 200 MAD, soit 430 MAD.",
-      "**Budget 2 jours :** + hébergement 300 MAD, guide montagne 500 MAD, repas supplémentaires 200 MAD, soit 1 430 MAD total.",
+      "**Budget 1 jour :** Carburant 80 MAD, repas 150 MAD, guide/entrées 300 MAD, soit 430 MAD.",
+      "**Budget 2 jours :** + hébergement 300 MAD, guide montagne 500 MAD, repas supplémentaires 300 MAD, soit 1 430 MAD total.",
       
       "## Circuit 5 : Circuit Impérial Complet (7 jours)",
       
@@ -513,11 +513,11 @@ export const blogArticles: BlogArticle[] = [
       "- Mosquée Koutoubia (extérieur, symbole de Marrakech, minaret de 77m)",
       "- Medersa Ben Youssef (50 MAD, plus grande école coranique du Maghreb)",
       
-      "Déjeuner au Nomad (terrasse rooftop, cuisine marocaine moderne, 150-200 MAD/pers) ou Le Jardin (patio verdoyant, 120-180 MAD/pers).",
+      "Déjeuner au Nomad (terrasse rooftop, cuisine marocaine moderne, 150-300 MAD/pers) ou Le Jardin (patio verdoyant, 120-180 MAD/pers).",
       
       "Soirée dans le quartier Guéliz (ville nouvelle) ou retour Place Jemaa el-Fna pour l'ambiance nocturne magique.",
       
-      "**Budget 7 jours :** Carburant 900 MAD, péages 250 MAD, hébergement 3 500 MAD (6 nuits), repas 2 100 MAD, entrées/guides 1 200 MAD, soit environ 7 950 MAD pour 2 personnes (3 975 MAD/pers).",
+      "**Budget 7 jours :** Carburant 900 MAD, péages 400 MAD, hébergement 3 500 MAD (6 nuits), repas 2 100 MAD, entrées/guides 1 300 MAD, soit environ 7 950 MAD pour 2 personnes (3 975 MAD/pers).",
       
       "## Circuit 6 : Sud Marocain et Portes du Désert (5-7 jours depuis Marrakech)",
       
@@ -561,7 +561,7 @@ export const blogArticles: BlogArticle[] = [
       "- Route par Zagora : retour via Vallée du Drâa, autre accès au désert, palmeraies immenses",
       "- Ajout Essaouira : de Marrakech, 2 jours à Essaouira (voir Circuit 3)",
       
-      "**Budget 5 jours :** Carburant 550 MAD, hébergement 2 000 MAD (4 nuits), expérience désert 1 000 MAD (pour 2), repas 1 200 MAD, entrées 200 MAD, soit environ 4 950 MAD pour 2 personnes.",
+      "**Budget 5 jours :** Carburant 550 MAD, hébergement 2 000 MAD (4 nuits), expérience désert 1 000 MAD (pour 2), repas 1 300 MAD, entrées 300 MAD, soit environ 4 950 MAD pour 2 personnes.",
       
       "## Circuit 7 : Côte Atlantique Casablanca-Agadir (4-5 jours)",
       
@@ -639,14 +639,14 @@ export const blogArticles: BlogArticle[] = [
       
       "Ajout : le Lac Dayet Aoua à 30 km d'Ifrane. Lac naturel dans un cadre de montagne. Pique-nique au bord du lac (achetez provisions à Ifrane : pain, fromage, charcuterie, fruits). Balade autour du lac (1h30, facile).",
       
-      "Possibilité de ski à la station de Michlifen si enneigée (location matériel 200 MAD/jour, forfait journée 150 MAD). Retour à Fès en soirée.",
+      "Possibilité de ski à la station de Michlifen si enneigée (location matériel 300 MAD/jour, forfait journée 150 MAD). Retour à Fès en soirée.",
       
       "### Jour 3 : Fès → Sefrou → Bhalil (circuit 100 km)",
       "Sefrou (30 km de Fès), petite ville tranquille avec médina berbère et quartier juif historique. Festival des cerises en juin (hors CAN). Cascades du Sefrou accessibles à pied (30 min, gratuit).",
       
       "Bhalil (15 km), village troglodyte où certaines maisons sont creusées dans la roche. Visite d'une maison-grotte (30 MAD, fascinant). Vue panoramique sur la plaine. Retour à Fès.",
       
-      "**Budget 3 jours :** Carburant 200 MAD, repas 600 MAD, activités 400 MAD, soit 1 200 MAD (hébergement à Fès déjà compté).",
+      "**Budget 3 jours :** Carburant 300 MAD, repas 600 MAD, activités 400 MAD, soit 1 300 MAD (hébergement à Fès déjà compté).",
       
       "## Circuit 10 : Tanger et Cap Spartel (1-2 jours)",
       
@@ -975,7 +975,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Taxi :**",
       "Petit taxi Médina-Stade : 40-60 MAD",
-      "Depuis aéroport : 150-200 MAD",
+      "Depuis aéroport : 150-300 MAD",
       
       "### Conseils Marrakech",
       
@@ -1187,7 +1187,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Taxi :**",
       "Petit taxi Centre-Stade : 40-60 MAD",
-      "Depuis aéroport : 200-250 MAD",
+      "Depuis aéroport : 200-400 MAD",
       "Depuis Port Tanger Med : 150-180 MAD",
       
       "### Conseils Tanger",
@@ -1334,7 +1334,7 @@ export const blogArticles: BlogArticle[] = [
       "Via Benatna.ma, sélectionnez option \"Avec chauffeur\" lors de votre réservation. Nos partenaires locaux proposent ce service dans les 6 villes-stades.",
       
       "**Bon plan groupe :**",
-      "À 7 supporters, un van avec chauffeur coûte environ 150-200 MAD/personne pour la journée. Imbattable en confort et tranquillité !",
+      "À 7 supporters, un van avec chauffeur coûte environ 150-300 MAD/personne pour la journée. Imbattable en confort et tranquillité !",
       
       "---",
       
@@ -1822,7 +1822,7 @@ export const blogArticles: BlogArticle[] = [
       "Idéal pour road trips, routes sinueuses, 4-5 personnes avec bagages.",
       
       "### 4x4 premium (Toyota Prado, Range Rover)",
-      "Basse saison : 900-1200 MAD/jour. Moyenne saison : 1200-1500 MAD/jour. Haute saison : 1500-2000 MAD/jour.",
+      "Basse saison : 900-1300 MAD/jour. Moyenne saison : 1200-1500 MAD/jour. Haute saison : 1500-2000 MAD/jour.",
       
       "Idéal pour pistes désert, grand confort, groupes 5-6 personnes.",
       
@@ -1844,7 +1844,7 @@ export const blogArticles: BlogArticle[] = [
       "GPS : gratuit ou 30-50 MAD/jour. Siège bébé/enfant : 30-50 MAD/jour.",
       
       "### Livraison/récupération",
-      "Aéroport : souvent gratuit. Hôtel en ville : 50-200 MAD. Entre villes : 200-500 MAD. Restitution autre ville : 500-1500 MAD.",
+      "Aéroport : souvent gratuit. Hôtel en ville : 50-300 MAD. Entre villes : 200-500 MAD. Restitution autre ville : 500-1500 MAD.",
       
       "## Le carburant",
       
@@ -1872,7 +1872,7 @@ export const blogArticles: BlogArticle[] = [
       "SUV : 5 355 MAD. Assurance : 910 MAD. Carburant : 2 100 MAD. Total : 8 515 MAD (environ 800€).",
       
       "### Mois complet digital nomad",
-      "Berline mensuelle : 11 250 MAD. Assurance : 3 300 MAD. Carburant : 2 000 MAD. Total : 17 050 MAD (environ 1 600€).",
+      "Berline mensuelle : 11 400 MAD. Assurance : 3 300 MAD. Carburant : 2 000 MAD. Total : 17 050 MAD (environ 1 600€).",
       
       "## Conseils pour économiser",
       "1. Réservez 2-3 semaines à l'avance",
@@ -1934,7 +1934,7 @@ export const blogArticles: BlogArticle[] = [
       "2-5 MAD par heure. Souvent limité à 2-4 heures maximum. Gratuit le dimanche et après 19h-20h dans certaines villes.",
       
       "### Si vous ne payez pas ?",
-      "Amende de 100-200 MAD. Pour une voiture de location, l'agence paiera et vous facturera l'amende plus des frais de gestion (100-200 MAD).",
+      "Amende de 100-300 MAD. Pour une voiture de location, l'agence paiera et vous facturera l'amende plus des frais de gestion (100-300 MAD).",
       
       "## Stationnement dans les médinas",
       
@@ -2115,7 +2115,7 @@ export const blogArticles: BlogArticle[] = [
       
       "### Prix par Catégorie de Véhicule (2025)",
       
-      "**Citadines économiques** (Dacia Sandero, Renault Clio, Peugeot 208) : 150 à 250 MAD/jour (15-25€). Idéales pour les villes et courts trajets. Consommation : 5-6 L/100km.",
+      "**Citadines économiques** (Dacia Sandero, Renault Clio, Peugeot 208) : 150 à 400 MAD/jour (15-25€). Idéales pour les villes et courts trajets. Consommation : 5-6 L/100km.",
       
       "**Berlines compactes** (Toyota Corolla, VW Jetta, Peugeot 308) : 250 à 400 MAD/jour (25-40€). Confortables pour 4 adultes avec bagages. Parfaites pour les longs trajets. Consommation : 6-7 L/100km.",
       
@@ -2129,7 +2129,7 @@ export const blogArticles: BlogArticle[] = [
       
       "Plus vous louez longtemps, moins le prix journalier est élevé. **1-2 jours** : prix plein. **3-6 jours** : -10%. **7-13 jours** : -15 à -20%. **14-29 jours** : -20 à -25%. **30+ jours** : -25 à -35%.",
       
-      "Exemple concret : Une Renault Clio coûte 200 MAD/jour pour 2 jours (400 MAD total), mais seulement 140 MAD/jour pour 10 jours (1 400 MAD total au lieu de 2 000 MAD).",
+      "Exemple concret : Une Renault Clio coûte 300 MAD/jour pour 2 jours (400 MAD total), mais seulement 140 MAD/jour pour 10 jours (1 400 MAD total au lieu de 2 000 MAD).",
       
       "### Prix Selon la Saison",
       
@@ -2249,7 +2249,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Faites le plein** : Contrat plein/plein. Rendez avec le réservoir plein. Gardez le ticket de caisse (fait dans les 10 km avant la restitution).",
       
-      "**Nettoyez l'intérieur** : Enlevez vos déchets. Passez un coup d'aspirateur si très sale (frais de nettoyage : 100-200 MAD).",
+      "**Nettoyez l'intérieur** : Enlevez vos déchets. Passez un coup d'aspirateur si très sale (frais de nettoyage : 100-300 MAD).",
       
       "**Inspection finale** : Faites-la avec l'agent. Vérifiez ensemble l'état. Signez le PV de restitution. Gardez votre copie.",
       
@@ -2330,7 +2330,7 @@ export const blogArticles: BlogArticle[] = [
       
       "Route spectaculaire qui monte dans l'Atlas à travers des gorges vertes. Villages berbères aux maisons en terre crue accrochés à la montagne. Arrivée à Setti Fatma, point de départ de randonnées vers 7 cascades successives (2-3h aller-retour, guide local recommandé 100 MAD).",
       
-      "**Déjeuner** : Restaurants les pieds dans l'eau au bord de l'oued (150-250 MAD/personne). Spécialités : tagine berbère, truite grillée, couscous du vendredi.",
+      "**Déjeuner** : Restaurants les pieds dans l'eau au bord de l'oued (150-400 MAD/personne). Spécialités : tagine berbère, truite grillée, couscous du vendredi.",
       
       "**Conseil** : Partez tôt (8h) pour éviter les groupes touristiques et la chaleur. Chaussures de randonnée indispensables. Route sinueuse, prudence.",
       
@@ -2342,7 +2342,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Circuit** : Descente par escaliers (30 min) vers le pied des cascades. Traversée en barque (10 MAD). Remontée par l'autre rive avec points de vue spectaculaires. Boucle complète : 2-3 heures.",
       
-      "**Déjeuner** : Terrasses avec vue sur les cascades (100-200 MAD). Essayez le tajine de poulet aux olives.",
+      "**Déjeuner** : Terrasses avec vue sur les cascades (100-300 MAD). Essayez le tajine de poulet aux olives.",
       
       "**Conseil** : Journée complète nécessaire (départ 7h, retour 19h). Route longue mais en bon état. Emportez maillot de bain en été.",
       
@@ -2354,7 +2354,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**À voir** : Remparts et fortifications portugaises (vue panoramique). Médina piétonne et souks d'artisanat (thuya, argent). Port avec ses chalutiers bleus et mouettes. Plage immense (attention, mer froide et vent fort).",
       
-      "**Déjeuner** : Poisson frais grillé au port (150-250 MAD). Les pêcheurs cuisinent leurs prises du jour. Expérience authentique garantie.",
+      "**Déjeuner** : Poisson frais grillé au port (150-400 MAD). Les pêcheurs cuisinent leurs prises du jour. Expérience authentique garantie.",
       
       "**Conseil** : Journée complète (départ 7h30, retour 20h). Route excellente. Essaouira est très venteux, prévoyez un coupe-vent même en été.",
       
@@ -2448,11 +2448,11 @@ export const blogArticles: BlogArticle[] = [
       "## Location de Voiture : Prix Réels 2025",
       
       "### Budget Économique",
-      "**Citadine** (Dacia Sandero, Renault Clio) : 150-200 MAD/jour. 1 050-1 400 MAD pour 7 jours avec dégressif (-15%). Assurance au tiers incluse. Kilométrage illimité.",
+      "**Citadine** (Dacia Sandero, Renault Clio) : 150-300 MAD/jour. 1 050-1 400 MAD pour 7 jours avec dégressif (-15%). Assurance au tiers incluse. Kilométrage illimité.",
       
-      "**Conseil économie** : Louez pour 7+ jours pour bénéficier du tarif dégressif. Récupération en centre-ville plutôt qu'à l'aéroport (frais de 100-200 MAD en moins).",
+      "**Conseil économie** : Louez pour 7+ jours pour bénéficier du tarif dégressif. Récupération en centre-ville plutôt qu'à l'aéroport (frais de 100-300 MAD en moins).",
       
-      "**Total semaine location** : 1 200 MAD (citadine 7 jours avec dégressif).",
+      "**Total semaine location** : 1 300 MAD (citadine 7 jours avec dégressif).",
       
       "### Budget Confort",
       "**Berline** (Toyota Corolla, VW Jetta) : 250-350 MAD/jour. 1 750-2 450 MAD pour 7 jours. Assurance CDW recommandée : +80 MAD/jour = +560 MAD/semaine.",
@@ -2462,9 +2462,9 @@ export const blogArticles: BlogArticle[] = [
       "**Total semaine location** : 2 500 MAD (berline 7 jours + assurance CDW).",
       
       "### Budget Luxe",
-      "**SUV premium** (VW Tiguan, Toyota RAV4) : 500-600 MAD/jour. 3 500-4 200 MAD pour 7 jours.",
+      "**SUV premium** (VW Tiguan, Toyota RAV4) : 500-600 MAD/jour. 3 500-4 300 MAD pour 7 jours.",
       
-      "**Véhicule de luxe** (Mercedes, BMW, Audi) : 800-1200 MAD/jour. 5 600-8 400 MAD pour 7 jours. Super CDW : +100 MAD/jour.",
+      "**Véhicule de luxe** (Mercedes, BMW, Audi) : 800-1300 MAD/jour. 5 600-8 400 MAD pour 7 jours. Super CDW : +100 MAD/jour.",
       
       "**Total semaine location** : 6 000 MAD (SUV premium avec Super CDW).",
       
@@ -2501,7 +2501,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Déjeuner** : Restaurant touristique : 100-150 MAD. Riad/hôtel : 120-180 MAD.",
       
-      "**Dîner** : Restaurant de médina : 150-250 MAD. Riad gastronomique : 200-350 MAD.",
+      "**Dîner** : Restaurant de médina : 150-400 MAD. Riad gastronomique : 200-350 MAD.",
       
       "**Total jour** : 250-400 MAD/personne. **Total semaine** : 1 750-2 800 MAD.",
       
@@ -2522,7 +2522,7 @@ export const blogArticles: BlogArticle[] = [
       "**Total semaine activités** : 200-400 MAD.",
       
       "### Budget Confort",
-      "**Palais et musées** : 70-150 MAD/site. **Jardin Majorelle** : 150 MAD. **Hammam traditionnel** : 150-250 MAD. **Balade à dos de chameau** : 200-300 MAD. **Excursion Vallée Ourika** : 300-500 MAD avec guide.",
+      "**Palais et musées** : 70-150 MAD/site. **Jardin Majorelle** : 150 MAD. **Hammam traditionnel** : 150-400 MAD. **Balade à dos de chameau** : 200-300 MAD. **Excursion Vallée Ourika** : 300-500 MAD avec guide.",
       
       "**Total semaine activités** : 1 000-1 500 MAD.",
       
@@ -2534,10 +2534,10 @@ export const blogArticles: BlogArticle[] = [
       "## Récapitulatif Budget Total 1 Semaine",
       
       "### Budget Économique : 4 600-6 560 MAD/personne (460-656€)",
-      "Hébergement : 1 400 MAD. Location voiture : 1 200 MAD (divisé par 2 si couple = 600/pers). Essence : 1 300 MAD (650/pers). Repas : 1 000 MAD. Activités : 300 MAD. Divers : 250 MAD.",
+      "Hébergement : 1 400 MAD. Location voiture : 1 300 MAD (divisé par 2 si couple = 600/pers). Essence : 1 300 MAD (650/pers). Repas : 1 000 MAD. Activités : 300 MAD. Divers : 400 MAD.",
       
       "### Budget Confort : 9 400-12 500 MAD/personne (940-1250€)",
-      "Hébergement : 4 500 MAD. Location voiture : 2 500 MAD (1 250/pers). Essence : 1 600 MAD (800/pers). Repas : 2 200 MAD. Activités : 1 250 MAD. Divers : 500 MAD.",
+      "Hébergement : 4 500 MAD. Location voiture : 2 500 MAD (1 250/pers). Essence : 1 600 MAD (800/pers). Repas : 2 300 MAD. Activités : 1 400 MAD. Divers : 500 MAD.",
       
       "### Budget Luxe : 26 100-41 500 MAD/personne (2610-4150€)",
       "Hébergement : 15 000 MAD. Location voiture : 6 000 MAD (3 000/pers). Essence : 2 000 MAD (1 000/pers). Repas : 8 000 MAD. Activités : 6 000 MAD. Divers : 1 100 MAD.",
@@ -2611,7 +2611,7 @@ export const blogArticles: BlogArticle[] = [
       "### Le Cabestan",
       "Poissons et fruits de mer sur pilotis. Vue mer à 180°.",
       
-      "**Infos pratiques :**\n- 🅿️ Parking privé 30 places\n- 💰 Budget : 350-500 DH/pers\n- 🐟 Poissons frais du jour\n- ⏰ Déjeuner vue mer imbattable",
+      "**Infos pratiques :**\n- 🅿️ Parking privé 30 places\n- 💰 Budget : 500-700 DH/pers\n- 🐟 Poissons frais du jour\n- ⏰ Déjeuner vue mer imbattable",
       
       "## ☕ Cafés & Lounges",
       
@@ -2653,7 +2653,7 @@ export const blogArticles: BlogArticle[] = [
       
       "⚠️ **À éviter** :\n❌ Stationnement sauvage près des clubs (risque d'amende 300 DH)\n❌ Week-end après 18h : forte affluence, prévoir +30 min parking\n❌ Laisser objets de valeur visibles dans voiture",
       
-      "Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 200 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà."
+      "Ain Diab est le quartier parfait pour une journée découverte en voiture à Casablanca. Avec ses parkings accessibles, sa corniche spectaculaire et ses restaurants réputés, c'est une destination incontournable. Location de voiture recommandée : catégorie économique suffit (Sandero, Clio) car routes excellentes. Réservez votre véhicule chez Benatna dès 300 DH/jour avec kilométrage illimité pour explorer Ain Diab et au-delà."
     ]
   },
   {
@@ -2706,7 +2706,7 @@ export const blogArticles: BlogArticle[] = [
       
       "**Infos :**\n- 🅿️ Parking gratuit premières 2h\n- 🕐 Ouvert 10h-22h\n- 🍽️ 20+ restaurants\n- 🏢 Tours iconiques Casablanca",
       
-      "Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 200 DH/jour."
+      "Le Maarif est le quartier idéal pour découvrir le Casablanca moderne et cosmopolite. Avec un bon réseau de parkings et une concentration exceptionnelle de bonnes adresses, c'est une destination shopping et gastronomie incontournable. Louez votre voiture chez Benatna pour explorer librement Maarif et le reste de Casablanca dès 300 DH/jour."
     ]
   },
   {
@@ -2737,7 +2737,7 @@ export const blogArticles: BlogArticle[] = [
       "### Al Fassia Guéliz",
       "Cuisine marocaine raffinée. Tenu par des femmes.",
       
-      "**Infos pratiques :**\n- 🅿️ Parking privé gratuit\n- 💰 Budget : 250-350 DH/pers\n- 👩‍🍳 Équipe 100% féminine\n- 🥘 Spécialités : méchoui, pastilla",
+      "**Infos pratiques :**\n- 🅿️ Parking privé gratuit\n- 💰 Budget : 400-500 DH/pers\n- 👩‍🍳 Équipe 100% féminine\n- 🥘 Spécialités : méchoui, pastilla",
       
       "### Bagatelle",
       "Bistrot français chic. Terrasse verdoyante.",
@@ -2903,7 +2903,7 @@ export const blogArticles: BlogArticle[] = [
       
       "✅ **Conduite montagne** :\n- Rouler en 2ème/3ème dans pistes\n- Klaxonner avant virages aveugles\n- Céder priorité mules/moutons\n- Éviter dépassements risqués",
       
-      "✅ **Budget total 3 jours** :\n- Location 4x4 : 840-1050 DH\n- Essence : 400-500 DH\n- Hébergement (2 nuits) : 600-1600 DH\n- Repas : 600-900 DH\n- Divers : 200 DH\n**TOTAL : 2640-4250 DH pour 2 personnes**",
+      "✅ **Budget total 3 jours** :\n- Location 4x4 : 840-1050 DH\n- Essence : 400-500 DH\n- Hébergement (2 nuits) : 600-1600 DH\n- Repas : 900-1200 DH\n- Divers : 200 DH\n**TOTAL : 2640-4250 DH pour 2 personnes**",
       
       "⚠️ **Période idéale** :\n- **Printemps (mars-mai)** : Verdure, cascades en eau\n- **Automne (sept-nov)** : Températures agréables\n- **Éviter juillet-août** : Chaleur intense basse altitude\n- **Hiver (déc-fév)** : Neige possible, 4x4 obligatoire",
       

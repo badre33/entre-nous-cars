@@ -16,7 +16,7 @@ const CAN2025Tanger = () => {
     <>
       <Helmet>
         <title>Location Voiture CAN 2025 Tanger - Stade Ibn Batouta | Benatna</title>
-        <meta name="description" content="Location voiture CAN 2025 à Tanger. Stade Ibn Batouta, détroit Gibraltar. 6 matchs. Dès 200 DH/jour." />
+        <meta name="description" content="Location voiture CAN 2025 à Tanger. Stade Ibn Batouta, détroit Gibraltar. 6 matchs. Dès 300 DH/jour." />
         <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-tanger" />
       </Helmet>
       
