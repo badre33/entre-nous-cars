@@ -849,4 +849,219 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Location Voiture Agadir', link: '/location-voiture-agadir' }
     ]
   }
+,
+  // ============================================================
+  // SPRINT MRE/TOURISTES — Tanger Med Port (été 2026, 304 ferries/sem)
+  // ============================================================
+  {
+    slug: 'location-voiture-tanger-med-port',
+    title: 'Location Voiture Tanger Med Port',
+    metaTitle: 'Location Voiture Tanger Med Port - Livraison Ferry 24h/7j dès 300 DH | Benatna',
+    metaDescription: 'Réservez votre voiture livrée au port Tanger Med dès votre descente du ferry. Service 24/7 pour MRE et touristes. Sans carte de crédit, dès 300 DH/jour.',
+    keywords: 'location voiture tanger med, location voiture port tanger med, voiture ferry tanger med, mre tanger med voiture, location voiture algeciras tanger',
+    h1: 'Location de Voiture au Port Tanger Med — Livraison Ferry 24h/7j',
+    heroSubtitle: '304 ferries/semaine • Livraison terminal directe • Service 24/7 • Dès 300 DH/jour',
+    category: { label: 'Points d\'entrée touristiques', href: '/nos-services' },
+    content: {
+      intro: `Le **port Tanger Med** est le **plus grand port d'Afrique** et le **point d'entrée principal au Maroc pour les MRE** débarquant de leurs ferries d'Espagne (Algésiras, Tarifa), de France (Sète) ou d'Italie (Gênes). Avec **304 traversées par semaine en été**, c'est l'un des hubs les plus chargés du pays entre juin et septembre. Benatna vous attend directement au terminal véhicules ou passagers, ferry après ferry, **sans frais aéroport-équivalent**, sans carte de crédit internationale requise.`,
+      sections: [
+        {
+          title: 'Pourquoi Benatna au port Tanger Med ?',
+          content: `Si vous arrivez par ferry depuis l'Europe (Algésiras 30 min, Tarifa 1h, Sète 36h, Gênes 48h), vous êtes probablement fatigué, avec famille et bagages. La dernière chose que vous voulez : faire la queue à un comptoir de location, fournir une carte Visa internationale pour caution, et négocier les frais cachés. **Benatna fonctionne autrement** : vous réservez via WhatsApp avant votre embarquement (numéro de ferry et heure de débarquement), nous suivons le ferry en temps réel via le site de FRS/Balearia/AMLines, et notre agent vous attend dès la sortie du terminal véhicules ou passagers avec votre voiture. **Remise des clés en 5-10 minutes**, paiement en espèces (DH ou €), virement ou Cash Plus — pas besoin de carte de crédit. Vous pouvez être sur l'autoroute A4 vers Tanger ou la N2 vers Tétouan/Chefchaouen en 20 minutes maximum après votre débarquement.`
+        },
+        {
+          title: 'Tarifs ferry — Spécial MRE et touristes',
+          content: `Notre grille tarifaire à Tanger Med, sans surcharge port (contrairement aux comptoirs internationaux qui majorent 30-50%) : **Citadines économiques** (Clio, Sandero, Hyundai i10) dès **300-350 DH/jour** — idéales pour MRE seul ou couple sans gros bagages, parfaites pour rejoindre Tanger ville, Tétouan, Chefchaouen, ou continuer vers Casablanca par autoroute A4. **Berlines confortables** (Toyota Corolla, VW Jetta) à **400-500 DH/jour** — bon compromis famille + bagages MRE pour long trajet Tanger Med → Casa (320 km, 3h par A4). **SUV** (Dacia Duster, Nissan Qashqai, VW Tiguan) à **550-800 DH/jour** — capacité bagages + climatisation efficace pour familles avec valises pleines, garde au sol adaptée routes secondaires Rif/Chefchaouen. **Vans 7-9 places** (VW Sharan, Citroën Jumpy) à **900-1200 DH/jour** — pour familles MRE nombreuses, **réservez tôt** car la demande explose en été (épuisé dès mi-juin). Tous nos prix sont fixes en MAD, **garantis au moment de votre réservation** quel que soit le pic de demande.`
+        },
+        {
+          title: 'Procédure à Tanger Med — étape par étape',
+          content: `**Étape 1 (avant départ Europe)** : réservez via WhatsApp au +212 699 024 526. Indiquez votre compagnie (FRS, Balearia, AMLines, Inter Shipping), votre numéro de ferry, votre point de départ (Algésiras, Tarifa, Sète, Gênes, Barcelone), et votre heure prévue de débarquement (UTC marocain). Précisez si vous arrivez avec votre propre voiture (terminal véhicules T1) ou comme passager piéton (terminal passagers T2). **Étape 2 (jour J)** : nous suivons votre ferry en temps réel. En cas de retard (très courant en été à cause de l'afflux), nous ajustons automatiquement notre rendez-vous. **Étape 3 (à l'arrivée)** : après la douane et le contrôle police, suivez les panneaux "Sortie véhicules" ou "Sortie passagers". Un agent Benatna vous attend au point de rendez-vous convenu (généralement parking sortie principale, panneau rouge facilement identifiable). **Étape 4 (remise)** : présentation pièce d'identité (CIN MRE, passeport, ou titre séjour UE), permis valide, signature contrat français, paiement (espèces DH/€, virement RIB fourni avant, Cash Plus), petit tour du véhicule. **Étape 5 (départ)** : vous prenez l'autoroute A4 vers Tanger ville (45 km, 35 min) ou Casablanca (320 km, 3h via péage ~50 DH). Service disponible 24h/24, 7j/7, y compris les ferries de nuit.`
+        },
+        {
+          title: 'Destinations depuis Tanger Med',
+          content: `Depuis le port Tanger Med, voici les trajets les plus demandés et leurs durées approximatives : **Tanger ville** : 45 km, 35 min par A4 (péage 15 DH). **Tétouan** : 60 km, 50 min par N2. **Chefchaouen** ("la perle bleue") : 100 km, 1h30 par N2 + R39 — incontournable touristes EU. **Asilah** : 90 km, 1h15 par autoroute A4 puis N1. **Rabat** : 270 km, 2h30 par A1 (péage ~50 DH). **Casablanca** : 320 km, 3h par A1 (péage ~70 DH). **Fès** : 320 km, 3h15 par A1 + A2 (péage ~80 DH). **Marrakech** : 530 km, 5h par A1 + A3 (péage ~140 DH, faire une pause Casa ou Rabat). **Côte méditerranéenne** (Saïdia, Nador) : 470 km, 5h par N16. Notre flotte est livrée avec carte routière + plein d'essence à payer au retour (option "réservoir plein" gratuite si vous voulez rendre la voiture pleine ailleurs au Maroc).`
+        }
+      ],
+      faq: [
+        {
+          question: 'Le ferry est en retard de 2-3 heures, c\'est grave ?',
+          answer: 'Non, c\'est même courant en été. Nous suivons votre ferry en temps réel sur les sites de FRS/Balearia. Notre agent attend votre arrivée réelle, **sans frais supplémentaires**. Vous n\'avez rien à faire — pas besoin d\'appeler en panique.'
+        },
+        {
+          question: 'J\'arrive de nuit (3h du matin), service disponible ?',
+          answer: 'Oui, **24h/24 et 7j/7**. Les ferries de nuit (Algésiras 23h, Sète 5h) sont fréquents en été. Notre service ferry est aligné sur l\'activité du port — pas de frais "horaires de nuit".'
+        },
+        {
+          question: 'Quels papiers présenter pour louer à Tanger Med ?',
+          answer: 'CIN marocaine OU passeport UE valide OU titre de séjour, permis de conduire valide depuis 2 ans minimum (1 an avec supplément jeune conducteur). Le permis européen est accepté sans formalité, le permis international n\'est PAS requis. Pour les MRE binationaux : CIN marocaine suffit, passeport étranger non nécessaire.'
+        },
+        {
+          question: 'Je veux rendre la voiture à Marrakech ou Casa, possible ?',
+          answer: 'Oui, **location aller-simple** Tanger Med → autre ville disponible. Supplément raisonnable selon distance (~200 DH Casa, ~400 DH Marrakech). Idéal si vous prenez un ferry retour différent ou si votre famille vous rejoint dans une autre ville.'
+        },
+        {
+          question: 'J\'ai mon propre véhicule sur le ferry, pas besoin de location, pourquoi vous lire ?',
+          answer: 'Si votre véhicule a un problème mécanique imprévu au débarquement (panne, douane qui détecte un problème assurance, accident), ou si vous voulez un véhicule additionnel pour transporter la famille pendant que vous attendez la libération du vôtre, **réservation d\'urgence en 30 minutes** via WhatsApp.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture à Tanger Med',
+      subtitle: 'Livraison ferry 24/7 • Sans carte de crédit • Tarifs MAD garantis',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture MRE Maroc', description: 'Hub MRE : sans CB internationale, paiement DH/€, livraison ferry et aéroport.', link: '/location-voiture-mre-maroc' },
+      { title: 'Location Voiture Été 2026', description: 'Anticipez votre été au Maroc — haute saison juin-août.', link: '/location-voiture-ete-2026-maroc' },
+      { title: 'Location Sans Carte de Crédit', description: 'Paiement en espèces, virement, mobile money — spécial MRE.', link: '/location-voiture-sans-carte-credit-casablanca' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Tanger', link: '/location-voiture-tanger' },
+      { title: 'Location Aéroport Tanger Ibn Battouta', link: '/location-voiture-aeroport-tanger' }
+    ]
+  },
+  // ============================================================
+  // SPRINT MRE/TOURISTES — Hub MRE (USP unique sur le marché)
+  // ============================================================
+  {
+    slug: 'location-voiture-mre-maroc',
+    title: 'Location Voiture MRE Maroc',
+    metaTitle: 'Location Voiture MRE Maroc - Sans Carte Crédit, Paiement DH/€ | Benatna',
+    metaDescription: 'Spécial Marocains résidant à l\'étranger : location voiture au Maroc sans carte de crédit internationale, paiement en espèces, virement ou Cash Plus. Livraison aéroport et ferry. Dès 300 DH/jour.',
+    keywords: 'location voiture mre maroc, voiture marocains etranger, location voiture mre sans carte credit, voiture mre paiement especes, voiture mre dh euros',
+    h1: 'Location de Voiture au Maroc pour les MRE — Sans Carte de Crédit Internationale',
+    heroSubtitle: 'Paiement DH ou € • Livraison aéroport/ferry gratuite • Documents UE acceptés • Dès 300 DH/jour',
+    category: { label: 'Spécial MRE', href: '/nos-services' },
+    content: {
+      intro: `Si vous êtes **Marocain résidant à l'étranger (MRE)** — en France, Belgique, Espagne, Allemagne, Pays-Bas, Italie ou ailleurs — et que vous rentrez au Maroc pour les vacances, les fêtes (Aïd al-Adha, Aïd al-Fitr), un mariage familial, ou la Coupe du Monde 2026 : **Benatna est conçu pour vous**. Nous savons que la plupart des MRE n'ont pas (ou ne veulent pas utiliser) de **carte de crédit internationale** avec une caution bloquée, paient souvent en **espèces euros ou DH**, et arrivent par **avion ou ferry** avec famille et bagages. Notre service est entièrement adapté : sans carte de crédit obligatoire, paiement flexible, livraison directe au terminal, et équipe qui parle français et darija.`,
+      sections: [
+        {
+          title: 'Pourquoi les MRE choisissent Benatna',
+          content: `Les grandes chaînes internationales (Hertz, Avis, Sixt, Europcar) exigent quasi-systématiquement une **carte de crédit Visa/MasterCard internationale** au nom du conducteur, avec **blocage de caution de 5 000 à 20 000 DH** pendant toute la location. Pour beaucoup de MRE — particulièrement ceux qui paient en cash ou utilisent des cartes de débit Maestro/V-Pay non acceptées par leurs systèmes — c'est un blocage total. Benatna casse ce modèle : nous acceptons les **espèces (DH ou €)**, le **virement bancaire** (RIB fourni avant votre voyage pour transfert SEPA depuis l'Europe), les **portefeuilles mobiles marocains** (Cash Plus, Wafacash), et même la **carte CMI marocaine** si vous en avez une. Aucune caution bloquée sur compte étranger. Vous payez à la livraison ou à la fin de la location selon ce qui vous arrange. Notre équipe parle français, darija, espagnol et anglais — pas de barrière linguistique.`
+        },
+        {
+          title: 'Documents acceptés pour les MRE',
+          content: `Voici exactement ce que vous devez présenter en tant que MRE — rien de plus, rien de moins. **Identité (UN seul de ces documents)** : CIN marocaine (préférée si vous l'avez), passeport européen valide (français, belge, espagnol, etc.), titre de séjour de votre pays de résidence, ou passeport marocain. **Permis de conduire** : votre permis européen actuel est **valide directement au Maroc** sans formalité, à condition qu'il soit valide depuis au moins **2 ans** (ou 1 an avec supplément jeune conducteur). Le **permis international n'est PAS requis** pour les ressortissants de l'UE. Pour les MRE binationaux, votre permis marocain peut aussi être utilisé. **Important** : pas besoin de fournir une carte de crédit pour la caution. Nous vous demandons simplement vos coordonnées WhatsApp pour rester en contact pendant la location. Si vous perdez ou endommagez le véhicule, nous fonctionnons comme dans toute relation de confiance — nous discutons d'abord, jamais de mise en demeure immédiate.`
+        },
+        {
+          title: 'Points de livraison — où on vous attend',
+          content: `Vous arrivez où ? Nous y sommes. **Aéroport Mohammed V Casablanca (CMN)** : terminaux 1 et 2, livraison gratuite 24/7. **Aéroport Marrakech-Menara (RAK)** : terminal unique, sortie principale. **Aéroport Rabat-Salé (RBA)** : terminal compact, idéal pour MRE diplomates et corporate. **Aéroport Tanger Ibn Battouta (TNG)** : terminal moderne, accès rapide centre-ville et Tétouan. **Aéroport Agadir Al-Massira (AGA)** : pour MRE qui rentrent au Souss-Massa ou pour combinés tourisme + famille. **Aéroport Fès-Saïss (FEZ)** : pour MRE originaires du Centre-Nord. **Port Tanger Med** : terminal véhicules ou passagers, livraison 24/7 alignée sur les ferries Algésiras/Tarifa/Sète/Gênes. **Port Nador Beni Ansar** : terminal ferries Almería/Sète (saisonnier été). **Gares ONCF** : Casa-Voyageurs, Rabat-Agdal, Marrakech sur demande (pour MRE Tanger Med → Al Boraq → location à Casa par exemple). **Domicile famille** : possible dans Casa, Rabat, Marrakech intra-urbain, sur demande.`
+        },
+        {
+          title: 'Tarifs et modes de paiement détaillés',
+          content: `Notre grille tarifaire MRE est la **même que celle de tous les clients** — pas de surfacturation "client étranger" comme certains comptoirs intl pratiquent. Citadines 300-350 DH/jour, berlines 400-500, SUV 550-800, vans 7-9 places 900-1200, premium 1200-2000. Pour les **locations longues** (>15 jours typique MRE en vacances), **remise dégressive jusqu'à 20%**. Locations mensuelles : citadine dès **7500 DH/mois** tout compris. **Modes de paiement acceptés** : (1) **Espèces DH ou €** à la livraison ou à la fin, (2) **Virement SEPA** depuis votre banque européenne (IBAN marocain fourni), (3) **Cash Plus / Wafacash** depuis n'importe quel guichet au Maroc, (4) **Carte CMI marocaine** si vous en avez une, (5) **Carte Visa/MasterCard internationale** si vous préférez (mais pas obligatoire et pas de caution bloquée), (6) **Mix** : par exemple 50% virement avant arrivée + 50% espèces à la livraison. Vous choisissez selon ce qui vous arrange.`
+        }
+      ],
+      faq: [
+        {
+          question: 'Je suis MRE en France, ma carte est une Mastercard Maestro (carte de débit). Elle est acceptée ?',
+          answer: 'Pour le paiement, non — les Maestro/V-Pay ne fonctionnent pas au Maroc dans la plupart des cas. Pour la caution, **vous n\'en avez pas besoin avec Benatna**. Préférez payer en espèces, virement SEPA, ou Cash Plus — c\'est ce que font 90% de nos clients MRE.'
+        },
+        {
+          question: 'Mon permis français doit-il être traduit en arabe ou nécessite un permis international ?',
+          answer: 'Non, le **permis français (UE) est valide tel quel au Maroc**. Pas de traduction, pas de permis international requis. Idem pour permis belge, espagnol, allemand, italien, néerlandais, etc. Présentez votre permis tel quel à la livraison.'
+        },
+        {
+          question: 'Je rentre avec ma famille de 5 personnes + 4 grosses valises depuis Paris CDG, quelle voiture conseillez-vous ?',
+          answer: '**SUV (Duster, Qashqai, Tiguan)** à 550-800 DH/jour est le bon compromis : 5 places confortables, coffre 400-500 litres, climatisation efficace pour la chaleur marocaine, garde au sol adaptée si vous allez en zone rurale ou Atlas. Si bagages très volumineux (poussettes, vélos), passez à un **monospace 7 places** comme VW Sharan ou Citroën Jumpy à 900-1200 DH/jour — mais réservez 6-8 semaines à l\'avance en été.'
+        },
+        {
+          question: 'Je veux rendre la voiture le jour de mon retour, mais mon vol part à 3h du matin de CMN, qui récupère ?',
+          answer: 'Notre service est **24/7 à CMN**. Vous nous laissez le véhicule au parking dépose-minute aéroport (P1), un agent Benatna le récupère dans la nuit. Ou si vous préférez : remise des clés à un agent qui vous attend à votre dépose. Pas de surcoût pour horaires de nuit.'
+        },
+        {
+          question: 'Combien de temps à l\'avance dois-je réserver pour la haute saison MRE (juillet-août, Aïd) ?',
+          answer: 'Pour **juillet-août 2026** : 6-8 semaines minimum (idéalement 3 mois). Pour **Aïd al-Adha** (probablement début juin 2026) : 4-6 semaines. Les véhicules populaires (vans 7-9 places, SUV) sont les premiers épuisés. Réservation sans engagement via WhatsApp, modifiable jusqu\'à 7 jours avant.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture MRE au Maroc',
+      subtitle: 'Sans carte de crédit • Paiement DH/€/SEPA • Livraison aéroport et ferry',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Tanger Med Port', description: 'Livraison ferry 24/7 pour MRE arrivant d\'Espagne, France, Italie.', link: '/location-voiture-tanger-med-port' },
+      { title: 'Location Voiture Coupe du Monde 2026', description: 'Spécial MRE pour vivre la Coupe du Monde en famille.', link: '/location-voiture-coupe-monde-2026-maroc' },
+      { title: 'Location Voiture Été 2026', description: 'Haute saison MRE — anticipez juin-août 2026.', link: '/location-voiture-ete-2026-maroc' }
+    ],
+    relatedPages: [
+      { title: 'Sans Carte de Crédit Casablanca', link: '/location-voiture-sans-carte-credit-casablanca' },
+      { title: 'Sans Carte de Crédit Marrakech', link: '/location-voiture-sans-carte-credit-marrakech' }
+    ]
+  },
+  // ============================================================
+  // SPRINT MRE/TOURISTES — Circuit Villes Impériales (gap énorme)
+  // ============================================================
+  {
+    slug: 'location-voiture-circuit-villes-imperiales',
+    title: 'Location Voiture Circuit Villes Impériales Maroc',
+    metaTitle: 'Location Voiture Circuit Villes Impériales Maroc - Autotour 7-14 jours | Benatna',
+    metaDescription: 'Itinéraire complet circuit villes impériales en voiture : Casablanca, Rabat, Meknès, Fès, Marrakech. Voiture recommandée par durée, distances, conseils. Dès 300 DH/jour.',
+    keywords: 'circuit villes imperiales voiture, autotour maroc, location voiture casablanca rabat fes marrakech, circuit maroc voiture, road trip villes imperiales',
+    h1: 'Location de Voiture pour le Circuit des Villes Impériales du Maroc',
+    heroSubtitle: 'Casablanca → Rabat → Meknès → Fès → Marrakech • 7-14 jours • Itinéraire optimisé • Dès 300 DH/jour',
+    category: { label: 'Circuits touristiques', href: '/nos-services' },
+    content: {
+      intro: `Le **circuit des Villes Impériales du Maroc** — Casablanca, Rabat, Meknès, Fès, Marrakech — est l'**itinéraire touristique le plus iconique du Royaume**. En 7 à 14 jours et environ **1200-1500 km cumulés**, il vous fait traverser 12 siècles d'histoire marocaine, du Maroc moderne (Casa) à la médina UNESCO de Fès, en passant par Meknès la Versailles marocaine, Rabat la capitale tranquille, et Marrakech la ville rouge. **La voiture est le meilleur moyen de le faire** — vous gardez la liberté du tempo, vous évitez les agences de voyage qui pressent le rythme, et vous économisez 30-50% par rapport aux tours organisés.`,
+      sections: [
+        {
+          title: 'Itinéraire classique 10 jours (recommandé)',
+          content: `**Jour 1-2 — Casablanca** (200 km, 2h depuis CMN ou Tanger Med). Mosquée Hassan II, médina, corniche d'Aïn Diab, Morocco Mall. Récupérez votre voiture Benatna au terminal d'arrivée (gratuit). Nuit Casa-centre ou Aïn Diab. **Jour 3-4 — Rabat** (90 km, 1h par autoroute A1). Tour Hassan, mausolée Mohammed V, kasbah des Oudayas (vue mer + ruelles bleues), médina de Salé. Nuit Rabat-centre ou Souissi. **Jour 5 — Meknès + Volubilis** (140 km, 1h30 par A2). Bab el-Mansour, ville impériale Moulay Ismaïl, ruines romaines Volubilis (UNESCO, 30 km de Meknès). Nuit Meknès médina. **Jour 6-7 — Fès** (60 km, 50 min). Médina Fès el-Bali (UNESCO, **vraiment 2 jours minimum** — quartiers des tanneurs Chouara, université Al-Qaraouiyine, palais royal). Nuit obligatoire dans riad médina. **Jour 8 — Route vers Marrakech via Beni Mellal** (475 km, 5h, A2 puis N8 ou via Imouzzer pour les amateurs Atlas). Possibilité étape Ifrane (la "petite Suisse marocaine") en option. **Jour 9-10 — Marrakech** (récupération à l'arrivée). Jemaa el-Fna au coucher de soleil, médina, palais Bahia, jardin Majorelle. Retour aéroport Marrakech Menara ou drive-back vers Casa (240 km par A3, 2h30).`
+        },
+        {
+          title: 'Quelle voiture pour le circuit ?',
+          content: `Le choix dépend de votre groupe et de votre style de voyage. **Couple/duo sans enfants** : une **citadine** (Clio, Sandero, 208) à 300-350 DH/jour suffit largement. 1200-1500 km en 10 jours = ~3000-3750 DH de location + ~1500 DH carburant ≈ **5000-5500 DH total** pour 2 personnes. **Famille 3-4 personnes avec valises** : préférez une **berline confort** (Toyota Corolla, VW Jetta) à 400-500 DH/jour — coffre adapté, climatisation, autoroute confortable. Coût total ≈ 7000 DH. **Famille 5-6 ou groupe d'amis** : **SUV** (Duster, Qashqai, Tiguan) à 550-800 DH/jour — espace bagages important pour les souvenirs achetés en médina, garde au sol pour explorer Atlas en option. Coût total ≈ 10000-11000 DH. **Trajets Atlas ou désert ajoutés** : si vous prévoyez d'enchaîner avec Ouarzazate ou désert d'Erg Chebbi après Marrakech, montez en **4x4 réel** (Mitsubishi L200, Toyota Hilux) — supplément justifié.`
+        },
+        {
+          title: 'Distances + temps + péages (essentiel)',
+          content: `**Casablanca → Rabat** : 90 km, 1h par autoroute A1, péage 25 DH. **Rabat → Meknès** : 140 km, 1h30 par A2, péage 40 DH. **Meknès → Volubilis** : 30 km, 30 min par R413 (gratuit, route de campagne paisible). **Meknès → Fès** : 60 km, 50 min par N6 (gratuit, route doublée). **Fès → Marrakech (route directe)** : 475 km, 5h par A2 puis A3, péages cumulés ~120 DH. Faire une pause à Khouribga ou Beni Mellal. **Fès → Marrakech (via Ifrane et Atlas)** : 530 km, 6h30, plus pittoresque, paysages Atlas magnifiques. **Marrakech → Casablanca** : 240 km, 2h30 par A3, péage 60 DH. **Marrakech → aéroport Menara** : 6 km, 15 min, idéal pour retour. **Carburant** : prix mai 2026 ≈ 11.50 DH/litre essence. Citadine 1200 km ≈ 80 litres ≈ 920 DH. SUV 1200 km ≈ 110 litres ≈ 1265 DH.`
+        },
+        {
+          title: 'Conseils pratiques pour le circuit en voiture',
+          content: `**Réservation hôtels** : les riads médina (Fès, Marrakech, Meknès) ont des **parkings extérieurs** à 200-500m de la porte de la médina — utilisez ceux marqués "gardiens" (10-20 DH/nuit) plutôt que la rue. Pour Casablanca, votre hôtel a son propre parking (vérifiez à la réservation). **Police marocaine** : très présente sur autoroutes, contrôles aléatoires de vitesse et d'alcoolémie (tolérance zéro). Respectez 100 km/h sur autoroute, 60 en agglomération. **Si vous êtes verbalisé** : restez calme, payez l'amende sur place (50-300 DH selon infraction), demandez un reçu officiel. **Stationnement médina** : interdit total dans les médinas piétonnes (Fès, Marrakech) — gardez la voiture aux parkings de porte. **Carburant** : station-services partout sur autoroute (Afriquia, Total, Shell, Vivo), prix identiques. **Conduite Atlas/Sahara** : prudence avec radars fixes sur N9 (Marrakech-Ourika) et N10 (Atlas), conduite défensive avec charrettes et troupeaux. **Urgences** : 19 (police), 15 (samu), 17 (gendarmerie).`
+        }
+      ],
+      faq: [
+        {
+          question: 'Combien coûte le circuit complet en voiture pour 2 personnes (10 jours) ?',
+          answer: 'Estimation 10 jours, 2 personnes, citadine économique : **~5500 DH** (location 3000-3500 DH + carburant 1500 DH + péages 250 DH + parkings 200 DH). Hors hébergement et restauration. Pour un SUV en famille de 5 : ~10000 DH dans les mêmes catégories.'
+        },
+        {
+          question: 'Puis-je faire le circuit dans le sens inverse (Marrakech → Casa) ?',
+          answer: 'Oui, tout à fait. Si vous arrivez par avion à Marrakech (Menara), faites Marrakech-Fès-Meknès-Rabat-Casa et rendez la voiture à CMN. **Location aller-simple** Marrakech → Casa disponible (supplément modeste ~200 DH). Idéal si votre vol retour part de Casa.'
+        },
+        {
+          question: 'Faut-il un permis international pour conduire au Maroc en touriste ?',
+          answer: 'Non. Pour les ressortissants UE (France, Belgique, Espagne, Allemagne, Italie, Pays-Bas, etc.), votre **permis national est valide directement**. Pour US/UK/autres, un permis international (IDP) est souvent recommandé mais pas toujours exigé — vérifiez sur le site du Ministère marocain des Affaires étrangères avant départ.'
+        },
+        {
+          question: 'Le trajet Fès-Marrakech en une journée, c\'est faisable ?',
+          answer: 'Oui, **mais fatigant** : 475 km, 5h de conduite minimum hors arrêts. Préférez partir tôt (8h), pause déjeuner Khouribga ou Beni Mellal (mi-parcours), arrivée Marrakech vers 17h. Si vous voulez faire l\'Atlas (Ifrane, Imouzzer), comptez 6h30-7h — partez 7h et arrivez avant la nuit (18h-19h selon saison).'
+        },
+        {
+          question: 'Quelle est la meilleure période pour faire le circuit ?',
+          answer: '**Avril-Mai** et **Septembre-Octobre** sont idéales : températures douces partout (20-28°C), peu de monde, prix moyens. **Juin-Août** : très chaud (40°C+ Fès/Marrakech), saison touristique, prix +30-50%. **Novembre-Mars** : agréable Casa/Rabat (15-22°C), Marrakech fraîche le matin (5-10°C), Fès parfois pluvieuse mais authentique.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Circuit Villes Impériales',
+      subtitle: 'Itinéraire 7-14 jours • Voiture suggérée selon durée • Tarifs MAD transparents',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Été 2026', description: 'Haute saison juin-août — anticipez votre circuit.', link: '/location-voiture-ete-2026-maroc' },
+      { title: 'Location Voiture MRE Maroc', description: 'Spécial MRE qui rentrent en famille pour le circuit.', link: '/location-voiture-mre-maroc' },
+      { title: 'Location Aéroport Casablanca CMN', description: 'Démarrage circuit depuis votre arrivée à Casa.', link: '/location-voiture-aeroport-casablanca' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Casablanca', link: '/location-voiture-casablanca' },
+      { title: 'Location Voiture Marrakech', link: '/location-voiture-marrakech' },
+      { title: 'Location Voiture Fès', link: '/location-voiture-fes' }
+    ]
+  }
 ];
