@@ -182,6 +182,31 @@ class AnalyticsTracker {
    * This ensures server-side validation and bypasses restrictive RLS policies
    */
   async trackEvent({ eventType, eventName, properties = {} }: TrackEventOptions) {
+    // === GA4 FORWARDING ===
+    // Forward this event to Google Analytics 4 via gtag if available.
+    // This means EVERY tracked event (WhatsApp clicks, phone clicks, CTA
+    // clicks, form submits) automatically shows up in GA4 Realtime + Events.
+    try {
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        const gtag = (window as any).gtag;
+        const flatProps: Record<string, string | number | boolean> = {
+          event_category: eventType || 'engagement',
+          page_path: window.location.pathname,
+          page_title: document.title,
+        };
+        if (properties) {
+          for (const [k, v] of Object.entries(properties)) {
+            if (typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean') {
+              flatProps[k] = v;
+            } else if (v != null) {
+              flatProps[k] = String(v).substring(0, 200);
+            }
+          }
+        }
+        gtag('event', eventName || 'unknown_event', flatProps);
+      }
+    } catch (_) { /* fail silently if GA4 not loaded or blocked */ }
+
     try {
       // Sanitize and limit property values to prevent oversized payloads
       const sanitizedProperties = JSON.parse(JSON.stringify(properties));
