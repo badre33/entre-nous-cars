@@ -190,18 +190,23 @@ const Header = () => {
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[280px] sm:w-[350px]">
-              <SheetHeader>
+            <SheetContent side="right" className="w-[280px] sm:w-[350px] flex flex-col p-0">
+              {/* Fixed header — does not scroll */}
+              <SheetHeader className="px-6 pt-6 pb-2 border-b shrink-0">
                 <SheetTitle className="text-left font-pacifico text-2xl">benatna</SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-2 mt-8">
+              {/* Scrollable nav area — overflow-y-auto fixes the menu scroll bug on mobile */}
+              <nav className="flex flex-col gap-1 px-4 py-4 flex-1 overflow-y-auto overscroll-contain">
                 <NavLinks mobile onLinkClick={() => setIsOpen(false)} />
+              </nav>
+              {/* Fixed CTA at bottom — always reachable */}
+              <div className="px-4 py-4 border-t shrink-0 bg-background">
                 <Link to="/louer" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full rounded-full mt-4">
+                  <Button className="w-full rounded-full">
                     {t('common.rent')}
                   </Button>
                 </Link>
-              </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
