@@ -410,7 +410,7 @@ export const hyperLocalArticles: HyperLocalArticle[] = [
       sections: [
         {
           title: '🚙 Véhicule Recommandé',
-          content: `**4x4 indispensable pour cet itinéraire** :\n\n✅ **Dacia Duster 4x4** : Best value (280-350 DH/jour)\n   - Garde au sol 210mm\n   - Robuste et fiable\n   - Consommation raisonnable\n\n✅ **Renault Captur** : Bon compromis SUV (300 DH/jour)\n   - Confortable sur routes\n   - Garde au sol 174mm (limite sur pistes)\n\n✅ **Land Cruiser/Patrol** : Pour pistes difficiles (800+ DH/jour)\n\n⚠️ **À éviter** : Citadines type Sandero, Clio (garde au sol insuffisante)`,
+          content: `**4x4 indispensable pour cet itinéraire** :\n\n✅ **Dacia Duster 4x4** : Best value (280-350 DH/jour)\n   - Garde au sol 210mm\n   - Robuste et fiable\n   - Consommation raisonnable\n\n✅ **Dacia Duster** : Bon compromis SUV (300 DH/jour)\n   - Confortable sur routes\n   - Garde au sol 174mm (limite sur pistes)\n\n✅ **Land Cruiser/Patrol** : Pour pistes difficiles (800+ DH/jour)\n\n⚠️ **À éviter** : Citadines type Sandero, Clio (garde au sol insuffisante)`,
           items: []
         },
         {

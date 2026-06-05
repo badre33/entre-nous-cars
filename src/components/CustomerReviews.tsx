@@ -32,7 +32,7 @@ const reviews = [
     date: 'Il y a 1 semaine',
     verified: true,
     avatar: '/placeholder.svg',
-    car: 'Peugeot 208',
+    car: 'Toyota Yaris',
   },
   {
     name: 'Mehdi Tazi',

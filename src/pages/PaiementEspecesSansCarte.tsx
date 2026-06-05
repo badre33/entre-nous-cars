@@ -317,7 +317,7 @@ const PaiementEspecesSansCarte = () => {
                   <ul className="text-sm text-left space-y-2">
                     <li>• Renault Clio</li>
                     <li>• Dacia Sandero</li>
-                    <li>• Peugeot 208</li>
+                    <li>• Toyota Yaris</li>
                     <li>• Hyundai i20</li>
                   </ul>
                 </Card>
@@ -327,7 +327,7 @@ const PaiementEspecesSansCarte = () => {
                   <div className="text-3xl font-bold text-primary mb-4">5000 DH</div>
                   <ul className="text-sm text-left space-y-2">
                     <li>• Dacia Duster</li>
-                    <li>• Renault Captur</li>
+                    <li>• Dacia Duster</li>
                     <li>• Nissan Qashqai</li>
                     <li>• Toyota RAV4</li>
                   </ul>

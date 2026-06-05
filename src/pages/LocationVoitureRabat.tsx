@@ -439,7 +439,7 @@ const LocationVoitureRabat = () => {
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Citadines</h3>
                     <p className="text-muted-foreground text-sm mb-2">
-                      Renault Clio, Dacia Sandero, Peugeot 208
+                      Renault Clio, Dacia Sandero, Toyota Yaris
                     </p>
                     <p className="text-muted-foreground">
                       Parfaites pour les déplacements urbains et le stationnement en centre-ville. 

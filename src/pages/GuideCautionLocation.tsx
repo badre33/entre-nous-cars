@@ -211,9 +211,9 @@ const GuideCautionLocation = () => {
                   <ul className="text-sm text-left space-y-2">
                     <li>• Renault Clio</li>
                     <li>• Dacia Sandero</li>
-                    <li>• Peugeot 208</li>
+                    <li>• Toyota Yaris</li>
                     <li>• Hyundai i20</li>
-                    <li>• Fiat 500</li>
+                    <li>• Hyundai i10</li>
                   </ul>
                 </Card>
 
@@ -226,10 +226,10 @@ const GuideCautionLocation = () => {
                   <div className="text-sm text-muted-foreground mb-4">~ 460 EUR</div>
                   <ul className="text-sm text-left space-y-2">
                     <li>• Dacia Duster</li>
-                    <li>• Renault Captur</li>
+                    <li>• Dacia Duster</li>
                     <li>• Nissan Qashqai</li>
                     <li>• Toyota RAV4</li>
-                    <li>• Peugeot 3008</li>
+                    <li>• Nissan Qashqai</li>
                   </ul>
                 </Card>
 

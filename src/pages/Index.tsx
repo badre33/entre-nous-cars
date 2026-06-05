@@ -162,7 +162,7 @@ const Index = () => {
             rating: 5,
             comment: 'Parfait pour mon séjour touristique ! La réservation en ligne est simple et rapide. La voiture m\'attendait à l\'aéroport. Aucun souci pendant toute la durée de location.',
             date: 'Il y a 1 semaine',
-            car: 'Peugeot 208',
+            car: 'Toyota Yaris',
           },
           {
             name: 'Mehdi Tazi',

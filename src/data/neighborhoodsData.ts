@@ -78,7 +78,7 @@ export const neighborhoods: Neighborhood[] = [
         description: "Livraison directe à votre hôtel/résidence"
       }
     ],
-    popularVehicles: ["Dacia Sandero", "Renault Clio", "Peugeot 208", "Dacia Duster", "Peugeot 3008"],
+    popularVehicles: ["Dacia Sandero", "Renault Clio", "Toyota Yaris", "Dacia Duster", "Nissan Qashqai"],
     tips: [
       "Évitez la corniche le vendredi soir (embouteillages)",
       "Parking Morocco Mall gratuit 3h",
@@ -146,7 +146,7 @@ export const neighborhoods: Neighborhood[] = [
         description: "Livraison directe à votre hôtel"
       }
     ],
-    popularVehicles: ["Renault Clio", "Peugeot 208", "Toyota Corolla", "Volkswagen Golf", "Mercedes Classe A"],
+    popularVehicles: ["Renault Clio", "Toyota Yaris", "Toyota Corolla", "Volkswagen Golf", "Mercedes Classe A"],
     tips: [
       "Circulation dense en journée, prévoir temps supplémentaire",
       "Parkings payants 10-15 DH/heure en voirie",
@@ -214,7 +214,7 @@ export const neighborhoods: Neighborhood[] = [
         description: "Livraison hôtels 4-5 étoiles Anfa"
       }
     ],
-    popularVehicles: ["Mercedes Classe A", "BMW Série 3", "Audi A3", "Toyota Corolla", "Peugeot 3008"],
+    popularVehicles: ["Mercedes Classe A", "BMW Série 3", "Audi A3", "Toyota Corolla", "Nissan Qashqai"],
     tips: [
       "Quartier calme, respecter tranquillité résidents",
       "Stationnement facile et gratuit dans rues résidentielles",
@@ -228,7 +228,7 @@ export const neighborhoods: Neighborhood[] = [
       },
       {
         question: "Véhicule recommandé pour Anfa ?",
-        answer: "Berlines premium (Mercedes Classe A, BMW Série 3) ou SUV confortables (Peugeot 3008, Audi Q3) adaptés au standing du quartier. Image et confort prioritaires."
+        answer: "Berlines premium (Mercedes Classe A, BMW Série 3) ou SUV confortables (Nissan Qashqai, Audi Q3) adaptés au standing du quartier. Image et confort prioritaires."
       },
       {
         question: "Stationnement sécurisé à Anfa ?",
@@ -350,7 +350,7 @@ export const neighborhoods: Neighborhood[] = [
         description: "Livraison hôtels historiques centre"
       }
     ],
-    popularVehicles: ["Dacia Sandero", "Renault Clio", "Peugeot 208", "Citroën C3", "Dacia Duster"],
+    popularVehicles: ["Dacia Sandero", "Renault Clio", "Toyota Yaris", "Citroën C3", "Dacia Duster"],
     tips: [
       "Circulation dense, prévoir temps parking",
       "Médina piétonne, se garer à l'extérieur",
@@ -420,7 +420,7 @@ export const neighborhoods: Neighborhood[] = [
         description: "Livraison hôtels ville nouvelle"
       }
     ],
-    popularVehicles: ["Renault Clio", "Peugeot 208", "Dacia Duster", "Toyota Corolla", "Mercedes Classe A"],
+    popularVehicles: ["Renault Clio", "Toyota Yaris", "Dacia Duster", "Toyota Corolla", "Mercedes Classe A"],
     tips: [
       "Quartier moderne, circulation européenne",
       "Parkings payants 10 DH/heure",
@@ -488,7 +488,7 @@ export const neighborhoods: Neighborhood[] = [
         description: "Livraison artère principale Hivernage"
       }
     ],
-    popularVehicles: ["Mercedes Classe A", "BMW Série 3", "Audi A3", "Peugeot 3008", "Range Rover Evoque"],
+    popularVehicles: ["Mercedes Classe A", "BMW Série 3", "Audi A3", "Nissan Qashqai", "Range Rover Evoque"],
     tips: [
       "Quartier haut standing, véhicules premium recommandés",
       "Hôtels avec voituriers et parkings privés",
@@ -556,7 +556,7 @@ export const neighborhoods: Neighborhood[] = [
         description: "Livraison parking proche + porteur riad"
       }
     ],
-    popularVehicles: ["Dacia Sandero", "Renault Clio", "Peugeot 208", "Dacia Duster"],
+    popularVehicles: ["Dacia Sandero", "Renault Clio", "Toyota Yaris", "Dacia Duster"],
     tips: [
       "Médina 100% piétonne, garer voiture parking",
       "Parking Jemaa el-Fna recommandé (20 DH/jour, sécurisé)",
@@ -692,7 +692,7 @@ export const neighborhoods: Neighborhood[] = [
         description: "Livraison auberges/hôtels vallée"
       }
     ],
-    popularVehicles: ["Dacia Duster", "Renault Captur", "Toyota RAV4", "Dacia Sandero", "Peugeot 3008"],
+    popularVehicles: ["Dacia Duster", "Dacia Duster", "Toyota RAV4", "Dacia Sandero", "Nissan Qashqai"],
     tips: [
       "SUV recommandé pour routes sinueuses vallée",
       "Route panoramique magnifique, prévoir pauses photo",
@@ -702,7 +702,7 @@ export const neighborhoods: Neighborhood[] = [
     faqs: [
       {
         question: "Quel véhicule pour Route Ourika ?",
-        answer: "SUV fortement recommandé ! Dacia Duster, Renault Captur, Toyota RAV4 parfaits. Route sinueuse, pentes, confort nécessaire. Citadine possible mais moins confortable."
+        answer: "SUV fortement recommandé ! Dacia Duster, Dacia Duster, Toyota RAV4 parfaits. Route sinueuse, pentes, confort nécessaire. Citadine possible mais moins confortable."
       },
       {
         question: "État de la route Ourika ?",

@@ -45,7 +45,7 @@ export const globalReviews: Review[] = [
     rating: 5,
     date: "2024-10-20",
     title: "Expérience touriste parfaite",
-    text: "Premier voyage au Maroc, location d'une Peugeot 208 à l'aéroport de Marrakech. Tout était simple : réservation en ligne, pas de frais cachés, retour flexible. Service en français impeccable."
+    text: "Premier voyage au Maroc, location d'une Toyota Yaris à l'aéroport de Marrakech. Tout était simple : réservation en ligne, pas de frais cachés, retour flexible. Service en français impeccable."
   },
   {
     author: "Rachid A.",
@@ -80,7 +80,7 @@ export const globalReviews: Review[] = [
     rating: 4,
     date: "2024-09-18",
     title: "Bon pour longue durée",
-    text: "Location 6 mois Renault Captur pour mission professionnelle. Prix dégressif intéressant, entretien inclus. Voiture changée rapidement lors d'un problème technique."
+    text: "Location 6 mois Dacia Duster pour mission professionnelle. Prix dégressif intéressant, entretien inclus. Voiture changée rapidement lors d'un problème technique."
   },
   {
     author: "Nadia R.",

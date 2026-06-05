@@ -34,12 +34,12 @@ export const comparisons: Comparison[] = [
   // COMPARAISONS VÉHICULES
   {
     id: 'duster-vs-captur',
-    title: 'Dacia Duster vs Renault Captur',
+    title: 'Dacia Duster vs Dacia Duster',
     slug: 'dacia-duster-vs-renault-captur-maroc',
-    metaTitle: 'Dacia Duster vs Renault Captur - Comparatif Location Maroc 2024 | Benatna',
-    metaDescription: 'Comparatif complet Dacia Duster vs Renault Captur pour location au Maroc : prix, espace, consommation, confort. Quel SUV choisir pour vos vacances ?',
+    metaTitle: 'Dacia Duster vs Dacia Duster - Comparatif Location Maroc 2024 | Benatna',
+    metaDescription: 'Comparatif complet Dacia Duster vs Dacia Duster pour location au Maroc : prix, espace, consommation, confort. Quel SUV choisir pour vos vacances ?',
     category: 'vehicules',
-    introduction: 'Le Dacia Duster et le Renault Captur sont les deux SUV les plus loués au Maroc. Tous deux populaires, économiques et polyvalents, ils s\'adressent pourtant à des profils différents. Notre comparatif détaillé vous aide à choisir le SUV idéal selon vos besoins de location.',
+    introduction: 'Le Dacia Duster et le Dacia Duster sont les deux SUV les plus loués au Maroc. Tous deux populaires, économiques et polyvalents, ils s\'adressent pourtant à des profils différents. Notre comparatif détaillé vous aide à choisir le SUV idéal selon vos besoins de location.',
     item1: {
       name: 'Dacia Duster',
       image: '/car-duster.jpg',
@@ -75,7 +75,7 @@ export const comparisons: Comparison[] = [
       ]
     },
     item2: {
-      name: 'Renault Captur',
+      name: 'Dacia Duster',
       image: '/car-renault-captur.jpg',
       price: '300-400 DH/jour',
       specs: {
@@ -116,11 +116,11 @@ export const comparisons: Comparison[] = [
     faq: [
       {
         question: 'Quelle est la différence de prix entre Duster et Captur au Maroc ?',
-        answer: 'Le Dacia Duster coûte entre 400-500 DH/jour tandis que le Renault Captur se loue entre 300-400 DH/jour, soit environ 15-20% plus cher. Sur une semaine, l\'écart peut atteindre 500-700 DH.'
+        answer: 'Le Dacia Duster coûte entre 400-500 DH/jour tandis que le Dacia Duster se loue entre 300-400 DH/jour, soit environ 15-20% plus cher. Sur une semaine, l\'écart peut atteindre 500-700 DH.'
       },
       {
         question: 'Quel SUV consomme le moins de carburant ?',
-        answer: 'Le Renault Captur est légèrement plus économique avec 5.8L/100km contre 6.5L/100km pour le Duster. Sur 1000km, cela représente environ 7L d\'économie (≈110 DH).'
+        answer: 'Le Dacia Duster est légèrement plus économique avec 5.8L/100km contre 6.5L/100km pour le Duster. Sur 1000km, cela représente environ 7L d\'économie (≈110 DH).'
       },
       {
         question: 'Quel véhicule choisir pour un road trip dans l\'Atlas ?',
@@ -128,7 +128,7 @@ export const comparisons: Comparison[] = [
       },
       {
         question: 'Le Captur est-il disponible en boîte automatique ?',
-        answer: 'Oui, le Renault Captur est disponible en boîte automatique chez Benatna (supplément ~50 DH/jour). Le Duster est principalement proposé en manuelle.'
+        answer: 'Oui, le Dacia Duster est disponible en boîte automatique chez Benatna (supplément ~50 DH/jour). Le Duster est principalement proposé en manuelle.'
       }
     ],
     relatedComparisons: ['clio-vs-sandero', 'location-aeroport-vs-centre']
@@ -546,7 +546,7 @@ export const comparisons: Comparison[] = [
       image: '/car-dacia-sandero.jpg',
       price: '150-250 DH/jour',
       specs: {
-        'Exemples': 'Sandero, Clio, Peugeot 208',
+        'Exemples': 'Sandero, Clio, Toyota Yaris',
         'Budget semaine': '1050-1750 DH',
         'Consommation': '5-6 L/100km',
         'Passagers': '4-5',

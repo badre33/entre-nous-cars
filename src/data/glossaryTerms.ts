@@ -180,7 +180,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: 'suv',
     term: 'SUV (Sport Utility Vehicle)',
-    definition: "Véhicule spacieux et surélevé, idéal pour les familles et les routes marocaines. Combine confort urbain et capacités routières (ex: Dacia Duster, Peugeot 3008).",
+    definition: "Véhicule spacieux et surélevé, idéal pour les familles et les routes marocaines. Combine confort urbain et capacités routières (ex: Dacia Duster, Nissan Qashqai).",
     category: 'vehicule',
     relatedTerms: ['4x4', 'categorie-vehicule'],
     relatedPages: [{ label: 'Location SUV', url: '/location-suv-sud-maroc' }]

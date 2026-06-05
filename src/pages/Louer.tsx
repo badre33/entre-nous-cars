@@ -272,7 +272,7 @@ const cars = [
   {
     id: 7,
     image: carPeugeot208,
-    name: "Peugeot 208",
+    name: "Toyota Yaris",
     brand: "Peugeot",
     type: "Automatique",
     category: "Citadine",
@@ -285,7 +285,7 @@ const cars = [
   {
     id: 8,
     image: carPeugeot208,
-    name: "Peugeot 208",
+    name: "Toyota Yaris",
     brand: "Peugeot",
     type: "Manuelle",
     category: "Citadine",
@@ -562,7 +562,7 @@ const cars = [
   {
     id: 29,
     image: carFiatTipo,
-    name: "Fiat Tipo",
+    name: "Hyundai Accent",
     brand: "Fiat",
     type: "Automatique",
     category: "Berline",
@@ -574,7 +574,7 @@ const cars = [
   {
     id: 30,
     image: carFiatTipo,
-    name: "Fiat Tipo",
+    name: "Hyundai Accent",
     brand: "Fiat",
     type: "Manuelle",
     category: "Berline",
@@ -610,12 +610,12 @@ const cars = [
     conditions: generateConditions(23)
   },
   
-  // Skoda
+  // Volkswagen
   {
     id: 33,
     image: carSkodaOctavia,
-    name: "Skoda Octavia",
-    brand: "Skoda",
+    name: "Volkswagen Golf",
+    brand: "Volkswagen",
     type: "Automatique",
     category: "Berline",
     city: "Rabat",
@@ -626,8 +626,8 @@ const cars = [
   {
     id: 34,
     image: carSkodaFabia,
-    name: "Skoda Fabia",
-    brand: "Skoda",
+    name: "Volkswagen Polo",
+    brand: "Volkswagen",
     type: "Manuelle",
     category: "Citadine",
     city: "Tanger",
@@ -636,12 +636,12 @@ const cars = [
     conditions: generateConditions(21)
   },
   
-  // Mazda
+  // Toyota
   {
     id: 35,
     image: carMazda3,
-    name: "Mazda 3",
-    brand: "Mazda",
+    name: "Renault Mégane",
+    brand: "Toyota",
     type: "Automatique",
     category: "Berline",
     city: "Casablanca",
@@ -652,8 +652,8 @@ const cars = [
   {
     id: 36,
     image: carMazdaCX5,
-    name: "Mazda CX-5",
-    brand: "Mazda",
+    name: "Hyundai Tucson",
+    brand: "Toyota",
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
@@ -692,7 +692,7 @@ const cars = [
   {
     id: 39,
     image: carSuzukiSwift,
-    name: "Suzuki Swift",
+    name: "Toyota Yaris",
     brand: "Suzuki",
     type: "Manuelle",
     category: "Citadine",
@@ -714,12 +714,12 @@ const cars = [
     conditions: generateConditions(23)
   },
   
-  // Mitsubishi
+  // Toyota
   {
     id: 41,
     image: carMitsubishiLancer,
-    name: "Mitsubishi Lancer",
-    brand: "Mitsubishi",
+    name: "Toyota Corolla",
+    brand: "Toyota",
     type: "Automatique",
     category: "Berline",
     city: "Rabat",
@@ -730,8 +730,8 @@ const cars = [
   {
     id: 42,
     image: carMitsubishiOutlander,
-    name: "Mitsubishi Outlander",
-    brand: "Mitsubishi",
+    name: "Hyundai Tucson",
+    brand: "Toyota",
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
@@ -782,7 +782,7 @@ const cars = [
   {
     id: 46,
     image: carRenaultCaptur,
-    name: "Renault Captur",
+    name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
     category: "SUV",
@@ -796,7 +796,7 @@ const cars = [
   {
     id: 47,
     image: carPeugeot3008,
-    name: "Peugeot 3008",
+    name: "Nissan Qashqai",
     brand: "Peugeot",
     type: "Automatique",
     category: "SUV",
@@ -990,7 +990,7 @@ const cars = [
   {
     id: 62,
     image: carPeugeot208Red,
-    name: "Peugeot 208",
+    name: "Toyota Yaris",
     brand: "Peugeot",
     type: "Manuelle",
     category: "Citadine",
@@ -1016,7 +1016,7 @@ const cars = [
   {
     id: 64,
     image: carCapturOrange,
-    name: "Renault Captur",
+    name: "Dacia Duster",
     brand: "Renault",
     type: "Manuelle",
     category: "SUV",
@@ -1028,7 +1028,7 @@ const cars = [
   {
     id: 65,
     image: carRenaultTwingo,
-    name: "Renault Twingo",
+    name: "Kia Picanto",
     brand: "Renault",
     type: "Manuelle",
     category: "Citadine",
@@ -1172,7 +1172,7 @@ const cars = [
   {
     id: 76,
     image: carFordFiesta,
-    name: "Ford Fiesta",
+    name: "Renault Clio",
     brand: "Ford",
     type: "Manuelle",
     category: "Citadine",
@@ -1250,7 +1250,7 @@ const cars = [
   {
     id: 82,
     image: carCitroenC4Cactus,
-    name: "Citroën C4 Cactus",
+    name: "Renault Mégane Cactus",
     brand: "Citroën",
     type: "Automatique",
     category: "Citadine",
@@ -1302,7 +1302,7 @@ const cars = [
   {
     id: 86,
     image: carFiat500,
-    name: "Fiat 500",
+    name: "Hyundai i10",
     brand: "Fiat",
     type: "Manuelle",
     category: "Citadine",
@@ -1328,7 +1328,7 @@ const cars = [
   {
     id: 88,
     image: carHondaJazz,
-    name: "Honda Jazz",
+    name: "Hyundai i10",
     brand: "Honda",
     type: "Automatique",
     category: "Citadine",
@@ -1338,12 +1338,12 @@ const cars = [
     conditions: ["Caution: 4700 MAD", "280 km/jour inclus", "Âge minimum: 22 ans"]
   },
   
-  // Mazda (nouveaux modèles)
+  // Toyota (nouveaux modèles)
   {
     id: 89,
     image: carMazdaCX3,
-    name: "Mazda CX-3",
-    brand: "Mazda",
+    name: "Dacia Duster",
+    brand: "Toyota",
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
@@ -1352,12 +1352,12 @@ const cars = [
     conditions: ["Caution: 6200 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
   },
   
-  // Skoda (nouveaux modèles)
+  // Volkswagen (nouveaux modèles)
   {
     id: 90,
     image: carSkodaKamiq,
-    name: "Skoda Kamiq",
-    brand: "Skoda",
+    name: "Volkswagen Kamiq",
+    brand: "Volkswagen",
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
@@ -1692,7 +1692,7 @@ const cars = [
   {
     id: 117,
     image: carPeugeot5008,
-    name: "Peugeot 5008",
+    name: "Dacia Jogger",
     brand: "Peugeot",
     type: "Automatique",
     category: "SUV",
@@ -1752,7 +1752,7 @@ const cars = [
   {
     id: 122,
     image: carFordPuma,
-    name: "Ford Puma",
+    name: "Nissan Qashqai",
     brand: "Ford",
     type: "Automatique",
     category: "SUV",
@@ -1788,8 +1788,8 @@ const cars = [
   {
     id: 125,
     image: carMazda2,
-    name: "Mazda 2",
-    brand: "Mazda",
+    name: "Toyota Yaris",
+    brand: "Toyota",
     type: "Manuelle",
     category: "Citadine",
     city: "Marrakech",
@@ -1836,8 +1836,8 @@ const cars = [
   {
     id: 129,
     image: carSkodaKaroq,
-    name: "Skoda Karoq",
-    brand: "Skoda",
+    name: "Hyundai Tucson",
+    brand: "Volkswagen",
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
@@ -2407,7 +2407,7 @@ const cars = [
   {
     id: 173,
     image: carPeugeot208,
-    name: "Peugeot 208",
+    name: "Toyota Yaris",
     brand: "Peugeot",
     type: "Manuelle",
     category: "Citadine",
@@ -2444,7 +2444,7 @@ const cars = [
   {
     id: 176,
     image: carRenaultCaptur,
-    name: "Renault Captur",
+    name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
     category: "SUV",
@@ -2542,8 +2542,8 @@ const cars = [
   {
     id: 184,
     image: carSkodaOctavia,
-    name: "Skoda Octavia",
-    brand: "Skoda",
+    name: "Volkswagen Golf",
+    brand: "Volkswagen",
     type: "Automatique",
     category: "Berline",
     city: "Agadir",
@@ -2554,8 +2554,8 @@ const cars = [
   {
     id: 185,
     image: carMazdaCX5,
-    name: "Mazda CX-5",
-    brand: "Mazda",
+    name: "Hyundai Tucson",
+    brand: "Toyota",
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
@@ -2631,7 +2631,7 @@ const cars = [
   {
     id: 191,
     image: carPeugeot208,
-    name: "Peugeot 208",
+    name: "Toyota Yaris",
     brand: "Peugeot",
     type: "Manuelle",
     category: "Citadine",
@@ -2656,7 +2656,7 @@ const cars = [
   {
     id: 193,
     image: carPeugeot3008,
-    name: "Peugeot 3008",
+    name: "Nissan Qashqai",
     brand: "Peugeot",
     type: "Automatique",
     category: "SUV",
@@ -2668,7 +2668,7 @@ const cars = [
   {
     id: 194,
     image: carRenaultCaptur,
-    name: "Renault Captur",
+    name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
     category: "SUV",
@@ -2729,7 +2729,7 @@ const cars = [
   {
     id: 199,
     image: carFordFiesta,
-    name: "Ford Fiesta",
+    name: "Renault Clio",
     brand: "Ford",
     type: "Manuelle",
     category: "Citadine",
@@ -2755,7 +2755,7 @@ const cars = [
   {
     id: 201,
     image: carFiat500,
-    name: "Fiat 500",
+    name: "Hyundai i10",
     brand: "Fiat",
     type: "Manuelle",
     category: "Citadine",
@@ -2791,8 +2791,8 @@ const cars = [
   {
     id: 204,
     image: carSkodaFabia,
-    name: "Skoda Fabia",
-    brand: "Skoda",
+    name: "Volkswagen Polo",
+    brand: "Volkswagen",
     type: "Manuelle",
     category: "Citadine",
     city: "Rabat",
@@ -2830,7 +2830,7 @@ const cars = [
   {
     id: 207,
     image: carSuzukiSwift,
-    name: "Suzuki Swift",
+    name: "Toyota Yaris",
     brand: "Suzuki",
     type: "Manuelle",
     category: "Citadine",
@@ -2842,8 +2842,8 @@ const cars = [
   {
     id: 208,
     image: carMazda2,
-    name: "Mazda 2",
-    brand: "Mazda",
+    name: "Toyota Yaris",
+    brand: "Toyota",
     type: "Manuelle",
     category: "Citadine",
     city: "Tanger",
@@ -2868,8 +2868,8 @@ const cars = [
   {
     id: 210,
     image: carMazda3,
-    name: "Mazda 3",
-    brand: "Mazda",
+    name: "Renault Mégane",
+    brand: "Toyota",
     type: "Automatique",
     category: "Berline",
     city: "Marrakech",
@@ -2954,7 +2954,7 @@ const cars = [
   {
     id: 217,
     image: carRenaultCaptur,
-    name: "Renault Captur",
+    name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
     category: "SUV",
@@ -2979,8 +2979,8 @@ const cars = [
   {
     id: 219,
     image: carMazdaCX3,
-    name: "Mazda CX-3",
-    brand: "Mazda",
+    name: "Dacia Duster",
+    brand: "Toyota",
     type: "Automatique",
     category: "SUV",
     city: "Rabat",
@@ -3027,8 +3027,8 @@ const cars = [
   {
     id: 223,
     image: carSkodaKamiq,
-    name: "Skoda Kamiq",
-    brand: "Skoda",
+    name: "Volkswagen Kamiq",
+    brand: "Volkswagen",
     type: "Automatique",
     category: "SUV",
     city: "Rabat",
@@ -3051,7 +3051,7 @@ const cars = [
   {
     id: 225,
     image: carHondaJazz,
-    name: "Honda Jazz",
+    name: "Hyundai i10",
     brand: "Honda",
     type: "Automatique",
     category: "Citadine",
@@ -3123,8 +3123,8 @@ const cars = [
   {
     id: 231,
     image: carMazda2,
-    name: "Mazda 2",
-    brand: "Mazda",
+    name: "Toyota Yaris",
+    brand: "Toyota",
     type: "Manuelle",
     category: "Citadine",
     city: "Rabat",
@@ -3135,7 +3135,7 @@ const cars = [
   {
     id: 232,
     image: carSuzukiSwift,
-    name: "Suzuki Swift",
+    name: "Toyota Yaris",
     brand: "Suzuki",
     type: "Manuelle",
     category: "Citadine",
@@ -3185,7 +3185,7 @@ const cars = [
   {
     id: 236,
     image: carPeugeot3008,
-    name: "Peugeot 3008",
+    name: "Nissan Qashqai",
     brand: "Peugeot",
     type: "Automatique",
     category: "SUV",
@@ -3197,7 +3197,7 @@ const cars = [
   {
     id: 237,
     image: carRenaultCaptur,
-    name: "Renault Captur",
+    name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
     category: "SUV",
@@ -3282,8 +3282,8 @@ const cars = [
   {
     id: 244,
     image: carMazda3,
-    name: "Mazda 3",
-    brand: "Mazda",
+    name: "Renault Mégane",
+    brand: "Toyota",
     type: "Automatique",
     category: "Berline",
     city: "Tanger",
@@ -3356,8 +3356,8 @@ const cars = [
   {
     id: 250,
     image: carMitsubishiOutlander,
-    name: "Mitsubishi Outlander",
-    brand: "Mitsubishi",
+    name: "Hyundai Tucson",
+    brand: "Toyota",
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
@@ -3404,7 +3404,7 @@ const cars = [
   {
     id: 254,
     image: carPeugeot5008,
-    name: "Peugeot 5008",
+    name: "Dacia Jogger",
     brand: "Peugeot",
     type: "Automatique",
     category: "SUV",
@@ -3452,7 +3452,7 @@ const cars = [
   {
     id: 258,
     image: carFordPuma,
-    name: "Ford Puma",
+    name: "Nissan Qashqai",
     brand: "Ford",
     type: "Automatique",
     category: "SUV",
@@ -3488,8 +3488,8 @@ const cars = [
   {
     id: 261,
     image: carSkodaKaroq,
-    name: "Skoda Karoq",
-    brand: "Skoda",
+    name: "Hyundai Tucson",
+    brand: "Volkswagen",
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
@@ -3500,7 +3500,7 @@ const cars = [
   {
     id: 262,
     image: carCitroenC4Cactus,
-    name: "Citroën C4 Cactus",
+    name: "Renault Mégane Cactus",
     brand: "Citroën",
     type: "Automatique",
     category: "SUV",
@@ -3512,8 +3512,8 @@ const cars = [
   {
     id: 263,
     image: carMazda2,
-    name: "Mazda 2",
-    brand: "Mazda",
+    name: "Toyota Yaris",
+    brand: "Toyota",
     type: "Manuelle",
     category: "Citadine",
     city: "Agadir",
@@ -3524,7 +3524,7 @@ const cars = [
   {
     id: 264,
     image: carRenaultTwingo,
-    name: "Renault Twingo",
+    name: "Kia Picanto",
     brand: "Renault",
     type: "Manuelle",
     category: "Citadine",
@@ -3611,8 +3611,8 @@ const cars = [
   {
     id: 271,
     image: carSkodaOctavia,
-    name: "Skoda Octavia",
-    brand: "Skoda",
+    name: "Volkswagen Golf",
+    brand: "Volkswagen",
     type: "Automatique",
     category: "Berline",
     city: "Fès",
@@ -3623,8 +3623,8 @@ const cars = [
   {
     id: 272,
     image: carMazda3,
-    name: "Mazda 3",
-    brand: "Mazda",
+    name: "Renault Mégane",
+    brand: "Toyota",
     type: "Automatique",
     category: "Berline",
     city: "Fès",
@@ -3671,8 +3671,8 @@ const cars = [
   {
     id: 276,
     image: carMazdaCX5,
-    name: "Mazda CX-5",
-    brand: "Mazda",
+    name: "Hyundai Tucson",
+    brand: "Toyota",
     type: "Automatique",
     category: "SUV",
     city: "Fès",
@@ -3731,7 +3731,7 @@ const cars = [
   {
     id: 281,
     image: carRenaultTwingo,
-    name: "Renault Twingo",
+    name: "Kia Picanto",
     brand: "Renault",
     type: "Manuelle",
     category: "Citadine",
@@ -3744,7 +3744,7 @@ const cars = [
   {
     id: 282,
     image: carFiat500,
-    name: "Fiat 500",
+    name: "Hyundai i10",
     brand: "Fiat",
     type: "Manuelle",
     category: "Citadine",
@@ -3756,7 +3756,7 @@ const cars = [
   {
     id: 283,
     image: carSuzukiSwift,
-    name: "Suzuki Swift",
+    name: "Toyota Yaris",
     brand: "Suzuki",
     type: "Manuelle",
     category: "Citadine",
@@ -4273,8 +4273,8 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
   const brands = [
     "Audi", "BMW", "Mercedes", "Maserati", "Porsche", "Jaguar", "Land Rover", "Lexus", "Volvo",
     "Renault", "Peugeot", "Citroën", "Dacia",
-    "Toyota", "Nissan", "Honda", "Hyundai", "Kia", "Mazda", "Suzuki", "Mitsubishi",
-    "Volkswagen", "Opel", "Ford", "Fiat", "Seat", "Skoda",
+    "Toyota", "Nissan", "Honda", "Hyundai", "Kia", "Toyota", "Suzuki", "Toyota",
+    "Volkswagen", "Opel", "Ford", "Fiat", "Seat", "Volkswagen",
     "Chevrolet"
   ].sort();
   

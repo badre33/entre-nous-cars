@@ -292,7 +292,7 @@ const LocationSansFranchise = () => {
                   <div className="text-3xl font-bold text-primary mb-2">+50 DH</div>
                   <div className="text-sm text-muted-foreground mb-4">par jour</div>
                   <p className="text-sm text-muted-foreground">
-                    Renault Clio, Dacia Sandero, Peugeot 208
+                    Renault Clio, Dacia Sandero, Toyota Yaris
                   </p>
                 </Card>
 
@@ -302,7 +302,7 @@ const LocationSansFranchise = () => {
                   <div className="text-3xl font-bold text-primary mb-2">+80 DH</div>
                   <div className="text-sm text-muted-foreground mb-4">par jour</div>
                   <p className="text-sm text-muted-foreground">
-                    Dacia Duster, Renault Captur, Toyota RAV4
+                    Dacia Duster, Dacia Duster, Toyota RAV4
                   </p>
                 </Card>
 

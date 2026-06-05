@@ -2115,7 +2115,7 @@ export const blogArticles: BlogArticle[] = [
       
       "### Prix par Catégorie de Véhicule (2025)",
       
-      "**Citadines économiques** (Dacia Sandero, Renault Clio, Peugeot 208) : 150 à 400 MAD/jour (15-25€). Idéales pour les villes et courts trajets. Consommation : 5-6 L/100km.",
+      "**Citadines économiques** (Dacia Sandero, Renault Clio, Toyota Yaris) : 150 à 400 MAD/jour (15-25€). Idéales pour les villes et courts trajets. Consommation : 5-6 L/100km.",
       
       "**Berlines compactes** (Toyota Corolla, VW Jetta, Peugeot 308) : 250 à 400 MAD/jour (25-40€). Confortables pour 4 adultes avec bagages. Parfaites pour les longs trajets. Consommation : 6-7 L/100km.",
       
@@ -2801,7 +2801,7 @@ export const blogArticles: BlogArticle[] = [
       
       "✅ **Dacia Duster 4x4** : Best value (280-350 DH/jour)\n   - Garde au sol 210mm\n   - Robuste et fiable\n   - Consommation raisonnable",
       
-      "✅ **Renault Captur** : Bon compromis SUV (300 DH/jour)\n   - Confortable sur routes\n   - Garde au sol 174mm (limite sur pistes)",
+      "✅ **Dacia Duster** : Bon compromis SUV (300 DH/jour)\n   - Confortable sur routes\n   - Garde au sol 174mm (limite sur pistes)",
       
       "✅ **Land Cruiser/Patrol** : Pour pistes difficiles (800+ DH/jour)",
       
