@@ -360,6 +360,28 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Sprint 2 : gares + quartiers Rabat -->
+  <url>
+    <loc>https://benatna.ma/location-voiture-gare-casa-voyageurs</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-gare-marrakech</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-agdal-rabat</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-souissi-rabat</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- ============================================================ -->
   <!-- CAN 2025 (événement passé, conservé pour SEO résiduel)        -->
   <!-- ============================================================ -->

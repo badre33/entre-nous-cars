@@ -1064,4 +1064,286 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Location Voiture Fès', link: '/location-voiture-fes' }
     ]
   }
+,
+  // ============================================================
+  // SPRINT 2 — Gare ONCF Casa-Voyageurs (hub Al Boraq, MRE)
+  // ============================================================
+  {
+    slug: 'location-voiture-gare-casa-voyageurs',
+    title: 'Location Voiture Gare Casa-Voyageurs',
+    metaTitle: 'Location Voiture Gare Casa-Voyageurs - LGV Al Boraq Tanger | Benatna',
+    metaDescription: 'Voiture livrée à la gare Casa-Voyageurs dès votre descente du train Al Boraq depuis Tanger ou Rabat. Sans carte de crédit, dès 300 DH/jour. Service 7j/7.',
+    keywords: 'location voiture gare casa voyageurs, location voiture casa voyageurs, voiture al boraq casablanca, gare oncf casablanca voiture, mre train casa',
+    h1: 'Location de Voiture à la Gare Casa-Voyageurs — Sortie Al Boraq',
+    heroSubtitle: 'Train Al Boraq Tanger 2h • Livraison parvis gare • Service 7j/7 • Dès 300 DH/jour',
+    category: { label: 'Points d\'entrée touristiques', href: '/nos-services' },
+    content: {
+      intro: `La **gare Casa-Voyageurs** est le **hub ferroviaire #1 du Maroc** et le terminus du train **Al Boraq** (LGV 320 km/h Tanger ↔ Casablanca en 2h05). Si vous arrivez à Tanger Med en ferry depuis l'Europe et que vous continuez vers Casablanca en train haute-vitesse, ou si vous descendez vers Casa depuis Rabat ou Kenitra par TNR, **Benatna vous attend sur le parvis de la gare** avec votre véhicule prêt. Pas besoin de prendre le bus ou un Petit Taxi pour rejoindre un comptoir Hertz ou Avis 5 km plus loin — nous livrons directement à votre sortie de la gare, sans surcoût "gare", sans carte de crédit internationale.`,
+      sections: [
+        {
+          title: 'Pourquoi louer une voiture à Casa-Voyageurs ?',
+          content: `**Casa-Voyageurs** voit passer plus de **5 millions de voyageurs par an** (chiffre ONCF). C'est le point d'arrivée typique des MRE qui ont combiné ferry Tanger Med + train Al Boraq pour rejoindre Casablanca (3h de Tanger ville à Casa via Al Boraq, vs 3h30 en voiture par autoroute A1 avec péage), des touristes qui ont fait Rabat-Casablanca en TNR rapide (1h, 40 DH), ou des Marocains business qui font Tanger-Casa-Marrakech en train+voiture. La gare est en plein centre Casablanca, **bien plus pratique** que l'aéroport CMN (30 km au sud), et notre service gare évite la longue queue des taxis bondés à la sortie principale. Notre agent vous reconnaît grâce à votre photo de profil WhatsApp, vous récupère sur le parvis principal (sortie principale boulevard Mohammed V), et vous fait gagner 30 minutes par rapport à l'option taxi + comptoir loueur classique.`
+        },
+        {
+          title: 'Procédure depuis votre train',
+          content: `**Avant votre départ** (depuis Tanger Med, Tanger ville, Kenitra, Rabat) : envoyez-nous par WhatsApp votre numéro de train ONCF (TGV Al Boraq Tanger ou TNR Rabat-Casa) et l'heure d'arrivée prévue à Casa-Voyageurs. **À l'arrivée** : descendez du train, suivez les panneaux "Sortie principale boulevard Mohammed V" (vers la rocade). À la sortie, **point de rendez-vous** : kiosque à journaux Sapress côté gauche du parvis, à 30 secondes de la sortie. Notre agent est sur place, repère votre photo, vient à votre rencontre. **Remise des clés** en 5-10 minutes : vérification permis, signature contrat, paiement (espèces DH/€, virement, ou Cash Plus — pas besoin de carte de crédit). Vous êtes dans votre voiture et sur le boulevard Mohammed V (axe principal Casa) en **moins de 15 minutes après votre descente du train**. Comparé à la solution comptoir loueur classique (taxi gare→comptoir loueur 15-30 min + attente comptoir 30-60 min), vous économisez **1h-1h30** sur votre arrivée Casa.`
+        },
+        {
+          title: 'Destinations populaires depuis Casa-Voyageurs',
+          content: `Depuis la gare Casa-Voyageurs, voici les trajets les plus demandés : **Centre Casablanca / Maarif** : 10 min, idéal hôtels d'affaires. **Aïn Diab / Corniche** : 25 min via avenue des FAR, idéal hôtels balnéaires touristiques. **Mosquée Hassan II** : 15 min, incontournable touriste arrivant à Casa. **Aéroport Mohammed V** (vol retour ou prise en charge famille) : 30 km, 30-45 min selon trafic, par autoroute A7 (péage 25 DH). **Rabat** (capitale, ministères, ambassades) : 90 km, 1h par A1, péage 25 DH — idéal MRE qui combine business Casa + visite famille Rabat. **Marrakech** : 240 km, 2h30 par A3, péage 60 DH — pour combiné Casa-Marrakech après arrivée train. **El Jadida / Mohammedia** : 60-90 km, 1h-1h15 — destinations balnéaires en famille. **Settat / Berrechid** : 70-80 km, 50 min-1h — souvent destinations famille MRE qui rentrent au bled.`
+        },
+        {
+          title: 'Avantages vs comptoirs loueurs Casa-centre',
+          content: `Hertz/Avis ont leurs comptoirs principaux à Casablanca-centre (boulevard Brahim Roudani, rue Idriss Lahrizi) — soit 4-6 km de Casa-Voyageurs. Pour vous, c'est : taxi (15-25 DH) + 15-25 min de trajet + queue au comptoir (souvent 30-45 min en été). **Total : 1h-1h15 avant votre première km au volant**. Avec Benatna en livraison gare : **15-20 minutes top chrono**. Niveau prix, leur tarif d'appel Hertz/Avis citadine = 350-450 DH/jour avec carte de crédit bloquant 5000-10000 DH de caution. Chez nous : **300 DH/jour fixe**, sans carte de crédit, sans caution bloquée. Pour 5 jours de location, le gain c'est 250-750 DH économisés + 1h de temps libre récupérée à votre arrivée. Note : si vous voyagez avec la formule Hertz+ONCF (billet train+voiture combo), vérifiez bien le total — ça inclut souvent des frais de service et une caution CB internationale.`
+        }
+      ],
+      faq: [
+        {
+          question: 'Mon train Al Boraq a 30 min de retard, vous m\'attendez ?',
+          answer: 'Oui, nous suivons l\'arrivée temps réel sur le site ONCF Voyages. Notre agent attend votre arrivée réelle, pas de frais "retard". Idem si vous arrivez en avance — coordination flexible via WhatsApp.'
+        },
+        {
+          question: 'Puis-je rendre la voiture à l\'aéroport CMN à la fin de mon séjour ?',
+          answer: 'Oui, **location aller-simple** Casa-Voyageurs → aéroport Mohammed V (CMN) est disponible. Vous récupérez à la gare, vous rendez au terminal T1 ou T2 à votre départ. Supplément aller-simple négligeable (~100 DH) car même ville.'
+        },
+        {
+          question: 'Quelles voitures disponibles en livraison gare ?',
+          answer: 'Toute notre flotte : citadine dès 300 DH/jour, berline 400-500, SUV 550-800, vans 7-9 places 900-1200, premium 1200-2000. Comme la livraison se fait depuis notre dépôt Casa-centre (5 min de la gare), pas de limite véhicule contrairement aux aéroports où certains modèles partent rapidement.'
+        },
+        {
+          question: 'Service disponible la nuit (trains tardifs / matinaux) ?',
+          answer: 'Service standard 6h-23h, mais service de nuit disponible sur demande (TGV Al Boraq dernier départ Tanger 21h45, arrivée Casa 23h50 ; premier départ Casa 5h25). Pour trains de nuit/aube, supplément modeste car notre agent vient en dehors des heures normales.'
+        },
+        {
+          question: 'Y a-t-il un parking à Casa-Voyageurs pour récupérer la voiture ?',
+          answer: 'Oui, parking ONCF souterrain accessible directement depuis la gare (entrée P1 sortie sud). Notre agent peut amener la voiture à n\'importe quel niveau, ou vous rejoindre au parvis principal selon votre confort. Indiquez votre préférence à la réservation.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture à Casa-Voyageurs',
+      subtitle: 'Livraison parvis gare • Al Boraq Tanger compatible • Sans CB',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Tanger Med Port', description: 'Combinez ferry + train Al Boraq + voiture Casa.', link: '/location-voiture-tanger-med-port' },
+      { title: 'Location Voiture MRE Maroc', description: 'Hub MRE : sans CB, paiement DH/€.', link: '/location-voiture-mre-maroc' },
+      { title: 'Location Aéroport Casablanca', description: 'Alternative arrivée vol direct CMN.', link: '/location-voiture-aeroport-casablanca' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Casablanca', link: '/location-voiture-casablanca' }
+    ]
+  },
+  // ============================================================
+  // SPRINT 2 — Gare Marrakech (touristes + MRE)
+  // ============================================================
+  {
+    slug: 'location-voiture-gare-marrakech',
+    title: 'Location Voiture Gare Marrakech',
+    metaTitle: 'Location Voiture Gare Marrakech - Livraison Gare ONCF | Benatna',
+    metaDescription: 'Voiture livrée à la gare ONCF Marrakech dès votre arrivée par train de Casa ou Tanger. Pratique pour touristes et MRE. Sans carte de crédit, dès 300 DH/jour.',
+    keywords: 'location voiture gare marrakech, location voiture oncf marrakech, voiture train marrakech, gare marrakech car rental',
+    h1: 'Location de Voiture à la Gare ONCF de Marrakech',
+    heroSubtitle: 'Livraison parvis gare • Trains de Casa et Tanger • Sans carte de crédit • Dès 300 DH/jour',
+    category: { label: 'Points d\'entrée touristiques', href: '/nos-services' },
+    content: {
+      intro: `La **gare ONCF de Marrakech** est l'un des principaux points d'arrivée à Marrakech pour les voyageurs venant de Casablanca (TNR 2h45), Rabat (3h40), Tanger (5h15) ou Fès (7h30). Située à 1.5 km du centre-ville (Gueliz / Hivernage), c'est une alternative agréable à l'aéroport Menara pour les touristes qui ont déjà visité Casa ou Rabat. **Benatna vous y livre votre voiture directement**, vous évitez le taxi + comptoir loueur traditionnel, et vous démarrez votre exploration de Marrakech ou votre road trip Atlas/Sahara en 15 minutes maximum.`,
+      sections: [
+        {
+          title: 'Pourquoi prendre une voiture à la gare Marrakech ?',
+          content: `Si vous arrivez à Marrakech par train (souvent les touristes EU qui ont commencé leur circuit à Casa ou Tanger pour bénéficier d'Al Boraq, puis enchaînent par TNR vers Marrakech), prendre une voiture **dès la gare** vous fait gagner du temps et de l'argent. Sans voiture, vous prenez un Petit Taxi (50-80 DH avec compteur, parfois 100+ DH au tarif touriste si non négocié) pour rejoindre votre riad médina ou hôtel Gueliz. Puis le lendemain, vous re-cherchez une location auprès d'un comptoir local (souvent dans Gueliz, 1 km de la gare) avec à nouveau du temps perdu. **Avec Benatna en livraison gare** : votre voiture vous attend dès votre descente, vous chargez bagages, vous filez vers votre hébergement, et le lendemain vous êtes immédiatement autonome pour explorer Atlas, Essaouira, Ouarzazate.`
+        },
+        {
+          title: 'Itinéraires populaires depuis la gare Marrakech',
+          content: `**Médina / Jemaa el-Fna** : 5-8 min, parkings extérieurs à Bab Doukkala ou Bab Ftouh (10-15 DH/nuit gardien). **Gueliz centre** : 3-5 min, parking facile dans la plupart des hôtels. **Hivernage** : 8-10 min, zone hôtelière luxe. **Palmeraie** : 20-25 min, hôtels et villas resorts. **Aéroport Menara** (récupération famille ou retour vol) : 6 km, 12 min. **Ourika Valley** (cascades, balades nature) : 65 km, 1h par N9. **Essaouira** (week-end côtier) : 175 km, 2h30 par N8. **Ouarzazate** (porte du Sahara) : 200 km, 4h par N9 et col Tichka 2260m — **important : refusez la location SUV non recommandé pour le col si vous n'avez pas d'expérience montagne**. **Casablanca** retour : 240 km, 2h30 par A3. **Atlas Imlil / Toubkal** : 65 km, 1h30 par R203 — préférez SUV au-delà d'Asni.`
+        },
+        {
+          title: 'Quels véhicules pour explorer la région Marrakech',
+          content: `Pour la **ville et environs immédiats** (médina, palaces, Gueliz) : citadine économique suffit (Toyota Yaris, Kia Picanto, Hyundai i10 dès 300 DH/jour). Stationnement médina facile en petite voiture. Pour **Ourika, Asni, Imlil** : berline OK si beau temps, **SUV recommandé** dès qu'il pleut (boue routes secondaires) — Dacia Duster ou Nissan Qashqai à 550-800 DH/jour. Pour **Ouarzazate, col Tichka, Sahara** : **SUV obligatoire** + climatisation impeccable (températures extrêmes 40°C+ en été). Toyota RAV4 ou Hyundai Tucson recommandés. Pour **familles avec enfants + bagages** : monospace 7 places (Dacia Jogger 900 DH/jour) ou SUV 7 places. Pour **mariage / occasion spéciale** : véhicule premium (Mercedes Classe A, BMW Série 3) avec décoration à demander 7-10 jours avant.`
+        },
+        {
+          title: 'Comparaison avec aéroport Marrakech-Menara',
+          content: `La gare Marrakech et l'aéroport Menara sont à 5-8 km l'un de l'autre, mais ce sont des arrivées différentes. **Aéroport Menara** = arrivée par vol direct depuis Europe ou autres villes MA (vol économique 2h depuis Paris-Beauvais, Madrid-Barajas, Bruxelles ; vol intérieur Casa-Marrakech 45 min). **Gare ONCF** = arrivée par train depuis Casa (TNR 2h45) ou Tanger (5h15+). **Côté Benatna**, nos deux services (aéroport et gare) sont équivalents en tarif et qualité — vous choisissez selon votre mode d'arrivée. Pour les MRE qui combinent ferry Tanger Med + train Al Boraq jusqu'à Casa, puis TNR Casa-Marrakech, la **gare Marrakech est votre point de récupération idéal**. Pour les touristes qui ont fait Casa + Marrakech en train (combiné prix abordable et expérience "voir le pays défiler"), idem.`
+        }
+      ],
+      faq: [
+        {
+          question: 'La gare Marrakech sera-t-elle desservie par Al Boraq (LGV) ?',
+          answer: 'Extension officielle LGV Casa-Marrakech annoncée pour 2030 (chantier en cours). En attendant, vous arrivez à la gare par TNR rapide (Casa 2h45). Quand Al Boraq sera étendu, les délais Casa-Marrakech tomberont à 1h30 — votre voiture vous attendra toujours sur le parvis.'
+        },
+        {
+          question: 'Y a-t-il un parking visiteurs à la gare ONCF Marrakech ?',
+          answer: 'Oui, parking ONCF accessible 24/7, 15 DH les premières 2h, 50 DH la journée. Notre agent peut soit amener la voiture au parking pour remise discrète, soit vous rejoindre au parvis principal — vous choisissez à la réservation.'
+        },
+        {
+          question: 'Je veux faire un road trip Marrakech-Essaouira-Marrakech, durée idéale ?',
+          answer: 'Minimum 2 jours/1 nuit. Idéalement 3 jours pour profiter d\'Essaouira (vieille ville UNESCO, remparts, surf Sidi Kaouki). Route N8 sinueuse mais asphaltée, 2h30 hors arrêt. Citadine OK, mais préférez berline confort si vous êtes 4 + bagages.'
+        },
+        {
+          question: 'Avez-vous des forfaits week-end / 3 jours minimum pour la gare ?',
+          answer: 'Oui. **Forfait week-end** : 2 jours facturés pour 3 jours d\'usage (vendredi soir au lundi matin, voir page Location Weekend Marrakech). **Forfait semaine** : remise dégressive jusqu\'à 15% à partir de 7 jours. Pour locations >15 jours typique touristes EU long séjour, voir Location Longue Durée Marrakech.'
+        },
+        {
+          question: 'Puis-je rendre la voiture à l\'aéroport ou ailleurs ?',
+          answer: 'Oui, **rendu différent** Marrakech gare → Marrakech aéroport Menara : gratuit (même ville). → Casa ou aéroport CMN : supplément 200 DH selon distance. → Agadir aéroport AGA : supplément 300 DH. → Fès aéroport FEZ : supplément 350 DH. Aller-simple inter-villes idéal pour MRE/touristes en circuit non-circulaire.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture à la Gare Marrakech',
+      subtitle: 'Livraison parvis • Trains Casa/Tanger compatibles • Dès 300 DH/jour',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Marrakech', description: 'Service standard ville et environs.', link: '/location-voiture-marrakech' },
+      { title: 'Location Aéroport Marrakech Menara', description: 'Alternative arrivée par vol direct.', link: '/location-voiture-aeroport-marrakech' },
+      { title: 'Location Voiture Gare Casa-Voyageurs', description: 'Combinez Casa puis Marrakech en train.', link: '/location-voiture-gare-casa-voyageurs' }
+    ],
+    relatedPages: [
+      { title: 'Location Weekend Marrakech', link: '/location-weekend-marrakech' },
+      { title: 'Location Voiture Gueliz Marrakech', link: '/location-voiture-gueliz-marrakech' }
+    ]
+  },
+  // ============================================================
+  // SPRINT 2 — Rabat Agdal (quartier diplomatique/corporate)
+  // ============================================================
+  {
+    slug: 'location-voiture-agdal-rabat',
+    title: 'Location Voiture Agdal Rabat',
+    metaTitle: 'Location Voiture Agdal Rabat - Quartier d\'Affaires Capitale | Benatna',
+    metaDescription: 'Location voiture à Agdal Rabat, quartier d\'affaires de la capitale. Ambassades, ministères, sièges sociaux. Livraison hôtel/bureau. Dès 300 DH/jour.',
+    keywords: 'location voiture agdal rabat, location voiture rabat centre, voiture rabat agdal business, location voiture rabat ambassade',
+    h1: 'Location de Voiture à Agdal — Quartier d\'Affaires de Rabat',
+    heroSubtitle: 'Ambassades • Ministères • Bureaux corporate • Livraison sur place • Dès 300 DH/jour',
+    category: { label: 'Quartiers Rabat', href: '/location-voiture-rabat' },
+    content: {
+      intro: `**Agdal** est le **quartier d'affaires moderne de Rabat** : sièges des grands ministères marocains, ambassades européennes (France, Allemagne, Espagne, Royaume-Uni, États-Unis), banques (BMCE, Attijariwafa, BMCI, CIH), Sofitel Rabat Jardin des Roses, Université Mohammed V campus Agdal. Si vous êtes en déplacement professionnel à Rabat — diplomate, cadre d'entreprise, journaliste en mission — Agdal est probablement votre adresse principale. Benatna vous **livre votre voiture directement à votre hôtel ou bureau**, sans surcoût "centre-ville", avec un service flexible adapté au tempo corporate.`,
+      sections: [
+        {
+          title: 'Pourquoi louer une voiture à Agdal ?',
+          content: `Rabat sans voiture, c'est gérable pour le quartier Agdal-Hassan-Souissi en taxi/tramway, mais dès que vous avez plusieurs rendez-vous Casa-Rabat dans la même semaine, ou que vous devez vous rendre à l'aéroport Mohammed V CMN (90 km, 1h par A1), à la gare Casa-Voyageurs (90 km), à Salé (10 min par pont Hassan II), ou même au siège régional de votre entreprise hors capitale (Casa, Tanger, Marrakech), **avoir une voiture personnelle pendant votre séjour Agdal** est nettement plus efficace que multiplier les taxis ou réserver des chauffeurs. Benatna vous livre votre véhicule directement à votre hôtel (Sofitel Rabat Jardin des Roses, ONOMO Rabat, Tour Hassan Palace Rabat-Salé, Diwan Rabat, etc.) ou à votre bureau (immeuble Almagrib, Tour BMCE, etc.) — pas besoin de Petit Taxi vers un comptoir loueur de quartier.`
+        },
+        {
+          title: 'Tarifs et véhicules pour Agdal',
+          content: `Notre flotte adaptée corporate Agdal : **Berline confort** (Renault Mégane, Hyundai Accent, Volkswagen Polo) à **350-500 DH/jour** — équilibre entre apparence professionnelle et prix raisonnable, idéale pour rendez-vous ambassade ou ministère. **Mercedes Classe A** à **650 DH/jour** — prestige adapté pour rendez-vous diplomatiques ou board meeting bancaire. **BMW Série 3** à **800 DH/jour** — alternative premium à la Mercedes. **SUV** (Hyundai Tucson, Nissan Qashqai) à **550-800 DH/jour** si vous combinez Rabat avec excursions Atlas ou côte. **Citadine économique** (Toyota Yaris, Kia Picanto) à **300 DH/jour** si vous voulez juste de la mobilité urbaine sans prestige particulier. Pour **locations longue durée corporate** (1-3 mois pour un projet ou un détachement), remise mensuelle dégressive — contact pour devis personnalisé.`
+        },
+        {
+          title: 'Trajets typiques depuis Agdal',
+          content: `**Aéroport Rabat-Salé (RBA)** : 8 km, 15-25 min par pont Hassan II et R401, idéal vols Air France/RAM/Lufthansa. **Aéroport Mohammed V Casablanca (CMN)** : 90 km, 1h par A1, péage 25 DH — souvent nécessaire pour vols longue distance vers Asie/Amérique. **Gare Rabat-Agdal** : 5 min à pied (voiture pas nécessaire pour le train Casa). **Gare Casa-Voyageurs** : 90 km par A1, 1h. **Tanger (port Tanger Med si vous recevez quelqu'un par ferry)** : 270 km par A1, 2h30. **Marrakech** : 320 km, 3h30 par A1 + A3, péage ~85 DH. **Fès** : 200 km, 2h par A2. **Tour Hassan + Mausolée Mohammed V** : 5 min depuis Agdal. **Plage des Nations / Skhirat** : 20 km, 25 min — détente week-end.`
+        },
+        {
+          title: 'Conseils pratiques Rabat Agdal',
+          content: `**Heures de pointe** : éviter avenue Mehdi Ben Barka (axe Agdal-centre) entre 8h-9h30 et 17h-18h30 en semaine — congestion sévère. **Stationnement Agdal** : la plupart des immeubles ont leur propre parking (gardé, 20-50 DH/jour). Hôtels également. Stationnement rue payant 10 DH/h en zone bleue (parcmètres). **Ambassades** : si vous avez rendez-vous à l'ambassade de France ou des États-Unis, **prévoir un retrait préalable** de la voiture loin de l'enceinte (sécurité). Stationnement souvent restrictif aux abords. **Tramway Rabat-Salé** : si vous n'avez pas votre voiture en permanence (option location à la journée), le tramway dessert bien Agdal — utilisez-le pour réunions ponctuelles intra-Agdal-centre. **Restos d'affaires populaires** : Le Capricorne (Agdal centre), Pomme d'Or (déjeuners diplomatiques), Le Manoir des Brumes (terrasse vue Bouregreg).`
+        }
+      ],
+      faq: [
+        {
+          question: 'Livrez-vous la voiture directement à mon hôtel à Agdal ?',
+          answer: 'Oui, **livraison hôtel gratuite** à Agdal et alentours (Hassan, Souissi, centre-ville). Tournez votre concierge, prévenez-nous WhatsApp 30 min avant votre disponibilité. Service standard 6h-23h, après 23h supplément modeste.'
+        },
+        {
+          question: 'Acceptez-vous les paiements en mode entreprise (factures TVA, bons de commande) ?',
+          answer: 'Oui, **facture TVA 20% conforme** émise à votre demande pour comptabilité corporate. Bons de commande grandes entreprises acceptés sur validation. Paiement à 30 jours possible pour clients récurrents (compte créditeur après 3 locations).'
+        },
+        {
+          question: 'Puis-je avoir un chauffeur en option ?',
+          answer: 'Oui, **chauffeur professionnel** disponible avec préavis 24h. Tarif chauffeur : 400 DH/jour additionnel à la voiture (8h, hors carburant). Idéal pour personnalité diplomatique ou cadre supérieur qui souhaite travailler en trajet.'
+        },
+        {
+          question: 'Service disponible le week-end pour mes déplacements personnels ?',
+          answer: 'Bien sûr. Beaucoup de nos clients corporate Agdal récupèrent la voiture le vendredi soir et l\'utilisent pour week-end famille à Skhirat, Casablanca, Tanger ou Marrakech. Tarif week-end = tarif normal (pas de supplément week-end).'
+        },
+        {
+          question: 'Mes invités étrangers (ambassades) peuvent-ils louer chez vous ?',
+          answer: 'Oui, **nous acceptons les permis internationaux** (US, UK, AUS), les permis UE (sans formalité), et les passeports diplomatiques. Conducteur principal doit avoir 25+ ans et 2+ ans de permis. Pour groupes/délégations, devis personnalisé.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture à Agdal',
+      subtitle: 'Livraison hôtel/bureau • Factures TVA • Service corporate',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Rabat', description: 'Service standard capitale.', link: '/location-voiture-rabat' },
+      { title: 'Location Aéroport Rabat-Salé', description: 'Pour arrivée vol direct.', link: '/location-voiture-aeroport-rabat' },
+      { title: 'Location Voiture Souissi Rabat', description: 'Quartier résidentiel haut de gamme.', link: '/location-voiture-souissi-rabat' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Casablanca (combiné business)', link: '/location-voiture-casablanca' }
+    ]
+  },
+  // ============================================================
+  // SPRINT 2 — Rabat Souissi (résidentiel haut de gamme)
+  // ============================================================
+  {
+    slug: 'location-voiture-souissi-rabat',
+    title: 'Location Voiture Souissi Rabat',
+    metaTitle: 'Location Voiture Souissi Rabat - Quartier Résidentiel Premium | Benatna',
+    metaDescription: 'Location voiture à Souissi Rabat, quartier résidentiel premium de la capitale. Livraison villa, ambassades, écoles internationales. Dès 300 DH/jour.',
+    keywords: 'location voiture souissi rabat, location voiture rabat residentiel, voiture souissi villa, location voiture rabat haut gamme',
+    h1: 'Location de Voiture à Souissi — Rabat Résidentiel Premium',
+    heroSubtitle: 'Villas • Écoles internationales • Ambassades • Livraison sur place • Dès 300 DH/jour',
+    category: { label: 'Quartiers Rabat', href: '/location-voiture-rabat' },
+    content: {
+      intro: `**Souissi** est le **quartier résidentiel haut de gamme de Rabat**, situé au sud-est de la capitale. C'est ici que résident la plupart des **diplomates** (résidences ambassadeurs France, Allemagne, Royaume-Uni, Italie, Espagne), des **expatriés cadres supérieurs** (Total, Renault, Vinci, Banque Mondiale, BAD), et des **familles marocaines aisées**. On y trouve les **écoles internationales** (Lycée Descartes français, American School of Rabat ASR, Eric Tabarly français, Collège anglais), des restaurants haut de gamme, et l'ambassade des États-Unis. Benatna y livre votre voiture **directement à votre villa, résidence ou école**, sans surcoût quartier.`,
+      sections: [
+        {
+          title: 'Pourquoi louer une voiture à Souissi ?',
+          content: `Si vous êtes nouveau résident à Souissi (expatrié récemment arrivé pour un poste à Rabat, diplomate prenant ses fonctions, ou famille en transition longue durée 6-12 mois), avoir une voiture immédiatement à Souissi vous évite la phase galère "comment se déplacer". Les options taxi sont fonctionnelles mais coûteuses sur la durée (50-80 DH par trajet vers le centre, ×4 trajets par jour = 200-300 DH × 30 jours = 6000-9000 DH/mois en taxis !). En comparaison, notre **location mensuelle citadine = 7500 DH** tout compris (carburant en sus) — vous économisez sur le long terme. Pour les familles avec enfants scolarisés au Lycée Descartes ou à l'American School, avoir une voiture en propre (location longue durée) ou en location ponctuelle (week-end, vacances) est quasi-indispensable.`
+        },
+        {
+          title: 'Trajets typiques depuis Souissi',
+          content: `**Centre Rabat / Agdal** : 10-15 min selon trafic, axe principal avenue Mohammed VI. **Ambassade USA** : 5 min, dans Souissi même. **Lycée Descartes** : 8 min depuis Souissi-centre. **Aéroport Rabat-Salé (RBA)** : 15 km, 25-30 min par pont Hassan II et R401. **Aéroport Mohammed V (CMN)** : 95 km, 1h05 par A1 — utilisé pour vols longue distance. **Plage Skhirat / Bouznika** : 35 km, 30 min par autoroute A1 — destination week-end famille. **Marina Bouregreg / Salé** : 10 min, restaurants en bord d'eau. **Médina Rabat** : 12 min, kasbah des Oudayas. **Casa-centre** : 95 km, 1h-1h15 selon trafic.`
+        },
+        {
+          title: 'Véhicules adaptés au profil Souissi',
+          content: `Au vu du profil typique des résidents Souissi (familles cadres, diplomates), nos clients réservent surtout : **Mercedes Classe A** (650 DH/jour) ou **BMW Série 3** (800 DH/jour) pour leur prestige adapté aux rendez-vous diplomatiques et à l'image attendue. **SUV** Volkswagen Tiguan, Hyundai Tucson, Nissan Qashqai (550-800 DH/jour) pour familles avec enfants — confort, sécurité, garde au sol pour week-ends Atlas. **Berlines** Renault Mégane, Hyundai Accent (380-500 DH/jour) pour usage quotidien efficace sans ostentation. **Citadines** Toyota Yaris, Hyundai i10 (300 DH/jour) si vous voulez juste un véhicule de service quotidien (école, courses, rendez-vous) sans prestige particulier. Pour **location longue durée 3+ mois** typique expatriés, devis personnalisé avec remise progressive (jusqu'à 20% à 6 mois).`
+        },
+        {
+          title: 'Services additionnels pour Souissi',
+          content: `**Livraison villa** : gratuite à Souissi (vous fournissez l'adresse, notre agent dépose le véhicule au plus pratique). **Pickup école** : si votre nounou ou vous-même devez récupérer les enfants à l'école internationale, nous pouvons synchroniser le timing à la livraison. **Service de conciergerie automobile** (option payante) : pour les expatriés très occupés, nous gérons votre véhicule (lavage hebdomadaire, vidange, contrôle technique) — utile si vous êtes en location 3+ mois. **Compatibilité plaques diplomatiques** : non, votre véhicule de location aura des plaques marocaines standard. Pour véhicule sur plaques diplo, contactez votre service de mission. **Assurance étendue couverture verte UE** : option disponible si vous prévoyez de traverser Tanger Med vers l'Europe (devis spécifique nécessaire).`
+        }
+      ],
+      faq: [
+        {
+          question: 'Je suis nouvel arrivant à Souissi avec ma famille (3 enfants), quelle voiture choisir ?',
+          answer: 'Selon votre durée : **court séjour 1-2 semaines** : SUV (Hyundai Tucson, Nissan Qashqai) à 550-800 DH/jour — espace bagages + sécurité enfants. **Long séjour 3+ mois** : monospace 7 places (Dacia Jogger 900 DH/jour) si vous emmenez régulièrement amis + bagages, sinon SUV en formule mensuelle (devis personnalisé, souvent 12000-15000 DH/mois carburant en sus).'
+        },
+        {
+          question: 'Peut-on louer pendant 6 mois ou plus en formule longue durée ?',
+          answer: 'Oui. Les expatriés Souissi représentent une part importante de notre clientèle longue durée. Tarif mensuel dégressif : 1 mois = 7500 DH/mois citadine, 3 mois = 6800 DH/mois, 6 mois = 6200 DH/mois, 12 mois = 5800 DH/mois (citadine économique tout compris hors carburant). Berlines, SUV et premium proportionnellement.'
+        },
+        {
+          question: 'Comment fonctionne le pickup/return de la voiture chaque jour ?',
+          answer: 'Vous **gardez la voiture** pendant toute la durée de votre location — c\'est votre voiture pour la période. Vous pouvez la stationner chez vous (parking villa ou rue), à l\'école quand vous y allez, etc. C\'est différent du modèle "location à la journée" type Avis/Hertz où vous rendez la voiture chaque jour. Pour vous, c\'est simplement votre véhicule pour la période de réservation.'
+        },
+        {
+          question: 'Acceptez-vous un permis international ou ambassade ?',
+          answer: 'Oui, tous permis acceptés : permis marocain, permis UE (FR/DE/IT/ES/UK/NL/BE/PT), permis international (IDP), permis ambassade. Document principal = pièce d\'identité (CIN, passeport, titre séjour). Pas de tracas administratifs pour les diplomates.'
+        },
+        {
+          question: 'Service disponible le dimanche et jours fériés ?',
+          answer: 'Oui, 7j/7 toute l\'année. Pour livraisons en dehors des heures standard 6h-23h (vols arrivant 2h matin par exemple), supplément modeste (~100 DH) — moins cher que les frais "service nocturne" des comptoirs aéroport classiques.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture à Souissi',
+      subtitle: 'Livraison villa/école/bureau • Long séjour disponible • Expatriés bienvenus',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Rabat', description: 'Service standard capitale.', link: '/location-voiture-rabat' },
+      { title: 'Location Voiture Agdal Rabat', description: 'Quartier d\'affaires de Rabat.', link: '/location-voiture-agdal-rabat' },
+      { title: 'Location Longue Durée Casablanca', description: 'Forfaits mensuels (Souissi expatriés peuvent appliquer même grille).', link: '/location-longue-duree-casablanca' }
+    ],
+    relatedPages: [
+      { title: 'Location Aéroport Rabat-Salé', link: '/location-voiture-aeroport-rabat' }
+    ]
+  }
 ];

@@ -70,6 +70,12 @@ const LocationEte2026 = lazy(() => import("./pages/LocationEte2026"));
 const LocationTangerMedPort = lazy(() => import("./pages/LocationTangerMedPort"));
 const LocationMREMaroc = lazy(() => import("./pages/LocationMREMaroc"));
 const LocationCircuitVillesImperiales = lazy(() => import("./pages/LocationCircuitVillesImperiales"));
+
+// Sprint 2 — Gares + quartiers Rabat
+const LocationGareCasaVoyageurs = lazy(() => import("./pages/LocationGareCasaVoyageurs"));
+const LocationGareMarrakech = lazy(() => import("./pages/LocationGareMarrakech"));
+const LocationAgdalRabat = lazy(() => import("./pages/LocationAgdalRabat"));
+const LocationSouissiRabat = lazy(() => import("./pages/LocationSouissiRabat"));
 const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
 const LocationLongueDureeMarrakech = lazy(() => import("./pages/LocationLongueDureeMarrakech"));
 const LocationJeuneConducteurCasablanca = lazy(() => import("./pages/LocationJeuneConducteurCasablanca"));
@@ -297,6 +303,10 @@ const App = () => {
                     <Route path="/location-voiture-tanger-med-port" element={<LocationTangerMedPort />} />
                     <Route path="/location-voiture-mre-maroc" element={<LocationMREMaroc />} />
                     <Route path="/location-voiture-circuit-villes-imperiales" element={<LocationCircuitVillesImperiales />} />
+                    <Route path="/location-voiture-gare-casa-voyageurs" element={<LocationGareCasaVoyageurs />} />
+                    <Route path="/location-voiture-gare-marrakech" element={<LocationGareMarrakech />} />
+                    <Route path="/location-voiture-agdal-rabat" element={<LocationAgdalRabat />} />
+                    <Route path="/location-voiture-souissi-rabat" element={<LocationSouissiRabat />} />
                     <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
                     <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
                     <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />
