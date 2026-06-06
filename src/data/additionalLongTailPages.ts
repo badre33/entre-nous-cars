@@ -1602,4 +1602,124 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Prix Location Voiture Maroc 2026', link: '/prix-location-voiture-maroc-2026' }
     ]
   }
+,
+  // ============================================================
+  // SPRINT $38k V2 — Page 4 : Gare ONCF Maroc (challenger Hertz Train+Auto)
+  // ============================================================
+  {
+    slug: 'location-voiture-gare-oncf-maroc',
+    title: 'Location Voiture en Gare ONCF Maroc',
+    metaTitle: 'Location Voiture Gare ONCF Maroc — Tanger, Casa, Rabat, Marrakech',
+    metaDescription: 'Louez votre voiture a la sortie du TGV Al Boraq : Tanger, Casa-Voyageurs, Rabat Agdal, Marrakech. Livraison gratuite en gare. Sans CB, WhatsApp 2 min.',
+    keywords: 'location voiture gare oncf maroc, location voiture train al boraq, oncf hertz, location voiture sortie tgv maroc',
+    h1: 'Location Voiture en Gare ONCF — Combinez TGV et Voiture au Maroc',
+    heroSubtitle: 'TGV Al Boraq + voiture • Tanger, Casa, Rabat, Marrakech • Sans CB • WhatsApp 2 min',
+    category: { label: 'Gares ONCF', href: '/nos-services' },
+    content: {
+      intro: 'Combinez le **TGV Al Boraq** et une **voiture de location** pour visiter le Maroc rapidement et confortablement. Benatna propose la **livraison gratuite directement a la sortie des gares ONCF principales** : Tanger Ville, Casa-Voyageurs, Rabat Agdal, et Marrakech. Solution prisee par les **MRE** qui debarquent au port Tanger Med puis prennent Al Boraq jusque Casa ou Marrakech, et par les **touristes** qui veulent gagner du temps entre les villes. **Sans carte de credit internationale**, paiement DH/euro/virement, **confirmation WhatsApp en 2 minutes**.',
+      sections: [
+        {
+          title: 'TGV Al Boraq + voiture : la combinaison MRE et touristes',
+          content: 'Le **TGV Al Boraq** relie Tanger a Casablanca en **2h05** (vs 5h en voiture), avec arrets a Kenitra et Rabat. Le **TGV jusque Marrakech** sera operationnel apres extension du reseau. Combinaison gagnante : (1) tu prends le TGV pour traverser le pays vite, (2) tu recuperes ta voiture a la sortie de gare pour explorer la ville et les environs sans depender du taxi. Cas typique MRE : ferry Sete-Tanger Med → bus navette ferry → gare Tanger Ville → TGV Casa-Voyageurs (2h05) → voiture Benatna a la sortie de gare. Total Sete → Casa en porte-a-porte : 36-40h, en confort total. Vs option tout-voiture (24h conduite epuisante par tunnel Mont-Blanc + ferry + 600 km Tanger-Casa).'
+        },
+        {
+          title: 'Nos gares de livraison gratuite',
+          content: '**Gare Tanger Ville** (boulevard Mohammed VI) : livraison gratuite parvis principal, idealement combine avec ferry Tanger Med (20 km, navette ONCF dispo). **Gare Casa-Voyageurs** : terminus Al Boraq, parvis cote Bd Mohammed V, hub central du Maroc. **Gare Rabat Agdal** : nouveau terminus Al Boraq, plus moderne que Rabat Ville, livraison parking dedie. **Gare Marrakech** : sortie principale Avenue Hassan II, hub TNR et bientot Al Boraq. Sur chacune, livraison **gratuite 24h/24** pour clients arrivee TGV avec numero de billet, **6h-23h** sinon. Voir aussi : <a href=\"/location-voiture-gare-casa-voyageurs\">Casa-Voyageurs</a>, <a href=\"/location-voiture-gare-marrakech\">Marrakech gare</a>, <a href=\"/location-voiture-agdal-rabat\">Agdal Rabat</a>, <a href=\"/location-voiture-tanger-med-port\">Tanger Med port</a>.'
+        },
+        {
+          title: 'Comment reserver depuis votre billet ONCF',
+          content: 'Etape 1 : tu reserves ton billet TGV Al Boraq sur **oncf-voyages.ma** ou via application ONCF. Note ton **numero de billet** et **heure arrivee**. Etape 2 : tu envoies un WhatsApp a Benatna (+212 699 024 526) avec : (a) ville de gare, (b) date et heure arrivee, (c) duree location, (d) categorie voiture souhaitee. Etape 3 : confirmation Benatna **2-5 minutes** en journee, avec modele, prix et point de rendez-vous exact a la sortie de gare. Etape 4 : a ton arrivee, tu vas a la sortie indiquee, notre agent t attends avec un panneau a ton nom. Cles, etat des lieux signe par WhatsApp, et tu pars. Total : **5 minutes a la sortie de gare**, vs 30-45 min comptoir Hertz aeroport.'
+        },
+        {
+          title: 'Tarif Benatna vs Hertz Train+Auto',
+          content: 'Hertz propose un **partenariat ONCF officiel** avec promo Aid Al Adha (codes ADHA20/ADHA25) **mais exige une carte de credit internationale**, ce qui exclut les **MRE en carte Maestro/V-Pay**. Comparaison sur cas concret : **5 jours citadine, recuperation Casa-Voyageurs** : Hertz code ADHA20 environ 2400 DH avec caution CB 6000 DH bloquee. **Benatna** : 1800-2200 DH selon modele, caution 3000 DH espece restituee jour meme. **Economie Benatna : 200-600 DH** + flexibilite paiement. Sur **SUV 7 jours** : Hertz 5200 DH avec caution 12000 DH CB. Benatna 3500-4200 DH avec caution 5000 DH espece. **Economie Benatna : 1000-1700 DH** sur ce cas.'
+        },
+        {
+          title: 'Itineraires conseilles en train et voiture',
+          content: '**Itineraire 1 (5 jours) MRE famille** : Ferry Tanger Med → TGV Casa (2h) → 3 jours Casa avec voiture Benatna (visite Hassan II, El Jadida, Casa-Anfa) → train Casa-Marrakech (3h) → 2 jours Marrakech avec voiture (Jemaa el-Fna, Ourika, retour gare). **Itineraire 2 (7 jours) touriste** : Vol Casa CMN → TGV Al Boraq Casa-Tanger (2h05) → 2 jours Tanger avec voiture (Chefchaouen optionnel 2h aller-retour, Cap Spartel) → train Tanger-Rabat (1h) → 1 jour Rabat (Kasbah Oudayas, Chellah) → train Rabat-Marrakech → 3 jours Marrakech voiture (Ourika, Essaouira, Atlas). **Itineraire 3 (3 jours) week-end** : TGV Casa-Rabat (1h) ou Casa-Tanger (2h05), location voiture juste a Marrakech depuis aeroport.'
+        }
+      ],
+      faq: [
+        { question: 'Comment retirer ma voiture a la sortie du TGV ?', answer: 'Tu nous envoies ton numero de billet et heure arrivee par WhatsApp. Notre agent t attend a la sortie principale avec panneau a ton nom. Cles, etat des lieux, et tu pars en 5 minutes.' },
+        { question: 'Aid ou Ramadan : promos disponibles ?', answer: 'Oui, promos saisonnieres Benatna alignees sur les pics MRE (Aid Al Fitr, Aid Al Adha, ete). Reductions 10-20% selon periode et duree. Demande le code promo par WhatsApp.' },
+        { question: 'Recuperer en gare Casa, rendre en gare Marrakech ?', answer: 'Oui, formule one-way disponible Casa-Marrakech, Casa-Rabat, Tanger-Casa, etc. Supplement modeste (200-400 DH selon trajet) pour le retour de la voiture.' },
+        { question: 'Que faire si mon train a du retard ?', answer: 'Aucun probleme : notre agent suit ton train via ONCF en temps reel, il est present meme si tu arrives 1-2h en retard. Pas de penalite pour retard TGV.' },
+        { question: 'Tarif gare = tarif aeroport ?', answer: 'Oui meme grille tarifaire. Pas de supplement gare comme certains comptoirs internationaux. Tarif transparent affiche sur la page prix Benatna.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture en Gare ONCF',
+      subtitle: 'Livraison TGV gratuite • Sans CB • Confirmation WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Gare Casa-Voyageurs', description: 'Hub central TGV Al Boraq.', link: '/location-voiture-gare-casa-voyageurs' },
+      { title: 'Gare Marrakech', description: 'TNR et bientot Al Boraq.', link: '/location-voiture-gare-marrakech' },
+      { title: 'Tanger Med Port', description: 'Ferry MRE + voiture immediate.', link: '/location-voiture-tanger-med-port' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture MRE Maroc', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  // ============================================================
+  // SPRINT $38k V2 — Page 5 : Top activites Marrakech voiture (TOFU)
+  // ============================================================
+  {
+    slug: 'top-activites-marrakech-en-voiture',
+    title: 'Top Activites Marrakech en Voiture',
+    metaTitle: 'Top 15 Activites a Marrakech en Voiture de Location (Guide 2026)',
+    metaDescription: 'Visitez Jemaa el-Fna, Ourika, Atlas, Ouzoud, Essaouira en voiture depuis Marrakech. Itineraires, distances, parkings, conseils MRE et touristes.',
+    keywords: 'top activites marrakech voiture, que faire marrakech voiture location, excursion marrakech voiture, visiter marrakech voiture',
+    h1: 'Top 15 Activites a Faire a Marrakech en Voiture de Location',
+    heroSubtitle: 'Itineraires • Parkings • Distances • Conseils MRE et touristes',
+    category: { label: 'Guides Touristiques', href: '/nos-services' },
+    content: {
+      intro: 'Marrakech est une **ville-musee a explorer en voiture de location**. Si la medina se visite a pied, les **vrais joyaux sont a 30 min ou 2h de route** : vallee de Ourika, cascades Ouzoud, vallee Imlil, Essaouira, Ait Ben Haddou. Voici notre **guide complet 2026** des 15 incontournables, avec **distances exactes, parkings recommandes, conseils route** pour **MRE et touristes** qui veulent profiter de Marrakech sans dependence taxi. Toutes ces excursions se font confortablement avec une **voiture de location Benatna depuis 350 DH/jour, sans carte de credit**.',
+      sections: [
+        {
+          title: 'Pourquoi visiter Marrakech en voiture de location ?',
+          content: 'Marrakech a un **reseau de taxis dense** (petits taxis dans la ville, grands taxis pour les excursions), mais la voiture de location offre 3 avantages majeurs. **Liberte** : tu pars quand tu veux, tu t arretes ou tu veux (point de vue Atlas, restaurant berbere route Ourika, plage El Jadida). **Cout** : pour 2+ personnes, la voiture revient moins cher que les taxis longue distance (Essaouira aller-retour = 1500 DH en taxi vs 350 DH location + 200 DH essence). **Confort** : climatisation, musique, espace bagages pour shopping medina ou souvenirs Essaouira. La voiture est **indispensable** pour Ourika, Ouzoud, Atlas, Essaouira et Ait Ben Haddou — sites mal desservis par transport public.'
+        },
+        {
+          title: '5 incontournables intra-Marrakech',
+          content: '**(1) Jemaa el-Fna** : place mythique UNESCO. Parking gardien recommande : Place Foucauld (10 DH/h). Ne pas se garer rue Riad Zitoun le Kdim (verbalisable). **(2) Jardin Majorelle** : achete par Yves Saint Laurent. Parking dedie 15 DH/h. Reservation obligatoire en ligne avant venue. **(3) Palais Bahia** : 19e siecle, mosaiques et stucs. Parking rue Riad Zitoun Jdid. Visite 1h30. **(4) Medina et souks** : 9 km de ruelles labyrinthe. Parking conseille Bab Doukkala ou parking Foucauld. Ne pas tenter de rouler dans la medina (interdit la majorite des rues). **(5) Hivernage et Gueliz** : quartiers modernes shopping (Carre Eden, Menara Mall), restaurants Avenue Mohammed VI. Parking dans la rue souvent libre.'
+        },
+        {
+          title: '5 excursions a 1h-2h de Marrakech',
+          content: '**(1) Vallee de Ourika** (65 km, 1h par N9) : cascades Setti Fatma, restaurants berberes en bord de riviere, marche tribal du lundi. Voiture jusque village Setti Fatma, randonnee 1h pour les cascades. **(2) Cascades Ouzoud** (170 km, 3h par N8 et R304) : plus belles cascades du Maroc (110m), singes magots. Parking village Ouzoud. **(3) Vallee Imlil et Toubkal** (65 km, 1h30 par R203) : porte du Haut Atlas, depart trek Toubkal. SUV recommande si neige hivernale. **(4) Essaouira** (175 km, 2h30 par N8) : port atlantique medina UNESCO, ambiance hippie cool, fruits de mer. Aller-retour en journee facile. **(5) Ait Ben Haddou** (200 km, 4h par N9 et col Tichka 2260m) : ksar UNESCO, decors Hollywood (Gladiator, Game of Thrones). Auto recommandee voire SUV pour col.'
+        },
+        {
+          title: 'Conseils route et parking a Marrakech',
+          content: '**Stationnement medina** : interdit totalement dans la medina sauf pour livraison/depose. Parkings gardiens en peripherie : Place Foucauld, Bab Doukkala, Bab el-Khemis, Bab Ftouh. **Tarif gardien officieux** : 10-20 DH/h, 30-50 DH/jour. **Toujours laisser pourboire** au gardien meme si non obligatoire (eviter degats). **Carburant** : stations Total/Afriquia/Shell sur Avenue Mohammed VI. Prix 2026 : essence ~15 DH/L, gasoil ~14 DH/L. **Conduite** : prudence aux scooters et calches centre-ville. **Police de circulation** : presente sur grandes avenues, controles aleatoires permis (avoir permis + recepisse location toujours sur soi). **Speed bumps** : nombreux et brusques sur routes secondaires, ralentir.'
+        },
+        {
+          title: 'Reservez votre voiture pour explorer Marrakech',
+          content: 'Benatna propose la flotte ideale pour Marrakech et environs. **Citadine** (Sandero, i10, Picanto) pour Marrakech intra-muros et Ourika : 350 DH/jour. **Berline** (Clio Auto, Yaris Auto) pour confort Essaouira aller-retour : 420-500 DH/jour. **SUV** (Tucson, Qashqai, Duster) indispensable pour Ouzoud, Ait Ben Haddou via col Tichka, Atlas Imlil : 650-850 DH/jour. **Livraison gratuite** : aeroport RAK, riad medina, Gueliz, Hivernage, Palmeraie. **Sans CB internationale**, paiement DH/euro/virement. **Confirmation WhatsApp 2 minutes**. Reserve 4-6 semaines avant ton voyage haute saison (juin-aout, decembre) pour bloquer le tarif intermediaire.'
+        }
+      ],
+      faq: [
+        { question: 'Quelle voiture choisir pour Ourika ou Atlas ?', answer: 'Pour Ourika (N9 asphaltee) : citadine ou berline auto OK. Pour Atlas Imlil/Toubkal : auto jusque Asni, ensuite SUV (R203 montagneuse). Pour col Tichka : SUV automatique fortement recommande.' },
+        { question: 'Peut-on entrer en voiture dans la medina ?', answer: 'Non, la majorite des rues de la medina sont interdites a la circulation sauf livraison. Garez-vous a Place Foucauld, Bab Doukkala ou Bab el-Khemis (parkings gardiens 10-20 DH/h) puis explorez a pied.' },
+        { question: 'Ou se garer a Jemaa el-Fna ?', answer: 'Parking gardien Place Foucauld (a 5 min a pied de Jemaa el-Fna), tarif 10-20 DH/h ou 30-50 DH/jour. Eviter rue Riad Zitoun le Kdim (verbalisable).' },
+        { question: 'Combien coute le parking a Marrakech ?', answer: 'Parking gardien 10-20 DH/h en centre-ville, 30-50 DH/jour. Stationnement libre dans Gueliz et Hivernage (pas toujours sur). Hotel/riad inclut souvent le parking dans le tarif.' },
+        { question: 'Distance Marrakech-Essaouira en voiture ?', answer: '175 km par la N8, environ 2h30 de route. Route asphaltee, sinueuse sur la derniere partie. Aller-retour en journee tout a fait faisable. Halte petit-dejeuner conseillee a Chichaoua (mi-chemin).' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture pour Explorer Marrakech',
+      subtitle: 'Citadine, berline, SUV • Livraison aeroport et medina • Sans CB',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Marrakech', description: 'Toutes nos voitures a Marrakech.', link: '/location-voiture-marrakech' },
+      { title: 'Auto Marrakech', description: 'Boite automatique pour conducteur secondaire.', link: '/location-voiture-automatique-marrakech' },
+      { title: 'Route Ourika Marrakech', description: 'Specialement Ourika et excursions sud.', link: '/location-voiture-route-ourika-marrakech' }
+    ],
+    relatedPages: [
+      { title: 'Weekend Marrakech', link: '/location-voiture-weekend-marrakech' },
+      { title: 'SUV Atlas Marrakech', link: '/location-voiture-suv-atlas-marrakech' }
+    ]
+  }
 ];

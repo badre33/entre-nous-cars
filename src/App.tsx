@@ -82,6 +82,8 @@ const PrixLocationVoiture2026 = lazy(() => import("./pages/PrixLocationVoiture20
 const LocationVoitureAutomatiqueCasablanca = lazy(() => import("./pages/LocationVoitureAutomatiqueCasablanca"));
 const LocationVoitureAutomatiqueMarrakech = lazy(() => import("./pages/LocationVoitureAutomatiqueMarrakech"));
 const CautionLocationVoitureMaroc = lazy(() => import("./pages/CautionLocationVoitureMaroc"));
+const LocationVoitureGareOncfMaroc = lazy(() => import("./pages/LocationVoitureGareOncfMaroc"));
+const TopActivitesMarrakechVoiture = lazy(() => import("./pages/TopActivitesMarrakechVoiture"));
 const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
 const LocationLongueDureeMarrakech = lazy(() => import("./pages/LocationLongueDureeMarrakech"));
 const LocationJeuneConducteurCasablanca = lazy(() => import("./pages/LocationJeuneConducteurCasablanca"));
@@ -317,6 +319,8 @@ const App = () => {
                     <Route path="/location-voiture-automatique-casablanca" element={<LocationVoitureAutomatiqueCasablanca />} />
                     <Route path="/location-voiture-automatique-marrakech" element={<LocationVoitureAutomatiqueMarrakech />} />
                     <Route path="/caution-location-voiture-maroc" element={<CautionLocationVoitureMaroc />} />
+                    <Route path="/location-voiture-gare-oncf-maroc" element={<LocationVoitureGareOncfMaroc />} />
+                    <Route path="/top-activites-marrakech-en-voiture" element={<TopActivitesMarrakechVoiture />} />
                     <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
                     <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
                     <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />
