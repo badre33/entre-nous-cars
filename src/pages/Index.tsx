@@ -235,20 +235,30 @@ const Index = () => {
             {t('home.heroSubtitle')}
           </p>
 
-          {/* USP badges — Coupe du Monde 2026 angle + 3 differentiators */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6 animate-fade-in [animation-delay:300ms] px-2">
+          {/* USP badges — angle anti-franchise : tout inclus, pas de frais cachés */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 animate-fade-in [animation-delay:300ms] px-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <span className="text-sm sm:text-base">💰</span>
-              <span>Dès <strong>200 DH</strong>/jour</span>
+              <span>Dès <strong>300 DH</strong>/jour</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <span className="text-sm sm:text-base">💳</span>
-              <span>Sans carte de crédit</span>
+              <span>Sans CB bloquée</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <span className="text-sm sm:text-base">📱</span>
               <span>WhatsApp en 2 min</span>
             </span>
+          </div>
+
+          {/* Slogan anti-franchise : prix transparent, tous clients egaux */}
+          <div className="flex flex-col items-center justify-center mb-4 sm:mb-6 animate-fade-in [animation-delay:350ms] px-2">
+            <p className="text-base sm:text-xl md:text-2xl font-bold text-white drop-shadow-lg text-center">
+              ✨ Le prix annoncé est le prix payé.
+            </p>
+            <p className="text-xs sm:text-sm md:text-base text-white/85 mt-1 text-center max-w-2xl">
+              Pas de surcharge jeune conducteur • Pas d'empreinte CB bloquée • Pas de frais aéroport cachés • Tout client traité de la même manière
+            </p>
           </div>
 
           {/* Search Form */}

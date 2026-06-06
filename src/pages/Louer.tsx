@@ -668,8 +668,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Marrakech",
-    price: 900,
-    priceDisplay: "900 MAD",
+    price: 950,
+    priceDisplay: "950 MAD",
     conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -764,8 +764,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 950,
-    priceDisplay: "950 MAD",
+    price: 1000,
+    priceDisplay: "1000 MAD",
     conditions: ["Caution: 11500 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -812,8 +812,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Marrakech",
-    price: 1000,
-    priceDisplay: "1000 MAD",
+    price: 1050,
+    priceDisplay: "1050 MAD",
     conditions: ["Caution: 12000 MAD", "500 km/jour inclus", "Âge minimum: 29 ans"]
   },
   {
@@ -1784,8 +1784,8 @@ const cars = [
     type: "Automatique",
     category: "SUV Premium",
     city: "Marrakech",
-    price: 1700,
-    priceDisplay: "1700 MAD",
+    price: 1850,
+    priceDisplay: "1850 MAD",
     conditions: generateConditions(25)
   },
   {

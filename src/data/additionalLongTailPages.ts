@@ -2113,4 +2113,61 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
     ]
   }
+,
+  // ============================================================
+  // PAGE COMPARATIVE — Benatna vs Avis/Hertz/Europcar/Sixt
+  // ============================================================
+  {
+    slug: 'benatna-vs-avis-hertz-europcar-sixt',
+    title: 'Benatna vs Avis Hertz Europcar Sixt',
+    metaTitle: 'Benatna vs Avis Hertz Europcar Sixt Maroc 2026 : Comparatif Honnete',
+    metaDescription: 'Tarifs reels et frais caches des grosses franchises au Maroc. Benatna : prix tout inclus, sans CB, transparent. Comparatif complet 2026.',
+    keywords: 'benatna vs hertz, benatna vs avis, benatna vs europcar, benatna vs sixt, comparatif location voiture maroc franchises',
+    h1: 'Benatna vs Avis, Hertz, Europcar, Sixt : Comparatif Honnete 2026',
+    heroSubtitle: 'Tarifs reels avec frais caches inclus • Politique caution • Conditions paiement',
+    category: { label: 'Comparatif Franchises', href: '/nos-services' },
+    content: {
+      intro: 'Vous hesitez entre **Benatna** et une **grande franchise internationale** comme Hertz, Avis, Europcar ou Sixt pour louer une voiture au Maroc ? Bonne idee de comparer. Spoiler : sur le tarif affiche, les franchises semblent attractives ("a partir de 9 euros par jour"). Mais une fois ajoutes la **caution CB bloquee, le supplement aeroport, la surcharge jeune conducteur, le GPS, le siege enfant, et l assurance premium "obligatoire"**, le tarif final monte de 30 a 50 percent. Benatna affiche un **tarif tout inclus, sans surprise**, avec paiement DH/euro/virement et caution en especes ou virement. Voici le comparatif honnete 2026.',
+      sections: [
+        {
+          title: 'Tarif affiche vs tarif reel facture : le piege',
+          content: 'Voici un exemple concret. **Une famille MRE 4 personnes**, ete 2026, **Hertz Casablanca CMN, 7 jours, Dacia Duster** : tarif affiche **350 DH/jour** (2450 DH/7j). Au comptoir Hertz ajoute : caution CB bloquee 6000 DH, supplement aeroport 150 DH/j (+1050), jeune conducteur 100 DH/j (+700), GPS 50 DH/j (+350), assurance complete "recommandee" 80 DH/j (+560), second conducteur 50 DH/j (+350). **Total reel : 5810 DH** (+137 percent vs affiche). Benatna meme periode, meme voiture : **520 DH/j tout inclus, sans CB bloquee, livraison aeroport gratuite, second conducteur offert si MRE recurrent**. Total Benatna : **3640 DH**. **Economie Benatna : 2170 DH sur 7 jours**.'
+        },
+        {
+          title: 'Comparatif catégorie par catégorie (tarifs reels août 2026)',
+          content: '**Economique** (Dacia Sandero, Logan, Clio, Accent) : Benatna **300-370 DH/j tout inclus**. Hertz/Avis/Europcar tarif reel facture **450-700 DH/j** (toutes options + caution CB). Sixt **500-750 DH/j**. **Economie Benatna : 30 a 50 percent**. **Mid-range SUV** (Duster, Sportage, Tucson, Golf) : Benatna **400-650 DH/j**. Franchises tarif reel **750-1400 DH/j**. **Economie Benatna : 35 a 50 percent**. **Premium** (Mercedes Classe E, BMW Serie 5, Audi Q5, BMW X3) : Benatna **950-1050 DH/j**. Franchises tarif reel **1500-2400 DH/j**. **Economie Benatna : 30 a 40 percent**. **Luxe** (Range Rover Sport, Porsche Cayenne, Mercedes Classe G) : Benatna **1850-3600 DH/j**. Franchises tarif reel **2500-5500 DH/j**. **Economie Benatna : 25 a 35 percent**.'
+        },
+        {
+          title: 'Politique caution et paiement : la grosse difference',
+          content: 'C est sur la caution que la difference Benatna vs franchises est la plus marquee. **Hertz/Avis/Europcar/Sixt** : caution **8000 a 20000 DH bloquee sur carte de credit internationale** (Visa/Mastercard), pendant toute la duree de location + 7-14 jours apres restitution. Probleme **majeur pour MRE en carte Maestro/V-Pay** (cartes debit europeennes non acceptees). **Benatna** : caution **2000-5000 DH en especes ou virement bancaire SEPA**, restituee le jour meme (especes) ou 3-5 jours ouvres (virement). **Aucune carte de credit internationale exigee**. Paiement accepte : DH especes, euros especes, virement SEPA depuis ta banque europeenne, Cash Plus, Wafacash, carte CMI marocaine. Voir <a href=\"/caution-location-voiture-maroc\">notre guide caution complet</a>.'
+        },
+        {
+          title: 'Tous clients traites egalement : pas de discrimination',
+          content: 'Chez les franchises, **plus tu es jeune, plus tu paies cher**. Surcharge jeune conducteur -25 ans : **100-150 DH/jour** chez Hertz/Sixt. Surcharge senior +70 ans : 50-80 DH/jour. Surcharge "renter sans historique" (premier contrat) : 30-50 DH/j. Surcharge MRE residence europeenne (parfois) : pas explicite mais frais dossier ajoutes. Chez **Benatna** : **tous les clients sont traites de la meme maniere**. Pas de surcharge jeune conducteur (a partir de 21 ans pour citadine, 23 SUV). Pas de surcharge age. Pas de discrimination MRE/touriste/Marocain. **Le prix annonce est le prix paye**, quelque soit ton profil. C est notre philosophie depuis 2018.'
+        },
+        {
+          title: 'Quand choisir une franchise quand meme ?',
+          content: 'Soyons honnetes : il y a quelques cas ou une franchise reste plus avantageuse. **(1) Programme de fidelite intensif** : si tu accumules 50000+ km/an chez Hertz Gold ou Avis Preferred, tu beneficies d upgrades et tarifs preferentiels que Benatna ne peut pas matcher individuellement. **(2) Voyage hors Maroc avec meme dossier** : Hertz/Avis te permettent louer dans 100+ pays avec un seul compte. Benatna est specialise Maroc. **(3) Voyage corporate Fortune 500** : ton entreprise a un contrat global Hertz/Avis et tu n as pas le choix. Sinon, **dans 95 percent des cas, Benatna est plus economique et plus simple** pour MRE et touristes francophones.'
+        }
+      ],
+      faq: [
+        { question: 'Combien je paie reellement chez Hertz au Maroc en août 2026 ?', answer: 'Sur Duster 7 jours : tarif affiche 2450 DH, tarif reel facture (avec caution CB, aeroport, jeune conducteur, GPS, assurance) : 5800-6500 DH. Benatna equivalent : 3640 DH tout inclus.' },
+        { question: 'La caution Benatna est-elle vraiment sans CB internationale ?', answer: 'Oui, especes DH ou euros, virement SEPA, Cash Plus, Wafacash, CB CMI marocaine. Jamais d empreinte CB internationale obligatoire.' },
+        { question: 'Y a-t-il une surcharge jeune conducteur chez Benatna ?', answer: 'Non. A partir de 21 ans (citadine) ou 23 ans (SUV), aucun supplement. Vs 100-150 DH/jour chez Hertz/Sixt.' },
+        { question: 'Que se passe-t-il si je veux louer dans 2 pays differents ?', answer: 'Benatna est specialise Maroc. Pour besoins multi-pays MRE (France + Maroc), Avis/Hertz ont l avantage du reseau international.' },
+        { question: 'Quelle est la garantie qualite Benatna vs franchises ?', answer: 'Vehicules <3 ans, assurance tous risques incluse, vehicule de remplacement <24h si panne. Equivalent franchises sans surcout cache.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Sans Frais Caches',
+      subtitle: 'Tarif transparent • Caution especes • Sans CB internationale • WhatsApp 2 min',
+      buttonText: 'Demander un devis',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Caution Location Voiture Maroc', description: 'Notre approche transparente.', link: '/caution-location-voiture-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Tarifs complets sans surprise.', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Sans Carte de Credit Casablanca', description: 'Paiement DH/euro/virement.', link: '/location-voiture-sans-carte-credit-casablanca' }
+    ]
+  }
 ];

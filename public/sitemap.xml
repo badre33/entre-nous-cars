@@ -475,6 +475,13 @@
     <priority>0.75</priority>
   </url>
 
+  <!-- Page comparative anti-franchise -->
+  <url>
+    <loc>https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- ============================================================ -->
   <!-- CAN 2025 (événement passé, conservé pour SEO résiduel)        -->
   <!-- ============================================================ -->

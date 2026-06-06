@@ -97,6 +97,7 @@ const LocationVoitureAvecChauffeurMaroc = lazy(() => import("./pages/LocationVoi
 const AccidentVoitureLocationMaroc = lazy(() => import("./pages/AccidentVoitureLocationMaroc"));
 const CourteVsLongueDureeLocationVoitureMaroc = lazy(() => import("./pages/CourteVsLongueDureeLocationVoitureMaroc"));
 const EssenceOuDieselLocationVoitureMaroc = lazy(() => import("./pages/EssenceOuDieselLocationVoitureMaroc"));
+const BenatnaVsFranchises = lazy(() => import("./pages/BenatnaVsFranchises"));
 const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
 const LocationLongueDureeMarrakech = lazy(() => import("./pages/LocationLongueDureeMarrakech"));
 const LocationJeuneConducteurCasablanca = lazy(() => import("./pages/LocationJeuneConducteurCasablanca"));
@@ -345,6 +346,7 @@ const App = () => {
                     <Route path="/accident-voiture-location-maroc-que-faire" element={<AccidentVoitureLocationMaroc />} />
                     <Route path="/courte-vs-longue-duree-location-voiture-maroc" element={<CourteVsLongueDureeLocationVoitureMaroc />} />
                     <Route path="/essence-ou-diesel-location-voiture-maroc" element={<EssenceOuDieselLocationVoitureMaroc />} />
+                    <Route path="/benatna-vs-avis-hertz-europcar-sixt" element={<BenatnaVsFranchises />} />
                     <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
                     <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
                     <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />
