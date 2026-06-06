@@ -1722,4 +1722,395 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'SUV Atlas Marrakech', link: '/location-voiture-suv-atlas-marrakech' }
     ]
   }
+,
+  // ============================================================
+  // SPRINT $38k V3 — Hub /guide-maroc + 10 longue traine info
+  // ============================================================
+  {
+    slug: 'guide-maroc',
+    title: 'Guide Maroc Location Voiture',
+    metaTitle: 'Guide Complet : Louer Voiture au Maroc 2026 | Benatna',
+    metaDescription: 'Permis, age, caution, carburant, peages, accidents : guide complet pour louer une voiture au Maroc en 2026. MRE et touristes. Reponses claires.',
+    keywords: 'guide location voiture maroc, louer voiture maroc 2026, conseils location voiture maroc, faq voiture maroc',
+    h1: 'Guide Complet : Louer une Voiture au Maroc en 2026',
+    heroSubtitle: 'Tout ce qu il faut savoir : permis, age, caution, carburant, peages, accidents',
+    category: { label: 'Guide Pratique', href: '/nos-services' },
+    content: {
+      intro: 'Vous preparez votre **location de voiture au Maroc** ? Que vous soyez **MRE** rentrant pour les vacances ou **touriste** en road trip, ce **guide complet 2026** repond a toutes les questions pratiques avant et pendant votre sejour. **10 fiches detaillees** couvrent les regles de conduite, les couts annexes (essence, peages, parking), les obligations (permis, age), et les bonnes pratiques (eviter arnaques, gerer un accident). Compile par l equipe Benatna a partir des 5000+ demandes clients recues en 2025-2026.',
+      sections: [
+        { title: 'Regles de conduite et obligations legales', content: 'Conduire au Maroc demande de connaitre quelques specificites legales. **Permis** : un permis europeen, canadien, americain ou australien est valide jusque 1 an apres entree sur le territoire. **Permis international** : pas obligatoire si tu as un permis EU/CA/US, recommande pour certains pays asiatiques ou africains. **Age minimum** : 21 ans typique, 23 ans sur SUV et premium, 25 ans sur luxe. **Permis ancien** : minimum 1 an d anciennete pour la majorite des loueurs. **Documents a avoir sur soi** : permis original, contrat location, carte grise, attestation assurance. Voir nos guides detailles : <a href=\"/permis-international-maroc-location-voiture\">Permis international Maroc</a>, <a href=\"/age-minimum-location-voiture-maroc\">Age minimum location</a>, <a href=\"/conduire-maroc-permis-etranger\">Conduire avec permis etranger</a>.' },
+        { title: 'Couts annexes a prevoir', content: 'Au-dela du prix de location, prevoyez ces couts. **Carburant** : essence 15 DH/L environ, gasoil 14 DH/L. Plein citadine 600-700 DH, SUV 900-1100 DH. **Peages autoroute** : Casa-Marrakech 80 DH, Casa-Tanger 90 DH, Casa-Rabat 15 DH. Carte autoroute Maroc disponible en station. **Parking** : 10-20 DH/h gardien centre-ville, 30-50 DH/jour. **Caution** : 3000-20000 DH selon categorie, espece ou virement chez Benatna (pas de CB bloquee). **Franchise assurance** : 3000-8000 DH selon contrat, rachat possible +30-50 DH/jour. Voir nos guides : <a href=\"/prix-essence-gasoil-maroc-2026\">Prix essence/gasoil 2026</a>, <a href=\"/peages-autoroute-maroc-tarifs-2026\">Peages autoroute</a>, <a href=\"/caution-location-voiture-maroc\">Caution location</a>.' },
+        { title: 'Choix du vehicule et formules', content: '**Citadine** (Sandero, i10, Picanto) pour 2-4 personnes en ville : 300-400 DH/jour. **Berline** (Clio, Yaris) pour confort et autoroute : 420-500 DH/jour. **SUV** (Duster, Tucson, Qashqai) pour 5 personnes et excursions Atlas/desert : 650-850 DH/jour. **Premium** (Mercedes, BMW) pour image : 1300-2000 DH/jour. **Van 7-9 places** (Jogger) pour familles : 1000-1300 DH/jour. **Boite manuelle vs automatique** : automatique conseille en ville et MRE habitues. **Essence vs diesel** : diesel 30% moins cher a la pompe, conseille longs sejours. **Courte (1-7j) vs longue duree (mensuel)** : longue duree -10 a -15% vs cumul journalier. Voir : <a href=\"/location-voiture-avec-chauffeur-maroc\">Location avec chauffeur</a>, <a href=\"/courte-vs-longue-duree-location-voiture-maroc\">Courte vs longue duree</a>, <a href=\"/essence-ou-diesel-location-voiture-maroc\">Essence ou diesel</a>.' },
+        { title: 'Bonnes pratiques et securite', content: '**A la prise** : photos detaillees du vehicule (carrosserie, intérieur, kilometrage, carburant), etat des lieux signe. **Sur la route** : prudence aux scooters, calches, pietons. Ralentir aux speed bumps. Police de circulation presente sur grandes avenues. **Arnaques courantes** : faux gardiens parking (donner 5-10 DH suffit), pompes a essence trichant (verifier remise a zero), accidents simules. **En cas d accident** : appeler 19 (police), faire constat amiable, photos. Contacter immediatement Benatna par WhatsApp pour gestion assurance. Voir : <a href=\"/eviter-arnaques-location-voiture-maroc\">Eviter arnaques</a>, <a href=\"/accident-voiture-location-maroc-que-faire\">Accident : que faire</a>.' }
+      ],
+      faq: [
+        { question: 'Mon permis francais ou belge est-il valide au Maroc ?', answer: 'Oui, valide pendant 1 an sur le territoire marocain. Au-dela, conversion en permis marocain necessaire.' },
+        { question: 'Quel age minimum pour louer chez Benatna ?', answer: '21 ans pour citadine, 23 ans pour SUV, 25 ans pour premium. 1 an d anciennete minimum sur le permis.' },
+        { question: 'Combien coute le plein d essence pour Casa-Marrakech ?', answer: 'Citadine : 200-250 DH de carburant pour ~250 km. Plus 80 DH de peages aller-retour. Total 280-330 DH.' },
+        { question: 'Faut-il un permis international ?', answer: 'Non si tu as permis EU, CA, US, AU, NZ. Recommande pour permis asiatiques ou africains.' },
+        { question: 'Comment payer la voiture sans carte de credit internationale ?', answer: 'Especes DH/euro, virement SEPA, Cash Plus, Wafacash, carte CMI marocaine. Toutes options acceptees chez Benatna.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Livraison aeroport gratuite • Tarifs transparents DH/euro',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Caution Location Voiture Maroc', description: 'Guide Benatna', link: '/caution-location-voiture-maroc' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'permis-international-maroc-location-voiture',
+    title: 'Permis International Maroc',
+    metaTitle: 'Permis International Obligatoire au Maroc ? Reponse 2026 | Benatna',
+    metaDescription: 'Permis international Maroc : pas obligatoire si permis EU/CA/US/AU. Quand le prendre, comment l obtenir, validite. Guide complet 2026.',
+    keywords: 'permis international maroc obligatoire, permis international location voiture maroc, conduire maroc permis international',
+    h1: 'Permis International au Maroc : Obligatoire ou Pas ?',
+    heroSubtitle: 'Reponse claire selon ton pays • Comment l obtenir • Quand le prendre',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: 'Tu prepares ton voyage au Maroc et tu te demandes si **le permis international est obligatoire** ? Reponse courte : **non si tu as un permis europeen, canadien, americain, britannique, australien ou neo-zelandais**. Oui dans certains autres cas. Ce guide explique precisement quand le prendre, comment l obtenir et combien ca coute.',
+      sections: [
+        { title: 'Quand le permis international est-il obligatoire ?', content: 'Le Maroc reconnait comme **valides sans permis international** : permis europeen tous pays UE (FR, BE, ES, IT, DE, NL, PT, etc.), permis canadien, americain, britannique, australien, neo-zelandais, suisse, norvegien. Pour ces nationalites, **ton permis national suffit pendant 1 an** apres entree au Maroc. Au-dela, conversion en permis marocain obligatoire. Le **permis international devient obligatoire** pour : permis asiatique (Chine, Japon, Coree sauf accords specifiques), africain subsaharien, certains pays de l Est. En cas de doute, consultez le consulat marocain de votre pays.' },
+        { title: 'Comment obtenir un permis international en France/Belgique ?', content: '**France** : demande en ligne sur ANTS (Agence Nationale des Titres Securises), gratuit, delai 4-8 semaines. **Belgique** : demande en commune, environ 30 euros, delai 1-2 semaines. **Suisse** : Office circulation cantonal, 25-40 CHF, immediat. **Quebec** : SAAQ, 28 CAD, delai variable. Toujours **prendre le permis national original avec soi** en plus du permis international (le permis international seul ne suffit pas). Validite : 1-3 ans selon pays.' },
+        { title: 'Et si je conduis avec un permis non reconnu ?', content: 'Sans permis international ou national valide, **risque d amende immediate** (300-500 DH) et **immobilisation du vehicule**. En cas d accident, **non-couverture par l assurance** : tu paies tout. Conseils Benatna : si doute, prends le permis international par precaution (cout modeste, evite stress). Toujours avoir avec toi : permis national original + permis international + contrat location + recepisse Benatna.' },
+        { title: 'Validite et duree du permis international au Maroc', content: 'Le permis international est valide **1 an a partir de son emission** pour la conduite au Maroc, et au-dela tu peux le renouveler. Le **permis national europeen reste valide 1 an apres entree sur le territoire marocain** ; au-dela, residence prouvee = conversion obligatoire en permis marocain. Touristes courts sejours (moins de 90 jours) : permis national suffit toujours. Pas besoin de demarche speciale.' }
+      ],
+      faq: [
+        { question: 'Mon permis francais est-il accepte au Maroc en 2026 ?', answer: 'Oui, sans permis international. Valide 1 an apres entree au Maroc.' },
+        { question: 'Combien coute un permis international en France ?', answer: 'Gratuit via ANTS. Delai 4-8 semaines. Anticipe ta demande.' },
+        { question: 'Que se passe-t-il si je suis controle sans permis ?', answer: 'Amende 300-500 DH, immobilisation vehicule. Assurance non couverte en cas d accident.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'age-minimum-location-voiture-maroc',
+    title: 'Age Minimum Location Voiture Maroc',
+    metaTitle: 'Age Minimum Location Voiture Maroc 2026 : 21 ans ? | Benatna',
+    metaDescription: 'Age minimum location voiture au Maroc : 21 ans citadine, 23 ans SUV, 25 ans premium. Surcharge jeune conducteur. Guide 2026.',
+    keywords: 'age minimum location voiture maroc, location voiture maroc 21 ans, jeune conducteur maroc',
+    h1: 'Age Minimum pour Louer une Voiture au Maroc',
+    heroSubtitle: '21 ans citadine • 23 ans SUV • 25 ans premium • Surcharge eventuelle',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: 'Quel **age minimum pour louer une voiture au Maroc** ? Reponse standard : **21 ans pour citadine, 23 ans SUV, 25 ans premium**. Plus l anciennete du permis (minimum 1 an). Chez Benatna nous appliquons aussi un **bareme adapte au profil MRE** (familles d expatries), avec quelques flexibilites.',
+      sections: [
+        { title: 'Bareme standard par categorie de vehicule', content: '**Citadine economique** (Sandero, i10, Picanto, Yaris) : **21 ans minimum**, 1 an d anciennete permis. Surcharge jeune conducteur (-25 ans) : 30-50 DH/jour. **Berline/compacte** (Clio, Megane, Polo, Corolla) : **23 ans minimum**, 2 ans permis. **SUV** (Duster, Qashqai, Tucson) : **23 ans minimum**, 2 ans permis. **Berline confort/premium** (Mercedes Classe A, BMW Serie 3, Audi A4) : **25 ans minimum**, 3 ans permis. **SUV luxe** (Mercedes GLE, BMW X5, Range Rover) : **25-28 ans selon contrat**, 5 ans permis.' },
+        { title: 'Surcharge jeune conducteur : combien et pourquoi ?', content: 'Si tu as **moins de 25 ans**, la plupart des loueurs (Hertz, Avis, Sixt) appliquent une **surcharge jeune conducteur de 50-100 DH/jour** (statistiquement, accidents plus frequents). Chez Benatna : **surcharge plus modeste 30-50 DH/jour** pour citadine, supprimee si tu as **3+ ans d anciennete permis**. Pour MRE jeune adulte (etudiant en Europe rentrant au Maroc), bareme adapte sur dossier. <a href=\"/location-voiture-jeune-conducteur-casablanca\">Voir notre page Jeune conducteur Casa</a>.' },
+        { title: 'Que faire si je n ai que 19-20 ans ?', content: '**Tres difficile** de louer chez la majorite des loueurs (legalement permis depuis 18 ans en France, mais la plupart exigent 21 ans). Quelques options : (1) Demander a un parent/freres aines de 21+ ans de figurer comme conducteur principal au contrat, toi en conducteur secondaire si autorise. (2) **Location avec chauffeur** disponible chez Benatna, pas de minimum d age conducteur. (3) Attendre tes 21 ans. Voir <a href=\"/location-voiture-avec-chauffeur-maroc\">Location avec chauffeur</a>.' },
+        { title: 'Documents requis selon ton age', content: '**21-24 ans** : permis original, piece identite, carte CB ou virement caution, justificatif domicile. **25 ans et plus** : memes documents, plus de souplesse sur la categorie. **Etudiant MRE** : carte etudiant europeenne acceptee comme justificatif. Pour location longue duree (1+ mois), **garant marocain** parfois demande aux moins de 25 ans.' }
+      ],
+      faq: [
+        { question: 'J ai 22 ans, puis-je louer un SUV ?', answer: 'Pas systematiquement (norme 23 ans). Sur dossier et avec 3+ ans permis, possible chez Benatna.' },
+        { question: 'Surcharge jeune conducteur, combien ?', answer: '30-50 DH/jour chez Benatna pour les -25 ans sur citadine. Supprimee si 3+ ans permis.' },
+        { question: 'Age max location voiture ?', answer: 'Pas de limite haute en general. Verification visuelle de l aptitude au volant.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'eviter-arnaques-location-voiture-maroc',
+    title: 'Eviter Arnaques Location Voiture Maroc',
+    metaTitle: 'Eviter Arnaques Location Voiture Maroc : 10 Pieges (2026) | Benatna',
+    metaDescription: '10 arnaques courantes location voiture Maroc : faux gardiens, etat des lieux flou, pompes truques, faux accidents. Comment se proteger. Guide 2026.',
+    keywords: 'arnaques location voiture maroc, pieges location voiture maroc, securite location voiture maroc',
+    h1: '10 Arnaques a Eviter sur la Location de Voiture au Maroc',
+    heroSubtitle: 'Faux gardiens • Etat des lieux flou • Pompes truques • Comment se proteger',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: 'La majorite des loueurs marocains sont **honnetes et professionnels**. Mais comme partout, quelques pieges existent — surtout pour les **touristes premier voyage** ou les **MRE peu habitues au marche local**. Voici les **10 arnaques les plus courantes** identifiees par notre equipe Benatna sur 5000+ retours clients, avec comment s en proteger.',
+      sections: [
+        { title: 'Arnaques au moment de la prise du vehicule', content: '**(1) Etat des lieux flou** : agent presse, pas de tour complet du vehicule. **Parade** : exiger un tour complet, **photos detaillees** carrosserie, interieur, jantes, kilometrage, niveau carburant. **(2) Vehicule sale a l etat des lieux** : impossible de detecter rayures sous la salete. **Parade** : refuser le vehicule, demander lavage avant signature. **(3) Caution exigee plus haute que contrat** : agent invente un supplement. **Parade** : exiger contrat ecrit et facture preuve. Benatna affiche la caution exacte par WhatsApp avant arrivee.' },
+        { title: 'Arnaques pendant la location', content: '**(4) Faux gardiens parking** : reclament 50-100 DH pour 1h de stationnement. **Parade** : tarif officieux est 5-10 DH. **(5) Pompe a essence trichant** : agent ne remet pas le compteur a zero, te facture 200 DH pour 50 DH d essence. **Parade** : descendre, verifier remise a zero avant de payer. **(6) Faux accident** : voiture te touche legerement, demande arrangement 1000-2000 DH ou police. **Parade** : appeler immediatement le 19 (police) et exiger constat officiel.' },
+        { title: 'Arnaques au retour du vehicule', content: '**(7) Carburant exige plein superieur** : agent reclame ton niveau pourtant correct. **Parade** : photo du compteur a la livraison ET au retour. **(8) Rayure fictive** : agent invente une rayure pour facturer 1500 DH. **Parade** : photos a la prise + signature etat des lieux. Sans ces photos, tu n as aucun recours. **(9) Retard de remboursement caution** : prevu sous 7 jours, dure 30+. **Parade** : Benatna restitue caution **le jour meme en especes** ou 3-5 jours par virement.' },
+        { title: 'Comment Benatna vous protege contre ces arnaques', content: '**Tarif transparent** affiche page prix avant reservation. **Caution claire** : montant exact communique par WhatsApp avant arrivee. **Etat des lieux photo systematique** : nous t envoyons les photos a la prise par WhatsApp pour conservation. **Suivi WhatsApp** pendant toute la location : tu peux nous joindre 24/7 en cas de probleme. **Restitution caution rapide** : especes le jour meme, virement 3-5 jours. **Constat amiable** standard pour tout dommage : pas d invention de rayure fictive. <a href=\"/caution-location-voiture-maroc\">Voir notre approche caution transparente</a>.' }
+      ],
+      faq: [
+        { question: 'Le faux gardien parking peut-il faire payer 100 DH ?', answer: 'Officieusement non, le tarif est 5-10 DH. Negocier ou ignorer (legalement non obligatoire mais pratique pour eviter degats vehicule).' },
+        { question: 'Comment prouver une rayure inexistante au retour ?', answer: 'Photos detaillees signees a la prise. Sans photos, parole contre parole. Benatna envoie photos par WhatsApp pour preuve.' },
+        { question: 'Que faire si je suspecte une arnaque pompe a essence ?', answer: 'Verifier compteur remis a zero avant pleine, regarder le total final correspond au litres affiches. Payer carte si possible (trace).' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'peages-autoroute-maroc-tarifs-2026',
+    title: 'Peages Autoroute Maroc Tarifs 2026',
+    metaTitle: 'Peages Autoroute Maroc Tarifs 2026 : Casa-Marrakech, Casa-Tanger | Benatna',
+    metaDescription: 'Tarifs peages autoroute Maroc 2026 : Casa-Marrakech 80 DH, Casa-Tanger 90 DH, Casa-Rabat 15 DH. Carte interactive et moyens de paiement.',
+    keywords: 'peages autoroute maroc tarifs, peage casa marrakech, peage casa tanger, autoroute maroc prix',
+    h1: 'Tarifs des Peages Autoroute au Maroc en 2026',
+    heroSubtitle: 'Casa-Marrakech 80 DH • Casa-Tanger 90 DH • Casa-Rabat 15 DH • Moyens de paiement',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: 'Le **reseau autoroutier marocain** (ADM, Autoroutes du Maroc) compte 1800+ km. Tous les axes principaux sont **a peage**, avec tarifs raisonnables. Voici la **grille complete 2026** pour les trajets les plus frequents, avec moyens de paiement acceptes pour MRE et touristes.',
+      sections: [
+        { title: 'Grille tarifaire principaux trajets 2026', content: 'Voici les tarifs en classe 1 (voiture particuliere) 2026 : **Casablanca → Rabat** : 15 DH (60 km). **Casablanca → Marrakech** : 80 DH (240 km). **Casablanca → Tanger** : 90 DH (340 km). **Casablanca → Fes** : 75 DH (290 km). **Casablanca → Agadir** : 110 DH (460 km, via Marrakech). **Rabat → Tanger** : 75 DH (280 km). **Rabat → Fes** : 60 DH (230 km). **Marrakech → Agadir** : 30 DH (220 km). **Marrakech → Casa Aeroport CMN** : 75 DH. Tarifs susceptibles d evolution annuelle mineure (3-5%). Classe 2 (SUV/camionnette) : +30%. Classe 3 (camion) : +60%.' },
+        { title: 'Moyens de paiement aux peages', content: '**Especes DH** : accepte partout. **CB nationale CMI** : acceptee depuis 2020 sur la majorite des peages. **CB internationale (Visa/Mastercard)** : acceptee mais parfois capricieuse, garder cash de secours. **Pass Jawaz** : badge pre-paye electronique, voie rapide sans arret. Conseil MRE : achetez-le si vous restez 2+ semaines, gain de temps notable. **Application Jibi** : paiement mobile experimental sur certains peages. Pas de paiement euro ni virement aux peages.' },
+        { title: 'Conseils economie carburant et peages', content: '**Eviter les peages** : itineraires alternatifs via routes nationales (N1, N9, etc.), mais **gain economique modeste compense par temps perdu** et fatigue. Exemple : Casa-Marrakech par N9 (route Settat) = 5h vs 2h30 autoroute, economie 80 DH, surconsommation carburant 100-150 DH. **Pas rentable**. Itineraires alternatifs interessants seulement pour : touriste qui veut voir le terroir (Settat, Khouribga, Beni Mellal), ou eviter trafic vacances. **Calcul cout total trajet Casa-Marrakech** : 80 DH peages + 200 DH carburant citadine = 280 DH. Toujours plus economique que le train (250 DH par personne) pour 2+ personnes.' },
+        { title: 'Securite et services sur autoroute', content: '**Stations service** : tous les 30-50 km sur autoroute, ouvertes 24/7, restaurants, toilettes, pompe essence. **Vitesse limite** : 120 km/h autoroute (sauf chantiers). Radars fixes et mobiles **frequents**. **Penalites exces** : 300-700 DH selon depassement. **Assistance** : pannes/accidents, appeler ADM Assistance via panneaux affiches tous les 5 km. Pas de stationnement sur bande d arret d urgence sauf urgence reelle.' }
+      ],
+      faq: [
+        { question: 'Combien coute Casa-Marrakech en peages ?', answer: '80 DH classe 1 en 2026 (voiture particuliere).' },
+        { question: 'La CB internationale fonctionne-t-elle aux peages ?', answer: 'Oui sur la majorite mais parfois capricieuse. Gardez especes de secours.' },
+        { question: 'Vaut-il mieux prendre l autoroute ou la route nationale ?', answer: 'Autoroute systematiquement plus rentable (temps + carburant) sauf pour decouverte terroir touristique.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'prix-essence-gasoil-maroc-2026',
+    title: 'Prix Essence Gasoil Maroc 2026',
+    metaTitle: 'Prix Essence et Gasoil au Maroc 2026 : Tarifs par Station | Benatna',
+    metaDescription: 'Prix essence et gasoil Maroc 2026 : essence 15 DH/L environ, gasoil 14 DH/L. Tarifs par ville et par station. Conseils economie carburant.',
+    keywords: 'prix essence maroc 2026, prix gasoil maroc 2026, prix carburant maroc, prix essence casablanca marrakech',
+    h1: 'Prix de l Essence et du Gasoil au Maroc en 2026',
+    heroSubtitle: 'Essence ~15 DH/L • Gasoil ~14 DH/L • Variations par station et periode',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: 'Les **prix des carburants au Maroc** ont ete liberalises depuis 2015 mais restent stables. En 2026 : **essence super 15 DH/L environ, gasoil 14 DH/L environ**. Variations selon stations (Afriquia, Total, Shell, Vivo) et zones (urbaines vs autoroute). Guide complet pour MRE et touristes en road trip.',
+      sections: [
+        { title: 'Prix moyens essence et gasoil 2026', content: '**Essence super 95** : entre 14,50 et 15,80 DH/L selon station et periode. Moyenne nationale : **15,00 DH/L** debut 2026. **Gasoil** : entre 13,80 et 14,50 DH/L. Moyenne nationale : **14,15 DH/L**. Variations cycliques selon cours du petrole brut. **GPL (gaz propulsion)** : disponible quelques stations Casa/Rabat, ~6 DH/L mais voiture GPL rare en location. **Diesel premium** (Total Excellium, Afriquia BioPlus) : +0,40 DH/L vs gasoil standard. Conseil : prendre le gasoil standard, suffisant pour voiture location standard.' },
+        { title: 'Comparaison cout entre essence et gasoil', content: 'Sur un trajet **Casa-Marrakech (240 km autoroute)** : citadine essence consomme ~6L/100km = 14L x 15 DH = 210 DH carburant. Citadine gasoil consomme ~5L/100km = 12L x 14 DH = 168 DH carburant. **Economie gasoil = 42 DH** sur ce trajet. Sur **2 semaines de location avec 1500 km parcourus** : essence ~1350 DH carburant total, gasoil ~1050 DH = **economie 300 DH**. Si tu hesites entre 2 modeles similaires l un essence l autre gasoil, **prends le gasoil** pour MRE 2+ semaines.' },
+        { title: 'Stations service principales et reseau', content: '**Afriquia** (groupe marocain, plus dense reseau, environ 600 stations) : tarifs competitifs, paiement CB CMI standard, application mobile. **Total** (international) : tarifs souvent les plus eleves de 10-30 centimes, mais qualite carburant garantie, accepte CB internationale partout. **Shell** : similar Total. **Vivo Energy** : reseau moyen. **Petrom** (roumain) : nouveau venu sur le marche. Stations autoroute Afriquia plus cheres (+30-50 centimes/L) que stations ville. Conseil : faire le plein en ville avant autoroute.' },
+        { title: 'Conseils economie carburant et budget', content: '**Faire le plein** en periode normale, pas dimanche soir (parfois +5 centimes). **Eviter stations autoroute** quand possible. **Conduite economique** : limiter 110 km/h sur autoroute (au lieu de 120) economise 15% carburant. **Climatisation** : -10 a -15% autonomie en ete. **Pneus bien gonfles** : -3-5% consommation. **Budget total typique road trip** : MRE 2 semaines 2000 km = ~1400 DH essence ou 1100 DH gasoil + 200-300 DH peages. **Touriste 1 semaine 800 km** = ~700 DH essence ou 550 DH gasoil + 100-150 DH peages.' }
+      ],
+      faq: [
+        { question: 'Prix essence au Maroc en 2026 ?', answer: 'Environ 15 DH/L (moyenne nationale debut 2026). Varie de 14,50 a 15,80 selon station.' },
+        { question: 'Plus economique gasoil ou essence ?', answer: 'Gasoil moins cher a la pompe (14 vs 15 DH/L) et consommation moindre. ~25-30% economie sur long trajet.' },
+        { question: 'Peut-on payer en euro ou CB internationale ?', answer: 'CB internationale acceptee partout. Euro non. Privilegier DH especes ou CB.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'conduire-maroc-permis-etranger',
+    title: 'Conduire au Maroc avec Permis Etranger',
+    metaTitle: 'Conduire au Maroc avec Permis Etranger 2026 : Guide | Benatna',
+    metaDescription: 'Conduire au Maroc avec permis francais, belge, canadien, americain : valide 1 an. Au-dela conversion permis marocain. Guide complet 2026.',
+    keywords: 'conduire maroc permis etranger, permis francais maroc, permis belge maroc, permis canadien maroc',
+    h1: 'Conduire au Maroc avec un Permis Etranger',
+    heroSubtitle: 'Permis EU/CA/US valide 1 an • Au-dela conversion marocaine • Conseils pratiques',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: 'Tu **debarques au Maroc avec ton permis francais, belge, suisse, canadien, americain** ? Bonne nouvelle : il est **valide pendant 1 an apres ton entree** sur le territoire. Au-dela, conversion en permis marocain obligatoire si residence prouvee. Ce guide explique les details pour MRE et expatries.',
+      sections: [
+        { title: 'Permis europeens et nord-americains : valides 1 an', content: 'Sont **automatiquement reconnus au Maroc sans permis international** : tous permis UE (France, Belgique, Espagne, Italie, Allemagne, Pays-Bas, Portugal, etc.), Suisse, Norvege, Royaume-Uni, Canada, USA, Australie, Nouvelle-Zelande, Japon (avec traduction officielle parfois). Valide **1 an apres date d entree au Maroc** matérialisee par tampon entree passeport ou carte d entree. Pour touristes courts sejours (90 jours max) : permis suffit toujours, jamais besoin de conversion.' },
+        { title: 'Conversion en permis marocain : quand et comment', content: 'Conversion obligatoire **si tu deviens resident marocain** (carte de sejour, etablissement professionnel, mariage, etc.) au-dela de 1 an. Demarche : **demande aupres de la prefecture** avec : permis original valide, traduction assermentee si non latin, carte sejour, justificatif domicile, attestation d activite ou de residence. **Cout : 250 DH**. Delai : 1-3 mois. **Pas d examen pratique** si permis original valide (sauf doute). Conversion possible vice-versa au retour : permis marocain reconnu en France 1 an, conversion ensuite possible si MRE ayant obtenu son permis MA puis revenant en France.' },
+        { title: 'Specificites permis francais, belge, canadien', content: '**Permis francais (categorie B)** : reconnu automatiquement. Anciens permis rose papier acceptes mais permis carte rose ou bleue europeenne moderne preferee. **Permis belge** : reconnu automatiquement. Modele rose ou carte europeenne. **Permis canadien** : reconnu, mais comme il varie par province (Quebec, Ontario), avoir avec soi l original ET copie traduite officiellement recommande. **Permis americain** : varie par etat. Reconnu globalement mais permis international fortement recommande en complement (cas de doute aux controles).' },
+        { title: 'Documents a toujours avoir sur soi en conduisant', content: 'Permis original (carte ou papier), **carte d identite/passeport**, contrat de location Benatna ou carte grise si vehicule personnel, **attestation d assurance** (fournie par loueur ou tampon vert si vehicule personnel), recepisse de paiement caution. **A la frontiere** : si tu rentres en voiture personnelle, declaration provisoire ADII (douanes) valide 6 mois. Voiture de location : pas de demarche douaniere car immatriculation marocaine.' }
+      ],
+      faq: [
+        { question: 'Permis francais valide combien de temps au Maroc ?', answer: '1 an apres entree sur le territoire. Au-dela, conversion en permis marocain si residence prouvee.' },
+        { question: 'Faut-il faire traduire mon permis ?', answer: 'Non pour permis EU/CA/US (caracteres latins). Oui pour permis arabe non latin, asiatique.' },
+        { question: 'Mon permis canadien fonctionne au Maroc ?', answer: 'Oui pour tous les permis canadiens (Quebec, Ontario, etc.). Permis international en complement recommande.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'location-voiture-avec-chauffeur-maroc',
+    title: 'Location Voiture avec Chauffeur Maroc',
+    metaTitle: 'Location Voiture avec Chauffeur Maroc 2026 : Tarifs | Benatna',
+    metaDescription: 'Location voiture avec chauffeur au Maroc : 800-2500 DH/jour selon vehicule. Casa, Marrakech, road trip multi-villes. Sans CB.',
+    keywords: 'location voiture avec chauffeur maroc, chauffeur prive maroc, voiture chauffeur marrakech casablanca',
+    h1: 'Location de Voiture avec Chauffeur au Maroc',
+    heroSubtitle: 'Confort total • Tarifs 800-2500 DH/jour • Casa, Marrakech, road trip',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: 'Si tu ne veux pas conduire toi-meme — **par confort, age, langue ou meconnaissance du Maroc** — la **location avec chauffeur** est une excellente option. Tarifs 2026 : **800 DH/jour citadine + chauffeur, 1500 DH/jour SUV + chauffeur, 2500 DH/jour premium + chauffeur**. Solution prisee MRE familles avec aines, touristes age, voyages d affaires.',
+      sections: [
+        { title: 'Tarifs location avec chauffeur 2026', content: '**Citadine + chauffeur (Sandero, Yaris)** : 800-1000 DH/jour, hors carburant. Convient 1-3 personnes intra-ville. **Berline + chauffeur (Toyota Corolla, VW Polo)** : 1100-1400 DH/jour. Confort superieur pour 2-4 personnes. **SUV + chauffeur (Hyundai Tucson, Toyota Hilux)** : 1500-2000 DH/jour. Ideal road trip Atlas, desert, jusqu a 5 personnes + bagages. **Berline premium + chauffeur (Mercedes Classe E, BMW Serie 5)** : 2000-2800 DH/jour. Image corporate, mariages, evenements. **Van 8-9 places + chauffeur** : 2500-3000 DH/jour. Famille nombreuse MRE ou groupe touristes.' },
+        { title: 'Quand prendre un chauffeur ?', content: '**Famille MRE avec aines** : grand-parents ne conduisent plus, parents prefer relaxer en vacances. **Touristes seniors** ou **groupe de copines** : pas besoin de conduire. **Voyage affaires** : reunions Casa, RDV Rabat, dejeuners Marrakech — chauffeur attend, te depose et reprend. **Road trip sud (Merzouga, Sahara)** : chauffeur connait routes desertiques et pistes. **Mariage MRE au Maroc** : chauffeur prive pour maries et famille, image classieuse. **Tournee inspection MRE** (visite famille El Jadida, retour Casa, week-end Marrakech) : chauffeur pour fluidite.' },
+        { title: 'Comment se passe la prestation Benatna', content: '**Reservation par WhatsApp** : tu indiques dates, point de depart (aeroport, hotel, riad), itineraire prevu, langue parlee. **Confirmation** : 2-5 minutes avec photo du vehicule et profil chauffeur (age, langues parlees, experience). **A la prise** : chauffeur t accueille a l aeroport avec panneau a ton nom, prend tes bagages, te depose ou tu veux. **Pendant la prestation** : il attend, te conseille (restaurant, point de vue), respecte tes timings. **Carburant** : a ta charge (15 DH/L essence environ). **Repas chauffeur** : a ta charge en road trip (50-100 DH par repas). **Pourboire** : 100-200 DH par jour selon qualite service apprecie.' },
+        { title: 'Chauffeur multilingue : francais, anglais, arabe', content: 'Tous nos chauffeurs parlent **francais** couramment (langue d enseignement Maroc). **Anglais** : 60% le parlent correctement, 30% bien. **Espagnol** : 30% le parlent (Nord du Maroc). **Allemand, italien** : sur demande, chauffeurs specialises disponibles. **Arabe et darija** : maitrise totale evidemment. Pour MRE 3e generation qui ne parle plus arabe : tous nos chauffeurs s adaptent au francais. Pour touriste anglo-saxon : nous selectionnons chauffeur anglophone confirme.' }
+      ],
+      faq: [
+        { question: 'Combien coute une journee voiture + chauffeur ?', answer: '800-1000 DH citadine, 1500 SUV, 2500 premium. Hors carburant et repas chauffeur.' },
+        { question: 'Le chauffeur reste-t-il avec moi tout le temps ?', answer: 'Oui pendant tes heures de service (typique 8h-22h). Repas et nuit chauffeur a sa charge si en ville.' },
+        { question: 'Faut-il donner un pourboire ?', answer: 'Non obligatoire mais apprecie. 100-200 DH par jour pour bonne prestation est usage MRE/touristes.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'accident-voiture-location-maroc-que-faire',
+    title: 'Accident Voiture Location Maroc : Que Faire',
+    metaTitle: 'Accident Voiture de Location Maroc : Que Faire (Guide 2026) | Benatna',
+    metaDescription: 'Accident voiture de location au Maroc : etapes constat, police, assurance, contact loueur. Guide complet 2026 pour MRE et touristes.',
+    keywords: 'accident voiture location maroc, constat accident maroc, accident voiture maroc que faire',
+    h1: 'Accident avec Voiture de Location au Maroc : Que Faire ?',
+    heroSubtitle: 'Etapes urgentes • Police 19 • Constat • Contact Benatna • Assurance',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: 'Avoir un **accident avec une voiture de location au Maroc** est rare mais arrive. Que tu sois MRE ou touriste, voici la **procedure exacte etape par etape** pour gerer la situation calmement : police (numero 19), constat amiable, photos, contact Benatna par WhatsApp, declaration assurance. Guide compile par notre service apres 500+ accidents gérés depuis 2018.',
+      sections: [
+        { title: 'Etapes immediates apres l accident', content: '**Etape 1 — Securiser** : allume warnings, sors triangle a 30-50m, gilet jaune obligatoire (fourni dans la voiture). Si urgence vitale : 15 (SAMU), 19 (police). **Etape 2 — Verifier blessures** tous occupants. Si blessure : 15 immediatement. **Etape 3 — Photographier** la scene avant de bouger les vehicules : positions exactes, plaques, degats, environnement. **Etape 4 — Appeler la police au 19** si : blessure, desaccord avec autre conducteur, dommage important, refus constat amiable autre partie. Sinon, constat amiable suffit. **Etape 5 — Contacter Benatna par WhatsApp** : +212 699 024 526. Nous t accompagnons en temps reel sur la suite.' },
+        { title: 'Le constat amiable : comment le remplir', content: 'Le **constat amiable marocain** existe en arabe et francais. Disponible dans tous les vehicules Benatna en double exemplaire. Remplir : (1) Date, heure, lieu precis. (2) Identite conducteurs (permis, contact). (3) Compagnies assurance et numero police. (4) Croquis schematique des positions. (5) Circonstances cochees (cases pre-imprimees). (6) **Signature des deux conducteurs**. Si l autre conducteur **refuse de signer** : appeler la police au 19 (les agents font un constat officiel). Garder l original, scanner ou photographier les deux exemplaires.' },
+        { title: 'Contact Benatna et gestion assurance', content: '**Contact immediat WhatsApp** Benatna (+212 699 024 526) : envoyer photos accident, scan constat, et tes coordonnees. **Nous prenons la suite** : declaration assurance dans les 48h, suivi expertise vehicule, recuperation du vehicule de remplacement si necessaire. **Vehicule de remplacement** : nous fournissons un equivalent sous 24-48h si l accident immobilise le vehicule (selon dispo flotte). **Couverture assurance** : tous risques couvre au-dela de la **franchise (3000-8000 DH selon contrat)**. Si tu as pris **option rachat de franchise (+30-50 DH/jour)**, franchise reduite a 500 DH ou 0 DH. <a href=\"/caution-location-voiture-maroc\">Voir notre guide caution et franchise</a>.' },
+        { title: 'Ce qu il ne faut PAS faire', content: '**(1) Ne pas accepter arrangement informel** sans constat ecrit, meme si l autre conducteur insiste (risque arnaque). **(2) Ne pas signer un constat sans le lire entierement**, en particulier ne pas cocher cases de responsabilite sans bien comprendre. **(3) Ne pas quitter les lieux** d un accident corporel — delit de fuite, peine d emprisonnement. **(4) Ne pas reparer la voiture ailleurs** sans accord ecrit de Benatna — facturation refusee. **(5) Ne pas oublier de contacter Benatna immediatement** : declaration assurance a delais legaux (48h-5j).' }
+      ],
+      faq: [
+        { question: 'Quel numero appeler en cas d accident grave ?', answer: '19 pour la police, 15 pour le SAMU. Garder ces numeros enregistres dans ton telephone des l arrivee au Maroc.' },
+        { question: 'Combien je vais payer si je suis responsable ?', answer: 'La franchise (3000-8000 DH selon categorie), prelevee sur ta caution. Avec rachat de franchise : 0-500 DH.' },
+        { question: 'Et si l autre conducteur refuse de signer le constat ?', answer: 'Appeler la police au 19. Ils etablissent un constat officiel sur place.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'courte-vs-longue-duree-location-voiture-maroc',
+    title: 'Courte vs Longue Duree Location Voiture Maroc',
+    metaTitle: 'Courte vs Longue Duree Location Voiture Maroc : Quel Tarif ? | Benatna',
+    metaDescription: 'Difference courte (1-7j) vs longue duree (mois) location voiture Maroc : tarifs degressifs -10 a -15%, garanties, services. Guide 2026.',
+    keywords: 'courte vs longue duree location voiture maroc, location voiture longue duree maroc, tarif degresif location voiture',
+    h1: 'Location Courte ou Longue Duree au Maroc : Quel Tarif Choisir ?',
+    heroSubtitle: 'Courte 1-7j • Longue duree mensuelle -10 a -15% • Quel moment basculer',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: '**Courte duree** (1-7 jours) ou **longue duree** (1 mois ou plus) ? La distinction influe sur le tarif, la garantie et les services. **Regle generale** : si tu loues 14+ jours, **passe en tarif longue duree** pour economiser 10-15%. Detail des seuils et formules chez Benatna.',
+      sections: [
+        { title: 'Seuils tarifaires : quand basculer ?', content: '**1-3 jours** : tarif journalier standard. Citadine 350-400 DH/jour. **4-7 jours** : tarif semaine, -5% automatique. Citadine ~2200 DH la semaine au lieu de 2450 si cumul journalier. **8-14 jours** : -7-10%. Citadine ~3800-4200 DH. **15-30 jours** : tarif mensuel, **-10 a -15% vs cumul journalier**. Citadine **8500 DH/mois** au lieu de 10500 DH si journalier. **1-3 mois** : tarif longue duree, -15% supplementaire. **6+ mois** : tarif corporate, devis personnalise avec services dedies.' },
+        { title: 'Avantages longue duree pour MRE et expatries', content: '**Tarif degresif** : -10 a -25% selon duree. **Caution reduite** : possible de la faire descendre a 2000-3000 DH au lieu de 5000+ apres 3 mois de fidelite. **Entretien inclus** : revision mecanique, vidange, vidange a notre charge sur location 3+ mois. **Pneus inclus** : remplacement si usure normale. **Vehicule de remplacement** : sous 24h en cas de panne ou accident. **Pas de paperasse repetee** : un seul contrat, paiement mensuel automatique. **Profil MRE** : ideal pour ceux qui rentrent 2-3 mois ete ou 1 mois Aid.' },
+        { title: 'Services additionnels longue duree', content: '**Livraison gratuite** intra-ville (Casa, Marrakech, Rabat). **Pickup gratuit** pour entretien : nous prenons le vehicule et te ramenons un equivalent pendant la revision. **Assurance bris de glace** offerte sur 3+ mois. **Carte autoroute prepayee** : nous fournissons Pass Jawaz prepaye pour eviter files de peages, soldes au choix. **Conducteur additionnel gratuit** : pour 1 mois et plus, ton conjoint(e) ou parent ajoute sans supplement (vs 50-100 DH/jour en courte duree). **Suivi WhatsApp dedie** : ligne directe avec ton gestionnaire flotte.' },
+        { title: 'Quel duree choisir selon ton sejour', content: '**Touriste vacances 1 semaine** : courte duree 7 jours. **MRE Aid Al Fitr 10-14 jours** : courte duree avec remise semaine appliquee automatiquement. **MRE ete 4-6 semaines** : **longue duree mensuelle**, important gain economique. **Expatrie nouvelle mission 3-6 mois** : longue duree corporate. **Etudiant erasmus 1 semestre** : 6 mois corporate, devis personnalise. Demande systematiquement le **devis longue duree** si ton sejour depasse 10 jours, meme si tu n y avais pas pense.' }
+      ],
+      faq: [
+        { question: 'Quelle economie sur 1 mois vs cumul journalier ?', answer: 'Environ 15-20% d economie. Citadine 8500 DH/mois vs ~10500 DH si tu paies 30 fois la journee.' },
+        { question: 'Puis-je basculer en cours de location de courte a longue duree ?', answer: 'Oui, sur demande. Nous recalculons le tarif et appliquons le nouveau si tu continues 2+ semaines.' },
+        { question: 'Le conducteur additionnel est-il gratuit ?', answer: 'En courte duree : 50-100 DH/jour. En longue duree (1+ mois) : gratuit chez Benatna.' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  },
+  {
+    slug: 'essence-ou-diesel-location-voiture-maroc',
+    title: 'Essence ou Diesel Location Voiture Maroc',
+    metaTitle: 'Essence ou Diesel pour Louer au Maroc ? Comparatif 2026 | Benatna',
+    metaDescription: 'Essence ou diesel pour location voiture Maroc : diesel 25-30% moins cher a la pompe, conseille longs sejours. Essence pour ville. Guide 2026.',
+    keywords: 'essence ou diesel location voiture maroc, gasoil ou essence maroc, choisir essence ou diesel maroc',
+    h1: 'Essence ou Diesel pour Louer une Voiture au Maroc ?',
+    heroSubtitle: 'Diesel 25-30% economie pour longs trajets • Essence pour ville • Comparatif clair',
+    category: { label: 'Guide Pratique', href: '/guide-maroc' },
+    content: {
+      intro: '**Essence ou diesel** quand on loue une voiture au Maroc ? Reponse rapide : **gasoil (diesel) systematiquement plus economique** pour 7+ jours ou 1000+ km. Essence acceptable pour usage ville uniquement court terme. Detail compare avec exemples chiffres pour MRE et touristes.',
+      sections: [
+        { title: 'Comparaison cout carburant essence vs diesel', content: '**Prix a la pompe 2026** : essence super 15 DH/L, gasoil 14 DH/L. Difference 1 DH/L = ~7% sur prix carburant brut. **Consommation citadine moyenne** : essence 6L/100km, gasoil 5L/100km. **Sur 100 km** : essence 90 DH, gasoil 70 DH = **-22% en couts carburant** total. **Sur 1000 km** : essence 900 DH, gasoil 700 DH = **economie 200 DH**. **Sur 2000 km (typique road trip MRE 3 semaines)** : essence 1800 DH, gasoil 1400 DH = **economie 400 DH**. Compense largement le supplement initial de 20-30 DH/jour souvent applique au diesel.' },
+        { title: 'Quand prendre essence ? Quand prendre diesel ?', content: '**Prefere essence si** : tu loues 1-3 jours seulement en ville (gain marginal), tu fais moins de 200 km/jour, tu prefers vehicule reactif (essence demarre mieux a froid). **Prefere diesel si** : tu loues 7+ jours ou MRE 2+ semaines, tu fais 500+ km autoroute (Casa-Marrakech, Casa-Tanger, road trip sud), tu loues SUV ou van (consommation elevee = economie diesel plus marquee), tu vises tarifs combines (location longue duree + gasoil = max economies).' },
+        { title: 'Disponibilite essence et diesel chez Benatna', content: '**Citadines** (Sandero, i10, Picanto, Yaris) : majoritairement diesel chez Benatna (60-70% flotte). Essence demande explicite. **Berlines** (Clio, Yaris) : mix 50-50 essence/diesel. **SUV** (Tucson, Qashqai, Duster) : majoritairement diesel (autonomie superieure). **Premium** (Mercedes, BMW) : majoritairement essence (puissance/confort). **Van** (Jogger) : exclusivement diesel. Si preference forte, indique-le a la reservation, nous selectionnons selon dispo.' },
+        { title: 'Autres parametres a considerer', content: '**Boite automatique essence vs diesel** : automatique diesel plus rare au Maroc, choix limite. Si auto + diesel obligatoire pour toi : demande **48h avant** pour reserver dispo. **Bruit moteur** : diesel plus bruyant a froid mais quasi-identique a chaud. **Demarrage froid** : essence demarre plus vite hiver Atlas (matin -5°C). **Revente future** (si tu loues longue duree avec option achat) : diesel decote moins vite que essence. **Environnement** : gasoil emet moins de CO2 mais plus de particules fines (debate actuel). Pour usage location courte, impact ecologique mineur.' }
+      ],
+      faq: [
+        { question: 'Diesel ou essence : lequel est moins cher ?', answer: 'Diesel : prix pompe 14 vs 15 DH/L + consommation 17% moindre = ~22-25% economie totale.' },
+        { question: 'Au Maroc, le diesel est-il facile a trouver ?', answer: 'Oui, disponible dans toutes les stations service du Maroc. Pas de penurie.' },
+        { question: 'Pour vacances 2 semaines, diesel ou essence ?', answer: 'Diesel sans hesiter : ~400 DH d economie sur la duree (selon km parcourus).' }
+      ]
+    },
+    cta: {
+      title: 'Reservez Votre Voiture au Maroc',
+      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
+      buttonText: 'Reserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
+      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
+      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
+    ]
+  }
 ];

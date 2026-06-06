@@ -418,6 +418,63 @@
     <priority>0.85</priority>
   </url>
 
+  <!-- Sprint $38k V3 — Hub /guide-maroc + 10 longue traîne info -->
+  <url>
+    <loc>https://benatna.ma/guide-maroc</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/permis-international-maroc-location-voiture</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/age-minimum-location-voiture-maroc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/eviter-arnaques-location-voiture-maroc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/peages-autoroute-maroc-tarifs-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/prix-essence-gasoil-maroc-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/conduire-maroc-permis-etranger</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/location-voiture-avec-chauffeur-maroc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/accident-voiture-location-maroc-que-faire</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/courte-vs-longue-duree-location-voiture-maroc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/essence-ou-diesel-location-voiture-maroc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <!-- ============================================================ -->
   <!-- CAN 2025 (événement passé, conservé pour SEO résiduel)        -->
   <!-- ============================================================ -->

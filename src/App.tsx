@@ -84,6 +84,19 @@ const LocationVoitureAutomatiqueMarrakech = lazy(() => import("./pages/LocationV
 const CautionLocationVoitureMaroc = lazy(() => import("./pages/CautionLocationVoitureMaroc"));
 const LocationVoitureGareOncfMaroc = lazy(() => import("./pages/LocationVoitureGareOncfMaroc"));
 const TopActivitesMarrakechVoiture = lazy(() => import("./pages/TopActivitesMarrakechVoiture"));
+
+// Sprint $38k V3 — Hub guide + 10 sub-pages longue traîne
+const GuideMaroc = lazy(() => import("./pages/GuideMaroc"));
+const PermisInternationalMaroc = lazy(() => import("./pages/PermisInternationalMaroc"));
+const AgeMinimumLocationVoitureMaroc = lazy(() => import("./pages/AgeMinimumLocationVoitureMaroc"));
+const EviterArnaquesLocationVoitureMaroc = lazy(() => import("./pages/EviterArnaquesLocationVoitureMaroc"));
+const PeagesAutorouteMaroc2026 = lazy(() => import("./pages/PeagesAutorouteMaroc2026"));
+const PrixEssenceGasoilMaroc2026 = lazy(() => import("./pages/PrixEssenceGasoilMaroc2026"));
+const ConduireMarocPermisEtranger = lazy(() => import("./pages/ConduireMarocPermisEtranger"));
+const LocationVoitureAvecChauffeurMaroc = lazy(() => import("./pages/LocationVoitureAvecChauffeurMaroc"));
+const AccidentVoitureLocationMaroc = lazy(() => import("./pages/AccidentVoitureLocationMaroc"));
+const CourteVsLongueDureeLocationVoitureMaroc = lazy(() => import("./pages/CourteVsLongueDureeLocationVoitureMaroc"));
+const EssenceOuDieselLocationVoitureMaroc = lazy(() => import("./pages/EssenceOuDieselLocationVoitureMaroc"));
 const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
 const LocationLongueDureeMarrakech = lazy(() => import("./pages/LocationLongueDureeMarrakech"));
 const LocationJeuneConducteurCasablanca = lazy(() => import("./pages/LocationJeuneConducteurCasablanca"));
@@ -321,6 +334,17 @@ const App = () => {
                     <Route path="/caution-location-voiture-maroc" element={<CautionLocationVoitureMaroc />} />
                     <Route path="/location-voiture-gare-oncf-maroc" element={<LocationVoitureGareOncfMaroc />} />
                     <Route path="/top-activites-marrakech-en-voiture" element={<TopActivitesMarrakechVoiture />} />
+                    <Route path="/guide-maroc" element={<GuideMaroc />} />
+                    <Route path="/permis-international-maroc-location-voiture" element={<PermisInternationalMaroc />} />
+                    <Route path="/age-minimum-location-voiture-maroc" element={<AgeMinimumLocationVoitureMaroc />} />
+                    <Route path="/eviter-arnaques-location-voiture-maroc" element={<EviterArnaquesLocationVoitureMaroc />} />
+                    <Route path="/peages-autoroute-maroc-tarifs-2026" element={<PeagesAutorouteMaroc2026 />} />
+                    <Route path="/prix-essence-gasoil-maroc-2026" element={<PrixEssenceGasoilMaroc2026 />} />
+                    <Route path="/conduire-maroc-permis-etranger" element={<ConduireMarocPermisEtranger />} />
+                    <Route path="/location-voiture-avec-chauffeur-maroc" element={<LocationVoitureAvecChauffeurMaroc />} />
+                    <Route path="/accident-voiture-location-maroc-que-faire" element={<AccidentVoitureLocationMaroc />} />
+                    <Route path="/courte-vs-longue-duree-location-voiture-maroc" element={<CourteVsLongueDureeLocationVoitureMaroc />} />
+                    <Route path="/essence-ou-diesel-location-voiture-maroc" element={<EssenceOuDieselLocationVoitureMaroc />} />
                     <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
                     <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
                     <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />

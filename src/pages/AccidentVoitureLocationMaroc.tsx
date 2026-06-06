@@ -1,8 +1,8 @@
 import { LongTailPage } from "@/components/LongTailPage";
 import { additionalLongTailPages } from "@/data/additionalLongTailPages";
-const PermisInternationalMaroc = () => {
-  const config = additionalLongTailPages.find(p => p.slug === "permis-international-maroc-location-voiture");
+const AccidentVoitureLocationMaroc = () => {
+  const config = additionalLongTailPages.find(p => p.slug === "accident-voiture-location-maroc-que-faire");
   if (!config) return null;
   return <LongTailPage config={config} />;
 };
-export default PermisInternationalMaroc;
+export default AccidentVoitureLocationMaroc;
