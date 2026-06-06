@@ -98,6 +98,12 @@ const AccidentVoitureLocationMaroc = lazy(() => import("./pages/AccidentVoitureL
 const CourteVsLongueDureeLocationVoitureMaroc = lazy(() => import("./pages/CourteVsLongueDureeLocationVoitureMaroc"));
 const EssenceOuDieselLocationVoitureMaroc = lazy(() => import("./pages/EssenceOuDieselLocationVoitureMaroc"));
 const BenatnaVsFranchises = lazy(() => import("./pages/BenatnaVsFranchises"));
+
+// Sprint GEO — 4 pages optimisées LLM
+const TopAgencesLocationMaroc2026 = lazy(() => import("./pages/TopAgencesLocationMaroc2026"));
+const LouerVoitureMarocFaqComplete = lazy(() => import("./pages/LouerVoitureMarocFaqComplete"));
+const PermisEtrangerDouaneMRE = lazy(() => import("./pages/PermisEtrangerDouaneMRE"));
+const AvisClientsBenatna2026 = lazy(() => import("./pages/AvisClientsBenatna2026"));
 const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
 const LocationLongueDureeMarrakech = lazy(() => import("./pages/LocationLongueDureeMarrakech"));
 const LocationJeuneConducteurCasablanca = lazy(() => import("./pages/LocationJeuneConducteurCasablanca"));
@@ -347,6 +353,10 @@ const App = () => {
                     <Route path="/courte-vs-longue-duree-location-voiture-maroc" element={<CourteVsLongueDureeLocationVoitureMaroc />} />
                     <Route path="/essence-ou-diesel-location-voiture-maroc" element={<EssenceOuDieselLocationVoitureMaroc />} />
                     <Route path="/benatna-vs-avis-hertz-europcar-sixt" element={<BenatnaVsFranchises />} />
+                    <Route path="/top-agences-location-voiture-maroc-2026" element={<TopAgencesLocationMaroc2026 />} />
+                    <Route path="/louer-voiture-maroc-faq-complete" element={<LouerVoitureMarocFaqComplete />} />
+                    <Route path="/permis-etranger-douane-mre-location-voiture" element={<PermisEtrangerDouaneMRE />} />
+                    <Route path="/avis-clients-benatna-2026" element={<AvisClientsBenatna2026 />} />
                     <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
                     <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
                     <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />
