@@ -1424,4 +1424,182 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Location Voiture Marrakech', link: '/location-voiture-marrakech' }
     ]
   }
+,
+  // ============================================================
+  // SPRINT $38k — Page 1 : Auto Casablanca (vol 1200-1800/mois)
+  // ============================================================
+  {
+    slug: 'location-voiture-automatique-casablanca',
+    title: 'Location Voiture Automatique Casablanca',
+    metaTitle: 'Location Voiture Automatique Casablanca dès 350 DH/j | Benatna',
+    metaDescription: 'Louez une voiture boîte automatique à Casablanca sans carte de crédit. Livraison aéroport CMN gratuite. Paiement DH/€/virement. WhatsApp 2 min.',
+    keywords: 'location voiture automatique casablanca, voiture auto casablanca, boite automatique casablanca, automatic car rental casablanca',
+    h1: 'Location de Voiture Automatique à Casablanca',
+    heroSubtitle: 'Boîte auto • Livraison aéroport CMN • Sans carte de crédit • Dès 350 DH/jour',
+    category: { label: 'Voitures Automatiques', href: '/nos-services' },
+    content: {
+      intro: 'Vous cherchez une **voiture boîte automatique à Casablanca** ? Que vous soyez **MRE habitué aux voitures automatiques européennes** ou **touriste anglo-saxon qui ne conduit qu\'en automatique**, Benatna a la flotte qu\'il vous faut — citadines économiques aux SUV familiaux, en passant par les berlines confort et les premium. Toutes nos voitures auto sont disponibles **dès 350 DH/jour**, **sans carte de crédit internationale**, avec **livraison gratuite à l\'aéroport Mohammed V (CMN), à la gare Casa-Voyageurs ou à votre hôtel**.',
+      sections: [
+        {
+          title: 'Pourquoi choisir une boîte automatique à Casablanca ?',
+          content: 'Casablanca est la plus grande ville du Maroc et son trafic est intense, surtout aux heures de pointe (8h-9h30 et 17h-19h) sur les axes Bd Mohammed V, Bd Hassan II, Bd Zerktouni et autour de la corniche d\'Aïn Diab. Conduire en **boîte manuelle dans ces embouteillages devient vite fatigant** — démarrages-arrêts permanents. Une **voiture automatique élimine ce stress** : vous gardez les deux mains libres pour le volant, votre pied gauche n\'est plus sollicité, et vous restez concentré sur le trafic marocain. Pour les **MRE qui rentrent de France/Belgique/Espagne où ils conduisent déjà en auto**, c\'est une question de continuité. Pour les **touristes britanniques, américains, canadiens, australiens**, l\'automatique est souvent la seule option. Sans surprise, la demande explose en 2026 — d\'où notre flotte qui inclut maintenant Hyundai i10 auto, Dacia Sandero auto, Kia Picanto auto, Renault Clio auto, et SUV Hyundai Tucson auto.'
+        },
+        {
+          title: 'Notre flotte automatique disponible à Casablanca',
+          content: '**Citadines économiques auto** (Hyundai i10, Kia Picanto, Dacia Sandero) à partir de **350 DH/jour** — idéales pour 2-4 personnes en ville. Climatisation, Bluetooth, USB, faciles à manœuvrer. **Berlines auto confort** (Renault Clio Auto, Toyota Yaris Auto) à **420-500 DH/jour**. **SUV automatique** (Hyundai Tucson, Nissan Qashqai, Dacia Duster auto) à **650-850 DH/jour** — espace pour 5 personnes + bagages MRE. **Premium automatique** (Mercedes Classe A, BMW Série 3) à **1300-2000 DH/jour**. **Vans 7 places auto** (Dacia Jogger auto) à **1000-1300 DH/jour**. Tous nos véhicules ont **moins de 3 ans**, kilométrage illimité, assurance tous risques.'
+        },
+        {
+          title: 'Tarifs location voiture automatique Casablanca 2026',
+          content: '**Jour seul** : citadine auto 350-400 DH, berline 420-500, SUV 650-850, premium 1300-2000. **Semaine (7 jours)** : remise 10% automatique. Citadine ~2200 DH, SUV ~4200 DH. **Mensuel** : citadine **8500 DH/mois** tout compris, berline 11000, SUV 14500, premium 28000. **Comparaison Hertz/Avis/Sixt** : Sixt facture l\'automatique 35-45 DH/jour de plus que la manuelle, Hertz aussi. Benatna affiche le **même prix entre auto et manuelle dans 80% des cas**. **Haute saison été 2026** : tarifs majorés 30-50%, **réservez 6-8 semaines avant** pour figer le tarif intermédiaire.'
+        },
+        {
+          title: 'Livraison gratuite à Casablanca — où et comment',
+          content: 'Notre service couvre toute la grande Casablanca **24h/24, 7j/7** pour vol/train, **6h-23h** pour livraison standard. **Aéroport Mohammed V (CMN)** : terminal 1 ou 2, sortie hall des arrivées, livraison gratuite. **Gare Casa-Voyageurs** : parvis principal côté Bd Mohammed V. **Centre Casablanca** (Maarif, Anfa, Aïn Diab, Sidi Maarouf, Hassan, Bd Zerktouni) : livraison à hôtel ou domicile, gratuit jusqu\'à 20 km. Voir aussi : <a href=\"/location-voiture-aeroport-casablanca\">aéroport CMN</a>, <a href=\"/location-voiture-gare-casa-voyageurs\">gare Casa-Voyageurs</a>, <a href=\"/location-voiture-casablanca\">Casablanca standard</a>.'
+        },
+        {
+          title: 'Réservez votre voiture automatique en 2 minutes',
+          content: 'Depuis votre téléphone : WhatsApp +212 699 024 526. Précisez : (1) dates de location, (2) point de récupération (aéroport CMN, gare, hôtel), (3) catégorie souhaitée (citadine, berline, SUV, premium, van). **Confirmation 2-5 minutes** en journée, max 30 min la nuit. **Paiement** : espèces DH/€, virement SEPA, Cash Plus, Wafacash, ou carte CMI marocaine. **Caution** en espèces ou virement (2000-5000 DH selon catégorie), restituée à la fin si véhicule en bon état.'
+        }
+      ],
+      faq: [
+        { question: 'La voiture automatique est-elle plus chère qu\'une manuelle à Casablanca ?', answer: 'Pas systématiquement chez Benatna. Sur 80% de nos catégories, le tarif est identique. Pour les 20% restants, supplément de 20-40 DH/jour maximum. Vs Sixt/Hertz qui facturent 35-50 DH supplémentaires partout.' },
+        { question: 'Puis-je louer une boîte automatique sans carte de crédit ?', answer: 'Oui, **toutes nos voitures automatiques sont disponibles sans CB internationale**. Paiement : espèces DH ou €, virement SEPA, Cash Plus, Wafacash, carte CMI marocaine. Caution en espèces ou virement.' },
+        { question: 'Quels modèles automatiques avez-vous à Casablanca ?', answer: 'Citadines : Hyundai i10, Kia Picanto, Dacia Sandero. Berlines : Renault Clio Auto, Toyota Yaris Auto. SUV : Hyundai Tucson, Nissan Qashqai, Dacia Duster auto. Premium : Mercedes Classe A, BMW Série 3. Vans : Dacia Jogger auto.' },
+        { question: 'La livraison à l\'aéroport CMN est-elle gratuite ?', answer: 'Oui, livraison gratuite 24/7 au terminal 1 ou 2. Pas de supplément frais d\'aéroport. Indiquez votre numéro de vol et heure d\'arrivée à la réservation.' },
+        { question: 'Puis-je payer en euros, dirhams ou par virement SEPA ?', answer: 'Oui aux trois. Espèces € au taux interbancaire du jour. Espèces DH. Virement SEPA depuis n\'importe quelle banque européenne. Mix possible.' }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture Automatique à Casablanca',
+      subtitle: 'Sans CB • Livraison gratuite • Tarifs DH/€ garantis',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Automatique Marrakech', description: 'Notre flotte auto à Marrakech.', link: '/location-voiture-automatique-marrakech' },
+      { title: 'Location Aéroport Casablanca CMN', description: 'Livraison terminal gratuit 24/7.', link: '/location-voiture-aeroport-casablanca' },
+      { title: 'Location Voiture MRE Maroc', description: 'Spécial MRE : sans CB, paiement DH/€.', link: '/location-voiture-mre-maroc' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Casablanca', link: '/location-voiture-casablanca' }
+    ]
+  },
+  // ============================================================
+  // SPRINT $38k — Page 2 : Auto Marrakech (vol 1500-2200/mois)
+  // ============================================================
+  {
+    slug: 'location-voiture-automatique-marrakech',
+    title: 'Location Voiture Automatique Marrakech',
+    metaTitle: 'Location Voiture Automatique Marrakech dès 350 DH/j | Benatna',
+    metaDescription: 'Voiture boîte automatique à Marrakech sans carte de crédit. Livraison aéroport RAK & Médina gratuite. Tarifs DH/€/virement. WhatsApp 2 min.',
+    keywords: 'location voiture automatique marrakech, voiture auto marrakech, automatic car rental marrakech',
+    h1: 'Location Voiture Automatique Marrakech — Aéroport, Médina, Gueliz',
+    heroSubtitle: 'Boîte auto • Livraison aéroport RAK • Sans CB • Dès 350 DH/jour',
+    category: { label: 'Voitures Automatiques', href: '/nos-services' },
+    content: {
+      intro: '**Voiture boîte automatique à Marrakech** disponible chez Benatna : récupération directe à l\'aéroport Marrakech-Menara (RAK), à votre riad de la médina, à Gueliz ou Hivernage. **Tarif dès 350 DH/jour, sans carte de crédit internationale**, paiement DH/€/virement/Cash Plus. La majorité de nos clients touristes EU et MRE choisit l\'automatique pour **conduire sans stress dans le trafic Marrakech** et pour les **excursions Ourika, Ouzoud, Atlas, Essaouira**.',
+      sections: [
+        {
+          title: 'Pourquoi une boîte auto pour visiter Marrakech ?',
+          content: 'Marrakech a un trafic particulier : entre **calèches sur l\'avenue Mohammed V**, **scooters/motos qui zigzaguent**, **piétons traversant hors clous**, et **carrefours sans feux**, conduire dans Marrakech demande une **attention constante**. Une boîte automatique vous laisse mentalement disponible. Pour la **route de l\'Ourika (N9)** ou la montée vers **Imlil/Atlas (R203)**, c\'est encore plus confortable. Pour **Essaouira (N8, 175 km, 2h30)**, l\'auto réduit la fatigue. Enfin, les **MRE familles ou couples touristes qui se relaient au volant** apprécient la **simplicité de l\'auto pour le conducteur secondaire**.'
+        },
+        {
+          title: 'Notre flotte automatique à Marrakech',
+          content: '**Citadines auto** (Hyundai i10, Kia Picanto, Dacia Sandero, Renault Clio Auto) dès **350 DH/jour**. **Berlines auto** (Toyota Yaris Auto, Renault Clio V Auto) à **420-500 DH/jour**. **SUV automatique** (Hyundai Tucson, Nissan Qashqai, Dacia Duster auto) à **650-850 DH/jour** — incontournable pour Atlas, Ouzoud, road trip Marrakech-Ouarzazate via col Tichka (2260m). **Premium auto** (Mercedes Classe A, BMW Série 3) à **1300-2000 DH/jour**. **4x4 auto** sur demande (Toyota Hilux) pour Sahara Merzouga. Tous climatisation impeccable — **essentiel été 2026 (40-45°C)**.'
+        },
+        {
+          title: 'Prix voiture automatique Marrakech 2026',
+          content: '**Jour** : citadine 350-400, berline 420-500, SUV 650-850, premium 1300-2000. **Semaine (-10%)** : citadine 2200, SUV 4200, premium 8500. **Mensuel** : citadine 8500/mois, SUV 14500, premium 28000. **Vs Sixt Marrakech** : Sixt facture +40 DH/jour systématiquement. **Vs Hertz** : Hertz exige CB internationale (caution bloquée 8000-15000 DH), problème pour MRE Maestro/V-Pay. **Haute saison juin-août/décembre** : +40-60%, réservez 6-8 semaines avant. **Forfait week-end** : 2 jours pour 3 jours d\'usage (vendredi 18h → lundi 10h).'
+        },
+        {
+          title: 'Livraison gratuite : aéroport, riad médina, Gueliz, Hivernage, Palmeraie',
+          content: '**Aéroport Marrakech-Menara (RAK)** : terminal unique, livraison gratuite 24/7. **Riad médina** (Bab Doukkala, Bab Ftouh) : livraison à la porte de votre riad. **Gueliz** (centre moderne) : à votre hôtel/appartement. **Hivernage** (zone luxe) : idem. **Palmeraie** (route Casa) : 20 min depuis Gueliz. Voir : <a href=\"/location-voiture-aeroport-marrakech\">aéroport Menara</a>, <a href=\"/location-voiture-gueliz-marrakech\">Gueliz</a>, <a href=\"/location-voiture-hivernage-marrakech\">Hivernage</a>, <a href=\"/location-voiture-medina-marrakech\">Médina</a>, <a href=\"/location-voiture-palmeraie-marrakech\">Palmeraie</a>.'
+        },
+        {
+          title: 'Idéal pour excursions : Ourika, Ouzoud, Essaouira, Ouarzazate',
+          content: '**Vallée Ourika** (65 km, 1h par N9) : auto OK. **Cascades Ouzoud** (170 km, 3h) : auto recommandée. **Essaouira** (175 km, 2h30) : auto idéale. **Ouarzazate** (200 km, 4h via col Tichka 2260m) : **auto fortement recommandée** — Tichka exigeant en manuelle. SUV automatique idéal. **Imlil/Toubkal** (65 km, 1h30) : auto jusqu\'à Asni, SUV au-delà. **Sahara Merzouga** (560 km, 8h) : SUV auto recommandé. Distances et péages disponibles via WhatsApp.'
+        }
+      ],
+      faq: [
+        { question: 'Quels modèles automatiques avez-vous à Marrakech ?', answer: 'Citadines : Hyundai i10, Kia Picanto, Renault Clio Auto, Dacia Sandero. Berlines : Toyota Yaris Auto. SUV : Hyundai Tucson, Nissan Qashqai, Dacia Duster auto. Premium : Mercedes Classe A, BMW Série 3. 4x4 auto : Toyota Hilux.' },
+        { question: 'Puis-je récupérer la voiture auto à l\'aéroport RAK ?', answer: 'Oui, livraison gratuite 24/7 au terminal de l\'aéroport Marrakech-Menara, point de rendez-vous parking dépose-minute.' },
+        { question: 'Quelle différence de prix avec une manuelle ?', answer: 'Chez Benatna : aucune sur 80% des modèles. Pour les 20% restants : 20-40 DH/jour. Vs Sixt qui facture +40 DH partout. Vs Hertz qui exige CB internationale.' },
+        { question: 'Une voiture automatique est-elle adaptée pour Ourika ou Atlas ?', answer: 'Oui pour Ourika (route N9 asphaltée). Pour Atlas Imlil/Toubkal : auto jusqu\'à Asni, SUV ensuite. Pour col Tichka vers Ouarzazate : SUV auto recommandé.' },
+        { question: 'Avez-vous une caution moins élevée sans CB ?', answer: 'Oui. Caution standard 2000-5000 DH en espèces ou virement (pas bloquée sur CB). Restituée à fin de location. Sur certains modèles citadine : caution réduite à 1500 DH ou même 0 si paiement intégral à l\'avance.' }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture Automatique à Marrakech',
+      subtitle: 'Aéroport, médina, Gueliz • Sans CB • Tarifs DH/€ garantis',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture Automatique Casablanca', description: 'Notre flotte auto à Casablanca.', link: '/location-voiture-automatique-casablanca' },
+      { title: 'Location Aéroport Marrakech RAK', description: 'Livraison terminal Menara gratuit 24/7.', link: '/location-voiture-aeroport-marrakech' },
+      { title: 'Location Weekend Marrakech', description: '2 jours facturés pour 3 jours d\'usage.', link: '/location-voiture-weekend-marrakech' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Marrakech', link: '/location-voiture-marrakech' }
+    ]
+  },
+  // ============================================================
+  // SPRINT $38k — Page 3 : Caution location voiture Maroc (TOFU, 800-1200/mois)
+  // ============================================================
+  {
+    slug: 'caution-location-voiture-maroc',
+    title: 'Caution Location Voiture Maroc',
+    metaTitle: 'Caution Location Voiture Maroc : Combien & Comment l\'Éviter (2026)',
+    metaDescription: 'Caution moyenne : 5 000 à 20 000 DH selon catégorie. Comment louer sans caution bloquée avec Benatna. Paiement DH/€/virement, WhatsApp 2 min.',
+    keywords: 'caution location voiture maroc, depot garantie voiture maroc, location voiture sans caution maroc',
+    h1: 'Caution Location de Voiture au Maroc : Guide 2026',
+    heroSubtitle: 'Combien • Pourquoi • Comment réduire ou supprimer • Notre approche sans CB',
+    category: { label: 'Tarifs & Transparence', href: '/nos-services' },
+    content: {
+      intro: 'Si vous **louez une voiture au Maroc**, vous rencontrerez la question de la **caution** (ou "dépôt de garantie"). C\'est l\'un des points les plus opaques du marché : les loueurs internationaux la bloquent sur votre **carte de crédit** (entre 5 000 et 20 000 DH), ce qui pose problème pour les **MRE qui utilisent une carte de débit Maestro/V-Pay** ou pour les **touristes qui ne veulent pas voir leur plafond CB bloqué pendant 1-2 semaines**. Ce guide explique combien coûte la caution selon le type de voiture, pourquoi elle existe, et comment Benatna propose une **caution réduite ou en espèces**.',
+      sections: [
+        {
+          title: 'Combien coûte la caution selon le type de voiture ?',
+          content: 'Grille standard du marché marocain 2026 (Hertz, Avis, Sixt, Europcar) : **Citadine économique** (Sandero, i10, Yaris) : caution **3 000 à 5 000 DH** (300-500 €). **Berline compacte** (Clio, Mégane, Polo) : **5 000 à 8 000 DH**. **SUV** (Duster, Qashqai, Tucson) : **8 000 à 12 000 DH**. **Berline confort** (Corolla, Golf) : **8 000 à 12 000 DH**. **Monospace 7-9 places** (Jogger, Sharan) : **10 000 à 15 000 DH**. **Premium** (Classe A, Série 3, A4) : **15 000 à 20 000 DH** (1500-2000 €). **Premium SUV / luxe** (GLE, X5, Range Rover) : **20 000 à 30 000 DH**. Bloquée sur CB pendant location + 7-14 jours après le rendu.'
+        },
+        {
+          title: 'Pourquoi les loueurs exigent une caution ?',
+          content: 'Trois risques pour le loueur. **Franchise d\'assurance** : si vous abîmez le véhicule, l\'assurance ne couvre que au-delà de 5 000-15 000 DH selon contrat. **Infractions et amendes** non réglées le jour du rendu (excès vitesse, parking, péage). **Carburant manquant**, kilométrage excédentaire, nettoyage exceptionnel, retour tardif. Les chaînes internationales restent sur une **caution maximale par défaut**. Chez Benatna, **approche relationnelle** : nous vous faisons confiance via votre identité validée, et ajustons la caution selon le profil (MRE récurrent vs touriste premier séjour).'
+        },
+        {
+          title: 'Caution sans carte de crédit : est-ce possible au Maroc ?',
+          content: '**OUI** chez Benatna. **(1) Espèces** : DH ou € à la livraison, restituées à la fin si véhicule en bon état. Reçu signé. **(2) Virement bancaire** : depuis votre compte EU ou MA, restitution par virement 3-5 jours ouvrés. **(3) Cash Plus / Wafacash** : mobile money marocain pour MRE sans compte MA. **(4) Caution réduite** : 1 500-2 000 DH si vous avez déjà loué chez nous. **(5) Caution zéro** sur citadine économique si **paiement intégral à l\'avance**. Cette flexibilité est rare au Maroc — la plupart des concurrents exigent une CB bloquée.'
+        },
+        {
+          title: 'Comment Benatna réduit ou supprime la caution',
+          content: '**Identification renforcée** : MRE récurrents (3+ locations) → caution réduite 30-50%. **Pré-paiement intégral** : virement total avant arrivée → caution supprimée ou réduite à 1 000 DH symboliques sur citadine. **Profil entreprise** : B2B Casa-centre, ambassades Agdal Rabat, expatriés Souissi → **compte créditeur** après 3 locations validées, facturation 30 jours. **Touriste court séjour** : option **caution allégée** (+25-40 DH/jour assurance) ramène la caution à 1500 DH.'
+        },
+        {
+          title: 'Que se passe-t-il si dommage ? Franchise expliquée',
+          content: 'Si dommage : **(1) Constat** photo-vidéo à la restitution. **(2) Évaluation** garage partenaire (devis 48h). **(3) Franchise** : assurance couvre au-delà de 3 000-8 000 DH selon catégorie. En dessous, vous payez, prélevé sur caution. **Option rachat de franchise** (+30-50 DH/jour) : franchise à 0 ou 500 DH. **Astuce** : prenez photos détaillées à la livraison (carrosserie, intérieur, km, carburant) — protège contre constats abusifs. Notre service vous remet ces photos par WhatsApp.'
+        }
+      ],
+      faq: [
+        { question: 'Quel est le montant moyen d\'une caution au Maroc en 2026 ?', answer: 'Citadine : 3 000-5 000 DH. SUV : 8 000-12 000 DH. Premium : 15 000-20 000 DH. Plus haute pour location longue durée.' },
+        { question: 'Puis-je louer sans caution bloquée sur ma CB ?', answer: 'Oui chez Benatna : espèces DH/€, virement SEPA, Cash Plus, Wafacash, carte CMI marocaine acceptés. Pas de blocage CB internationale obligatoire.' },
+        { question: 'La caution est-elle remboursée immédiatement ?', answer: 'Espèces : restituées le jour même. Virement : 3-5 jours ouvrés. Carte CMI : déblocage 24-48h. Nettement plus rapide que les chaînes internationales (7-14 jours).' },
+        { question: 'Caution en espèces : accepté où ?', answer: 'Partout : aéroports (CMN, RAK, RBA, TNG, AGA, FEZ), Tanger Med port, gares ONCF, hôtels, à domicile. Reçu officiel Benatna signé.' },
+        { question: 'Que couvre la franchise ?', answer: 'Part du dommage à votre charge avant assurance. Standard 3 000-8 000 DH selon catégorie. Option rachat (+30-50 DH/jour) ramène à 0 ou 500 DH symboliques.' }
+      ]
+    },
+    cta: {
+      title: 'Louez Sans Caution Bloquée sur CB',
+      subtitle: 'Caution espèces/virement • Restitution rapide • Profil MRE récurrent réduit',
+      buttonText: 'Demander un devis via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Sans Carte de Crédit Casablanca', description: 'Modalités paiement sans CB internationale.', link: '/location-voiture-sans-carte-credit-casablanca' },
+      { title: 'Sans Carte de Crédit Marrakech', description: 'Idem à Marrakech.', link: '/location-voiture-sans-carte-credit-marrakech' },
+      { title: 'Location Voiture MRE Maroc', description: 'Spécial MRE : DH/€, virement, sans CB.', link: '/location-voiture-mre-maroc' }
+    ],
+    relatedPages: [
+      { title: 'Prix Location Voiture Maroc 2026', link: '/prix-location-voiture-maroc-2026' }
+    ]
+  }
 ];
