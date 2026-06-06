@@ -208,8 +208,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Tanger",
-    price: 320,
-    priceDisplay: "320 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -385,30 +385,6 @@ const cars = [
     conditions: generateConditions(28)
   },
   {
-    id: 21,
-    image: carCitroenC3,
-    name: "Citroën C3",
-    brand: "Citroën",
-    type: "Manuelle",
-    category: "Citadine",
-    city: "Rabat",
-    price: 300,
-    priceDisplay: "300 MAD",
-    conditions: generateConditions(21)
-  },
-  {
-    id: 22,
-    image: carCitroenC3,
-    name: "Citroën C3",
-    brand: "Citroën",
-    type: "Automatique",
-    category: "Citadine",
-    city: "Tanger",
-    price: 330,
-    priceDisplay: "330 MAD",
-    conditions: generateConditions(21)
-  },
-  {
     id: 27,
     image: carSeatIbiza,
     name: "Seat Ibiza",
@@ -416,8 +392,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Casablanca",
-    price: 290,
-    priceDisplay: "290 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -428,8 +404,8 @@ const cars = [
     type: "Automatique",
     category: "Citadine",
     city: "Marrakech",
-    price: 320,
-    priceDisplay: "320 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -452,8 +428,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Tanger",
-    price: 340,
-    priceDisplay: "340 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(22)
   },
   {
@@ -512,8 +488,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Rabat",
-    price: 280,
-    priceDisplay: "280 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -524,33 +500,9 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Tanger",
-    price: 310,
-    priceDisplay: "310 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21)
-  },
-  {
-    id: 57,
-    image: carNissanMicra,
-    name: "Nissan Micra",
-    brand: "Nissan",
-    type: "Manuelle",
-    category: "Citadine",
-    city: "Rabat",
-    price: 295,
-    priceDisplay: "295 MAD",
-    conditions: ["Caution: 3900 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
-  },
-  {
-    id: 58,
-    image: carNissanSunny,
-    name: "Nissan Sunny",
-    brand: "Nissan",
-    type: "Automatique",
-    category: "Berline",
-    city: "Tanger",
-    price: 365,
-    priceDisplay: "365 MAD",
-    conditions: ["Caution: 5000 MAD", "320 km/jour inclus", "Âge minimum: 22 ans"]
   },
   {
     id: 63,
@@ -560,8 +512,8 @@ const cars = [
     type: "Automatique",
     category: "Citadine",
     city: "Rabat",
-    price: 335,
-    priceDisplay: "335 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: ["Caution: 4500 MAD", "270 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
@@ -596,8 +548,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Rabat",
-    price: 310,
-    priceDisplay: "310 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: ["Caution: 4200 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
@@ -637,18 +589,6 @@ const cars = [
     conditions: ["Caution: 6100 MAD", "370 km/jour inclus", "Âge minimum: 24 ans"]
   },
   {
-    id: 75,
-    image: carNissanNote,
-    name: "Nissan Note",
-    brand: "Nissan",
-    type: "Manuelle",
-    category: "Citadine",
-    city: "Rabat",
-    price: 305,
-    priceDisplay: "305 MAD",
-    conditions: ["Caution: 4100 MAD", "250 km/jour inclus", "Âge minimum: 21 ans"]
-  },
-  {
     id: 76,
     image: carFordFiesta,
     name: "Renault Clio",
@@ -656,8 +596,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Marrakech",
-    price: 295,
-    priceDisplay: "295 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: ["Caution: 3900 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
@@ -1266,8 +1206,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Agadir",
-    price: 300,
-    priceDisplay: "300 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21),
     badges: ["🔥 Populaire"]
   },
@@ -1279,8 +1219,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Agadir",
-    price: 280,
-    priceDisplay: "280 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21),
     badges: ["💰 Prix attractif"]
   },
@@ -1391,8 +1331,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Fès",
-    price: 310,
-    priceDisplay: "310 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21),
     badges: ["🔥 Populaire"]
   },
@@ -1404,8 +1344,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Fès",
-    price: 290,
-    priceDisplay: "290 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21),
     badges: ["💰 Prix attractif"]
   },
@@ -1436,18 +1376,6 @@ const cars = [
     badges: ["🔥 Populaire"]
   },
   {
-    id: 198,
-    image: carNissanMicra,
-    name: "Nissan Micra",
-    brand: "Nissan",
-    type: "Manuelle",
-    category: "Citadine",
-    city: "Fès",
-    price: 310,
-    priceDisplay: "310 MAD",
-    conditions: generateConditions(21)
-  },
-  {
     id: 199,
     image: carFordFiesta,
     name: "Renault Clio",
@@ -1455,8 +1383,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Fès",
-    price: 330,
-    priceDisplay: "330 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -1469,18 +1397,6 @@ const cars = [
     city: "Rabat",
     price: 380,
     priceDisplay: "380 MAD",
-    conditions: generateConditions(21)
-  },
-  {
-    id: 205,
-    image: carCitroenC3,
-    name: "Citroën C3",
-    brand: "Citroën",
-    type: "Manuelle",
-    category: "Citadine",
-    city: "Tanger",
-    price: 330,
-    priceDisplay: "330 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -1569,18 +1485,6 @@ const cars = [
     conditions: generateConditions(23)
   },
   {
-    id: 229,
-    image: carNissanMicra,
-    name: "Nissan Micra",
-    brand: "Nissan",
-    type: "Manuelle",
-    category: "Citadine",
-    city: "Rabat",
-    price: 310,
-    priceDisplay: "310 MAD",
-    conditions: generateConditions(21)
-  },
-  {
     id: 233,
     image: carHyundaiTucson,
     name: "Hyundai Tucson",
@@ -1628,18 +1532,6 @@ const cars = [
     price: 500,
     priceDisplay: "500 MAD",
     conditions: generateConditions(23)
-  },
-  {
-    id: 247,
-    image: carNissanMicra,
-    name: "Nissan Micra",
-    brand: "Nissan",
-    type: "Manuelle",
-    category: "Citadine",
-    city: "Tanger",
-    price: 320,
-    priceDisplay: "320 MAD",
-    conditions: generateConditions(21)
   },
   {
     id: 250,
@@ -2020,8 +1912,7 @@ const cars = [
     price: 1250,
     priceDisplay: "1250 MAD",
     conditions: generateConditions(28)
-  }
-,
+  },
   {
     id: 310,
     image: carOpelCorsa,
@@ -2030,8 +1921,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Casablanca",
-    price: 310,
-    priceDisplay: "310 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21),
     badges: ["💰 Économique"]
   },
@@ -2043,8 +1934,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Marrakech",
-    price: 320,
-    priceDisplay: "320 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -2055,8 +1946,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Casablanca",
-    price: 320,
-    priceDisplay: "320 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21),
     badges: ["💰 Économique"]
   },
@@ -2068,8 +1959,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Marrakech",
-    price: 330,
-    priceDisplay: "330 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     conditions: generateConditions(21)
   }
 ];

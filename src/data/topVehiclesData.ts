@@ -108,23 +108,6 @@ export const topVehicles: TopVehicle[] = [
     cities: ["Casablanca", "Marrakech", "Rabat"]
   },
   {
-    name: "Citroën C3",
-    model: "C3",
-    brand: "Citroën",
-    category: "Économique",
-    description: "Citadine confortable et originale. Suspension moelleuse, design personnalisable, équipement complet. Confort Citroën légendaire. 280 DH/jour.",
-    imageUrl: "/car-citroen-c3.jpg",
-    pricePerDay: "280",
-    fuelType: "Essence",
-    transmission: "Manuelle",
-    seats: 5,
-    features: ["Climatisation", "Écran tactile", "Bluetooth", "USB", "Airbags 6", "Barres toit"],
-    averageRating: "4.7",
-    reviewCount: "87",
-    availability: "En stock",
-    cities: ["Casablanca", "Marrakech", "Fès", "Tanger"]
-  },
-  {
     name: "Dacia Jogger",
     model: "Jogger 7 places",
     brand: "Dacia",
