@@ -76,6 +76,7 @@ const LocationGareCasaVoyageurs = lazy(() => import("./pages/LocationGareCasaVoy
 const LocationGareMarrakech = lazy(() => import("./pages/LocationGareMarrakech"));
 const LocationAgdalRabat = lazy(() => import("./pages/LocationAgdalRabat"));
 const LocationSouissiRabat = lazy(() => import("./pages/LocationSouissiRabat"));
+const PrixLocationVoiture2026 = lazy(() => import("./pages/PrixLocationVoiture2026"));
 const LocationLongueDureeCasablanca = lazy(() => import("./pages/LocationLongueDureeCasablanca"));
 const LocationLongueDureeMarrakech = lazy(() => import("./pages/LocationLongueDureeMarrakech"));
 const LocationJeuneConducteurCasablanca = lazy(() => import("./pages/LocationJeuneConducteurCasablanca"));
@@ -307,6 +308,7 @@ const App = () => {
                     <Route path="/location-voiture-gare-marrakech" element={<LocationGareMarrakech />} />
                     <Route path="/location-voiture-agdal-rabat" element={<LocationAgdalRabat />} />
                     <Route path="/location-voiture-souissi-rabat" element={<LocationSouissiRabat />} />
+                    <Route path="/prix-location-voiture-maroc-2026" element={<PrixLocationVoiture2026 />} />
                     <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
                     <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
                     <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />

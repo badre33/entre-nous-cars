@@ -1346,4 +1346,82 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Location Aéroport Rabat-Salé', link: '/location-voiture-aeroport-rabat' }
     ]
   }
+,
+  // ============================================================
+  // SPRINT — Page prix transparente (Maroc 2026)
+  // Target: "prix location voiture maroc" (~700 vol/mois, gap énorme)
+  // Concurrents évitent d'afficher prix => benatna se différencie
+  // ============================================================
+  {
+    slug: 'prix-location-voiture-maroc-2026',
+    title: 'Prix Location Voiture Maroc 2026',
+    metaTitle: 'Prix Location Voiture Maroc 2026 - Tarifs Transparents par Ville | Benatna',
+    metaDescription: 'Prix location voiture Maroc 2026 : citadine 300 DH, berline 400, SUV 550, premium 1200. Tarifs transparents par ville, saison et catégorie. Sans surprise.',
+    keywords: 'prix location voiture maroc, prix location voiture casablanca, prix location voiture marrakech, tarifs location voiture maroc, prix voiture mre',
+    h1: 'Prix Location Voiture Maroc 2026 — Grille Tarifaire Transparente',
+    heroSubtitle: 'Tarifs en MAD garantis • Par ville • Par catégorie • Sans surprise • Dès 300 DH/jour',
+    category: { label: 'Tarifs & Transparence', href: '/nos-services' },
+    content: {
+      intro: `Vous cherchez le **prix d'une location de voiture au Maroc** ? Vous êtes au bon endroit. Contrairement à 90% de nos concurrents qui cachent leurs tarifs derrière un formulaire "Demander un devis", Benatna affiche **tous ses prix en MAD directement sur le site**. Cette page consolide notre grille complète 2026 par catégorie de véhicule, par ville, et par saison — vous savez exactement ce que vous allez payer avant même de nous contacter. C'est notre marque de fabrique : prix transparents, sans frais cachés, sans carte de crédit obligatoire.`,
+      sections: [
+        {
+          title: 'Tarifs journaliers par catégorie (2026)',
+          content: `**Citadine économique** (Dacia Sandero, Toyota Yaris, Hyundai i10, Kia Picanto) : **300-350 DH/jour**. Idéal célibataire, couple, ou famille 4 personnes sans gros bagages. Consommation 5-6L/100km. **Berline / compacte** (Renault Clio V, VW Polo, Renault Mégane, Hyundai Accent) : **400-500 DH/jour**. Pour couples confort + bagages, professionnels en déplacement intervilles. Coffre 380-500L. **SUV compact** (Dacia Duster, Nissan Qashqai, Hyundai Tucson, Kia Sportage) : **550-800 DH/jour**. Familles 4-5 personnes avec bagages, road trip Atlas/désert, MRE qui rentrent avec valises pleines. Garde au sol 17-20 cm. **Berline confort** (Toyota Corolla, VW Golf) : **600-750 DH/jour**. Trajets longue distance Casa-Marrakech, business intervilles. **Monospace 7-9 places** (Dacia Jogger) : **900-1200 DH/jour**. Familles MRE nombreuses + valises, groupes amis pour circuit. **Premium / luxe** (Mercedes Classe A, BMW Série 3) : **1200-2000 DH/jour**. Mariages, rendez-vous d'affaires, occasions spéciales, image corporate. **Électrique** (VW ID.3) : **1400-1700 DH/jour**. Mobilité éco-responsable, recharge à nos bornes Casa et Marrakech (à venir Rabat 2026).`
+        },
+        {
+          title: 'Tarifs par ville — Casablanca, Marrakech, Rabat',
+          content: `**Casablanca** : citadine dès 300 DH, SUV dès 550 DH. Volume important = stock abondant, peu de variation prix. Aéroport CMN : livraison gratuite. **Marrakech** : citadine dès 320 DH (+20 DH vs Casa à cause tourisme constant), SUV dès 580 DH. Aéroport Menara : livraison gratuite. En **haute saison juin-août** : +20-30% sur ces tarifs Marrakech (forte demande touristes). **Rabat** : citadine dès 300 DH, SUV dès 550 DH. Moins de demande touristique que Marrakech, donc tarifs stables. Aéroport Rabat-Salé : livraison gratuite. **Tanger, Agadir, Fès** : tarifs équivalents à Rabat (300-550 DH selon catégorie). Pour les **agences hors aéroport** (centre-ville, gares, livraison hôtel) : **pas de surcharge** chez Benatna, contrairement aux comptoirs internationaux qui appliquent +15-25% sur livraisons "hors site".`
+        },
+        {
+          title: 'Tarifs longue durée (mensuels)',
+          content: `Pour **locations longues** (15+ jours), remise dégressive. Pour **locations mensuelles** : **Citadine économique : dès 7500 DH/mois** tout compris (assurance, kilométrage illimité, assistance 24/7 — carburant en sus). **Berline confort : dès 11000 DH/mois**. **SUV : dès 14000 DH/mois**. **Monospace : dès 18000 DH/mois**. **Premium : dès 25000 DH/mois**. **Remise supplémentaire pour engagements** : -5% à 3 mois, -10% à 6 mois, -15% à 12 mois. Idéal pour expatriés Souissi/Agdal qui arrivent à Rabat pour 6-12 mois, MRE en visite longue (juin-août-septembre), ou cadres en mission Casa. **Devis personnalisé sur demande** par WhatsApp +212 699 024 526 — réponse en 2 minutes en journée.`
+        },
+        {
+          title: 'Saisonnalité : à quel moment réserver pour économiser ?',
+          content: `**Basse saison** (novembre à février) : tarifs au plus bas, jusqu'à -20% vs la grille standard. Idéal pour visites famille MRE en hiver, touristes courageux qui visitent Marrakech au calme. Réservation possible 2-3 semaines avant. **Saison intermédiaire** (mars-mai, septembre-octobre) : tarifs standards. Anticiper 4-6 semaines. **Haute saison** (juin-août) : tarifs majorés de +40-60%, citadine peut monter à 400-550 DH/jour, SUV à 750-1100. **Aïd al-Adha** (juin 2026) : pic de demande MRE, anticiper 8-10 semaines. **Coupe du Monde 2026** (mi-juin → mi-juillet) : pic exceptionnel cette année — voir notre page dédiée. **Astuce** : réserver en mars-avril pour locations juillet-août fige le tarif "saison intermédiaire" même si vous utilisez le véhicule pendant la haute saison. Benatna respecte le tarif initial.`
+        },
+        {
+          title: 'Comparaison avec les comptoirs internationaux',
+          content: `**Hertz** (Maroc) : citadine économique tarif d'appel **9€/jour** = 95 DH, MAIS avec carte de crédit obligatoire + caution 5000-10000 DH bloquée + frais kilométrage 1-2 DH/km au-delà de 200km/jour. **Total réel ~400-500 DH/jour** sur un séjour de 5 jours avec 1000 km. **Avis.ma** : tarif d'appel 12€/jour mais conditions similaires. **Sixt** : 18€/jour minimum, automatique premium. **Benatna** : citadine **300 DH/jour fixe**, **kilométrage illimité inclus**, **pas de caution bloquée**, **paiement espèces/virement/CB au choix**. Pour les MRE et touristes francophones qui ne veulent pas de blocage CB internationale, c'est l'option qui économise concrètement entre 200 et 500 DH sur 5 jours, sans parler du temps gagné.`
+        }
+      ],
+      faq: [
+        {
+          question: 'Pourquoi vos prix sont-ils plus élevés que ceux affichés par Hertz/Avis ?',
+          answer: 'Nos prix sont les **prix réels payés** — tout inclus (kilométrage illimité, assurance, assistance). Les chaînes affichent un tarif d\'appel marketing (ex: 9€/jour) puis ajoutent kilométrage + assurance + surcharge aéroport + carte de crédit obligatoire. Sur 5 jours réels, leur facture finit souvent au-dessus de la nôtre. Comparez sur un cas concret : 1000 km, 5 jours, dépose aéroport — vous serez probablement surpris.'
+        },
+        {
+          question: 'Y a-t-il des frais cachés (assurance, kilométrage, etc.) ?',
+          answer: '**Non**. Le prix affiché inclut : kilométrage illimité, assurance tous risques de base, assistance 24/7, livraison aéroport ou ville. Les seuls extras possibles : siège bébé (50 DH/jour), GPS (40 DH/jour), conducteur additionnel jeune (-21 ans, 80 DH/jour), conducteur professionnel (400 DH/jour). Carburant en sus selon votre choix (rendre plein ou nous le facturons au prix station).'
+        },
+        {
+          question: 'Acceptez-vous de négocier sur les locations longues ?',
+          answer: 'Oui. **Au-delà de 15 jours**, remise dégressive automatique. **Au-delà de 1 mois**, devis personnalisé. **Pour expatriés longue mission** (3-12 mois), nous proposons des forfaits mensuels avec remise jusqu\'à 15%, conciergerie automobile incluse (lavage, vidange, contrôle technique pris en charge). Contactez-nous pour discuter.'
+        },
+        {
+          question: 'Comment savoir quel véhicule choisir selon mon budget ?',
+          answer: 'Règle simple : **budget journalier serré (300-400 DH)** → citadine. **Budget moyen (400-600 DH)** → berline confort. **Budget famille (600-800 DH)** → SUV. **Budget premium (1200+)** → Mercedes/BMW. Notre équipe WhatsApp peut vous conseiller selon votre cas concret (nombre de personnes, durée, type de trajet) en 2 minutes.'
+        },
+        {
+          question: 'Vos tarifs vont-ils augmenter cet été 2026 ?',
+          answer: 'En haute saison (juin-août 2026), **+40 à +60% sur les tarifs standards** est attendu, comme partout au Maroc. Si vous réservez avant fin avril, **nous figeons votre tarif au prix actuel** (saison intermédiaire) même pour usage en pleine haute saison. Cette politique est rare au Maroc et avantage les MRE/touristes qui planifient à l\'avance.'
+        }
+      ]
+    },
+    cta: {
+      title: 'Réservez Votre Voiture au Tarif Affiché',
+      subtitle: 'Prix MAD garantis • Sans carte de crédit • Disponible 7j/7',
+      buttonText: 'Réserver via WhatsApp',
+      buttonLink: '/contact'
+    },
+    relatedServices: [
+      { title: 'Location Voiture MRE Maroc', description: 'Tarifs spéciaux pour MRE, paiement DH ou €.', link: '/location-voiture-mre-maroc' },
+      { title: 'Location Voiture Été 2026', description: 'Anticipez les hausses de prix été — réservez avant fin avril.', link: '/location-voiture-ete-2026-maroc' },
+      { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dégressifs.', link: '/location-longue-duree-casablanca' }
+    ],
+    relatedPages: [
+      { title: 'Location Voiture Casablanca', link: '/location-voiture-casablanca' },
+      { title: 'Location Voiture Marrakech', link: '/location-voiture-marrakech' }
+    ]
+  }
 ];

@@ -8,7 +8,42 @@ import { analytics } from "@/utils/analytics";
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [message, setMessage] = useState("");
+
+  // Compute contextual default message based on current page
+  const getDefaultMessage = (): string => {
+    const path = window.location.pathname.toLowerCase();
+    // City + airport pages
+    if (path.includes("aeroport-casablanca")) return "Bonjour, je souhaite louer une voiture à l'aéroport Mohammed V Casablanca (CMN). Pouvez-vous me proposer les véhicules disponibles ?";
+    if (path.includes("aeroport-marrakech")) return "Bonjour, je souhaite louer une voiture à l'aéroport Marrakech-Menara (RAK). Pouvez-vous me proposer les véhicules disponibles ?";
+    if (path.includes("aeroport-rabat")) return "Bonjour, je souhaite louer une voiture à l'aéroport Rabat-Salé (RBA). Pouvez-vous me proposer les véhicules disponibles ?";
+    if (path.includes("aeroport-tanger")) return "Bonjour, je souhaite louer une voiture à l'aéroport Tanger Ibn Battouta (TNG). Pouvez-vous me proposer les véhicules disponibles ?";
+    if (path.includes("aeroport-agadir")) return "Bonjour, je souhaite louer une voiture à l'aéroport Agadir Al-Massira (AGA). Pouvez-vous me proposer les véhicules disponibles ?";
+    if (path.includes("aeroport-fes")) return "Bonjour, je souhaite louer une voiture à l'aéroport Fès-Saïss (FEZ). Pouvez-vous me proposer les véhicules disponibles ?";
+    // Strategic pages
+    if (path.includes("tanger-med-port")) return "Bonjour, j'arrive au port Tanger Med en ferry. Je souhaite louer une voiture à la livraison. Pouvez-vous m'envoyer les véhicules disponibles ?";
+    if (path.includes("mre-maroc")) return "Bonjour, je suis MRE et je rentre au Maroc. Je souhaite louer une voiture sans carte de crédit internationale. Quels sont les véhicules disponibles et les modalités de paiement ?";
+    if (path.includes("coupe-monde-2026")) return "Bonjour, je rentre au Maroc pour la Coupe du Monde 2026 (groupe Maroc). Je cherche une voiture pour la période juin-juillet. Pouvez-vous me proposer ?";
+    if (path.includes("ete-2026")) return "Bonjour, je prépare mon été 2026 au Maroc et souhaite réserver une voiture en avance. Pouvez-vous me proposer les véhicules et tarifs ?";
+    if (path.includes("circuit-villes-imperiales")) return "Bonjour, je prépare un circuit des villes impériales (Casa-Rabat-Meknès-Fès-Marrakech). Pouvez-vous me conseiller un véhicule adapté ?";
+    if (path.includes("gare-casa-voyageurs")) return "Bonjour, j'arrive à la gare Casa-Voyageurs par train Al Boraq. Je souhaite récupérer une voiture sur place. Quels véhicules sont disponibles ?";
+    if (path.includes("gare-marrakech")) return "Bonjour, j'arrive à la gare ONCF Marrakech par train. Je souhaite récupérer une voiture sur place. Quels véhicules sont disponibles ?";
+    if (path.includes("agdal-rabat")) return "Bonjour, je souhaite une location de voiture corporate à Agdal Rabat. Livraison à mon hôtel/bureau possible ?";
+    if (path.includes("souissi-rabat")) return "Bonjour, je souhaite louer une voiture à Souissi Rabat (livraison villa/école possible). Quels véhicules disponibles ?";
+    if (path.includes("sans-carte-credit")) return "Bonjour, je souhaite louer une voiture sans carte de crédit (paiement espèces/virement). Pouvez-vous me confirmer les modalités ?";
+    if (path.includes("prix-location-voiture-maroc-2026")) return "Bonjour, j'ai vu votre grille tarifaire 2026. Pouvez-vous me confirmer le tarif et la disponibilité pour mes dates ?";
+    if (path.includes("longue-duree")) return "Bonjour, je cherche une location longue durée (1+ mois). Pouvez-vous me proposer un devis mensuel ?";
+    if (path.includes("jeune-conducteur")) return "Bonjour, je suis jeune conducteur (moins de 25 ans). Quels véhicules et conditions me proposez-vous ?";
+    if (path.includes("mariage")) return "Bonjour, je prépare un mariage et cherche une voiture de luxe pour le jour J. Pouvez-vous me proposer ?";
+    // City pages (generic)
+    const cityMatch = path.match(/location-voiture-(casablanca|marrakech|rabat|tanger|agadir|fes)/);
+    if (cityMatch) return `Bonjour, je souhaite louer une voiture à ${cityMatch[1].charAt(0).toUpperCase() + cityMatch[1].slice(1)}. Pouvez-vous me proposer les véhicules disponibles ?`;
+    // /louer
+    if (path === "/louer" || path.startsWith("/louer/")) return "Bonjour, je consulte votre catalogue de véhicules. Pouvez-vous me confirmer la disponibilité et un devis ?";
+    // Default
+    return "Bonjour, je souhaite louer une voiture au Maroc. Pouvez-vous me proposer les véhicules et tarifs ?";
+  };
+
+  const [message, setMessage] = useState(() => typeof window !== "undefined" ? getDefaultMessage() : "");
   const location = useLocation();
   const whatsappNumber = "212699024526";
   
