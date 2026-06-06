@@ -2021,7 +2021,57 @@ const cars = [
     priceDisplay: "1250 MAD",
     conditions: generateConditions(28)
   }
-
+,
+  {
+    id: 310,
+    image: carOpelCorsa,
+    name: "Opel Corsa",
+    brand: "Opel",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 310,
+    priceDisplay: "310 MAD",
+    conditions: generateConditions(21),
+    badges: ["💰 Économique"]
+  },
+  {
+    id: 311,
+    image: carOpelCorsa,
+    name: "Opel Corsa",
+    brand: "Opel",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Marrakech",
+    price: 320,
+    priceDisplay: "320 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 312,
+    image: carPeugeot208,
+    name: "Peugeot 208",
+    brand: "Peugeot",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Casablanca",
+    price: 320,
+    priceDisplay: "320 MAD",
+    conditions: generateConditions(21),
+    badges: ["💰 Économique"]
+  },
+  {
+    id: 313,
+    image: carPeugeot208,
+    name: "Peugeot 208",
+    brand: "Peugeot",
+    type: "Manuelle",
+    category: "Citadine",
+    city: "Marrakech",
+    price: 330,
+    priceDisplay: "330 MAD",
+    conditions: generateConditions(21)
+  }
 ];
 
 const Louer = () => {
