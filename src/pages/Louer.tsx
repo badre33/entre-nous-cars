@@ -488,8 +488,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Rabat",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 300,
+    priceDisplay: "300 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -500,8 +500,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Tanger",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 300,
+    priceDisplay: "300 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -1219,8 +1219,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Agadir",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 300,
+    priceDisplay: "300 MAD",
     conditions: generateConditions(21),
     badges: ["💰 Prix attractif"]
   },
@@ -1344,8 +1344,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Fès",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 300,
+    priceDisplay: "300 MAD",
     conditions: generateConditions(21),
     badges: ["💰 Prix attractif"]
   },
