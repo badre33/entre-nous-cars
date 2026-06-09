@@ -386,7 +386,7 @@ const cars = [
   },
   {
     id: 29,
-    image: carFiatTipo,
+    image: carHyundaiAccent,
     name: "Hyundai Accent",
     brand: "Fiat",
     type: "Automatique",
@@ -398,7 +398,7 @@ const cars = [
   },
   {
     id: 30,
-    image: carFiatTipo,
+    image: carHyundaiAccent,
     name: "Hyundai Accent",
     brand: "Fiat",
     type: "Manuelle",
@@ -410,7 +410,7 @@ const cars = [
   },
   {
     id: 33,
-    image: carSkodaOctavia,
+    image: carVwGolf,
     name: "Volkswagen Golf",
     brand: "Volkswagen",
     type: "Automatique",
@@ -422,7 +422,7 @@ const cars = [
   },
   {
     id: 36,
-    image: carMazdaCX5,
+    image: carHyundaiTucson,
     name: "Hyundai Tucson",
     brand: "Toyota",
     type: "Automatique",
@@ -434,7 +434,7 @@ const cars = [
   },
   {
     id: 42,
-    image: carMitsubishiOutlander,
+    image: carHyundaiTucson,
     name: "Hyundai Tucson",
     brand: "Toyota",
     type: "Automatique",
@@ -446,7 +446,7 @@ const cars = [
   },
   {
     id: 46,
-    image: carRenaultCaptur,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
@@ -482,7 +482,7 @@ const cars = [
   },
   {
     id: 63,
-    image: carClioWhite,
+    image: carClio,
     name: "Renault Clio",
     brand: "Renault",
     type: "Automatique",
@@ -494,7 +494,7 @@ const cars = [
   },
   {
     id: 64,
-    image: carCapturOrange,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Renault",
     type: "Manuelle",
@@ -506,7 +506,7 @@ const cars = [
   },
   {
     id: 66,
-    image: carDusterGray,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Dacia",
     type: "Automatique",
@@ -542,7 +542,7 @@ const cars = [
   },
   {
     id: 76,
-    image: carFordFiesta,
+    image: carClio,
     name: "Renault Clio",
     brand: "Ford",
     type: "Manuelle",
@@ -554,7 +554,7 @@ const cars = [
   },
   {
     id: 89,
-    image: carMazdaCX3,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Toyota",
     type: "Automatique",
@@ -746,7 +746,7 @@ const cars = [
   },
   {
     id: 117,
-    image: carPeugeot5008,
+    image: carDaciaJogger,
     name: "Dacia Jogger",
     brand: "Peugeot",
     type: "Automatique",
@@ -755,18 +755,6 @@ const cars = [
     price: 620,
     priceDisplay: "620 MAD",
     conditions: ["Caution: 8400 MAD", "460 km/jour inclus", "Âge minimum: 26 ans"]
-  },
-  {
-    id: 118,
-    image: carRenaultArkana,
-    name: "Renault Arkana",
-    brand: "Renault",
-    type: "Automatique",
-    category: "SUV",
-    city: "Tanger",
-    price: 550,
-    priceDisplay: "550 MAD",
-    conditions: ["Caution: 7400 MAD", "420 km/jour inclus", "Âge minimum: 25 ans"]
   },
   {
     id: 119,
@@ -794,7 +782,7 @@ const cars = [
   },
   {
     id: 129,
-    image: carSkodaKaroq,
+    image: carHyundaiTucson,
     name: "Hyundai Tucson",
     brand: "Volkswagen",
     type: "Automatique",
@@ -973,7 +961,7 @@ const cars = [
   },
   {
     id: 176,
-    image: carRenaultCaptur,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
@@ -1023,7 +1011,7 @@ const cars = [
   },
   {
     id: 184,
-    image: carSkodaOctavia,
+    image: carVwGolf,
     name: "Volkswagen Golf",
     brand: "Volkswagen",
     type: "Automatique",
@@ -1035,7 +1023,7 @@ const cars = [
   },
   {
     id: 185,
-    image: carMazdaCX5,
+    image: carHyundaiTucson,
     name: "Hyundai Tucson",
     brand: "Toyota",
     type: "Automatique",
@@ -1086,7 +1074,7 @@ const cars = [
   },
   {
     id: 194,
-    image: carRenaultCaptur,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
@@ -1099,7 +1087,7 @@ const cars = [
   },
   {
     id: 199,
-    image: carFordFiesta,
+    image: carClio,
     name: "Renault Clio",
     brand: "Ford",
     type: "Manuelle",
@@ -1122,20 +1110,8 @@ const cars = [
     conditions: generateConditions(21)
   },
   {
-    id: 215,
-    image: carRenaultArkana,
-    name: "Renault Arkana",
-    brand: "Renault",
-    type: "Automatique",
-    category: "SUV",
-    city: "Marrakech",
-    price: 620,
-    priceDisplay: "620 MAD",
-    conditions: generateConditions(25)
-  },
-  {
     id: 217,
-    image: carRenaultCaptur,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
@@ -1148,7 +1124,7 @@ const cars = [
   },
   {
     id: 219,
-    image: carMazdaCX3,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Toyota",
     type: "Automatique",
@@ -1184,7 +1160,7 @@ const cars = [
   },
   {
     id: 237,
-    image: carRenaultCaptur,
+    image: carDuster,
     name: "Dacia Duster",
     brand: "Renault",
     type: "Automatique",
@@ -1209,7 +1185,7 @@ const cars = [
   },
   {
     id: 250,
-    image: carMitsubishiOutlander,
+    image: carHyundaiTucson,
     name: "Hyundai Tucson",
     brand: "Toyota",
     type: "Automatique",
@@ -1221,7 +1197,7 @@ const cars = [
   },
   {
     id: 254,
-    image: carPeugeot5008,
+    image: carDaciaJogger,
     name: "Dacia Jogger",
     brand: "Peugeot",
     type: "Automatique",
@@ -1257,7 +1233,7 @@ const cars = [
   },
   {
     id: 261,
-    image: carSkodaKaroq,
+    image: carHyundaiTucson,
     name: "Hyundai Tucson",
     brand: "Volkswagen",
     type: "Automatique",
@@ -1305,7 +1281,7 @@ const cars = [
   },
   {
     id: 271,
-    image: carSkodaOctavia,
+    image: carVwGolf,
     name: "Volkswagen Golf",
     brand: "Volkswagen",
     type: "Automatique",
@@ -1317,7 +1293,7 @@ const cars = [
   },
   {
     id: 276,
-    image: carMazdaCX5,
+    image: carHyundaiTucson,
     name: "Hyundai Tucson",
     brand: "Toyota",
     type: "Automatique",
