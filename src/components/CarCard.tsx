@@ -83,7 +83,7 @@ export default function CarCard({
               <LazyCarImage 
                 src={car.image} 
                 alt={imageAlt}
-                className="w-full h-full object-contain p-1"
+                className="w-full h-full object-cover object-center"
               />
               {car.badges && car.badges.length > 0 && (
                 <Badge className="absolute top-1 left-1 text-xs py-0 px-1.5 bg-destructive/90">
@@ -148,7 +148,7 @@ export default function CarCard({
           <LazyCarImage 
             src={car.image} 
             alt={imageAlt}
-            className="w-full h-full object-contain p-1"
+            className="w-full h-full object-cover object-center"
           />
           
           {/* ViewCounter - Temporairement désactivé
@@ -222,7 +222,7 @@ export default function CarCard({
         <LazyCarImage 
           src={car.image} 
           alt={imageAlt}
-          className="w-full h-full object-contain p-1"
+          className="w-full h-full object-cover object-center"
         />
         
         {/* ViewCounter - Temporairement désactivé

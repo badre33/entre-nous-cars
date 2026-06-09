@@ -76,7 +76,7 @@ export default function LazyCarImage({
           fetchPriority={priority ? "high" : "auto"}
           data-car-image
           className={cn(
-            "w-full h-full object-contain p-2 transition-opacity duration-300",
+            "w-full h-full object-cover object-center transition-opacity duration-300",
             loaded ? "opacity-100" : "opacity-0",
             // Hardware acceleration for smoother scrolling on mobile
             "transform-gpu will-change-auto"
