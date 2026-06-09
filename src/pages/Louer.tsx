@@ -1404,31 +1404,6 @@ const cars = [
     conditions: generateConditions(25)
   },
   {
-    id: 306,
-    image: carHyundaiTucson,
-    name: "Hyundai Santa Fe",
-    brand: "Hyundai",
-    type: "Automatique",
-    category: "SUV 7 places",
-    city: "Casablanca",
-    price: 820,
-    priceDisplay: "820 MAD",
-    conditions: generateConditions(25),
-    badges: ["👨‍👩‍👧‍👦 7 places", "🔥 Familial premium"]
-  },
-  {
-    id: 307,
-    image: carHyundaiTucson,
-    name: "Hyundai Santa Fe",
-    brand: "Hyundai",
-    type: "Automatique",
-    category: "SUV 7 places",
-    city: "Marrakech",
-    price: 850,
-    priceDisplay: "850 MAD",
-    conditions: generateConditions(25)
-  },
-  {
     id: 308,
     image: carDaciaJogger,
     name: "Hyundai Staria",
