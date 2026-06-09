@@ -13,7 +13,20 @@ import { generateCarImageAlt } from "@/utils/seoHelpers";
 
 
 // Helper: convert car name to slug for /vehicule/:slug route
-const getVehicleSlug = (name: string): string => {
+
+// Per-model object-position to better center vehicles in card crop
+const getObjectPosition = (name: string): string => {
+  const n = name.toLowerCase();
+  if (n.includes('cupra')) return 'center 70%';  // descend pour voir le véhicule
+  if (n.includes('hyundai tucson')) return 'center 30%';  // remonte
+  if (n.includes('hyundai accent')) return 'center 65%';  // descend
+  if (n.includes('mercedes classe e') || n === 'mercedes e') return 'center 35%';  // remonte
+  if (n.includes('mercedes classe c') || n === 'mercedes c') return 'center 50%';
+  if (n.includes('staria')) return 'center 60%';
+  return 'center center';
+};
+
+const getVehicleSlug = (name: string): string = {
   return name
     .toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -76,21 +89,22 @@ export default function CarCard({
   // Vue Liste (compacte, horizontale)
   if (viewMode === 'list') {
     return (
-      <Card className="overflow-hidden hover:shadow-md transition-all duration-200 border mb-3">
+      <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="block mb-3 hover:no-underline"><Card className="overflow-hidden hover:shadow-md transition-all duration-200 border">
         <CardContent className="p-3">
           <div className="flex gap-3">
-            <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden block hover:opacity-90 transition-opacity">
+            <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
               <LazyCarImage 
                 src={car.image} 
                 alt={imageAlt}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover"
+                objectPosition={getObjectPosition(car.name)}
               />
               {car.badges && car.badges.length > 0 && (
                 <Badge className="absolute top-1 left-1 text-xs py-0 px-1.5 bg-destructive/90">
                   {car.badges[0].replace('🔥 ', '')}
                 </Badge>
               )}
-            </Link>
+            </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between mb-1.5">
                 <div className="flex-1 min-w-0 pr-2">
@@ -116,11 +130,11 @@ export default function CarCard({
                 <span className="truncate">{car.city}</span>
               </div>
               <div className="flex gap-1.5">
-                <Button size="sm" variant="outline" className="h-11 text-sm flex-1" onClick={onShowAvailability}>
+                <Button size="sm" variant="outline" className="h-11 text-sm flex-1" onClick={(e) => { e.preventDefault(); e.stopPropagation(); onShowAvailability(); }}>
                   <CalendarCheck className="w-3 h-3 mr-1" />
                   Dispo
                 </Button>
-                <Button size="sm" className="h-11 text-sm flex-1" onClick={onWhatsAppClick}>
+                <Button size="sm" className="h-11 text-sm flex-1" onClick={(e) => { e.preventDefault(); e.stopPropagation(); onWhatsAppClick(); }}>
                   WhatsApp
                 </Button>
                 <div
@@ -128,7 +142,7 @@ export default function CarCard({
                     "h-10 w-10 flex items-center justify-center rounded border cursor-pointer transition-all",
                     isInComparison ? "bg-primary border-primary" : "border-border"
                   )}
-                  onClick={onToggleComparison}
+                  onClick={(e) => { e.preventDefault(); e.stopPropagation(); onToggleComparison(); }}
                 >
                   <Checkbox checked={isInComparison} className="pointer-events-none h-3.5 w-3.5" />
                 </div>
@@ -136,19 +150,20 @@ export default function CarCard({
             </div>
           </div>
         </CardContent>
-      </Card>
+      </Card></Link>
     );
   }
 
   // Vue Grille (2 colonnes, compact)
   if (viewMode === 'grid') {
     return (
-      <Card className="overflow-hidden hover:shadow-md transition-all duration-200 border h-full">
-        <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="relative h-32 overflow-hidden bg-muted block hover:opacity-90 transition-opacity">
+      <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="block h-full hover:no-underline"><Card className="overflow-hidden hover:shadow-md transition-all duration-200 border h-full">
+        <div className="relative h-32 overflow-hidden bg-muted">
           <LazyCarImage 
             src={car.image} 
             alt={imageAlt}
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover"
+                objectPosition={getObjectPosition(car.name)}
           />
           
           {/* ViewCounter - Temporairement désactivé
@@ -166,7 +181,7 @@ export default function CarCard({
                 "h-10 w-10 flex items-center justify-center rounded-full backdrop-blur-sm cursor-pointer transition-all",
                 isInComparison ? "bg-primary" : "bg-background/80 border border-border"
               )}
-              onClick={onToggleComparison}
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); onToggleComparison(); }}
             >
               <Checkbox checked={isInComparison} className="pointer-events-none h-3.5 w-3.5" />
             </div>
@@ -176,7 +191,7 @@ export default function CarCard({
               {car.badges[0].replace('🔥 ', '')}
             </Badge>
           )}
-        </Link>
+        </div>
         <CardContent className="p-3">
           <div className="mb-2">
             <h3 className="text-sm font-semibold truncate mb-0.5">{car.name}</h3>
@@ -202,27 +217,28 @@ export default function CarCard({
             </div>
           </div>
           <div className="space-y-1.5">
-            <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={onShowAvailability}>
+            <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={(e) => { e.preventDefault(); e.stopPropagation(); onShowAvailability(); }}>
               <CalendarCheck className="w-3 h-3 mr-1" />
               Disponibilités
             </Button>
-            <Button size="sm" className="w-full h-11 text-sm" onClick={onWhatsAppClick}>
+            <Button size="sm" className="w-full h-11 text-sm" onClick={(e) => { e.preventDefault(); e.stopPropagation(); onWhatsAppClick(); }}>
               WhatsApp
             </Button>
           </div>
         </CardContent>
-      </Card>
+      </Card></Link>
     );
   }
 
   // Vue Carrousel (par défaut, carte complète)
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border h-full">
-      <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="relative h-48 overflow-hidden bg-muted block hover:opacity-90 transition-opacity">
+    <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="block h-full hover:no-underline"><Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border h-full">
+      <div className="relative h-48 overflow-hidden bg-muted">
         <LazyCarImage 
           src={car.image} 
           alt={imageAlt}
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover"
+                objectPosition={getObjectPosition(car.name)}
         />
         
         {/* ViewCounter - Temporairement désactivé
@@ -253,7 +269,7 @@ export default function CarCard({
                 ? "bg-primary text-primary-foreground shadow-lg"
                 : "bg-background/90 border border-border"
             )}
-            onClick={onToggleComparison}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); onToggleComparison(); }}
           >
             <Checkbox
               checked={isInComparison}
@@ -279,7 +295,7 @@ export default function CarCard({
             ))}
           </div>
         )}
-      </Link>
+      </div>
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1 pr-2">
@@ -314,7 +330,7 @@ export default function CarCard({
             variant="outline"
             size="sm"
             className="w-full rounded-full touch-target text-xs" 
-            onClick={onShowAvailability}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); onShowAvailability(); }}
           >
             <CalendarCheck className="w-3.5 h-3.5 mr-1.5" />
             Disponibilités
@@ -322,7 +338,7 @@ export default function CarCard({
           <Button 
             size="sm"
             className="w-full rounded-full touch-target text-xs" 
-            onClick={onWhatsAppClick}
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); onWhatsAppClick(); }}
           >
             Contacter WhatsApp
           </Button>

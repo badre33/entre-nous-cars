@@ -8,6 +8,7 @@ interface LazyCarImageProps {
   priority?: boolean;
   sizes?: string;
   mobileOptimized?: boolean;
+  objectPosition?: string;
 }
 
 export default function LazyCarImage({ 
@@ -16,7 +17,8 @@ export default function LazyCarImage({
   className,
   priority = false,
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
-  mobileOptimized = true
+  mobileOptimized = true,
+  objectPosition = "center"
 }: LazyCarImageProps) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -76,11 +78,12 @@ export default function LazyCarImage({
           fetchPriority={priority ? "high" : "auto"}
           data-car-image
           className={cn(
-            "w-full h-full object-cover object-center transition-opacity duration-300",
+            "w-full h-full object-cover transition-opacity duration-300",
             loaded ? "opacity-100" : "opacity-0",
             // Hardware acceleration for smoother scrolling on mobile
             "transform-gpu will-change-auto"
           )}
+          style={{ objectPosition }}
           onLoad={() => setLoaded(true)}
           onError={() => {
             setError(true);
