@@ -50,6 +50,9 @@ import carMercedesGLA from "@/assets/car-mercedes-gla.jpg";
 import carMercedesGLB from "@/assets/car-mercedes-glb.jpg";
 import carMercedesGLC from "@/assets/car-mercedes-glc.jpg";
 import carMercedesGLE from "@/assets/car-mercedes-gle.jpg";
+import carHyundaiI20 from "@/assets/car-hyundai-i20.jpg";
+import carVwTRoc from "@/assets/car-vw-troc.jpg";
+import carHyundaiSantaFe from "@/assets/car-hyundai-santa-fe.jpg";
 
 export interface VehicleOption {
   label: string;
@@ -670,6 +673,32 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     options: { transmission: "Manuelle/DSG", seats: 5, doors: 5, luggage: "355L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
     highlights: ["Design espagnol", "Base VW", "Sport accessible"], perfectFor: ["Jeunes", "Couples", "Tourisme"]
   }
+,
+  "hyundai-i20": {
+    slug: "hyundai-i20", name: "Hyundai i20", brand: "Hyundai",
+    category: "Citadine Moderne", priceFrom: 320, priceDisplay: "320 MAD/jour",
+    photos: [carHyundaiI20],
+    description: "La Hyundai i20 nouvelle generation est la citadine moderne et stylee. Design audacieux, equipement complet, conso modeste.",
+    options: { transmission: "Manuelle/Auto", seats: 5, doors: 5, luggage: "352L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true },
+    highlights: ["Design moderne", "Garantie 5 ans", "Citadine accessible"], perfectFor: ["Couples", "Visites urbaines", "Premier voyage"]
+  },
+  "volkswagen-troc": {
+    slug: "volkswagen-troc", name: "Volkswagen T-Roc", brand: "Volkswagen",
+    category: "SUV Compact", priceFrom: 510, priceDisplay: "510 MAD/jour",
+    photos: [carVwTRoc],
+    description: "Le VW T-Roc est le SUV compact stylise. Format urbain, technologie VW, agreable a conduire en ville et autoroute.",
+    options: { transmission: "Automatique DSG", seats: 5, doors: 5, luggage: "445L", fuel: "Essence/Diesel", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },
+    highlights: ["SUV compact VW", "Design dynamique", "Tech embarquee"], perfectFor: ["Jeunes pros", "Couples", "City breaks"]
+  },
+  "hyundai-santa-fe": {
+    slug: "hyundai-santa-fe", name: "Hyundai Santa Fe", brand: "Hyundai",
+    category: "SUV 7 Places Premium", priceFrom: 820, priceDisplay: "820 MAD/jour",
+    photos: [carHyundaiSantaFe],
+    description: "Le Hyundai Santa Fe est le grand SUV 7 places ideal pour familles MRE nombreuses. Espace, confort, equipements premium.",
+    options: { transmission: "Automatique 8 rapports", seats: 7, doors: 5, luggage: "634L (5 places)", fuel: "Diesel/Hybride", consumption: "6.5L/100km", enginePower: "230 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
+    highlights: ["7 places vraies", "Garantie 5 ans", "Confort premium"], perfectFor: ["Grandes familles MRE", "Road trip groupe", "Mariages"]
+  }
+
 };
 
 export const getVehicleDetail = (slug: string): VehicleDetail | undefined => {

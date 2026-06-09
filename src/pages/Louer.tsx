@@ -1479,6 +1479,36 @@ const cars = [
     price: 350,
     priceDisplay: "350 MAD",
     conditions: generateConditions(21)
+  },
+  {
+    id: 320, image: carHyundaiI20, name: "Hyundai i20", brand: "Hyundai", type: "Manuelle",
+    category: "Citadine", city: "Casablanca", price: 320, priceDisplay: "320 MAD",
+    conditions: generateConditions(21), badges: ["💰 Économique"]
+  },
+  {
+    id: 321, image: carHyundaiI20, name: "Hyundai i20", brand: "Hyundai", type: "Manuelle",
+    category: "Citadine", city: "Marrakech", price: 330, priceDisplay: "330 MAD",
+    conditions: generateConditions(21)
+  },
+  {
+    id: 322, image: carVwTRoc, name: "Volkswagen T-Roc", brand: "Volkswagen", type: "Automatique",
+    category: "SUV Compact", city: "Casablanca", price: 510, priceDisplay: "510 MAD",
+    conditions: generateConditions(23), badges: ["⚡ Disponible immédiatement"]
+  },
+  {
+    id: 323, image: carVwTRoc, name: "Volkswagen T-Roc", brand: "Volkswagen", type: "Automatique",
+    category: "SUV Compact", city: "Marrakech", price: 540, priceDisplay: "540 MAD",
+    conditions: generateConditions(23)
+  },
+  {
+    id: 324, image: carHyundaiSantaFe, name: "Hyundai Santa Fe", brand: "Hyundai", type: "Automatique",
+    category: "SUV 7 places", city: "Casablanca", price: 820, priceDisplay: "820 MAD",
+    conditions: generateConditions(25), badges: ["👨‍👩‍👧‍👦 7 places", "🔥 Premium familial"]
+  },
+  {
+    id: 325, image: carHyundaiSantaFe, name: "Hyundai Santa Fe", brand: "Hyundai", type: "Automatique",
+    category: "SUV 7 places", city: "Marrakech", price: 850, priceDisplay: "850 MAD",
+    conditions: generateConditions(25)
   }
 ];
 
