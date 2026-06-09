@@ -180,6 +180,8 @@ import carPorsche911 from "@/assets/car-porsche-911.jpg";
 import carRangeRoverSport from "@/assets/car-range-rover-sport.jpg";
 import carRangeRoverVelar from "@/assets/car-range-rover-velar.jpg";
 import carAudiEtronGT from "@/assets/car-audi-etron-gt.jpg";
+import carCupraFormentor from "@/assets/car-cupra-formentor.jpg";
+import carHyundaiStaria from "@/assets/car-hyundai-staria.jpg";
 
 // Helper function to generate conditions for all cars
 const generateConditions = (minAge: number): string[] => {
@@ -1380,7 +1382,7 @@ const cars = [
   },
   {
     id: 304,
-    image: carHyundaiTucson,
+    image: carCupraFormentor,
     name: "Cupra Formentor",
     brand: "Cupra",
     type: "Automatique",
@@ -1393,7 +1395,7 @@ const cars = [
   },
   {
     id: 305,
-    image: carHyundaiTucson,
+    image: carCupraFormentor,
     name: "Cupra Formentor",
     brand: "Cupra",
     type: "Automatique",
@@ -1405,7 +1407,7 @@ const cars = [
   },
   {
     id: 308,
-    image: carDaciaJogger,
+    image: carHyundaiStaria,
     name: "Hyundai Staria",
     brand: "Hyundai",
     type: "Automatique",
@@ -1418,7 +1420,7 @@ const cars = [
   },
   {
     id: 309,
-    image: carDaciaJogger,
+    image: carHyundaiStaria,
     name: "Hyundai Staria",
     brand: "Hyundai",
     type: "Automatique",
