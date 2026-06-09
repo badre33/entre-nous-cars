@@ -649,18 +649,6 @@ const cars = [
     conditions: ["Caution: 13500 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
   },
   {
-    id: 102,
-    image: carAudiA1,
-    name: "Audi A1",
-    brand: "Audi",
-    type: "Automatique",
-    category: "Citadine",
-    city: "Tanger",
-    price: 650,
-    priceDisplay: "650 MAD",
-    conditions: ["Caution: 7800 MAD", "370 km/jour inclus", "Âge minimum: 26 ans"]
-  },
-  {
     id: 103,
     image: carMercedesA,
     name: "Mercedes Classe A",
