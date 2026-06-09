@@ -1840,7 +1840,7 @@ const cars = [
   },
   {
     id: 304,
-    image: carTucson,
+    image: carHyundaiTucson,
     name: "Cupra Formentor",
     brand: "Cupra",
     type: "Automatique",
@@ -1853,7 +1853,7 @@ const cars = [
   },
   {
     id: 305,
-    image: carTucson,
+    image: carHyundaiTucson,
     name: "Cupra Formentor",
     brand: "Cupra",
     type: "Automatique",
@@ -1865,7 +1865,7 @@ const cars = [
   },
   {
     id: 306,
-    image: carTucson,
+    image: carHyundaiTucson,
     name: "Hyundai Santa Fe",
     brand: "Hyundai",
     type: "Automatique",
@@ -1878,7 +1878,7 @@ const cars = [
   },
   {
     id: 307,
-    image: carTucson,
+    image: carHyundaiTucson,
     name: "Hyundai Santa Fe",
     brand: "Hyundai",
     type: "Automatique",
@@ -1890,7 +1890,7 @@ const cars = [
   },
   {
     id: 308,
-    image: carJogger,
+    image: carDaciaJogger,
     name: "Hyundai Staria",
     brand: "Hyundai",
     type: "Automatique",
@@ -1903,7 +1903,7 @@ const cars = [
   },
   {
     id: 309,
-    image: carJogger,
+    image: carDaciaJogger,
     name: "Hyundai Staria",
     brand: "Hyundai",
     type: "Automatique",
