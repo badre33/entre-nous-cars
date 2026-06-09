@@ -361,30 +361,6 @@ const cars = [
     conditions: generateConditions(27)
   },
   {
-    id: 19,
-    image: carBmwX3,
-    name: "BMW X3",
-    brand: "BMW",
-    type: "Automatique",
-    category: "SUV",
-    city: "Casablanca",
-    price: 950,
-    priceDisplay: "950 MAD",
-    conditions: generateConditions(28)
-  },
-  {
-    id: 20,
-    image: carBmwX3,
-    name: "BMW X3",
-    brand: "BMW",
-    type: "Automatique",
-    category: "SUV",
-    city: "Marrakech",
-    price: 970,
-    priceDisplay: "970 MAD",
-    conditions: generateConditions(28)
-  },
-  {
     id: 27,
     image: carSeatIbiza,
     name: "Seat Ibiza",
@@ -553,18 +529,6 @@ const cars = [
     conditions: ["Caution: 4200 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
-    id: 72,
-    image: carHyundaiKona,
-    name: "Hyundai Kona",
-    brand: "Hyundai",
-    type: "Automatique",
-    category: "SUV",
-    city: "Marrakech",
-    price: 480,
-    priceDisplay: "480 MAD",
-    conditions: ["Caution: 6500 MAD", "390 km/jour inclus", "Âge minimum: 24 ans"]
-  },
-  {
     id: 73,
     image: carHyundaiAccent,
     name: "Hyundai Accent",
@@ -575,18 +539,6 @@ const cars = [
     price: 370,
     priceDisplay: "370 MAD",
     conditions: ["Caution: 5000 MAD", "330 km/jour inclus", "Âge minimum: 22 ans"]
-  },
-  {
-    id: 74,
-    image: carNissanJuke,
-    name: "Nissan Juke",
-    brand: "Nissan",
-    type: "Automatique",
-    category: "SUV",
-    city: "Tanger",
-    price: 450,
-    priceDisplay: "450 MAD",
-    conditions: ["Caution: 6100 MAD", "370 km/jour inclus", "Âge minimum: 24 ans"]
   },
   {
     id: 76,
@@ -601,42 +553,6 @@ const cars = [
     conditions: ["Caution: 3900 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
-    id: 83,
-    image: carCitroenC3Aircross,
-    name: "Citroën C3 Aircross",
-    brand: "Citroën",
-    type: "Automatique",
-    category: "SUV",
-    city: "Rabat",
-    price: 410,
-    priceDisplay: "410 MAD",
-    conditions: ["Caution: 5500 MAD", "360 km/jour inclus", "Âge minimum: 23 ans"]
-  },
-  {
-    id: 84,
-    image: carSeatLeon,
-    name: "Seat Leon",
-    brand: "Seat",
-    type: "Automatique",
-    category: "Berline",
-    city: "Marrakech",
-    price: 390,
-    priceDisplay: "390 MAD",
-    conditions: ["Caution: 5300 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
-  },
-  {
-    id: 85,
-    image: carSeatArona,
-    name: "Seat Arona",
-    brand: "Seat",
-    type: "Automatique",
-    category: "SUV",
-    city: "Casablanca",
-    price: 425,
-    priceDisplay: "425 MAD",
-    conditions: ["Caution: 5700 MAD", "370 km/jour inclus", "Âge minimum: 23 ans"]
-  },
-  {
     id: 89,
     image: carMazdaCX3,
     name: "Dacia Duster",
@@ -647,18 +563,6 @@ const cars = [
     price: 460,
     priceDisplay: "460 MAD",
     conditions: ["Caution: 6200 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
-  },
-  {
-    id: 91,
-    image: carBmw3,
-    name: "BMW Série 3",
-    brand: "BMW",
-    type: "Automatique",
-    category: "Berline",
-    city: "Casablanca",
-    price: 750,
-    priceDisplay: "750 MAD",
-    conditions: ["Caution: 9000 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
   },
   {
     id: 92,
@@ -673,18 +577,6 @@ const cars = [
     conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
-    id: 93,
-    image: carBmwX1,
-    name: "BMW X1",
-    brand: "BMW",
-    type: "Automatique",
-    category: "SUV",
-    city: "Rabat",
-    price: 720,
-    priceDisplay: "720 MAD",
-    conditions: ["Caution: 8500 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
-  },
-  {
     id: 94,
     image: carBmwX5,
     name: "BMW X5",
@@ -695,30 +587,6 @@ const cars = [
     price: 1100,
     priceDisplay: "1100 MAD",
     conditions: ["Caution: 13000 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
-  },
-  {
-    id: 95,
-    image: carBmw1,
-    name: "BMW Série 1",
-    brand: "BMW",
-    type: "Automatique",
-    category: "Citadine",
-    city: "Casablanca",
-    price: 680,
-    priceDisplay: "680 MAD",
-    conditions: ["Caution: 8000 MAD", "380 km/jour inclus", "Âge minimum: 26 ans"]
-  },
-  {
-    id: 96,
-    image: carBmwX2,
-    name: "BMW X2",
-    brand: "BMW",
-    type: "Automatique",
-    category: "SUV",
-    city: "Marrakech",
-    price: 780,
-    priceDisplay: "780 MAD",
-    conditions: ["Caution: 9200 MAD", "410 km/jour inclus", "Âge minimum: 27 ans"]
   },
   {
     id: 97,
@@ -925,18 +793,6 @@ const cars = [
     conditions: ["Caution: 5200 MAD", "340 km/jour inclus", "Âge minimum: 23 ans"]
   },
   {
-    id: 121,
-    image: carNissanXTrail,
-    name: "Nissan X-Trail",
-    brand: "Nissan",
-    type: "Automatique",
-    category: "SUV",
-    city: "Marrakech",
-    price: 580,
-    priceDisplay: "580 MAD",
-    conditions: ["Caution: 7800 MAD", "440 km/jour inclus", "Âge minimum: 26 ans"]
-  },
-  {
     id: 123,
     image: carHyundaiBayon,
     name: "Hyundai Bayon",
@@ -949,18 +805,6 @@ const cars = [
     conditions: ["Caution: 6100 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
   },
   {
-    id: 128,
-    image: carSeatAteca,
-    name: "Seat Ateca",
-    brand: "Seat",
-    type: "Automatique",
-    category: "SUV",
-    city: "Rabat",
-    price: 510,
-    priceDisplay: "510 MAD",
-    conditions: ["Caution: 6900 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
-  },
-  {
     id: 129,
     image: carSkodaKaroq,
     name: "Hyundai Tucson",
@@ -971,30 +815,6 @@ const cars = [
     price: 520,
     priceDisplay: "520 MAD",
     conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
-  },
-  {
-    id: 130,
-    image: carAudiQ2,
-    name: "Audi Q2",
-    brand: "Audi",
-    type: "Automatique",
-    category: "SUV",
-    city: "Tanger",
-    price: 690,
-    priceDisplay: "690 MAD",
-    conditions: ["Caution: 8200 MAD", "390 km/jour inclus", "Âge minimum: 26 ans"]
-  },
-  {
-    id: 134,
-    image: carRenaultAustral,
-    name: "Renault Austral",
-    brand: "Renault",
-    type: "Automatique",
-    category: "SUV",
-    city: "Tanger",
-    price: 600,
-    priceDisplay: "600 MAD",
-    conditions: ["Caution: 8100 MAD", "450 km/jour inclus", "Âge minimum: 26 ans"]
   },
   {
     id: 141,
@@ -1044,32 +864,6 @@ const cars = [
     price: 3600,
     priceDisplay: "3600 MAD",
     conditions: ["Âge minimum: 30 ans"],
-    badges: ["🌟 Nouveau", "💎 Luxe"]
-  },
-  {
-    id: 152,
-    image: carAudiA8,
-    name: "Audi A8",
-    brand: "Audi",
-    type: "Automatique",
-    category: "Berline",
-    city: "Casablanca",
-    price: 2200,
-    priceDisplay: "2200 MAD",
-    conditions: ["Âge minimum: 28 ans"],
-    badges: ["🌟 Nouveau", "💎 Luxe"]
-  },
-  {
-    id: 153,
-    image: carAudiA8,
-    name: "Audi A8",
-    brand: "Audi",
-    type: "Automatique",
-    category: "Berline",
-    city: "Marrakech",
-    price: 2150,
-    priceDisplay: "2150 MAD",
-    conditions: ["Âge minimum: 28 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
@@ -1125,30 +919,6 @@ const cars = [
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
   {
-    id: 160,
-    image: carPorschePanamera,
-    name: "Porsche Panamera",
-    brand: "Porsche",
-    type: "Automatique",
-    category: "Berline",
-    city: "Marrakech",
-    price: 2400,
-    priceDisplay: "2400 MAD",
-    conditions: ["Âge minimum: 30 ans"]
-  },
-  {
-    id: 161,
-    image: carPorschePanamera,
-    name: "Porsche Panamera",
-    brand: "Porsche",
-    type: "Automatique",
-    category: "Berline",
-    city: "Casablanca",
-    price: 2450,
-    priceDisplay: "2450 MAD",
-    conditions: ["Âge minimum: 30 ans"]
-  },
-  {
     id: 164,
     image: carRangeRoverSport,
     name: "Range Rover Sport",
@@ -1173,30 +943,6 @@ const cars = [
     priceDisplay: "2200 MAD",
     conditions: ["Âge minimum: 28 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
-  },
-  {
-    id: 166,
-    image: carRangeRoverVelar,
-    name: "Range Rover Velar",
-    brand: "Land Rover",
-    type: "Automatique",
-    category: "SUV",
-    city: "Marrakech",
-    price: 1900,
-    priceDisplay: "1900 MAD",
-    conditions: ["Âge minimum: 28 ans"]
-  },
-  {
-    id: 167,
-    image: carRangeRoverVelar,
-    name: "Range Rover Velar",
-    brand: "Land Rover",
-    type: "Automatique",
-    category: "SUV",
-    city: "Casablanca",
-    price: 1950,
-    priceDisplay: "1950 MAD",
-    conditions: ["Âge minimum: 28 ans"]
   },
   {
     id: 168,
@@ -1286,18 +1032,6 @@ const cars = [
     priceDisplay: "500 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
-  },
-  {
-    id: 183,
-    image: carSeatLeon,
-    name: "Seat Leon",
-    brand: "Seat",
-    type: "Automatique",
-    category: "Berline",
-    city: "Agadir",
-    price: 460,
-    priceDisplay: "460 MAD",
-    conditions: generateConditions(23)
   },
   {
     id: 184,
@@ -1400,30 +1134,6 @@ const cars = [
     conditions: generateConditions(21)
   },
   {
-    id: 211,
-    image: carHyundaiKona,
-    name: "Hyundai Kona",
-    brand: "Hyundai",
-    type: "Automatique",
-    category: "SUV",
-    city: "Marrakech",
-    price: 530,
-    priceDisplay: "530 MAD",
-    conditions: generateConditions(23)
-  },
-  {
-    id: 213,
-    image: carNissanJuke,
-    name: "Nissan Juke",
-    brand: "Nissan",
-    type: "Automatique",
-    category: "SUV",
-    city: "Marrakech",
-    price: 520,
-    priceDisplay: "520 MAD",
-    conditions: generateConditions(23)
-  },
-  {
     id: 215,
     image: carRenaultArkana,
     name: "Renault Arkana",
@@ -1458,30 +1168,6 @@ const cars = [
     city: "Rabat",
     price: 520,
     priceDisplay: "520 MAD",
-    conditions: generateConditions(23)
-  },
-  {
-    id: 221,
-    image: carSeatArona,
-    name: "Seat Arona",
-    brand: "Seat",
-    type: "Automatique",
-    category: "SUV",
-    city: "Rabat",
-    price: 510,
-    priceDisplay: "510 MAD",
-    conditions: generateConditions(23)
-  },
-  {
-    id: 224,
-    image: carCitroenC3Aircross,
-    name: "Citroën C3 Aircross",
-    brand: "Citroën",
-    type: "Automatique",
-    category: "SUV",
-    city: "Rabat",
-    price: 490,
-    priceDisplay: "490 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1546,30 +1232,6 @@ const cars = [
     conditions: generateConditions(25)
   },
   {
-    id: 252,
-    image: carNissanXTrail,
-    name: "Nissan X-Trail",
-    brand: "Nissan",
-    type: "Automatique",
-    category: "SUV",
-    city: "Agadir",
-    price: 640,
-    priceDisplay: "640 MAD",
-    conditions: generateConditions(25)
-  },
-  {
-    id: 253,
-    image: carRenaultAustral,
-    name: "Renault Austral",
-    brand: "Renault",
-    type: "Automatique",
-    category: "SUV",
-    city: "Agadir",
-    price: 660,
-    priceDisplay: "660 MAD",
-    conditions: generateConditions(25)
-  },
-  {
     id: 254,
     image: carPeugeot5008,
     name: "Dacia Jogger",
@@ -1604,18 +1266,6 @@ const cars = [
     price: 510,
     priceDisplay: "510 MAD",
     conditions: generateConditions(23)
-  },
-  {
-    id: 260,
-    image: carSeatAteca,
-    name: "Seat Ateca",
-    brand: "Seat",
-    type: "Automatique",
-    category: "SUV",
-    city: "Agadir",
-    price: 600,
-    priceDisplay: "600 MAD",
-    conditions: generateConditions(25)
   },
   {
     id: 261,
@@ -1666,18 +1316,6 @@ const cars = [
     conditions: generateConditions(23)
   },
   {
-    id: 270,
-    image: carSeatLeon,
-    name: "Seat Leon",
-    brand: "Seat",
-    type: "Automatique",
-    category: "Berline",
-    city: "Fès",
-    price: 470,
-    priceDisplay: "470 MAD",
-    conditions: generateConditions(23)
-  },
-  {
     id: 271,
     image: carSkodaOctavia,
     name: "Volkswagen Golf",
@@ -1700,30 +1338,6 @@ const cars = [
     price: 640,
     priceDisplay: "640 MAD",
     conditions: generateConditions(25)
-  },
-  {
-    id: 278,
-    image: carSeatArona,
-    name: "Seat Arona",
-    brand: "Seat",
-    type: "Automatique",
-    category: "SUV",
-    city: "Fès",
-    price: 500,
-    priceDisplay: "500 MAD",
-    conditions: generateConditions(23)
-  },
-  {
-    id: 280,
-    image: carCitroenC3Aircross,
-    name: "Citroën C3 Aircross",
-    brand: "Citroën",
-    type: "Automatique",
-    category: "SUV",
-    city: "Fès",
-    price: 480,
-    priceDisplay: "480 MAD",
-    conditions: generateConditions(23)
   },
   {
     id: 286,
@@ -1764,19 +1378,6 @@ const cars = [
     badges: ["👑 Véhicule Premium"]
   },
   {
-    id: 297,
-    image: carPorschePanamera,
-    name: "Porsche Panamera",
-    brand: "Porsche",
-    type: "Automatique",
-    category: "Berline Premium",
-    city: "Tanger",
-    price: 2200,
-    priceDisplay: "2200 MAD",
-    conditions: generateConditions(25),
-    badges: ["👑 Véhicule Premium"]
-  },
-  {
     id: 298,
     image: carRangeRoverSport,
     name: "Range Rover Sport",
@@ -1786,18 +1387,6 @@ const cars = [
     city: "Marrakech",
     price: 1850,
     priceDisplay: "1850 MAD",
-    conditions: generateConditions(25)
-  },
-  {
-    id: 299,
-    image: carRangeRoverVelar,
-    name: "Range Rover Velar",
-    brand: "Land Rover",
-    type: "Automatique",
-    category: "SUV Premium",
-    city: "Agadir",
-    price: 1600,
-    priceDisplay: "1600 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1812,19 +1401,6 @@ const cars = [
     priceDisplay: "2800 MAD",
     conditions: generateConditions(25),
     badges: ["👑 Véhicule Premium", "🔥 Populaire"]
-  },
-  {
-    id: 302,
-    image: carAudiA8,
-    name: "Audi A8",
-    brand: "Audi",
-    type: "Automatique",
-    category: "Berline Premium",
-    city: "Marrakech",
-    price: 1600,
-    priceDisplay: "1600 MAD",
-    conditions: generateConditions(25),
-    badges: ["👑 Véhicule Premium"]
   },
   {
     id: 303,
