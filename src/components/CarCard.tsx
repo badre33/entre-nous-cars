@@ -17,11 +17,13 @@ import { generateCarImageAlt } from "@/utils/seoHelpers";
 // Per-model object-position to better center vehicles in card crop
 const getObjectPosition = (name: string): string => {
   const n = name.toLowerCase();
-  if (n.includes('cupra')) return 'center 70%';  // descend pour voir le véhicule
-  if (n.includes('hyundai tucson')) return 'center 30%';  // remonte
-  if (n.includes('hyundai accent')) return 'center 65%';  // descend
-  if (n.includes('mercedes classe e') || n === 'mercedes e') return 'center 35%';  // remonte
-  if (n.includes('mercedes classe c') || n === 'mercedes c') return 'center 50%';
+  if (n.includes('cupra')) return 'center 35%';        // remonte un peu
+  if (n.includes('hyundai tucson')) return 'center 20%'; // remonte plus
+  if (n.includes('hyundai accent')) return 'center 70%';  // descend
+  if (n.includes('mercedes classe e') || n === 'mercedes e') return 'center 25%'; // remonte encore
+  if (n.includes('mercedes classe a') || n === 'mercedes a') return 'center 25%'; // remonte
+  if (n.includes('audi a3')) return 'center 25%';      // remonte
+  if (n.includes('range rover sport')) return 'center 65%'; // descend pour centrer
   if (n.includes('staria')) return 'center 60%';
   return 'center center';
 };
@@ -344,6 +346,6 @@ export default function CarCard({
           </Button>
         </div>
       </CardContent>
-    </Card>
+    </Card></Link>
   );
 }
