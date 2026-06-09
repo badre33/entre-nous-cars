@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -9,6 +10,25 @@ import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice } 
 import { generateCarImageAlt } from "@/utils/seoHelpers";
 // import { ViewCounter } from "@/components/ViewCounter";
 // import { UrgencyBadge } from "@/components/UrgencyBadge";
+
+
+// Helper: convert car name to slug for /vehicule/:slug route
+const getVehicleSlug = (name: string): string => {
+  return name
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/é|è|ê/g, 'e')
+    .replace(/ç/g, 'c')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .replace(/^renault-megane-cactus$/, 'renault-megane')
+    .replace(/^vw-/, 'volkswagen-')
+    .replace(/^volkswagen-/, 'vw-')
+    .replace(/^bmw-serie-/, 'bmw-')
+    .replace(/^mercedes-classe-/, 'mercedes-classe-')
+    .replace(/^volkswagen-touareg$/, 'vw-touareg')
+    .replace(/^volkswagen-golf$/, 'vw-golf');
+};
 
 interface CarCardProps {
   car: {
@@ -59,7 +79,7 @@ export default function CarCard({
       <Card className="overflow-hidden hover:shadow-md transition-all duration-200 border mb-3">
         <CardContent className="p-3">
           <div className="flex gap-3">
-            <div className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden">
+            <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="relative w-24 h-24 flex-shrink-0 rounded-lg overflow-hidden block hover:opacity-90 transition-opacity">
               <LazyCarImage 
                 src={car.image} 
                 alt={imageAlt}
@@ -70,7 +90,7 @@ export default function CarCard({
                   {car.badges[0].replace('🔥 ', '')}
                 </Badge>
               )}
-            </div>
+            </Link>
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between mb-1.5">
                 <div className="flex-1 min-w-0 pr-2">
@@ -124,7 +144,7 @@ export default function CarCard({
   if (viewMode === 'grid') {
     return (
       <Card className="overflow-hidden hover:shadow-md transition-all duration-200 border h-full">
-        <div className="relative h-32 overflow-hidden bg-muted">
+        <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="relative h-32 overflow-hidden bg-muted block hover:opacity-90 transition-opacity">
           <LazyCarImage 
             src={car.image} 
             alt={imageAlt}
@@ -156,7 +176,7 @@ export default function CarCard({
               {car.badges[0].replace('🔥 ', '')}
             </Badge>
           )}
-        </div>
+        </Link>
         <CardContent className="p-3">
           <div className="mb-2">
             <h3 className="text-sm font-semibold truncate mb-0.5">{car.name}</h3>
@@ -198,7 +218,7 @@ export default function CarCard({
   // Vue Carrousel (par défaut, carte complète)
   return (
     <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border h-full">
-      <div className="relative h-48 overflow-hidden bg-muted">
+      <Link to={`/vehicule/${getVehicleSlug(car.name)}`} className="relative h-48 overflow-hidden bg-muted block hover:opacity-90 transition-opacity">
         <LazyCarImage 
           src={car.image} 
           alt={imageAlt}
@@ -259,7 +279,7 @@ export default function CarCard({
             ))}
           </div>
         )}
-      </div>
+      </Link>
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1 pr-2">

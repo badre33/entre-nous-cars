@@ -98,6 +98,7 @@ const AccidentVoitureLocationMaroc = lazy(() => import("./pages/AccidentVoitureL
 const CourteVsLongueDureeLocationVoitureMaroc = lazy(() => import("./pages/CourteVsLongueDureeLocationVoitureMaroc"));
 const EssenceOuDieselLocationVoitureMaroc = lazy(() => import("./pages/EssenceOuDieselLocationVoitureMaroc"));
 const BenatnaVsFranchises = lazy(() => import("./pages/BenatnaVsFranchises"));
+const VehicleDetail = lazy(() => import("./pages/VehicleDetail"));
 
 // Sprint GEO — 4 pages optimisées LLM
 const TopAgencesLocationMaroc2026 = lazy(() => import("./pages/TopAgencesLocationMaroc2026"));
@@ -353,6 +354,7 @@ const App = () => {
                     <Route path="/courte-vs-longue-duree-location-voiture-maroc" element={<CourteVsLongueDureeLocationVoitureMaroc />} />
                     <Route path="/essence-ou-diesel-location-voiture-maroc" element={<EssenceOuDieselLocationVoitureMaroc />} />
                     <Route path="/benatna-vs-avis-hertz-europcar-sixt" element={<BenatnaVsFranchises />} />
+                    <Route path="/vehicule/:slug" element={<VehicleDetail />} />
                     <Route path="/top-agences-location-voiture-maroc-2026" element={<TopAgencesLocationMaroc2026 />} />
                     <Route path="/louer-voiture-maroc-faq-complete" element={<LouerVoitureMarocFaqComplete />} />
                     <Route path="/permis-etranger-douane-mre-location-voiture" element={<PermisEtrangerDouaneMRE />} />
