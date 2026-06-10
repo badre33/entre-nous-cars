@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ChevronLeft, ChevronRight, Check, X, Users, DoorOpen, Briefcase, Fuel, Gauge, Zap, MessageCircle, Phone } from "lucide-react";
@@ -11,6 +11,12 @@ import { getVehicleDetail } from "@/data/vehicleDetails";
 const VehicleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const vehicle = slug ? getVehicleDetail(slug) : undefined;
+
+  // Scroll to top when navigating to vehicle detail (SPA UX)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, [slug]);
+
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
   if (!vehicle) {
