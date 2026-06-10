@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +13,19 @@ import { useLongPress } from "@/hooks/useLongPress";
 import { hapticAddToCompare, hapticRemoveFromCompare } from "@/utils/haptics";
 import { calculateDays, calculateTotalPrice, formatPrice, getDiscountPercentage } from "@/utils/priceCalculations";
 import { generateCarImageAlt } from "@/utils/seoHelpers";
+
+
+const getVehicleSlug = (name: string): string => {
+  return name
+    .toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/é|è|ê/g, 'e')
+    .replace(/ç/g, 'c')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .replace(/^volkswagen-/, 'vw-')
+    .replace(/^bmw-serie-/, 'bmw-');
+};
 
 interface SwipeableCarCardProps {
   car: {
@@ -46,6 +60,16 @@ export default function SwipeableCarCard({
   onWhatsAppClick,
   onPreview
 }: SwipeableCarCardProps) {
+  const navigate = useNavigate();
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Only navigate if click is on the card itself, not on a button
+    const target = e.target as HTMLElement;
+    if (target.closest('button') || target.closest('a') || target.closest('[role="checkbox"]')) {
+      return;
+    }
+    navigate(`/vehicule/${getVehicleSlug(car.name)}`);
+  };
+
   const [swipeOffset, setSwipeOffset] = useState(0);
   const [showQuickActions, setShowQuickActions] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -96,8 +120,9 @@ export default function SwipeableCarCard({
     return (
       <Card 
         ref={cardRef}
+        onClick={handleCardClick}
         className={cn(
-          "overflow-hidden hover:shadow-md transition-all duration-200 border mb-3",
+          "overflow-hidden hover:shadow-md transition-all duration-200 border mb-3 cursor-pointer",
           showQuickActions && "ring-2 ring-primary"
         )}
         {...swipeHandlers}
@@ -185,8 +210,9 @@ export default function SwipeableCarCard({
     return (
       <Card 
         ref={cardRef}
+        onClick={handleCardClick}
         className={cn(
-          "overflow-hidden hover:shadow-md transition-all duration-200 border h-full",
+          "overflow-hidden hover:shadow-md transition-all duration-200 border h-full cursor-pointer",
           showQuickActions && "ring-2 ring-primary"
         )}
         {...swipeHandlers}
@@ -272,8 +298,9 @@ export default function SwipeableCarCard({
   return (
     <Card 
       ref={cardRef}
+      onClick={handleCardClick}
       className={cn(
-        "overflow-hidden hover:shadow-lg transition-all duration-300 border h-full relative",
+        "overflow-hidden hover:shadow-lg transition-all duration-300 border h-full relative cursor-pointer",
         showQuickActions && "ring-2 ring-primary"
       )}
       {...swipeHandlers}
