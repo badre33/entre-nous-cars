@@ -123,10 +123,10 @@ const VehicleDetail = () => {
 
             {/* Tabs Présentation / Équipements / Conditions */}
             <Tabs defaultValue="presentation" className="w-full">
-              <TabsList className="grid grid-cols-3 w-full">
-                <TabsTrigger value="presentation">Présentation</TabsTrigger>
-                <TabsTrigger value="equipements">Équipements</TabsTrigger>
-                <TabsTrigger value="conditions">Conditions</TabsTrigger>
+              <TabsList className="grid grid-cols-3 w-full bg-muted">
+                <TabsTrigger value="presentation" className="text-foreground/80 data-[state=active]:text-foreground data-[state=active]:bg-background data-[state=active]:shadow-sm font-medium">Présentation</TabsTrigger>
+                <TabsTrigger value="equipements" className="text-foreground/80 data-[state=active]:text-foreground data-[state=active]:bg-background data-[state=active]:shadow-sm font-medium">Équipements</TabsTrigger>
+                <TabsTrigger value="conditions" className="text-foreground/80 data-[state=active]:text-foreground data-[state=active]:bg-background data-[state=active]:shadow-sm font-medium">Conditions</TabsTrigger>
               </TabsList>
 
               <TabsContent value="presentation" className="space-y-4 mt-4">
