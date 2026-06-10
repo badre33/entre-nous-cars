@@ -79,6 +79,8 @@ import carDaciaLogan from "@/assets/car-dacia-logan.jpg";
 import carVwTiguan from "@/assets/car-vw-tiguan.jpg";
 import carVwPolo from "@/assets/car-vw-polo.jpg";
 import carHyundaiI20 from "@/assets/car-hyundai-i20.jpg";
+import carVwTRoc from "@/assets/car-vw-troc.jpg";
+import carHyundaiSantaFe from "@/assets/car-hyundai-santa-fe.jpg";
 import carHyundaiElantra from "@/assets/car-hyundai-elantra.jpg";
 import carKiaPicanto from "@/assets/car-kia-picanto.jpg";
 import carKiaRio from "@/assets/car-kia-rio.jpg";
