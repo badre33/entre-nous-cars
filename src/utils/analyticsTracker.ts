@@ -205,6 +205,17 @@ class AnalyticsTracker {
         }
         gtag('event', eventName || 'unknown_event', flatProps);
       }
+
+      // === GTM dataLayer push (for tags configured in Tag Manager) ===
+      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+        (window as any).dataLayer.push({
+          event: eventName || 'custom_event',
+          event_category: eventType || 'engagement',
+          page_path: window.location.pathname,
+          page_title: document.title,
+          ...properties,
+        });
+      }
     } catch (_) { /* fail silently if GA4 not loaded or blocked */ }
 
     try {
