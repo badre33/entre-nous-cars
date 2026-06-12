@@ -7,15 +7,30 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getVehicleDetail } from "@/data/vehicleDetails";
+import { analytics } from "@/utils/analytics";
 
 const VehicleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const vehicle = slug ? getVehicleDetail(slug) : undefined;
 
-  // Scroll to top when navigating to vehicle detail (SPA UX)
+  // Scroll to top + GTM vehicle_view event
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-  }, [slug]);
+    if (vehicle) {
+      // Push to dataLayer for GTM
+      if (typeof window !== 'undefined' && (window as any).dataLayer) {
+        (window as any).dataLayer.push({
+          event: 'vehicle_view',
+          vehicle_slug: vehicle.slug,
+          vehicle_name: vehicle.name,
+          price: vehicle.priceFrom,
+          category: vehicle.category,
+        });
+      }
+      // Also track via analytics
+      analytics.trackVehicleView(vehicle.slug, vehicle.name).catch(() => {});
+    }
+  }, [slug, vehicle]);
 
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
