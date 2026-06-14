@@ -5,9 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { analytics } from "@/utils/analytics";
+import RentalRequestForm from "@/components/RentalRequestForm";
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   // Compute contextual default message based on current page
   const getDefaultMessage = (): string => {
@@ -99,6 +101,12 @@ const WhatsAppButton = () => {
           </CardHeader>
           <CardContent className="p-0">
             <div className="bg-[#E5DDD5] p-4 min-h-[200px] max-h-[300px] overflow-y-auto">
+              <button
+                onClick={() => { setIsOpen(false); setShowForm(true); }}
+                className="w-full bg-primary text-primary-foreground rounded-lg p-3 mb-3 shadow-sm text-sm font-semibold hover:opacity-90 transition-opacity"
+              >
+                📋 Demander un devis détaillé
+              </button>
               <div className="bg-white rounded-lg p-3 shadow-sm mb-3 max-w-[85%]">
                 <p className="text-sm">
                   Bonjour ! 👋
@@ -153,6 +161,11 @@ const WhatsAppButton = () => {
           </span>
         )}
       </button>
+
+      <RentalRequestForm
+        open={showForm}
+        onOpenChange={setShowForm}
+      />
     </>
   );
 };

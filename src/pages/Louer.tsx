@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
+import RentalRequestForm from "@/components/RentalRequestForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -1545,6 +1546,7 @@ const Louer = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [rentalFormCar, setRentalFormCar] = useState<{ name: string; slug?: string; city: string } | null>(null);
   const [showAvailability, setShowAvailability] = useState(false);
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
   const [showComparison, setShowComparison] = useState(false);
@@ -1602,7 +1604,14 @@ const Louer = () => {
   }, []);
 
   const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {
-    // Confettis animation
+    // Open structured rental request form (captures lead in DB before WhatsApp)
+    const slug = carName.toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/é|è|ê/g, 'e').replace(/ç/g, 'c')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    setRentalFormCar({ name: carName, slug, city });
+    
+    // Keep confetti for the wow effect
     confetti({
       particleCount: 100,
       spread: 70,
@@ -1610,10 +1619,11 @@ const Louer = () => {
       colors: ['#ffda00', '#d0f690', '#048592']
     });
     
-    // Loading simulation
+    // Track legacy event
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
+      return;
       
       // Construire le message avec les dates si disponibles
       let message = `Bonjour, je suis intéressé par ${carName} à ${city} (${priceDisplay}/jour)`;
@@ -2286,6 +2296,14 @@ Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidem
         onClose={() => setPreviewCar(null)}
         onShowAvailability={() => previewCar && handleShowAvailability(previewCar.name, previewCar.city, previewCar.priceDisplay)}
         onWhatsAppClick={() => previewCar && handleWhatsAppClick(previewCar.name, previewCar.city, previewCar.priceDisplay)}
+      />
+
+      <RentalRequestForm
+        open={!!rentalFormCar}
+        onOpenChange={(o) => !o && setRentalFormCar(null)}
+        vehicleName={rentalFormCar?.name}
+        vehicleSlug={rentalFormCar?.slug}
+        defaultCity={rentalFormCar?.city}
       />
     </div>
   );
