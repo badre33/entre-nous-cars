@@ -120,10 +120,24 @@ async function main() {
 
   let browser;
   try {
-    browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
-    });
+    if (process.env.VERCEL || process.env.CI) {
+      // Environnement de build serverless (Vercel) : le Chromium de Puppeteer
+      // manque des libs système (libnspr4.so…). On utilise @sparticuz/chromium,
+      // un Chromium packagé avec ses dépendances pour ces environnements.
+      const chromium = (await import("@sparticuz/chromium")).default;
+      browser = await puppeteer.launch({
+        args: [...chromium.args, "--disable-dev-shm-usage"],
+        executablePath: await chromium.executablePath(),
+        headless: true,
+      });
+      console.log("[prerender] Chromium via @sparticuz/chromium (serverless)");
+    } else {
+      // Local : Chromium fourni par Puppeteer.
+      browser = await puppeteer.launch({
+        headless: "new",
+        args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+      });
+    }
   } catch (e) {
     console.error("[prerender] Chromium n'a pas pu démarrer — déploiement en SPA. Skip.", e?.message);
     server.close();
