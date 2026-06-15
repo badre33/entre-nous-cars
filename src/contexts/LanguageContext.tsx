@@ -32,14 +32,29 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem("benatna-language");
-    return (saved as Language) || "fr";
-  });
+  // Init = "fr" (valeur pré-rendue côté build). On NE lit PAS localStorage ici :
+  // le premier rendu client doit matcher le HTML pré-rendu pour éviter tout
+  // hydration mismatch / flash. La langue sauvegardée est appliquée en useEffect
+  // après le montage.
+  const [language, setLanguageState] = useState<Language>("fr");
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("benatna-language") as Language | null;
+      if (saved && saved !== language) setLanguageState(saved);
+    } catch {
+      /* Safari mode privé peut throw — on garde "fr" */
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    localStorage.setItem("benatna-language", lang);
+    try {
+      localStorage.setItem("benatna-language", lang);
+    } catch {
+      /* ignore */
+    }
   };
 
   const t = (key: string): string => {

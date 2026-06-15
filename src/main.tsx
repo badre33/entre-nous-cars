@@ -37,7 +37,7 @@ if (SENTRY_DSN && import.meta.env.PROD && typeof window !== 'undefined') {
 }
 
 import React from "react";
-import { createRoot } from "react-dom/client";
+import { createRoot, hydrateRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
 
@@ -47,6 +47,11 @@ const rootElement = document.getElementById("root");
 if (!rootElement) {
   console.error('Root element #root not found in DOM');
   // Sentry deferred — root-missing failure logged to console only
+} else if (rootElement.hasAttribute("data-prerendered")) {
+  // Page pré-rendue (cf. scripts/prerender.mjs) → on hydrate le HTML existant
+  // au lieu de re-rendre, pour éviter tout flash visuel.
+  hydrateRoot(rootElement, <App />);
 } else {
+  // Page servie en SPA classique (route non pré-rendue) → rendu normal.
   createRoot(rootElement).render(<App />);
 }
