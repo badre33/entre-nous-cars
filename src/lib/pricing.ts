@@ -60,104 +60,127 @@ const MONTH_LABELS = [
 // =====================================================================
 // K_EVENT — table des événements marocains (religieux + national)
 // Dates 2026-2028 pour couvrir 3 saisons. À maintenir chaque année.
+//
+// Chaque événement a 2 fenêtres imbriquées :
+//   - rampStart → start   : ramp-up (les gens commencent à réserver)
+//                           applique `rampCoef` (plus doux)
+//   - start → end          : plein tarif événement, applique `coef`
+//
+// Les MRE réservent 1-2 semaines avant, les Marocains 3-7 jours avant.
+// Le ramp-up capte cette demande anticipée.
 // =====================================================================
+interface EventRange {
+  rampStart: string;  // début du ramp-up (peut être = start si pas de ramp)
+  start: string;      // début du plein tarif
+  end: string;        // fin du plein tarif
+}
+
 interface MoroccanEvent {
   name: string;
-  coef: number;
+  coef: number;       // coef pendant l'événement (plein tarif)
+  rampCoef: number;   // coef pendant le ramp-up (avant l'événement)
   badge: string;
-  ranges: Array<{ start: string; end: string }>;
+  ranges: EventRange[];
 }
 
 const EVENTS: MoroccanEvent[] = [
   {
     name: 'Ramadan',
     coef: 1.15,
+    rampCoef: 1.15,      // pas de ramp distinct (mois complet)
     badge: '🌙 Prix Ramadan',
-    // Le Ramadan complet HORS des 5 derniers jours (captés par Aïd al-Fitr)
+    // Ramadan complet HORS des 5 derniers jours (captés par Aïd al-Fitr)
     ranges: [
-      { start: '2026-02-17', end: '2026-03-14' },
-      { start: '2027-02-06', end: '2027-03-03' },
-      { start: '2028-01-27', end: '2028-02-21' },
+      { rampStart: '2026-02-17', start: '2026-02-17', end: '2026-03-14' },
+      { rampStart: '2027-02-06', start: '2027-02-06', end: '2027-03-03' },
+      { rampStart: '2028-01-27', start: '2028-01-27', end: '2028-02-21' },
     ],
   },
   {
     name: 'Aïd al-Fitr (fin Ramadan)',
-    coef: 1.35,
+    coef: 1.35,          // pic pendant les 5 derniers jours Ramadan + Aïd
+    rampCoef: 1.20,      // ramp-up 7 jours avant : les MRE réservent
     badge: '🕌 Prix Aïd al-Fitr',
-    // 5 derniers jours de Ramadan + 3 jours d'Aïd
     ranges: [
-      { start: '2026-03-15', end: '2026-03-23' },
-      { start: '2027-03-04', end: '2027-03-12' },
-      { start: '2028-02-22', end: '2028-03-02' },
+      { rampStart: '2026-03-08', start: '2026-03-15', end: '2026-03-23' },
+      { rampStart: '2027-02-25', start: '2027-03-04', end: '2027-03-12' },
+      { rampStart: '2028-02-15', start: '2028-02-22', end: '2028-03-02' },
     ],
   },
   {
     name: 'Aïd al-Adha',
-    coef: 1.40,
+    coef: 1.40,          // pic max annuel (Fête du mouton)
+    rampCoef: 1.25,      // ramp-up 10 jours avant : achat mouton + retour bled
     badge: '🕌 Prix Aïd al-Adha',
     ranges: [
-      { start: '2026-05-24', end: '2026-05-30' },
-      { start: '2027-05-13', end: '2027-05-19' },
-      { start: '2028-05-01', end: '2028-05-07' },
+      { rampStart: '2026-05-14', start: '2026-05-24', end: '2026-05-30' },
+      { rampStart: '2027-05-03', start: '2027-05-13', end: '2027-05-19' },
+      { rampStart: '2028-04-21', start: '2028-05-01', end: '2028-05-07' },
     ],
   },
   {
     name: 'Fête du Trône',
     coef: 1.15,
+    rampCoef: 1.10,      // ramp-up 7 jours avant : long weekend 30 juillet
     badge: '👑 Fête du Trône',
     ranges: [
-      { start: '2026-07-28', end: '2026-07-31' },
-      { start: '2027-07-28', end: '2027-07-31' },
-      { start: '2028-07-28', end: '2028-07-31' },
+      { rampStart: '2026-07-21', start: '2026-07-28', end: '2026-07-31' },
+      { rampStart: '2027-07-21', start: '2027-07-28', end: '2027-07-31' },
+      { rampStart: '2028-07-21', start: '2028-07-28', end: '2028-07-31' },
     ],
   },
   {
     name: 'Triple pont août (Récup. Oued Ed-Dahab · Révolution · Jeunesse)',
     coef: 1.20,
+    rampCoef: 1.10,      // ramp-up 5 jours : apogée MRE + touristes
     badge: '🎊 Ponts d\'août',
     ranges: [
-      { start: '2026-08-13', end: '2026-08-22' },
-      { start: '2027-08-13', end: '2027-08-22' },
-      { start: '2028-08-13', end: '2028-08-22' },
+      { rampStart: '2026-08-08', start: '2026-08-13', end: '2026-08-22' },
+      { rampStart: '2027-08-08', start: '2027-08-13', end: '2027-08-22' },
+      { rampStart: '2028-08-08', start: '2028-08-13', end: '2028-08-22' },
     ],
   },
   {
     name: 'Mawlid An-Nabawi',
     coef: 1.05,
+    rampCoef: 1.03,      // ramp-up 3 jours (impact modéré)
     badge: '🕌 Mawlid',
     ranges: [
-      { start: '2026-09-22', end: '2026-09-26' },
-      { start: '2027-09-11', end: '2027-09-15' },
-      { start: '2028-08-31', end: '2028-09-04' },
+      { rampStart: '2026-09-19', start: '2026-09-22', end: '2026-09-26' },
+      { rampStart: '2027-09-08', start: '2027-09-11', end: '2027-09-15' },
+      { rampStart: '2028-08-28', start: '2028-08-31', end: '2028-09-04' },
     ],
   },
   {
     name: 'Marche Verte / Fête de l\'Indépendance',
     coef: 1.05,
+    rampCoef: 1.05,      // fenêtre déjà large (5-20 nov), pas de ramp distinct
     badge: '🇲🇦 Fêtes nationales',
     ranges: [
-      { start: '2026-11-05', end: '2026-11-20' },
-      { start: '2027-11-05', end: '2027-11-20' },
-      { start: '2028-11-05', end: '2028-11-20' },
+      { rampStart: '2026-11-05', start: '2026-11-05', end: '2026-11-20' },
+      { rampStart: '2027-11-05', start: '2027-11-05', end: '2027-11-20' },
+      { rampStart: '2028-11-05', start: '2028-11-05', end: '2028-11-20' },
     ],
   },
   {
     name: 'Fêtes de fin d\'année',
     coef: 1.20,
+    rampCoef: 1.10,      // ramp-up 7 jours : MRE hiver arrivent
     badge: '🎄 Fêtes de fin d\'année',
     ranges: [
-      { start: '2026-12-22', end: '2027-01-05' },
-      { start: '2027-12-22', end: '2028-01-05' },
+      { rampStart: '2026-12-15', start: '2026-12-22', end: '2027-01-05' },
+      { rampStart: '2027-12-15', start: '2027-12-22', end: '2028-01-05' },
     ],
   },
   {
     name: 'Yennayer (Nouvel An amazigh)',
     coef: 1.05,
+    rampCoef: 1.03,      // ramp-up 2 jours (impact modéré)
     badge: '🎊 Yennayer',
     ranges: [
-      { start: '2026-01-12', end: '2026-01-14' },
-      { start: '2027-01-12', end: '2027-01-14' },
-      { start: '2028-01-12', end: '2028-01-14' },
+      { rampStart: '2026-01-10', start: '2026-01-12', end: '2026-01-14' },
+      { rampStart: '2027-01-10', start: '2027-01-12', end: '2027-01-14' },
+      { rampStart: '2028-01-10', start: '2028-01-12', end: '2028-01-14' },
     ],
   },
 ];
@@ -208,18 +231,44 @@ function computeWeekendCoef(date: Date, days: number): number {
 // =====================================================================
 // Helpers événements
 // =====================================================================
-function isInRange(date: Date, range: { start: string; end: string }): boolean {
-  const start = new Date(range.start + 'T00:00:00Z');
-  const end = new Date(range.end + 'T23:59:59Z');
-  return date.getTime() >= start.getTime() && date.getTime() <= end.getTime();
+type EventPhase = 'ramp' | 'peak';
+
+/** État de match d'une date sur un range : 'ramp' avant l'event, 'peak' pendant, null hors */
+function matchRange(date: Date, range: EventRange): EventPhase | null {
+  const rampStart = new Date(range.rampStart + 'T00:00:00Z').getTime();
+  const start = new Date(range.start + 'T00:00:00Z').getTime();
+  const end = new Date(range.end + 'T23:59:59Z').getTime();
+  const t = date.getTime();
+  if (t >= start && t <= end) return 'peak';
+  if (t >= rampStart && t < start) return 'ramp';
+  return null;
 }
 
-function findActiveEvent(date: Date): MoroccanEvent | null {
-  // Aïd al-Fitr avant Ramadan (ordre de la table = priorité). Aïd al-Adha avant tout.
-  // Retourne le premier match avec le coef le plus élevé si plusieurs.
-  const matches = EVENTS.filter(e => e.ranges.some(r => isInRange(date, r)));
-  if (matches.length === 0) return null;
-  return matches.reduce((best, cur) => (cur.coef > best.coef ? cur : best), matches[0]);
+/** Coef appliqué par un événement à une date donnée (0 si pas dans sa fenêtre) */
+function eventCoefAt(event: MoroccanEvent, date: Date): number {
+  for (const r of event.ranges) {
+    const phase = matchRange(date, r);
+    if (phase === 'peak') return event.coef;
+    if (phase === 'ramp') return event.rampCoef;
+  }
+  return 0;
+}
+
+function findActiveEvent(date: Date): { event: MoroccanEvent; coef: number; phase: EventPhase } | null {
+  // Pour chaque événement, calcule son coef à la date. Retourne celui avec le coef le plus élevé.
+  let best: { event: MoroccanEvent; coef: number; phase: EventPhase } | null = null;
+  for (const event of EVENTS) {
+    for (const r of event.ranges) {
+      const phase = matchRange(date, r);
+      if (phase === null) continue;
+      const coef = phase === 'peak' ? event.coef : event.rampCoef;
+      if (!best || coef > best.coef) {
+        best = { event, coef, phase };
+      }
+      break; // un seul range par event peut matcher
+    }
+  }
+  return best;
 }
 
 // =====================================================================
@@ -234,8 +283,8 @@ export function computePrice(basePrice: number, ctx: PricingContext = {}): Prici
   }
 
   const monthCoef = MONTHLY_COEF[startDate.getMonth()];
-  const activeEvent = findActiveEvent(startDate);
-  const eventCoefRaw = activeEvent?.coef ?? 1.00;
+  const activeMatch = findActiveEvent(startDate);
+  const eventCoefRaw = activeMatch?.coef ?? 1.00;
   const eventCoef = Math.max(1.0, eventCoefRaw); // ne baisse jamais via event
   const { coef: durationCoef, label: durationLabel } = computeDurationCoef(duration);
   const cityCoef = computeCityCoef(ctx.city);
@@ -262,8 +311,9 @@ export function computePrice(basePrice: number, ctx: PricingContext = {}): Prici
   if (monthPct !== 0) {
     breakdown.push(`Saison ${monthLabel} ${monthPct > 0 ? '+' : ''}${monthPct}%`);
   }
-  if (activeEvent && eventCoef > 1.0) {
-    breakdown.push(`${activeEvent.name} +${Math.round((eventCoef - 1) * 100)}%`);
+  if (activeMatch && eventCoef > 1.0) {
+    const suffix = activeMatch.phase === 'ramp' ? ' (avant fête)' : '';
+    breakdown.push(`${activeMatch.event.name}${suffix} +${Math.round((eventCoef - 1) * 100)}%`);
   }
   if (weekendCoef > 1.0) {
     breakdown.push('Weekend +5%');
@@ -275,7 +325,10 @@ export function computePrice(basePrice: number, ctx: PricingContext = {}): Prici
     breakdown.push(durationLabel);
   }
 
-  const badge = activeEvent?.badge ?? getSeasonBadge(startDate.getMonth());
+  // Badge : préfixe "Bientôt" si ramp-up (donne l'urgence)
+  const badge = activeMatch
+    ? (activeMatch.phase === 'ramp' ? `⏰ Bientôt ${activeMatch.event.badge}` : activeMatch.event.badge)
+    : getSeasonBadge(startDate.getMonth());
 
   return {
     dailyPrice,
@@ -285,7 +338,7 @@ export function computePrice(basePrice: number, ctx: PricingContext = {}): Prici
     discountPct,
     monthCoef,
     eventCoef,
-    eventName: activeEvent?.name ?? null,
+    eventName: activeMatch ? (activeMatch.phase === 'ramp' ? `${activeMatch.event.name} (avant fête)` : activeMatch.event.name) : null,
     durationCoef,
     cityCoef,
     weekendCoef,
