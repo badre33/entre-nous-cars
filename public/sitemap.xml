@@ -33,11 +33,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/comparatifs</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
 
   <!-- ============================================================ -->
   <!-- Content & SEO pages                                           -->
@@ -327,8 +322,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-
+  
   <!-- ============================================================ -->
   <!-- ÉVÉNEMENTS 2026 (haute priorité — événements imminents)      -->
   <!-- ============================================================ -->
@@ -507,39 +501,4 @@
   <!-- ============================================================ -->
   <!-- CAN 2025 (événement passé, conservé pour SEO résiduel)        -->
   <!-- ============================================================ -->
-  <url>
-    <loc>https://benatna.ma/location-voiture-can-2025-maroc</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-can-2025-casablanca</loc>
-    <changefreq>yearly</changefreq>
-    <priority> 0.2</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-can-2025-marrakech</loc>
-    <changefreq>yearly</changefreq>
-    <priority> 0.2</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-can-2025-rabat</loc>
-    <changefreq>yearly</changefreq>
-    <priority> 0.2</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-can-2025-tanger</loc>
-    <changefreq>yearly</changefreq>
-    <priority> 0.2</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-can-2025-agadir</loc>
-    <changefreq>yearly</changefreq>
-    <priority> 0.2</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-can-2025-fes</loc>
-    <changefreq>yearly</changefreq>
-    <priority> 0.2</priority>
-  </url>
 </urlset>

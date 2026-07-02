@@ -9,6 +9,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { getVehicleDetail } from "@/data/vehicleDetails";
 import { analytics } from "@/utils/analytics";
+import { currentDailyPrice } from "@/utils/priceCalculations";
+import { currentContextBadge } from "@/lib/pricing";
 
 const VehicleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -237,8 +239,11 @@ const VehicleDetail = () => {
 
                 <div className="py-3 border-y border-border">
                   <p className="text-xs text-muted-foreground mb-1">À partir de</p>
-                  <p className="text-3xl font-bold text-primary">{vehicle.priceFrom} <span className="text-base font-medium text-muted-foreground">DH/jour</span></p>
-                  <p className="text-xs text-muted-foreground mt-1">✨ Le prix annoncé est le prix payé. Aucun frais caché.</p>
+                  <p className="text-3xl font-bold text-primary">{currentDailyPrice(parseInt(String(vehicle.priceFrom).replace(/[^\d]/g, '')) || vehicle.priceFrom)} <span className="text-base font-medium text-muted-foreground">DH/jour</span></p>
+                  {currentContextBadge() && (
+                    <p className="text-xs text-secondary font-medium mt-1">{currentContextBadge()}</p>
+                  )}
+                  <p className="text-xs text-muted-foreground mt-1">✨ Le prix annoncé est le prix payé. Rabais -15% dès 7 jours, -38% dès 30 jours.</p>
                 </div>
 
                 {/* Quick specs */}

@@ -1,38 +1,61 @@
 /**
- * Calcule le prix par jour (pas de réduction, tarif fixe)
- * @param basePrice - Prix de base par jour
- * @param days - Nombre de jours de location
- * @returns Prix par jour (identique au prix de base)
+ * Wrappers autour du moteur de pricing dynamique (src/lib/pricing.ts).
+ *
+ * Ces fonctions sont utilisées par les composants existants (SwipeableCarCard,
+ * fiches véhicules) pour afficher :
+ *   - Le prix journalier courant (adapté à la date + événement marocain actif)
+ *   - Le rabais % applicable selon la durée
+ *   - Le prix total sur la durée sélectionnée
+ *
+ * Les prix stockés dans le catalogue (Louer.tsx) sont la BASELINE hors saison
+ * (mai/octobre). Le moteur ajuste automatiquement selon :
+ *   - K_saison mensuel (été +25/+30%, hiver +20%, Ramadan +15%, etc.)
+ *   - K_événement (Aïd al-Fitr +35%, Aïd al-Adha +40%, Fête du Trône +15%, …)
+ *   - K_durée (rabais dégressif : 7j -15%, 30j -38%, 90j -50%)
+ *   - K_ville et K_weekend
  */
-export function calculateDailyPrice(basePrice: number, days: number): number {
-  return basePrice;
+
+import { computePrice, currentDailyPrice as _currentDailyPrice } from '@/lib/pricing';
+
+/**
+ * Prix journalier après application du moteur (saison + événement + rabais durée).
+ * Utilisé quand on connaît une durée (ex: dates saisies).
+ */
+export function calculateDailyPrice(basePrice: number, days: number, opts?: { date?: Date; city?: string }): number {
+  const result = computePrice(basePrice, {
+    date: opts?.date ?? new Date(),
+    duration: days > 0 ? days : 1,
+    city: opts?.city,
+  });
+  return result.dailyPrice;
 }
 
 /**
- * Récupère le pourcentage de réduction selon la durée
- * @param days - Nombre de jours de location
- * @returns Pourcentage de réduction (toujours 0, pas de remise)
+ * Pourcentage de réduction appliqué compte tenu de la durée (0-50).
+ * Ne compte QUE le rabais durée (K_durée), pas la variation saison/événement.
  */
 export function getDiscountPercentage(days: number): number {
+  if (days >= 90) return 50;
+  if (days >= 60) return 45;
+  if (days >= 30) return 38;
+  if (days >= 21) return 28;
+  if (days >= 14) return 22;
+  if (days >= 7) return 15;
+  if (days >= 3) return 8;
   return 0;
 }
 
 /**
- * Calcule le prix total de la location
- * @param basePrice - Prix de base par jour
- * @param days - Nombre de jours de location
- * @returns Prix total de la location
+ * Prix total pour toute la durée (déjà remisé).
  */
-export function calculateTotalPrice(basePrice: number, days: number): number {
-  const dailyPrice = calculateDailyPrice(basePrice, days);
-  return Math.round(dailyPrice * days);
+export function calculateTotalPrice(basePrice: number, days: number, opts?: { date?: Date; city?: string }): number {
+  const d = days > 0 ? days : 1;
+  const daily = calculateDailyPrice(basePrice, d, opts);
+  return daily * d;
 }
 
 /**
- * Calcule le nombre de jours entre deux dates
- * @param start - Date de début
- * @param end - Date de fin
- * @returns Nombre de jours (minimum 1)
+ * Nombre de jours entre 2 dates (min 1).
  */
 export function calculateDays(start: Date | undefined, end: Date | undefined): number {
   if (!start || !end) return 0;
@@ -42,10 +65,17 @@ export function calculateDays(start: Date | undefined, end: Date | undefined): n
 }
 
 /**
- * Formate un prix avec la devise
- * @param price - Prix à formater
- * @returns Prix formaté avec "MAD"
+ * Formatte un prix avec la devise MAD.
  */
 export function formatPrice(price: number): string {
   return `${price.toLocaleString('fr-FR')} MAD`;
+}
+
+/**
+ * Prix vitrine "à partir de aujourd'hui" — pour l'affichage catalogue quand
+ * l'utilisateur n'a pas encore saisi de dates. Retourne le prix journalier
+ * courant sans rabais durée (durée = 1).
+ */
+export function currentDailyPrice(basePrice: number, city?: string): number {
+  return _currentDailyPrice(basePrice, city);
 }

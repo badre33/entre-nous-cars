@@ -11,7 +11,8 @@ import LazyCarImage from "@/components/LazyCarImage";
 import { useSwipeGesture } from "@/hooks/useSwipeGesture";
 import { useLongPress } from "@/hooks/useLongPress";
 import { hapticAddToCompare, hapticRemoveFromCompare } from "@/utils/haptics";
-import { calculateDays, calculateTotalPrice, formatPrice, getDiscountPercentage } from "@/utils/priceCalculations";
+import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice, getDiscountPercentage, currentDailyPrice } from "@/utils/priceCalculations";
+import { currentContextBadge } from "@/lib/pricing";
 import { generateCarImageAlt } from "@/utils/seoHelpers";
 
 
@@ -76,9 +77,15 @@ export default function SwipeableCarCard({
 
   const days = calculateDays(startDate, endDate);
   const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
-  
+
+  // Prix journalier courant (moteur dynamique : saison + événement marocain)
+  const dailyPriceNow = currentDailyPrice(basePrice, car.city);
+  const contextBadge = currentContextBadge();
+  const discountHint = getDiscountPercentage(7); // hint "économisez X% dès 7 jours"
+
   const priceInfo = days > 0 ? {
-    total: formatPrice(calculateTotalPrice(basePrice, days)),
+    total: formatPrice(calculateTotalPrice(basePrice, days, { city: car.city })),
+    daily: calculateDailyPrice(basePrice, days, { city: car.city }),
     days,
     discount: getDiscountPercentage(days)
   } : null;
@@ -153,11 +160,14 @@ export default function SwipeableCarCard({
                     <>
                       <p className="text-base font-bold text-primary">{priceInfo.total}</p>
                       <p className="text-xs text-muted-foreground">{priceInfo.days}j</p>
+                      {priceInfo.discount > 0 && (
+                        <p className="text-[10px] text-secondary font-medium">-{priceInfo.discount}%</p>
+                      )}
                     </>
                   ) : (
                     <>
-                      <p className="text-base font-bold text-primary">{car.priceDisplay}</p>
-                      <p className="text-xs text-muted-foreground">/j</p>
+                      <p className="text-base font-bold text-primary">{dailyPriceNow} DH</p>
+                      <p className="text-xs text-muted-foreground">/jour</p>
                     </>
                   )}
                 </div>
@@ -265,15 +275,25 @@ export default function SwipeableCarCard({
                 <>
                   <p className="text-sm font-bold text-primary">{priceInfo.total}</p>
                   <p className="text-xs text-muted-foreground">{priceInfo.days}j</p>
+                  {priceInfo.discount > 0 && (
+                    <p className="text-[10px] text-secondary font-medium">-{priceInfo.discount}%</p>
+                  )}
                 </>
               ) : (
                 <>
-                  <p className="text-sm font-bold text-primary">{car.priceDisplay}</p>
-                  <p className="text-xs text-muted-foreground">/j</p>
+                  <p className="text-sm font-bold text-primary">{dailyPriceNow} DH</p>
+                  <p className="text-xs text-muted-foreground">/jour</p>
                 </>
               )}
             </div>
           </div>
+          {!priceInfo && contextBadge && (
+            <div className="mb-2">
+              <Badge variant="outline" className="text-[10px] py-0 px-1.5 border-secondary/50 text-secondary">
+                {contextBadge}
+              </Badge>
+            </div>
+          )}
           <div className="space-y-1.5">
             <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={onShowAvailability}>
               <CalendarCheck className="w-3 h-3 mr-1" />
@@ -378,8 +398,14 @@ export default function SwipeableCarCard({
               </>
             ) : (
               <>
-                <p className="text-xl font-bold text-primary">{car.priceDisplay}</p>
+                <p className="text-xl font-bold text-primary">{dailyPriceNow} DH</p>
                 <p className="text-xs text-muted-foreground">par jour</p>
+                {contextBadge && (
+                  <p className="text-[10px] text-secondary font-medium mt-0.5">{contextBadge}</p>
+                )}
+                {discountHint > 0 && (
+                  <p className="text-[10px] text-muted-foreground">-{discountHint}% dès 7 jours</p>
+                )}
               </>
             )}
           </div>

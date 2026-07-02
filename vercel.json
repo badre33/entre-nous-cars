@@ -3,6 +3,23 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
+  "redirects": [
+    { "source": "/en/:path*", "destination": "/:path*", "permanent": true },
+    { "source": "/ar/:path*", "destination": "/:path*", "permanent": true },
+    { "source": "/es/:path*", "destination": "/:path*", "permanent": true },
+    { "source": "/comparatifs", "destination": "/", "permanent": true },
+    { "source": "/location/casablanca-:n", "destination": "/location-longue-duree-casablanca", "permanent": true },
+    { "source": "/location/marrakech-:n", "destination": "/location-longue-duree-marrakech", "permanent": true },
+    { "source": "/location/rabat-:n", "destination": "/location-voiture-rabat", "permanent": true },
+    { "source": "/location/tanger-:n", "destination": "/location-voiture-tanger", "permanent": true },
+    { "source": "/location/agadir-:n", "destination": "/location-voiture-agadir", "permanent": true },
+    { "source": "/location/fes-:n", "destination": "/location-voiture-fes", "permanent": true },
+    { "source": "/louer/rav4", "destination": "/louer", "permanent": true },
+    { "source": "/louer/jogger-7-places", "destination": "/vehicule/dacia-jogger", "permanent": true },
+    { "source": "/louer/500", "destination": "/louer", "permanent": true },
+    { "source": "/location-voiture-can-2025-:city", "destination": "/location-voiture-:city", "permanent": true },
+    { "source": "/location-voiture-can-2025-maroc", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!api/|assets/|.*\\..*).*)", "destination": "/index.html" }
   ],
