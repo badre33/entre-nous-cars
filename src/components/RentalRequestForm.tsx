@@ -12,7 +12,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MessageCircle, Car, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+// import { supabase } from "@/integrations/supabase/client"; // désactivé : lead traité en direct via WhatsApp
 import { analytics } from "@/utils/analytics";
 
 const CITIES = [
@@ -100,35 +100,8 @@ export default function RentalRequestForm({
   const onSubmit = async (data: FormValues) => {
     setSubmitting(true);
     try {
-      const params = new URLSearchParams(window.location.search);
-      const payload = {
-        full_name: data.full_name.trim(),
-        phone: data.phone.trim(),
-        email: data.email?.trim() || null,
-        vehicle_name: vehicleName || null,
-        vehicle_slug: vehicleSlug || null,
-        city: data.city,
-        pickup_date: data.pickup_date,
-        return_date: data.return_date,
-        message: data.message?.trim() || null,
-        source_page: location.pathname,
-        source_page_title: typeof document !== "undefined" ? document.title : null,
-        utm_source: params.get("utm_source"),
-        utm_medium: params.get("utm_medium"),
-        utm_campaign: params.get("utm_campaign"),
-        user_agent: typeof navigator !== "undefined" ? navigator.userAgent : null,
-        whatsapp_sent: true,
-        whatsapp_sent_at: new Date().toISOString(),
-      };
-
-      const { error } = await supabase.from("rental_requests").insert(payload);
-
-      if (error) {
-        console.error("rental_requests insert error", error);
-        toast.error("Erreur lors de l'enregistrement. Réessayez svp.");
-        setSubmitting(false);
-        return;
-      }
+      // Note : pas de stockage DB. Le lead qualifié arrive direct sur
+      // WhatsApp Business + est tracké via GA4. Simple et sans dépendance.
 
       // Analytics events (GTM dataLayer + GA4)
       if (typeof window !== "undefined" && (window as any).dataLayer) {
