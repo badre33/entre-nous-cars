@@ -201,7 +201,7 @@ export const blogArticles: BlogArticle[] = [
       "- **11-20 véhicules :** -20% + 2 upgrades + accompagnement personnalisé",
       "- **21+ véhicules :** Tarif négocié + avantages VIP",
       
-      "Contactez-nous à groupes@benatna.ma avec vos besoins (nombre de véhicules, dates, villes). Nous vous proposerons un devis sur mesure sous 24h.",
+      "Contactez-nous à benatna.ma@gmail.com avec vos besoins (nombre de véhicules, dates, villes). Nous vous proposerons un devis sur mesure sous 24h.",
       
       "### Économisez avec les forfaits longue durée",
       "Si vous restez tout le mois de la CAN (21-30 jours), les forfaits longue durée sont imbattables. Exemple réel :",

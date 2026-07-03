@@ -11,7 +11,7 @@ export const BUSINESS_INFO = {
   // Contact (formatage identique partout)
   phone: "+212 699 024 526",
   phoneRaw: "+212699024526", // Pour les liens tel:
-  email: "contact@benatna.ma",
+  email: "benatna.ma@gmail.com",
   whatsapp: "+212699024526",
   
   // Adresse principale (siège social)
