@@ -110,9 +110,9 @@ export default function ComparisonDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent 
-        className={cn("max-w-7xl max-h-[90vh] overflow-y-auto p-0", isDragging && "transition-none")}
-        style={{ transform: `translateY(${Math.max(0, dragOffset)}px)` }}
+      <DialogContent
+        className={cn("w-[95vw] max-w-6xl max-h-[90vh] overflow-y-auto p-0", isDragging && "transition-none")}
+        style={{ transform: `translate(-50%, calc(-50% + ${Math.max(0, dragOffset)}px))` }}
       >
         <div 
           className="w-12 h-1 bg-muted rounded-full mx-auto mt-4 cursor-grab active:cursor-grabbing touch-target"
