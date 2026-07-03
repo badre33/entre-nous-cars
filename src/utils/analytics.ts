@@ -52,6 +52,18 @@ class Analytics {
     });
   }
 
+  /**
+   * Track vue de fiche véhicule — utilisé par VehicleDetail.tsx.
+   * Renvoie une Promise pour compatibilité avec `.catch(() => {})` côté appelant.
+   */
+  async trackVehicleView(vehicleSlug: string, vehicleName: string): Promise<void> {
+    this.trackEvent('vehicle_view', {
+      vehicle_slug: vehicleSlug,
+      vehicle_name: vehicleName,
+      page: window.location.pathname,
+    });
+  }
+
   trackBookingStarted(carModel: string, price: number) {
     this.trackEvent('booking_started', {
       car_model: carModel,
