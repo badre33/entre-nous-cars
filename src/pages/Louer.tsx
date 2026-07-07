@@ -200,8 +200,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Casablanca",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
   },
@@ -213,8 +213,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Tanger",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -225,8 +225,8 @@ const cars = [
     type: "Manuelle",
     category: "SUV",
     city: "Casablanca",
-    price: 400,
-    priceDisplay: "400 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
   },
@@ -238,8 +238,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 480,
-    priceDisplay: "480 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -250,8 +250,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Tanger",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 650,
+    priceDisplay: "650 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -263,8 +263,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Marrakech",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 650,
+    priceDisplay: "650 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -275,8 +275,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -287,8 +287,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Rabat",
-    price: 510,
-    priceDisplay: "510 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -299,8 +299,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 500,
-    priceDisplay: "500 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25),
     badges: ["⚡ Disponible immédiatement"]
   },
@@ -312,8 +312,8 @@ const cars = [
     type: "Manuelle",
     category: "SUV",
     city: "Marrakech",
-    price: 470,
-    priceDisplay: "470 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -324,8 +324,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Casablanca",
-    price: 850,
-    priceDisplay: "850 MAD",
+    price: 1060,
+    priceDisplay: "1060 MAD",
     conditions: generateConditions(28),
     badges: ["💎 Luxe"]
   },
@@ -337,8 +337,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Marrakech",
-    price: 880,
-    priceDisplay: "880 MAD",
+    price: 1060,
+    priceDisplay: "1060 MAD",
     conditions: generateConditions(28)
   },
   {
@@ -349,8 +349,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Rabat",
-    price: 800,
-    priceDisplay: "800 MAD",
+    price: 1060,
+    priceDisplay: "1060 MAD",
     conditions: generateConditions(27)
   },
   {
@@ -361,8 +361,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Tanger",
-    price: 820,
-    priceDisplay: "820 MAD",
+    price: 1060,
+    priceDisplay: "1060 MAD",
     conditions: generateConditions(27)
   },
   {
@@ -373,8 +373,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Casablanca",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -385,8 +385,8 @@ const cars = [
     type: "Automatique",
     category: "Citadine",
     city: "Marrakech",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -397,8 +397,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Rabat",
-    price: 370,
-    priceDisplay: "370 MAD",
+    price: 440,
+    priceDisplay: "440 MAD",
     conditions: generateConditions(22)
   },
   {
@@ -409,8 +409,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Tanger",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 440,
+    priceDisplay: "440 MAD",
     conditions: generateConditions(22)
   },
   {
@@ -421,8 +421,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Rabat",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 650,
+    priceDisplay: "650 MAD",
     conditions: generateConditions(24)
   },
   {
@@ -433,8 +433,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 530,
-    priceDisplay: "530 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -445,8 +445,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 550,
-    priceDisplay: "550 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(26)
   },
   {
@@ -457,8 +457,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 430,
-    priceDisplay: "430 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -493,8 +493,8 @@ const cars = [
     type: "Automatique",
     category: "Citadine",
     city: "Rabat",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: ["Caution: 4500 MAD", "270 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
@@ -505,8 +505,8 @@ const cars = [
     type: "Manuelle",
     category: "SUV",
     city: "Marrakech",
-    price: 400,
-    priceDisplay: "400 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: ["Caution: 5400 MAD", "350 km/jour inclus", "Âge minimum: 23 ans"]
   },
   {
@@ -517,8 +517,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 470,
-    priceDisplay: "470 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: ["Caution: 6400 MAD", "390 km/jour inclus", "Âge minimum: 24 ans"]
   },
   {
@@ -529,8 +529,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Rabat",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 300,
+    priceDisplay: "300 MAD",
     conditions: ["Caution: 4200 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
@@ -541,8 +541,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Casablanca",
-    price: 370,
-    priceDisplay: "370 MAD",
+    price: 440,
+    priceDisplay: "440 MAD",
     conditions: ["Caution: 5000 MAD", "330 km/jour inclus", "Âge minimum: 22 ans"]
   },
   {
@@ -553,8 +553,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Marrakech",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: ["Caution: 3900 MAD", "240 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
@@ -565,8 +565,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 460,
-    priceDisplay: "460 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: ["Caution: 6200 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
   },
   {
@@ -577,8 +577,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Marrakech",
-    price: 950,
-    priceDisplay: "950 MAD",
+    price: 1190,
+    priceDisplay: "1190 MAD",
     conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -589,8 +589,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 1100,
-    priceDisplay: "1100 MAD",
+    price: 1250,
+    priceDisplay: "1250 MAD",
     conditions: ["Caution: 13000 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
   },
   {
@@ -601,8 +601,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Rabat",
-    price: 720,
-    priceDisplay: "720 MAD",
+    price: 900,
+    priceDisplay: "900 MAD",
     conditions: ["Caution: 8600 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
   },
   {
@@ -613,8 +613,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Tanger",
-    price: 920,
-    priceDisplay: "920 MAD",
+    price: 1190,
+    priceDisplay: "1190 MAD",
     conditions: ["Caution: 11500 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -625,8 +625,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 760,
-    priceDisplay: "760 MAD",
+    price: 1020,
+    priceDisplay: "1020 MAD",
     conditions: ["Caution: 9000 MAD", "410 km/jour inclus", "Âge minimum: 27 ans"]
   },
   {
@@ -637,8 +637,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 1000,
-    priceDisplay: "1000 MAD",
+    price: 1250,
+    priceDisplay: "1250 MAD",
     conditions: ["Caution: 11500 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -649,8 +649,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Rabat",
-    price: 1150,
-    priceDisplay: "1150 MAD",
+    price: 1450,
+    priceDisplay: "1450 MAD",
     conditions: ["Caution: 13500 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
   },
   {
@@ -661,8 +661,8 @@ const cars = [
     type: "Automatique",
     category: "Citadine",
     city: "Casablanca",
-    price: 700,
-    priceDisplay: "700 MAD",
+    price: 900,
+    priceDisplay: "900 MAD",
     conditions: ["Caution: 8300 MAD", "390 km/jour inclus", "Âge minimum: 27 ans"]
   },
   {
@@ -673,8 +673,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Marrakech",
-    price: 1050,
-    priceDisplay: "1050 MAD",
+    price: 1190,
+    priceDisplay: "1190 MAD",
     conditions: ["Caution: 12000 MAD", "500 km/jour inclus", "Âge minimum: 29 ans"]
   },
   {
@@ -685,8 +685,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Rabat",
-    price: 780,
-    priceDisplay: "780 MAD",
+    price: 1020,
+    priceDisplay: "1020 MAD",
     conditions: ["Caution: 9300 MAD", "420 km/jour inclus", "Âge minimum: 27 ans"]
   },
   {
@@ -697,8 +697,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 1020,
-    priceDisplay: "1020 MAD",
+    price: 1250,
+    priceDisplay: "1250 MAD",
     conditions: ["Caution: 12200 MAD", "480 km/jour inclus", "Âge minimum: 29 ans"]
   },
   {
@@ -709,8 +709,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 1250,
-    priceDisplay: "1250 MAD",
+    price: 1880,
+    priceDisplay: "1880 MAD",
     conditions: ["Caution: 14000 MAD", "550 km/jour inclus", "Âge minimum: 30 ans"]
   },
   {
@@ -721,8 +721,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Marrakech",
-    price: 880,
-    priceDisplay: "880 MAD",
+    price: 1060,
+    priceDisplay: "1060 MAD",
     conditions: ["Caution: 10500 MAD", "440 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -733,8 +733,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Rabat",
-    price: 820,
-    priceDisplay: "820 MAD",
+    price: 1020,
+    priceDisplay: "1020 MAD",
     conditions: ["Caution: 9700 MAD", "430 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -745,8 +745,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 950,
-    priceDisplay: "950 MAD",
+    price: 1250,
+    priceDisplay: "1250 MAD",
     conditions: ["Caution: 11500 MAD", "480 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -757,8 +757,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 620,
-    priceDisplay: "620 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: ["Caution: 8400 MAD", "460 km/jour inclus", "Âge minimum: 26 ans"]
   },
   {
@@ -781,8 +781,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 450,
-    priceDisplay: "450 MAD",
+    price: 560,
+    priceDisplay: "560 MAD",
     conditions: ["Caution: 6100 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
   },
   {
@@ -793,8 +793,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: ["Caution: 7000 MAD", "400 km/jour inclus", "Âge minimum: 25 ans"]
   },
   {
@@ -805,8 +805,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 1900,
-    priceDisplay: "1900 MAD",
+    price: 2300,
+    priceDisplay: "2300 MAD",
     conditions: ["Caution: 28000 MAD", "550 km/jour inclus", "Âge minimum: 30 ans"]
   },
   {
@@ -817,8 +817,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 1700,
-    priceDisplay: "1700 MAD",
+    price: 1880,
+    priceDisplay: "1880 MAD",
     conditions: ["Caution: 24000 MAD", "550 km/jour inclus", "Âge minimum: 28 ans"]
   },
   {
@@ -842,8 +842,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 3600,
-    priceDisplay: "3600 MAD",
+    price: 3500,
+    priceDisplay: "3500 MAD",
     conditions: ["Âge minimum: 30 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
@@ -855,8 +855,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 1850,
-    priceDisplay: "1850 MAD",
+    price: 1880,
+    priceDisplay: "1880 MAD",
     conditions: ["Âge minimum: 28 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
@@ -868,8 +868,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 1800,
-    priceDisplay: "1800 MAD",
+    price: 1880,
+    priceDisplay: "1880 MAD",
     conditions: ["Âge minimum: 28 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
@@ -881,8 +881,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 2500,
-    priceDisplay: "2500 MAD",
+    price: 2400,
+    priceDisplay: "2400 MAD",
     conditions: ["Âge minimum: 30 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
@@ -894,8 +894,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 2600,
-    priceDisplay: "2600 MAD",
+    price: 2400,
+    priceDisplay: "2400 MAD",
     conditions: ["Âge minimum: 30 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
@@ -907,8 +907,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 2100,
-    priceDisplay: "2100 MAD",
+    price: 2300,
+    priceDisplay: "2300 MAD",
     conditions: ["Âge minimum: 28 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
@@ -920,8 +920,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 2200,
-    priceDisplay: "2200 MAD",
+    price: 2300,
+    priceDisplay: "2300 MAD",
     conditions: ["Âge minimum: 28 ans"],
     badges: ["🌟 Nouveau", "💎 Luxe"]
   },
@@ -933,8 +933,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Agadir",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21),
     badges: ["🔥 Populaire"]
   },
@@ -959,8 +959,8 @@ const cars = [
     type: "Manuelle",
     category: "SUV",
     city: "Agadir",
-    price: 400,
-    priceDisplay: "400 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -972,8 +972,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
-    price: 480,
-    priceDisplay: "480 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -985,8 +985,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
-    price: 600,
-    priceDisplay: "600 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -997,8 +997,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
-    price: 620,
-    priceDisplay: "620 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1009,8 +1009,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Agadir",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 650,
+    priceDisplay: "650 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -1022,8 +1022,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Agadir",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 650,
+    priceDisplay: "650 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1034,8 +1034,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
-    price: 650,
-    priceDisplay: "650 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1046,8 +1046,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Fès",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21),
     badges: ["🔥 Populaire"]
   },
@@ -1072,8 +1072,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Fès",
-    price: 420,
-    priceDisplay: "420 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -1085,8 +1085,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Fès",
-    price: 470,
-    priceDisplay: "470 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -1098,8 +1098,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Fès",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -1110,8 +1110,8 @@ const cars = [
     type: "Automatique",
     category: "Citadine",
     city: "Rabat",
-    price: 380,
-    priceDisplay: "380 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -1122,8 +1122,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Rabat",
-    price: 480,
-    priceDisplay: "480 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -1135,8 +1135,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Rabat",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1147,8 +1147,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 600,
-    priceDisplay: "600 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1159,8 +1159,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 620,
-    priceDisplay: "620 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1171,8 +1171,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Tanger",
-    price: 490,
-    priceDisplay: "490 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -1184,8 +1184,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Tanger",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 650,
+    priceDisplay: "650 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1196,8 +1196,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
-    price: 630,
-    priceDisplay: "630 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1208,8 +1208,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
-    price: 720,
-    priceDisplay: "720 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1220,8 +1220,8 @@ const cars = [
     type: "Manuelle",
     category: "Monospace",
     city: "Agadir",
-    price: 450,
-    priceDisplay: "450 MAD",
+    price: 380,
+    priceDisplay: "380 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1232,8 +1232,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
-    price: 510,
-    priceDisplay: "510 MAD",
+    price: 560,
+    priceDisplay: "560 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1244,8 +1244,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Agadir",
-    price: 620,
-    priceDisplay: "620 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1256,8 +1256,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Fès",
-    price: 590,
-    priceDisplay: "590 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1268,8 +1268,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Fès",
-    price: 610,
-    priceDisplay: "610 MAD",
+    price: 640,
+    priceDisplay: "640 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1280,8 +1280,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Fès",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 650,
+    priceDisplay: "650 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1292,8 +1292,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Fès",
-    price: 520,
-    priceDisplay: "520 MAD",
+    price: 650,
+    priceDisplay: "650 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1316,8 +1316,8 @@ const cars = [
     type: "Automatique",
     category: "SUV Premium",
     city: "Rabat",
-    price: 1100,
-    priceDisplay: "1100 MAD",
+    price: 1880,
+    priceDisplay: "1880 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1328,8 +1328,8 @@ const cars = [
     type: "Automatique",
     category: "SUV Premium",
     city: "Casablanca",
-    price: 1300,
-    priceDisplay: "1300 MAD",
+    price: 2300,
+    priceDisplay: "2300 MAD",
     conditions: generateConditions(25),
     badges: ["👑 Véhicule Premium"]
   },
@@ -1341,8 +1341,8 @@ const cars = [
     type: "Automatique",
     category: "SUV Premium",
     city: "Casablanca",
-    price: 1900,
-    priceDisplay: "1900 MAD",
+    price: 2400,
+    priceDisplay: "2400 MAD",
     conditions: generateConditions(25),
     badges: ["👑 Véhicule Premium"]
   },
@@ -1354,8 +1354,8 @@ const cars = [
     type: "Automatique",
     category: "SUV Premium",
     city: "Marrakech",
-    price: 1850,
-    priceDisplay: "1850 MAD",
+    price: 2300,
+    priceDisplay: "2300 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1366,8 +1366,8 @@ const cars = [
     type: "Automatique",
     category: "SUV Premium",
     city: "Casablanca",
-    price: 2800,
-    priceDisplay: "2800 MAD",
+    price: 3500,
+    priceDisplay: "3500 MAD",
     conditions: generateConditions(25),
     badges: ["👑 Véhicule Premium", "🔥 Populaire"]
   },
@@ -1379,8 +1379,8 @@ const cars = [
     type: "Automatique",
     category: "SUV Premium",
     city: "Casablanca",
-    price: 1500,
-    priceDisplay: "1500 MAD",
+    price: 1880,
+    priceDisplay: "1880 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1391,8 +1391,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Casablanca",
-    price: 750,
-    priceDisplay: "750 MAD",
+    price: 940,
+    priceDisplay: "940 MAD",
     conditions: generateConditions(25),
     badges: ["⭐ Premium SUV", "🔥 Nouveau"]
   },
@@ -1404,8 +1404,8 @@ const cars = [
     type: "Automatique",
     category: "SUV",
     city: "Marrakech",
-    price: 780,
-    priceDisplay: "780 MAD",
+    price: 940,
+    priceDisplay: "940 MAD",
     conditions: generateConditions(25)
   },
   {
@@ -1416,8 +1416,8 @@ const cars = [
     type: "Automatique",
     category: "Van 9 places",
     city: "Casablanca",
-    price: 1200,
-    priceDisplay: "1200 MAD",
+    price: 1450,
+    priceDisplay: "1450 MAD",
     conditions: generateConditions(28),
     badges: ["👨‍👩‍👧‍👦 9 places", "✨ Van premium"]
   },
@@ -1429,8 +1429,8 @@ const cars = [
     type: "Automatique",
     category: "Van 9 places",
     city: "Marrakech",
-    price: 1250,
-    priceDisplay: "1250 MAD",
+    price: 1450,
+    priceDisplay: "1450 MAD",
     conditions: generateConditions(28)
   },
   {
@@ -1441,8 +1441,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Casablanca",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21),
     badges: ["💰 Économique"]
   },
@@ -1454,8 +1454,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Marrakech",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -1466,8 +1466,8 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Casablanca",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21),
     badges: ["💰 Économique"]
   },
@@ -1479,38 +1479,38 @@ const cars = [
     type: "Manuelle",
     category: "Citadine",
     city: "Marrakech",
-    price: 350,
-    priceDisplay: "350 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     conditions: generateConditions(21)
   },
   {
     id: 320, image: carHyundaiI20, name: "Hyundai i20", brand: "Hyundai", type: "Manuelle",
-    category: "Citadine", city: "Casablanca", price: 320, priceDisplay: "320 MAD",
+    category: "Citadine", city: "Casablanca", price: 400, priceDisplay: "400 MAD",
     conditions: generateConditions(21), badges: ["💰 Économique"]
   },
   {
     id: 321, image: carHyundaiI20, name: "Hyundai i20", brand: "Hyundai", type: "Manuelle",
-    category: "Citadine", city: "Marrakech", price: 330, priceDisplay: "330 MAD",
+    category: "Citadine", city: "Marrakech", price: 400, priceDisplay: "400 MAD",
     conditions: generateConditions(21)
   },
   {
     id: 322, image: carVwTRoc, name: "Volkswagen T-Roc", brand: "Volkswagen", type: "Automatique",
-    category: "SUV Compact", city: "Casablanca", price: 510, priceDisplay: "510 MAD",
+    category: "SUV Compact", city: "Casablanca", price: 650, priceDisplay: "650 MAD",
     conditions: generateConditions(23), badges: ["⚡ Disponible immédiatement"]
   },
   {
     id: 323, image: carVwTRoc, name: "Volkswagen T-Roc", brand: "Volkswagen", type: "Automatique",
-    category: "SUV Compact", city: "Marrakech", price: 540, priceDisplay: "540 MAD",
+    category: "SUV Compact", city: "Marrakech", price: 650, priceDisplay: "650 MAD",
     conditions: generateConditions(23)
   },
   {
     id: 324, image: carHyundaiSantaFe, name: "Hyundai Santa Fe", brand: "Hyundai", type: "Automatique",
-    category: "SUV 7 places", city: "Casablanca", price: 820, priceDisplay: "820 MAD",
+    category: "SUV 7 places", city: "Casablanca", price: 1450, priceDisplay: "1450 MAD",
     conditions: generateConditions(25), badges: ["👨‍👩‍👧‍👦 7 places", "🔥 Premium familial"]
   },
   {
     id: 325, image: carHyundaiSantaFe, name: "Hyundai Santa Fe", brand: "Hyundai", type: "Automatique",
-    category: "SUV 7 places", city: "Marrakech", price: 850, priceDisplay: "850 MAD",
+    category: "SUV 7 places", city: "Marrakech", price: 1450, priceDisplay: "1450 MAD",
     conditions: generateConditions(25)
   }
 ];

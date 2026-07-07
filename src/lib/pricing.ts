@@ -37,19 +37,21 @@ export interface PricingResult {
 // K_SAISON — coefficient mensuel
 // =====================================================================
 // Index 0 = janvier, 11 = décembre
+// Les prix baseline du catalogue sont désormais les prix VITRINE été.
+// Le K_saison ne fait que réduire hors saison, jamais augmenter.
 const MONTHLY_COEF: number[] = [
   0.85, // Janvier — basse, MRE rentrent
   0.80, // Février — basse + Ramadan possible
-  0.90, // Mars — Ramadan possible / Aïd
-  1.00, // Avril — post-Aïd
-  1.00, // Mai — baseline (Aïd al-Adha capté par K_event)
-  1.10, // Juin — début haute saison
-  1.25, // Juillet — pic MRE + Fête du Trône
-  1.30, // Août — pic absolu + triple pont
-  1.10, // Septembre — rentrée MRE + Mawlid
-  1.00, // Octobre — baseline
-  0.95, // Novembre — fêtes nationales
-  1.20, // Décembre — MRE hiver + fêtes
+  0.85, // Mars — Ramadan possible / Aïd
+  0.90, // Avril — post-Aïd
+  0.95, // Mai — pré-été
+  1.00, // Juin — début haute saison
+  1.00, // Juillet — pic MRE (prix vitrine actuel)
+  1.05, // Août — léger boost triple pont
+  0.95, // Septembre — rentrée MRE
+  0.90, // Octobre — baisse post-saison
+  0.85, // Novembre — creux
+  1.00, // Décembre — MRE hiver + fêtes
 ];
 
 const MONTH_LABELS = [

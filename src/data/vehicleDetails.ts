@@ -105,8 +105,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Range Rover Sport",
     brand: "Land Rover",
     category: "SUV Ultra-Premium",
-    priceFrom: 1850,
-    priceDisplay: "1850 MAD/jour",
+    priceFrom: 2300,
+    priceDisplay: "2300 MAD/jour",
     photos: [carRangeRoverSport1, carRangeRoverSport2, carRangeRoverSport3],
     description: "Le Range Rover Sport allie élégance britannique, performance et capacité tout-terrain. Idéal pour les mariages, événements VIP et tourisme premium au Maroc. Modèle récent (moins de 2 ans), entretenu en concession officielle.",
     options: {
@@ -179,8 +179,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Mercedes Classe C",
     brand: "Mercedes-Benz",
     category: "Berline Premium",
-    priceFrom: 850,
-    priceDisplay: "850 MAD/jour",
+    priceFrom: 1060,
+    priceDisplay: "1060 MAD/jour",
     photos: [carMercedesC1, carMercedesC2, carMercedesC3],
     description: "La Mercedes Classe C 2025 incarne l'élégance et la sophistication allemande. Finition AMG Line disponible. Parfaite pour les déplacements business, mariages et clients VIP.",
     options: {
@@ -216,8 +216,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Cupra Formentor",
     brand: "Cupra",
     category: "SUV Sport",
-    priceFrom: 750,
-    priceDisplay: "750 MAD/jour",
+    priceFrom: 940,
+    priceDisplay: "940 MAD/jour",
     photos: [carCupraFormentor1, carCupraFormentor2],
     description: "Le Cupra Formentor est le SUV sportif espagnol qui fait sensation. Design audacieux, sensations dynamiques, technologie de pointe. Pour ceux qui veulent se démarquer.",
     options: {
@@ -253,8 +253,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Hyundai Tucson",
     brand: "Hyundai",
     category: "SUV Familial",
-    priceFrom: 510,
-    priceDisplay: "510 MAD/jour",
+    priceFrom: 640,
+    priceDisplay: "640 MAD/jour",
     photos: [carHyundaiTucson1, carHyundaiTucson3],
     description: "Le Hyundai Tucson nouvelle génération combine design futuriste, technologie embarquée et fiabilité éprouvée. Le choix #1 des familles MRE qui veulent un SUV confortable sans se ruiner.",
     options: {
@@ -290,8 +290,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Hyundai Staria",
     brand: "Hyundai",
     category: "Van 9 Places Premium",
-    priceFrom: 1200,
-    priceDisplay: "1200 MAD/jour",
+    priceFrom: 1450,
+    priceDisplay: "1450 MAD/jour",
     photos: [carHyundaiStaria1, carHyundaiStaria2, carHyundaiStaria3],
     description: "Le Hyundai Staria est le van futuriste qui révolutionne le transport de groupe. 9 places spacieuses, design avant-gardiste. Idéal pour grandes familles MRE et groupes touristiques.",
     options: {
@@ -327,8 +327,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Audi A3 Sportback",
     brand: "Audi",
     category: "Berline Compacte Premium",
-    priceFrom: 720,
-    priceDisplay: "720 MAD/jour",
+    priceFrom: 900,
+    priceDisplay: "900 MAD/jour",
     photos: [carAudiA3_1, carAudiA3_2],
     description: "L'Audi A3 Sportback est la berline compacte premium par excellence. Finition allemande impeccable, technologies dernière génération, agréable à conduire en ville comme sur autoroute.",
     options: {
@@ -364,8 +364,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Dacia Duster",
     brand: "Dacia",
     category: "SUV Économique",
-    priceFrom: 400,
-    priceDisplay: "400 MAD/jour",
+    priceFrom: 380,
+    priceDisplay: "380 MAD/jour",
     photos: [carDuster],
     description: "Le Dacia Duster est le SUV le plus apprécié au Maroc. Robuste, économique, polyvalent — idéal pour découvrir tous les paysages marocains. Le meilleur rapport qualité-prix du marché.",
     options: {
@@ -397,8 +397,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Renault Clio",
     brand: "Renault",
     category: "Citadine",
-    priceFrom: 350,
-    priceDisplay: "350 MAD/jour",
+    priceFrom: 400,
+    priceDisplay: "400 MAD/jour",
     photos: [carClio],
     description: "La Renault Clio 5 est la citadine référence en France et au Maroc. Confortable, économique, facile à garer dans les médinas et les centres-villes.",
     options: {
@@ -443,7 +443,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "dacia-sandero-stepway": {
     slug: "dacia-sandero-stepway", name: "Dacia Sandero Stepway", brand: "Dacia",
-    category: "Crossover Économique", priceFrom: 350, priceDisplay: "350 MAD/jour",
+    category: "Crossover Économique", priceFrom: 300, priceDisplay: "300 MAD/jour",
     photos: [carStepway],
     description: "La Sandero Stepway combine l'esprit baroudeur d'un crossover avec le budget d'une citadine.",
     options: { transmission: "Manuelle 5", seats: 5, doors: 5, luggage: "328L", fuel: "Essence", airConditioning: true, bluetooth: true, isofix: true, androidAuto: true, appleCarPlay: true },
@@ -459,7 +459,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "renault-clio": {
     slug: "renault-clio", name: "Renault Clio", brand: "Renault",
-    category: "Citadine Premium", priceFrom: 350, priceDisplay: "350 MAD/jour",
+    category: "Citadine Premium", priceFrom: 400, priceDisplay: "400 MAD/jour",
     photos: [carClio],
     description: "La Renault Clio 5 est la citadine référence. Confortable, économique, technologique.",
     options: { transmission: "Manuelle 5 / Auto EDC", seats: 5, doors: 5, luggage: "391L", fuel: "Essence", consumption: "5.5L/100km", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
@@ -467,7 +467,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "hyundai-accent": {
     slug: "hyundai-accent", name: "Hyundai Accent", brand: "Hyundai",
-    category: "Berline Confort", priceFrom: 350, priceDisplay: "350 MAD/jour",
+    category: "Berline Confort", priceFrom: 440, priceDisplay: "440 MAD/jour",
     photos: [carAccent],
     description: "La Hyundai Accent offre le meilleur rapport confort/prix de sa catégorie. Berline moderne avec garantie 5 ans.",
     options: { transmission: "Automatique", seats: 5, doors: 4, luggage: "460L", fuel: "Essence", consumption: "6.0L/100km", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true, keyless: true },
@@ -475,7 +475,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "hyundai-bayon": {
     slug: "hyundai-bayon", name: "Hyundai Bayon", brand: "Hyundai",
-    category: "Crossover Urbain", priceFrom: 450, priceDisplay: "450 MAD/jour",
+    category: "Crossover Urbain", priceFrom: 560, priceDisplay: "560 MAD/jour",
     photos: [carBayon],
     description: "Le Hyundai Bayon est le crossover urbain qui mixe design SUV et agilité citadine.",
     options: { transmission: "Manuelle / Auto", seats: 5, doors: 5, luggage: "411L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true },
@@ -483,7 +483,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "kia-sportage": {
     slug: "kia-sportage", name: "Kia Sportage", brand: "Kia",
-    category: "SUV Familial Confort", priceFrom: 470, priceDisplay: "470 MAD/jour",
+    category: "SUV Familial Confort", priceFrom: 640, priceDisplay: "640 MAD/jour",
     photos: [carSportage],
     description: "Le Kia Sportage nouvelle génération combine design audacieux, technologie embarquée et fiabilité légendaire Kia.",
     options: { transmission: "Automatique", seats: 5, doors: 5, luggage: "591L", fuel: "Diesel/Hybride", consumption: "5.6L/100km", enginePower: "180 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -491,7 +491,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "range-rover-evoque": {
     slug: "range-rover-evoque", name: "Range Rover Evoque", brand: "Land Rover",
-    category: "SUV Premium Compact", priceFrom: 1100, priceDisplay: "1100 MAD/jour",
+    category: "SUV Premium Compact", priceFrom: 1880, priceDisplay: "1880 MAD/jour",
     photos: [carEvoque],
     description: "Le Range Rover Evoque allie l'élégance britannique au format urbain. SUV premium pour clients exigeants.",
     options: { transmission: "Automatique 9 rapports", seats: 5, doors: 5, luggage: "591L", fuel: "Diesel/Hybride", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -499,7 +499,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "mercedes-classe-a": {
     slug: "mercedes-classe-a", name: "Mercedes Classe A", brand: "Mercedes-Benz",
-    category: "Compacte Premium", priceFrom: 700, priceDisplay: "700 MAD/jour",
+    category: "Compacte Premium", priceFrom: 900, priceDisplay: "900 MAD/jour",
     photos: [carMercedesA],
     description: "La Mercedes Classe A version A200d offre l'expérience premium Mercedes en format compact. Idéale en ville.",
     options: { transmission: "Automatique 7G-DCT", seats: 5, doors: 5, luggage: "370L", fuel: "Diesel/Essence", consumption: "5.0L/100km", enginePower: "150 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },
@@ -507,7 +507,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "mercedes-classe-e": {
     slug: "mercedes-classe-e", name: "Mercedes Classe E", brand: "Mercedes-Benz",
-    category: "Berline Executive", priceFrom: 1000, priceDisplay: "1000 MAD/jour",
+    category: "Berline Executive", priceFrom: 1190, priceDisplay: "1190 MAD/jour",
     photos: [carMercedesE],
     description: "La Mercedes Classe E est la berline executive par excellence. Confort, prestige, technologie.",
     options: { transmission: "Automatique 9G-Tronic", seats: 5, doors: 4, luggage: "540L", fuel: "Diesel/Hybride", consumption: "5.2L/100km", enginePower: "265 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -515,7 +515,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "mercedes-classe-g": {
     slug: "mercedes-classe-g", name: "Mercedes Classe G", brand: "Mercedes-Benz",
-    category: "SUV Ultra-Luxe Iconique", priceFrom: 2800, priceDisplay: "2800 MAD/jour",
+    category: "SUV Ultra-Luxe Iconique", priceFrom: 3500, priceDisplay: "3500 MAD/jour",
     photos: [carMercedesG],
     description: "La Mercedes Classe G est le SUV iconique par excellence. Capacité tout-terrain absolue, finition luxe, présence inimitable.",
     options: { transmission: "Automatique 9G-Tronic", seats: 5, doors: 5, luggage: "454L", fuel: "Essence V8", enginePower: "585 ch (AMG)", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -523,7 +523,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "mercedes-cla": {
     slug: "mercedes-cla", name: "Mercedes CLA", brand: "Mercedes-Benz",
-    category: "Coupé 4 portes Sport", priceFrom: 880, priceDisplay: "880 MAD/jour",
+    category: "Coupé 4 portes Sport", priceFrom: 1060, priceDisplay: "1060 MAD/jour",
     photos: [carMercedesCLA],
     description: "La Mercedes CLA combine ligne sportive de coupé et praticité d une berline 4 portes.",
     options: { transmission: "Automatique 7G-DCT", seats: 5, doors: 4, luggage: "460L", fuel: "Diesel/Essence", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },
@@ -531,7 +531,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "mercedes-gla": {
     slug: "mercedes-gla", name: "Mercedes GLA", brand: "Mercedes-Benz",
-    category: "SUV Compact Premium", priceFrom: 780, priceDisplay: "780 MAD/jour",
+    category: "SUV Compact Premium", priceFrom: 1020, priceDisplay: "1020 MAD/jour",
     photos: [carMercedesGLA],
     description: "Le Mercedes GLA est le SUV compact premium. Format urbain, équipements Mercedes complets.",
     options: { transmission: "Automatique 8G-DCT", seats: 5, doors: 5, luggage: "435L", fuel: "Diesel/Hybride", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },
@@ -539,7 +539,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "mercedes-glb": {
     slug: "mercedes-glb", name: "Mercedes GLB", brand: "Mercedes-Benz",
-    category: "SUV 7 Places Premium", priceFrom: 820, priceDisplay: "820 MAD/jour",
+    category: "SUV 7 Places Premium", priceFrom: 1020, priceDisplay: "1020 MAD/jour",
     photos: [carMercedesGLB],
     description: "Le Mercedes GLB combine luxe premium et 7 places. SUV familial haut de gamme.",
     options: { transmission: "Automatique 8G-DCT", seats: 7, doors: 5, luggage: "565L (5 places)", fuel: "Diesel", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },
@@ -547,7 +547,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "mercedes-glc": {
     slug: "mercedes-glc", name: "Mercedes GLC", brand: "Mercedes-Benz",
-    category: "SUV Premium", priceFrom: 1020, priceDisplay: "1020 MAD/jour",
+    category: "SUV Premium", priceFrom: 1250, priceDisplay: "1250 MAD/jour",
     photos: [carMercedesGLC],
     description: "Le Mercedes GLC est le SUV premium de référence. Élégance, confort, technologie.",
     options: { transmission: "Automatique 9G-Tronic", seats: 5, doors: 5, luggage: "620L", fuel: "Diesel/Hybride", enginePower: "265 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -555,7 +555,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "mercedes-gle": {
     slug: "mercedes-gle", name: "Mercedes GLE", brand: "Mercedes-Benz",
-    category: "SUV Premium Large", priceFrom: 1250, priceDisplay: "1250 MAD/jour",
+    category: "SUV Premium Large", priceFrom: 1880, priceDisplay: "1880 MAD/jour",
     photos: [carMercedesGLE],
     description: "Le Mercedes GLE est le grand SUV premium. Espace, luxe, capacité tout-terrain.",
     options: { transmission: "Automatique 9G-Tronic", seats: 5, doors: 5, luggage: "825L", fuel: "Diesel/Hybride", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -579,7 +579,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "audi-a4": {
     slug: "audi-a4", name: "Audi A4", brand: "Audi",
-    category: "Berline Premium", priceFrom: 800, priceDisplay: "800 MAD/jour",
+    category: "Berline Premium", priceFrom: 1060, priceDisplay: "1060 MAD/jour",
     photos: [carAudiA4],
     description: "L Audi A4 est la berline premium de référence. Quality allemande, technologie, confort.",
     options: { transmission: "Automatique S-Tronic", seats: 5, doors: 4, luggage: "460L", fuel: "Diesel/Essence", enginePower: "204 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -587,7 +587,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "audi-a6": {
     slug: "audi-a6", name: "Audi A6", brand: "Audi",
-    category: "Berline Executive", priceFrom: 920, priceDisplay: "920 MAD/jour",
+    category: "Berline Executive", priceFrom: 1190, priceDisplay: "1190 MAD/jour",
     photos: [carAudiA6],
     description: "L Audi A6 est la grande berline executive Audi. Présence, technologie, confort longue distance.",
     options: { transmission: "Automatique Tiptronic", seats: 5, doors: 4, luggage: "530L", fuel: "Diesel/Hybride", enginePower: "286 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -595,7 +595,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "audi-q3": {
     slug: "audi-q3", name: "Audi Q3", brand: "Audi",
-    category: "SUV Compact Premium", priceFrom: 760, priceDisplay: "760 MAD/jour",
+    category: "SUV Compact Premium", priceFrom: 1020, priceDisplay: "1020 MAD/jour",
     photos: [carAudiQ3],
     description: "L Audi Q3 est le SUV compact premium Audi. Format urbain, équipements premium, polyvalence.",
     options: { transmission: "Automatique S-Tronic", seats: 5, doors: 5, luggage: "530L", fuel: "Diesel/Essence", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },
@@ -603,7 +603,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "audi-q5": {
     slug: "audi-q5", name: "Audi Q5", brand: "Audi",
-    category: "SUV Premium", priceFrom: 1000, priceDisplay: "1000 MAD/jour",
+    category: "SUV Premium", priceFrom: 1250, priceDisplay: "1250 MAD/jour",
     photos: [carAudiQ5],
     description: "L Audi Q5 est le SUV premium référence. Quattro, technologie embarquée, confort.",
     options: { transmission: "Automatique Tiptronic", seats: 5, doors: 5, luggage: "550L", fuel: "Diesel/Hybride", enginePower: "265 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -611,7 +611,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "audi-q7": {
     slug: "audi-q7", name: "Audi Q7", brand: "Audi",
-    category: "SUV 7 Places Premium", priceFrom: 1150, priceDisplay: "1150 MAD/jour",
+    category: "SUV 7 Places Premium", priceFrom: 1450, priceDisplay: "1450 MAD/jour",
     photos: [carAudiQ7],
     description: "L Audi Q7 est le grand SUV 7 places premium Audi. Espace, luxe, technologie.",
     options: { transmission: "Automatique Tiptronic", seats: 7, doors: 5, luggage: "770L (5 places)", fuel: "Diesel/Hybride", enginePower: "286 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -619,7 +619,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "audi-q8": {
     slug: "audi-q8", name: "Audi Q8", brand: "Audi",
-    category: "SUV Coupé Luxe", priceFrom: 1500, priceDisplay: "1500 MAD/jour",
+    category: "SUV Coupé Luxe", priceFrom: 1880, priceDisplay: "1880 MAD/jour",
     photos: [carAudiQ8],
     description: "L Audi Q8 est le SUV coupé luxe d Audi. Ligne sportive, présence absolue, technologie embarquée.",
     options: { transmission: "Automatique Tiptronic", seats: 5, doors: 5, luggage: "605L", fuel: "Diesel/Hybride", enginePower: "286 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -627,7 +627,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "porsche-cayenne": {
     slug: "porsche-cayenne", name: "Porsche Cayenne", brand: "Porsche",
-    category: "SUV Ultra-Luxe Sport", priceFrom: 1900, priceDisplay: "1900 MAD/jour",
+    category: "SUV Ultra-Luxe Sport", priceFrom: 2400, priceDisplay: "2400 MAD/jour",
     photos: [carPorscheCayenne],
     description: "Le Porsche Cayenne combine performance Porsche et capacité SUV. Ultra-luxe sportif.",
     options: { transmission: "Automatique Tiptronic 8", seats: 5, doors: 5, luggage: "650L", fuel: "Essence/Hybride", enginePower: "340 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -635,7 +635,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "porsche-macan": {
     slug: "porsche-macan", name: "Porsche Macan", brand: "Porsche",
-    category: "SUV Sport Compact", priceFrom: 1300, priceDisplay: "1300 MAD/jour",
+    category: "SUV Sport Compact", priceFrom: 2300, priceDisplay: "2300 MAD/jour",
     photos: [carPorscheMacan],
     description: "Le Porsche Macan est le SUV compact sportif Porsche. Compact, agile, ultra-premium.",
     options: { transmission: "Automatique PDK 7", seats: 5, doors: 5, luggage: "488L", fuel: "Essence", enginePower: "265 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
@@ -643,7 +643,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "vw-golf": {
     slug: "vw-golf", name: "Volkswagen Golf", brand: "Volkswagen",
-    category: "Compacte Premium", priceFrom: 520, priceDisplay: "520 MAD/jour",
+    category: "Compacte Premium", priceFrom: 650, priceDisplay: "650 MAD/jour",
     photos: [carVwGolf],
     description: "La VW Golf est LA compacte de référence. Qualité allemande, agréable, polyvalente.",
     options: { transmission: "Manuelle/Auto DSG", seats: 5, doors: 5, luggage: "381L", fuel: "Essence/Diesel", consumption: "5.4L/100km", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },
@@ -651,7 +651,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "opel-corsa": {
     slug: "opel-corsa", name: "Opel Corsa", brand: "Opel",
-    category: "Citadine Économique", priceFrom: 310, priceDisplay: "310 MAD/jour",
+    category: "Citadine Économique", priceFrom: 400, priceDisplay: "400 MAD/jour",
     photos: [carCorsa],
     description: "L Opel Corsa est la citadine pratique pour les balades urbaines au Maroc.",
     options: { transmission: "Manuelle", seats: 5, doors: 5, luggage: "309L", fuel: "Essence", airConditioning: true, bluetooth: true, androidAuto: true, appleCarPlay: true, isofix: true },
@@ -659,7 +659,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "peugeot-208": {
     slug: "peugeot-208", name: "Peugeot 208", brand: "Peugeot",
-    category: "Citadine Design", priceFrom: 320, priceDisplay: "320 MAD/jour",
+    category: "Citadine Design", priceFrom: 400, priceDisplay: "400 MAD/jour",
     photos: [carPeugeot208],
     description: "La Peugeot 208 nouvelle génération est la citadine au design audacieux. i-Cockpit innovant.",
     options: { transmission: "Manuelle/Auto EAT8", seats: 5, doors: 5, luggage: "311L", fuel: "Essence/Diesel", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
@@ -667,7 +667,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "seat-ibiza": {
     slug: "seat-ibiza", name: "Seat Ibiza", brand: "Seat",
-    category: "Citadine Sport", priceFrom: 290, priceDisplay: "290 MAD/jour",
+    category: "Citadine Sport", priceFrom: 400, priceDisplay: "400 MAD/jour",
     photos: [carSandero],
     description: "La Seat Ibiza combine design espagnol et fiabilité Volkswagen Group. Citadine sport accessible.",
     options: { transmission: "Manuelle/DSG", seats: 5, doors: 5, luggage: "355L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
@@ -676,7 +676,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
 ,
   "hyundai-i20": {
     slug: "hyundai-i20", name: "Hyundai i20", brand: "Hyundai",
-    category: "Citadine Moderne", priceFrom: 320, priceDisplay: "320 MAD/jour",
+    category: "Citadine Moderne", priceFrom: 400, priceDisplay: "400 MAD/jour",
     photos: [carHyundaiI20],
     description: "La Hyundai i20 nouvelle generation est la citadine moderne et stylee. Design audacieux, equipement complet, conso modeste.",
     options: { transmission: "Manuelle/Auto", seats: 5, doors: 5, luggage: "352L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true },
@@ -684,7 +684,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "volkswagen-troc": {
     slug: "volkswagen-troc", name: "Volkswagen T-Roc", brand: "Volkswagen",
-    category: "SUV Compact", priceFrom: 510, priceDisplay: "510 MAD/jour",
+    category: "SUV Compact", priceFrom: 650, priceDisplay: "650 MAD/jour",
     photos: [carVwTRoc],
     description: "Le VW T-Roc est le SUV compact stylise. Format urbain, technologie VW, agreable a conduire en ville et autoroute.",
     options: { transmission: "Automatique DSG", seats: 5, doors: 5, luggage: "445L", fuel: "Essence/Diesel", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },
@@ -692,7 +692,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "hyundai-santa-fe": {
     slug: "hyundai-santa-fe", name: "Hyundai Santa Fe", brand: "Hyundai",
-    category: "SUV 7 Places Premium", priceFrom: 820, priceDisplay: "820 MAD/jour",
+    category: "SUV 7 Places Premium", priceFrom: 1450, priceDisplay: "1450 MAD/jour",
     photos: [carHyundaiSantaFe],
     description: "Le Hyundai Santa Fe est le grand SUV 7 places ideal pour familles MRE nombreuses. Espace, confort, equipements premium.",
     options: { transmission: "Automatique 8 rapports", seats: 7, doors: 5, luggage: "634L (5 places)", fuel: "Diesel/Hybride", consumption: "6.5L/100km", enginePower: "230 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
