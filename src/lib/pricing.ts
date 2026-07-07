@@ -187,35 +187,24 @@ const EVENTS: MoroccanEvent[] = [
 
 // =====================================================================
 // K_DURÉE — rabais dégressif longue durée
+// Politique Benatna : rabais MAX -5% quelle que soit la durée (au-delà
+// on grignote la marge). Fine gradation pour montrer un geste sans
+// casser le pricing.
 // =====================================================================
 function computeDurationCoef(days: number): { coef: number; label: string | null } {
-  if (days >= 90) return { coef: 0.50, label: '-50% dès 90 jours' };
-  if (days >= 60) return { coef: 0.55, label: '-45% dès 60 jours' };
-  if (days >= 30) return { coef: 0.62, label: '-38% dès 30 jours' };
-  if (days >= 21) return { coef: 0.72, label: '-28% dès 21 jours' };
-  if (days >= 14) return { coef: 0.78, label: '-22% dès 14 jours' };
-  if (days >= 7)  return { coef: 0.85, label: '-15% dès 7 jours' };
-  if (days >= 3)  return { coef: 0.92, label: '-8% dès 3 jours' };
+  if (days >= 90) return { coef: 0.95, label: '-5% dès 90 jours' };
+  if (days >= 60) return { coef: 0.95, label: '-5% dès 60 jours' };
+  if (days >= 30) return { coef: 0.95, label: '-5% dès 30 jours' };
+  if (days >= 14) return { coef: 0.98, label: '-2% dès 14 jours' };
   return { coef: 1.00, label: null };
 }
 
 // =====================================================================
-// K_VILLE
+// K_VILLE — DÉSACTIVÉ : politique Benatna = prix unique par véhicule,
+// aucune différenciation par ville
 // =====================================================================
-const CITY_COEF: Record<string, number> = {
-  casablanca: 1.00,
-  marrakech: 1.05,
-  agadir: 1.10,
-  rabat: 1.00,
-  tanger: 1.00,
-  fes: 0.95,
-  fès: 0.95,
-};
-
-function computeCityCoef(city?: string): number {
-  if (!city) return 1.00;
-  const key = city.trim().toLowerCase();
-  return CITY_COEF[key] ?? 1.00;
+function computeCityCoef(_city?: string): number {
+  return 1.00;
 }
 
 // =====================================================================

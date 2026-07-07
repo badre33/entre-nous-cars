@@ -643,7 +643,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "vw-golf": {
     slug: "vw-golf", name: "Volkswagen Golf", brand: "Volkswagen",
-    category: "Compacte Premium", priceFrom: 390, priceDisplay: "390 MAD/jour",
+    category: "Compacte Premium", priceFrom: 520, priceDisplay: "520 MAD/jour",
     photos: [carVwGolf],
     description: "La VW Golf est LA compacte de référence. Qualité allemande, agréable, polyvalente.",
     options: { transmission: "Manuelle/Auto DSG", seats: 5, doors: 5, luggage: "381L", fuel: "Essence/Diesel", consumption: "5.4L/100km", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true },

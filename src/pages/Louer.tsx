@@ -250,8 +250,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Tanger",
-    price: 420,
-    priceDisplay: "420 MAD",
+    price: 520,
+    priceDisplay: "520 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -263,8 +263,8 @@ const cars = [
     type: "Manuelle",
     category: "Berline",
     city: "Marrakech",
-    price: 390,
-    priceDisplay: "390 MAD",
+    price: 520,
+    priceDisplay: "520 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -421,8 +421,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Rabat",
-    price: 440,
-    priceDisplay: "440 MAD",
+    price: 520,
+    priceDisplay: "520 MAD",
     conditions: generateConditions(24)
   },
   {
@@ -1009,8 +1009,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Agadir",
-    price: 500,
-    priceDisplay: "500 MAD",
+    price: 520,
+    priceDisplay: "520 MAD",
     conditions: generateConditions(23),
     badges: ["🔥 Populaire"]
   },
@@ -1184,8 +1184,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Tanger",
-    price: 500,
-    priceDisplay: "500 MAD",
+    price: 520,
+    priceDisplay: "520 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1280,8 +1280,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Fès",
-    price: 490,
-    priceDisplay: "490 MAD",
+    price: 520,
+    priceDisplay: "520 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1292,8 +1292,8 @@ const cars = [
     type: "Automatique",
     category: "Berline",
     city: "Fès",
-    price: 510,
-    priceDisplay: "510 MAD",
+    price: 520,
+    priceDisplay: "520 MAD",
     conditions: generateConditions(23)
   },
   {
@@ -1682,24 +1682,26 @@ const Louer = () => {
         const dateFin = format(end, "dd/MM/yyyy", { locale: fr });
         const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
         const basePrice = parseInt(selectedCar.price.replace(/[^\d]/g, ''));
-        const totalPrice = formatPrice(calculateTotalPrice(basePrice, days));
+        // Utilise le moteur dynamique (saison + événement + durée)
+        const dailyPrice = calculateDailyPrice(basePrice, days, { date: start });
+        const totalPrice = formatPrice(dailyPrice * days);
         const discount = getDiscountPercentage(days);
-        
+
         let message = `🚗 *DEMANDE DE RÉSERVATION*
 
 Véhicule : ${selectedCar.name}
 📍 Ville : ${selectedCar.city}
 📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
-💰 Tarif : ${selectedCar.price}/jour`;
+💰 Tarif : ${dailyPrice} DH/jour`;
 
         if (discount > 0) {
           message += `\n🎉 Réduction : -${discount}% (location longue durée)`;
         }
-        
+
         message += `\n💵 Prix total : ${totalPrice}
 
 Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité.`;
-        
+
         window.open(
           `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
           '_blank'
