@@ -45,8 +45,8 @@ const Index = () => {
   // WORKAROUND: react-helmet-async fails to update document.title here.
   // Force-set via useEffect to preserve Lighthouse SEO score (was 100, dropped to 57).
   useEffect(() => {
-    const FORCED_TITLE_HOMEPAGE = "Location Voiture Maroc dès 300 DH/jour - Sans Carte de Crédit | Benatna";
-    const FORCED_DESC_HOMEPAGE = "Location de voiture au Maroc avec Benatna. Casablanca, Marrakech, Rabat, Agadir. Prix dès 300 DH/jour, livraison aéroport, sans carte de crédit.";
+    const FORCED_TITLE_HOMEPAGE = "Benatna — Startup marocaine · Location voiture, à moitié prix des franchises";
+    const FORCED_DESC_HOMEPAGE = "Benatna, startup marocaine et plateforme des loueurs locaux. Des milliers d'agences marocaines rassemblées. Une Clio à 12 000 DH le mois au lieu de 23 000 DH chez Avis. Prix du marché, meilleurs tarifs négociés.";
     document.title = FORCED_TITLE_HOMEPAGE;
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
@@ -124,8 +124,8 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Benatna - Location de Voiture au Maroc | Prix dès 300 DH/jour</title>
-        <meta name="description" content="Location de voiture au Maroc avec Benatna. Casablanca, Marrakech, Rabat, Agadir. Prix dès 300 DH/jour, livraison aéroport, agences vérifiées." />
+        <title>Benatna — Startup marocaine · Location voiture, à moitié prix des franchises</title>
+        <meta name="description" content="Benatna, startup marocaine et plateforme des loueurs locaux. Des milliers d'agences marocaines rassemblées. Une Clio à 12 000 DH le mois au lieu de 23 000 DH chez Avis. Prix du marché, meilleurs tarifs négociés." />
         <meta name="keywords" content="location voiture maroc, location auto casablanca, louer voiture marrakech, location véhicule rabat, rent car morocco, agence location voiture, voiture de tourisme maroc" />
         <link rel="canonical" href="https://benatna.ma/" />
         <meta property="og:title" content="Benatna - Location de Voiture au Maroc" />
@@ -544,6 +544,66 @@ const Index = () => {
                 Trouver ma voiture
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform w-4 h-4" />
               </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Notre modèle — storytelling startup marocaine + comparateur Avis */}
+      <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+        <div className="container relative z-10 px-4 sm:px-6 max-w-5xl">
+          <div className="text-center mb-10 sm:mb-14">
+            <Badge variant="secondary" className="mb-4 text-sm sm:text-base">
+              🇲🇦 Startup marocaine
+            </Badge>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
+              On a fait le calcul pour vous.
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
+              Une Renault Clio, un mois en août, à Casablanca :
+            </p>
+          </div>
+
+          {/* Tableau comparatif Avis vs Benatna */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto mb-10">
+            <Card className="border-2 border-destructive/30 bg-destructive/5">
+              <CardContent className="p-6 sm:p-8">
+                <p className="text-sm font-medium text-destructive mb-1">Chez Avis Maroc</p>
+                <p className="text-3xl sm:text-5xl font-bold mb-4">23 000 DH</p>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li>❌ Empreinte carte 8 000 dh</li>
+                  <li>❌ Surcoût jeune conducteur</li>
+                  <li>❌ Voiture « ou similaire »</li>
+                  <li>❌ CA qui repart hors du Maroc</li>
+                </ul>
+              </CardContent>
+            </Card>
+            <Card className="border-2 border-primary bg-primary/5 shadow-lg">
+              <CardContent className="p-6 sm:p-8">
+                <p className="text-sm font-medium text-primary mb-1">Chez Benatna</p>
+                <p className="text-3xl sm:text-5xl font-bold mb-4 text-primary">12 000 DH</p>
+                <ul className="space-y-2 text-sm text-foreground">
+                  <li>✅ Zéro caution CB bloquée</li>
+                  <li>✅ Pas de surcoût jeune conducteur</li>
+                  <li>✅ La voiture que vous voyez, vous la conduisez</li>
+                  <li>✅ CA 100% réinvesti au Maroc</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-8">
+            <p className="text-xl sm:text-2xl font-bold">
+              Vous économisez <span className="text-secondary">11 000 dh</span>. Sur une seule location.
+            </p>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              Benatna est une <strong>startup marocaine</strong> qui rassemble les <strong>milliers d'agences locales</strong> de location de voiture sur une seule plateforme. Vous voyez les prix moyens du marché, on <strong>négocie pour vous</strong> auprès des agences le meilleur tarif possible. Chaque dirham dépensé chez Benatna reste au Maroc — réinvesti dans le tissu économique local.
+            </p>
+          </div>
+
+          <div className="text-center">
+            <Link to="/notre-histoire" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold underline underline-offset-4">
+              Lire notre histoire complète →
             </Link>
           </div>
         </div>

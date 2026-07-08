@@ -40,6 +40,7 @@ const LocationVoitureFes = lazy(() => import("./pages/LocationVoitureFes"));
 // Secondary pages
 const Partenaires = lazy(() => import("./pages/Partenaires"));
 const APropos = lazy(() => import("./pages/APropos"));
+const NotreHistoire = lazy(() => import("./pages/NotreHistoire"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogArticle = lazy(() => import("./pages/BlogArticle"));
 const FAQ = lazy(() => import("./pages/FAQ"));
@@ -304,6 +305,7 @@ const App = () => {
                     <Route path="/louer" element={<Louer />} />
                     <Route path="/partenaires" element={<Partenaires />} />
                     <Route path="/a-propos" element={<APropos />} />
+                    <Route path="/notre-histoire" element={<NotreHistoire />} />
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:slug" element={<BlogArticle />} />
                     <Route path="/contact" element={<Contact />} />
