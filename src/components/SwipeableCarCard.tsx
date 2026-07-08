@@ -403,9 +403,6 @@ export default function SwipeableCarCard({
                 {contextBadge && (
                   <p className="text-[10px] text-secondary font-medium mt-0.5">{contextBadge}</p>
                 )}
-                {discountHint > 0 && (
-                  <p className="text-[10px] text-muted-foreground">-{discountHint}% dès 7 jours</p>
-                )}
               </>
             )}
           </div>

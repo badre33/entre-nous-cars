@@ -31,17 +31,10 @@ export function calculateDailyPrice(basePrice: number, days: number, opts?: { da
 }
 
 /**
- * Pourcentage de réduction appliqué compte tenu de la durée (0-50).
- * Ne compte QUE le rabais durée (K_durée), pas la variation saison/événement.
+ * Rabais durée désactivé côté UI : la longue durée (dès 3 mois) est
+ * négociée en direct par WhatsApp. Pas d'affichage de % automatique.
  */
-export function getDiscountPercentage(days: number): number {
-  if (days >= 90) return 50;
-  if (days >= 60) return 45;
-  if (days >= 30) return 38;
-  if (days >= 21) return 28;
-  if (days >= 14) return 22;
-  if (days >= 7) return 15;
-  if (days >= 3) return 8;
+export function getDiscountPercentage(_days: number): number {
   return 0;
 }
 

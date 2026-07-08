@@ -243,7 +243,7 @@ const VehicleDetail = () => {
                   {currentContextBadge() && (
                     <p className="text-xs text-secondary font-medium mt-1">{currentContextBadge()}</p>
                   )}
-                  <p className="text-xs text-muted-foreground mt-1">✨ Le prix annoncé est le prix payé. Rabais -15% dès 7 jours, -38% dès 30 jours.</p>
+                  <p className="text-xs text-muted-foreground mt-1">✨ Le prix annoncé est le prix payé. Location longue durée à partir de 3 mois — tarif dégressif sur demande via WhatsApp.</p>
                 </div>
 
                 {/* Quick specs */}

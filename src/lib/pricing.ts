@@ -188,16 +188,12 @@ const EVENTS: MoroccanEvent[] = [
 ];
 
 // =====================================================================
-// K_DURÉE — rabais dégressif longue durée
-// Politique Benatna : rabais MAX -5% quelle que soit la durée (au-delà
-// on grignote la marge). Fine gradation pour montrer un geste sans
-// casser le pricing.
+// K_DURÉE — DÉSACTIVÉ
+// Politique Benatna : la longue durée démarre à 3 mois et fait l'objet
+// d'un tarif dégressif négocié DIRECTEMENT avec le client (WhatsApp).
+// Pas d'affichage de rabais automatique côté site.
 // =====================================================================
-function computeDurationCoef(days: number): { coef: number; label: string | null } {
-  if (days >= 90) return { coef: 0.95, label: '-5% dès 90 jours' };
-  if (days >= 60) return { coef: 0.95, label: '-5% dès 60 jours' };
-  if (days >= 30) return { coef: 0.95, label: '-5% dès 30 jours' };
-  if (days >= 14) return { coef: 0.98, label: '-2% dès 14 jours' };
+function computeDurationCoef(_days: number): { coef: number; label: string | null } {
   return { coef: 1.00, label: null };
 }
 

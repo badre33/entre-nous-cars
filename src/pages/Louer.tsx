@@ -1682,25 +1682,24 @@ const Louer = () => {
         const dateFin = format(end, "dd/MM/yyyy", { locale: fr });
         const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
         const basePrice = parseInt(selectedCar.price.replace(/[^\d]/g, ''));
-        // Utilise le moteur dynamique (saison + événement + durée)
+        // Utilise le moteur dynamique (saison + événement)
         const dailyPrice = calculateDailyPrice(basePrice, days, { date: start });
         const totalPrice = formatPrice(dailyPrice * days);
-        const discount = getDiscountPercentage(days);
+        const isLongTerm = days >= 90; // longue durée = 3 mois +
 
         let message = `🚗 *DEMANDE DE RÉSERVATION*
 
 Véhicule : ${selectedCar.name}
 📍 Ville : ${selectedCar.city}
 📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
-💰 Tarif : ${dailyPrice} DH/jour`;
+💰 Tarif : ${dailyPrice} DH/jour
+💵 Prix total : ${totalPrice}`;
 
-        if (discount > 0) {
-          message += `\n🎉 Réduction : -${discount}% (location longue durée)`;
+        if (isLongTerm) {
+          message += `\n\n📆 Location longue durée (${Math.round(days/30)} mois) — merci de me faire une offre tarifaire adaptée.`;
         }
 
-        message += `\n💵 Prix total : ${totalPrice}
-
-Je souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité.`;
+        message += `\n\nJe souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité.`;
 
         window.open(
           `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
