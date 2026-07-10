@@ -3,30 +3,41 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Shield, MapPin, ArrowRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AnimatedCounter from "@/components/AnimatedCounter";
 import { HeroSearchForm } from "@/components/HeroSearchForm";
-import { FloatingCTA } from "@/components/FloatingCTA";
-import { SEOLinks } from "@/components/SEOLinks";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { StructuredData } from "@/components/StructuredData";
 import { generateHeroImageAlt, generateCityImageAlt } from "@/utils/seoHelpers";
-import { ExitIntentPopup } from "@/components/ExitIntentPopup";
-import { LoyaltyProgram } from "@/components/LoyaltyProgram";
-import { CustomerReviews } from "@/components/CustomerReviews";
-import { ReviewsSchema } from "@/components/ReviewsSchema";
-import { ServiceSchema } from "@/components/ServiceSchema";
-import HowToSchema from "@/components/HowToSchema";
-import { OfferSchema } from "@/components/OfferSchema";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { EnhancedAggregateRatingSchema, IndividualReviewsSchema, OpeningHoursSchema, SitelinksSearchBoxSchema, BreadcrumbListSchema, createBreadcrumbs } from "@/components/schemas";
 import { globalReviews } from "@/data/reviewsData";
-import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
+
+// ⚡ PERF: composants below-the-fold lazy-loaded (réduit TBT + LCP)
+const AnimatedCounter = lazy(() => import("@/components/AnimatedCounter"));
+const FloatingCTA = lazy(() => import("@/components/FloatingCTA").then(m => ({ default: m.FloatingCTA })));
+const SEOLinks = lazy(() => import("@/components/SEOLinks").then(m => ({ default: m.SEOLinks })));
+const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup").then(m => ({ default: m.ExitIntentPopup })));
+const LoyaltyProgram = lazy(() => import("@/components/LoyaltyProgram").then(m => ({ default: m.LoyaltyProgram })));
+const CustomerReviews = lazy(() => import("@/components/CustomerReviews").then(m => ({ default: m.CustomerReviews })));
+
+// ⚡ PERF: schemas SEO JSON-LD lazy-loaded (Google Bot exécute JS, pas grave)
+const ReviewsSchema = lazy(() => import("@/components/ReviewsSchema").then(m => ({ default: m.ReviewsSchema })));
+const ServiceSchema = lazy(() => import("@/components/ServiceSchema").then(m => ({ default: m.ServiceSchema })));
+const HowToSchema = lazy(() => import("@/components/HowToSchema"));
+const OfferSchema = lazy(() => import("@/components/OfferSchema").then(m => ({ default: m.OfferSchema })));
+const VehicleProductSchemas = lazy(() => import("@/components/VehicleProductSchemas").then(m => ({ default: m.VehicleProductSchemas })));
+const EnhancedAggregateRatingSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.EnhancedAggregateRatingSchema })));
+const IndividualReviewsSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.IndividualReviewsSchema })));
+const OpeningHoursSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.OpeningHoursSchema })));
+const SitelinksSearchBoxSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.SitelinksSearchBoxSchema })));
+const BreadcrumbListSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.BreadcrumbListSchema })));
+
+// createBreadcrumbs est une simple fn, on la garde synchrone
+import { createBreadcrumbs } from "@/components/schemas";
 // WebP optimized images (compressed and resized for display)
 import cityCasablanca from "@/assets/city-casablanca-optimized.webp";
 import cityMarrakech from "@/assets/city-marrakech-optimized.webp";
@@ -135,6 +146,8 @@ const Index = () => {
       </Helmet>
       <HreflangTags path="/" />
       <StructuredData type="home" />
+      {/* ⚡ PERF: schemas JSON-LD lazy (Google Bot exécute JS depuis 2019) */}
+      <Suspense fallback={null}>
       <ServiceSchema />
       <HowToSchema />
       <OfferSchema />
@@ -204,7 +217,8 @@ const Index = () => {
       
       {/* BreadcrumbList Schema (Homepage) */}
       <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
-      
+      </Suspense>
+
       <Header />
       
       <main>
@@ -323,7 +337,7 @@ const Index = () => {
             <div className="text-center group hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
                 <span className="text-5xl md:text-6xl font-bold text-primary">
-                  <AnimatedCounter end={302} suffix="+" />
+                  <Suspense fallback={<span>302+</span>}><AnimatedCounter end={302} suffix="+" /></Suspense>
                 </span>
               </div>
               <p className="text-xl font-semibold mb-2">{t('home.availableCars')}</p>
@@ -335,7 +349,7 @@ const Index = () => {
             <div className="text-center group hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
                 <span className="text-5xl md:text-6xl font-bold text-secondary">
-                  <AnimatedCounter end={24} suffix="+" />
+                  <Suspense fallback={<span>24+</span>}><AnimatedCounter end={24} suffix="+" /></Suspense>
                 </span>
               </div>
               <p className="text-xl font-semibold mb-2">{t('home.partnerAgencies')}</p>
@@ -347,7 +361,7 @@ const Index = () => {
             <div className="text-center group hover:scale-110 transition-transform duration-300">
               <div className="mb-2">
                 <span className="text-5xl md:text-6xl font-bold text-accent">
-                  <AnimatedCounter end={1200} suffix="+" />
+                  <Suspense fallback={<span>1200+</span>}><AnimatedCounter end={1200} suffix="+" /></Suspense>
                 </span>
               </div>
               <p className="text-xl font-semibold mb-2">{t('home.satisfiedClients')}</p>
@@ -1176,23 +1190,26 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Customer Reviews */}
-      <CustomerReviews />
+      {/* ⚡ PERF: composants below-the-fold en Suspense (chargés en arrière-plan) */}
+      <Suspense fallback={null}>
+        {/* Customer Reviews */}
+        <CustomerReviews />
 
-      {/* Loyalty Program */}
-      <LoyaltyProgram />
+        {/* Loyalty Program */}
+        <LoyaltyProgram />
 
-      {/* SEO Links & Content */}
-      <SEOLinks />
+        {/* SEO Links & Content */}
+        <SEOLinks />
+      </Suspense>
       </main>
 
       <Footer />
-      
-      {/* Floating CTA Button */}
-      <FloatingCTA />
-      
-      {/* Exit Intent Popup */}
-      <ExitIntentPopup />
+
+      {/* ⚡ PERF: éléments flottants lazy (chargés après idle) */}
+      <Suspense fallback={null}>
+        <FloatingCTA />
+        <ExitIntentPopup />
+      </Suspense>
     </div>
   );
 };
