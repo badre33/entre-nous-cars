@@ -127,8 +127,8 @@ const Header = () => {
       >
         {t('common.partners')}
       </Link>
-      <Link 
-        to="/a-propos" 
+      <Link
+        to="/a-propos"
         onClick={onLinkClick}
         className={`${mobile ? 'text-lg py-3 px-4 rounded-lg' : 'text-sm'} font-medium transition-colors hover:text-primary ${
           isActive('/a-propos') ? 'text-foreground bg-accent' : 'text-muted-foreground'
@@ -136,8 +136,17 @@ const Header = () => {
       >
         {t('common.about')}
       </Link>
-      <Link 
-        to="/blog" 
+      <Link
+        to="/notre-histoire"
+        onClick={onLinkClick}
+        className={`${mobile ? 'text-lg py-3 px-4 rounded-lg' : 'text-sm'} font-medium transition-colors hover:text-primary ${
+          isActive('/notre-histoire') ? 'text-foreground bg-accent' : 'text-muted-foreground'
+        }`}
+      >
+        Notre histoire
+      </Link>
+      <Link
+        to="/blog"
         onClick={onLinkClick}
         className={`${mobile ? 'text-lg py-3 px-4 rounded-lg' : 'text-sm'} font-medium transition-colors hover:text-primary ${
           isActive('/blog') ? 'text-foreground bg-accent' : 'text-muted-foreground'
