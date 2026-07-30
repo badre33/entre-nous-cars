@@ -215,7 +215,7 @@ export const services: Service[] = [
     slug: '/location-voiture-luxe-evenement',
     category: 'special',
     shortDescription: 'Flotte premium pour événements pro ou privés. Service sur-mesure avec chauffeur.',
-    features: ['BMW, Mercedes, Audi', 'Chauffeur bilingue', 'Service VIP', 'Devis personnalisé'],
+    features: ['BMW, Mercedes, Audi', 'Chauffeur bilingue', 'Service VIP', 'Réservation personnalisée'],
     priceFrom: '900 DH',
     image: '/car-bmw-5.jpg',
   },

@@ -155,8 +155,8 @@ export default function RentalRequestForm({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[480px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-xl">Demander un devis</DialogTitle>
-          <DialogDescription>Réponse WhatsApp en 2 minutes</DialogDescription>
+          <DialogTitle className="text-xl">Réserver ce véhicule</DialogTitle>
+          <DialogDescription>Benatna vous met en relation avec l'agence partenaire. Réponse WhatsApp en 2 minutes.</DialogDescription>
         </DialogHeader>
 
         {vehicleName && (

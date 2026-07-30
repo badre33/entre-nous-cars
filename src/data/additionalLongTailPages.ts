@@ -192,7 +192,7 @@ const createMariagePage = (): LongTailPageConfig => ({
     href: "/nos-services?category=special"
   },
   content: {
-    intro: 'Faites de votre jour J un moment inoubliable avec notre service de location de voitures de luxe pour mariage. Benatna vous propose une sélection exclusive de véhicules premium (Mercedes Classe S, BMW Série 7, Audi A8) parfaitement entretenus et décorés selon vos souhaits. Nos forfaits mariage incluent la décoration florale, les rubans personnalisés et un service de nettoyage entre cérémonies. Option chauffeur professionnel en costume disponible pour vous permettre de profiter pleinement de votre journée sans stress. Réservation jusqu\'à 12 mois à l\'avance avec devis gratuit et visite des véhicules sur rendez-vous.',
+    intro: 'Faites de votre jour J un moment inoubliable avec notre service de location de voitures de luxe pour mariage. Benatna vous propose une sélection exclusive de véhicules premium (Mercedes Classe S, BMW Série 7, Audi A8) parfaitement entretenus et décorés selon vos souhaits. Nos forfaits mariage incluent la décoration florale, les rubans personnalisés et un service de nettoyage entre cérémonies. Option chauffeur professionnel en costume disponible pour vous permettre de profiter pleinement de votre journée sans stress. Réservation jusqu\'à 12 mois à l\'avance avec tarif transparent et visite des véhicules sur rendez-vous.',
     sections: [
       {
         title: 'Notre Flotte Premium pour Mariages',
@@ -228,8 +228,8 @@ const createMariagePage = (): LongTailPageConfig => ({
   },
   cta: {
     title: 'Réservez Votre Voiture de Mariage',
-    subtitle: 'Devis gratuit • Visite des véhicules • Service clé en main',
-    buttonText: 'Demander un Devis',
+    subtitle: 'Réservation gratuite • Visite des véhicules • Service clé en main',
+    buttonText: 'Réserver un véhicule',
     buttonLink: '/contact'
   },
   relatedServices: [
@@ -261,7 +261,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     sections: [
       {
         title: 'Tarifs Longue Durée Dégressifs',
-        content: `Catégorie Économique (Sandero) : 7 500 DH/mois, tout compris. Catégorie Économique (Clio manuelle) : 6 000 DH/mois. Clio automatique : 6 500 DH/mois. Catégorie Berline (Corolla, Jetta) : 9 500 DH/mois. Idéale pour usage professionnel ou famille. Catégorie SUV (Duster, Qashqai) : 10 500 DH/mois. Robustesse et confort pour longs trajets. Catégorie Premium (Mercedes, BMW) : Sur devis selon modèle et durée. À partir de 15 000 DH/mois pour Classe C ou Série 3. Tous ces tarifs incluent : assurance tous risques (0 DH franchise), entretien complet selon planning constructeur, assistance et dépannage 24/7, remplacement véhicule en cas de panne (sous 4h), kilométrage illimité (pas de surcoût même si vous faites 5000 km/mois). Modes de paiement : mensuel par prélèvement automatique (carte ou virement).`
+        content: `Catégorie Économique (Sandero) : 7 500 DH/mois, tout compris. Catégorie Économique (Clio manuelle) : 6 000 DH/mois. Clio automatique : 6 500 DH/mois. Catégorie Berline (Corolla, Jetta) : 9 500 DH/mois. Idéale pour usage professionnel ou famille. Catégorie SUV (Duster, Qashqai) : 10 500 DH/mois. Robustesse et confort pour longs trajets. Catégorie Premium (Mercedes, BMW) : Sur demande selon modèle et durée. À partir de 15 000 DH/mois pour Classe C ou Série 3. Tous ces tarifs incluent : assurance tous risques (0 DH franchise), entretien complet selon planning constructeur, assistance et dépannage 24/7, remplacement véhicule en cas de panne (sous 4h), kilométrage illimité (pas de surcoût même si vous faites 5000 km/mois). Modes de paiement : mensuel par prélèvement automatique (carte ou virement).`
       },
       {
         title: 'Ce Qui Est Inclus dans Nos Forfaits Longue Durée',
@@ -292,9 +292,9 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     ]
   },
   cta: {
-    title: `Demandez Votre Devis Longue Durée à ${city}`,
+    title: `Réservez votre véhicule Longue Durée à ${city}`,
     subtitle: 'Tarifs dégressifs • Sans engagement long • Tout inclus',
-    buttonText: 'Obtenir un Devis',
+    buttonText: 'Réserver',
     buttonLink: '/contact'
   },
   relatedServices: citySlug === 'casablanca' ? [
@@ -465,7 +465,7 @@ const createLuxeEvenementPage = (): LongTailPageConfig => ({
     href: "/nos-services?category=special"
   },
   content: {
-    intro: 'Offrez-vous ou à vos invités une expérience haut de gamme avec notre flotte de véhicules de luxe. Benatna propose des Mercedes Classe S, BMW Série 7, Audi A8 et Range Rover pour tous vos événements professionnels (conférences, séminaires, accueil clients VIP) ou privés (mariages, anniversaires, soirées). Nos véhicules premium sont livrés impeccables avec chauffeur professionnel en costume, discret et ponctuel. Service personnalisé : eau, rafraîchissements, presse du jour, WiFi 4G, prises USB. Réservation événementielle avec devis détaillé et garantie véhicule de secours identique.',
+    intro: 'Offrez-vous ou à vos invités une expérience haut de gamme avec notre flotte de véhicules de luxe. Benatna propose des Mercedes Classe S, BMW Série 7, Audi A8 et Range Rover pour tous vos événements professionnels (conférences, séminaires, accueil clients VIP) ou privés (mariages, anniversaires, soirées). Nos véhicules premium sont livrés impeccables avec chauffeur professionnel en costume, discret et ponctuel. Service personnalisé : eau, rafraîchissements, presse du jour, WiFi 4G, prises USB. Réservation événementielle avec tarif détaillé et garantie véhicule de secours identique.',
     sections: [
       {
         title: 'Flotte Prestige Disponible',
@@ -477,7 +477,7 @@ const createLuxeEvenementPage = (): LongTailPageConfig => ({
       },
       {
         title: 'Cas d\'Usage Événements',
-        content: 'Événements professionnels : Accueil clients VIP : Réservation de notre Mercedes Classe S pour récupérer vos clients importants à l\'aéroport Mohammed V ou Menara. Notre chauffeur les accueille avec pancarte nominative dans le hall, gère leurs bagages, les conduit à leur hôtel ou directement à vos bureaux. Impression premium garantie dès la première minute. Séminaires et congrès : Location de 3-10 véhicules premium pour navettes VIP entre hôtel et palais des congrès. Coordination parfaite des chauffeurs, ponctualité militaire. Clients satisfaits = image entreprise valorisée. Tournages et productions : Notre flotte est régulièrement louée pour tournages publicitaires, clips musicaux, films. Véhicules impeccables, disponibilité plateaux tournage, tarifs spéciaux production (devis sur mesure). Événements privés : Mariages : La voiture des mariés doit être exceptionnelle. Notre Range Rover Velar ou Mercedes Classe S décorée selon vos couleurs. Chauffeur pour conduire les mariés de leur domicile à la salle, puis à l\'hôtel le soir. Photos avec le véhicule offertes. Anniversaires marquants : 40 ans, 50 ans, 60 ans... Offrez une journée de rêve à la personne célébrée : chauffeur privé toute la journée dans une BMW Série 7, parcours surprise vers restaurant gastronomique, retour en fin de soirée. Cadeau inoubliable ! Demandes en mariage : Vous prévoyez LA grande demande ? Location Audi A8 avec chauffeur qui vous conduit vers un lieu romantique (Anfa Park Casa, Jardin Majorelle Marrakech), champagne et roses préparés dans le coffre. On vous laisse seuls au moment clé, puis retour triomphal. Taux de réussite : 100% depuis 8 ans !'
+        content: 'Événements professionnels : Accueil clients VIP : Réservation de notre Mercedes Classe S pour récupérer vos clients importants à l\'aéroport Mohammed V ou Menara. Notre chauffeur les accueille avec pancarte nominative dans le hall, gère leurs bagages, les conduit à leur hôtel ou directement à vos bureaux. Impression premium garantie dès la première minute. Séminaires et congrès : Location de 3-10 véhicules premium pour navettes VIP entre hôtel et palais des congrès. Coordination parfaite des chauffeurs, ponctualité militaire. Clients satisfaits = image entreprise valorisée. Tournages et productions : Notre flotte est régulièrement louée pour tournages publicitaires, clips musicaux, films. Véhicules impeccables, disponibilité plateaux tournage, tarifs spéciaux production (tarif sur mesure). Événements privés : Mariages : La voiture des mariés doit être exceptionnelle. Notre Range Rover Velar ou Mercedes Classe S décorée selon vos couleurs. Chauffeur pour conduire les mariés de leur domicile à la salle, puis à l\'hôtel le soir. Photos avec le véhicule offertes. Anniversaires marquants : 40 ans, 50 ans, 60 ans... Offrez une journée de rêve à la personne célébrée : chauffeur privé toute la journée dans une BMW Série 7, parcours surprise vers restaurant gastronomique, retour en fin de soirée. Cadeau inoubliable ! Demandes en mariage : Vous prévoyez LA grande demande ? Location Audi A8 avec chauffeur qui vous conduit vers un lieu romantique (Anfa Park Casa, Jardin Majorelle Marrakech), champagne et roses préparés dans le coffre. On vous laisse seuls au moment clé, puis retour triomphal. Taux de réussite : 100% depuis 8 ans !'
       }
     ],
     faq: [
@@ -501,8 +501,8 @@ const createLuxeEvenementPage = (): LongTailPageConfig => ({
   },
   cta: {
     title: 'Réservez Votre Véhicule de Luxe',
-    subtitle: 'Flotte premium • Chauffeur professionnel • Devis personnalisé',
-    buttonText: 'Demander un Devis Événement',
+    subtitle: 'Flotte premium • Chauffeur professionnel • Réservation personnalisée',
+    buttonText: 'Réserver un véhicule Événement',
     buttonLink: '/contact'
   },
   relatedPages: [
@@ -803,7 +803,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           title: 'Idéal pour quel type d\'usage en été 2026 ?',
-          content: `**MRE en visite famille** : SUV ou monospace 7 places pour porter les valises, voyager à plusieurs, climatisation efficace contre la chaleur (jusqu\'à 45°C dans le sud). Livraison aéroport gratuite. **Tourisme côtier** : citadine pour Tanger-Tétouan-Asilah-Chefchaouen, SUV pour Agadir-Essaouira-Taghazout, cabriolet pour profiter de la corniche d\'Agadir. **Road trip atlas/désert** : 4x4 ou SUV haute garde au sol, à louer à Marrakech ou Ouarzazate, attention à la chaleur extrême en juin-juillet (privilégier départs matinaux). **Tourisme urbain** : citadine économique, attention au stationnement en médina (souvent payant 10-20 DH/jour). **Mariages d\'été** : véhicules premium pour la cérémonie + flotte pour les invités — devis sur mesure si vous nous prévenez 6+ semaines à l\'avance.`
+          content: `**MRE en visite famille** : SUV ou monospace 7 places pour porter les valises, voyager à plusieurs, climatisation efficace contre la chaleur (jusqu\'à 45°C dans le sud). Livraison aéroport gratuite. **Tourisme côtier** : citadine pour Tanger-Tétouan-Asilah-Chefchaouen, SUV pour Agadir-Essaouira-Taghazout, cabriolet pour profiter de la corniche d\'Agadir. **Road trip atlas/désert** : 4x4 ou SUV haute garde au sol, à louer à Marrakech ou Ouarzazate, attention à la chaleur extrême en juin-juillet (privilégier départs matinaux). **Tourisme urbain** : citadine économique, attention au stationnement en médina (souvent payant 10-20 DH/jour). **Mariages d\'été** : véhicules premium pour la cérémonie + flotte pour les invités — tarif sur mesure si vous nous prévenez 6+ semaines à l\'avance.`
         },
         {
           title: 'Conseils pratiques été 2026 au Maroc',
@@ -1227,7 +1227,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           title: 'Tarifs et véhicules pour Agdal',
-          content: `Notre flotte adaptée corporate Agdal : **Berline confort** (Renault Mégane, Hyundai Accent, Volkswagen Polo) à **350-500 DH/jour** — équilibre entre apparence professionnelle et prix raisonnable, idéale pour rendez-vous ambassade ou ministère. **Mercedes Classe A** à **650 DH/jour** — prestige adapté pour rendez-vous diplomatiques ou board meeting bancaire. **BMW Série 3** à **800 DH/jour** — alternative premium à la Mercedes. **SUV** (Hyundai Tucson, Nissan Qashqai) à **550-800 DH/jour** si vous combinez Rabat avec excursions Atlas ou côte. **Citadine économique** (Toyota Yaris, Kia Picanto) à **300 DH/jour** si vous voulez juste de la mobilité urbaine sans prestige particulier. Pour **locations longue durée corporate** (1-3 mois pour un projet ou un détachement), remise mensuelle dégressive — contact pour devis personnalisé.`
+          content: `Notre flotte adaptée corporate Agdal : **Berline confort** (Renault Mégane, Hyundai Accent, Volkswagen Polo) à **350-500 DH/jour** — équilibre entre apparence professionnelle et prix raisonnable, idéale pour rendez-vous ambassade ou ministère. **Mercedes Classe A** à **650 DH/jour** — prestige adapté pour rendez-vous diplomatiques ou board meeting bancaire. **BMW Série 3** à **800 DH/jour** — alternative premium à la Mercedes. **SUV** (Hyundai Tucson, Nissan Qashqai) à **550-800 DH/jour** si vous combinez Rabat avec excursions Atlas ou côte. **Citadine économique** (Toyota Yaris, Kia Picanto) à **300 DH/jour** si vous voulez juste de la mobilité urbaine sans prestige particulier. Pour **locations longue durée corporate** (1-3 mois pour un projet ou un détachement), remise mensuelle dégressive — contact pour tarif personnalisé.`
         },
         {
           title: 'Trajets typiques depuis Agdal',
@@ -1257,7 +1257,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           question: 'Mes invités étrangers (ambassades) peuvent-ils louer chez vous ?',
-          answer: 'Oui, **nous acceptons les permis internationaux** (US, UK, AUS), les permis UE (sans formalité), et les passeports diplomatiques. Conducteur principal doit avoir 25+ ans et 2+ ans de permis. Pour groupes/délégations, devis personnalisé.'
+          answer: 'Oui, **nous acceptons les permis internationaux** (US, UK, AUS), les permis UE (sans formalité), et les passeports diplomatiques. Conducteur principal doit avoir 25+ ans et 2+ ans de permis. Pour groupes/délégations, tarif personnalisé.'
         }
       ]
     },
@@ -1301,17 +1301,17 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           title: 'Véhicules adaptés au profil Souissi',
-          content: `Au vu du profil typique des résidents Souissi (familles cadres, diplomates), nos clients réservent surtout : **Mercedes Classe A** (650 DH/jour) ou **BMW Série 3** (800 DH/jour) pour leur prestige adapté aux rendez-vous diplomatiques et à l'image attendue. **SUV** Volkswagen Tiguan, Hyundai Tucson, Nissan Qashqai (550-800 DH/jour) pour familles avec enfants — confort, sécurité, garde au sol pour week-ends Atlas. **Berlines** Renault Mégane, Hyundai Accent (380-500 DH/jour) pour usage quotidien efficace sans ostentation. **Citadines** Toyota Yaris, Hyundai i10 (300 DH/jour) si vous voulez juste un véhicule de service quotidien (école, courses, rendez-vous) sans prestige particulier. Pour **location longue durée 3+ mois** typique expatriés, devis personnalisé avec remise progressive (jusqu'à 20% à 6 mois).`
+          content: `Au vu du profil typique des résidents Souissi (familles cadres, diplomates), nos clients réservent surtout : **Mercedes Classe A** (650 DH/jour) ou **BMW Série 3** (800 DH/jour) pour leur prestige adapté aux rendez-vous diplomatiques et à l'image attendue. **SUV** Volkswagen Tiguan, Hyundai Tucson, Nissan Qashqai (550-800 DH/jour) pour familles avec enfants — confort, sécurité, garde au sol pour week-ends Atlas. **Berlines** Renault Mégane, Hyundai Accent (380-500 DH/jour) pour usage quotidien efficace sans ostentation. **Citadines** Toyota Yaris, Hyundai i10 (300 DH/jour) si vous voulez juste un véhicule de service quotidien (école, courses, rendez-vous) sans prestige particulier. Pour **location longue durée 3+ mois** typique expatriés, tarif personnalisé avec remise progressive (jusqu'à 20% à 6 mois).`
         },
         {
           title: 'Services additionnels pour Souissi',
-          content: `**Livraison villa** : gratuite à Souissi (vous fournissez l'adresse, notre agent dépose le véhicule au plus pratique). **Pickup école** : si votre nounou ou vous-même devez récupérer les enfants à l'école internationale, nous pouvons synchroniser le timing à la livraison. **Service de conciergerie automobile** (option payante) : pour les expatriés très occupés, nous gérons votre véhicule (lavage hebdomadaire, vidange, contrôle technique) — utile si vous êtes en location 3+ mois. **Compatibilité plaques diplomatiques** : non, votre véhicule de location aura des plaques marocaines standard. Pour véhicule sur plaques diplo, contactez votre service de mission. **Assurance étendue couverture verte UE** : option disponible si vous prévoyez de traverser Tanger Med vers l'Europe (devis spécifique nécessaire).`
+          content: `**Livraison villa** : gratuite à Souissi (vous fournissez l'adresse, notre agent dépose le véhicule au plus pratique). **Pickup école** : si votre nounou ou vous-même devez récupérer les enfants à l'école internationale, nous pouvons synchroniser le timing à la livraison. **Service de conciergerie automobile** (option payante) : pour les expatriés très occupés, nous gérons votre véhicule (lavage hebdomadaire, vidange, contrôle technique) — utile si vous êtes en location 3+ mois. **Compatibilité plaques diplomatiques** : non, votre véhicule de location aura des plaques marocaines standard. Pour véhicule sur plaques diplo, contactez votre service de mission. **Assurance étendue couverture verte UE** : option disponible si vous prévoyez de traverser Tanger Med vers l'Europe (à discuter en WhatsApp).`
         }
       ],
       faq: [
         {
           question: 'Je suis nouvel arrivant à Souissi avec ma famille (3 enfants), quelle voiture choisir ?',
-          answer: 'Selon votre durée : **court séjour 1-2 semaines** : SUV (Hyundai Tucson, Nissan Qashqai) à 550-800 DH/jour — espace bagages + sécurité enfants. **Long séjour 3+ mois** : monospace 7 places (Dacia Jogger 900 DH/jour) si vous emmenez régulièrement amis + bagages, sinon SUV en formule mensuelle (devis personnalisé, souvent 12000-15000 DH/mois carburant en sus).'
+          answer: 'Selon votre durée : **court séjour 1-2 semaines** : SUV (Hyundai Tucson, Nissan Qashqai) à 550-800 DH/jour — espace bagages + sécurité enfants. **Long séjour 3+ mois** : monospace 7 places (Dacia Jogger 900 DH/jour) si vous emmenez régulièrement amis + bagages, sinon SUV en formule mensuelle (tarif personnalisé, souvent 12000-15000 DH/mois carburant en sus).'
         },
         {
           question: 'Peut-on louer pendant 6 mois ou plus en formule longue durée ?',
@@ -1362,7 +1362,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     heroSubtitle: 'Tarifs en MAD garantis • Par ville • Par catégorie • Sans surprise • Dès 300 DH/jour',
     category: { label: 'Tarifs & Transparence', href: '/nos-services' },
     content: {
-      intro: `Vous cherchez le **prix d'une location de voiture au Maroc** ? Vous êtes au bon endroit. Contrairement à 90% de nos concurrents qui cachent leurs tarifs derrière un formulaire "Demander un devis", Benatna affiche **tous ses prix en MAD directement sur le site**. Cette page consolide notre grille complète 2026 par catégorie de véhicule, par ville, et par saison — vous savez exactement ce que vous allez payer avant même de nous contacter. C'est notre marque de fabrique : prix transparents, sans frais cachés, sans carte de crédit obligatoire.`,
+      intro: `Vous cherchez le **prix d'une location de voiture au Maroc** ? Vous êtes au bon endroit. Contrairement à 90% de nos concurrents qui cachent leurs tarifs derrière un formulaire "Demander un tarif", Benatna affiche **tous ses prix en MAD directement sur le site**. Cette page consolide notre grille complète 2026 par catégorie de véhicule, par ville, et par saison — vous savez exactement ce que vous allez payer avant même de nous contacter. C'est notre marque de fabrique : prix transparents, sans frais cachés, sans carte de crédit obligatoire.`,
       sections: [
         {
           title: 'Tarifs journaliers par catégorie (2026)',
@@ -1374,7 +1374,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           title: 'Tarifs longue durée (mensuels)',
-          content: `Pour **locations longues** (15+ jours), remise dégressive. Pour **locations mensuelles** : **Citadine économique : dès 7500 DH/mois** tout compris (assurance, kilométrage illimité, assistance 24/7 — carburant en sus). **Berline confort : dès 11000 DH/mois**. **SUV : dès 14000 DH/mois**. **Monospace : dès 18000 DH/mois**. **Premium : dès 25000 DH/mois**. **Remise supplémentaire pour engagements** : -5% à 3 mois, -10% à 6 mois, -15% à 12 mois. Idéal pour expatriés Souissi/Agdal qui arrivent à Rabat pour 6-12 mois, MRE en visite longue (juin-août-septembre), ou cadres en mission Casa. **Devis personnalisé sur demande** par WhatsApp +212 699 024 526 — réponse en 2 minutes en journée.`
+          content: `Pour **locations longues** (15+ jours), remise dégressive. Pour **locations mensuelles** : **Citadine économique : dès 7500 DH/mois** tout compris (assurance, kilométrage illimité, assistance 24/7 — carburant en sus). **Berline confort : dès 11000 DH/mois**. **SUV : dès 14000 DH/mois**. **Monospace : dès 18000 DH/mois**. **Premium : dès 25000 DH/mois**. **Remise supplémentaire pour engagements** : -5% à 3 mois, -10% à 6 mois, -15% à 12 mois. Idéal pour expatriés Souissi/Agdal qui arrivent à Rabat pour 6-12 mois, MRE en visite longue (juin-août-septembre), ou cadres en mission Casa. **Réservation personnalisée sur demande** par WhatsApp +212 699 024 526 — réponse en 2 minutes en journée.`
         },
         {
           title: 'Saisonnalité : à quel moment réserver pour économiser ?',
@@ -1396,7 +1396,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           question: 'Acceptez-vous de négocier sur les locations longues ?',
-          answer: 'Oui. **Au-delà de 15 jours**, remise dégressive automatique. **Au-delà de 1 mois**, devis personnalisé. **Pour expatriés longue mission** (3-12 mois), nous proposons des forfaits mensuels avec remise jusqu\'à 15%, conciergerie automobile incluse (lavage, vidange, contrôle technique pris en charge). Contactez-nous pour discuter.'
+          answer: 'Oui. **Au-delà de 15 jours**, remise dégressive automatique. **Au-delà de 1 mois**, tarif personnalisé. **Pour expatriés longue mission** (3-12 mois), nous proposons des forfaits mensuels avec remise jusqu\'à 15%, conciergerie automobile incluse (lavage, vidange, contrôle technique pris en charge). Contactez-nous pour discuter.'
         },
         {
           question: 'Comment savoir quel véhicule choisir selon mon budget ?',
@@ -1590,7 +1590,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     cta: {
       title: 'Louez Sans Caution Bloquée sur CB',
       subtitle: 'Caution espèces/virement • Restitution rapide • Profil MRE récurrent réduit',
-      buttonText: 'Demander un devis via WhatsApp',
+      buttonText: 'Demander un tarif via WhatsApp',
       buttonLink: '/contact'
     },
     relatedServices: [
@@ -2055,10 +2055,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     content: {
       intro: '**Courte duree** (1-7 jours) ou **longue duree** (1 mois ou plus) ? La distinction influe sur le tarif, la garantie et les services. **Regle generale** : si tu loues 14+ jours, **passe en tarif longue duree** pour economiser 10-15%. Detail des seuils et formules chez Benatna.',
       sections: [
-        { title: 'Seuils tarifaires : quand basculer ?', content: '**1-3 jours** : tarif journalier standard. Citadine 350-400 DH/jour. **4-7 jours** : tarif semaine, -5% automatique. Citadine ~2200 DH la semaine au lieu de 2450 si cumul journalier. **8-14 jours** : -7-10%. Citadine ~3800-4200 DH. **15-30 jours** : tarif mensuel, **-10 a -15% vs cumul journalier**. Citadine **8500 DH/mois** au lieu de 10500 DH si journalier. **1-3 mois** : tarif longue duree, -15% supplementaire. **6+ mois** : tarif corporate, devis personnalise avec services dedies.' },
+        { title: 'Seuils tarifaires : quand basculer ?', content: '**1-3 jours** : tarif journalier standard. Citadine 350-400 DH/jour. **4-7 jours** : tarif semaine, -5% automatique. Citadine ~2200 DH la semaine au lieu de 2450 si cumul journalier. **8-14 jours** : -7-10%. Citadine ~3800-4200 DH. **15-30 jours** : tarif mensuel, **-10 a -15% vs cumul journalier**. Citadine **8500 DH/mois** au lieu de 10500 DH si journalier. **1-3 mois** : tarif longue duree, -15% supplementaire. **6+ mois** : tarif corporate, tarif corporate personnalise avec services dedies.' },
         { title: 'Avantages longue duree pour MRE et expatries', content: '**Tarif degresif** : -10 a -25% selon duree. **Caution reduite** : possible de la faire descendre a 2000-3000 DH au lieu de 5000+ apres 3 mois de fidelite. **Entretien inclus** : revision mecanique, vidange, vidange a notre charge sur location 3+ mois. **Pneus inclus** : remplacement si usure normale. **Vehicule de remplacement** : sous 24h en cas de panne ou accident. **Pas de paperasse repetee** : un seul contrat, paiement mensuel automatique. **Profil MRE** : ideal pour ceux qui rentrent 2-3 mois ete ou 1 mois Aid.' },
         { title: 'Services additionnels longue duree', content: '**Livraison gratuite** intra-ville (Casa, Marrakech, Rabat). **Pickup gratuit** pour entretien : nous prenons le vehicule et te ramenons un equivalent pendant la revision. **Assurance bris de glace** offerte sur 3+ mois. **Carte autoroute prepayee** : nous fournissons Pass Jawaz prepaye pour eviter files de peages, soldes au choix. **Conducteur additionnel gratuit** : pour 1 mois et plus, ton conjoint(e) ou parent ajoute sans supplement (vs 50-100 DH/jour en courte duree). **Suivi WhatsApp dedie** : ligne directe avec ton gestionnaire flotte.' },
-        { title: 'Quel duree choisir selon ton sejour', content: '**Touriste vacances 1 semaine** : courte duree 7 jours. **MRE Aid Al Fitr 10-14 jours** : courte duree avec remise semaine appliquee automatiquement. **MRE ete 4-6 semaines** : **longue duree mensuelle**, important gain economique. **Expatrie nouvelle mission 3-6 mois** : longue duree corporate. **Etudiant erasmus 1 semestre** : 6 mois corporate, devis personnalise. Demande systematiquement le **devis longue duree** si ton sejour depasse 10 jours, meme si tu n y avais pas pense.' }
+        { title: 'Quel duree choisir selon ton sejour', content: '**Touriste vacances 1 semaine** : courte duree 7 jours. **MRE Aid Al Fitr 10-14 jours** : courte duree avec remise semaine appliquee automatiquement. **MRE ete 4-6 semaines** : **longue duree mensuelle**, important gain economique. **Expatrie nouvelle mission 3-6 mois** : longue duree corporate. **Etudiant erasmus 1 semestre** : 6 mois corporate, tarif personnalise. Demande systematiquement le **tarif longue duree** si ton sejour depasse 10 jours, meme si tu n y avais pas pense.' }
       ],
       faq: [
         { question: 'Quelle economie sur 1 mois vs cumul journalier ?', answer: 'Environ 15-20% d economie. Citadine 8500 DH/mois vs ~10500 DH si tu paies 30 fois la journee.' },
@@ -2161,7 +2161,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     cta: {
       title: 'Reservez Sans Frais Caches',
       subtitle: 'Tarif transparent • Caution especes • Sans CB internationale • WhatsApp 2 min',
-      buttonText: 'Demander un devis',
+      buttonText: 'Demander un tarif',
       buttonLink: '/contact'
     },
     relatedServices: [
@@ -2306,7 +2306,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       intro: 'Vous hesitez a choisir **Benatna.ma** pour votre location de voiture au Maroc et vous voulez voir des **avis honnetes** ? Nous compilons ici l ensemble des **avis verifies** publies sur TripAdvisor, Trustpilot, Google et nos canaux directs WhatsApp. **Note moyenne actuelle : 4.8/5 sur 1200+ avis cumules**. **Transparence totale** : nous publions aussi les avis 3/5 et inferieurs (que tu peux verifier directement sur les plateformes externes). Le but : t aider a decider avec des donnees reelles, pas du marketing.',
       sections: [
         { title: 'Repartition des avis Benatna 2026 par plateforme', content: '**TripAdvisor** : note 4.8/5 sur 320+ avis (essentiellement touristes EU/US/CA). **Trustpilot** : note 4.7/5 sur 180+ avis. **Google Business Profile** : note 4.9/5 sur 540+ avis. **Avis WhatsApp directs** (post-location, partages avec consentement) : note moyenne 4.8/5 sur 800+ retours. **Repartition** : 78% 5 etoiles, 17% 4 etoiles, 3% 3 etoiles, 1% 2 etoiles, 1% 1 etoile. Total cumule : 1200+ avis differents (parfois meme client poste sur 2 plateformes — comptabilises 1x).' },
-        { title: 'Top motifs de satisfaction clients (5/5)', content: '**Tarif transparent** (cite dans 67% des avis 5) : pas de frais caches, le prix annonce sur WhatsApp est le prix paye a la livraison. **Sans CB internationale** (43%) : MRE en particulier soulagés de pouvoir payer en virement SEPA ou especes. **WhatsApp ultra-reactif** (52%) : reponse en 2-5 minutes, devis personnalise. **Livraison aeroport ponctuelle** (61%) : agent presente au terminal a l heure du vol, avec panneau au nom du client. **Vehicule propre et recent** (48%) : <3 ans, controle technique a jour, climatisation efficace. **Caution restituee rapidement** (35%) : especes le jour meme, virement 3-5 jours, vs 7-14 jours franchises.' },
+        { title: 'Top motifs de satisfaction clients (5/5)', content: '**Tarif transparent** (cite dans 67% des avis 5) : pas de frais caches, le prix annonce sur WhatsApp est le prix paye a la livraison. **Sans CB internationale** (43%) : MRE en particulier soulagés de pouvoir payer en virement SEPA ou especes. **WhatsApp ultra-reactif** (52%) : reponse en 2-5 minutes, tarif personnalise. **Livraison aeroport ponctuelle** (61%) : agent presente au terminal a l heure du vol, avec panneau au nom du client. **Vehicule propre et recent** (48%) : <3 ans, controle technique a jour, climatisation efficace. **Caution restituee rapidement** (35%) : especes le jour meme, virement 3-5 jours, vs 7-14 jours franchises.' },
         { title: 'Motifs de satisfaction moindre (3-4/5)', content: '**Variete de couleurs limitee** (5% des avis 4/5) : flotte souvent en noir/blanc/gris, peu de couleurs vives. **Disponibilite en haute saison** (4% des avis 4/5) : certains modeles populaires (Tucson, Sportage) en rupture en aout. **Recommandation** : reservez 6-8 semaines avant. **Pas de comptoir physique** (3% des avis 4/5) : certains clients prefereraient un bureau a visiter. Reponse : c est notre modele marketplace digital qui permet les tarifs competitifs.' },
         { title: 'Cas concrets d avis verifies (extraits)', content: '**Sophie M., touriste France, juillet 2026 (TripAdvisor 5/5)** : \"Loue une Dacia Duster 10 jours pour Marrakech-Essaouira-Atlas. Reservation WhatsApp en 3 minutes, livraison RAK aeroport ponctuelle, vehicule propre. Caution 4000 DH en virement, restituee 4 jours apres. Aucun probleme. Recommande pour MRE et touristes avec budget moyen.\" **Karim B., MRE Belgique, aout 2026 (Trustpilot 5/5)** : \"Rentre au Maroc pour les vacances ete avec ma famille. Hertz refusait ma carte Maestro malgre confirmation reservation. Benatna a propose virement SEPA + caution especes. Vehicule (Hyundai Tucson) livre directement a notre riad Marrakech. Service impeccable.\" **Anna L., touriste Allemagne, juin 2026 (Google 4/5)** : \"Service rapide et tarif honnete. Petit moins : la voiture etait noire (j aurais prefere blanc avec la chaleur), mais climatisation parfaite. Reservation et caution simple. Reviendrai.\"' },
         { title: 'Comment laisser ton avis Benatna', content: 'Apres ta location, tu peux contribuer en : **(1) TripAdvisor** — recherche \"Benatna car rental Morocco\", clique sur la fiche, laisse ton avis 5/5 etoiles avec photo. **(2) Trustpilot** — fr.trustpilot.com/review/benatna.ma. **(3) Google Maps** — recherche \"Benatna\", note avec photos. **(4) WhatsApp** — repond simplement a notre message post-location avec ton retour. Nous publions les avis avec ton consentement. **Merci** : ta contribution aide les futurs voyageurs MRE et touristes a faire le bon choix.' }

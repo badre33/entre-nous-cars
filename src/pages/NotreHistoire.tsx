@@ -110,12 +110,19 @@ const NotreHistoire = () => {
             Benatna est né de ce constat.
           </h2>
           <p className="text-base sm:text-lg leading-relaxed mb-4">
-            Nous sommes une <strong>startup marocaine</strong>. Notre mission :
-            rassembler les milliers de loueurs marocains sur une seule
-            plateforme moderne, afficher <strong>leurs vrais prix du marché</strong>{" "}
-            en toute transparence, et{" "}
-            <strong>négocier pour nos clients</strong> le meilleur tarif possible
-            auprès de notre réseau.
+            Nous sommes une <strong>startup marocaine</strong>. Notre modèle :
+            une <strong>plateforme qui regroupe les milliers d'agences de
+            location locales marocaines</strong> — les Getaround du Maroc,
+            en quelque sorte.
+          </p>
+          <p className="text-base sm:text-lg leading-relaxed mb-4">
+            Ce qu'on construit, c'est un <strong>rapport de force face aux
+            grosses franchises internationales</strong>. Une fois rassemblées,
+            les agences marocaines pèsent bien plus lourd — meilleurs prix,
+            meilleure visibilité, meilleure défense de leurs intérêts. Le
+            client y gagne en accès et en tarif. L'agence y gagne une
+            clientèle nationale et internationale qu'elle ne pouvait pas
+            atteindre seule.
           </p>
 
           <div className="mt-6 space-y-3">

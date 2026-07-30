@@ -611,7 +611,7 @@ const Index = () => {
               Vous économisez <span className="text-secondary">11 000 dh</span>. Sur une seule location.
             </p>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Benatna est une <strong>startup marocaine</strong> qui rassemble les <strong>milliers d'agences locales</strong> de location de voiture sur une seule plateforme. Vous voyez les prix moyens du marché, on <strong>négocie pour vous</strong> auprès des agences le meilleur tarif possible. Chaque dirham dépensé chez Benatna reste au Maroc — réinvesti dans le tissu économique local.
+              Benatna est une <strong>startup marocaine</strong> qui rassemble les <strong>milliers d'agences de location locales</strong> sur une seule plateforme. Une fois unies, elles font <strong>rapport de force face aux grosses franchises internationales</strong> — Avis, Hertz, Europcar, Sixt. Vous accédez à un choix immense de véhicules au meilleur prix, et chaque dirham dépensé reste au Maroc.
             </p>
           </div>
 
