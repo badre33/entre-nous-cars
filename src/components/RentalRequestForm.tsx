@@ -25,11 +25,20 @@ const CITIES = [
   "Autre",
 ];
 
+const DELIVERY_OPTIONS = [
+  "Aéroport",
+  "Gare",
+  "Hôtel",
+  "Domicile",
+  "Autre",
+];
+
 const formSchema = z.object({
   full_name: z.string().min(2, "Au moins 2 caractères").max(120),
   phone: z.string().min(8, "Numéro invalide").max(30),
   email: z.string().email("Email invalide").optional().or(z.literal("")),
   city: z.string().min(1, "Sélectionne une ville"),
+  delivery_location: z.string().min(1, "Sélectionne un lieu de livraison"),
   pickup_date: z.string().min(1, "Date de début requise"),
   return_date: z.string().min(1, "Date de fin requise"),
   message: z.string().max(800).optional().or(z.literal("")),
@@ -68,6 +77,7 @@ export default function RentalRequestForm({
       phone: "",
       email: "",
       city: defaultCity || "",
+      delivery_location: "",
       pickup_date: "",
       return_date: "",
       message: "",
@@ -86,6 +96,7 @@ export default function RentalRequestForm({
     ];
     if (data.email) lines.push(`📧 Email : ${data.email}`);
     lines.push(`🏙 Ville : ${data.city}`);
+    lines.push(`📍 Lieu de livraison : ${data.delivery_location}`);
     lines.push(`📅 Du ${data.pickup_date} au ${data.return_date}`);
     if (vehicleName) lines.push(`🚗 Véhicule : ${vehicleName}`);
     if (data.message && data.message.trim()) {
@@ -218,7 +229,7 @@ export default function RentalRequestForm({
               name="city"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Ville de prise en charge *</FormLabel>
+                  <FormLabel>Ville *</FormLabel>
                   <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
                       <SelectTrigger>
@@ -228,6 +239,29 @@ export default function RentalRequestForm({
                     <SelectContent>
                       {CITIES.map((c) => (
                         <SelectItem key={c} value={c}>{c}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="delivery_location"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Lieu de livraison *</FormLabel>
+                  <Select onValueChange={field.onChange} value={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Où livrer le véhicule ?" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {DELIVERY_OPTIONS.map((d) => (
+                        <SelectItem key={d} value={d}>{d}</SelectItem>
                       ))}
                     </SelectContent>
                   </Select>

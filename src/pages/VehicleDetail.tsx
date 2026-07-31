@@ -266,7 +266,7 @@ const VehicleDetail = () => {
                 <div className="space-y-2">
                   <Button onClick={() => setRentalFormOpen(true)} className="w-full bg-green-600 hover:bg-green-700">
                     <MessageCircle className="h-4 w-4 mr-2" />
-                    Demander un devis
+                    Réserver ce véhicule
                   </Button>
                   <a href="tel:+212699024526">
                     <Button variant="outline" className="w-full">

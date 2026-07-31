@@ -67,7 +67,7 @@ const marrakechFAQs = [
   },
   {
     question: "Peut-on restituer le véhicule dans une autre ville que Marrakech ?",
-    answer: "Oui, le service aller-simple est disponible vers les principales villes du Maroc (Casablanca, Rabat, Tanger, Agadir, Fès). Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un devis personnalisé."
+    answer: "Oui, le service aller-simple est disponible vers les principales villes du Maroc (Casablanca, Rabat, Tanger, Agadir, Fès). Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un tarif personnalisé."
   }
 ];
 
@@ -658,7 +658,7 @@ const LocationVoitureMarrakech = () => {
                         rel="noopener noreferrer"
                         className="text-primary hover:underline font-medium"
                       >
-                        Demander un devis →
+                        Réserver →
                       </a>
                     </div>
                   </div>

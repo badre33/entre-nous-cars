@@ -30,7 +30,7 @@ const LocationAvecChauffeur = () => {
     },
     {
       question: "Puis-je réserver un chauffeur pour plusieurs jours consécutifs ?",
-      answer: "Oui, nos chauffeurs sont disponibles pour des prestations multi-jours : circuits désert (3-7 jours), road trips côte atlantique, tournées professionnelles, mariages sur plusieurs jours. Tarifs dégressifs à partir de 3 jours consécutifs. Contactez-nous pour un devis personnalisé incluant hébergement chauffeur si nécessaire."
+      answer: "Oui, nos chauffeurs sont disponibles pour des prestations multi-jours : circuits désert (3-7 jours), road trips côte atlantique, tournées professionnelles, mariages sur plusieurs jours. Tarifs dégressifs à partir de 3 jours consécutifs. Contactez-nous pour un tarif personnalisé incluant hébergement chauffeur si nécessaire."
     }
   ];
 
@@ -106,7 +106,7 @@ const LocationAvecChauffeur = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <Button asChild size="lg" className="text-lg">
-                  <Link to="/contact">Demander un Devis</Link>
+                  <Link to="/contact">Réserver mon chauffeur</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="text-lg">
                   <Link to="/louer">Voir Nos Véhicules</Link>
@@ -297,7 +297,7 @@ const LocationAvecChauffeur = () => {
                 <Card className="p-6 text-center">
                   <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
                   <h3 className="text-xl font-bold mb-2">Multi-jours</h3>
-                  <div className="text-3xl font-bold text-primary mb-2">Sur Devis</div>
+                  <div className="text-3xl font-bold text-primary mb-2">Sur mesure</div>
                   <div className="text-sm text-muted-foreground mb-4">Tarifs dégressifs</div>
                   <ul className="text-sm text-left space-y-2">
                     <li className="flex items-center gap-2">
@@ -452,7 +452,7 @@ const LocationAvecChauffeur = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button asChild size="lg" className="text-lg">
-                  <Link to="/contact">Demander un Devis Chauffeur</Link>
+                  <Link to="/contact">Réserver mon chauffeur</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="text-lg">
                   <Link to="/louer">Voir Nos Véhicules</Link>

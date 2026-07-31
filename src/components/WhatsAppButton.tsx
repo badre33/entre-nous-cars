@@ -42,7 +42,7 @@ const WhatsAppButton = () => {
     // /louer
     if (path === "/louer" || path.startsWith("/louer/")) return "Bonjour, je consulte votre catalogue. Pouvez-vous me confirmer la disponibilité et le tarif final auprès de vos agences partenaires ?";
     // Default
-    return "Bonjour, je souhaite louer une voiture au Maroc. Pouvez-vous me proposer les véhicules et tarifs ?";
+    return "Bonjour Benatna,\n\nJe souhaite louer une voiture :\n📍 Ville : \n📆 Lieu de livraison (aéroport / gare / hôtel / domicile) : \n📅 Dates (du .. au ..) : \n\nMerci !";
   };
 
   const [message, setMessage] = useState(() => typeof window !== "undefined" ? getDefaultMessage() : "");

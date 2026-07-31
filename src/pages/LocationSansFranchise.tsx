@@ -109,7 +109,7 @@ const LocationSansFranchise = () => {
                   <Link to="/louer">Réserver Sans Franchise</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="text-lg">
-                  <Link to="/contact">Demander un Devis</Link>
+                  <Link to="/contact">Réserver ma voiture</Link>
                 </Button>
               </div>
 

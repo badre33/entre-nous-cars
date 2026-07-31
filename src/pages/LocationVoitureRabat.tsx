@@ -65,7 +65,7 @@ const rabatFAQs = [
   },
   {
     question: "Peut-on restituer le véhicule dans une autre ville que Rabat ?",
-    answer: "Oui, le service aller-simple est disponible vers Casablanca (très demandé pour l'axe économique), Tanger, Marrakech et Agadir. Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un devis personnalisé."
+    answer: "Oui, le service aller-simple est disponible vers Casablanca (très demandé pour l'axe économique), Tanger, Marrakech et Agadir. Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un tarif personnalisé."
   }
 ];
 
@@ -498,7 +498,7 @@ const LocationVoitureRabat = () => {
                       Pour les missions de plusieurs semaines ou mois. Tarifs dégressifs, 
                       kilométrage adapté, maintenance incluse. La solution professionnelle.
                     </p>
-                    <p className="text-primary font-medium mt-2">Tarifs dégressifs sur devis</p>
+                    <p className="text-primary font-medium mt-2">Tarifs dégressifs longue durée (dès 3 mois)</p>
                   </div>
                 </div>
               </div>
@@ -634,7 +634,7 @@ const LocationVoitureRabat = () => {
                         rel="noopener noreferrer"
                         className="text-primary hover:underline font-medium"
                       >
-                        Demander un devis →
+                        Réserver →
                       </a>
                     </div>
                   </div>
@@ -798,12 +798,12 @@ const LocationVoitureRabat = () => {
                 </Button>
               </Link>
               <a 
-                href="https://wa.me/212699024526?text=Bonjour, je souhaite un devis pour une location à Rabat."
+                href="https://wa.me/212699024526?text=Bonjour, je souhaite réserver une voiture à Rabat."
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button variant="outline" size="lg" className="text-lg px-8">
-                  Demander un devis
+                  Réserver
                 </Button>
               </a>
             </div>
