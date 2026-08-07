@@ -457,14 +457,6 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     options: { transmission: "Manuelle 6", seats: 7, doors: 5, luggage: "699L (3 places)", fuel: "Essence", airConditioning: true, bluetooth: true, isofix: true, androidAuto: true, appleCarPlay: true },
     highlights: ["7 vraies places", "Coffre modulable", "Économie carburant"], perfectFor: ["Grandes familles MRE", "Groupes touristes", "Mariages familiaux"]
   },
-  "renault-clio": {
-    slug: "renault-clio", name: "Renault Clio", brand: "Renault",
-    category: "Citadine Premium", priceFrom: 400, priceDisplay: "400 MAD/jour",
-    photos: [carClio],
-    description: "La Renault Clio 5 est la citadine référence. Confortable, économique, technologique.",
-    options: { transmission: "Manuelle 5 / Auto EDC", seats: 5, doors: 5, luggage: "391L", fuel: "Essence", consumption: "5.5L/100km", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
-    highlights: ["Économique", "Facile à garer", "Conduite urbaine fluide"], perfectFor: ["Visites Marrakech/Médinas", "Couples touristes", "Budget court"]
-  },
   "hyundai-accent": {
     slug: "hyundai-accent", name: "Hyundai Accent", brand: "Hyundai",
     category: "Berline Confort", priceFrom: 440, priceDisplay: "440 MAD/jour",

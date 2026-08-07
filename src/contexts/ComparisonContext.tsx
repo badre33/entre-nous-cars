@@ -35,7 +35,7 @@ export function ComparisonProvider({ children }: { children: ReactNode }) {
     if (selectedCars.length >= MAX_COMPARISON) {
       toast({
         title: "Limite atteinte",
-        description: `Vous pouvez comparer jusqu'à ${MAX_COMPARISON} véhicules maximum.`,
+        description: `Vous pouvez sélectionner jusqu'à ${MAX_COMPARISON} véhicules maximum.`,
         variant: "destructive",
       });
       return;
@@ -44,7 +44,7 @@ export function ComparisonProvider({ children }: { children: ReactNode }) {
     if (selectedCars.find(c => c.id === car.id)) {
       toast({
         title: "Déjà ajouté",
-        description: "Ce véhicule est déjà dans votre liste de comparaison.",
+        description: "Ce véhicule est déjà sélectionné.",
       });
       return;
     }
@@ -61,8 +61,8 @@ export function ComparisonProvider({ children }: { children: ReactNode }) {
     });
     
     toast({
-      title: "Ajouté à la comparaison",
-      description: `${car.name} a été ajouté à la comparaison.`,
+      title: "Véhicule sélectionné ✓",
+      description: `${car.name} ajouté. Appuyez sur le bouton WhatsApp pour envoyer votre demande.`,
     });
   };
 

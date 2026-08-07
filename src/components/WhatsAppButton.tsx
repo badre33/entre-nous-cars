@@ -5,11 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { analytics } from "@/utils/analytics";
-import RentalRequestForm from "@/components/RentalRequestForm";
 
 const WhatsAppButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showForm, setShowForm] = useState(false);
 
   // Compute contextual default message based on current page
   const getDefaultMessage = (): string => {
@@ -102,7 +100,12 @@ const WhatsAppButton = () => {
           <CardContent className="p-0">
             <div className="bg-[#E5DDD5] p-4 min-h-[200px] max-h-[300px] overflow-y-auto">
               <button
-                onClick={() => { setIsOpen(false); setShowForm(true); }}
+                onClick={() => {
+                  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(getDefaultMessage())}`;
+                  window.open(whatsappUrl, '_blank');
+                  analytics.trackEvent('whatsapp_message_sent', { source: 'chat_widget_quick_action' });
+                  setIsOpen(false);
+                }}
                 className="w-full bg-primary text-primary-foreground rounded-lg p-3 mb-3 shadow-sm text-sm font-semibold hover:opacity-90 transition-opacity"
               >
                 🚗 Réserver un véhicule
@@ -162,10 +165,6 @@ const WhatsAppButton = () => {
         )}
       </button>
 
-      <RentalRequestForm
-        open={showForm}
-        onOpenChange={setShowForm}
-      />
     </>
   );
 };

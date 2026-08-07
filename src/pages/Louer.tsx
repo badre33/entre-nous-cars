@@ -2,14 +2,12 @@ import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import RentalRequestForm from "@/components/RentalRequestForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Calendar as CalendarIcon, MapPin, Car, CalendarCheck, LayoutGrid, List, Rows3, MessageCircle } from "lucide-react";
 import { useComparison } from "@/contexts/ComparisonContext";
 import ComparisonButton from "@/components/ComparisonButton";
-import ComparisonDialog from "@/components/ComparisonDialog";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -28,7 +26,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { CarProductSchema } from "@/components/CarProductSchema";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { calculateDays, calculateTotalPrice, formatPrice, getDiscountPercentage } from "@/utils/priceCalculations";
+import { calculateDays, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
@@ -1545,14 +1543,12 @@ const Louer = () => {
   const [selectedBrand, setSelectedBrand] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [parallaxOffset, setParallaxOffset] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
-  const [rentalFormCar, setRentalFormCar] = useState<{ name: string; slug?: string; city: string } | null>(null);
+  const [isLoading] = useState(false);
   const [showAvailability, setShowAvailability] = useState(false);
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
-  const [showComparison, setShowComparison] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('grid');
-  const { addToComparison, removeFromComparison, isInComparison } = useComparison();
+  const { selectedCars, addToComparison, removeFromComparison, isInComparison, clearComparison } = useComparison();
   const isMobile = useIsMobile();
   const [previewCar, setPreviewCar] = useState<typeof cars[0] | null>(null);
 
@@ -1603,51 +1599,80 @@ const Louer = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {
-    // Open structured rental request form (captures lead in DB before WhatsApp)
-    const slug = carName.toLowerCase()
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .replace(/é|è|ê/g, 'e').replace(/ç/g, 'c')
-      .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    setRentalFormCar({ name: carName, slug, city });
-    
-    // Keep confetti for the wow effect
+  const openWhatsApp = (message: string) => {
+    window.open(
+      `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
+      '_blank'
+    );
+  };
+
+  // Bloc dates commun aux messages WhatsApp (si l'utilisateur a saisi des dates)
+  const buildDatesBlock = (): string => {
+    if (!startDate || !endDate) return "";
+    const dateDebut = format(startDate, "dd/MM/yyyy");
+    const dateFin = format(endDate, "dd/MM/yyyy");
+    const days = calculateDays(startDate, endDate);
+    return `\n📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})`;
+  };
+
+  const fireConfetti = () => {
     confetti({
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
       colors: ['#ffda00', '#d0f690', '#048592']
     });
-    
-    // Track legacy event
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      return;
-      
-      // Construire le message avec les dates si disponibles
-      let message = `Bonjour, je suis intéressé par ${carName} à ${city} (${priceDisplay}/jour)`;
-      
-      if (startDate && endDate) {
-        const dateDebut = format(startDate, "dd/MM/yyyy");
-        const dateFin = format(endDate, "dd/MM/yyyy");
-        const days = calculateDays(startDate, endDate);
-        const basePrice = parseInt(priceDisplay.replace(/[^\d]/g, ''));
-        const totalPrice = formatPrice(calculateTotalPrice(basePrice, days));
-        const discount = getDiscountPercentage(days);
-        
-        message += `\nDates souhaitées : du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})`;
-        if (discount > 0) {
-          message += `\n🎉 Réduction : -${discount}% (location longue durée)`;
-        }
-        message += `\n💰 Prix total : ${totalPrice}`;
-      }
-      
-      window.open(
-        `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
-        '_blank'
-      );
-    }, 800);
+  };
+
+  // Envoi direct WhatsApp pour UN véhicule (bouton WhatsApp de la carte)
+  const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {
+    fireConfetti();
+
+    let message = `Bonjour Benatna 👋
+
+Je souhaite louer :
+🚗 ${carName} — ${priceDisplay}/jour
+📍 Ville : ${city}`;
+    message += buildDatesBlock();
+
+    if (startDate && endDate) {
+      const days = calculateDays(startDate, endDate);
+      const basePrice = parseInt(priceDisplay.replace(/[^\d]/g, ''));
+      const dailyPrice = calculateDailyPrice(basePrice, days, { date: startDate, city });
+      message += `\n💰 Prix total : ${formatPrice(dailyPrice * days)}`;
+    }
+
+    message += `\n\nMerci de me confirmer la disponibilité.`;
+    openWhatsApp(message);
+  };
+
+  // Envoi direct WhatsApp pour la sélection (1 à 3 véhicules)
+  const handleSendSelection = () => {
+    if (selectedCars.length === 0) return;
+    fireConfetti();
+
+    const vehiclesList = selectedCars
+      .map(car => `🚗 ${car.name} — ${car.priceDisplay}/jour (${car.city})`)
+      .join('\n');
+
+    let message = `Bonjour Benatna 👋
+
+Je souhaite louer ${selectedCars.length > 1 ? "l'un de ces véhicules" : "ce véhicule"} :
+${vehiclesList}`;
+
+    if (selectedCity !== "all") {
+      message += `\n\n📍 Ville : ${selectedCity}`;
+    }
+    message += buildDatesBlock();
+    message += `\n\nMerci de me confirmer la disponibilité.`;
+
+    openWhatsApp(message);
+
+    toast({
+      title: "Demande envoyée !",
+      description: "Votre demande part sur WhatsApp. Réponse en 2 minutes.",
+    });
+    clearComparison();
   };
 
   const handleShowAvailability = (carName: string, city: string, priceDisplay: string) => {
@@ -2168,7 +2193,7 @@ Véhicule : ${selectedCar.name}
                     </Carousel>
                     <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
                       <p className="text-xs text-center text-muted-foreground">
-                        👆 Glissez pour voir • 👇 Swipe vers le bas pour fermer • 👈 Swipe pour comparer • 🤚 Maintenez pour preview
+                        👆 Glissez pour voir • 👇 Swipe vers le bas pour fermer • 👈 Swipe pour sélectionner • 🤚 Maintenez pour preview
                       </p>
                     </div>
                   </>
@@ -2284,12 +2309,9 @@ Véhicule : ${selectedCar.name}
         icon={MessageCircle}
       />
       
-      {/* Comparison Button */}
-      <ComparisonButton onClick={() => setShowComparison(true)} />
-      
-      {/* Comparison Dialog */}
-      <ComparisonDialog open={showComparison} onOpenChange={setShowComparison} />
-      
+      {/* Bouton flottant : envoi direct WhatsApp de la sélection (1-3 véhicules) */}
+      <ComparisonButton onClick={handleSendSelection} />
+
       {/* Car Preview Dialog */}
       <CarPreviewDialog
         car={previewCar}
@@ -2299,13 +2321,6 @@ Véhicule : ${selectedCar.name}
         onWhatsAppClick={() => previewCar && handleWhatsAppClick(previewCar.name, previewCar.city, previewCar.priceDisplay)}
       />
 
-      <RentalRequestForm
-        open={!!rentalFormCar}
-        onOpenChange={(o) => !o && setRentalFormCar(null)}
-        vehicleName={rentalFormCar?.name}
-        vehicleSlug={rentalFormCar?.slug}
-        defaultCity={rentalFormCar?.city}
-      />
     </div>
   );
 };

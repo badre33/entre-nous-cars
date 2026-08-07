@@ -1,7 +1,7 @@
-import { Scale } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useComparison } from "@/contexts/ComparisonContext";
+import { useComparison, MAX_COMPARISON } from "@/contexts/ComparisonContext";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef } from "react";
 
@@ -37,24 +37,26 @@ export default function ComparisonButton({ onClick }: ComparisonButtonProps) {
         size="lg"
         className={cn(
           "group relative h-16 md:h-14 px-6 shadow-xl hover:shadow-2xl touch-target touch-feedback",
-          "bg-gradient-to-r from-primary to-primary/80",
-          "hover:from-primary hover:to-primary/90",
-          "transition-all duration-300 hover:scale-105 min-w-[160px] md:min-w-0"
+          "bg-[#25D366] hover:bg-[#128C7E] text-white",
+          "transition-all duration-300 hover:scale-105 min-w-[200px] md:min-w-0"
         )}
       >
-        <Scale className="mr-2 h-6 w-6 md:h-5 md:w-5 transition-transform group-hover:rotate-12" />
-        <span className="font-semibold text-base md:text-sm">Comparer</span>
+        <MessageCircle className="mr-2 h-6 w-6 md:h-5 md:w-5" />
+        <span className="font-semibold text-base md:text-sm">Envoyer sur WhatsApp</span>
         <Badge
           variant="secondary"
           className={cn(
             "ml-2 h-7 w-7 md:h-6 md:w-6 rounded-full p-0 flex items-center justify-center",
-            "bg-white text-primary font-bold text-base md:text-sm",
+            "bg-white text-[#128C7E] font-bold text-base md:text-sm",
             "animate-pulse"
           )}
         >
           {selectedCars.length}
         </Badge>
       </Button>
+      <p className="text-center text-xs text-white bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 mt-2">
+        {selectedCars.length}/{MAX_COMPARISON} véhicule{selectedCars.length > 1 ? "s" : ""} sélectionné{selectedCars.length > 1 ? "s" : ""}
+      </p>
     </div>
   );
 }

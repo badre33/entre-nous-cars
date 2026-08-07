@@ -189,7 +189,8 @@ export default function SwipeableCarCard({
                     "h-11 w-11 flex items-center justify-center rounded border cursor-pointer transition-all",
                     isInComparison ? "bg-primary border-primary" : "border-border"
                   )}
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.stopPropagation();
                     if (isInComparison) {
                       hapticRemoveFromCompare();
                     } else {
@@ -242,7 +243,8 @@ export default function SwipeableCarCard({
                 "h-11 w-11 flex items-center justify-center rounded-full backdrop-blur-sm cursor-pointer transition-all",
                 isInComparison ? "bg-primary" : "bg-background/80 border border-border"
               )}
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 if (isInComparison) {
                   hapticRemoveFromCompare();
                 } else {
@@ -335,7 +337,7 @@ export default function SwipeableCarCard({
         
         {/* Instructions de swipe au premier affichage */}
         <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 text-xs text-white/80 backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
-          <span>← Comparer</span>
+          <span>← Sélectionner</span>
           <span>Dispo →</span>
         </div>
         
@@ -347,7 +349,8 @@ export default function SwipeableCarCard({
                 ? "bg-primary text-primary-foreground shadow-lg"
                 : "bg-background/90 border border-border"
             )}
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               if (isInComparison) {
                 hapticRemoveFromCompare();
               } else {
@@ -360,7 +363,7 @@ export default function SwipeableCarCard({
               checked={isInComparison}
               className="pointer-events-none h-4 w-4"
             />
-            <span className="text-xs font-medium">Comparer</span>
+            <span className="text-xs font-medium">Sélectionner</span>
           </div>
         </div>
         {car.badges && car.badges.length > 0 && (
@@ -437,7 +440,7 @@ export default function SwipeableCarCard({
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg animate-scale-in z-30">
           <div className="flex items-center gap-2">
             <Checkbox checked className="h-5 w-5" />
-            <span className="font-semibold">Ajouté à la comparaison</span>
+            <span className="font-semibold">Véhicule sélectionné</span>
           </div>
         </div>
       )}

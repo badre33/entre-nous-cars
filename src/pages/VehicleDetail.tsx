@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import RentalRequestForm from "@/components/RentalRequestForm";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ChevronLeft, ChevronRight, Check, X, Users, DoorOpen, Briefcase, Fuel, Gauge, Zap, MessageCircle, Phone } from "lucide-react";
@@ -36,7 +35,6 @@ const VehicleDetail = () => {
   }, [slug, vehicle]);
 
   const [currentPhoto, setCurrentPhoto] = useState(0);
-  const [rentalFormOpen, setRentalFormOpen] = useState(false);
 
   if (!vehicle) {
     return (
@@ -264,10 +262,12 @@ const VehicleDetail = () => {
 
                 {/* CTAs */}
                 <div className="space-y-2">
-                  <Button onClick={() => setRentalFormOpen(true)} className="w-full bg-green-600 hover:bg-green-700">
-                    <MessageCircle className="h-4 w-4 mr-2" />
-                    Réserver ce véhicule
-                  </Button>
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-green-600 hover:bg-green-700">
+                      <MessageCircle className="h-4 w-4 mr-2" />
+                      Réserver ce véhicule
+                    </Button>
+                  </a>
                   <a href="tel:+212699024526">
                     <Button variant="outline" className="w-full">
                       <Phone className="h-4 w-4 mr-2" />
@@ -300,12 +300,6 @@ const VehicleDetail = () => {
         </div>
       </div>
 
-      <RentalRequestForm
-        open={rentalFormOpen}
-        onOpenChange={setRentalFormOpen}
-        vehicleName={vehicle.name}
-        vehicleSlug={vehicle.slug}
-      />
     </>
   );
 };
