@@ -78,14 +78,17 @@ export default function SwipeableCarCard({
   const days = calculateDays(startDate, endDate);
   const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
 
-  // Prix journalier courant (moteur dynamique : saison + événement marocain)
-  const dailyPriceNow = currentDailyPrice(basePrice, car.city);
+  // Prix journalier affiché (moteur dynamique : saison + événement marocain).
+  // Si des dates sont saisies, le prix est calculé pour la date de départ.
+  const dailyPriceNow = days > 0 && startDate
+    ? calculateDailyPrice(basePrice, days, { date: startDate, city: car.city })
+    : currentDailyPrice(basePrice, car.city);
   const contextBadge = currentContextBadge();
   const discountHint = getDiscountPercentage(7); // hint "économisez X% dès 7 jours"
 
   const priceInfo = days > 0 ? {
-    total: formatPrice(calculateTotalPrice(basePrice, days, { city: car.city })),
-    daily: calculateDailyPrice(basePrice, days, { city: car.city }),
+    total: formatPrice(calculateTotalPrice(basePrice, days, { date: startDate, city: car.city })),
+    daily: calculateDailyPrice(basePrice, days, { date: startDate, city: car.city }),
     days,
     discount: getDiscountPercentage(days)
   } : null;

@@ -26,7 +26,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { CarProductSchema } from "@/components/CarProductSchema";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { calculateDays, calculateDailyPrice, formatPrice } from "@/utils/priceCalculations";
+import { calculateDays, calculateDailyPrice, formatPrice, currentDailyPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
@@ -824,11 +824,24 @@ const Louer = () => {
     });
   };
 
+  // Prix journalier dynamique — identique à celui affiché sur les cartes
+  // (saison/événement inclus), pour que le message WhatsApp soit cohérent
+  // avec ce que le client voit à l'écran.
+  const displayedDailyPrice = (priceDisplay: string, city: string): string => {
+    const base = parseInt(priceDisplay.replace(/[^\d]/g, ''));
+    if (!base) return priceDisplay;
+    const days = calculateDays(startDate, endDate);
+    const daily = days > 0
+      ? calculateDailyPrice(base, days, { date: startDate, city })
+      : currentDailyPrice(base, city);
+    return `${daily} DH`;
+  };
+
   // Envoi direct WhatsApp pour UN véhicule (bouton WhatsApp de la carte)
   // Construit le message de demande pour 1 à 3 véhicules
   const buildRequestMessage = (cars: { name: string; city: string; priceDisplay: string }[]): string => {
     const vehiclesList = cars
-      .map(car => `🚗 ${car.name} — ${car.priceDisplay}/jour (${car.city})`)
+      .map(car => `🚗 ${car.name} — ${displayedDailyPrice(car.priceDisplay, car.city)}/jour (${car.city})`)
       .join('\n');
 
     let message = `Bonjour Benatna 👋
@@ -840,7 +853,8 @@ ${vehiclesList}`;
       message += `\n\n📍 Ville : ${selectedCity}`;
     }
     message += buildDatesBlock();
-    message += `\n\nMerci de me confirmer la disponibilité.`;
+    message += `\n\n💡 Prix indicatifs — tarif final confirmé par le loueur partenaire.`;
+    message += `\nMerci de me confirmer la disponibilité.`;
     return message;
   };
 
@@ -910,10 +924,10 @@ ${vehiclesList}`;
       setTimeout(() => {
         const dateDebut = format(start, "dd/MM/yyyy", { locale: fr });
         const dateFin = format(end, "dd/MM/yyyy", { locale: fr });
-        const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+        const days = calculateDays(start, end);
         const basePrice = parseInt(selectedCar.price.replace(/[^\d]/g, ''));
-        // Utilise le moteur dynamique (saison + événement)
-        const dailyPrice = calculateDailyPrice(basePrice, days, { date: start });
+        // Utilise le moteur dynamique (saison + événement + ville)
+        const dailyPrice = calculateDailyPrice(basePrice, days, { date: start, city: selectedCar.city });
         const totalPrice = formatPrice(dailyPrice * days);
         const isLongTerm = days >= 90; // longue durée = 3 mois +
 
@@ -922,8 +936,8 @@ ${vehiclesList}`;
 Véhicule : ${selectedCar.name}
 📍 Ville : ${selectedCar.city}
 📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
-💰 Tarif : ${dailyPrice} DH/jour
-💵 Prix total : ${totalPrice}`;
+💰 Tarif indicatif : ${dailyPrice} DH/jour
+💵 Prix total indicatif : ${totalPrice}`;
 
         if (isLongTerm) {
           message += `\n\n📆 Location longue durée (${Math.round(days/30)} mois) — merci de me faire une offre tarifaire adaptée.`;
@@ -941,19 +955,10 @@ Véhicule : ${selectedCar.name}
 
   const cities = ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"];
   
-  // Toutes les marques de véhicules
-  const brands = [
-    "Audi", "BMW", "Mercedes", "Maserati", "Porsche", "Jaguar", "Land Rover", "Lexus", "Volvo",
-    "Renault", "Peugeot", "Citroën", "Dacia",
-    "Toyota", "Nissan", "Honda", "Hyundai", "Kia", "Toyota", "Suzuki", "Toyota",
-    "Volkswagen", "Opel", "Ford", "Fiat", "Seat", "Volkswagen",
-    "Chevrolet"
-  ].sort();
-  
-  // Toutes les catégories de véhicules
-  const categories = [
-    "Berline", "SUV", "Citadine", "Monospace", "4x4", "Break", "Utilitaire", "Cabriolet", "Coupé"
-  ].sort();
+  // Marques et catégories dérivées du catalogue réel (pas de filtre mort)
+  const brands = [...new Set(cars.map(c => c.brand))].sort();
+
+  const categories = [...new Set(cars.map(c => c.category))].sort();
   
   const types = ["Automatique", "Manuelle"];
 

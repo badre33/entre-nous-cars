@@ -57,7 +57,7 @@ const casablancaFAQs = [
   },
   {
     question: "Puis-je louer une voiture pour une courte ou longue durée ?",
-    answer: "Oui, nos offres s'adaptent à tous les besoins : location à la journée, au week-end, à la semaine ou au mois. Pour les locations longue durée (30 jours et plus), vous bénéficiez de tarifs dégressifs avantageux, jusqu'à -15% sur le prix journalier."
+    answer: "Oui, les offres s'adaptent à tous les besoins : location à la journée, au week-end, à la semaine ou au mois. Pour les locations longue durée, les loueurs partenaires appliquent des tarifs dégressifs indicatifs — le tarif final est confirmé directement par le loueur."
   },
   {
     question: "L'assurance est-elle incluse dans le tarif de location ?",

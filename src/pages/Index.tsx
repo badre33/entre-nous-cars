@@ -801,7 +801,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-2 mt-4">
-                    <Badge variant="outline" className="text-xs">-15% Groupes</Badge>
+                    <Badge variant="outline" className="text-xs">Tarifs Groupes</Badge>
                     <Badge variant="outline" className="text-xs">SUV & Vans</Badge>
                     <Badge variant="outline" className="text-xs">Annulation Flexible</Badge>
                   </div>
@@ -850,7 +850,6 @@ const Index = () => {
                       loading="lazy"
                       data-city-image
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">

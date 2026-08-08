@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { z } from "zod";
 
 // Validation schema

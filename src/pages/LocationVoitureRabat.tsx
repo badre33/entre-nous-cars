@@ -45,7 +45,7 @@ import cityRabat from "@/assets/city-rabat.jpg";
 const rabatFAQs = [
   {
     question: "Proposez-vous des locations longue durée à Rabat ?",
-    answer: "Oui, la location longue durée est notre spécialité à Rabat. Nous proposons des tarifs dégressifs attractifs : -10% à partir de 7 jours, -15% à partir de 30 jours. Idéal pour les missions professionnelles, les expatriés en transition ou les MRE de retour pour plusieurs mois."
+    answer: "Oui, la location longue durée est très demandée à Rabat. Les loueurs partenaires appliquent des tarifs dégressifs indicatifs selon la durée — le tarif final est confirmé par chaque loueur sur WhatsApp. Idéal pour les missions professionnelles, les expatriés en transition ou les MRE de retour pour plusieurs mois."
   },
   {
     question: "Peut-on louer une voiture à l'aéroport Rabat-Salé ?",

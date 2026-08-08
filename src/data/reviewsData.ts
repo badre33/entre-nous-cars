@@ -142,8 +142,8 @@ export const globalReviews: Review[] = [
     author: "Zineb A.",
     rating: 5,
     date: "2024-07-18",
-    title: "Programme fidélité généreux",
-    text: "5ème location avec Benatna, j'ai eu -15% de réduction automatique ! Système de points fidélité vraiment intéressant contrairement aux promesses vides d'autres loueurs."
+    title: "Client fidèle, toujours aussi simple",
+    text: "5ème location avec Benatna. Réponse en quelques minutes sur WhatsApp, prix clairs dès le départ et un loueur sérieux à chaque fois, contrairement aux promesses vides d'autres plateformes."
   },
   {
     author: "Omar H.",

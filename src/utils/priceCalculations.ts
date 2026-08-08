@@ -11,7 +11,7 @@
  * (mai/octobre). Le moteur ajuste automatiquement selon :
  *   - K_saison mensuel (été +25/+30%, hiver +20%, Ramadan +15%, etc.)
  *   - K_événement (Aïd al-Fitr +35%, Aïd al-Adha +40%, Fête du Trône +15%, …)
- *   - K_durée (rabais dégressif : 7j -15%, 30j -38%, 90j -50%)
+ *   - K_durée (rabais dégressif indicatif : -3% dès 15 jours, -5% max dès 3 mois)
  *   - K_ville et K_weekend
  */
 
