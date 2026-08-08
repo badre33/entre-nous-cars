@@ -18,7 +18,7 @@ const AnnulationGratuite = () => {
     },
     {
       question: "Comment annuler ma réservation en ligne ?",
-      answer: "Pour annuler votre réservation : 1) Connectez-vous à votre espace client sur benatna.com avec votre email de réservation, 2) Accédez à 'Mes réservations', 3) Sélectionnez la réservation à annuler, 4) Cliquez sur 'Annuler' et confirmez. Vous recevrez immédiatement un email de confirmation d'annulation. Vous pouvez aussi nous contacter par WhatsApp ou téléphone."
+      answer: "Pour annuler votre réservation : 1) Connectez-vous à votre espace client sur benatna.ma avec votre email de réservation, 2) Accédez à 'Mes réservations', 3) Sélectionnez la réservation à annuler, 4) Cliquez sur 'Annuler' et confirmez. Vous recevrez immédiatement un email de confirmation d'annulation. Vous pouvez aussi nous contacter par WhatsApp ou téléphone."
     },
     {
       question: "Sous quel délai serais-je remboursé après annulation ?",
@@ -54,7 +54,7 @@ const AnnulationGratuite = () => {
             "provider": {
               "@type": "Organization",
               "name": "Benatna",
-              "url": "https://www.benatna.com",
+              "url": "https://www.benatna.ma",
               "telephone": "+212699024526"
             },
             "areaServed": {
@@ -324,7 +324,7 @@ const AnnulationGratuite = () => {
                   <ol className="space-y-3">
                     <li className="flex items-start gap-3">
                       <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">1</span>
-                      <span>Connectez-vous à votre espace client sur benatna.com</span>
+                      <span>Connectez-vous à votre espace client sur benatna.ma</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
@@ -340,7 +340,7 @@ const AnnulationGratuite = () => {
                     </li>
                   </ol>
                   <p className="text-sm text-muted-foreground mt-4">
-                    Vous pouvez aussi nous contacter par WhatsApp (+212 6 00 00 00 00) ou téléphone 
+                    Vous pouvez aussi nous contacter par WhatsApp (+212 699 024 526) ou téléphone 
                     pour modifier votre réservation. Notre équipe vous assistera immédiatement.
                   </p>
                 </Card>

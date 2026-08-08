@@ -846,6 +846,9 @@ const Index = () => {
                       src={city.image} 
                       alt={generateCityImageAlt(city.name)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      width="800"
+                      height="500"
+                      decoding="async"
                       loading="lazy"
                       data-city-image
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -1073,6 +1076,9 @@ const Index = () => {
                   <img 
                     src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop" 
                     alt="Conseils de conduite au Maroc"
+                    width="800"
+                    height="500"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
@@ -1104,6 +1110,9 @@ const Index = () => {
                   <img 
                     src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop" 
                     alt="Road trips au Maroc"
+                    width="800"
+                    height="500"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
@@ -1135,6 +1144,9 @@ const Index = () => {
                   <img 
                     src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop" 
                     alt="Assurance voiture au Maroc"
+                    width="800"
+                    height="500"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />

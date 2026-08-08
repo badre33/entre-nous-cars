@@ -54,7 +54,7 @@ const LocationAvecChauffeur = () => {
             "provider": {
               "@type": "Organization",
               "name": "Benatna",
-              "url": "https://www.benatna.com",
+              "url": "https://www.benatna.ma",
               "telephone": "+212699024526"
             },
             "areaServed": {

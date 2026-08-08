@@ -36,7 +36,6 @@ import carPorscheCayenne from "@/assets/car-porsche-cayenne.jpg";
 import carVwGolf from "@/assets/car-vw-golf.jpg";
 import carCorsa from "@/assets/car-opel-corsa.jpg";
 import carPeugeot208 from "@/assets/car-peugeot-208.jpg";
-import carDuster from "@/assets/car-duster.jpg";
 import carJogger from "@/assets/car-dacia-jogger.jpg";
 import carStepway from "@/assets/car-sandero-stepway.jpg";
 import carBayon from "@/assets/car-hyundai-bayon.jpg";
@@ -674,8 +673,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     options: { transmission: "Manuelle/Auto", seats: 5, doors: 5, luggage: "352L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true },
     highlights: ["Design moderne", "Garantie 5 ans", "Citadine accessible"], perfectFor: ["Couples", "Visites urbaines", "Premier voyage"]
   },
-  "volkswagen-troc": {
-    slug: "volkswagen-troc", name: "Volkswagen T-Roc", brand: "Volkswagen",
+  "vw-t-roc": {
+    slug: "vw-t-roc", name: "Volkswagen T-Roc", brand: "Volkswagen",
     category: "SUV Compact", priceFrom: 650, priceDisplay: "650 MAD/jour",
     photos: [carVwTRoc],
     description: "Le VW T-Roc est le SUV compact stylise. Format urbain, technologie VW, agreable a conduire en ville et autoroute.",

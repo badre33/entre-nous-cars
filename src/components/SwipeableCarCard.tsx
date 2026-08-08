@@ -95,17 +95,15 @@ export default function SwipeableCarCard({
   // Gestion du swipe horizontal
   const swipeHandlers = useSwipeGesture({
     onSwipeLeft: () => {
-      // Swipe left = ajouter à la comparaison
-      if (!isInComparison) {
-        if (isInComparison) {
-          hapticRemoveFromCompare();
-        } else {
-          hapticAddToCompare();
-        }
-        onToggleComparison();
-        setShowQuickActions(true);
-        setTimeout(() => setShowQuickActions(false), 2000);
+      // Swipe left = ajouter/retirer de la sélection
+      if (isInComparison) {
+        hapticRemoveFromCompare();
+      } else {
+        hapticAddToCompare();
       }
+      onToggleComparison();
+      setShowQuickActions(true);
+      setTimeout(() => setShowQuickActions(false), 2000);
     },
     onSwipeRight: () => {
       // Swipe right = ouvrir disponibilités

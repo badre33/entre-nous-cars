@@ -19,6 +19,8 @@ export default defineConfig(({ mode }) => ({
     cssCodeSplit: true,
     chunkSizeWarningLimit: 1000,
   },
+  // Retirer les console.log/debugger du bundle de production
+  esbuild: mode === "production" ? { drop: ["console", "debugger"] } : undefined,
   plugins: [
     react(),
     mode === "development" && componentTagger(),

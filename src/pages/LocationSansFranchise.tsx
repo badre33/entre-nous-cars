@@ -26,7 +26,7 @@ const LocationSansFranchise = () => {
     },
     {
       question: "Puis-je ajouter la protection sans franchise après avoir réservé ?",
-      answer: "Oui, vous pouvez ajouter l'option sans franchise jusqu'au moment du retrait du véhicule. Nous vous recommandons toutefois de l'inclure lors de votre réservation en ligne pour bénéficier des meilleurs tarifs et garantir sa disponibilité. Contactez-nous par WhatsApp au +212 6 00 00 00 00 pour modifier votre réservation."
+      answer: "Oui, vous pouvez ajouter l'option sans franchise jusqu'au moment du retrait du véhicule. Nous vous recommandons toutefois de l'inclure lors de votre réservation en ligne pour bénéficier des meilleurs tarifs et garantir sa disponibilité. Contactez-nous par WhatsApp au +212 699 024 526 pour modifier votre réservation."
     },
     {
       question: "Que se passe-t-il en cas d'accident avec l'option sans franchise ?",
@@ -54,7 +54,7 @@ const LocationSansFranchise = () => {
             "provider": {
               "@type": "Organization",
               "name": "Benatna",
-              "url": "https://www.benatna.com",
+              "url": "https://www.benatna.ma",
               "telephone": "+212699024526"
             },
             "areaServed": {

@@ -192,6 +192,16 @@
             navigator.serviceWorker.register('/sw.js');
           }, 2000);
         });
+        // Quand un nouveau service worker prend le contrôle (nouvelle version
+        // déployée, skipWaiting actif), on recharge une seule fois pour servir
+        // les nouveaux assets et éviter les ChunkLoadError / vieilles versions.
+        var swRefreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          if (swRefreshing) return;
+          if (!navigator.serviceWorker.controller) return; // première installation : pas de reload
+          swRefreshing = true;
+          window.location.reload();
+        });
       }
     </script>
 

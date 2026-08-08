@@ -1539,6 +1539,8 @@ const Louer = () => {
   const [selectedCity, setSelectedCity] = useState<string>("all");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
+  const [startTime, setStartTime] = useState<string>("");
+  const [endTime, setEndTime] = useState<string>("");
   const [selectedType, setSelectedType] = useState<string>("all");
   const [selectedBrand, setSelectedBrand] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -1587,6 +1589,10 @@ const Louer = () => {
     if (endDateFromUrl) {
       setEndDate(new Date(endDateFromUrl));
     }
+    const startTimeFromUrl = searchParams.get('startTime');
+    const endTimeFromUrl = searchParams.get('endTime');
+    if (startTimeFromUrl) setStartTime(startTimeFromUrl);
+    if (endTimeFromUrl) setEndTime(endTimeFromUrl);
   }, [searchParams]);
 
   useEffect(() => {
@@ -1612,7 +1618,11 @@ const Louer = () => {
     const dateDebut = format(startDate, "dd/MM/yyyy");
     const dateFin = format(endDate, "dd/MM/yyyy");
     const days = calculateDays(startDate, endDate);
-    return `\n📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})`;
+    let block = `\n📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})`;
+    if (startTime && endTime) {
+      block += `\n🕙 Prise en charge ${startTime} · Retour ${endTime}`;
+    }
+    return block;
   };
 
   const fireConfetti = () => {
