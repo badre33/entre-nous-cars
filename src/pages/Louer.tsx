@@ -1625,39 +1625,15 @@ const Louer = () => {
   };
 
   // Envoi direct WhatsApp pour UN véhicule (bouton WhatsApp de la carte)
-  const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {
-    fireConfetti();
-
-    let message = `Bonjour Benatna 👋
-
-Je souhaite louer :
-🚗 ${carName} — ${priceDisplay}/jour
-📍 Ville : ${city}`;
-    message += buildDatesBlock();
-
-    if (startDate && endDate) {
-      const days = calculateDays(startDate, endDate);
-      const basePrice = parseInt(priceDisplay.replace(/[^\d]/g, ''));
-      const dailyPrice = calculateDailyPrice(basePrice, days, { date: startDate, city });
-      message += `\n💰 Prix total : ${formatPrice(dailyPrice * days)}`;
-    }
-
-    message += `\n\nMerci de me confirmer la disponibilité.`;
-    openWhatsApp(message);
-  };
-
-  // Envoi direct WhatsApp pour la sélection (1 à 3 véhicules)
-  const handleSendSelection = () => {
-    if (selectedCars.length === 0) return;
-    fireConfetti();
-
-    const vehiclesList = selectedCars
+  // Construit le message de demande pour 1 à 3 véhicules
+  const buildRequestMessage = (cars: { name: string; city: string; priceDisplay: string }[]): string => {
+    const vehiclesList = cars
       .map(car => `🚗 ${car.name} — ${car.priceDisplay}/jour (${car.city})`)
       .join('\n');
 
     let message = `Bonjour Benatna 👋
 
-Je souhaite louer ${selectedCars.length > 1 ? "l'un de ces véhicules" : "ce véhicule"} :
+Je souhaite louer ${cars.length > 1 ? "l'un de ces véhicules" : "ce véhicule"} :
 ${vehiclesList}`;
 
     if (selectedCity !== "all") {
@@ -1665,8 +1641,37 @@ ${vehiclesList}`;
     }
     message += buildDatesBlock();
     message += `\n\nMerci de me confirmer la disponibilité.`;
+    return message;
+  };
 
-    openWhatsApp(message);
+  // Envoi direct WhatsApp depuis une carte.
+  // Si des véhicules sont sélectionnés, la demande part pour TOUTE la sélection
+  // (+ la voiture cliquée si elle n'en fait pas partie).
+  const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {
+    fireConfetti();
+
+    const cars = selectedCars.map(c => ({ name: c.name, city: c.city, priceDisplay: c.priceDisplay }));
+    if (!cars.some(c => c.name === carName)) {
+      cars.push({ name: carName, city, priceDisplay });
+    }
+
+    openWhatsApp(buildRequestMessage(cars));
+
+    if (selectedCars.length > 0) {
+      toast({
+        title: "Demande envoyée !",
+        description: `Demande envoyée pour ${cars.length} véhicule${cars.length > 1 ? 's' : ''}. Réponse en 2 minutes.`,
+      });
+      clearComparison();
+    }
+  };
+
+  // Envoi direct WhatsApp via le bouton flottant (sélection 1 à 3 véhicules)
+  const handleSendSelection = () => {
+    if (selectedCars.length === 0) return;
+    fireConfetti();
+
+    openWhatsApp(buildRequestMessage(selectedCars));
 
     toast({
       title: "Demande envoyée !",
