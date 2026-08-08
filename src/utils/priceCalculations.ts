@@ -31,10 +31,12 @@ export function calculateDailyPrice(basePrice: number, days: number, opts?: { da
 }
 
 /**
- * Rabais durée désactivé côté UI : la longue durée (dès 3 mois) est
- * négociée en direct par WhatsApp. Pas d'affichage de % automatique.
+ * Rabais durée indicatif affiché côté UI (le tarif final reste fixé
+ * par chaque loueur partenaire) : -3% dès 15 jours, -5% dès 3 mois (max).
  */
-export function getDiscountPercentage(_days: number): number {
+export function getDiscountPercentage(days: number): number {
+  if (days >= 90) return 5;
+  if (days >= 15) return 3;
   return 0;
 }
 

@@ -241,7 +241,7 @@ const VehicleDetail = () => {
                   {currentContextBadge() && (
                     <p className="text-xs text-secondary font-medium mt-1">{currentContextBadge()}</p>
                   )}
-                  <p className="text-xs text-muted-foreground mt-1">✨ Le prix annoncé est le prix payé. Location longue durée à partir de 3 mois — tarif dégressif sur demande via WhatsApp.</p>
+                  <p className="text-xs text-muted-foreground mt-1">Prix indicatif — chaque loueur partenaire gère sa tarification, confirmée sur WhatsApp. Location longue durée dès 3 mois : tarif négocié en direct.</p>
                 </div>
 
                 {/* Quick specs */}

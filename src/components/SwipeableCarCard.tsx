@@ -172,10 +172,11 @@ export default function SwipeableCarCard({
                   )}
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-xs text-muted-foreground mb-2">
+              <div className="flex items-center gap-1 text-xs text-muted-foreground mb-1">
                 <MapPin className="w-2.5 h-2.5" />
                 <span className="truncate">{car.city}</span>
               </div>
+              <p className="text-[10px] text-muted-foreground/80 mb-2">Prix indicatif selon le loueur</p>
               <div className="flex gap-1.5">
                 <Button size="sm" variant="outline" className="h-11 text-sm flex-1" onClick={onShowAvailability}>
                   <CalendarCheck className="w-3 h-3 mr-1" />
@@ -290,12 +291,13 @@ export default function SwipeableCarCard({
             </div>
           </div>
           {!priceInfo && contextBadge && (
-            <div className="mb-2">
+            <div className="mb-1">
               <Badge variant="outline" className="text-[10px] py-0 px-1.5 border-secondary/50 text-secondary">
                 {contextBadge}
               </Badge>
             </div>
           )}
+          <p className="text-[10px] text-muted-foreground/80 mb-2">Prix indicatif selon le loueur</p>
           <div className="space-y-1.5">
             <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={onShowAvailability}>
               <CalendarCheck className="w-3 h-3 mr-1" />
@@ -411,11 +413,12 @@ export default function SwipeableCarCard({
           </div>
         </div>
         
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
+        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-1">
           <MapPin className="w-3 h-3 flex-shrink-0" />
           <span className="truncate">{car.city}</span>
         </div>
-        
+        <p className="text-[10px] text-muted-foreground/80 mb-3">Prix indicatif selon le loueur</p>
+
         <div className="space-y-2 mb-4">
           <Button 
             variant="outline"

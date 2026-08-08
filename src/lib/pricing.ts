@@ -37,21 +37,23 @@ export interface PricingResult {
 // K_SAISON — coefficient mensuel
 // =====================================================================
 // Index 0 = janvier, 11 = décembre
-// Les prix baseline du catalogue sont désormais les prix VITRINE été.
-// Le K_saison ne fait que réduire hors saison, jamais augmenter.
+// Les prix du catalogue sont les prix DE BASE (grille validée par le user).
+// Haute saison été (juillet-août) : +25% affiché — le vrai prix se négocie
+// ensuite à la baisse sur WhatsApp (marge de négociation volontaire).
+// Hors été : prix de base, jamais en dessous (pas de solde automatique).
 const MONTHLY_COEF: number[] = [
-  0.85, // Janvier — basse, MRE rentrent
-  0.80, // Février — basse + Ramadan possible
-  0.85, // Mars — Ramadan possible / Aïd
-  0.90, // Avril — post-Aïd
-  0.95, // Mai — pré-été
-  1.00, // Juin — début haute saison
-  1.00, // Juillet — pic MRE (prix vitrine actuel)
-  1.05, // Août — léger boost triple pont
-  0.95, // Septembre — rentrée MRE
-  0.90, // Octobre — baisse post-saison
-  0.85, // Novembre — creux
-  1.00, // Décembre — MRE hiver + fêtes
+  1.00, // Janvier
+  1.00, // Février
+  1.00, // Mars
+  1.00, // Avril
+  1.00, // Mai
+  1.00, // Juin
+  1.25, // Juillet — haute saison été (pic MRE + touristes)
+  1.25, // Août — haute saison été
+  1.00, // Septembre
+  1.00, // Octobre
+  1.00, // Novembre
+  1.00, // Décembre
 ];
 
 const MONTH_LABELS = [
@@ -188,12 +190,14 @@ const EVENTS: MoroccanEvent[] = [
 ];
 
 // =====================================================================
-// K_DURÉE — DÉSACTIVÉ
-// Politique Benatna : la longue durée démarre à 3 mois et fait l'objet
-// d'un tarif dégressif négocié DIRECTEMENT avec le client (WhatsApp).
-// Pas d'affichage de rabais automatique côté site.
+// K_DURÉE — rabais indicatifs légers (le tarif final reste fixé par
+// chaque loueur partenaire, négocié sur WhatsApp)
+//   ≥ 15 jours : -3%
+//   ≥ 3 mois   : -5% (maximum)
 // =====================================================================
-function computeDurationCoef(_days: number): { coef: number; label: string | null } {
+function computeDurationCoef(days: number): { coef: number; label: string | null } {
+  if (days >= 90) return { coef: 0.95, label: '-5% dès 3 mois (indicatif)' };
+  if (days >= 15) return { coef: 0.97, label: '-3% dès 15 jours (indicatif)' };
   return { coef: 1.00, label: null };
 }
 
@@ -277,8 +281,11 @@ export function computePrice(basePrice: number, ctx: PricingContext = {}): Prici
   const cityCoef = computeCityCoef(ctx.city);
   const weekendCoef = computeWeekendCoef(startDate, duration);
 
-  // Calcul brut
-  let dailyRaw = basePrice * monthCoef * eventCoef * cityCoef * weekendCoef * durationCoef;
+  // Calcul brut.
+  // Saison et événement ne se cumulent PAS (sinon été × fête = prix
+  // irréaliste) : on prend le plus fort des deux.
+  const seasonOrEventCoef = Math.max(monthCoef, eventCoef);
+  let dailyRaw = basePrice * seasonOrEventCoef * cityCoef * weekendCoef * durationCoef;
 
   // Bornes de sécurité
   const floor = basePrice * 0.55;
@@ -295,12 +302,11 @@ export function computePrice(basePrice: number, ctx: PricingContext = {}): Prici
   const breakdown: string[] = [];
   const monthLabel = MONTH_LABELS[startDate.getMonth()];
   const monthPct = Math.round((monthCoef - 1) * 100);
-  if (monthPct !== 0) {
-    breakdown.push(`Saison ${monthLabel} ${monthPct > 0 ? '+' : ''}${monthPct}%`);
-  }
-  if (activeMatch && eventCoef > 1.0) {
+  if (activeMatch && eventCoef >= monthCoef && eventCoef > 1.0) {
     const suffix = activeMatch.phase === 'ramp' ? ' (avant fête)' : '';
     breakdown.push(`${activeMatch.event.name}${suffix} +${Math.round((eventCoef - 1) * 100)}%`);
+  } else if (monthPct !== 0) {
+    breakdown.push(`Saison ${monthLabel} ${monthPct > 0 ? '+' : ''}${monthPct}%`);
   }
   if (weekendCoef > 1.0) {
     breakdown.push('Weekend +5%');
