@@ -20,8 +20,6 @@ import { globalReviews } from "@/data/reviewsData";
 const AnimatedCounter = lazy(() => import("@/components/AnimatedCounter"));
 const FloatingCTA = lazy(() => import("@/components/FloatingCTA").then(m => ({ default: m.FloatingCTA })));
 const SEOLinks = lazy(() => import("@/components/SEOLinks").then(m => ({ default: m.SEOLinks })));
-const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup").then(m => ({ default: m.ExitIntentPopup })));
-const LoyaltyProgram = lazy(() => import("@/components/LoyaltyProgram").then(m => ({ default: m.LoyaltyProgram })));
 const CustomerReviews = lazy(() => import("@/components/CustomerReviews").then(m => ({ default: m.CustomerReviews })));
 
 // ⚡ PERF: schemas SEO JSON-LD lazy-loaded (Google Bot exécute JS, pas grave)
@@ -1208,7 +1206,6 @@ const Index = () => {
         <CustomerReviews />
 
         {/* Loyalty Program */}
-        <LoyaltyProgram />
 
         {/* SEO Links & Content */}
         <SEOLinks />
@@ -1220,7 +1217,6 @@ const Index = () => {
       {/* ⚡ PERF: éléments flottants lazy (chargés après idle) */}
       <Suspense fallback={null}>
         <FloatingCTA />
-        <ExitIntentPopup />
       </Suspense>
     </div>
   );
