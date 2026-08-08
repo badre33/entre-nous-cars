@@ -67,7 +67,7 @@ const marrakechFAQs = [
   },
   {
     question: "Peut-on restituer le véhicule dans une autre ville que Marrakech ?",
-    answer: "Oui, le service aller-simple est disponible vers les principales villes du Maroc (Casablanca, Rabat, Tanger, Agadir, Fès). Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un tarif personnalisé."
+    answer: "Oui, le service aller-simple est disponible vers les principales villes du Maroc (Casablanca, Rabat, Tanger, Agadir, Fès). Des frais de transfert peuvent s'appliquer selon la destination. Le loueur vous propose son meilleur tarif directement sur WhatsApp."
   }
 ];
 
@@ -354,7 +354,7 @@ const LocationVoitureMarrakech = () => {
                 la première fois, Benatna propose des formules adaptées à toutes les durées. 
                 Les visiteurs internationaux apprécient particulièrement la transparence de 
                 notre service : pas de frais cachés, pas de négociation au comptoir, un prix 
-                clair dès la réservation en ligne. Depuis l'aéroport ou votre riad dans la Médina, 
+                clair dès la confirmation de votre demande WhatsApp. Depuis l'aéroport ou votre riad dans la Médina, 
                 récupérez votre véhicule et partez sereinement explorer Marrakech et le Sud marocain. 
                 Pour{" "}
                 <Link to="/louer?city=Marrakech" className="text-primary hover:underline">
@@ -549,8 +549,8 @@ const LocationVoitureMarrakech = () => {
                     <div>
                       <h3 className="font-semibold mb-2">Aéroport Marrakech-Menara</h3>
                       <p className="text-sm text-muted-foreground mb-3">
-                        Principal aéroport de Marrakech, à 6 km du centre. Service de livraison 
-                        gratuite disponible 24h/24. Notre agent vous attend à la sortie des arrivées.
+                        Principal aéroport de Marrakech, à 6 km du centre. Livraison gratuite 
+                        par le loueur partenaire, selon disponibilité. L'agent du loueur vous attend à la sortie des arrivées.
                       </p>
                       <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
                         Livraison gratuite

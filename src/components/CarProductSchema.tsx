@@ -22,7 +22,7 @@ export const CarProductSchema = ({ cars }: CarProductSchemaProps) => {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": car.name,
-    "description": `Location ${car.name} ${car.category} ${car.type} à ${car.city}. ${car.conditions?.join(", ") || "Kilométrage illimité"}. Réservation en ligne immédiate.`,
+    "description": `Location ${car.name} ${car.category} ${car.type} à ${car.city}. ${car.conditions?.join(", ") || "Kilométrage illimité"}. Demande immédiate sur WhatsApp.`,
     "image": car.image,
     "brand": {
       "@type": "Brand",

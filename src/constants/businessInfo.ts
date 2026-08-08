@@ -51,7 +51,7 @@ export const BUSINESS_INFO = {
   },
   
   // Description
-  description: "Service de location de voiture au Maroc. Véhicules neufs et récents, prix transparents, sans carte de crédit. Livraison gratuite et assistance 24/7."
+  description: "Plateforme de mise en relation avec des agences de location locales au Maroc. Véhicules neufs et récents, prix transparents, sans carte de crédit. Livraison gratuite par les loueurs partenaires."
 } as const;
 
 // Fonction helper pour formater l'adresse complète

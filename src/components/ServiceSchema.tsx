@@ -14,7 +14,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
       "@type": "Service",
       "@id": `${baseUrl}${citySlug}#location-courte-duree`,
       "name": `Location de Voiture Courte Durée ${cityName}`,
-      "description": `Service de location de voiture courte durée (1-30 jours) à ${cityName}. Idéal pour vos déplacements professionnels, vacances et week-ends. Réservation en ligne en 2 minutes, sans carte de crédit requise.`,
+      "description": `Service de location de voiture courte durée (1-30 jours) à ${cityName}. Idéal pour vos déplacements professionnels, vacances et week-ends. Demande en 2 minutes sur WhatsApp, confirmation directe par le loueur, sans carte de crédit requise.`,
       "provider": {
         "@type": "Organization",
         "name": "Benatna",
@@ -88,7 +88,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
       "@type": "Service",
       "@id": `${baseUrl}${citySlug}#livraison-gratuite`,
       "name": `Livraison Gratuite de Voiture ${cityName}`,
-      "description": `Service de livraison gratuite de votre voiture de location partout au Maroc. Nous livrons à l'aéroport, à votre hôtel, ou à votre domicile à ${cityName} et dans toutes les villes du Maroc. Service disponible 24/7.`,
+      "description": `Livraison gratuite de votre voiture de location par le loueur partenaire. Le loueur livre à l'aéroport, à votre hôtel, ou à votre domicile à ${cityName}, selon sa disponibilité.`,
       "provider": {
         "@type": "Organization",
         "name": "Benatna",
@@ -191,7 +191,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
       "@type": "Service",
       "@id": `${baseUrl}${citySlug}#kilometrage-illimite`,
       "name": `Kilométrage Illimité ${cityName}`,
-      "description": `Profitez d'un kilométrage illimité sur la majorité de nos véhicules à ${cityName}. Parcourez le Maroc sans limite de distance. Idéal pour les road trips et découvrir le pays en toute liberté.`,
+      "description": `Profitez d'un kilométrage illimité sur la majorité des véhicules de nos loueurs partenaires à ${cityName}. Parcourez le Maroc sans limite de distance. Idéal pour les road trips et découvrir le pays en toute liberté.`,
       "provider": {
         "@type": "Organization",
         "name": "Benatna",
@@ -219,7 +219,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
     "@id": `${baseUrl}${citySlug}#auto-rental`,
     "name": city ? `Benatna Location de Voiture ${city}` : "Benatna Location de Voiture Maroc",
     "url": `${baseUrl}${citySlug}`,
-    "description": `Location de voiture ${cityName} avec Benatna. Services complets incluant location courte et longue durée, livraison gratuite partout au Maroc, assurance tous risques, assistance 24/7 et kilométrage illimité.`,
+    "description": `Location de voiture ${cityName} avec Benatna. Services complets incluant location courte et longue durée, livraison gratuite par les loueurs partenaires, assurance tous risques, assistance 24/7 et kilométrage illimité.`,
     "provider": {
       "@type": "Organization",
       "name": "Benatna",

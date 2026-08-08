@@ -444,10 +444,10 @@ const LocationCAN2025 = () => {
                 </AccordionTrigger>
                 <AccordionContent>
                   {language === 'en'
-                    ? "Absolutely! We offer free airport delivery for rentals of 7+ days during AFCON. For shorter rentals, delivery costs 150-300 MAD depending on the city. Available at all major airports: Casablanca, Marrakech, Rabat, Agadir, Fes, Tangier."
+                    ? "Absolutely! Our rental partners deliver free of charge at the airport for rentals of 7+ days during AFCON. For shorter rentals, delivery costs 150-300 MAD depending on the city and the partner. Available at all major airports: Casablanca, Marrakech, Rabat, Agadir, Fes, Tangier."
                     : language === 'es'
-                    ? "¡Por supuesto! Ofrecemos entrega gratuita en el aeropuerto para alquileres de 7+ días durante la CAN. Para alquileres más cortos, la entrega cuesta 150-300 MAD según la ciudad. Disponible en todos los aeropuertos principales: Casablanca, Marrakech, Rabat, Agadir, Fez, Tánger."
-                    : "Absolument ! Nous offrons la livraison gratuite à l'aéroport pour les locations de 7+ jours pendant la CAN. Pour les locations plus courtes, la livraison coûte 150-200 DH selon la ville. Disponible dans tous les aéroports majeurs : Casablanca, Marrakech, Rabat, Agadir, Fès, Tanger."}
+                    ? "¡Por supuesto! Nuestros arrendadores asociados entregan gratis en el aeropuerto para alquileres de 7+ días durante la CAN. Para alquileres más cortos, la entrega cuesta 150-300 MAD según la ciudad y el arrendador. Disponible en todos los aeropuertos principales: Casablanca, Marrakech, Rabat, Agadir, Fez, Tánger."
+                    : "Absolument ! Les loueurs partenaires livrent gratuitement à l'aéroport pour les locations de 7+ jours pendant la CAN. Pour les locations plus courtes, la livraison coûte 150-200 DH selon la ville et le loueur. Disponible dans tous les aéroports majeurs : Casablanca, Marrakech, Rabat, Agadir, Fès, Tanger."}
                 </AccordionContent>
               </AccordionItem>
 

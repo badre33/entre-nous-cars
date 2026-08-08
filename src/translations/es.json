@@ -31,8 +31,8 @@
     "howItWorks": "Cómo funciona",
     "step1Title": "Elige tu coche",
     "step1Text": "Explora nuestra amplia selección",
-    "step2Title": "Reserva online",
-    "step2Text": "Pago seguro y rápido",
+    "step2Title": "Solicita por WhatsApp",
+    "step2Text": "Solicitud en 2 minutos, confirmación directa del arrendador",
     "step3Title": "Recoge y vete",
     "step3Text": "En la agencia o aeropuerto",
     "whyBenatna": "¿Por qué Benatna?",
@@ -46,7 +46,7 @@
     "popularCitiesSubtitle": "Descubre nuestra selección de vehículos en las principales ciudades de Marruecos",
     "ourMission": "Nuestra misión",
     "missionText": "Benatna conecta viajeros y residentes con agencias de alquiler locales de confianza. Nuestra misión es hacer que el alquiler de coches en Marruecos sea simple, transparente y accesible para todos, mientras apoyamos a los emprendedores locales.",
-    "discoverCars": "Descubrir nuestros coches"
+    "discoverCars": "Descubrir los vehículos"
   },
   "partners": {
     "heroTitle": "¿Tienes una flota? Gana más.",
@@ -112,7 +112,7 @@
     "value2": "100% claro.",
     "value2Text": "Precios justos, sin tarifas ocultas ni condiciones vagas.",
     "value3": "Cero complicaciones.",
-    "value3Text": "Reservar, firmar, recoger, todo se hace en unos pocos clics.",
+    "value3Text": "Solicitar, confirmar, recoger, todo se hace en unos minutos.",
     "value4": "Orgullo local.",
     "value4Text": "Apoyar a los profesionales marroquíes y destacar su experiencia, en todo el territorio.",
     "humanTechTitle": "Tecnología humana",
@@ -196,7 +196,7 @@
     "airportPickup": "Recogida en el aeropuerto",
     "airportPickupText": "Tu coche te espera al aterrizar",
     "digitalProcess": "Proceso 100% digital",
-    "digitalProcessText": "Reserva en línea, sin papeleo en el sitio",
+    "digitalProcessText": "Solicitud en 2 minutos por WhatsApp, sin papeleo en el sitio",
     "transparentPrices": "Precios transparentes",
     "transparentPricesText": "Sin tarifas ocultas ni malas sorpresas",
     "multilingualSupport": "Soporte multilingüe",

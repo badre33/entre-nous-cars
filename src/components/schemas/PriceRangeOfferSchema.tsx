@@ -120,7 +120,7 @@ export const PriceRangeOfferSchema = ({
     "@type": "Product",
     "@id": `${BUSINESS_INFO.website}${citySlug}#product`,
     "name": `Location de Voiture ${cityName}`,
-    "description": `Service de location de voiture à ${cityName} avec tarifs transparents de ${minPrice} à ${maxPrice} ${currency}/jour. Réservation en ligne simple et rapide.`,
+    "description": `Service de location de voiture à ${cityName} avec tarifs transparents de ${minPrice} à ${maxPrice} ${currency}/jour. Demande WhatsApp simple et rapide.`,
     "brand": {
       "@type": "Brand",
       "name": BUSINESS_INFO.name

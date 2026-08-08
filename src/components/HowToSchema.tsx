@@ -44,7 +44,7 @@ const HowToSchema = ({ city }: HowToSchemaProps) => {
         "@type": "HowToStep",
         "position": 1,
         "name": "Choisissez votre véhicule",
-        "text": "Parcourez notre flotte de véhicules et sélectionnez la voiture qui correspond à vos besoins. Comparez les modèles, les prix et les équipements disponibles.",
+        "text": "Parcourez les véhicules de nos loueurs partenaires et sélectionnez la voiture qui correspond à vos besoins. Comparez les modèles, les prix et les équipements disponibles.",
         "url": `https://benatna.ma${city ? `/location-voiture-${city.toLowerCase()}` : ''}`,
         "image": "https://benatna.ma/hero-rent.jpg"
       },

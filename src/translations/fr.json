@@ -19,7 +19,7 @@
   },
   "home": {
     "heroTitle": "Location de voiture au Maroc, entre nous.",
-    "heroSubtitle": "On fait rebondir votre demande sur des centaines d'agences marocaines. On négocie pour vous. On revient avec le meilleur tarif — livré où vous voulez.",
+    "heroSubtitle": "On fait rebondir votre demande sur des centaines d'agences marocaines. On négocie pour vous. On revient avec le meilleur tarif — et le loueur partenaire vous livre où vous voulez.",
     "rentCar": "Louer une voiture",
     "becomePartner": "Devenir partenaire",
     "availableCars": "Voitures disponibles",
@@ -31,8 +31,8 @@
     "howItWorks": "Comment ça marche",
     "step1Title": "Choisissez votre voiture",
     "step1Text": "Parcourez notre large sélection",
-    "step2Title": "Réservez en ligne",
-    "step2Text": "Paiement sécurisé et rapide",
+    "step2Title": "Demandez sur WhatsApp",
+    "step2Text": "Demande en 2 minutes, confirmation directe par le loueur",
     "step3Title": "Récupérez et partez",
     "step3Text": "À l'agence ou à l'aéroport",
     "whyBenatna": "Pourquoi Benatna ?",
@@ -46,7 +46,7 @@
     "popularCitiesSubtitle": "Découvrez notre sélection de véhicules dans les principales villes du Maroc",
     "ourMission": "Notre mission",
     "missionText": "Benatna connecte les voyageurs et résidents avec des agences de location locales de confiance. Notre mission est de rendre la location de voiture au Maroc simple, transparente et accessible à tous, tout en soutenant les entrepreneurs locaux.",
-    "discoverCars": "Découvrir nos voitures"
+    "discoverCars": "Découvrir les véhicules"
   },
   "partners": {
     "heroTitle": "Vous possédez une flotte ? Gagnez plus.",
@@ -112,7 +112,7 @@
     "value2": "100 % clair.",
     "value2Text": "Des prix justes, sans frais cachés ni conditions floues.",
     "value3": "Zéro tracas.",
-    "value3Text": "Réserver, signer, récupérer, tout se fait en quelques clics.",
+    "value3Text": "Demander, confirmer, récupérer, tout se fait en quelques minutes.",
     "value4": "Fierté locale.",
     "value4Text": "Soutenir les professionnels marocains et valoriser leur savoir-faire, partout sur le territoire.",
     "humanTechTitle": "Une technologie humaine",
@@ -209,7 +209,7 @@
     "airportPickup": "Récupération à l'aéroport",
     "airportPickupText": "Votre voiture vous attend dès votre atterrissage",
     "digitalProcess": "Processus 100% digital",
-    "digitalProcessText": "Réservez en ligne, pas de paperasse sur place",
+    "digitalProcessText": "Demande en 2 minutes sur WhatsApp, pas de paperasse sur place",
     "transparentPrices": "Prix transparents",
     "transparentPricesText": "Aucun frais caché ni mauvaise surprise",
     "multilingualSupport": "Support multilingue",

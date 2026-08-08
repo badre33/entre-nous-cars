@@ -82,7 +82,7 @@ const VehicleDetail = () => {
         <div className="mb-4 text-sm">
           <Link to="/" className="text-muted-foreground hover:text-primary">Accueil</Link>
           <span className="mx-2 text-muted-foreground/40">/</span>
-          <Link to="/louer" className="text-muted-foreground hover:text-primary">Nos véhicules</Link>
+          <Link to="/louer" className="text-muted-foreground hover:text-primary">Véhicules</Link>
           <span className="mx-2 text-muted-foreground/40">/</span>
           <span className="text-foreground font-medium">{vehicle.name}</span>
         </div>
@@ -218,9 +218,9 @@ const VehicleDetail = () => {
                 <p><strong>Kilométrage :</strong> Illimité inclus</p>
                 <p><strong>Assurance :</strong> Tous risques incluse (franchise 3 000-8 000 DH selon catégorie)</p>
                 <p><strong>Caution :</strong> Espèces, virement SEPA, Cash Plus ou Wafacash acceptés. CB internationale NON obligatoire.</p>
-                <p><strong>Livraison :</strong> Gratuite aux aéroports CMN, RAK, RBA, TNG, AGA, FEZ + gares ONCF Casa-Voyageurs, Marrakech, Rabat-Agdal, Tanger Ville</p>
+                <p><strong>Livraison :</strong> Gratuite par le loueur partenaire aux aéroports CMN, RAK, RBA, TNG, AGA, FEZ + gares ONCF Casa-Voyageurs, Marrakech, Rabat-Agdal, Tanger Ville</p>
                 <p><strong>Restitution :</strong> Même point que retrait, ou one-way avec supplément modeste</p>
-                <p><strong>Annulation :</strong> Gratuite jusqu'à 48h avant</p>
+                <p><strong>Annulation :</strong> Se gère directement avec le loueur — prévenez simplement sur WhatsApp</p>
               </TabsContent>
             </Tabs>
           </div>
@@ -283,11 +283,11 @@ const VehicleDetail = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Livraison aéroport gratuite</span>
+                    <span>Livraison aéroport gratuite par le loueur</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Annulation gratuite 48h</span>
+                    <span>Annulation flexible via WhatsApp</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />

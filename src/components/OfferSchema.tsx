@@ -120,7 +120,7 @@ export const OfferSchema = ({ city }: OfferSchemaProps) => {
       "@context": "https://schema.org",
       "@type": "Offer",
       "name": "Livraison Gratuite",
-      "description": "Livraison et récupération gratuites dans toutes les villes principales du Maroc : Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès.",
+      "description": "Livraison et récupération gratuites par le loueur partenaire dans toutes les villes principales du Maroc : Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès.",
       "url": `${baseUrl}/louer${locationParam}`,
       "price": "0",
       "priceCurrency": "MAD",
@@ -135,14 +135,14 @@ export const OfferSchema = ({ city }: OfferSchemaProps) => {
       "itemOffered": {
         "@type": "Service",
         "name": "Livraison et récupération de véhicule",
-        "description": "Service de livraison et récupération gratuit à domicile ou à l'aéroport"
+        "description": "Livraison et récupération gratuites par le loueur partenaire, à domicile ou à l'aéroport"
       }
     },
     {
       "@context": "https://schema.org",
       "@type": "Offer",
       "name": "Kilométrage Illimité",
-      "description": "Tous nos véhicules incluent le kilométrage illimité. Explorez le Maroc sans contrainte de distance.",
+      "description": "Tous les véhicules de nos loueurs partenaires incluent le kilométrage illimité. Explorez le Maroc sans contrainte de distance.",
       "url": `${baseUrl}/louer${locationParam}`,
       "priceValidUntil": validUntil.toISOString().split('T')[0],
       "availability": "https://schema.org/InStock",
@@ -165,7 +165,7 @@ export const OfferSchema = ({ city }: OfferSchemaProps) => {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
     "name": `Offres de Location de Voiture${city ? ` à ${city}` : ' au Maroc'} - Benatna`,
-    "description": "Découvrez nos offres de location de voiture avec tarifs dégressifs : 10% de réduction dès 7 jours, 15% dès 14 jours, 25% dès 30 jours. Livraison gratuite et kilométrage illimité inclus.",
+    "description": "Découvrez nos offres de location de voiture avec tarifs dégressifs : 10% de réduction dès 7 jours, 15% dès 14 jours, 25% dès 30 jours. Livraison gratuite par le loueur et kilométrage illimité inclus.",
     "url": `${baseUrl}/louer${locationParam}`,
     "itemListElement": offers.map((offer, index) => ({
       "@type": "ListItem",

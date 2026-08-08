@@ -53,7 +53,7 @@ const rabatFAQs = [
   },
   {
     question: "Livrez-vous les véhicules aux bureaux et administrations ?",
-    answer: "Oui, c'est un service très demandé à Rabat. Nous livrons gratuitement dans les quartiers administratifs (Agdal, Hay Riad, Souissi) et aux sièges d'entreprises. Pratique pour les professionnels qui enchaînent les réunions dans différents ministères."
+    answer: "Oui, c'est un service très demandé à Rabat. Les loueurs partenaires livrent gratuitement dans les quartiers administratifs (Agdal, Hay Riad, Souissi) et aux sièges d'entreprises. Pratique pour les professionnels qui enchaînent les réunions dans différents ministères."
   },
   {
     question: "Quels documents sont nécessaires pour louer une voiture à Rabat ?",
@@ -65,7 +65,7 @@ const rabatFAQs = [
   },
   {
     question: "Peut-on restituer le véhicule dans une autre ville que Rabat ?",
-    answer: "Oui, le service aller-simple est disponible vers Casablanca (très demandé pour l'axe économique), Tanger, Marrakech et Agadir. Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un tarif personnalisé."
+    answer: "Oui, le service aller-simple est disponible vers Casablanca (très demandé pour l'axe économique), Tanger, Marrakech et Agadir. Des frais de transfert peuvent s'appliquer selon la destination. Le loueur vous propose son meilleur tarif directement sur WhatsApp."
   }
 ];
 
@@ -305,7 +305,7 @@ const LocationVoitureRabat = () => {
                 Meknès (140 km), les plages de Moulay Bousselham ou la ville bleue de Chefchaouen (250 km). 
                 Benatna connecte les professionnels et voyageurs aux meilleures agences de location 
                 de la capitale. Notre plateforme 100 % digitale vous permet de comparer les offres, 
-                réserver en ligne et récupérer votre véhicule en toute simplicité, avec la garantie 
+                envoyer votre demande en 2 minutes sur WhatsApp et récupérer votre véhicule en toute simplicité, avec la garantie 
                 de prix transparents et d'un accompagnement humain à chaque étape de votre location.
               </p>
             </div>
@@ -525,8 +525,8 @@ const LocationVoitureRabat = () => {
                     <div>
                       <h3 className="font-semibold mb-2">Aéroport Rabat-Salé</h3>
                       <p className="text-sm text-muted-foreground mb-3">
-                        Principal aéroport de la capitale. Service de livraison gratuite 
-                        disponible 24h/24, 7j/7. Notre agent vous attend à la sortie des arrivées.
+                        Principal aéroport de la capitale. Livraison gratuite par le loueur 
+                        partenaire, selon disponibilité. L'agent du loueur vous attend à la sortie des arrivées.
                       </p>
                       <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
                         Livraison gratuite

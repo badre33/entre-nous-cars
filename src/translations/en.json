@@ -31,8 +31,8 @@
     "howItWorks": "How it works",
     "step1Title": "Choose your car",
     "step1Text": "Browse our wide selection",
-    "step2Title": "Book online",
-    "step2Text": "Secure and fast payment",
+    "step2Title": "Request on WhatsApp",
+    "step2Text": "2-minute request, confirmed directly by the rental partner",
     "step3Title": "Pick up and go",
     "step3Text": "At the agency or airport",
     "whyBenatna": "Why Benatna?",
@@ -46,7 +46,7 @@
     "popularCitiesSubtitle": "Discover our vehicle selection in Morocco's main cities",
     "ourMission": "Our mission",
     "missionText": "Benatna connects travelers and residents with trusted local rental agencies. Our mission is to make car rental in Morocco simple, transparent and accessible to all, while supporting local entrepreneurs.",
-    "discoverCars": "Discover our cars"
+    "discoverCars": "Discover the vehicles"
   },
   "partners": {
     "heroTitle": "Own a fleet? Earn more.",
@@ -112,7 +112,7 @@
     "value2": "100% clear.",
     "value2Text": "Fair prices, no hidden fees or vague conditions.",
     "value3": "Zero hassle.",
-    "value3Text": "Book, sign, pick up, everything is done in a few clicks.",
+    "value3Text": "Request, confirm, pick up, everything is done in a few minutes.",
     "value4": "Local pride.",
     "value4Text": "Support Moroccan professionals and showcase their expertise, everywhere in the country.",
     "humanTechTitle": "Human technology",
@@ -196,7 +196,7 @@
     "airportPickup": "Airport pickup",
     "airportPickupText": "Your car is waiting for you when you land",
     "digitalProcess": "100% digital process",
-    "digitalProcessText": "Book online, no paperwork on site",
+    "digitalProcessText": "2-minute request on WhatsApp, no paperwork on site",
     "transparentPrices": "Transparent prices",
     "transparentPricesText": "No hidden fees or bad surprises",
     "multilingualSupport": "Multilingual support",

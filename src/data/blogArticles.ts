@@ -152,13 +152,13 @@ export const blogArticles: BlogArticle[] = [
       
       "Méfiez-vous des offres trop alléchantes qui cachent des suppléments : assurance obligatoire non incluse, kilométrage limité, carburant non plein/plein, frais cachés.",
       
-      "### Réservez en ligne",
-      "Réserver en ligne vous fait gagner du temps et souvent de l'argent. Sur Benatna.ma :",
+      "### Réservez à l'avance sur Benatna",
+      "Réserver à l'avance vous fait gagner du temps et souvent de l'argent. Sur Benatna.ma :",
       "1. Sélectionnez ville, dates, type de véhicule",
       "2. Comparez les prix finaux (tout inclus, aucun supplément)",
-      "3. Réservez en 3 minutes avec paiement sécurisé",
-      "4. Recevez confirmation immédiate par email/SMS",
-      "5. Modifiez ou annulez gratuitement jusqu'à 7 jours avant",
+      "3. Envoyez votre demande en 2 minutes sur WhatsApp (+212 699 024 526)",
+      "4. Le loueur partenaire vous confirme directement",
+      "5. Pour modifier ou annuler, prévenez simplement le loueur sur WhatsApp",
       
       "Le jour J, présentez-vous à l'agence avec votre confirmation, permis de conduire et carte d'identité. Récupérez votre véhicule en 5 minutes. Zéro paperasse, zéro surprise.",
       
@@ -201,7 +201,7 @@ export const blogArticles: BlogArticle[] = [
       "- **11-20 véhicules :** -20% + 2 upgrades + accompagnement personnalisé",
       "- **21+ véhicules :** Tarif négocié + avantages VIP",
       
-      "Contactez-nous à benatna.ma@gmail.com avec vos besoins (nombre de véhicules, dates, villes). Nous vous proposerons un tarif sur mesure sous 24h.",
+      "Contactez-nous à benatna.ma@gmail.com avec vos besoins (nombre de véhicules, dates, villes). Le loueur vous propose son meilleur tarif directement sur WhatsApp.",
       
       "### Économisez avec les forfaits longue durée",
       "Si vous restez tout le mois de la CAN (21-30 jours), les forfaits longue durée sont imbattables. Exemple réel :",
@@ -1413,7 +1413,7 @@ export const blogArticles: BlogArticle[] = [
       "Nous ne travaillons qu'avec des agences marocaines sérieuses. Chaque partenaire signe une charte qualité. En cas de problème, notre équipe intervient pour vous assister. Vous bénéficiez de l'expertise locale sans le risque.",
       
       "### 3. Processus 100% digital",
-      "Réservez en ligne en 3 minutes. Recevez votre confirmation par email. Récupérez votre véhicule sans paperasse. Tout est déjà réglé, vous n'avez qu'à prendre les clés et partir.",
+      "Envoyez votre demande en 2 minutes sur WhatsApp. Le loueur partenaire vous confirme directement. Récupérez votre véhicule sans paperasse : vous n'avez qu'à prendre les clés et partir.",
       
       "Plus besoin de passer 30 minutes au comptoir à remplir des formulaires, à négocier des assurances supplémentaires, ou à déchiffrer des contrats en petits caractères.",
       
@@ -1486,7 +1486,7 @@ export const blogArticles: BlogArticle[] = [
       "Aujourd'hui présents dans 6 villes, nous visons 15 villes d'ici fin 2025. Oujda, Tétouan, Nador, Laâyoune, Dakhla... Partout où il y a une demande, nous voulons connecter des agences de qualité.",
       
       "### Innover en permanence",
-      "Application mobile, système de fidélité, locations longue durée pour résidents, partenariats avec hôtels et tours opérateurs... Nous écoutons nos utilisateurs et nos partenaires pour améliorer constamment l'expérience.",
+      "Système de fidélité, locations longue durée pour résidents, partenariats avec hôtels et tours opérateurs... Nous écoutons nos utilisateurs et nos partenaires pour améliorer constamment l'expérience.",
       
       "### Rester fidèles à nos valeurs",
       "Transparence, équité, proximité. Ces trois valeurs guident chaque décision. Nous ne deviendrons jamais une plateforme opaque qui privilégie sa marge au détriment des utilisateurs et des agences.",
@@ -2183,9 +2183,9 @@ export const blogArticles: BlogArticle[] = [
       
       "## Comment Réserver et Économiser ?",
       
-      "### Réserver en Ligne vs Sur Place",
+      "### Réserver à l'Avance vs Sur Place",
       
-      "**En ligne (recommandé)** : Prix 20-40% moins chers qu'en agence. Choix plus large de véhicules. Possibilité de comparer les offres. Confirmation immédiate. Pas de mauvaise surprise à l'arrivée.",
+      "**À l'avance (recommandé)** : Prix 20-40% moins chers qu'au comptoir. Choix plus large de véhicules. Possibilité de comparer les offres. Confirmation directe par le loueur. Pas de mauvaise surprise à l'arrivée.",
       
       "**Sur place (déconseillé)** : Prix élevés. Disponibilité limitée en haute saison. Risque de véhicule en mauvais état. Techniques de vente pressantes.",
       
@@ -2257,7 +2257,7 @@ export const blogArticles: BlogArticle[] = [
       
       "## En Conclusion",
       
-      "Louer une voiture au Maroc est simple, sûr et abordable si vous êtes bien préparé. Réservez en ligne à l'avance, choisissez une plateforme fiable comme Benatna, prenez l'assurance collision, inspectez soigneusement le véhicule, et profitez de la liberté de découvrir ce merveilleux pays à votre rythme !"
+      "Louer une voiture au Maroc est simple, sûr et abordable si vous êtes bien préparé. Réservez à l'avance, choisissez une plateforme fiable comme Benatna, prenez l'assurance collision, inspectez soigneusement le véhicule, et profitez de la liberté de découvrir ce merveilleux pays à votre rythme !"
     ]
   },
   {

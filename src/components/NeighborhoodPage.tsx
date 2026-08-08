@@ -208,7 +208,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
           <section className="text-center py-12 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">Prêt à Explorer {neighborhood.name} ?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Réservez votre voiture maintenant et profitez de la livraison gratuite à {neighborhood.name}
+              Demandez votre voiture sur WhatsApp et profitez de la livraison gratuite par le loueur partenaire à {neighborhood.name}
             </p>
             <div className="flex justify-center gap-4 flex-wrap">
               <Link to={`/louer?city=${neighborhood.city}`}>

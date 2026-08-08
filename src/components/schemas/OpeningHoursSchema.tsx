@@ -87,7 +87,7 @@ export const OpeningHoursSchema = ({
       },
       {
         "@type": "PropertyValue",
-        "name": "Réservation en ligne 24h/24",
+        "name": "Demande WhatsApp 24h/24",
         "value": "true"
       }
     ]

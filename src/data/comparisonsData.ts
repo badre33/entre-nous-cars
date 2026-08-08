@@ -318,11 +318,11 @@ export const comparisons: Comparison[] = [
       },
       {
         question: 'La livraison en centre-ville est-elle gratuite ?',
-        answer: 'Oui, Benatna offre la livraison gratuite dans de nombreux quartiers de Casablanca (Maarif, Anfa, Ain Diab), Marrakech (Guéliz, Hivernage) et Rabat (Hassan, Agdal). Vérifiez la zone lors de la réservation.'
+        answer: 'Oui, les loueurs partenaires livrent gratuitement dans de nombreux quartiers de Casablanca (Maarif, Anfa, Ain Diab), Marrakech (Guéliz, Hivernage) et Rabat (Hassan, Agdal). Vérifiez la zone avec le loueur sur WhatsApp.'
       },
       {
         question: 'Peut-on louer à l\'aéroport et restituer en centre-ville ?',
-        answer: 'Oui absolument ! Benatna propose la restitution flexible : vous pouvez prendre à l\'aéroport de Casablanca et rendre à Marrakech centre-ville par exemple. Pratique pour circuits multi-villes.'
+        answer: 'Oui absolument ! De nombreux loueurs partenaires proposent la restitution flexible : vous pouvez prendre à l\'aéroport de Casablanca et rendre à Marrakech centre-ville par exemple. Pratique pour circuits multi-villes.'
       },
       {
         question: 'Quels sont les horaires de location en centre-ville ?',

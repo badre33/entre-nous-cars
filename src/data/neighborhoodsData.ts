@@ -88,7 +88,7 @@ export const neighborhoods: Neighborhood[] = [
     faqs: [
       {
         question: "Où récupérer ma voiture à Ain Diab ?",
-        answer: "Nous livrons gratuitement votre véhicule directement au Morocco Mall, le long de la corniche ou à votre hôtel à Ain Diab. Service disponible 24/7."
+        answer: "Le loueur partenaire livre gratuitement votre véhicule directement au Morocco Mall, le long de la corniche ou à votre hôtel à Ain Diab, selon sa disponibilité."
       },
       {
         question: "Quel véhicule pour Ain Diab et la corniche ?",
@@ -156,7 +156,7 @@ export const neighborhoods: Neighborhood[] = [
     faqs: [
       {
         question: "Livraison possible au Maarif ?",
-        answer: "Oui, livraison gratuite au Twin Center, centre Maarif ou votre hôtel/bureau. Service rapide en moins de 2h après réservation."
+        answer: "Oui, livraison gratuite par le loueur partenaire au Twin Center, centre Maarif ou votre hôtel/bureau, selon sa disponibilité."
       },
       {
         question: "Stationnement au Maarif ?",

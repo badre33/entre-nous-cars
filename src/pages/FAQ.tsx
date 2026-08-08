@@ -45,7 +45,7 @@ const FAQ = () => {
         "name": "Comment réserver une voiture sur Benatna ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Réserver sur Benatna est simple : 1) Choisissez votre ville et dates, 2) Sélectionnez votre véhicule, 3) Remplissez vos coordonnées, 4) Confirmez votre réservation. Le tout en moins de 2 minutes ! Vous recevrez une confirmation immédiate par email et SMS."
+          "text": "Réserver sur Benatna est simple : 1) Choisissez votre ville et dates, 2) Sélectionnez votre véhicule, 3) Envoyez votre demande sur WhatsApp au +212 699 024 526. Le tout en 2 minutes ! Le loueur partenaire vous confirme directement sur WhatsApp."
         }
       },
       {
@@ -53,7 +53,7 @@ const FAQ = () => {
         "name": "Puis-je modifier ou annuler ma réservation ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui ! Vous pouvez modifier ou annuler votre réservation gratuitement jusqu'à 48 heures avant la date de prise en charge. Au-delà de ce délai, des frais peuvent s'appliquer selon les conditions de l'agence partenaire."
+          "text": "Oui. L'annulation ou la modification se gère directement avec le loueur partenaire : prévenez simplement sur WhatsApp dès que vos plans changent. La plupart des loueurs sont flexibles, sans frais avant la prise en charge."
         }
       },
       {
@@ -61,7 +61,7 @@ const FAQ = () => {
         "name": "Recevrai-je une confirmation de réservation ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolument ! Dès que votre réservation est confirmée, vous recevrez un email avec tous les détails, un SMS avec votre numéro de réservation, les coordonnées de l'agence partenaire et les instructions pour la prise en charge du véhicule."
+          "text": "Absolument ! Dès que le loueur partenaire confirme votre demande, vous recevez sur WhatsApp la confirmation avec tous les détails, les coordonnées de l'agence partenaire et les instructions pour la prise en charge du véhicule."
         }
       },
       {
@@ -93,7 +93,7 @@ const FAQ = () => {
         "name": "Puis-je louer une voiture sans carte de crédit ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui ! Chez Benatna, vous avez plusieurs options de paiement : Carte de débit (Visa, Mastercard), Espèces à la récupération du véhicule, Virement bancaire. Nous sommes l'une des rares plateformes au Maroc à offrir cette flexibilité sans carte de crédit."
+          "text": "Oui ! Avec nos loueurs partenaires, vous avez plusieurs options de paiement : Carte de débit (Visa, Mastercard), Espèces à la récupération du véhicule, Virement bancaire. Nous sommes l'une des rares plateformes au Maroc à offrir cette flexibilité sans carte de crédit."
         }
       },
       {
@@ -101,7 +101,7 @@ const FAQ = () => {
         "name": "Quand dois-je payer ma réservation ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Le paiement dépend de l'agence partenaire. Option 1 : Paiement en ligne lors de la réservation (sécurisé). Option 2 : Paiement à la récupération du véhicule (espèces ou carte). L'option disponible sera clairement indiquée lors de votre réservation."
+          "text": "Le paiement se fait directement auprès du loueur partenaire, généralement à la récupération du véhicule (espèces, carte ou virement selon le loueur). Aucun paiement en ligne : vous confirmez simplement votre demande sur WhatsApp et le loueur vous précise ses modalités."
         }
       },
       {
@@ -181,7 +181,7 @@ const FAQ = () => {
         "name": "Le véhicule est-il livré avec le plein de carburant ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui, politique plein-plein : Vous recevez le véhicule avec le plein de carburant et devez le restituer avec le plein. Si vous ne faites pas le plein, le carburant manquant vous sera facturé au prix fort + frais de service."
+          "text": "Oui, politique plein-plein : Vous recevez le véhicule avec le plein de carburant et devez le restituer avec le plein. Si vous ne faites pas le plein, le loueur vous facture le carburant manquant selon ses conditions."
         }
       },
       {
@@ -189,7 +189,7 @@ const FAQ = () => {
         "name": "Le kilométrage est-il illimité ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui ! Tous nos véhicules incluent le kilométrage illimité. Vous pouvez rouler autant que vous le souhaitez sans frais supplémentaires. C'est inclus dans le prix affiché."
+          "text": "Oui ! Tous les véhicules de nos loueurs partenaires incluent le kilométrage illimité. Vous pouvez rouler autant que vous le souhaitez sans frais supplémentaires. C'est inclus dans le prix affiché."
         }
       },
       {
@@ -229,7 +229,7 @@ const FAQ = () => {
         "name": "Comment fonctionne le carburant et qui doit faire le plein ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Politique plein-plein : Vous recevez le véhicule avec le réservoir plein et devez le restituer plein. Gardez le ticket de la dernière station-service. Si vous ne faites pas le plein, des frais de carburant + frais de service vous seront facturés."
+          "text": "Politique plein-plein : Vous recevez le véhicule avec le réservoir plein et devez le restituer plein. Gardez le ticket de la dernière station-service. Si vous ne faites pas le plein, le loueur vous facture le carburant manquant selon ses conditions."
         }
       },
       {
@@ -237,7 +237,7 @@ const FAQ = () => {
         "name": "Y a-t-il une caution à verser ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui, une caution (dépôt de garantie) est demandée à la prise en charge du véhicule. Montant : 2000-10000 MAD selon le véhicule. Méthode : Empreinte carte bancaire (montant bloqué) ou espèces. La caution est restituée à la restitution du véhicule si aucun dommage n'est constaté."
+          "text": "Oui, une caution (dépôt de garantie) est demandée par le loueur partenaire à la prise en charge du véhicule. Montant : 2000-10000 MAD selon le véhicule. Méthode : Empreinte carte bancaire (montant bloqué) ou espèces. Le loueur vous restitue la caution au retour du véhicule si aucun dommage n'est constaté."
         }
       },
       {
@@ -245,7 +245,7 @@ const FAQ = () => {
         "name": "Puis-je annuler ma réservation et être remboursé ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Oui, selon les conditions de l'agence partenaire. Généralement : Annulation gratuite jusqu'à 48h avant la prise en charge. Entre 48h et 24h : frais de 50%. Moins de 24h : frais de 100%. Vérifiez les conditions spécifiques lors de votre réservation."
+          "text": "L'annulation se gère directement avec le loueur partenaire : prévenez simplement sur WhatsApp dès que vos plans changent. La plupart des loueurs sont flexibles, sans frais avant la prise en charge."
         }
       },
       {
@@ -277,7 +277,7 @@ const FAQ = () => {
         "name": "Benatna est-il fiable et sécurisé ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolument ! Benatna vérifie toutes ses agences partenaires selon des critères stricts : licences officielles, assurances à jour, état de la flotte, avis clients. Paiements sécurisés. Support client disponible 24/7. Plus de 1200 clients satisfaits depuis 2024 avec 98% de satisfaction."
+          "text": "Absolument ! Benatna vérifie toutes ses agences partenaires selon des critères stricts : licences officielles, assurances à jour, état de la flotte, avis clients. Paiement direct auprès du loueur, sans frais cachés. Support client disponible 24/7. Plus de 1200 clients satisfaits depuis 2024 avec 98% de satisfaction."
         }
       },
       {
@@ -335,28 +335,27 @@ const FAQ = () => {
                         Réserver sur Benatna est simple et rapide :
                         <ol className="list-decimal list-inside mt-2 space-y-1">
                           <li>Choisissez votre ville et vos dates de location</li>
-                          <li>Parcourez notre catalogue et sélectionnez votre véhicule</li>
-                          <li>Remplissez vos coordonnées (nom, email, téléphone)</li>
-                          <li>Confirmez votre réservation</li>
+                          <li>Parcourez le catalogue et sélectionnez votre véhicule</li>
+                          <li>Envoyez votre demande sur WhatsApp au +212 699 024 526</li>
+                          <li>Le loueur partenaire vous confirme directement</li>
                         </ol>
-                        Le tout en moins de 2 minutes ! Vous recevrez une confirmation immédiate par email et SMS.
+                        Le tout en 2 minutes, sans paperasse !
                       </AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-2">
                       <AccordionTrigger>Puis-je modifier ou annuler ma réservation ?</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Oui ! Vous pouvez modifier ou annuler votre réservation gratuitement jusqu&apos;à 48 heures avant la date de prise en charge. Au-delà de ce délai, des frais peuvent s&apos;appliquer selon les conditions de l&apos;agence partenaire.
+                        Oui. L&apos;annulation ou la modification se gère directement avec le loueur partenaire : prévenez simplement sur WhatsApp dès que vos plans changent. La plupart des loueurs sont flexibles, sans frais avant la prise en charge.
                       </AccordionContent>
                     </AccordionItem>
 
                     <AccordionItem value="item-3">
                       <AccordionTrigger>Recevrai-je une confirmation de réservation ?</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Absolument ! Dès que votre réservation est confirmée, vous recevrez :
+                        Absolument ! Dès que le loueur partenaire confirme votre demande, vous recevez sur WhatsApp :
                         <ul className="list-disc list-inside mt-2 space-y-1">
-                          <li>Un email de confirmation avec tous les détails</li>
-                          <li>Un SMS avec votre numéro de réservation</li>
+                          <li>La confirmation avec tous les détails de votre location</li>
                           <li>Les coordonnées de l&apos;agence partenaire</li>
                           <li>Les instructions pour la prise en charge du véhicule</li>
                         </ul>
@@ -411,7 +410,7 @@ const FAQ = () => {
                     <AccordionItem value="price-3">
                       <AccordionTrigger>Puis-je louer une voiture sans carte de crédit ?</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Oui ! Chez Benatna, vous avez plusieurs options de paiement :
+                        Oui ! Avec nos loueurs partenaires, vous avez plusieurs options de paiement :
                         <ul className="list-disc list-inside mt-2 space-y-1">
                           <li>Carte de débit (Visa, Mastercard)</li>
                           <li>Espèces à la récupération du véhicule</li>
@@ -424,12 +423,12 @@ const FAQ = () => {
                     <AccordionItem value="price-4">
                       <AccordionTrigger>Quand dois-je payer ma réservation ?</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Le paiement dépend de l&apos;agence partenaire :
+                        Le paiement se fait directement auprès du loueur partenaire, généralement à la récupération du véhicule :
                         <ul className="list-disc list-inside mt-2 space-y-1">
-                          <li><strong>Option 1 :</strong> Paiement en ligne lors de la réservation (sécurisé)</li>
-                          <li><strong>Option 2 :</strong> Paiement à la récupération du véhicule (espèces ou carte)</li>
+                          <li><strong>Espèces</strong> à la prise en charge du véhicule</li>
+                          <li><strong>Carte ou virement</strong> selon le loueur</li>
                         </ul>
-                        L&apos;option disponible sera clairement indiquée lors de votre réservation.
+                        Le loueur vous précise ses modalités lors de la confirmation sur WhatsApp.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
@@ -566,7 +565,7 @@ const FAQ = () => {
                     <AccordionItem value="pickup-4">
                       <AccordionTrigger>Le véhicule est-il livré avec le plein de carburant ?</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Oui, tous nos véhicules sont livrés avec le <strong>plein de carburant</strong>. Vous devrez le restituer avec le même niveau de carburant. Si le réservoir n&apos;est pas plein au retour, des frais de carburant + frais de service seront appliqués.
+                        Oui, les véhicules sont remis avec le <strong>plein de carburant</strong>. Vous devrez le restituer avec le même niveau de carburant. Si le réservoir n&apos;est pas plein au retour, le loueur facture le carburant manquant selon ses conditions.
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
@@ -583,7 +582,7 @@ const FAQ = () => {
                     <AccordionItem value="drive-1">
                       <AccordionTrigger>Le kilométrage est-il illimité ?</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Oui ! Tous nos véhicules incluent le <strong>kilométrage illimité</strong>. Vous pouvez parcourir tout le Maroc sans frais supplémentaires. Parfait pour les road trips !
+                        Oui ! Tous les véhicules de nos loueurs partenaires incluent le <strong>kilométrage illimité</strong>. Vous pouvez parcourir tout le Maroc sans frais supplémentaires. Parfait pour les road trips !
                       </AccordionContent>
                     </AccordionItem>
 
@@ -618,7 +617,7 @@ const FAQ = () => {
                     <AccordionItem value="drive-5">
                       <AccordionTrigger>Y a-t-il une caution à verser ?</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">
-                        Oui, une caution est demandée (2000-10000 MAD selon le véhicule). Elle peut être versée par empreinte carte bancaire ou en espèces. La caution est restituée à la restitution si aucun dommage n&apos;est constaté.
+                        Oui, une caution est demandée par le loueur partenaire (2000-10000 MAD selon le véhicule). Elle peut être versée par empreinte carte bancaire ou en espèces. Le loueur vous restitue la caution au retour du véhicule si aucun dommage n&apos;est constaté.
                       </AccordionContent>
                     </AccordionItem>
 

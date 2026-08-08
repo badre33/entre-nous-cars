@@ -65,7 +65,7 @@ const casablancaFAQs = [
   },
   {
     question: "Peut-on restituer le véhicule dans une autre ville que Casablanca ?",
-    answer: "Oui, le service aller-simple est disponible vers les principales villes du Maroc (Marrakech, Rabat, Tanger, Agadir, Fès). Des frais de transfert peuvent s'appliquer selon la destination. Contactez-nous pour un tarif personnalisé."
+    answer: "Oui, le service aller-simple est disponible vers les principales villes du Maroc (Marrakech, Rabat, Tanger, Agadir, Fès). Des frais de transfert peuvent s'appliquer selon la destination. Le loueur vous propose son meilleur tarif directement sur WhatsApp."
   }
 ];
 
@@ -122,7 +122,7 @@ const LocationVoitureCasablanca = () => {
         <title>Location Voiture Casablanca dès 300 DH/jour | Sans Carte de Crédit - Benatna</title>
         <meta 
           name="description" 
-          content="Louez une voiture à Casablanca dès 300 DH/jour. Livraison gratuite aéroport Mohammed V, large choix de véhicules, agences locales vérifiées. Réservez en ligne." 
+          content="Louez une voiture à Casablanca dès 300 DH/jour. Livraison gratuite aéroport Mohammed V, large choix de véhicules, agences locales vérifiées. Demande en 2 minutes sur WhatsApp." 
         />
         <link rel="canonical" href="https://benatna.ma/location-voiture-casablanca" />
         <meta property="og:title" content="Location Voiture Casablanca | Agences Locales - Benatna" />
@@ -353,7 +353,7 @@ const LocationVoitureCasablanca = () => {
                 Que vous reveniez pour deux semaines ou deux mois, Benatna propose des formules 
                 adaptées à toutes les durées. Les visiteurs internationaux apprécient 
                 particulièrement la transparence de notre service : pas de frais cachés, 
-                pas de négociation au comptoir, un prix clair dès la réservation en ligne. 
+                pas de négociation au comptoir, un prix clair dès la confirmation de votre demande WhatsApp. 
                 Depuis l'aéroport ou votre hôtel en centre-ville, récupérez votre véhicule 
                 et partez sereinement explorer Casablanca et ses environs. Pour{" "}
                 <Link to="/louer?city=Casablanca" className="text-primary hover:underline">
@@ -523,8 +523,8 @@ const LocationVoitureCasablanca = () => {
                     <div>
                       <h3 className="font-semibold mb-2">Aéroport Mohammed V</h3>
                       <p className="text-sm text-muted-foreground mb-3">
-                        Principal hub international du Maroc. Service de livraison gratuite 
-                        disponible 24h/24, 7j/7. Notre agent vous attend à la sortie des arrivées.
+                        Principal hub international du Maroc. Livraison gratuite par le loueur 
+                        partenaire, selon disponibilité. L'agent du loueur vous attend à la sortie des arrivées.
                       </p>
                       <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded">
                         Livraison gratuite
