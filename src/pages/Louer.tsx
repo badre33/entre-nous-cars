@@ -703,12 +703,33 @@ const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
   }))
 );
 
+const LOUER_META: Record<string, { title: string; desc: string; url: string }> = {
+  fr: {
+    title: "Location Voiture Maroc dès 300 DH/jour - 300+ Véhicules | Benatna",
+    desc: "300+ véhicules disponibles à la location au Maroc dès 300 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Livraison aéroport et hôtel, réservation WhatsApp en 2 minutes.",
+    url: "https://benatna.ma/louer",
+  },
+  en: {
+    title: "Car Rental Morocco from 300 MAD/day - 300+ Vehicles | Benatna",
+    desc: "300+ rental cars in Morocco from 300 MAD/day. Casablanca, Marrakech, Rabat, Tangier, Agadir, Fez. Airport and hotel delivery, WhatsApp booking in 2 minutes.",
+    url: "https://benatna.ma/en/louer",
+  },
+  es: {
+    title: "Alquiler de Coches Marruecos desde 300 MAD/día - 300+ Vehículos | Benatna",
+    desc: "Más de 300 coches de alquiler en Marruecos desde 300 MAD/día. Casablanca, Marrakech, Rabat, Tánger, Agadir, Fez. Entrega en aeropuerto y hotel, reserva por WhatsApp en 2 minutos.",
+    url: "https://benatna.ma/es/louer",
+  },
+};
+
 const Louer = () => {
+  const { t, language } = useLanguage();
+  const louerMeta = LOUER_META[language] ?? LOUER_META.fr;
 
   // WORKAROUND react-helmet-async: force-set document.title, meta description,
   // canonical and OG tags via direct DOM API. Helmet leaks default values.
   useEffect(() => {
-    document.title = "Location Voiture Maroc dès 300 DH/jour - 300+ Véhicules | Benatna";
+    const m = louerMeta;
+    document.title = m.title;
     const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
       let el = document.querySelector(selector);
       if (!el) {
@@ -718,13 +739,12 @@ const Louer = () => {
       }
       el.setAttribute(attr, value);
     };
-    setMeta('meta[name="description"]', 'content', "300+ véhicules disponibles à la location au Maroc dès 300 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Sans carte de crédit, WhatsApp.", 'name', 'description');
-    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/louer", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Location Voiture Maroc dès 300 DH/jour - 300+ Véhicules | Benatna", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "300+ véhicules disponibles à la location au Maroc dès 300 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Sans carte de crédit, WhatsApp.", 'property', 'og:description');
-    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/louer", 'property', 'og:url');
-  }, []);
-  const { t } = useLanguage();
+    setMeta('meta[name="description"]', 'content', m.desc, 'name', 'description');
+    setMeta('link[rel="canonical"]', 'href', m.url, 'rel', 'canonical');
+    setMeta('meta[property="og:title"]', 'content', m.title, 'property', 'og:title');
+    setMeta('meta[property="og:description"]', 'content', m.desc, 'property', 'og:description');
+    setMeta('meta[property="og:url"]', 'content', m.url, 'property', 'og:url');
+  }, [language]);
   const [searchParams] = useSearchParams();
   const [selectedCity, setSelectedCity] = useState<string>("all");
   const [startDate, setStartDate] = useState<Date>();
@@ -1005,10 +1025,10 @@ Véhicule : ${selectedCar.name}
       */}
       
       <Helmet>
-        <title>Location Voiture Maroc dès 300 DH/jour - 300+ Véhicules | Benatna</title>
-        <meta name="description" content="Comparez et réservez votre voiture de location au Maroc. 300+ véhicules disponibles à Casablanca, Marrakech, Rabat. Prix transparents, réservation en 2 min." />
+        <title>{louerMeta.title}</title>
+        <meta name="description" content={louerMeta.desc} />
         <meta name="keywords" content="location voiture maroc, louer auto casablanca, rent car marrakech, voiture tourisme maroc, location véhicule rabat, agence location tanger" />
-        <link rel="canonical" href="https://benatna.ma/louer" />
+        <link rel="canonical" href={louerMeta.url} />
       </Helmet>
       <HreflangTags path="/louer" />
       <StructuredData type="rental" />

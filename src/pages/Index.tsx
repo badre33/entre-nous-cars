@@ -47,24 +47,50 @@ import cityFes from "@/assets/city-fes.jpg";
 // Hero image: WebP in public folder for LCP optimization
 const heroImageWebp = "/hero-home-new.webp";
 
+// Metas multilingues de la page d'accueil (FR canonique, EN /en, ES /es)
+const HOME_META: Record<string, { title: string; desc: string; url: string }> = {
+  fr: {
+    title: "Benatna — Location de voiture au Maroc dès 300 DH/jour | La startup des loueurs locaux",
+    desc: "Benatna, la startup marocaine qui gère le parc de centaines de loueurs locaux pour vous obtenir les meilleurs prix. Voiture dès 300 DH/jour, livraison aéroport et hôtel, réservation WhatsApp en 2 minutes.",
+    url: "https://benatna.ma/",
+  },
+  en: {
+    title: "Benatna — Car Rental in Morocco from 300 MAD/day | The Local Agencies Marketplace",
+    desc: "Benatna is the Moroccan startup managing a fleet of hundreds of local rental agencies to get you the best prices. Cars from 300 MAD/day, airport and hotel delivery, booking via WhatsApp in 2 minutes.",
+    url: "https://benatna.ma/en",
+  },
+  es: {
+    title: "Benatna — Alquiler de coches en Marruecos desde 300 MAD/día | Agencias locales al mejor precio",
+    desc: "Benatna, la startup marroquí que gestiona la flota de cientos de agencias locales para conseguirte los mejores precios. Coches desde 300 MAD/día, entrega en aeropuerto y hotel, reserva por WhatsApp en 2 minutos.",
+    url: "https://benatna.ma/es",
+  },
+};
+
 const Index = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
 
   // WORKAROUND: react-helmet-async fails to update document.title here.
   // Force-set via useEffect to preserve Lighthouse SEO score (was 100, dropped to 57).
+  const homeMeta = HOME_META[language] ?? HOME_META.fr;
   useEffect(() => {
-    const FORCED_TITLE_HOMEPAGE = "Benatna — Startup marocaine · Location voiture, à moitié prix des franchises";
-    const FORCED_DESC_HOMEPAGE = "Benatna, startup marocaine et plateforme des loueurs locaux. Des milliers d'agences marocaines rassemblées. Une Clio à 12 000 DH le mois au lieu de 23 000 DH chez Avis. Prix du marché, meilleurs tarifs négociés.";
-    document.title = FORCED_TITLE_HOMEPAGE;
+    const m = homeMeta;
+    document.title = m.title;
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
       meta = document.createElement('meta');
       meta.setAttribute('name', 'description');
       document.head.appendChild(meta);
     }
-    meta.setAttribute('content', FORCED_DESC_HOMEPAGE);
-  }, []);
+    meta.setAttribute('content', m.desc);
+    let canon = document.querySelector('link[rel="canonical"]');
+    if (!canon) {
+      canon = document.createElement('link');
+      canon.setAttribute('rel', 'canonical');
+      document.head.appendChild(canon);
+    }
+    canon.setAttribute('href', m.url);
+  }, [language]);
   const [isDesktop, setIsDesktop] = useState(false);
   const statsAnimation = useScrollAnimation(0.2);
   const howItWorksAnimation = useScrollAnimation(0.2);
@@ -133,10 +159,10 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Benatna — Startup marocaine · Location voiture, à moitié prix des franchises</title>
-        <meta name="description" content="Benatna, startup marocaine et plateforme des loueurs locaux. Des milliers d'agences marocaines rassemblées. Une Clio à 12 000 DH le mois au lieu de 23 000 DH chez Avis. Prix du marché, meilleurs tarifs négociés." />
+        <title>{homeMeta.title}</title>
+        <meta name="description" content={homeMeta.desc} />
         <meta name="keywords" content="location voiture maroc, location auto casablanca, louer voiture marrakech, location véhicule rabat, rent car morocco, agence location voiture, voiture de tourisme maroc" />
-        <link rel="canonical" href="https://benatna.ma/" />
+        <link rel="canonical" href={homeMeta.url} />
         <meta property="og:title" content="Benatna - Location de Voiture au Maroc" />
         <meta property="og:description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
         <meta property="og:url" content="https://benatna.ma/" />
@@ -593,7 +619,7 @@ const Index = () => {
             <Card className="border-2 border-primary bg-primary/5 shadow-lg">
               <CardContent className="p-6 sm:p-8">
                 <p className="text-sm font-medium text-primary mb-1">Chez Benatna</p>
-                <p className="text-3xl sm:text-5xl font-bold mb-4 text-primary">12 000 DH</p>
+                <p className="text-3xl sm:text-5xl font-bold mb-4 text-primary">7 000 DH</p>
                 <ul className="space-y-2 text-sm text-foreground">
                   <li>✅ Zéro caution CB bloquée</li>
                   <li>✅ Pas de surcoût jeune conducteur</li>
@@ -606,7 +632,7 @@ const Index = () => {
 
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-8">
             <p className="text-xl sm:text-2xl font-bold">
-              Vous économisez <span className="text-secondary">11 000 dh</span>. Sur une seule location.
+              Vous économisez <span className="text-secondary">16 000 dh</span>. Sur une seule location.
             </p>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Benatna est une <strong>startup marocaine</strong> qui rassemble les <strong>milliers d'agences de location locales</strong> sur une seule plateforme. Une fois unies, elles font <strong>rapport de force face aux grosses franchises internationales</strong> — Avis, Hertz, Europcar, Sixt. Vous accédez à un choix immense de véhicules au meilleur prix, et chaque dirham dépensé reste au Maroc.

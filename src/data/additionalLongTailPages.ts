@@ -248,28 +248,28 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
   slug: `location-longue-duree-${citySlug}`,
   title: `Location Longue Durée ${city}`,
   metaTitle: `Location Voiture Longue Durée ${city} - Tarifs Mensuels | Benatna`,
-  metaDescription: `Location de voiture longue durée à ${city}. Entretien et assurance inclus. Dès 7 500 DH/mois tout compris.`,
-  keywords: `location longue durée ${citySlug}, leasing voiture ${city}, location mensuelle auto`,
+  metaDescription: `Location de voiture longue durée à ${city} pour long séjour ou vacances prolongées. Dès 7 000 DH/mois, meilleur tarif négocié auprès des loueurs locaux.`,
+  keywords: `location longue durée ${citySlug}, location mensuelle auto ${city}, location voiture long séjour maroc`,
   h1: `Location de Voiture Longue Durée à ${city}`,
-  heroSubtitle: 'Tarifs mensuels • Entretien inclus • Flexibilité maximale',
+  heroSubtitle: 'Long séjour • Tarifs dégressifs négociés • Sans engagement',
   category: {
     label: "Formules Longue Durée",
     href: "/nos-services?category=longue-duree"
   },
   content: {
-    intro: `Besoin d'un véhicule pour plusieurs mois à ${city} ? Benatna propose des formules de location longue durée ultra-flexibles avec tarifs dégressifs : plus vous louez longtemps, moins vous payez. Nos forfaits mensuels incluent l'entretien complet (vidanges, pneus, révisions), l'assurance tous risques sans franchise, l'assistance 24/7 et le remplacement immédiat en cas de panne. Contrairement au leasing classique qui vous engage sur 3-5 ans, nos contrats sont résiliables avec seulement 1 mois de préavis. Idéal pour expatriés, missions longues, startups ou tout simplement pour éviter l'achat et la revente d'un véhicule. Kilométrage illimité inclus dans tous les forfaits longue durée des loueurs partenaires.`,
+    intro: `Besoin d'un véhicule pour plusieurs semaines ou quelques mois à ${city} ? Long séjour au Maroc, vacances prolongées en famille, MRE de passage pour l'été : Benatna gère le parc de dizaines de loueurs locaux et négocie pour vous le meilleur tarif dégressif — plus vous louez longtemps, moins vous payez. Le tarif est confirmé directement par le loueur partenaire sur WhatsApp, sans engagement de longue durée : la location s'adapte à votre séjour.`,
     sections: [
       {
-        title: 'Tarifs Longue Durée Dégressifs',
-        content: `Catégorie Économique (Sandero) : 7 500 DH/mois, tout compris. Catégorie Économique (Clio manuelle) : 6 000 DH/mois. Clio automatique : 6 500 DH/mois. Catégorie Berline (Corolla, Jetta) : 9 500 DH/mois. Idéale pour usage professionnel ou famille. Catégorie SUV (Duster, Qashqai) : 10 500 DH/mois. Robustesse et confort pour longs trajets. Catégorie Premium (Mercedes, BMW) : Sur demande selon modèle et durée. À partir de 15 000 DH/mois pour Classe C ou Série 3. Tous ces tarifs incluent : assurance tous risques (0 DH franchise), entretien complet selon planning constructeur, assistance et dépannage 24/7, remplacement véhicule en cas de panne (sous 4h), kilométrage illimité (pas de surcoût même si vous faites 5000 km/mois). Modes de paiement : mensuel par prélèvement automatique (carte ou virement).`
+        title: 'Tarifs Longue Durée Dégressifs (indicatifs)',
+        content: `Ordres de grandeur au mois, à confirmer par le loueur partenaire selon la saison : Citadine économique (Clio, Sandero) : dès 7 000 DH/mois. Berline : dès 9 500 DH/mois. SUV (Duster, Tucson) : dès 10 500 DH/mois. Premium (Mercedes, BMW) : sur demande selon modèle et durée. L'assurance du loueur est incluse, l'entretien du véhicule est géré par le loueur, et le kilométrage se négocie directement avec lui. Chaque loueur fixe son tarif final — envoyez vos dates sur WhatsApp et Benatna vous obtient la meilleure offre du parc.`
       },
       {
-        title: 'Ce Qui Est Inclus dans Nos Forfaits Longue Durée',
-        content: `Entretien mécanique : Nous prenons rendez-vous pour vous dans nos garages partenaires agréés constructeurs, toutes les vidanges (selon kilométrage ou 6 mois), changements de filtres, plaquettes de frein si nécessaire, contrôles techniques payés. Pneus : Remplacement si usure > 1.6mm de profondeur, permutation tous les 10 000 km pour usure uniforme, pneus neige en option pour régions montagneuses (50 DH/mois supplément). Assurance : Tous risques conducteur principal + 1 conducteur secondaire gratuit, pas de franchise en cas d'accident responsable, bris de glace inclus, vol avec effraction couvert. Assistance : Panne mécanique ou crevaison : dépannage ou remorquage gratuit vers garage le plus proche, accident : gestion complète du dossier assurance par nos équipes, vous ne vous occupez de rien, véhicule de remplacement équivalent livré sous 4h maximum si immobilisation > 24h (en 8 ans, temps moyen de remplacement : 2h30). Flexibilité : Changement de catégorie possible en cours de contrat (upgrade ou downgrade) avec ajustement tarifaire au prorata, pause de 1 mois possible si vous quittez temporairement le Maroc (gel du contrat), résiliation avec 1 mois de préavis uniquement, aucune pénalité.`
+        title: 'Comment Ça Marche pour un Long Séjour',
+        content: `Vous envoyez vos dates et la ville sur WhatsApp, Benatna interroge son parc de loueurs locaux et vous revient avec la meilleure offre pour votre durée. Le véhicule est assuré par le loueur, qui gère aussi l'entretien pendant votre séjour et vous dépanne en cas de souci. Vous prolongez ? Vous écourtez ? Tout se règle directement avec le loueur, simplement, sans contrat de leasing qui vous engage. C'est la formule idéale pour un long séjour au Maroc : la liberté d'une voiture, sans l'achat, sans la paperasse.`
       },
       {
         title: 'Qui Choisit la Location Longue Durée ?',
-        content: `Expatriés et détachés : Vous travaillez au Maroc pour une mission de 6 mois à 2 ans ? La location longue durée évite l'achat d'un véhicule local, l'immatriculation complexe et surtout la revente difficile au moment du départ. Nos clients expatriés apprécient la flexibilité : un mois de préavis suffit si votre mission est écourtée. Nous gérons aussi la facturation mensuelle avec TVA récupérable pour les entreprises. Entrepreneurs et startups : Optimisez votre trésorerie ! Au lieu d'immobiliser 200 000 DH dans l'achat d'un véhicule, payez 6 000 DH/mois charges comprises. Les mensualités sont déductibles fiscalement comme charge d'exploitation. Plus besoin de budget entretien surprise (pneus, révisions) : tout est inclus. Particuliers sans apport : Pas les 50 000 DH d'apport pour un crédit auto ? La location longue durée ne demande qu'un mois de caution (remboursable à la restitution). Vous roulez immédiatement dans un véhicule récent sans endettement bancaire. Travailleurs saisonniers : Vous travaillez 6 mois à ${city} puis 6 mois ailleurs ? Nos contrats flexibles avec possibilité de gel sont parfaits. Pas besoin de laisser un véhicule dormir dans un garage pendant votre absence.`
+        content: `MRE en vacances prolongées : Vous passez l'été au bled, deux ou trois mois en famille ? La location longue durée vous coûte bien moins cher que le cumul de tarifs journaliers, et vous rendez la voiture la veille du départ — pas de véhicule qui dort au garage le reste de l'année. Voyageurs en long séjour : Hivernage au soleil, télétravail depuis ${city}, semestre au Maroc ? Un véhicule récent vous attend à l'arrivée, et vous le rendez quand votre séjour se termine. Familles de passage : Un événement familial qui dure, un proche à accompagner plusieurs semaines ? La formule au mois s'adapte, sans engagement. Dans tous les cas, la caution et les modalités se règlent directement avec le loueur — en espèces, virement ou carte, comme ça vous arrange.`
       }
     ],
     faq: [
@@ -1213,13 +1213,13 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-agdal-rabat',
     title: 'Location Voiture Agdal Rabat',
     metaTitle: 'Location Voiture Agdal Rabat - Quartier d\'Affaires Capitale | Benatna',
-    metaDescription: 'Location voiture à Agdal Rabat, quartier d\'affaires de la capitale. Ambassades, ministères, sièges sociaux. Livraison hôtel/bureau. Dès 300 DH/jour.',
+    metaDescription: 'Location voiture à Agdal Rabat, le cœur moderne de la capitale. Livraison à votre hôtel ou domicile. Dès 300 DH/jour, meilleur prix négocié auprès des loueurs locaux.',
     keywords: 'location voiture agdal rabat, location voiture rabat centre, voiture rabat agdal business, location voiture rabat ambassade',
     h1: 'Location de Voiture à Agdal — Quartier d\'Affaires de Rabat',
-    heroSubtitle: 'Ambassades • Ministères • Bureaux corporate • Livraison sur place • Dès 300 DH/jour',
+    heroSubtitle: 'Cœur moderne de Rabat • Livraison hôtel ou domicile • Dès 300 DH/jour',
     category: { label: 'Quartiers Rabat', href: '/location-voiture-rabat' },
     content: {
-      intro: `**Agdal** est le **quartier d'affaires moderne de Rabat** : sièges des grands ministères marocains, ambassades européennes (France, Allemagne, Espagne, Royaume-Uni, États-Unis), banques (BMCE, Attijariwafa, BMCI, CIH), Sofitel Rabat Jardin des Roses, Université Mohammed V campus Agdal. Si vous êtes en déplacement professionnel à Rabat — diplomate, cadre d'entreprise, journaliste en mission — Agdal est probablement votre adresse principale. Benatna vous **livre votre voiture directement à votre hôtel ou bureau**, sans surcoût "centre-ville", avec un service flexible adapté au tempo corporate.`,
+      intro: `**Agdal** est le **quartier d'affaires moderne de Rabat** : sièges des grands ministères marocains, ambassades européennes (France, Allemagne, Espagne, Royaume-Uni, États-Unis), banques (BMCE, Attijariwafa, BMCI, CIH), Sofitel Rabat Jardin des Roses, Université Mohammed V campus Agdal. Si vous séjournez à Rabat — visite de la capitale, famille sur place, escapade depuis Casablanca — Agdal est un excellent point de chute, moderne et central. Le loueur partenaire vous **livre votre voiture directement à votre hôtel ou domicile**, sans surcoût "centre-ville".`,
       sections: [
         {
           title: 'Pourquoi louer une voiture à Agdal ?',
@@ -1227,7 +1227,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           title: 'Tarifs et véhicules pour Agdal',
-          content: `La flotte de nos loueurs partenaires, adaptée au corporate Agdal : **Berline confort** (Renault Mégane, Hyundai Accent, Volkswagen Polo) à **350-500 DH/jour** — équilibre entre apparence professionnelle et prix raisonnable, idéale pour rendez-vous ambassade ou ministère. **Mercedes Classe A** à **650 DH/jour** — prestige adapté pour rendez-vous diplomatiques ou board meeting bancaire. **BMW Série 3** à **800 DH/jour** — alternative premium à la Mercedes. **SUV** (Hyundai Tucson, Nissan Qashqai) à **550-800 DH/jour** si vous combinez Rabat avec excursions Atlas ou côte. **Citadine économique** (Toyota Yaris, Kia Picanto) à **300 DH/jour** si vous voulez juste de la mobilité urbaine sans prestige particulier. Pour **locations longue durée corporate** (1-3 mois pour un projet ou un détachement), remise mensuelle dégressive — le loueur vous propose son meilleur tarif directement sur WhatsApp.`
+          content: `La flotte des loueurs partenaires disponible à Agdal : **Berline confort** (Renault Mégane, Hyundai Accent, Volkswagen Polo) à **350-500 DH/jour** — l'équilibre parfait entre confort et prix. **Mercedes Classe A** à **650 DH/jour** — pour une occasion spéciale ou simplement se faire plaisir. **BMW Série 3** à **800 DH/jour** — alternative premium à la Mercedes. **SUV** (Hyundai Tucson, Nissan Qashqai) à **550-800 DH/jour** si vous combinez Rabat avec excursions Atlas ou côte. **Citadine économique** (Toyota Yaris, Kia Picanto) à **300 DH/jour** si vous voulez juste de la mobilité urbaine sans prestige particulier. Pour un **long séjour** (plusieurs semaines à quelques mois), remise mensuelle dégressive — le loueur vous propose son meilleur tarif directement sur WhatsApp.`
         },
         {
           title: 'Trajets typiques depuis Agdal',
@@ -1245,7 +1245,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           question: 'Acceptez-vous les paiements en mode entreprise (factures TVA, bons de commande) ?',
-          answer: 'Oui, **facture TVA 20% conforme** émise à votre demande pour comptabilité corporate. Bons de commande grandes entreprises acceptés sur validation. Paiement à 30 jours possible pour clients récurrents (compte créditeur après 3 locations).'
+          answer: 'Oui, le loueur partenaire peut émettre une facture à votre demande. Précisez-le simplement dans votre message WhatsApp au moment de la réservation.'
         },
         {
           question: 'Puis-je avoir un chauffeur en option ?',
@@ -1253,7 +1253,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           question: 'Service disponible le week-end pour mes déplacements personnels ?',
-          answer: 'Bien sûr. Beaucoup de nos clients corporate Agdal récupèrent la voiture le vendredi soir et l\'utilisent pour week-end famille à Skhirat, Casablanca, Tanger ou Marrakech. Tarif week-end = tarif normal (pas de supplément week-end).'
+          answer: 'Bien sûr. Beaucoup de clients à Agdal récupèrent la voiture le vendredi soir et l\'utilisent pour un week-end famille à Skhirat, Casablanca, Tanger ou Marrakech. Tarif week-end = tarif normal (pas de supplément week-end).'
         },
         {
           question: 'Mes invités étrangers (ambassades) peuvent-ils louer chez vous ?',
@@ -1263,7 +1263,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     cta: {
       title: 'Réservez Votre Voiture à Agdal',
-      subtitle: 'Livraison hôtel/bureau • Factures TVA • Service corporate',
+      subtitle: 'Livraison hôtel ou domicile • Réponse WhatsApp en 2 min • Dès 300 DH/jour',
       buttonText: 'Réserver via WhatsApp',
       buttonLink: '/contact'
     },
@@ -2055,10 +2055,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     content: {
       intro: '**Courte duree** (1-7 jours) ou **longue duree** (1 mois ou plus) ? La distinction influe sur le tarif, la garantie et les services. **Regle generale** : si tu loues 14+ jours, **passe en tarif longue duree** pour economiser 10-15%. Detail des seuils et formules chez Benatna.',
       sections: [
-        { title: 'Seuils tarifaires : quand basculer ?', content: '**1-3 jours** : tarif journalier standard. Citadine 350-400 DH/jour. **4-7 jours** : tarif semaine, -5% automatique. Citadine ~2200 DH la semaine au lieu de 2450 si cumul journalier. **8-14 jours** : -7-10%. Citadine ~3800-4200 DH. **15-30 jours** : tarif mensuel, **-10 a -15% vs cumul journalier**. Citadine **8500 DH/mois** au lieu de 10500 DH si journalier. **1-3 mois** : tarif longue duree, -15% supplementaire. **6+ mois** : tarif corporate, tarif corporate personnalise avec services dedies.' },
+        { title: 'Seuils tarifaires : quand basculer ?', content: '**1-3 jours** : tarif journalier standard. Citadine 350-400 DH/jour. **4-7 jours** : tarif semaine, -5% automatique. Citadine ~2200 DH la semaine au lieu de 2450 si cumul journalier. **8-14 jours** : -7-10%. Citadine ~3800-4200 DH. **15-30 jours** : tarif mensuel, **-10 a -15% vs cumul journalier**. Citadine **8500 DH/mois** au lieu de 10500 DH si journalier. **1-3 mois** : tarif longue duree, remise supplementaire negociee par le loueur. **6+ mois** : tarif personnalise, demande directement sur WhatsApp.' },
         { title: 'Avantages longue duree pour MRE et expatries', content: '**Tarif degresif** : -10 a -25% selon duree. **Caution reduite** : possible de la faire descendre a 2000-3000 DH au lieu de 5000+ apres 3 mois de fidelite. **Entretien inclus** : revision mecanique, vidange, vidange a notre charge sur location 3+ mois. **Pneus inclus** : remplacement si usure normale. **Vehicule de remplacement** : sous 24h en cas de panne ou accident. **Pas de paperasse repetee** : un seul contrat, paiement mensuel automatique. **Profil MRE** : ideal pour ceux qui rentrent 2-3 mois ete ou 1 mois Aid.' },
         { title: 'Services additionnels longue duree', content: '**Livraison gratuite** intra-ville (Casa, Marrakech, Rabat). **Pickup gratuit** pour entretien : nous prenons le vehicule et te ramenons un equivalent pendant la revision. **Assurance bris de glace** offerte sur 3+ mois. **Carte autoroute prepayee** : nous fournissons Pass Jawaz prepaye pour eviter files de peages, soldes au choix. **Conducteur additionnel gratuit** : pour 1 mois et plus, ton conjoint(e) ou parent ajoute sans supplement (vs 50-100 DH/jour en courte duree). **Suivi WhatsApp dedie** : ligne directe avec ton gestionnaire flotte.' },
-        { title: 'Quel duree choisir selon ton sejour', content: '**Touriste vacances 1 semaine** : courte duree 7 jours. **MRE Aid Al Fitr 10-14 jours** : courte duree avec remise semaine appliquee automatiquement. **MRE ete 4-6 semaines** : **longue duree mensuelle**, important gain economique. **Expatrie nouvelle mission 3-6 mois** : longue duree corporate. **Etudiant erasmus 1 semestre** : 6 mois corporate, tarif personnalise. Demande systematiquement le **tarif longue duree** si ton sejour depasse 10 jours, meme si tu n y avais pas pense.' }
+        { title: 'Quel duree choisir selon ton sejour', content: '**Touriste vacances 1 semaine** : courte duree 7 jours. **MRE Aid Al Fitr 10-14 jours** : courte duree avec remise semaine appliquee automatiquement. **MRE ete 4-6 semaines** : **longue duree mensuelle**, important gain economique. **Long sejour 3-6 mois (hivernage, teletravail au Maroc)** : longue duree mensuelle. **Etudiant erasmus 1 semestre** : tarif personnalise sur demande. Demande systematiquement le **tarif longue duree** si ton sejour depasse 10 jours, meme si tu n y avais pas pense.' }
       ],
       faq: [
         { question: 'Quelle economie sur 1 mois vs cumul journalier ?', answer: 'Environ 15-20% d economie. Citadine 8500 DH/mois vs ~10500 DH si tu paies 30 fois la journee.' },

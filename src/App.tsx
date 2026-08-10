@@ -7,6 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 import { ComparisonProvider } from "@/contexts/ComparisonContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import ScrollToTop from "@/components/ScrollToTop";
+import LangRoute from "@/components/LangRoute";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
@@ -309,6 +310,19 @@ const App = () => {
                     <Route path="/blog" element={<Blog />} />
                     <Route path="/blog/:slug" element={<BlogArticle />} />
                     <Route path="/contact" element={<Contact />} />
+                    {/* Versions EN/ES — SEO international (touristes) */}
+                    <Route path="/en" element={<LangRoute lang="en"><Index /></LangRoute>} />
+                    <Route path="/en/louer" element={<LangRoute lang="en"><Louer /></LangRoute>} />
+                    <Route path="/en/contact" element={<LangRoute lang="en"><Contact /></LangRoute>} />
+                    <Route path="/en/a-propos" element={<LangRoute lang="en"><APropos /></LangRoute>} />
+                    <Route path="/en/partenaires" element={<LangRoute lang="en"><Partenaires /></LangRoute>} />
+                    <Route path="/en/blog" element={<LangRoute lang="en"><Blog /></LangRoute>} />
+                    <Route path="/es" element={<LangRoute lang="es"><Index /></LangRoute>} />
+                    <Route path="/es/louer" element={<LangRoute lang="es"><Louer /></LangRoute>} />
+                    <Route path="/es/contact" element={<LangRoute lang="es"><Contact /></LangRoute>} />
+                    <Route path="/es/a-propos" element={<LangRoute lang="es"><APropos /></LangRoute>} />
+                    <Route path="/es/partenaires" element={<LangRoute lang="es"><Partenaires /></LangRoute>} />
+                    <Route path="/es/blog" element={<LangRoute lang="es"><Blog /></LangRoute>} />
                     <Route path="/faq" element={<FAQ />} />
                     <Route path="/glossaire" element={<Glossaire />} />
                     <Route path="/comparatifs" element={<ComparatifsList />} />

@@ -26,7 +26,7 @@ const LocationVoitureTanger = () => {
   // WORKAROUND react-helmet-async: force-set document.title, meta description,
   // canonical and OG tags via direct DOM API. Helmet leaks default values.
   useEffect(() => {
-    document.title = "Location Voiture Tanger dès 300 DH/jour | Sans Carte de Crédit - Benatna";
+    document.title = "Location Voiture Tanger dès 300 DH/jour | Livraison Aéroport & Hôtel - Benatna";
     const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
       let el = document.querySelector(selector);
       if (!el) {
@@ -38,7 +38,7 @@ const LocationVoitureTanger = () => {
     };
     setMeta('meta[name="description"]', 'content', "Location de voiture à Tanger dès 300 DH/jour. Livraison aéroport Ibn Battouta, port Tanger-Med, sans carte de crédit.", 'name', 'description');
     setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/location-voiture-tanger", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Location Voiture Tanger dès 300 DH/jour | Sans Carte de Crédit - Benatna", 'property', 'og:title');
+    setMeta('meta[property="og:title"]', 'content', "Location Voiture Tanger dès 300 DH/jour | Livraison Aéroport & Hôtel - Benatna", 'property', 'og:title');
     setMeta('meta[property="og:description"]', 'content', "Location de voiture à Tanger dès 300 DH/jour. Livraison aéroport Ibn Battouta, port Tanger-Med, sans carte de crédit.", 'property', 'og:description');
     setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/location-voiture-tanger", 'property', 'og:url');
   }, []);

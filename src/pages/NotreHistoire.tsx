@@ -5,7 +5,7 @@ import { CanonicalTag } from "@/components/CanonicalTag";
 
 /**
  * Page "Notre histoire" — récit fondateur Benatna.
- * Storytelling vendeur avec chiffre pivot Clio 12k DH (Benatna) vs 23k DH (Avis).
+ * Storytelling vendeur avec chiffre pivot Clio 7k DH (Benatna) vs 23k DH (Avis).
  * URL : /notre-histoire
  */
 const NotreHistoire = () => {
@@ -15,7 +15,7 @@ const NotreHistoire = () => {
         <title>Notre histoire — Benatna, la plateforme des loueurs marocains</title>
         <meta
           name="description"
-          content="Comment une startup marocaine a rassemblé des milliers d'agences locales de location de voiture sur une seule plateforme. Une Clio à 12 000 DH le mois au lieu de 23 000 DH chez Avis."
+          content="Comment une startup marocaine a rassemblé des milliers d'agences locales de location de voiture sur une seule plateforme, pour obtenir les meilleurs prix. Une Clio à 7 000 DH le mois au lieu de 23 000 DH chez Avis."
         />
       </Helmet>
       <CanonicalTag path="/notre-histoire" />
@@ -61,7 +61,7 @@ const NotreHistoire = () => {
           <div className="mt-6 pt-6 border-t border-primary/20">
             <p className="text-lg sm:text-xl font-bold text-primary">
               Chez Benatna, la même Clio, le même mois, à Casablanca :{" "}
-              <span className="text-2xl sm:text-3xl">12 000 dh.</span>
+              <span className="text-2xl sm:text-3xl">7 000 dh.</span>
             </p>
             <p className="mt-2 text-base text-muted-foreground">
               Pas d'empreinte. Pas de surcoût jeune conducteur. Et la voiture
