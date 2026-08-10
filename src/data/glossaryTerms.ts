@@ -203,7 +203,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: 'voiture-economique',
     term: 'Voiture Économique',
-    definition: "Véhicule compact à faible consommation, parfait pour la ville (ex: Dacia Sandero, Renault Clio). Tarif dès 300 DH/jour au Maroc.",
+    definition: "Véhicule compact à faible consommation, parfait pour la ville (ex: Dacia Sandero, Renault Clio). Tarif dès 250 DH/jour au Maroc.",
     category: 'vehicule',
     relatedTerms: ['categorie-vehicule', 'berline'],
     relatedPages: [{ label: 'Louer une voiture', url: '/louer' }]
@@ -298,7 +298,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: 'tarif-journalier',
     term: 'Tarif Journalier',
-    definition: "Prix de location pour 24 heures. Varie selon le véhicule, la saison et la durée. Chez Benatna: dès 300 DH/jour pour une économique au Maroc.",
+    definition: "Prix de location pour 24 heures. Varie selon le véhicule, la saison et la durée. Chez Benatna: dès 250 DH/jour pour une économique au Maroc.",
     category: 'financier',
     relatedTerms: ['tarif-longue-duree', 'tarif-weekend'],
     relatedPages: [{ label: 'Louer une voiture', url: '/louer' }]
@@ -344,18 +344,11 @@ export const glossaryTerms: GlossaryTerm[] = [
     relatedTerms: ['carte-bancaire', 'caution'],
   },
   {
-    id: 'tva',
-    term: 'TVA (Taxe sur la Valeur Ajoutée)',
-    definition: "Taxe de 20% appliquée sur les services de location au Maroc. Généralement incluse dans les tarifs affichés chez Benatna (TTC).",
-    category: 'financier',
-    relatedTerms: ['tarif-journalier'],
-  },
-  {
     id: 'facture',
     term: 'Facture',
-    definition: "Document comptable remis en fin de location détaillant tous les frais. Essentielle pour remboursement employeur ou déclaration fiscale professionnelle.",
+    definition: "Document remis par le loueur en fin de location détaillant tous les frais, sur simple demande.",
     category: 'financier',
-    relatedTerms: ['tva', 'recu'],
+    relatedTerms: ['recu'],
   },
   {
     id: 'recu',

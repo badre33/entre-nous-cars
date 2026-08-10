@@ -5,7 +5,7 @@ import { CanonicalTag } from "@/components/CanonicalTag";
 
 /**
  * Page "Notre histoire" — récit fondateur Benatna.
- * Storytelling vendeur avec chiffre pivot Clio 7k DH (Benatna) vs 23k DH (Avis).
+ * Storytelling vendeur avec chiffre pivot Clio 7k DH (Benatna) vs 9-10k DH (Avis).
  * URL : /notre-histoire
  */
 const NotreHistoire = () => {
@@ -15,7 +15,7 @@ const NotreHistoire = () => {
         <title>Notre histoire — Benatna, la plateforme des loueurs marocains</title>
         <meta
           name="description"
-          content="Comment une startup marocaine a rassemblé des milliers d'agences locales de location de voiture sur une seule plateforme, pour obtenir les meilleurs prix. Une Clio à 7 000 DH le mois au lieu de 23 000 DH chez Avis."
+          content="Comment une startup marocaine a rassemblé des milliers d'agences locales de location de voiture sur une seule plateforme, pour obtenir les meilleurs prix. Une Clio à 7 000 DH le mois au lieu de 9 000 à 10 000 DH chez Avis."
         />
       </Helmet>
       <CanonicalTag path="/notre-histoire" />
@@ -43,13 +43,13 @@ const NotreHistoire = () => {
         <section className="mb-10 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-2xl p-6 sm:p-8">
           <p className="text-lg sm:text-xl leading-relaxed">
             <strong>
-              En août 2026, chez Avis Maroc, louer une Renault Clio pendant un
-              mois coûte 23 000 dirhams.
+              Chez Avis Maroc, louer une Renault Clio pendant un mois coûte
+              9 000 dirhams minimum — et la facture dépasse souvent les
+              10 000 en haute saison.
             </strong>
           </p>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Vous avez bien lu. <strong>Vingt-trois mille dirhams</strong>, pour
-            une petite citadine. Le prix d'un vol Casa-New York en business.
+            Pour une petite citadine. Et ce n'est que le début de l'addition.
           </p>
           <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
             Pour ce prix, on vous prend une empreinte de carte de 8 000 dh en

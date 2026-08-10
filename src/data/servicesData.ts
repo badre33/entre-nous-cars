@@ -31,7 +31,7 @@ export const services: Service[] = [
     slug: '/location-voiture-aeroport-casablanca',
     category: 'aeroport',
     shortDescription: 'Livraison gratuite au terminal. Évitez les files d\'attente et économisez jusqu\'à 40% vs comptoirs aéroport.',
-    features: ['Livraison gratuite par le loueur', 'Demande WhatsApp 2 min', 'Pas de file d\'attente', 'Dès 300 DH/jour'],
+    features: ['Livraison gratuite par le loueur', 'Demande WhatsApp 2 min', 'Pas de file d\'attente', 'Dès 250 DH/jour'],
     priceFrom: '200 DH',
     image: '/city-casablanca.jpg',
     popular: true,

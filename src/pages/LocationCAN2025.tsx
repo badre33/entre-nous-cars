@@ -23,7 +23,7 @@ const LocationCAN2025 = () => {
   const content = {
     fr: {
       title: "Location Voiture CAN 2025 Maroc | Coupe d'Afrique des Nations",
-      metaDescription: "Location de voiture pour la CAN 2025 au Maroc. Tarifs spéciaux supporters, véhicules disponibles toutes villes-stades. Réservation anticipée dès 300 DH/jour.",
+      metaDescription: "Location de voiture pour la CAN 2025 au Maroc. Tarifs spéciaux supporters, véhicules disponibles toutes villes-stades. Réservation anticipée dès 250 DH/jour.",
       h1: "Location de Voiture CAN 2025 Maroc",
       subtitle: "Suivez la Coupe d'Afrique des Nations en toute liberté",
       eventDates: "21 Décembre 2025 - 18 Janvier 2026",
@@ -31,7 +31,7 @@ const LocationCAN2025 = () => {
     },
     en: {
       title: "Car Rental AFCON 2025 Morocco | Africa Cup of Nations",
-      metaDescription: "Car rental for AFCON 2025 in Morocco. Special rates for supporters, vehicles available in all host cities. Early booking from 300 MAD/day.",
+      metaDescription: "Car rental for AFCON 2025 in Morocco. Special rates for supporters, vehicles available in all host cities. Early booking from 250 MAD/day.",
       h1: "Car Rental AFCON 2025 Morocco",
       subtitle: "Follow the Africa Cup of Nations with total freedom",
       eventDates: "December 21, 2025 - January 18, 2026",
@@ -39,7 +39,7 @@ const LocationCAN2025 = () => {
     },
     es: {
       title: "Alquiler Coches CAN 2025 Marruecos | Copa África Naciones",
-      metaDescription: "Alquiler de coches para la CAN 2025 en Marruecos. Tarifas especiales para aficionados, vehículos disponibles en todas las ciudades. Reserva desde 300 MAD/día.",
+      metaDescription: "Alquiler de coches para la CAN 2025 en Marruecos. Tarifas especiales para aficionados, vehículos disponibles en todas las ciudades. Reserva desde 250 MAD/día.",
       h1: "Alquiler Coches CAN 2025 Marruecos",
       subtitle: "Sigue la Copa de África con total libertad",
       eventDates: "21 Diciembre 2025 - 18 Enero 2026",

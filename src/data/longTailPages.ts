@@ -48,11 +48,11 @@ export const longTailPages: LongTailPageConfig[] = [
   {
     slug: "location-voiture-sans-carte-credit-marrakech",
     title: "Location Voiture Sans Carte Crédit Marrakech",
-    metaTitle: "Location Voiture Sans Carte de Crédit Marrakech - Cash Accepté dès 300 DH/jour | Benatna",
-    metaDescription: "Louez une voiture à Marrakech sans carte de crédit avec Benatna. Paiement flexible en espèces ou virement. Prix dès 300 DH/jour. Réservation simple et rapide.",
+    metaTitle: "Location Voiture Sans Carte de Crédit Marrakech - Cash Accepté dès 250 DH/jour | Benatna",
+    metaDescription: "Louez une voiture à Marrakech sans carte de crédit avec Benatna. Paiement flexible en espèces ou virement. Prix dès 250 DH/jour. Réservation simple et rapide.",
     keywords: "location voiture sans carte crédit marrakech, louer auto sans cb marrakech, location véhicule espèces marrakech",
     h1: "Location de Voiture Sans Carte de Crédit à Marrakech",
-    heroSubtitle: "Louez votre véhicule facilement • Paiement en espèces accepté • Dès 300 DH/jour",
+    heroSubtitle: "Louez votre véhicule facilement • Paiement en espèces accepté • Dès 250 DH/jour",
     category: {
       label: "Formules Flexibles",
       href: "/nos-services"
@@ -120,10 +120,10 @@ export const longTailPages: LongTailPageConfig[] = [
     slug: "location-voiture-sans-carte-credit-casablanca",
     title: "Location Voiture Sans Carte Crédit Casablanca",
     metaTitle: "Location Voiture Sans Carte de Crédit Casablanca - Espèces & Virement dès 300 DH | Benatna",
-    metaDescription: "Louer une voiture à Casablanca sans carte bancaire. Paiement en espèces ou virement. Aéroport Mohammed V, centre-ville. Dès 300 DH/jour sans caution CB.",
+    metaDescription: "Louer une voiture à Casablanca sans carte bancaire. Paiement en espèces ou virement. Aéroport Mohammed V, centre-ville. Dès 250 DH/jour sans caution CB.",
     keywords: "location voiture sans carte crédit casablanca, louer auto sans cb casa, location véhicule espèces casablanca",
     h1: "Location de Voiture Sans Carte de Crédit à Casablanca",
-    heroSubtitle: "Aéroport Mohammed V • Centre-ville • Paiement flexible • Dès 300 DH/jour",
+    heroSubtitle: "Aéroport Mohammed V • Centre-ville • Paiement flexible • Dès 250 DH/jour",
     category: {
       label: "Formules Flexibles",
       href: "/nos-services"

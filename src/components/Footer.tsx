@@ -241,6 +241,13 @@ const Footer = () => {
         
         
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
+          <div className="mb-3 flex items-center justify-center gap-3">
+            <Link to="/" className="hover:text-foreground transition-colors">Français</Link>
+            <span aria-hidden="true">·</span>
+            <Link to="/en" className="hover:text-foreground transition-colors">English</Link>
+            <span aria-hidden="true">·</span>
+            <Link to="/es" className="hover:text-foreground transition-colors">Español</Link>
+          </div>
           © 2026 Benatna - {t('footer.tagline')}
         </div>
       </div>

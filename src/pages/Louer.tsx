@@ -705,18 +705,18 @@ const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
 
 const LOUER_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
-    title: "Location Voiture Maroc dès 300 DH/jour - 300+ Véhicules | Benatna",
-    desc: "300+ véhicules disponibles à la location au Maroc dès 300 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Livraison aéroport et hôtel, réservation WhatsApp en 2 minutes.",
+    title: "Location Voiture Maroc dès 250 DH/jour - 300+ Véhicules | Benatna",
+    desc: "300+ véhicules disponibles à la location au Maroc dès 250 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Livraison aéroport et hôtel, réservation WhatsApp en 2 minutes.",
     url: "https://benatna.ma/louer",
   },
   en: {
-    title: "Car Rental Morocco from 300 MAD/day - 300+ Vehicles | Benatna",
-    desc: "300+ rental cars in Morocco from 300 MAD/day. Casablanca, Marrakech, Rabat, Tangier, Agadir, Fez. Airport and hotel delivery, WhatsApp booking in 2 minutes.",
+    title: "Car Rental Morocco from 250 MAD/day - 300+ Vehicles | Benatna",
+    desc: "300+ rental cars in Morocco from 250 MAD/day. Casablanca, Marrakech, Rabat, Tangier, Agadir, Fez. Airport and hotel delivery, WhatsApp booking in 2 minutes.",
     url: "https://benatna.ma/en/louer",
   },
   es: {
-    title: "Alquiler de Coches Marruecos desde 300 MAD/día - 300+ Vehículos | Benatna",
-    desc: "Más de 300 coches de alquiler en Marruecos desde 300 MAD/día. Casablanca, Marrakech, Rabat, Tánger, Agadir, Fez. Entrega en aeropuerto y hotel, reserva por WhatsApp en 2 minutos.",
+    title: "Alquiler de Coches Marruecos desde 250 MAD/día - 300+ Vehículos | Benatna",
+    desc: "Más de 300 coches de alquiler en Marruecos desde 250 MAD/día. Casablanca, Marrakech, Rabat, Tánger, Agadir, Fez. Entrega en aeropuerto y hotel, reserva por WhatsApp en 2 minutos.",
     url: "https://benatna.ma/es/louer",
   },
 };

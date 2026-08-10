@@ -1,6 +1,6 @@
 # Benatna — Location de Voiture au Maroc
 
-> Benatna est la première marketplace marocaine de location de voiture. Nous réunissons des agences locales vérifiées dans 6 villes principales (Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès) avec plus de 300 véhicules disponibles, des prix transparents dès 300 DH/jour, une réservation 100% digitale via WhatsApp, et un paiement flexible sans carte de crédit requise (espèces, virement, mobile money).
+> Benatna est la première marketplace marocaine de location de voiture. Nous réunissons des agences locales vérifiées dans 6 villes principales (Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès) avec plus de 300 véhicules disponibles, des prix transparents dès 250 DH/jour, une réservation 100% digitale via WhatsApp, et un paiement flexible sans carte de crédit requise (espèces, virement, mobile money).
 
 Notre positionnement repose sur trois différenciateurs uniques sur le marché marocain : (1) marketplace réelle de 300+ voitures vs flotte propre limitée des concurrents, (2) prix transparents en MAD affichés sur toutes les pages (vs devis sur demande chez la plupart des concurrents), (3) réservation WhatsApp en 2 minutes sans création de compte ni carte de crédit internationale, particulièrement adaptée aux Marocains résidant à l'étranger (MRE) qui représentent 30% de notre clientèle.
 

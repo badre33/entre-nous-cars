@@ -85,7 +85,7 @@ const FAQ = () => {
         "name": "Y a-t-il des frais cachés ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Non, chez Benatna nous affichons des prix 100% transparents. Le prix que vous voyez inclut l'assurance au tiers, le kilométrage illimité, la TVA et l'assistance 24/7. Les seuls frais supplémentaires possibles sont optionnels (chauffeur, GPS, siège bébé, assurance tous risques)."
+          "text": "Non, chez Benatna nous affichons des prix 100% transparents. Le prix que vous voyez inclut l'assurance au tiers, le kilométrage illimité et l'assistance 24/7. Les seuls frais supplémentaires possibles sont optionnels (chauffeur, GPS, siège bébé, assurance tous risques)."
         }
       },
       {
@@ -400,7 +400,6 @@ const FAQ = () => {
                         <ul className="list-disc list-inside mt-2 space-y-1">
                           <li>L&apos;assurance au tiers (obligatoire)</li>
                           <li>Le kilométrage illimité</li>
-                          <li>La TVA</li>
                           <li>L&apos;assistance 24/7</li>
                         </ul>
                         Les seuls frais supplémentaires possibles sont optionnels (chauffeur, GPS, siège bébé, assurance tous risques).

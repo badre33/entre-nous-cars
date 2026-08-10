@@ -97,11 +97,11 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   return {
   slug: `location-voiture-aeroport-${citySlug}`,
   title: `Location Voiture Aéroport ${city} (${data.iata})`,
-  metaTitle: `Location Voiture Aéroport ${city} ${data.iata} dès 300 DH/jour - Sans Carte de Crédit | Benatna`,
-  metaDescription: `Location voiture ${data.fullName} (${data.iata}). Livraison gratuite par le loueur au terminal, ${data.distanceFromCenter}. Demande en 2 minutes sur WhatsApp, prix dès 300 DH/jour.`,
+  metaTitle: `Location Voiture Aéroport ${city} ${data.iata} dès 250 DH/jour - Livraison Gratuite au Terminal | Benatna`,
+  metaDescription: `Location voiture ${data.fullName} (${data.iata}). Livraison gratuite par le loueur au terminal, ${data.distanceFromCenter}. Demande en 2 minutes sur WhatsApp, prix dès 250 DH/jour.`,
   keywords: `location voiture aéroport ${citySlug}, ${data.iata} location auto, louer voiture terminal ${city}, ${data.fullName}`,
   h1: `Location de Voiture à l'${data.fullName} (${data.iata})`,
-  heroSubtitle: `${data.distanceFromCenter} • Livraison gratuite au terminal • Dès 300 DH/jour`,
+  heroSubtitle: `${data.distanceFromCenter} • Livraison gratuite au terminal • Dès 250 DH/jour`,
   category: {
     label: "Locations Aéroports",
     href: "/nos-services?category=aeroport"
@@ -123,7 +123,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
       },
       {
         title: `Types de véhicules disponibles à l'aéroport ${city}`,
-        content: `Toute la flotte de nos loueurs partenaires est livrable à ${data.fullName}. ${citySlug === 'agadir' || citySlug === 'marrakech' ? 'Compte tenu du climat chaud de la région, nous recommandons systématiquement la climatisation (incluse sur tous les véhicules proposés).' : ''} ${citySlug === 'marrakech' || citySlug === 'fes' || citySlug === 'agadir' ? 'Pour les excursions hors-ville (Atlas, désert, plages reculées), un SUV est conseillé.' : 'Pour les déplacements urbains et inter-villes (autoroutes A1/A7), une citadine ou berline est idéale.'} Citadines économiques (Clio, Sandero, 208) dès 300 DH/jour. Berlines confortables (Corolla, Jetta) à 400-500 DH/jour. SUV tout-chemin (Duster, Qashqai, Tiguan) à 550-800 DH/jour. Véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à 1200-1800 DH/jour. Tous les véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise.`
+        content: `Toute la flotte de nos loueurs partenaires est livrable à ${data.fullName}. ${citySlug === 'agadir' || citySlug === 'marrakech' ? 'Compte tenu du climat chaud de la région, nous recommandons systématiquement la climatisation (incluse sur tous les véhicules proposés).' : ''} ${citySlug === 'marrakech' || citySlug === 'fes' || citySlug === 'agadir' ? 'Pour les excursions hors-ville (Atlas, désert, plages reculées), un SUV est conseillé.' : 'Pour les déplacements urbains et inter-villes (autoroutes A1/A7), une citadine ou berline est idéale.'} Citadines économiques (Clio, Sandero, 208) dès 250 DH/jour. Berlines confortables (Corolla, Jetta) à 400-500 DH/jour. SUV tout-chemin (Duster, Qashqai, Tiguan) à 550-800 DH/jour. Véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à 1200-1800 DH/jour. Tous les véhicules ont moins de 3 ans, kilométrage illimité inclus, assurance tous risques comprise.`
       }
     ],
     faq: [
@@ -707,10 +707,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-coupe-monde-2026-maroc',
     title: 'Location Voiture Coupe du Monde 2026 Maroc',
     metaTitle: 'Location Voiture Coupe du Monde 2026 Maroc - Spécial MRE dès 300 DH | Benatna',
-    metaDescription: 'Réservez votre voiture pour vivre la Coupe du Monde 2026 au Maroc avec votre famille. Tarifs MRE dès 300 DH/jour, livraison aéroport, sans carte de crédit. Maroc-Brésil 13 juin.',
+    metaDescription: 'Réservez votre voiture pour vivre la Coupe du Monde 2026 au Maroc avec votre famille. Tarifs MRE dès 250 DH/jour, livraison aéroport, sans carte de crédit. Maroc-Brésil 13 juin.',
     keywords: 'location voiture coupe du monde 2026, voiture mre maroc juin 2026, location voiture maroc bresil 13 juin, location famille mondial maroc, location voiture aeroport mre',
     h1: 'Location de Voiture pour la Coupe du Monde 2026 au Maroc',
-    heroSubtitle: 'Maroc qualifié, groupe C • Vivez les matchs en famille • Livraison aéroport gratuite • Dès 300 DH/jour',
+    heroSubtitle: 'Maroc qualifié, groupe C • Vivez les matchs en famille • Livraison aéroport gratuite • Dès 250 DH/jour',
     category: {
       label: 'Événements 2026',
       href: '/nos-services'
@@ -782,10 +782,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-ete-2026-maroc',
     title: 'Location Voiture Été 2026 Maroc',
     metaTitle: 'Location Voiture Été 2026 Maroc - Anticipez Juin-Août dès 300 DH | Benatna',
-    metaDescription: 'Réservez votre voiture pour l\'été 2026 au Maroc : juin, juillet, août. Anticipez 2-3 mois pour les meilleurs tarifs. Livraison aéroport, sans carte de crédit. Dès 300 DH/jour.',
+    metaDescription: 'Réservez votre voiture pour l\'été 2026 au Maroc : juin, juillet, août. Anticipez 2-3 mois pour les meilleurs tarifs. Livraison aéroport, sans carte de crédit. Dès 250 DH/jour.',
     keywords: 'location voiture maroc ete 2026, location voiture juillet aout maroc, location voiture haute saison maroc, location voiture mre ete, location voiture vacances maroc',
     h1: 'Location de Voiture pour l\'Été 2026 au Maroc',
-    heroSubtitle: 'Juin-Août : haute saison • Réservez 2-3 mois avant • Tarifs dès 300 DH/jour',
+    heroSubtitle: 'Juin-Août : haute saison • Réservez 2-3 mois avant • Tarifs dès 250 DH/jour',
     category: {
       label: 'Saison Été 2026',
       href: '/nos-services'
@@ -857,10 +857,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-tanger-med-port',
     title: 'Location Voiture Tanger Med Port',
     metaTitle: 'Location Voiture Tanger Med Port - Livraison Ferry 24h/7j dès 300 DH | Benatna',
-    metaDescription: 'Réservez votre voiture livrée au port Tanger Med dès votre descente du ferry. Service 24/7 pour MRE et touristes. Sans carte de crédit, dès 300 DH/jour.',
+    metaDescription: 'Réservez votre voiture livrée au port Tanger Med dès votre descente du ferry. Service 24/7 pour MRE et touristes. Sans carte de crédit, dès 250 DH/jour.',
     keywords: 'location voiture tanger med, location voiture port tanger med, voiture ferry tanger med, mre tanger med voiture, location voiture algeciras tanger',
     h1: 'Location de Voiture au Port Tanger Med — Livraison Ferry 24h/7j',
-    heroSubtitle: '304 ferries/semaine • Livraison terminal directe • Service 24/7 • Dès 300 DH/jour',
+    heroSubtitle: '304 ferries/semaine • Livraison terminal directe • Service 24/7 • Dès 250 DH/jour',
     category: { label: 'Points d\'entrée touristiques', href: '/nos-services' },
     content: {
       intro: `Le **port Tanger Med** est le **plus grand port d'Afrique** et le **point d'entrée principal au Maroc pour les MRE** débarquant de leurs ferries d'Espagne (Algésiras, Tarifa), de France (Sète) ou d'Italie (Gênes). Avec **304 traversées par semaine en été**, c'est l'un des hubs les plus chargés du pays entre juin et septembre. Benatna vous attend directement au terminal véhicules ou passagers, ferry après ferry, **sans frais aéroport-équivalent**, sans carte de crédit internationale requise.`,
@@ -928,10 +928,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-mre-maroc',
     title: 'Location Voiture MRE Maroc',
     metaTitle: 'Location Voiture MRE Maroc - Sans Carte Crédit, Paiement DH/€ | Benatna',
-    metaDescription: 'Spécial Marocains résidant à l\'étranger : location voiture au Maroc sans carte de crédit internationale, paiement en espèces, virement ou Cash Plus. Livraison aéroport et ferry. Dès 300 DH/jour.',
+    metaDescription: 'Spécial Marocains résidant à l\'étranger : location voiture au Maroc sans carte de crédit internationale, paiement en espèces, virement ou Cash Plus. Livraison aéroport et ferry. Dès 250 DH/jour.',
     keywords: 'location voiture mre maroc, voiture marocains etranger, location voiture mre sans carte credit, voiture mre paiement especes, voiture mre dh euros',
     h1: 'Location de Voiture au Maroc pour les MRE — Sans Carte de Crédit Internationale',
-    heroSubtitle: 'Paiement DH ou € • Livraison aéroport/ferry gratuite • Documents UE acceptés • Dès 300 DH/jour',
+    heroSubtitle: 'Paiement DH ou € • Livraison aéroport/ferry gratuite • Documents UE acceptés • Dès 250 DH/jour',
     category: { label: 'Spécial MRE', href: '/nos-services' },
     content: {
       intro: `Si vous êtes **Marocain résidant à l'étranger (MRE)** — en France, Belgique, Espagne, Allemagne, Pays-Bas, Italie ou ailleurs — et que vous rentrez au Maroc pour les vacances, les fêtes (Aïd al-Adha, Aïd al-Fitr), un mariage familial, ou la Coupe du Monde 2026 : **Benatna est conçu pour vous**. Nous savons que la plupart des MRE n'ont pas (ou ne veulent pas utiliser) de **carte de crédit internationale** avec une caution bloquée, paient souvent en **espèces euros ou DH**, et arrivent par **avion ou ferry** avec famille et bagages. Notre service est entièrement adapté : sans carte de crédit obligatoire, paiement flexible, livraison directe au terminal, et équipe qui parle français et darija.`,
@@ -999,10 +999,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-circuit-villes-imperiales',
     title: 'Location Voiture Circuit Villes Impériales Maroc',
     metaTitle: 'Location Voiture Circuit Villes Impériales Maroc - Autotour 7-14 jours | Benatna',
-    metaDescription: 'Itinéraire complet circuit villes impériales en voiture : Casablanca, Rabat, Meknès, Fès, Marrakech. Voiture recommandée par durée, distances, conseils. Dès 300 DH/jour.',
+    metaDescription: 'Itinéraire complet circuit villes impériales en voiture : Casablanca, Rabat, Meknès, Fès, Marrakech. Voiture recommandée par durée, distances, conseils. Dès 250 DH/jour.',
     keywords: 'circuit villes imperiales voiture, autotour maroc, location voiture casablanca rabat fes marrakech, circuit maroc voiture, road trip villes imperiales',
     h1: 'Location de Voiture pour le Circuit des Villes Impériales du Maroc',
-    heroSubtitle: 'Casablanca → Rabat → Meknès → Fès → Marrakech • 7-14 jours • Itinéraire optimisé • Dès 300 DH/jour',
+    heroSubtitle: 'Casablanca → Rabat → Meknès → Fès → Marrakech • 7-14 jours • Itinéraire optimisé • Dès 250 DH/jour',
     category: { label: 'Circuits touristiques', href: '/nos-services' },
     content: {
       intro: `Le **circuit des Villes Impériales du Maroc** — Casablanca, Rabat, Meknès, Fès, Marrakech — est l'**itinéraire touristique le plus iconique du Royaume**. En 7 à 14 jours et environ **1200-1500 km cumulés**, il vous fait traverser 12 siècles d'histoire marocaine, du Maroc moderne (Casa) à la médina UNESCO de Fès, en passant par Meknès la Versailles marocaine, Rabat la capitale tranquille, et Marrakech la ville rouge. **La voiture est le meilleur moyen de le faire** — vous gardez la liberté du tempo, vous évitez les agences de voyage qui pressent le rythme, et vous économisez 30-50% par rapport aux tours organisés.`,
@@ -1072,10 +1072,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-gare-casa-voyageurs',
     title: 'Location Voiture Gare Casa-Voyageurs',
     metaTitle: 'Location Voiture Gare Casa-Voyageurs - LGV Al Boraq Tanger | Benatna',
-    metaDescription: 'Voiture livrée à la gare Casa-Voyageurs dès votre descente du train Al Boraq depuis Tanger ou Rabat. Sans carte de crédit, dès 300 DH/jour. Service 7j/7.',
+    metaDescription: 'Voiture livrée à la gare Casa-Voyageurs dès votre descente du train Al Boraq depuis Tanger ou Rabat. Sans carte de crédit, dès 250 DH/jour. Service 7j/7.',
     keywords: 'location voiture gare casa voyageurs, location voiture casa voyageurs, voiture al boraq casablanca, gare oncf casablanca voiture, mre train casa',
     h1: 'Location de Voiture à la Gare Casa-Voyageurs — Sortie Al Boraq',
-    heroSubtitle: 'Train Al Boraq Tanger 2h • Livraison parvis gare • Service 7j/7 • Dès 300 DH/jour',
+    heroSubtitle: 'Train Al Boraq Tanger 2h • Livraison parvis gare • Service 7j/7 • Dès 250 DH/jour',
     category: { label: 'Points d\'entrée touristiques', href: '/nos-services' },
     content: {
       intro: `La **gare Casa-Voyageurs** est le **hub ferroviaire #1 du Maroc** et le terminus du train **Al Boraq** (LGV 320 km/h Tanger ↔ Casablanca en 2h05). Si vous arrivez à Tanger Med en ferry depuis l'Europe et que vous continuez vers Casablanca en train haute-vitesse, ou si vous descendez vers Casa depuis Rabat ou Kenitra par TNR, **le loueur partenaire vous attend sur le parvis de la gare** avec votre véhicule prêt. Pas besoin de prendre le bus ou un Petit Taxi pour rejoindre un comptoir Hertz ou Avis 5 km plus loin — le loueur livre directement à votre sortie de la gare, sans surcoût "gare", sans carte de crédit internationale.`,
@@ -1108,7 +1108,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           question: 'Quelles voitures disponibles en livraison gare ?',
-          answer: 'Toute la flotte de nos loueurs partenaires : citadine dès 300 DH/jour, berline 400-500, SUV 550-800, vans 7-9 places 900-1200, premium 1200-2000. Comme la livraison se fait depuis le dépôt du loueur en centre-ville (5 min de la gare), pas de limite véhicule contrairement aux aéroports où certains modèles partent rapidement.'
+          answer: 'Toute la flotte de nos loueurs partenaires : citadine dès 250 DH/jour, berline 400-500, SUV 550-800, vans 7-9 places 900-1200, premium 1200-2000. Comme la livraison se fait depuis le dépôt du loueur en centre-ville (5 min de la gare), pas de limite véhicule contrairement aux aéroports où certains modèles partent rapidement.'
         },
         {
           question: 'Service disponible la nuit (trains tardifs / matinaux) ?',
@@ -1142,10 +1142,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-gare-marrakech',
     title: 'Location Voiture Gare Marrakech',
     metaTitle: 'Location Voiture Gare Marrakech - Livraison Gare ONCF | Benatna',
-    metaDescription: 'Voiture livrée à la gare ONCF Marrakech dès votre arrivée par train de Casa ou Tanger. Pratique pour touristes et MRE. Sans carte de crédit, dès 300 DH/jour.',
+    metaDescription: 'Voiture livrée à la gare ONCF Marrakech dès votre arrivée par train de Casa ou Tanger. Pratique pour touristes et MRE. Sans carte de crédit, dès 250 DH/jour.',
     keywords: 'location voiture gare marrakech, location voiture oncf marrakech, voiture train marrakech, gare marrakech car rental',
     h1: 'Location de Voiture à la Gare ONCF de Marrakech',
-    heroSubtitle: 'Livraison parvis gare • Trains de Casa et Tanger • Sans carte de crédit • Dès 300 DH/jour',
+    heroSubtitle: 'Livraison parvis gare • Trains de Casa et Tanger • Sans carte de crédit • Dès 250 DH/jour',
     category: { label: 'Points d\'entrée touristiques', href: '/nos-services' },
     content: {
       intro: `La **gare ONCF de Marrakech** est l'un des principaux points d'arrivée à Marrakech pour les voyageurs venant de Casablanca (TNR 2h45), Rabat (3h40), Tanger (5h15) ou Fès (7h30). Située à 1.5 km du centre-ville (Gueliz / Hivernage), c'est une alternative agréable à l'aéroport Menara pour les touristes qui ont déjà visité Casa ou Rabat. **Benatna vous y livre votre voiture directement**, vous évitez le taxi + comptoir loueur traditionnel, et vous démarrez votre exploration de Marrakech ou votre road trip Atlas/Sahara en 15 minutes maximum.`,
@@ -1160,7 +1160,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           title: 'Quels véhicules pour explorer la région Marrakech',
-          content: `Pour la **ville et environs immédiats** (médina, palaces, Gueliz) : citadine économique suffit (Toyota Yaris, Kia Picanto, Hyundai i10 dès 300 DH/jour). Stationnement médina facile en petite voiture. Pour **Ourika, Asni, Imlil** : berline OK si beau temps, **SUV recommandé** dès qu'il pleut (boue routes secondaires) — Dacia Duster ou Nissan Qashqai à 550-800 DH/jour. Pour **Ouarzazate, col Tichka, Sahara** : **SUV obligatoire** + climatisation impeccable (températures extrêmes 40°C+ en été). Toyota RAV4 ou Hyundai Tucson recommandés. Pour **familles avec enfants + bagages** : monospace 7 places (Dacia Jogger 900 DH/jour) ou SUV 7 places. Pour **mariage / occasion spéciale** : véhicule premium (Mercedes Classe A, BMW Série 3) avec décoration à demander 7-10 jours avant.`
+          content: `Pour la **ville et environs immédiats** (médina, palaces, Gueliz) : citadine économique suffit (Toyota Yaris, Kia Picanto, Hyundai i10 dès 250 DH/jour). Stationnement médina facile en petite voiture. Pour **Ourika, Asni, Imlil** : berline OK si beau temps, **SUV recommandé** dès qu'il pleut (boue routes secondaires) — Dacia Duster ou Nissan Qashqai à 550-800 DH/jour. Pour **Ouarzazate, col Tichka, Sahara** : **SUV obligatoire** + climatisation impeccable (températures extrêmes 40°C+ en été). Toyota RAV4 ou Hyundai Tucson recommandés. Pour **familles avec enfants + bagages** : monospace 7 places (Dacia Jogger 900 DH/jour) ou SUV 7 places. Pour **mariage / occasion spéciale** : véhicule premium (Mercedes Classe A, BMW Série 3) avec décoration à demander 7-10 jours avant.`
         },
         {
           title: 'Comparaison avec aéroport Marrakech-Menara',
@@ -1192,7 +1192,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     cta: {
       title: 'Réservez Votre Voiture à la Gare Marrakech',
-      subtitle: 'Livraison parvis • Trains Casa/Tanger compatibles • Dès 300 DH/jour',
+      subtitle: 'Livraison parvis • Trains Casa/Tanger compatibles • Dès 250 DH/jour',
       buttonText: 'Réserver via WhatsApp',
       buttonLink: '/contact'
     },
@@ -1213,10 +1213,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-agdal-rabat',
     title: 'Location Voiture Agdal Rabat',
     metaTitle: 'Location Voiture Agdal Rabat - Quartier d\'Affaires Capitale | Benatna',
-    metaDescription: 'Location voiture à Agdal Rabat, le cœur moderne de la capitale. Livraison à votre hôtel ou domicile. Dès 300 DH/jour, meilleur prix négocié auprès des loueurs locaux.',
+    metaDescription: 'Location voiture à Agdal Rabat, le cœur moderne de la capitale. Livraison à votre hôtel ou domicile. Dès 250 DH/jour, meilleur prix négocié auprès des loueurs locaux.',
     keywords: 'location voiture agdal rabat, location voiture rabat centre, voiture rabat agdal business, location voiture rabat ambassade',
     h1: 'Location de Voiture à Agdal — Quartier d\'Affaires de Rabat',
-    heroSubtitle: 'Cœur moderne de Rabat • Livraison hôtel ou domicile • Dès 300 DH/jour',
+    heroSubtitle: 'Cœur moderne de Rabat • Livraison hôtel ou domicile • Dès 250 DH/jour',
     category: { label: 'Quartiers Rabat', href: '/location-voiture-rabat' },
     content: {
       intro: `**Agdal** est le **quartier d'affaires moderne de Rabat** : sièges des grands ministères marocains, ambassades européennes (France, Allemagne, Espagne, Royaume-Uni, États-Unis), banques (BMCE, Attijariwafa, BMCI, CIH), Sofitel Rabat Jardin des Roses, Université Mohammed V campus Agdal. Si vous séjournez à Rabat — visite de la capitale, famille sur place, escapade depuis Casablanca — Agdal est un excellent point de chute, moderne et central. Le loueur partenaire vous **livre votre voiture directement à votre hôtel ou domicile**, sans surcoût "centre-ville".`,
@@ -1244,7 +1244,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
           answer: 'Oui, **livraison hôtel gratuite** à Agdal et alentours (Hassan, Souissi, centre-ville). Tournez votre concierge, prévenez-nous WhatsApp 30 min avant votre disponibilité. Service standard 6h-23h, après 23h supplément modeste.'
         },
         {
-          question: 'Acceptez-vous les paiements en mode entreprise (factures TVA, bons de commande) ?',
+          question: 'Puis-je obtenir une facture pour ma location ?',
           answer: 'Oui, le loueur partenaire peut émettre une facture à votre demande. Précisez-le simplement dans votre message WhatsApp au moment de la réservation.'
         },
         {
@@ -1263,7 +1263,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     cta: {
       title: 'Réservez Votre Voiture à Agdal',
-      subtitle: 'Livraison hôtel ou domicile • Réponse WhatsApp en 2 min • Dès 300 DH/jour',
+      subtitle: 'Livraison hôtel ou domicile • Réponse WhatsApp en 2 min • Dès 250 DH/jour',
       buttonText: 'Réserver via WhatsApp',
       buttonLink: '/contact'
     },
@@ -1283,10 +1283,10 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'location-voiture-souissi-rabat',
     title: 'Location Voiture Souissi Rabat',
     metaTitle: 'Location Voiture Souissi Rabat - Quartier Résidentiel Premium | Benatna',
-    metaDescription: 'Location voiture à Souissi Rabat, quartier résidentiel premium de la capitale. Livraison villa, ambassades, écoles internationales. Dès 300 DH/jour.',
+    metaDescription: 'Location voiture à Souissi Rabat, quartier résidentiel premium de la capitale. Livraison villa, ambassades, écoles internationales. Dès 250 DH/jour.',
     keywords: 'location voiture souissi rabat, location voiture rabat residentiel, voiture souissi villa, location voiture rabat haut gamme',
     h1: 'Location de Voiture à Souissi — Rabat Résidentiel Premium',
-    heroSubtitle: 'Villas • Écoles internationales • Ambassades • Livraison sur place • Dès 300 DH/jour',
+    heroSubtitle: 'Villas • Écoles internationales • Ambassades • Livraison sur place • Dès 250 DH/jour',
     category: { label: 'Quartiers Rabat', href: '/location-voiture-rabat' },
     content: {
       intro: `**Souissi** est le **quartier résidentiel haut de gamme de Rabat**, situé au sud-est de la capitale. C'est ici que résident la plupart des **diplomates** (résidences ambassadeurs France, Allemagne, Royaume-Uni, Italie, Espagne), des **expatriés cadres supérieurs** (Total, Renault, Vinci, Banque Mondiale, BAD), et des **familles marocaines aisées**. On y trouve les **écoles internationales** (Lycée Descartes français, American School of Rabat ASR, Eric Tabarly français, Collège anglais), des restaurants haut de gamme, et l'ambassade des États-Unis. Benatna y livre votre voiture **directement à votre villa, résidence ou école**, sans surcoût quartier.`,
@@ -1359,7 +1359,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     metaDescription: 'Prix location voiture Maroc 2026 : citadine 300 DH, berline 400, SUV 550, premium 1200. Tarifs transparents par ville, saison et catégorie. Sans surprise.',
     keywords: 'prix location voiture maroc, prix location voiture casablanca, prix location voiture marrakech, tarifs location voiture maroc, prix voiture mre',
     h1: 'Prix Location Voiture Maroc 2026 — Grille Tarifaire Transparente',
-    heroSubtitle: 'Tarifs en MAD garantis • Par ville • Par catégorie • Sans surprise • Dès 300 DH/jour',
+    heroSubtitle: 'Tarifs en MAD garantis • Par ville • Par catégorie • Sans surprise • Dès 250 DH/jour',
     category: { label: 'Tarifs & Transparence', href: '/nos-services' },
     content: {
       intro: `Vous cherchez le **prix d'une location de voiture au Maroc** ? Vous êtes au bon endroit. Contrairement à 90% de nos concurrents qui cachent leurs tarifs derrière un formulaire "Demander un tarif", Benatna affiche **tous ses prix en MAD directement sur le site**. Cette page consolide notre grille complète 2026 par catégorie de véhicule, par ville, et par saison — vous savez exactement ce que vous allez payer avant même de nous contacter. C'est notre marque de fabrique : prix transparents, sans frais cachés, sans carte de crédit obligatoire.`,

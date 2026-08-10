@@ -50,18 +50,18 @@ const heroImageWebp = "/hero-home-new.webp";
 // Metas multilingues de la page d'accueil (FR canonique, EN /en, ES /es)
 const HOME_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
-    title: "Benatna — Location de voiture au Maroc dès 300 DH/jour | La startup des loueurs locaux",
-    desc: "Benatna, la startup marocaine qui gère le parc de centaines de loueurs locaux pour vous obtenir les meilleurs prix. Voiture dès 300 DH/jour, livraison aéroport et hôtel, réservation WhatsApp en 2 minutes.",
+    title: "Benatna — Location de voiture au Maroc dès 250 DH/jour | La startup des loueurs locaux",
+    desc: "Benatna, la startup marocaine qui gère le parc de centaines de loueurs locaux pour vous obtenir les meilleurs prix. Voiture dès 250 DH/jour, livraison partout au Maroc, réponse WhatsApp en 2 minutes.",
     url: "https://benatna.ma/",
   },
   en: {
-    title: "Benatna — Car Rental in Morocco from 300 MAD/day | The Local Agencies Marketplace",
-    desc: "Benatna is the Moroccan startup managing a fleet of hundreds of local rental agencies to get you the best prices. Cars from 300 MAD/day, airport and hotel delivery, booking via WhatsApp in 2 minutes.",
+    title: "Benatna — Car Rental in Morocco from 250 MAD/day | The Local Agencies Marketplace",
+    desc: "Benatna is the Moroccan startup managing a fleet of hundreds of local rental agencies to get you the best prices. Cars from 250 MAD/day, delivery anywhere in Morocco, reply on WhatsApp in 2 minutes.",
     url: "https://benatna.ma/en",
   },
   es: {
-    title: "Benatna — Alquiler de coches en Marruecos desde 300 MAD/día | Agencias locales al mejor precio",
-    desc: "Benatna, la startup marroquí que gestiona la flota de cientos de agencias locales para conseguirte los mejores precios. Coches desde 300 MAD/día, entrega en aeropuerto y hotel, reserva por WhatsApp en 2 minutos.",
+    title: "Benatna — Alquiler de coches en Marruecos desde 250 MAD/día | Agencias locales al mejor precio",
+    desc: "Benatna, la startup marroquí que gestiona la flota de cientos de agencias locales para conseguirte los mejores precios. Coches desde 250 MAD/día, entrega en todo Marruecos, respuesta por WhatsApp en 2 minutos.",
     url: "https://benatna.ma/es",
   },
 };
@@ -607,7 +607,8 @@ const Index = () => {
             <Card className="border-2 border-destructive/30 bg-destructive/5">
               <CardContent className="p-6 sm:p-8">
                 <p className="text-sm font-medium text-destructive mb-1">Chez Avis Maroc</p>
-                <p className="text-3xl sm:text-5xl font-bold mb-4">23 000 DH</p>
+                <p className="text-3xl sm:text-5xl font-bold mb-1">9 000 DH</p>
+                <p className="text-xs text-muted-foreground mb-4">minimum — et plus de 10 000 DH en haute saison</p>
                 <ul className="space-y-2 text-sm text-muted-foreground">
                   <li>❌ Empreinte carte 8 000 dh</li>
                   <li>❌ Surcoût jeune conducteur</li>
@@ -632,7 +633,7 @@ const Index = () => {
 
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-8">
             <p className="text-xl sm:text-2xl font-bold">
-              Vous économisez <span className="text-secondary">16 000 dh</span>. Sur une seule location.
+              Vous économisez <span className="text-secondary">2 000 à 3 000 dh</span>. Sur une seule location.
             </p>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Benatna est une <strong>startup marocaine</strong> qui rassemble les <strong>milliers d'agences de location locales</strong> sur une seule plateforme. Une fois unies, elles font <strong>rapport de force face aux grosses franchises internationales</strong> — Avis, Hertz, Europcar, Sixt. Vous accédez à un choix immense de véhicules au meilleur prix, et chaque dirham dépensé reste au Maroc.
