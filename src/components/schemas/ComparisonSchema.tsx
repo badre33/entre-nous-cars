@@ -1,4 +1,45 @@
 import { Helmet } from "react-helmet-async";
+import { BUSINESS_INFO } from "@/constants/businessInfo";
+
+/**
+ * Les prix des comparatifs sont saisis en texte libre ("400-500 DH/jour",
+ * "Standard + 0-10%"). Google exige un nombre pour `price`. On extrait donc
+ * les montants : une fourchette devient un AggregateOffer (lowPrice/highPrice),
+ * un montant unique une Offer simple, et un texte sans chiffre ne produit
+ * aucune offre (plutôt qu'une offre invalide).
+ */
+const buildOffer = (rawPrice?: string) => {
+  if (!rawPrice) return null;
+  const amounts = (rawPrice.match(/\d+(?:[.,]\d+)?/g) || []).map((n) => n.replace(",", "."));
+  if (amounts.length === 0) return null;
+
+  const common = {
+    "priceCurrency": "MAD",
+    "availability": "https://schema.org/InStock",
+    "url": `${BUSINESS_INFO.website}/louer`,
+    "seller": {
+      "@type": "Organization",
+      "name": BUSINESS_INFO.name,
+      "url": BUSINESS_INFO.website
+    }
+  };
+
+  if (amounts.length >= 2) {
+    return {
+      "@type": "AggregateOffer",
+      "lowPrice": amounts[0],
+      "highPrice": amounts[amounts.length - 1],
+      "offerCount": "2",
+      ...common
+    };
+  }
+
+  return {
+    "@type": "Offer",
+    "price": amounts[0],
+    ...common
+  };
+};
 
 interface ComparisonSchemaProps {
   item1Name: string;
@@ -29,6 +70,9 @@ export const ComparisonSchema = ({
   comparisonTitle,
   comparisonDescription
 }: ComparisonSchemaProps) => {
+  const item1Offer = buildOffer(item1Price);
+  const item2Offer = buildOffer(item2Price);
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "ComparisonTable",
@@ -41,16 +85,11 @@ export const ComparisonSchema = ({
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": item1Rating,
+          "reviewCount": BUSINESS_INFO.rating.count,
           "bestRating": "5",
           "worstRating": "1"
         },
-        ...(item1Price && {
-          "offers": {
-            "@type": "Offer",
-            "price": item1Price,
-            "priceCurrency": "MAD"
-          }
-        }),
+        ...(item1Offer && { "offers": item1Offer }),
         ...(item1Image && { "image": item1Image })
       },
       {
@@ -59,16 +98,11 @@ export const ComparisonSchema = ({
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": item2Rating,
+          "reviewCount": BUSINESS_INFO.rating.count,
           "bestRating": "5",
           "worstRating": "1"
         },
-        ...(item2Price && {
-          "offers": {
-            "@type": "Offer",
-            "price": item2Price,
-            "priceCurrency": "MAD"
-          }
-        }),
+        ...(item2Offer && { "offers": item2Offer }),
         ...(item2Image && { "image": item2Image })
       }
     ]

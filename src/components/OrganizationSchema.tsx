@@ -1,5 +1,38 @@
 import { Helmet } from "react-helmet-async";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
+import { currentDailyPrice } from "@/utils/priceCalculations";
+
+// Prix de base du catalogue (/louer). Le prix publié dans le balisage est
+// recalculé avec le même moteur que les cartes véhicules (saison + événement),
+// sinon Google constaterait un écart entre le prix balisé et le prix affiché.
+const CATALOG_HIGHLIGHTS = [
+  {
+    category: "Voitures Économiques",
+    vehicles: [
+      { name: "Dacia Sandero", brand: "Dacia", basePrice: 300 },
+      { name: "Renault Clio", brand: "Renault", basePrice: 400 },
+      { name: "Hyundai Accent", brand: "Hyundai", basePrice: 440 }
+    ]
+  },
+  {
+    category: "SUV",
+    vehicles: [
+      { name: "Dacia Duster", brand: "Dacia", basePrice: 380 },
+      { name: "Hyundai Tucson", brand: "Hyundai", basePrice: 640 }
+    ]
+  },
+  {
+    category: "Berlines",
+    vehicles: [
+      { name: "Volkswagen Golf", brand: "Volkswagen", basePrice: 650 },
+      { name: "Mercedes Classe C", brand: "Mercedes-Benz", basePrice: 1060 }
+    ]
+  }
+];
+
+const PRICE_VALID_UNTIL = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+  .toISOString()
+  .split("T")[0];
 
 /**
  * Schema.org Organization - Pour le site global
@@ -63,39 +96,56 @@ export const OrganizationSchema = () => {
       "@type": "Country",
       "name": "Morocco"
     },
+    // Catalogue d'offres : chaque véhicule cité porte SON offre complète
+    // (prix, devise, disponibilité, URL). Sans cela Google refuse l'extrait
+    // produit avec « Il faut indiquer offers, review ou aggregateRating ».
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Location de Voitures",
-      "itemListElement": [
-        {
-          "@type": "OfferCatalog",
-          "name": "Voitures Économiques",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Product",
-                "name": "Renault Clio",
-                "category": "Voiture Économique"
+      "itemListElement": CATALOG_HIGHLIGHTS.map((group) => ({
+        "@type": "OfferCatalog",
+        "name": group.category,
+        "itemListElement": group.vehicles.map((vehicle) => {
+          const price = String(currentDailyPrice(vehicle.basePrice));
+          const dailyOffer = {
+            "@type": "Offer",
+            "price": price,
+            "priceCurrency": "MAD",
+            "availability": "https://schema.org/InStock",
+            "url": `${BUSINESS_INFO.website}/louer`,
+            "priceValidUntil": PRICE_VALID_UNTIL,
+            "seller": {
+              "@type": "Organization",
+              "name": BUSINESS_INFO.name,
+              "url": BUSINESS_INFO.website
+            },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": price,
+              "priceCurrency": "MAD",
+              "referenceQuantity": {
+                "@type": "QuantitativeValue",
+                "value": "1",
+                "unitCode": "DAY"
               }
             }
-          ]
-        },
-        {
-          "@type": "OfferCatalog",
-          "name": "SUV",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Product",
-                "name": "Dacia Duster",
-                "category": "SUV"
-              }
+          };
+
+          return {
+            ...dailyOffer,
+            "itemOffered": {
+              "@type": "Product",
+              "name": vehicle.name,
+              "category": group.category,
+              "brand": {
+                "@type": "Brand",
+                "name": vehicle.brand
+              },
+              "offers": dailyOffer
             }
-          ]
-        }
-      ]
+          };
+        })
+      }))
     }
   };
 
