@@ -34,12 +34,12 @@ export const comparisons: Comparison[] = [
   // COMPARAISONS VÉHICULES
   {
     id: 'duster-vs-captur',
-    title: 'Dacia Duster vs Dacia Duster',
+    title: 'Dacia Duster vs Renault Captur',
     slug: 'dacia-duster-vs-renault-captur-maroc',
-    metaTitle: 'Dacia Duster vs Dacia Duster - Comparatif Location Maroc 2024 | Benatna',
-    metaDescription: 'Comparatif complet Dacia Duster vs Dacia Duster pour location au Maroc : prix, espace, consommation, confort. Quel SUV choisir pour vos vacances ?',
+    metaTitle: 'Dacia Duster vs Renault Captur : quel SUV louer au Maroc ?',
+    metaDescription: 'Duster ou Captur pour vos vacances au Maroc ? Coffre, consommation, confort sur piste et prix par jour comparés. Le bon choix selon votre itinéraire.',
     category: 'vehicules',
-    introduction: 'Le Dacia Duster et le Dacia Duster sont les deux SUV les plus loués au Maroc. Tous deux populaires, économiques et polyvalents, ils s\'adressent pourtant à des profils différents. Notre comparatif détaillé vous aide à choisir le SUV idéal selon vos besoins de location.',
+    introduction: 'Le Dacia Duster et le Renault Captur sont les deux SUV compacts les plus demandés en location au Maroc. Tous deux économiques et polyvalents, ils ne s\'adressent pourtant pas au même voyage : l\'un encaisse les pistes de l\'Atlas et du Sud, l\'autre privilégie le confort sur route et en ville. Voici comment choisir selon votre itinéraire.',
     item1: {
       name: 'Dacia Duster',
       image: '/car-duster.jpg',
@@ -75,7 +75,7 @@ export const comparisons: Comparison[] = [
       ]
     },
     item2: {
-      name: 'Dacia Duster',
+      name: 'Renault Captur',
       image: '/car-renault-captur.jpg',
       price: '300-400 DH/jour',
       specs: {

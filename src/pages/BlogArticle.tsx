@@ -12,6 +12,58 @@ import { useState, useEffect } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ShareButton } from "@/components/ShareButton";
 
+/**
+ * Rendu du texte enrichi des articles : **gras** et liens [texte](/url).
+ * Sans ceci, les articles affichaient les astérisques et les crochets en clair,
+ * et il était impossible de créer des liens du blog vers les pages de location.
+ */
+const renderInline = (text: string, keyPrefix: string) => {
+  const parts: React.ReactNode[] = [];
+  const pattern = /\*\*(.+?)\*\*|\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let i = 0;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index));
+    if (match[1] !== undefined) {
+      parts.push(<strong key={`${keyPrefix}-b${i}`}>{match[1]}</strong>);
+    } else {
+      const label = match[2];
+      const href = match[3];
+      parts.push(
+        href.startsWith("/") ? (
+          <Link key={`${keyPrefix}-l${i}`} to={href} className="text-primary underline underline-offset-2 hover:no-underline">
+            {label}
+          </Link>
+        ) : (
+          <a key={`${keyPrefix}-l${i}`} href={href} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-2 hover:no-underline">
+            {label}
+          </a>
+        )
+      );
+    }
+    lastIndex = pattern.lastIndex;
+    i++;
+  }
+  if (lastIndex < text.length) parts.push(text.slice(lastIndex));
+  return parts.length ? parts : text;
+};
+
+/** Convertit une date française ("21 janvier 2025") en ISO pour les métadonnées. */
+const MONTHS_FR: Record<string, string> = {
+  janvier: "01", février: "02", fevrier: "02", mars: "03", avril: "04", mai: "05",
+  juin: "06", juillet: "07", août: "08", aout: "08", septembre: "09",
+  octobre: "10", novembre: "11", décembre: "12", decembre: "12"
+};
+const toIsoDate = (frDate: string): string => {
+  const m = frDate.trim().toLowerCase().match(/^(\d{1,2})\s+([a-zéûôà]+)\s+(\d{4})$/);
+  if (!m) return frDate;
+  const month = MONTHS_FR[m[2]];
+  if (!month) return frDate;
+  return `${m[3]}-${month}-${m[1].padStart(2, "0")}`;
+};
+
 const BlogArticle = () => {
   const { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -79,13 +131,36 @@ const BlogArticle = () => {
         <meta property="og:description" content={article.metaDescription} />
         <meta property="og:image" content={article.image} />
         <meta property="og:type" content="article" />
-        <meta property="article:published_time" content={article.date} />
+        <meta property="article:published_time" content={toIsoDate(article.date)} />
         <meta property="article:section" content={article.category} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.metaDescription} />
         <meta name="twitter:image" content={article.image} />
-        <link rel="canonical" href={`https://benatna.ma/blog/${article.slug}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": article.title,
+            "description": article.metaDescription,
+            "image": article.image?.startsWith("http") ? article.image : `https://benatna.ma${article.image}`,
+            "datePublished": toIsoDate(article.date),
+            "dateModified": toIsoDate(article.date),
+            "articleSection": article.category,
+            "inLanguage": "fr-MA",
+            "author": { "@type": "Organization", "name": "Benatna", "url": "https://benatna.ma" },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Benatna",
+              "url": "https://benatna.ma",
+              "logo": { "@type": "ImageObject", "url": "https://benatna.ma/logo.png" }
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://benatna.ma/blog/${article.slug}`
+            }
+          })}
+        </script>
       </Helmet>
       <Header />
       <Breadcrumbs />
@@ -154,34 +229,34 @@ const BlogArticle = () => {
           {/* Article Content */}
           <div className="prose prose-lg max-w-none animate-fade-in [animation-delay:600ms]">
             {article.content.map((paragraph, index) => {
-                if (paragraph.startsWith('##')) {
-                  return (
-                    <h2 key={index} className="text-3xl font-bold mt-12 mb-6">
-                      {paragraph.replace('## ', '')}
-                    </h2>
-                  );
-                } else if (paragraph.startsWith('###')) {
+                if (paragraph.startsWith('###')) {
                   return (
                     <h3 key={index} className="text-2xl font-bold mt-8 mb-4">
-                      {paragraph.replace('### ', '')}
+                      {renderInline(paragraph.replace(/^###\s*/, ''), `h3-${index}`)}
                     </h3>
+                  );
+                } else if (paragraph.startsWith('##')) {
+                  return (
+                    <h2 key={index} className="text-3xl font-bold mt-12 mb-6">
+                      {renderInline(paragraph.replace(/^##\s*/, ''), `h2-${index}`)}
+                    </h2>
                   );
                 } else if (paragraph.match(/^\d+\./)) {
                   return (
                     <p key={index} className="text-lg leading-relaxed font-medium">
-                      {paragraph}
+                      {renderInline(paragraph, `n-${index}`)}
                     </p>
                   );
                 } else if (paragraph.startsWith('-')) {
                   return (
                     <p key={index} className="text-lg leading-relaxed pl-4 border-l-4 border-primary/30">
-                      {paragraph.replace('- ', '')}
+                      {renderInline(paragraph.replace(/^-\s*/, ''), `li-${index}`)}
                     </p>
                   );
                 } else {
                   return (
                     <p key={index} className="text-lg leading-relaxed text-foreground/90">
-                      {paragraph}
+                      {renderInline(paragraph, `p-${index}`)}
                     </p>
                   );
                 }

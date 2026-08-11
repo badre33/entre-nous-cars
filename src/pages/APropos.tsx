@@ -9,19 +9,33 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { HreflangTags } from "@/utils/hreflangHelper";
 import aboutImage from "@/assets/about-mission.jpg";
 
+const PAGE_META: Record<string, { title: string; desc: string }> = {
+  fr: {
+    title: "À Propos de Benatna — La startup des loueurs locaux au Maroc",
+    desc: "Benatna gère le parc de centaines de loueurs marocains pour vous obtenir les meilleurs prix. Notre mission, notre équipe et notre façon de travailler.",
+  },
+  en: {
+    title: "About Benatna — The startup behind Morocco's local rental agencies",
+    desc: "Benatna manages the fleets of hundreds of Moroccan rental agencies to get you better prices. Our mission, our team and how we work.",
+  },
+  es: {
+    title: "Sobre Benatna — La startup de las agencias locales de Marruecos",
+    desc: "Benatna gestiona la flota de cientos de agencias marroquíes para conseguirte mejores precios. Nuestra misión, nuestro equipo y cómo trabajamos.",
+  },
+};
+
 const APropos = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const pageMeta = PAGE_META[language] ?? PAGE_META.fr;
   
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>À Propos de Benatna - Notre Mission et Valeurs | Location de Voiture au Maroc</title>
-        <meta name="description" content="Découvrez Benatna, la plateforme qui révolutionne la location de voiture au Maroc. Notre mission : rendre la location simple, transparente et accessible à tous." />
+        <title>{pageMeta.title}</title>
+        <meta name="description" content={pageMeta.desc} />
+        <meta property="og:title" content={pageMeta.title} />
+        <meta property="og:description" content={pageMeta.desc} />
         <meta name="keywords" content="à propos benatna, mission benatna, valeurs location voiture, qui sommes nous, entreprise location maroc" />
-        <link rel="canonical" href="https://benatna.ma/a-propos" />
-        <meta property="og:title" content="À Propos de Benatna - Notre Mission et Valeurs" />
-        <meta property="og:description" content="Découvrez qui nous sommes et comment nous révolutionnons la location de voiture au Maroc." />
-        <meta property="og:url" content="https://benatna.ma/a-propos" />
       </Helmet>
       <HreflangTags path="/a-propos" />
       <Header />

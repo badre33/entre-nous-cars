@@ -34,28 +34,25 @@ const contactSchema = z.object({
     .max(1000, { message: "Le message ne peut pas dépasser 1000 caractères" })
 });
 
+const PAGE_META: Record<string, { title: string; desc: string }> = {
+  fr: {
+    title: "Contact Benatna — WhatsApp +212 699 024 526 | Location Voiture Maroc",
+    desc: "Contactez Benatna par WhatsApp +212 699 024 526, formulaire ou email. Service 7j/7. Location de voiture au Maroc dès 250 DH/jour.",
+  },
+  en: {
+    title: "Contact Benatna — WhatsApp +212 699 024 526 | Car Rental Morocco",
+    desc: "Reach Benatna on WhatsApp +212 699 024 526, by form or email. 7 days a week. Car rental in Morocco from 250 MAD/day.",
+  },
+  es: {
+    title: "Contacto Benatna — WhatsApp +212 699 024 526 | Alquiler Coches Marruecos",
+    desc: "Contacta con Benatna por WhatsApp +212 699 024 526, formulario o email. 7 días a la semana. Alquiler de coches en Marruecos desde 250 MAD/día.",
+  },
+};
+
 const Contact = () => {
 
-  // WORKAROUND react-helmet-async: force-set document.title, meta description,
-  // canonical and OG tags via direct DOM API. Helmet leaks default values.
-  useEffect(() => {
-    document.title = "Contact Benatna - WhatsApp +212 699 024 526 | Location Voiture Maroc";
-    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
-      let el = document.querySelector(selector);
-      if (!el) {
-        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
-        el.setAttribute(key, keyVal);
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', 'content', "Contactez Benatna par WhatsApp +212 699 024 526, formulaire ou email. Service 7j/7. Location de voiture au Maroc dès 250 DH/jour.", 'name', 'description');
-    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/contact", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Contact Benatna - WhatsApp +212 699 024 526 | Location Voiture Maroc", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "Contactez Benatna par WhatsApp +212 699 024 526, formulaire ou email. Service 7j/7. Location de voiture au Maroc dès 250 DH/jour.", 'property', 'og:description');
-    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/contact", 'property', 'og:url');
-  }, []);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const pageMeta = PAGE_META[language] ?? PAGE_META.fr;
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const heroAnimation = useScrollAnimation(0.2);
@@ -64,13 +61,11 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Contactez-nous - Benatna | Location de Voiture au Maroc</title>
-        <meta name="description" content="Contactez l'équipe Benatna pour toute question sur la location de voiture au Maroc. Support client disponible par téléphone, email ou formulaire en ligne." />
+        <title>{pageMeta.title}</title>
+        <meta name="description" content={pageMeta.desc} />
+        <meta property="og:title" content={pageMeta.title} />
+        <meta property="og:description" content={pageMeta.desc} />
         <meta name="keywords" content="contact benatna, service client location voiture, aide location auto maroc, numéro téléphone benatna" />
-        <link rel="canonical" href="https://benatna.ma/contact" />
-        <meta property="og:title" content="Contactez-nous - Benatna" />
-        <meta property="og:description" content="Notre équipe est à votre disposition pour toute question sur la location de voiture au Maroc." />
-        <meta property="og:url" content="https://benatna.ma/contact" />
       </Helmet>
       <HreflangTags path="/contact" />
       <Header />

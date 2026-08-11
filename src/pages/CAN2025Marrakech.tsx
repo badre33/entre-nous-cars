@@ -17,7 +17,6 @@ const CAN2025Marrakech = () => {
       <Helmet>
         <title>Location Voiture CAN 2025 Marrakech - Stade de Marrakech | Benatna</title>
         <meta name="description" content="Location voiture CAN 2025 à Marrakech. Parking stade, navettes aéroport Menara, hébergements. 6 matchs. Réservez dès 250 DH/jour." />
-        <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-marrakech" />
       </Helmet>
       
       {/* Event Schema CAN 2025 Marrakech */}

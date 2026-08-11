@@ -725,26 +725,6 @@ const Louer = () => {
   const { t, language } = useLanguage();
   const louerMeta = LOUER_META[language] ?? LOUER_META.fr;
 
-  // WORKAROUND react-helmet-async: force-set document.title, meta description,
-  // canonical and OG tags via direct DOM API. Helmet leaks default values.
-  useEffect(() => {
-    const m = louerMeta;
-    document.title = m.title;
-    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
-      let el = document.querySelector(selector);
-      if (!el) {
-        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
-        el.setAttribute(key, keyVal);
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', 'content', m.desc, 'name', 'description');
-    setMeta('link[rel="canonical"]', 'href', m.url, 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', m.title, 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', m.desc, 'property', 'og:description');
-    setMeta('meta[property="og:url"]', 'content', m.url, 'property', 'og:url');
-  }, [language]);
   const [searchParams] = useSearchParams();
   const [selectedCity, setSelectedCity] = useState<string>("all");
   const [startDate, setStartDate] = useState<Date>();
@@ -1027,8 +1007,9 @@ Véhicule : ${selectedCar.name}
       <Helmet>
         <title>{louerMeta.title}</title>
         <meta name="description" content={louerMeta.desc} />
+        <meta property="og:title" content={louerMeta.title} />
+        <meta property="og:description" content={louerMeta.desc} />
         <meta name="keywords" content="location voiture maroc, louer auto casablanca, rent car marrakech, voiture tourisme maroc, location véhicule rabat, agence location tanger" />
-        <link rel="canonical" href={louerMeta.url} />
       </Helmet>
       <HreflangTags path="/louer" />
       <StructuredData type="rental" />

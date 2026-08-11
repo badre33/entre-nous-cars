@@ -149,7 +149,6 @@ const LocationCAN2025 = () => {
         <link rel="alternate" hrefLang="es" href="https://benatna.ma/es/location-voiture-can-2025-maroc" />
         <link rel="alternate" hrefLang="x-default" href="https://benatna.ma/location-voiture-can-2025-maroc" />
         
-        <link rel="canonical" href="https://benatna.ma/location-voiture-can-2025-maroc" />
         
         {/* Open Graph */}
         <meta property="og:title" content={t.title} />

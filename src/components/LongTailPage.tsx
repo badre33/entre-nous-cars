@@ -45,13 +45,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       }
       meta.setAttribute('content', config.metaDescription);
     }
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute('href', `https://benatna.ma/${config.slug}`);
+    // Le canonical est posé globalement par <CanonicalUrl /> à partir de l'URL réelle.
 
     // OG meta tags (for WhatsApp/Facebook/Twitter share previews)
     const setMeta = (property: string, content: string) => {
@@ -133,7 +127,6 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
         <title>{config.metaTitle}</title>
         <meta name="description" content={config.metaDescription} />
         <meta name="keywords" content={config.keywords} />
-        <link rel="canonical" href={`https://benatna.ma/${config.slug}`} />
         <meta property="og:title" content={config.metaTitle} />
         <meta property="og:description" content={config.metaDescription} />
         <meta property="og:url" content={`https://benatna.ma/${config.slug}`} />

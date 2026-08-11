@@ -11,26 +11,21 @@ interface CanonicalTagProps {
 }
 
 /**
- * Composant Canonical Tag pour SEO
- * Prévient le duplicate content en indiquant l'URL canonique
- * 
- * Impact SEO:
- * - Évite pénalités duplicate content
- * - Consolide le link juice sur URL principale
- * - Améliore crawl efficiency
- * 
+ * Balises hreflang + directives robots d'une page.
+ *
+ * Le <link rel="canonical"> N'EST PLUS posé ici : il l'est globalement par
+ * <CanonicalUrl /> à partir de l'URL réellement visitée. Les canonicals
+ * codés en dur donnaient une URL FR sur les routes /en/... et /es/...,
+ * ce qui demandait à Google de ne pas indexer les versions traduites.
+ *
  * Usage:
  * <CanonicalTag path="/location-voiture-casablanca" />
  */
 export const CanonicalTag = ({ path, alternates }: CanonicalTagProps) => {
-  // Nettoyer le path pour éviter doubles slashes
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
-  const canonicalUrl = `${BUSINESS_INFO.website}${cleanPath}`;
+  void path;
 
   return (
     <Helmet>
-      <link rel="canonical" href={canonicalUrl} />
-      
       {/* Alternate language versions si fournies */}
       {alternates?.fr && (
         <link rel="alternate" hrefLang="fr" href={`${BUSINESS_INFO.website}${alternates.fr}`} />

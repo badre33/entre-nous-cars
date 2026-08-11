@@ -16,25 +16,6 @@ import { useState, useEffect } from "react";
 
 const Blog = () => {
 
-  // WORKAROUND react-helmet-async: force-set document.title, meta description,
-  // canonical and OG tags via direct DOM API. Helmet leaks default values.
-  useEffect(() => {
-    document.title = "Blog Location Voiture Maroc - Guides & Conseils | Benatna";
-    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
-      let el = document.querySelector(selector);
-      if (!el) {
-        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
-        el.setAttribute(key, keyVal);
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', 'content', "Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna.", 'name', 'description');
-    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/blog", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Blog Location Voiture Maroc - Guides & Conseils | Benatna", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna.", 'property', 'og:description');
-    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/blog", 'property', 'og:url');
-  }, []);
   const { t } = useLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const heroAnimation = useScrollAnimation(0.2);
@@ -59,12 +40,11 @@ const Blog = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Blog Benatna - Guides et Conseils Location de Voiture au Maroc</title>
-        <meta name="description" content="Guides pratiques et conseils pour louer une voiture au Maroc. Documents, assurance, prix, road trips : tout ce qu'il faut savoir avant de partir." />
+        <title>Blog Location Voiture Maroc - Guides &amp; Conseils | Benatna</title>
+        <meta name="description" content="Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna." />
+        <meta property="og:title" content="Blog Location Voiture Maroc - Guides & Conseils | Benatna" />
+        <meta property="og:description" content="Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna." />
         <meta name="keywords" content="blog location voiture maroc, guide tourisme maroc, conseils conduite maroc, itinéraires touristiques, assurance auto maroc" />
-        <link rel="canonical" href="https://benatna.ma/blog" />
-        <meta property="og:title" content="Blog Benatna - Guides et Conseils Location de Voiture" />
-        <meta property="og:description" content="Tous nos guides et conseils pour réussir votre location de voiture au Maroc." />
         <meta property="og:url" content="https://benatna.ma/blog" />
       </Helmet>
       <HreflangTags path="/blog" />
@@ -128,16 +108,14 @@ const Blog = () => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {blogArticles.map((article, index) => {
-                const articleKey = `article${index + 1}`;
-                const translatedTitle = t(`blogArticles.${articleKey}.title`) !== `blogArticles.${articleKey}.title` 
-                  ? t(`blogArticles.${articleKey}.title`) 
-                  : article.title;
-                const translatedExcerpt = t(`blogArticles.${articleKey}.excerpt`) !== `blogArticles.${articleKey}.excerpt` 
-                  ? t(`blogArticles.${articleKey}.excerpt`) 
-                  : article.excerpt;
-                const translatedCategory = t(`blogArticles.${articleKey}.category`) !== `blogArticles.${articleKey}.category` 
-                  ? t(`blogArticles.${articleKey}.category`) 
-                  : article.category;
+                // Les traductions étaient indexées par POSITION (article1, article2…),
+                // avec seulement 7 clés figées sur un ancien ordre du tableau : les
+                // 7 premières cartes affichaient le titre et l'extrait d'un autre
+                // article que celui vers lequel elles pointaient. On affiche
+                // désormais les données réelles de l'article.
+                const translatedTitle = article.title;
+                const translatedExcerpt = article.excerpt;
+                const translatedCategory = article.category;
                 
                 return (
                   <BlogCard

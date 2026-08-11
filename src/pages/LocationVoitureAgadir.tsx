@@ -23,34 +23,14 @@ import cityAgadir from "@/assets/city-agadir.jpg";
 
 const LocationVoitureAgadir = () => {
 
-  // WORKAROUND react-helmet-async: force-set document.title, meta description,
-  // canonical and OG tags via direct DOM API. Helmet leaks default values.
-  useEffect(() => {
-    document.title = "Location Voiture Agadir dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna";
-    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
-      let el = document.querySelector(selector);
-      if (!el) {
-        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
-        el.setAttribute(key, keyVal);
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', 'content', "Location de voiture à Agadir dès 250 DH/jour. Livraison aéroport Al-Massira, accès Essaouira, sans carte de crédit.", 'name', 'description');
-    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/location-voiture-agadir", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Location Voiture Agadir dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Agadir dès 250 DH/jour. Livraison aéroport Al-Massira, accès Essaouira, sans carte de crédit.", 'property', 'og:description');
-    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/location-voiture-agadir", 'property', 'og:url');
-  }, []);
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Location de Voiture à Agadir | Prix Dès 250 DH/jour - Benatna</title>
-        <meta name="description" content="Location de voiture à Agadir avec Benatna. Aéroport Al Massira, corniche, plages. Prix transparents dès 250 DH/jour. Sans carte de crédit. Réservation en 2 minutes !" />
+        <title>Location Voiture Agadir dès 250 DH/jour | Livraison Aéroport &amp; Hôtel - Benatna</title>
+        <meta name="description" content="Location de voiture à Agadir dès 250 DH/jour. Livraison aéroport Al-Massira, accès Essaouira, sans carte de crédit." />
+        <meta property="og:title" content="Location Voiture Agadir dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna" />
+        <meta property="og:description" content="Location de voiture à Agadir dès 250 DH/jour. Livraison aéroport Al-Massira, accès Essaouira, sans carte de crédit." />
         <meta name="keywords" content="location voiture agadir, location auto agadir aeroport, louer voiture agadir corniche, location véhicule agadir plage, rent car agadir" />
-        <link rel="canonical" href="https://benatna.ma/location-voiture-agadir" />
-        <meta property="og:title" content="Location de Voiture à Agadir | Prix Dès 250 DH/jour" />
-        <meta property="og:description" content="Louez une voiture à Agadir avec Benatna. Aéroport Al Massira, corniche, livraison gratuite. Explorez le Sud du Maroc." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-agadir" />
       </Helmet>
       <StructuredData type="rental" />

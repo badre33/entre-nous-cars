@@ -18,8 +18,24 @@ import { useToast } from "@/hooks/use-toast";
 import { StickyCTA } from "@/components/StickyCTA";
 import heroImage from "@/assets/hero-partners.jpg";
 
+const PAGE_META: Record<string, { title: string; desc: string }> = {
+  fr: {
+    title: "Devenir Partenaire Benatna — Loueurs de voitures au Maroc",
+    desc: "Rejoignez le réseau Benatna : visibilité nationale, demandes qualifiées de touristes et MRE, outil de gestion gratuit. Inscription en 2 minutes.",
+  },
+  en: {
+    title: "Become a Benatna Partner — Car rental agencies in Morocco",
+    desc: "Join the Benatna network: nationwide visibility, qualified requests from tourists and Moroccans abroad, free management tool. Sign up in 2 minutes.",
+  },
+  es: {
+    title: "Sé Partner de Benatna — Agencias de alquiler en Marruecos",
+    desc: "Únete a la red Benatna: visibilidad nacional, solicitudes cualificadas de turistas y marroquíes en el extranjero, herramienta de gestión gratuita.",
+  },
+};
+
 const Partenaires = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const pageMeta = PAGE_META[language] ?? PAGE_META.fr;
   const { toast } = useToast();
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -66,10 +82,11 @@ const Partenaires = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Devenir Partenaire Benatna - Agence de Location de Voiture au Maroc</title>
-        <meta name="description" content="Rejoignez le réseau Benatna et boostez votre activité de location de voitures au Maroc. Visibilité nationale, réservations en ligne, outil de gestion gratuit." />
+        <title>{pageMeta.title}</title>
+        <meta name="description" content={pageMeta.desc} />
+        <meta property="og:title" content={pageMeta.title} />
+        <meta property="og:description" content={pageMeta.desc} />
         <meta name="keywords" content="partenaire location voiture maroc, agence location auto partenariat, devenir partenaire benatna, réseau location véhicule maroc" />
-        <link rel="canonical" href="https://benatna.ma/partenaires" />
       </Helmet>
       <HreflangTags path="/partenaires" />
       <StructuredData type="partners" />

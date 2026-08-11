@@ -242,7 +242,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Casablanca",
     citySlug: "casablanca",
     title: "Location Voiture Sidi Maarouf Casablanca | Zone Industrielle - Benatna",
-    metaDescription: "Location de voiture à Sidi Maarouf Casablanca. Livraison zone industrielle, Technopark, entreprises. Prix dès 180 DH/jour. Idéal business.",
+    metaDescription: "Location de voiture à Sidi Maarouf Casablanca. Livraison zone industrielle, Technopark, entreprises. Prix dès 250 DH/jour. Accès rapide aéroport CMN et Morocco Mall.",
     h1: "Location de Voiture à Sidi Maarouf - Zone Industrielle Casablanca",
     description: "Sidi Maarouf, principale zone industrielle et d'affaires de Casablanca. Technopark, sièges sociaux, usines. Quartier en pleine expansion avec infrastructures modernes.",
     highlights: [
@@ -652,7 +652,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Route Ourika Marrakech | Vallée Atlas - Benatna",
-    metaDescription: "Location de voiture Route Ourika Marrakech. Livraison route vallée, villages berbères. Prix dès 180 DH/jour. Idéal escapades nature.",
+    metaDescription: "Location de voiture Route Ourika Marrakech. Livraison route vallée, villages berbères. Prix dès 250 DH/jour. Idéal escapades nature vers l'Atlas.",
     h1: "Location de Voiture Route de l'Ourika - Vallée de l'Atlas",
     description: "Route de l'Ourika, porte d'entrée vers la vallée verdoyante de l'Atlas. Villages berbères, restaurants au bord de l'oued, artisanat, point de départ randonnées. Échappée nature à 30 min de Marrakech.",
     highlights: [

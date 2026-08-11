@@ -83,13 +83,6 @@ const Index = () => {
       document.head.appendChild(meta);
     }
     meta.setAttribute('content', m.desc);
-    let canon = document.querySelector('link[rel="canonical"]');
-    if (!canon) {
-      canon = document.createElement('link');
-      canon.setAttribute('rel', 'canonical');
-      document.head.appendChild(canon);
-    }
-    canon.setAttribute('href', m.url);
   }, [language]);
   const [isDesktop, setIsDesktop] = useState(false);
   const statsAnimation = useScrollAnimation(0.2);
@@ -162,7 +155,7 @@ const Index = () => {
         <title>{homeMeta.title}</title>
         <meta name="description" content={homeMeta.desc} />
         <meta name="keywords" content="location voiture maroc, location auto casablanca, louer voiture marrakech, location véhicule rabat, rent car morocco, agence location voiture, voiture de tourisme maroc" />
-        <link rel="canonical" href={homeMeta.url} />
+        {/* canonical posé plus haut via le DOM (useEffect) — ne pas le dupliquer ici */}
         <meta property="og:title" content="Benatna - Location de Voiture au Maroc" />
         <meta property="og:description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
         <meta property="og:url" content="https://benatna.ma/" />

@@ -4,49 +4,135 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "redirects": [
-    { "source": "/ar/:path*", "destination": "/:path*", "permanent": true },
-    { "source": "/comparatifs", "destination": "/", "permanent": true },
-    { "source": "/location/casablanca-:n", "destination": "/location-longue-duree-casablanca", "permanent": true },
-    { "source": "/location/marrakech-:n", "destination": "/location-longue-duree-marrakech", "permanent": true },
-    { "source": "/location/rabat-:n", "destination": "/location-voiture-rabat", "permanent": true },
-    { "source": "/location/tanger-:n", "destination": "/location-voiture-tanger", "permanent": true },
-    { "source": "/location/agadir-:n", "destination": "/location-voiture-agadir", "permanent": true },
-    { "source": "/location/fes-:n", "destination": "/location-voiture-fes", "permanent": true },
-    { "source": "/louer/rav4", "destination": "/louer", "permanent": true },
-    { "source": "/louer/jogger-7-places", "destination": "/vehicule/dacia-jogger", "permanent": true },
-    { "source": "/louer/500", "destination": "/louer", "permanent": true },
-    { "source": "/location-voiture-can-2025-:city", "destination": "/location-voiture-:city", "permanent": true },
-    { "source": "/location-voiture-can-2025-maroc", "destination": "/", "permanent": true }
+    {
+      "source": "/blog/guide-complet-location-voiture-can-2025",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/circuits-touristiques-entre-matchs-can-2025",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/parkings-acces-stades-can-2025",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/ar/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/location/casablanca-:n",
+      "destination": "/location-longue-duree-casablanca",
+      "permanent": true
+    },
+    {
+      "source": "/location/marrakech-:n",
+      "destination": "/location-longue-duree-marrakech",
+      "permanent": true
+    },
+    {
+      "source": "/location/rabat-:n",
+      "destination": "/location-voiture-rabat",
+      "permanent": true
+    },
+    {
+      "source": "/location/tanger-:n",
+      "destination": "/location-voiture-tanger",
+      "permanent": true
+    },
+    {
+      "source": "/location/agadir-:n",
+      "destination": "/location-voiture-agadir",
+      "permanent": true
+    },
+    {
+      "source": "/location/fes-:n",
+      "destination": "/location-voiture-fes",
+      "permanent": true
+    },
+    {
+      "source": "/louer/rav4",
+      "destination": "/louer",
+      "permanent": true
+    },
+    {
+      "source": "/louer/jogger-7-places",
+      "destination": "/vehicule/dacia-jogger",
+      "permanent": true
+    },
+    {
+      "source": "/louer/500",
+      "destination": "/louer",
+      "permanent": true
+    },
+    {
+      "source": "/location-voiture-can-2025-maroc",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/location-voiture-can-2025-:city",
+      "destination": "/location-voiture-:city",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/((?!api/|assets/|.*\\..*).*)", "destination": "/index.html" }
+    {
+      "source": "/((?!api/|assets/|.*\\..*).*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/sw.js",
       "headers": [
-        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
       ]
     },
     {
       "source": "/manifest.webmanifest",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(self)" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(self)"
+        }
       ]
     }
   ]

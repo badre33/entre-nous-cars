@@ -17,25 +17,6 @@ import { Link } from "react-router-dom";
 
 const FAQ = () => {
 
-  // WORKAROUND react-helmet-async: force-set document.title, meta description,
-  // canonical and OG tags via direct DOM API. Helmet leaks default values.
-  useEffect(() => {
-    document.title = "FAQ Location Voiture Maroc - Questions Fréquentes | Benatna";
-    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
-      let el = document.querySelector(selector);
-      if (!el) {
-        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
-        el.setAttribute(key, keyVal);
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', 'content', "Réponses aux questions fréquentes sur la location de voiture au Maroc : prix, assurance, paiement, livraison, conditions, jeune conducteur.", 'name', 'description');
-    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/faq", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "FAQ Location Voiture Maroc - Questions Fréquentes | Benatna", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "Réponses aux questions fréquentes sur la location de voiture au Maroc : prix, assurance, paiement, livraison, conditions, jeune conducteur.", 'property', 'og:description');
-    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/faq", 'property', 'og:url');
-  }, []);
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -77,7 +58,7 @@ const FAQ = () => {
         "name": "Quels sont les prix de location de voiture au Maroc ?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Nos prix varient selon le type de véhicule : Citadines (Clio, Sandero) à partir de 300 DH/jour, Berlines (Corolla, Golf) à partir de 450 DH/jour, SUV (Duster, Tucson) à partir de 350 DH/jour, Véhicules premium à partir de 650 DH/jour. Tous nos prix incluent l'assurance de base et le kilométrage illimité."
+          "text": "Nos prix varient selon le type de véhicule : Citadines (Clio, Sandero) à partir de 250 DH/jour, Berlines (Corolla, Golf) à partir de 450 DH/jour, SUV (Duster, Tucson) à partir de 350 DH/jour, Véhicules premium à partir de 650 DH/jour. Tous nos prix incluent l'assurance de base et le kilométrage illimité."
         }
       },
       {
@@ -294,10 +275,11 @@ const FAQ = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>FAQ Location de Voiture au Maroc | Benatna</title>
-        <meta name="description" content="Toutes les réponses à vos questions sur la location de voiture au Maroc. Documents, caution, assurance, livraison aéroport, annulation et plus." />
+        <title>FAQ Location Voiture Maroc - Questions Fréquentes | Benatna</title>
+        <meta name="description" content="Réponses aux questions fréquentes sur la location de voiture au Maroc : prix, assurance, paiement, livraison, conditions, jeune conducteur." />
+        <meta property="og:title" content="FAQ Location Voiture Maroc - Questions Fréquentes | Benatna" />
+        <meta property="og:description" content="Réponses aux questions fréquentes sur la location de voiture au Maroc : prix, assurance, paiement, livraison, conditions, jeune conducteur." />
         <meta name="keywords" content="faq location voiture maroc, questions location auto, documents nécessaires location voiture, assurance location maroc" />
-        <link rel="canonical" href="https://benatna.ma/faq" />
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
         </script>
@@ -384,7 +366,7 @@ const FAQ = () => {
                       <AccordionContent className="text-muted-foreground">
                         Nos prix varient selon le type de véhicule et la durée de location :
                         <ul className="list-disc list-inside mt-2 space-y-1">
-                          <li><strong>Citadines (Clio, Sandero) :</strong> à partir de 300 DH/jour</li>
+                          <li><strong>Citadines (Clio, Sandero) :</strong> à partir de 250 DH/jour</li>
                           <li><strong>Berlines (Corolla, Golf) :</strong> à partir de 450 DH/jour</li>
                           <li><strong>SUV (Duster, Tucson) :</strong> à partir de 350 DH/jour</li>
                           <li><strong>Véhicules premium :</strong> à partir de 800 DH/jour</li>

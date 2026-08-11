@@ -119,7 +119,7 @@ export const longTailPages: LongTailPageConfig[] = [
   {
     slug: "location-voiture-sans-carte-credit-casablanca",
     title: "Location Voiture Sans Carte Crédit Casablanca",
-    metaTitle: "Location Voiture Sans Carte de Crédit Casablanca - Espèces & Virement dès 300 DH | Benatna",
+    metaTitle: "Location Voiture Sans Carte de Crédit Casablanca - Espèces & Virement dès 250 DH/jour | Benatna",
     metaDescription: "Louer une voiture à Casablanca sans carte bancaire. Paiement en espèces ou virement. Aéroport Mohammed V, centre-ville. Dès 250 DH/jour sans caution CB.",
     keywords: "location voiture sans carte crédit casablanca, louer auto sans cb casa, location véhicule espèces casablanca",
     h1: "Location de Voiture Sans Carte de Crédit à Casablanca",

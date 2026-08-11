@@ -248,10 +248,10 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
   slug: `location-longue-duree-${citySlug}`,
   title: `Location Longue Durée ${city}`,
   metaTitle: `Location Voiture Longue Durée ${city} - Tarifs Mensuels | Benatna`,
-  metaDescription: `Location de voiture longue durée à ${city} pour long séjour ou vacances prolongées. Dès 7 000 DH/mois, meilleur tarif négocié auprès des loueurs locaux.`,
+  metaDescription: `Location de voiture longue durée à ${city} pour long séjour ou vacances prolongées. Dès 7 000 DH/mois, soit environ 250 DH/jour — le meilleur tarif négocié auprès des loueurs locaux.`,
   keywords: `location longue durée ${citySlug}, location mensuelle auto ${city}, location voiture long séjour maroc`,
   h1: `Location de Voiture Longue Durée à ${city}`,
-  heroSubtitle: 'Long séjour • Tarifs dégressifs négociés • Sans engagement',
+  heroSubtitle: 'Long séjour • Dès 7 000 DH/mois (environ 250 DH/jour) • Sans engagement',
   category: {
     label: "Formules Longue Durée",
     href: "/nos-services?category=longue-duree"
@@ -261,7 +261,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     sections: [
       {
         title: 'Tarifs Longue Durée Dégressifs (indicatifs)',
-        content: `Ordres de grandeur au mois, à confirmer par le loueur partenaire selon la saison : Citadine économique (Clio, Sandero) : dès 7 000 DH/mois. Berline : dès 9 500 DH/mois. SUV (Duster, Tucson) : dès 10 500 DH/mois. Premium (Mercedes, BMW) : sur demande selon modèle et durée. L'assurance du loueur est incluse, l'entretien du véhicule est géré par le loueur, et le kilométrage se négocie directement avec lui. Chaque loueur fixe son tarif final — envoyez vos dates sur WhatsApp et Benatna vous obtient la meilleure offre du parc.`
+        content: `Ordres de grandeur au mois, à confirmer par le loueur partenaire selon la saison : Citadine économique (Clio, Sandero) : dès 7 000 DH/mois, soit environ 250 DH/jour — c'est ce tarif dégressif qui permet d'annoncer « dès 250 DH/jour » sur le site. Berline : dès 9 500 DH/mois. SUV (Duster, Tucson) : dès 10 500 DH/mois. Premium (Mercedes, BMW) : sur demande selon modèle et durée. L'assurance du loueur est incluse, l'entretien du véhicule est géré par le loueur, et le kilométrage se négocie directement avec lui. Chaque loueur fixe son tarif final — envoyez vos dates sur WhatsApp et Benatna vous obtient la meilleure offre du parc.`
       },
       {
         title: 'Comment Ça Marche pour un Long Séjour',
@@ -316,7 +316,7 @@ const createJeuneConducteurPage = (city: string, citySlug: string): LongTailPage
   slug: `location-jeune-conducteur-${citySlug}`,
   title: `Location Jeune Conducteur ${city}`,
   metaTitle: `Location Voiture Jeune Conducteur ${city} -21 ans | Benatna`,
-  metaDescription: `Location voiture pour jeunes conducteurs à ${city}. Dès 21 ans avec 1 an de permis. Assurance jeune incluse. Tarifs dès 180 DH/jour sans supplément abusif.`,
+  metaDescription: `Location voiture pour jeunes conducteurs à ${city}. Dès 21 ans avec 1 an de permis. Assurance jeune incluse. Tarifs dès 250 DH/jour sans supplément abusif.`,
   keywords: `location jeune conducteur ${citySlug}, location -25 ans ${city}, louer voiture 21 ans`,
   h1: `Location de Voiture pour Jeune Conducteur à ${city}`,
   heroSubtitle: 'Dès 21 ans • Assurance adaptée • Pas de supplément abusif',
@@ -706,7 +706,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-voiture-coupe-monde-2026-maroc',
     title: 'Location Voiture Coupe du Monde 2026 Maroc',
-    metaTitle: 'Location Voiture Coupe du Monde 2026 Maroc - Spécial MRE dès 300 DH | Benatna',
+    metaTitle: 'Location Voiture Coupe du Monde 2026 Maroc - Spécial MRE dès 250 DH/jour | Benatna',
     metaDescription: 'Réservez votre voiture pour vivre la Coupe du Monde 2026 au Maroc avec votre famille. Tarifs MRE dès 250 DH/jour, livraison aéroport, sans carte de crédit. Maroc-Brésil 13 juin.',
     keywords: 'location voiture coupe du monde 2026, voiture mre maroc juin 2026, location voiture maroc bresil 13 juin, location famille mondial maroc, location voiture aeroport mre',
     h1: 'Location de Voiture pour la Coupe du Monde 2026 au Maroc',
@@ -781,7 +781,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-voiture-ete-2026-maroc',
     title: 'Location Voiture Été 2026 Maroc',
-    metaTitle: 'Location Voiture Été 2026 Maroc - Anticipez Juin-Août dès 300 DH | Benatna',
+    metaTitle: 'Location Voiture Été 2026 Maroc - Anticipez Juin-Août dès 250 DH/jour | Benatna',
     metaDescription: 'Réservez votre voiture pour l\'été 2026 au Maroc : juin, juillet, août. Anticipez 2-3 mois pour les meilleurs tarifs. Livraison aéroport, sans carte de crédit. Dès 250 DH/jour.',
     keywords: 'location voiture maroc ete 2026, location voiture juillet aout maroc, location voiture haute saison maroc, location voiture mre ete, location voiture vacances maroc',
     h1: 'Location de Voiture pour l\'Été 2026 au Maroc',
@@ -856,7 +856,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'location-voiture-tanger-med-port',
     title: 'Location Voiture Tanger Med Port',
-    metaTitle: 'Location Voiture Tanger Med Port - Livraison Ferry 24h/7j dès 300 DH | Benatna',
+    metaTitle: 'Location Voiture Tanger Med Port - Livraison Ferry 24h/7j dès 250 DH/jour | Benatna',
     metaDescription: 'Réservez votre voiture livrée au port Tanger Med dès votre descente du ferry. Service 24/7 pour MRE et touristes. Sans carte de crédit, dès 250 DH/jour.',
     keywords: 'location voiture tanger med, location voiture port tanger med, voiture ferry tanger med, mre tanger med voiture, location voiture algeciras tanger',
     h1: 'Location de Voiture au Port Tanger Med — Livraison Ferry 24h/7j',
@@ -1356,7 +1356,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     slug: 'prix-location-voiture-maroc-2026',
     title: 'Prix Location Voiture Maroc 2026',
     metaTitle: 'Prix Location Voiture Maroc 2026 - Tarifs Transparents par Ville | Benatna',
-    metaDescription: 'Prix location voiture Maroc 2026 : citadine 300 DH, berline 400, SUV 550, premium 1200. Tarifs transparents par ville, saison et catégorie. Sans surprise.',
+    metaDescription: 'Prix location voiture Maroc 2026 : citadine dès 250 DH, berline 400, SUV 550, premium 1200. Tarifs transparents par ville, saison et catégorie. Sans surprise.',
     keywords: 'prix location voiture maroc, prix location voiture casablanca, prix location voiture marrakech, tarifs location voiture maroc, prix voiture mre',
     h1: 'Prix Location Voiture Maroc 2026 — Grille Tarifaire Transparente',
     heroSubtitle: 'Tarifs en MAD garantis • Par ville • Par catégorie • Sans surprise • Dès 250 DH/jour',

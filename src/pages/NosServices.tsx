@@ -83,7 +83,6 @@ const NosServices = () => {
           name="keywords" 
           content="services location voiture maroc, location aéroport, jeune conducteur, longue durée, suv 4x4, voiture luxe" 
         />
-        <link rel="canonical" href="https://benatna.ma/nos-services" />
         <meta property="og:title" content="Nos Services de Location de Voiture au Maroc | Benatna" />
         <meta property="og:description" content="Découvrez tous nos services de location adaptés à vos besoins : aéroports, jeune conducteur, longue durée, SUV, véhicules spéciaux." />
         <meta property="og:url" content="https://benatna.ma/nos-services" />

@@ -32,7 +32,6 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
         <title>{neighborhood.title}</title>
         <meta name="description" content={neighborhood.metaDescription} />
         <meta name="keywords" content={`location voiture ${neighborhood.name.toLowerCase()}, location auto ${neighborhood.name.toLowerCase()}, louer voiture ${neighborhood.city.toLowerCase()} ${neighborhood.name.toLowerCase()}, location véhicule ${neighborhood.name.toLowerCase()}`} />
-        <link rel="canonical" href={`https://benatna.ma/${neighborhood.slug}`} />
         <meta property="og:title" content={neighborhood.title} />
         <meta property="og:description" content={neighborhood.metaDescription} />
         <meta property="og:url" content={`https://benatna.ma/${neighborhood.slug}`} />

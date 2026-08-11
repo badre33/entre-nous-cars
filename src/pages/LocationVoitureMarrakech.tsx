@@ -98,37 +98,17 @@ const marrakechTestimonials = [
 
 const LocationVoitureMarrakech = () => {
 
-  // WORKAROUND react-helmet-async: force-set document.title, meta description,
-  // canonical and OG tags via direct DOM API. Helmet leaks default values.
-  useEffect(() => {
-    document.title = "Location Voiture Marrakech dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna";
-    const setMeta = (selector: string, attr: string, value: string, key: string, keyVal: string) => {
-      let el = document.querySelector(selector);
-      if (!el) {
-        el = document.createElement(selector.includes('link') ? 'link' : 'meta');
-        el.setAttribute(key, keyVal);
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attr, value);
-    };
-    setMeta('meta[name="description"]', 'content', "Location de voiture à Marrakech dès 250 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté.", 'name', 'description');
-    setMeta('link[rel="canonical"]', 'href', "https://benatna.ma/location-voiture-marrakech", 'rel', 'canonical');
-    setMeta('meta[property="og:title"]', 'content', "Location Voiture Marrakech dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna", 'property', 'og:title');
-    setMeta('meta[property="og:description"]', 'content', "Location de voiture à Marrakech dès 250 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté.", 'property', 'og:description');
-    setMeta('meta[property="og:url"]', 'content', "https://benatna.ma/location-voiture-marrakech", 'property', 'og:url');
-  }, []);
   return (
     <div className="min-h-screen flex flex-col bg-background">
       {/* SEO Meta Tags */}
       <Helmet>
-        <title>Location Voiture Marrakech dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna</title>
+        <title>Location Voiture Marrakech dès 250 DH/jour | Livraison Aéroport &amp; Hôtel - Benatna</title>
+        <meta name="description" content="Location de voiture à Marrakech dès 250 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté." />
+        <meta property="og:title" content="Location Voiture Marrakech dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna" />
+        <meta property="og:description" content="Location de voiture à Marrakech dès 250 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté." />
         <meta 
-          name="description" 
           content="Location voiture Marrakech dès 250 DH/jour. Livraison aéroport Menara, SUV pour l'Atlas, véhicules récents. Réservation rapide et prix transparents." 
         />
-        <link rel="canonical" href="https://benatna.ma/location-voiture-marrakech" />
-        <meta property="og:title" content="Location Voiture Marrakech | Agences Locales - Benatna" />
-        <meta property="og:description" content="Louez une voiture à Marrakech avec Benatna. Agences locales vérifiées, prix transparents, réservation simple." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-marrakech" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://benatna.ma/og-image.png" />
@@ -159,7 +139,7 @@ const LocationVoitureMarrakech = () => {
       />
 
       <PriceRangeOfferSchema 
-        minPrice="300"
+        minPrice="250"
         maxPrice="900"
         city="Marrakech"
         discount={{ percentage: 15, minDays: 30 }}

@@ -76,7 +76,6 @@ const VehicleDetail = () => {
       <Helmet>
         <title>{vehicle.name} - Location {vehicle.priceDisplay} | Benatna</title>
         <meta name="description" content={vehicle.description.substring(0, 155)} />
-        <link rel="canonical" href={`https://benatna.ma/vehicule/${vehicle.slug}`} />
       </Helmet>
 
       <div className="container mx-auto px-4 py-6 max-w-6xl">

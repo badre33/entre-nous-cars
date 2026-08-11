@@ -50,9 +50,11 @@
     <!-- Viewport - CRITICAL for mobile-first indexing -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover" />
     
-    <!-- Canonical URL (default, can be overridden per page via Helmet) -->
-    <link rel="canonical" href="https://benatna.ma/" />
-    
+    <!-- PAS de canonical statique ici : react-helmet-async AJOUTE sa balise sans
+         retirer celle-ci, ce qui donnait deux canonicals contradictoires sur ~46 URLs
+         (pages quartiers, articles blog, comparatifs), dont un pointant vers la home.
+         Chaque page pose son propre canonical. -->
+
     <!-- Handheld Device Optimization -->
     <meta name="HandheldFriendly" content="true" />
     <meta name="MobileOptimized" content="width" />
@@ -81,8 +83,8 @@
     <!-- ===== ACCESSIBILITY ===== -->
     <meta name="color-scheme" content="light dark">
     
-    <title>Benatna – La mobilité, entre nous</title>
-    <meta name="description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
+    <title>Benatna — Location de voiture au Maroc dès 250 DH/jour</title>
+    <meta name="description" content="La startup marocaine qui gère le parc de centaines de loueurs locaux pour vous obtenir les meilleurs prix. Voiture dès 250 DH/jour, livraison partout au Maroc, réponse WhatsApp en 2 minutes." />
     <meta name="author" content="Benatna" />
 
     <!-- Google Search Console verification -->
