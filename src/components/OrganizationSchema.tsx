@@ -9,23 +9,58 @@ const CATALOG_HIGHLIGHTS = [
   {
     category: "Voitures Économiques",
     vehicles: [
-      { name: "Dacia Sandero", brand: "Dacia", basePrice: 300 },
-      { name: "Renault Clio", brand: "Renault", basePrice: 400 },
-      { name: "Hyundai Accent", brand: "Hyundai", basePrice: 440 }
+      {
+        name: "Dacia Sandero",
+        brand: "Dacia",
+        basePrice: 300,
+        image: "/car-sandero-stepway.jpg",
+        description: "Citadine économique 5 places, climatisation, idéale pour la ville et les trajets quotidiens au Maroc."
+      },
+      {
+        name: "Renault Clio",
+        brand: "Renault",
+        basePrice: 400,
+        image: "/car-clio.jpg",
+        description: "Citadine confortable 5 places, boîte automatique disponible, parfaite pour un séjour touristique."
+      },
+      {
+        name: "Peugeot 208",
+        brand: "Peugeot",
+        basePrice: 400,
+        image: "/car-peugeot-208.jpg",
+        description: "Citadine récente et sobre en carburant, adaptée aux trajets ville et autoroute."
+      }
     ]
   },
   {
     category: "SUV",
     vehicles: [
-      { name: "Dacia Duster", brand: "Dacia", basePrice: 380 },
-      { name: "Hyundai Tucson", brand: "Hyundai", basePrice: 640 }
+      {
+        name: "Dacia Duster",
+        brand: "Dacia",
+        basePrice: 380,
+        image: "/car-duster.jpg",
+        description: "SUV robuste 5 places, garde au sol élevée, recommandé pour l'Atlas, le désert et les routes de montagne."
+      }
     ]
   },
   {
-    category: "Berlines",
+    category: "Berlines Premium",
     vehicles: [
-      { name: "Volkswagen Golf", brand: "Volkswagen", basePrice: 650 },
-      { name: "Mercedes Classe C", brand: "Mercedes-Benz", basePrice: 1060 }
+      {
+        name: "Mercedes Classe E",
+        brand: "Mercedes-Benz",
+        basePrice: 1190,
+        image: "/car-mercedes-e.jpg",
+        description: "Berline premium spacieuse et confortable pour longs trajets et occasions particulières."
+      },
+      {
+        name: "BMW Série 5",
+        brand: "BMW",
+        basePrice: 1190,
+        image: "/car-bmw-5.jpg",
+        description: "Berline premium équipée, alternative à la Mercedes Classe E pour les longues distances."
+      }
     ]
   }
 ];
@@ -137,6 +172,8 @@ export const OrganizationSchema = () => {
               "@type": "Product",
               "name": vehicle.name,
               "category": group.category,
+              "image": `${BUSINESS_INFO.website}${vehicle.image}`,
+              "description": vehicle.description,
               "brand": {
                 "@type": "Brand",
                 "name": vehicle.brand
