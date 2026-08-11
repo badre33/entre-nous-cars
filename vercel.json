@@ -4,9 +4,7 @@
   "outputDirectory": "dist",
   "framework": "vite",
   "redirects": [
-    { "source": "/en/:path*", "destination": "/:path*", "permanent": true },
     { "source": "/ar/:path*", "destination": "/:path*", "permanent": true },
-    { "source": "/es/:path*", "destination": "/:path*", "permanent": true },
     { "source": "/comparatifs", "destination": "/", "permanent": true },
     { "source": "/location/casablanca-:n", "destination": "/location-longue-duree-casablanca", "permanent": true },
     { "source": "/location/marrakech-:n", "destination": "/location-longue-duree-marrakech", "permanent": true },
