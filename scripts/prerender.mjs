@@ -176,22 +176,47 @@ const main = async () => {
     logLevel: "error",
   });
 
-  // Sur Vercel, le navigateur n'est pas présent après `npm install` : on le
-  // télécharge une fois ici. En local il est déjà là (ou fourni via
-  // CHROMIUM_PATH) et cette étape ne coûte rien.
+  // Sur Vercel, le navigateur n'est pas présent après `npm install`, et l'image
+  // de build (Amazon Linux) n'a pas les librairies systeme dont Chromium a
+  // besoin (libnspr4, libnss3…). On installe donc l'un puis les autres, à la
+  // demande. En local le navigateur est déjà là (ou fourni via CHROMIUM_PATH)
+  // et ces étapes ne coûtent rien.
+  const { execSync } = await import("node:child_process");
+  const run = (cmd) => execSync(cmd, { stdio: "inherit" });
+
   const launch = () =>
     chromium.launch({
       args: ["--no-sandbox", "--disable-dev-shm-usage"],
       ...(process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {}),
     });
+
+  const SYSTEM_LIBS =
+    "nss nspr atk at-spi2-atk at-spi2-core cups-libs libdrm libX11 libXcomposite " +
+    "libXdamage libXext libXfixes libXrandr libxcb libxkbcommon mesa-libgbm " +
+    "pango cairo alsa-lib";
+
+  const steps = [
+    ["installation du navigateur", () => run("npx --yes playwright install chromium --only-shell")],
+    ["installation des librairies système", () => run(`dnf install -y ${SYSTEM_LIBS} || yum install -y ${SYSTEM_LIBS} || (apt-get update && apt-get install -y libnspr4 libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 libxkbcommon0 libgbm1 libpango-1.0-0 libcairo2 libasound2)`)],
+  ];
+
   let browser;
   try {
     browser = await launch();
-  } catch {
-    console.log("prerender: installation du navigateur…");
-    const { execSync } = await import("node:child_process");
-    execSync("npx --yes playwright install chromium --only-shell", { stdio: "inherit" });
-    browser = await launch();
+  } catch (first) {
+    let lastError = first;
+    for (const [label, action] of steps) {
+      console.log(`prerender: ${label}…`);
+      try {
+        action();
+        browser = await launch();
+        lastError = null;
+        break;
+      } catch (e) {
+        lastError = e;
+      }
+    }
+    if (!browser) throw lastError;
   }
   const queue = [...routes];
   const results = [];
