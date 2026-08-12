@@ -66,15 +66,12 @@ const toIsoDate = (frDate: string): string => {
 
 const BlogArticle = () => {
   const { slug } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
+  // Écran de chargement factice de 600 ms supprimé : l'article est déjà dans
+  // le bundle. Google capturait régulièrement le squelette à la place du texte.
+  const [isLoading] = useState(false);
   const headerAnimation = useScrollAnimation(0.2);
   const contentAnimation = useScrollAnimation(0.1);
   const article = blogArticles.find(a => a.slug === slug);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 600);
-    return () => clearTimeout(timer);
-  }, [slug]);
 
   if (!article) {
     return (

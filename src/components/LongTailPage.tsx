@@ -32,36 +32,9 @@ interface LongTailPageProps {
 export const LongTailPage = ({ config }: LongTailPageProps) => {
   const navigate = useNavigate();
 
-  // WORKAROUND: react-helmet-async fails to update document.title here.
-  // Direct DOM manipulation ensures Lighthouse SEO score is preserved.
-  useEffect(() => {
-    if (config.metaTitle) document.title = config.metaTitle;
-    if (config.metaDescription) {
-      let meta = document.querySelector('meta[name="description"]');
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute('name', 'description');
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', config.metaDescription);
-    }
-    // Le canonical est posé globalement par <CanonicalUrl /> à partir de l'URL réelle.
-
-    // OG meta tags (for WhatsApp/Facebook/Twitter share previews)
-    const setMeta = (property: string, content: string) => {
-      let meta = document.querySelector(`meta[property="${property}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute('property', property);
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', content);
-    };
-    setMeta('og:title', config.metaTitle);
-    setMeta('og:description', config.metaDescription);
-    setMeta('og:url', `https://benatna.ma/${config.slug}`);
-    setMeta('og:type', 'website');
-  }, [config.metaTitle, config.metaDescription, config.slug]);
+  // Les métadonnées sont posées par Helmet plus bas. Les poser aussi
+  // directement dans le DOM laissait la description de cette page derrière
+  // soi lors de la navigation vers une autre route.
 
   // Pull to refresh - mobile only
   const { isPulling, isRefreshing, pullDistance, pullPercentage } = usePullToRefresh({

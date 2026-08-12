@@ -70,20 +70,11 @@ const Index = () => {
   const { t, language } = useLanguage();
   const [parallaxOffset, setParallaxOffset] = useState(0);
 
-  // WORKAROUND: react-helmet-async fails to update document.title here.
-  // Force-set via useEffect to preserve Lighthouse SEO score (was 100, dropped to 57).
+  // Les métadonnées sont posées par Helmet plus bas. Elles l'étaient aussi
+  // directement dans le DOM ici : cette balise <meta name="description">
+  // survivait à la navigation et polluait ensuite TOUTES les autres pages
+  // avec la description de l'accueil.
   const homeMeta = HOME_META[language] ?? HOME_META.fr;
-  useEffect(() => {
-    const m = homeMeta;
-    document.title = m.title;
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name', 'description');
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute('content', m.desc);
-  }, [language]);
   const [isDesktop, setIsDesktop] = useState(false);
   const statsAnimation = useScrollAnimation(0.2);
   const howItWorksAnimation = useScrollAnimation(0.2);
@@ -155,11 +146,8 @@ const Index = () => {
         <title>{homeMeta.title}</title>
         <meta name="description" content={homeMeta.desc} />
         <meta name="keywords" content="location voiture maroc, location auto casablanca, louer voiture marrakech, location véhicule rabat, rent car morocco, agence location voiture, voiture de tourisme maroc" />
-        {/* canonical posé plus haut via le DOM (useEffect) — ne pas le dupliquer ici */}
-        <meta property="og:title" content="Benatna - Location de Voiture au Maroc" />
-        <meta property="og:description" content="La plateforme marocaine qui réunit les agences de location de voitures locales de confiance. Prix transparents. Processus digital. Sans surprises." />
-        <meta property="og:url" content="https://benatna.ma/" />
-        <meta property="og:type" content="website" />
+        <meta property="og:title" content={homeMeta.title} />
+        <meta property="og:description" content={homeMeta.desc} />
       </Helmet>
       <HreflangTags path="/" />
       <StructuredData type="home" />

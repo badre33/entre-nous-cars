@@ -17,7 +17,7 @@ import { useState, useEffect } from "react";
 const Blog = () => {
 
   const { t } = useLanguage();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading] = useState(false);
   const heroAnimation = useScrollAnimation(0.2);
   const categoriesAnimation = useScrollAnimation(0.2);
   
@@ -31,11 +31,10 @@ const Blog = () => {
     t('blog.aboutCat')
   ];
 
-  // Simulate loading for demonstration
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 800);
-    return () => clearTimeout(timer);
-  }, []);
+  // Il y avait ici un écran de chargement FACTICE de 800 ms. Les articles sont
+  // déjà dans le bundle : il n'y a rien à attendre. Il retardait la lecture
+  // pour tout le monde et, surtout, Google figeait souvent la page sur ce
+  // squelette — donc une page de blog sans un seul article visible.
 
   return (
     <div className="min-h-screen flex flex-col">

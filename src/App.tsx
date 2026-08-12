@@ -12,6 +12,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
 import { CanonicalUrl } from "@/components/CanonicalUrl";
+import { SeoDefaults } from "@/components/SeoDefaults";
 // MetaPixel, IntelligentRoutePrefetcher, Analytics, SpeedInsights are lazy-loaded
 // in DeferredComponents below to reduce initial bundle size (TBT optimization)
 import React, { lazy, Suspense, useEffect, useState, ComponentType } from "react";
@@ -295,6 +296,7 @@ const App = () => {
             {/* MetaPixel, IntelligentRoutePrefetcher, Analytics, SpeedInsights are now in DeferredComponents below */}
             <AnalyticsTrackerComponent />
             <LanguageProvider>
+              <SeoDefaults />
               <ComparisonProvider>
                 <Toaster />
                 <Sonner />
