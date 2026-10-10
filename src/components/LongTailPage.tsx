@@ -30,6 +30,8 @@ interface LongTailPageProps {
  * Optimisé pour la conversion et le référencement
  */
 export const LongTailPage = ({ config }: LongTailPageProps) => {
+  const retiredPaths = ["/location-voiture-mariage-maroc", "/location-voiture-luxe-evenement", "/location-van-famille-maroc", "/location-utilitaire-demenagement-casablanca"];
+  config = { ...config, relatedPages: config.relatedPages?.filter(p => !retiredPaths.includes(p.link)), relatedServices: config.relatedServices?.filter(p => !retiredPaths.includes(p.link)) };
   const navigate = useNavigate();
 
   // Les métadonnées sont posées par Helmet plus bas. Les poser aussi
@@ -136,6 +138,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       )}
       
       <Header />
+      <p className="text-center px-4 py-3 bg-primary/10">Pour les MRE, touristes et particuliers : location de 3 jours à 6 mois.</p>
       <BreadcrumbsEnriched items={breadcrumbItems} />
       <StickyProgress sections={sections} />
 

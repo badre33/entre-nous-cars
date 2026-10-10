@@ -22,7 +22,7 @@ export const SEOLinks = () => {
             <h3 className="text-xl font-semibold mb-4">Navigation Rapide</h3>
             <nav className="space-y-2">
               {internalLinks.map((link) => (
-                <Link 
+                <Link
                   key={link.to}
                   to={link.to}
                   className="block text-muted-foreground hover:text-primary transition-colors py-1"
@@ -39,7 +39,7 @@ export const SEOLinks = () => {
             <h3 className="text-xl font-semibold mb-4">Ressources Utiles</h3>
             <nav className="space-y-2">
               {externalResourceLinks.map((link) => (
-                <a 
+                <a
                   key={link.href}
                   href={link.href}
                   rel={link.rel}
@@ -57,35 +57,35 @@ export const SEOLinks = () => {
         <div className="mt-12 max-w-4xl mx-auto prose prose-sm">
           <h2 className="text-2xl font-semibold mb-4">Location de Voiture au Maroc - Guide Complet 2025</h2>
           <p className="text-muted-foreground leading-relaxed">
-            <strong>Benatna</strong> est la plateforme de référence pour la <strong>location de voiture au Maroc</strong>. 
-            Nous facilitons l'accès à plus de 300 véhicules dans les principales villes : 
-            <Link to="/location-voiture-casablanca" className="text-primary hover:underline"> location voiture Casablanca</Link>, 
-            <Link to="/location-voiture-marrakech" className="text-primary hover:underline"> Marrakech</Link>, 
-            <Link to="/location-voiture-rabat" className="text-primary hover:underline"> Rabat</Link>, 
-            <Link to="/location-voiture-tanger" className="text-primary hover:underline"> Tanger</Link>, 
-            <Link to="/location-voiture-agadir" className="text-primary hover:underline"> Agadir</Link> et 
+            <strong>Benatna</strong> est la plateforme de référence pour la <strong>location de voiture au Maroc</strong>.
+            Nous facilitons l'accès à plus de 300 véhicules dans les principales villes :
+            <Link to="/location-voiture-casablanca" className="text-primary hover:underline"> location voiture Casablanca</Link>,
+            <Link to="/location-voiture-marrakech" className="text-primary hover:underline"> Marrakech</Link>,
+            <Link to="/location-voiture-rabat" className="text-primary hover:underline"> Rabat</Link>,
+            <Link to="/location-voiture-tanger" className="text-primary hover:underline"> Tanger</Link>,
+            <Link to="/location-voiture-agadir" className="text-primary hover:underline"> Agadir</Link> et
             <Link to="/location-voiture-fes" className="text-primary hover:underline"> Fès</Link>.
           </p>
           <p className="text-muted-foreground leading-relaxed mt-4">
-            Notre service de <strong>location automobile</strong> se distingue par sa transparence totale des prix, 
-            son processus 100% digital et l'absence de frais cachés. Que vous recherchiez une citadine économique, 
-            un SUV familial ou un véhicule de luxe, notre réseau d'<strong>agences partenaires vérifiées</strong> vous 
+            Notre service de <strong>location automobile</strong> se distingue par sa transparence totale des prix,
+            son processus 100% digital et l'absence de frais cachés. Que vous recherchiez une citadine économique,
+            un SUV familial ou un véhicule de luxe, notre réseau d'<strong>agences partenaires vérifiées</strong> vous
             garantit un service professionnel et des véhicules en excellent état.
           </p>
           <p className="text-muted-foreground leading-relaxed mt-4">
-            Idéal pour le <strong>tourisme au Maroc</strong>, les déplacements professionnels ou les besoins locaux, 
+            Idéal pour le <strong>tourisme au Maroc</strong>, les séjours des MRE, les vacances et les déplacements personnels,
             Benatna simplifie votre mobilité avec des tarifs compétitifs dès 300 MAD/jour.
           </p>
-          
+
           {/* Bloc SEO Casablanca - Maillage interne stratégique */}
           <div className="mt-8 p-6 bg-primary/5 rounded-xl border border-primary/10">
             <h3 className="text-xl font-semibold mb-3">Location de voiture à Casablanca</h3>
             <p className="text-muted-foreground leading-relaxed">
-              Première destination économique du Maroc, <strong>Casablanca</strong> concentre entreprises, 
-              aéroport international et quartiers d'affaires. Que vous arriviez à l'aéroport Mohammed V ou 
-              que vous ayez besoin d'un véhicule pour vos déplacements professionnels, nos agences locales 
-              partenaires vous proposent une <Link to="/location-voiture-casablanca" className="text-primary hover:underline font-medium">location de voiture à Casablanca</Link> simple 
-              et transparente. Réservation 100 % digitale, prix clairs, assistance réactive : 
+              Première destination économique du Maroc, <strong>Casablanca</strong> concentre entreprises,
+              aéroport international et quartiers d'affaires. Que vous arriviez à l'aéroport Mohammed V ou
+              que vous ayez besoin d'un véhicule pendant votre séjour au Maroc, nos agences locales
+              partenaires vous proposent une <Link to="/location-voiture-casablanca" className="text-primary hover:underline font-medium">location de voiture à Casablanca</Link> simple
+              et transparente. Réservation 100 % digitale, prix clairs, assistance réactive :
               découvrez pourquoi des milliers de clients nous font confiance pour leur mobilité casablancaise.
             </p>
           </div>

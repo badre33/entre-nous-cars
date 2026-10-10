@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "prerender": "node scripts/prerender.mjs",
     "build:prerender": "vite build && npm run prerender:safe",
-    "prerender:safe": "node scripts/prerender.mjs || echo \"prerender ignore : le site reste deploye en mode application (HTML genere par le navigateur)\""
+    "prerender:safe": "node scripts/prerender.mjs || echo \"prerender ignore : le site reste deploye en mode application (HTML genere par le navigateur)\"",
+    "test:maintenance": "node scripts/test-maintenance.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -86,7 +87,6 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
-    "lovable-tagger": "^1.1.11",
     "playwright": "^1.62.1",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",

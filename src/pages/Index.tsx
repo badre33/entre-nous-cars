@@ -810,7 +810,7 @@ const Index = () => {
                   </div>
                   <div className="flex flex-wrap gap-2 mt-4">
                     <Badge variant="outline" className="text-xs">Tarifs Groupes</Badge>
-                    <Badge variant="outline" className="text-xs">SUV & Vans</Badge>
+                    <Badge variant="outline" className="text-xs">Citadines & SUV</Badge>
                     <Badge variant="outline" className="text-xs">Annulation Flexible</Badge>
                   </div>
                 </CardContent>

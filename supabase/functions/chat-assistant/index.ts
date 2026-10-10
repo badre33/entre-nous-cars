@@ -23,7 +23,7 @@ function getCorsHeaders(origin: string | null): Record<string, string> {
 
 // Input validation schema with strict limits
 const messageSchema = z.object({
-  role: z.enum(['user', 'assistant', 'system']),
+  role: z.enum(['user', 'assistant']),
   content: z.string().min(1).max(1000) // Reduced from 2000 to limit abuse
 });
 
@@ -171,10 +171,16 @@ serve(async (req) => {
     
     const { messages } = validation.data;
     console.log(`Processing chat request, messages: ${messages.length}`);
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    const AI_API_KEY = Deno.env.get("AI_API_KEY");
+    const AI_CHAT_COMPLETIONS_URL = Deno.env.get("AI_CHAT_COMPLETIONS_URL");
+    const AI_MODEL = Deno.env.get("AI_MODEL");
+    if (!AI_CHAT_COMPLETIONS_URL || !AI_MODEL || !AI_API_KEY) {
+      return new Response(JSON.stringify({ error: "Assistant indisponible. Contactez Benatna sur WhatsApp au +212 699 024 526." }), { status: 503, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    }
+    if (!AI_CHAT_COMPLETIONS_URL.startsWith("https://")) throw new Error("Chat endpoint must use HTTPS");
     
-    if (!LOVABLE_API_KEY) {
-      throw new Error("LOVABLE_API_KEY is not configured");
+    if (!AI_API_KEY) {
+      throw new Error("AI_API_KEY is not configured");
     }
 
     const systemPrompt = `Tu es l'Assistant Location Benatna, expert en conversion. TON OBJECTIF UNIQUE : aider le visiteur à LOUER une voiture. Chaque réponse doit le rapprocher de la réservation.
@@ -341,14 +347,14 @@ RAPPEL : Chaque message doit RAPPROCHER de la location. Pas de bavardage inutile
       }
     ];
 
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const response = await fetch(AI_CHAT_COMPLETIONS_URL, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        Authorization: `Bearer ${AI_API_KEY}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-2.5-flash",
+        model: AI_MODEL,
         messages: [
           { role: "system", content: systemPrompt },
           ...messages,

@@ -1,3 +1,4 @@
+import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -796,10 +797,17 @@ const Louer = () => {
   }, []);
 
   const openWhatsApp = (message: string) => {
-    window.open(
-      `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
-      '_blank'
-    );
+    if (!startDate || !endDate || !isValidRentalPeriod(format(startDate, "yyyy-MM-dd"), format(endDate, "yyyy-MM-dd"), startTime || "00:00", endTime || "00:00")) {
+      toast({ title: "Choisissez vos dates", description: RENTAL_PERIOD_MESSAGE, variant: "destructive" });
+      return false;
+    }
+    const popup = window.open(`https://wa.me/212699024526?text=${encodeURIComponent(message)}`, '_blank');
+    if (!popup) {
+      toast({ title: "WhatsApp n’a pas pu s’ouvrir", description: "Autorisez les fenêtres puis réessayez.", variant: "destructive" });
+      return false;
+    }
+    popup.opener = null;
+    return true;
   };
 
   // Bloc dates commun aux messages WhatsApp (si l'utilisateur a saisi des dates)
@@ -869,12 +877,12 @@ ${vehiclesList}`;
       cars.push({ name: carName, city, priceDisplay });
     }
 
-    openWhatsApp(buildRequestMessage(cars));
+    if (!openWhatsApp(buildRequestMessage(cars))) return;
 
     if (selectedCars.length > 0) {
       toast({
-        title: "Demande envoyée !",
-        description: `Demande envoyée pour ${cars.length} véhicule${cars.length > 1 ? 's' : ''}. Réponse en 2 minutes.`,
+        title: "WhatsApp est ouvert",
+        description: `Envoyez le message pour transmettre votre demande pour ${cars.length} véhicule${cars.length > 1 ? 's' : ''}.`,
       });
       clearComparison();
     }
@@ -885,11 +893,11 @@ ${vehiclesList}`;
     if (selectedCars.length === 0) return;
     fireConfetti();
 
-    openWhatsApp(buildRequestMessage(selectedCars));
+    if (!openWhatsApp(buildRequestMessage(selectedCars))) return;
 
     toast({
-      title: "Demande envoyée !",
-      description: "Votre demande part sur WhatsApp. Réponse en 2 minutes.",
+      title: "WhatsApp est ouvert",
+      description: "Envoyez votre message dans WhatsApp pour transmettre la demande.",
     });
     clearComparison();
   };
@@ -900,6 +908,10 @@ ${vehiclesList}`;
   };
 
   const handleSelectDates = (start: Date, end: Date) => {
+    if (!isValidRentalPeriod(format(start, "yyyy-MM-dd"), format(end, "yyyy-MM-dd"), startTime || "00:00", endTime || "00:00")) {
+      toast({ title: "Dates de location invalides", description: RENTAL_PERIOD_MESSAGE, variant: "destructive" });
+      return;
+    }
     setStartDate(start);
     setEndDate(end);
     setShowAvailability(false);
@@ -1021,6 +1033,7 @@ Véhicule : ${selectedCar.name}
         pullPercentage={pullPercentage}
       />
       <Header />
+      <p className="text-center px-4 py-3 bg-primary/10">Pour vos vacances et séjours au Maroc : location de 3 jours à 6 mois.</p>
       <Breadcrumbs />
       
       {/* Hero with Search and Parallax */}

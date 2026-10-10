@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ComparisonProvider } from "@/contexts/ComparisonContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
@@ -63,7 +63,6 @@ const LocationAeroportFes = lazy(() => import("./pages/LocationAeroportFes"));
 const LocationAeroportRabat = lazy(() => import("./pages/LocationAeroportRabat"));
 
 // Thématiques (15 pages)
-const LocationMariageMaroc = lazy(() => import("./pages/LocationMariageMaroc"));
 
 // Évènements 2026 (Coupe du Monde + Été — peak season)
 const LocationCoupeMonde2026 = lazy(() => import("./pages/LocationCoupeMonde2026"));
@@ -116,12 +115,9 @@ const LocationJeuneConducteurRabat = lazy(() => import("./pages/LocationJeuneCon
 const LocationSUVAtlas = lazy(() => import("./pages/LocationSUVAtlas"));
 const Location4x4Desert = lazy(() => import("./pages/Location4x4Desert"));
 const LocationSUVSudMaroc = lazy(() => import("./pages/LocationSUVSudMaroc"));
-const LocationLuxeEvenement = lazy(() => import("./pages/LocationLuxeEvenement"));
 const LocationWeekendMarrakech = lazy(() => import("./pages/LocationWeekendMarrakech"));
 const LocationElectriqueCasablanca = lazy(() => import("./pages/LocationElectriqueCasablanca"));
-const LocationVanFamilleMaroc = lazy(() => import("./pages/LocationVanFamilleMaroc"));
 const LocationCabrioletAgadir = lazy(() => import("./pages/LocationCabrioletAgadir"));
-const LocationUtilitaireCasablanca = lazy(() => import("./pages/LocationUtilitaireCasablanca"));
 
 // CAN 2025 pages
 const LocationCAN2025 = lazy(() => import("./pages/LocationCAN2025"));
@@ -377,7 +373,7 @@ const App = () => {
                     <Route path="/louer-voiture-maroc-faq-complete" element={<LouerVoitureMarocFaqComplete />} />
                     <Route path="/permis-etranger-douane-mre-location-voiture" element={<PermisEtrangerDouaneMRE />} />
                     <Route path="/avis-clients-benatna-2026" element={<AvisClientsBenatna2026 />} />
-                    <Route path="/location-voiture-mariage-maroc" element={<LocationMariageMaroc />} />
+                    <Route path="/location-voiture-mariage-maroc" element={<Navigate to="/louer" replace />} />
                     <Route path="/location-longue-duree-casablanca" element={<LocationLongueDureeCasablanca />} />
                     <Route path="/location-longue-duree-marrakech" element={<LocationLongueDureeMarrakech />} />
                     <Route path="/location-jeune-conducteur-casablanca" element={<LocationJeuneConducteurCasablanca />} />
@@ -386,12 +382,12 @@ const App = () => {
                     <Route path="/location-suv-atlas" element={<LocationSUVAtlas />} />
                     <Route path="/location-4x4-desert" element={<Location4x4Desert />} />
                     <Route path="/location-suv-sud-maroc" element={<LocationSUVSudMaroc />} />
-                    <Route path="/location-voiture-luxe-evenement" element={<LocationLuxeEvenement />} />
+                    <Route path="/location-voiture-luxe-evenement" element={<Navigate to="/louer" replace />} />
                     <Route path="/location-weekend-marrakech" element={<LocationWeekendMarrakech />} />
                     <Route path="/location-voiture-electrique-casablanca" element={<LocationElectriqueCasablanca />} />
-                    <Route path="/location-van-famille-maroc" element={<LocationVanFamilleMaroc />} />
+                    <Route path="/location-van-famille-maroc" element={<Navigate to="/louer" replace />} />
                     <Route path="/location-cabriolet-agadir" element={<LocationCabrioletAgadir />} />
-                    <Route path="/location-utilitaire-demenagement-casablanca" element={<LocationUtilitaireCasablanca />} />
+                    <Route path="/location-utilitaire-demenagement-casablanca" element={<Navigate to="/louer" replace />} />
                     <Route path="/location-voiture-can-2025-maroc" element={<LocationCAN2025 />} />
                     {/* CAN 2025 Villes-Stades */}
                     <Route path="/location-voiture-can-2025-casablanca" element={<CAN2025Casablanca />} />

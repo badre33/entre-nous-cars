@@ -1,9 +1,10 @@
+import { isAppCache } from "./appCaches";
 /**
  * ChunkLoadError Handler
- * 
+ *
  * Intercepte les erreurs de chargement de modules dynamiques (chunks) et force
  * un reload propre pour récupérer la nouvelle version de l'application.
- * 
+ *
  * Cas gérés :
  * - ChunkLoadError : erreur de chargement de chunk Vite/Webpack
  * - Loading chunk failed : message d'erreur alternatif
@@ -48,7 +49,7 @@ function incrementReloadCount(): void {
 async function clearServiceWorkerCaches(): Promise<void> {
   try {
     if ('caches' in window) {
-      const cacheNames = await caches.keys();
+      const cacheNames = (await caches.keys()).filter(name => isAppCache(name, new URL("/", window.location.origin).href));
       await Promise.all(
         cacheNames.map(cacheName => {
           console.log(`[ChunkErrorHandler] Suppression du cache: ${cacheName}`);
@@ -61,7 +62,7 @@ async function clearServiceWorkerCaches(): Promise<void> {
     if ('serviceWorker' in navigator) {
       const registrations = await navigator.serviceWorker.getRegistrations();
       await Promise.all(
-        registrations.map(registration => {
+        registrations.filter(registration => registration.scope === new URL("/", window.location.origin).href).map(registration => {
           console.log('[ChunkErrorHandler] Désinscription du Service Worker');
           return registration.unregister();
         })
@@ -83,10 +84,10 @@ function forceHardReload(): void {
       <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: system-ui, sans-serif; padding: 20px; text-align: center;">
         <h1 style="color: #ef4444; margin-bottom: 16px;">Erreur de chargement</h1>
         <p style="color: #6b7280; margin-bottom: 24px; max-width: 400px;">
-          Une erreur est survenue lors du chargement de l'application. 
+          Une erreur est survenue lors du chargement de l'application.
           Veuillez vider le cache de votre navigateur et rafraîchir la page.
         </p>
-        <button onclick="localStorage.clear(); sessionStorage.clear(); location.href = location.origin + '?cache_bust=' + Date.now();" 
+        <button onclick="sessionStorage.removeItem('chunk_error_reload_count'); sessionStorage.removeItem('chunk_error_last_reload'); location.href = location.origin + '?cache_bust=' + Date.now();"
                 style="background: #f97316; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
           Réessayer
         </button>
@@ -97,7 +98,7 @@ function forceHardReload(): void {
 
   incrementReloadCount();
   console.log('[ChunkErrorHandler] Rechargement forcé de la page...');
-  
+
   // Hard reload avec cache-busting
   const url = new URL(window.location.href);
   url.searchParams.set('_cb', Date.now().toString());
@@ -109,7 +110,7 @@ function forceHardReload(): void {
  */
 function isChunkLoadError(error: Error | unknown): boolean {
   if (!error) return false;
-  
+
   const errorString = String(error);
   const errorMessage = error instanceof Error ? error.message : errorString;
   const errorName = error instanceof Error ? error.name : '';
@@ -124,7 +125,7 @@ function isChunkLoadError(error: Error | unknown): boolean {
     /error loading dynamically imported module/i,
   ];
 
-  return chunkErrorPatterns.some(pattern => 
+  return chunkErrorPatterns.some(pattern =>
     pattern.test(errorMessage) || pattern.test(errorName) || pattern.test(errorString)
   );
 }
@@ -134,9 +135,9 @@ function isChunkLoadError(error: Error | unknown): boolean {
  */
 function isSyntaxErrorOnAsset(error: Error | unknown): boolean {
   if (!error) return false;
-  
+
   const errorMessage = error instanceof Error ? error.message : String(error);
-  
+
   // Quand le serveur renvoie du HTML au lieu de JS (404 fallback)
   return errorMessage.includes('Unexpected token') && errorMessage.includes('<');
 }
@@ -146,14 +147,14 @@ function isSyntaxErrorOnAsset(error: Error | unknown): boolean {
  */
 function handleGlobalError(event: ErrorEvent): void {
   const { error, filename } = event;
-  
+
   // Vérifier si c'est une erreur sur un fichier d'assets
   const isAssetFile = filename && /\/assets\/.*\.(js|css)/.test(filename);
-  
+
   if (isChunkLoadError(error) || (isAssetFile && isSyntaxErrorOnAsset(error))) {
     console.error('[ChunkErrorHandler] Erreur de chunk détectée:', error);
     event.preventDefault();
-    
+
     clearServiceWorkerCaches().then(() => {
       forceHardReload();
     });
@@ -165,11 +166,11 @@ function handleGlobalError(event: ErrorEvent): void {
  */
 function handleUnhandledRejection(event: PromiseRejectionEvent): void {
   const { reason } = event;
-  
+
   if (isChunkLoadError(reason)) {
     console.error('[ChunkErrorHandler] Erreur de chunk (promise) détectée:', reason);
     event.preventDefault();
-    
+
     clearServiceWorkerCaches().then(() => {
       forceHardReload();
     });
