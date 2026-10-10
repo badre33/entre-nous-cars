@@ -1,3 +1,4 @@
+import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -34,12 +35,8 @@ export const HeroSearchForm = () => {
     endDate: z.string().min(1, { message: "Veuillez sélectionner une date de fin" }),
     startTime: z.string().min(1, { message: "Veuillez sélectionner une heure de début" }),
     endTime: z.string().min(1, { message: "Veuillez sélectionner une heure de fin" }),
-  }).refine((data) => {
-    const startDateTime = new Date(`${data.startDate}T${data.startTime}`);
-    const endDateTime = new Date(`${data.endDate}T${data.endTime}`);
-    return endDateTime > startDateTime;
-  }, {
-    message: "La date et l'heure de fin doivent être après la date et l'heure de début",
+  }).refine((data) => isValidRentalPeriod(data.startDate, data.endDate, data.startTime, data.endTime), {
+    message: RENTAL_PERIOD_MESSAGE,
     path: ["endDate"],
   });
 

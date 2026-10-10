@@ -1,3 +1,4 @@
+import { isAppCache } from "./appCaches";
 /**
  * Version Check System
  * 
@@ -122,14 +123,14 @@ export async function checkForUpdates(): Promise<boolean> {
 export async function applyUpdate(): Promise<void> {
   // Nettoyer les caches du Service Worker
   if ('caches' in window) {
-    const cacheNames = await caches.keys();
+    const cacheNames = (await caches.keys()).filter(name => isAppCache(name, new URL("/", window.location.origin).href));
     await Promise.all(cacheNames.map(name => caches.delete(name)));
   }
   
   // Désinscrire le Service Worker
   if ('serviceWorker' in navigator) {
     const registrations = await navigator.serviceWorker.getRegistrations();
-    await Promise.all(registrations.map(reg => reg.unregister()));
+    await Promise.all(registrations.filter(reg => reg.scope === new URL("/", window.location.origin).href).map(reg => reg.unregister()));
   }
   
   // Hard reload

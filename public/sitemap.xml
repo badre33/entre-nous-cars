@@ -226,16 +226,6 @@
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://benatna.ma/location-van-famille-maroc</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-utilitaire-demenagement-casablanca</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
     <loc>https://benatna.ma/location-voiture-electrique-casablanca</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -244,16 +234,6 @@
   <!-- ============================================================ -->
   <!-- Événements & usages spécifiques                               -->
   <!-- ============================================================ -->
-  <url>
-    <loc>https://benatna.ma/location-voiture-mariage-maroc</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-luxe-evenement</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
   <url>
     <loc>https://benatna.ma/location-weekend-marrakech</loc>
     <changefreq>monthly</changefreq>

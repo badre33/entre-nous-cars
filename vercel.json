@@ -78,6 +78,26 @@
       "source": "/location-voiture-can-2025-:city",
       "destination": "/location-voiture-:city",
       "permanent": true
+    },
+    {
+      "source": "/location-voiture-mariage-maroc",
+      "destination": "/louer",
+      "permanent": true
+    },
+    {
+      "source": "/location-voiture-luxe-evenement",
+      "destination": "/louer",
+      "permanent": true
+    },
+    {
+      "source": "/location-van-famille-maroc",
+      "destination": "/louer",
+      "permanent": true
+    },
+    {
+      "source": "/location-utilitaire-demenagement-casablanca",
+      "destination": "/louer",
+      "permanent": true
     }
   ],
   "rewrites": [

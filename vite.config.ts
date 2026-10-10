@@ -1,8 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 import { VitePWA } from "vite-plugin-pwa";
+
+const buildTimestamp = new Date().toISOString();
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -12,7 +13,7 @@ export default defineConfig(({ mode }) => ({
   },
   // Injecter le timestamp de build pour la détection de version
   define: {
-    __BUILD_TIMESTAMP__: JSON.stringify(new Date().toISOString()),
+    __BUILD_TIMESTAMP__: JSON.stringify(buildTimestamp),
   },
   build: {
     // Use default chunking & minification to maximize React compatibility
@@ -22,8 +23,13 @@ export default defineConfig(({ mode }) => ({
   // Retirer les console.log/debugger du bundle de production
   esbuild: mode === "production" ? { drop: ["console", "debugger"] } : undefined,
   plugins: [
+    {
+      name: "benatna-build-version",
+      generateBundle() {
+        this.emitFile({ type: "asset", fileName: "version.json", source: JSON.stringify({ version: buildTimestamp, timestamp: Date.parse(buildTimestamp) }) });
+      },
+    },
     react(),
-    mode === "development" && componentTagger(),
     VitePWA({
       registerType: "autoUpdate",
       injectRegister: null, // Manual registration for better LCP control
@@ -85,7 +91,7 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,ico,png,jpg,jpeg,svg,webp,woff2}"],
+        globPatterns: ["**/*.{js,css,html,woff2}"],
         navigateFallback: '/index.html',
         navigateFallbackDenylist: [/^\/api/, /^\/version\.json/],
         cleanupOutdatedCaches: true,
@@ -94,7 +100,7 @@ export default defineConfig(({ mode }) => ({
         runtimeCaching: [
           // Pages HTML - cache très court pour éviter les versions obsolètes
           {
-            urlPattern: /^https:\/\/benatna\.ma\/(?!assets\/).*$/i,
+            urlPattern: ({ request }) => request.mode === "navigate",
             handler: "NetworkFirst",
             options: {
               cacheName: "pages-cache",
@@ -110,7 +116,7 @@ export default defineConfig(({ mode }) => ({
           },
           // Chunks JS hashés - NetworkFirst pour éviter les mismatches
           {
-            urlPattern: /\/assets\/.*\.[a-f0-9]+\.js$/i,
+            urlPattern: /\/assets\/[^/?]+\.js(?:\?.*)?$/i,
             handler: "NetworkFirst",
             options: {
               cacheName: "js-chunks-cache",
@@ -126,7 +132,7 @@ export default defineConfig(({ mode }) => ({
           },
           // CSS chunks - NetworkFirst également
           {
-            urlPattern: /\/assets\/.*\.[a-f0-9]+\.css$/i,
+            urlPattern: /\/assets\/[^/?]+\.css(?:\?.*)?$/i,
             handler: "NetworkFirst",
             options: {
               cacheName: "css-chunks-cache",

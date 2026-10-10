@@ -1,3 +1,5 @@
+import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
+import { toast } from "sonner";
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -41,6 +43,10 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
   const handleConfirm = () => {
     if (startDate) {
       const finalEndDate = endDate ?? startDate;
+      if (!isValidRentalPeriod(format(startDate, "yyyy-MM-dd"), format(finalEndDate, "yyyy-MM-dd"))) {
+        toast.error(RENTAL_PERIOD_MESSAGE);
+        return;
+      }
       onSelectDates(startDate, finalEndDate);
       onClose();
     }
