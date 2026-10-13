@@ -95,10 +95,10 @@ const Auth = () => {
       return;
     }
 
-    if (signupPassword.length < 6) {
+    if (signupPassword.length < 12) {
       toast({
         title: "Erreur",
-        description: "Le mot de passe doit contenir au moins 6 caractères.",
+        description: "Le mot de passe doit contenir au moins 12 caractères.",
         variant: "destructive",
       });
       return;
@@ -163,8 +163,8 @@ const Auth = () => {
           <CardContent>
             <Tabs defaultValue="login" className="w-full">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="login">Connexion</TabsTrigger>
-                <TabsTrigger value="signup">Inscription</TabsTrigger>
+                <TabsTrigger value="login" className="text-white data-[state=active]:text-black">Connexion</TabsTrigger>
+                <TabsTrigger value="signup" className="text-white data-[state=active]:text-black">Inscription</TabsTrigger>
               </TabsList>
               
               <TabsContent value="login">
@@ -175,6 +175,8 @@ const Auth = () => {
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="login-email"
+                        name="email"
+                        autoComplete="username"
                         type="email"
                         placeholder="votre@email.com"
                         className="pl-10"
@@ -191,6 +193,8 @@ const Auth = () => {
                       <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="login-password"
+                        name="password"
+                        autoComplete="current-password"
                         type={showPassword ? "text" : "password"}
                         placeholder="••••••••"
                         className="pl-10 pr-10"
@@ -229,6 +233,8 @@ const Auth = () => {
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="signup-email"
+                        name="email"
+                        autoComplete="username"
                         type="email"
                         placeholder="votre@email.com"
                         className="pl-10"
@@ -245,13 +251,16 @@ const Auth = () => {
                       <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="signup-password"
+                        name="password"
+                        autoComplete="new-password"
+                        aria-describedby="signup-password-help"
                         type={showPassword ? "text" : "password"}
-                        placeholder="Minimum 6 caractères"
+                        placeholder="Minimum 12 caractères"
                         className="pl-10 pr-10"
                         value={signupPassword}
                         onChange={(e) => setSignupPassword(e.target.value)}
                         required
-                        minLength={6}
+                        minLength={12}
                       />
                       <button
                         type="button"
@@ -263,12 +272,18 @@ const Auth = () => {
                     </div>
                   </div>
                   
+                  <p id="signup-password-help" className="text-sm text-muted-foreground">
+                    Choisissez au moins 12 caractères, par exemple une phrase de plusieurs mots sans lien entre eux. Utilisez un mot de passe unique ou celui proposé par votre gestionnaire de mots de passe.
+                  </p>
+
                   <div className="space-y-2">
                     <Label htmlFor="signup-confirm">Confirmer le mot de passe</Label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="signup-confirm"
+                        name="password-confirmation"
+                        autoComplete="new-password"
                         type={showPassword ? "text" : "password"}
                         placeholder="Confirmez votre mot de passe"
                         className="pl-10"
