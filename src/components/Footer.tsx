@@ -205,33 +205,13 @@ const Footer = () => {
               <h4 className="font-semibold mb-3 text-sm text-primary">Véhicules Spéciaux</h4>
               <ul className="space-y-2 text-xs">
                 <li>
-                  <Link to="/location-voiture-mariage-maroc" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Voiture Mariage Luxe
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-voiture-luxe-evenement" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Luxe Événement
-                  </Link>
-                </li>
-                <li>
                   <Link to="/location-voiture-electrique-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
                     Voiture Électrique
                   </Link>
                 </li>
                 <li>
-                  <Link to="/location-van-famille-maroc" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Van Familial 7-9 Places
-                  </Link>
-                </li>
-                <li>
                   <Link to="/location-cabriolet-agadir" className="text-muted-foreground hover:text-foreground transition-colors">
                     Cabriolet Agadir
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-utilitaire-demenagement-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Utilitaire Déménagement
                   </Link>
                 </li>
               </ul>

@@ -1,8 +1,9 @@
+import { getAnalyticsDateRange, buildAnalyticsTimeSeries, fetchAnalyticsPages } from "@/utils/analyticsData";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuery } from "@tanstack/react-query";
-import { format, subDays, startOfDay, endOfDay } from "date-fns";
+import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -79,19 +80,19 @@ const Analytics = () => {
     return () => subscription.unsubscribe();
   }, [navigate]);
 
-  const startDate = startOfDay(subDays(new Date(), parseInt(dateRange)));
-  const endDate = endOfDay(new Date());
+  const { startDate, endDate } = getAnalyticsDateRange(Number(dateRange));
 
   // Fetch events
-  const { data: events, isLoading: eventsLoading, refetch: refetchEvents } = useQuery({
+  const { data: events, isLoading: eventsLoading, error: eventsError, refetch: refetchEvents } = useQuery({
     queryKey: ['analytics-events', dateRange, eventTypeFilter, pageFilter],
-    queryFn: async () => {
+    queryFn: async () => fetchAnalyticsPages(async (from, to) => {
       let query = supabase
         .from('analytics_events')
         .select('*')
         .gte('created_at', startDate.toISOString())
         .lte('created_at', endDate.toISOString())
-        .order('created_at', { ascending: false });
+        .order('created_at', { ascending: false })
+        .order('id', { ascending: true });
 
       if (eventTypeFilter !== 'all') {
         query = query.eq('event_type', eventTypeFilter);
@@ -100,27 +101,27 @@ const Analytics = () => {
         query = query.eq('page_path', pageFilter);
       }
 
-      const { data, error } = await query;
-      if (error) throw error;
-      return data as AnalyticsEvent[];
-    },
+      const { data, error } = await query.range(from, to);
+      return { data: data as AnalyticsEvent[] | null, error };
+    }),
     enabled: isAuthenticated === true,
   });
 
   // Fetch sessions
-  const { data: sessions, isLoading: sessionsLoading, refetch: refetchSessions } = useQuery({
+  const { data: sessions, isLoading: sessionsLoading, error: sessionsError, refetch: refetchSessions } = useQuery({
     queryKey: ['analytics-sessions', dateRange],
-    queryFn: async () => {
+    queryFn: async () => fetchAnalyticsPages(async (from, to) => {
       const { data, error } = await supabase
         .from('analytics_sessions')
         .select('*')
         .gte('created_at', startDate.toISOString())
         .lte('created_at', endDate.toISOString())
-        .order('created_at', { ascending: false });
+        .order('created_at', { ascending: false })
+        .order('id', { ascending: true })
+        .range(from, to);
 
-      if (error) throw error;
-      return data as AnalyticsSession[];
-    },
+      return { data: data as AnalyticsSession[] | null, error };
+    }),
     enabled: isAuthenticated === true,
   });
 
@@ -147,21 +148,7 @@ const Analytics = () => {
   const formSubmits = events?.filter(e => e.event_name === 'form_submit').length || 0;
 
   // Time series data
-  const timeSeriesData = events?.reduce((acc, event) => {
-    const date = format(new Date(event.created_at), 'dd/MM');
-    const existing = acc.find(d => d.date === date);
-    if (existing) {
-      existing.events++;
-      if (event.event_name === 'page_view') existing.pageViews++;
-    } else {
-      acc.push({ 
-        date, 
-        events: 1, 
-        pageViews: event.event_name === 'page_view' ? 1 : 0 
-      });
-    }
-    return acc;
-  }, [] as { date: string; events: number; pageViews: number }[]) || [];
+  const timeSeriesData = buildAnalyticsTimeSeries(events ?? []);
 
   // Device distribution
   const deviceData = events?.reduce((acc, e) => {
@@ -260,9 +247,12 @@ const Analytics = () => {
     navigate("/");
   };
 
-  const handleRefresh = () => {
-    refetchEvents();
-    refetchSessions();
+  const handleRefresh = async () => {
+    const results = await Promise.all([refetchEvents(), refetchSessions()]);
+    if (results.some(result => result.error)) {
+      toast({ title: "Actualisation impossible", description: "Les statistiques n’ont pas pu être chargées. Réessayez.", variant: "destructive" });
+      return;
+    }
     toast({
       title: "Données actualisées",
       description: "Les analytics ont été rafraîchies.",
@@ -271,6 +261,21 @@ const Analytics = () => {
 
   if (isAuthenticated === null) {
     return <div className="min-h-screen flex items-center justify-center">Chargement...</div>;
+  }
+
+  if (eventsError || sessionsError) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col">
+        <Header />
+        <main className="flex-1 container mx-auto px-4 py-8">
+          <h1 className="text-3xl font-bold mb-4">Dashboard Analytics</h1>
+          <p role="alert" className="mb-4">Les statistiques n’ont pas pu être chargées. Aucune donnée n’est affichée pour éviter de présenter des chiffres incomplets.</p>
+          <Button onClick={handleRefresh}>Réessayer</Button>
+          <Button className="ml-2" variant="outline" onClick={handleLogout}>Déconnexion</Button>
+        </main>
+        <Footer />
+      </div>
+    );
   }
 
   const isLoading = eventsLoading || sessionsLoading;
