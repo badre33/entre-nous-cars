@@ -20,7 +20,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 // import { SocialProofNotification } from "@/components/SocialProofNotification";
 // import { RecentBookingAlert } from "@/components/RecentBookingAlert";
-import { CarCardSkeleton } from "@/components/CarCardSkeleton";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import LazyCarImage from "@/components/LazyCarImage";
 import { StructuredData } from "@/components/StructuredData";
@@ -740,6 +739,7 @@ const Louer = () => {
   const [showAvailability, setShowAvailability] = useState(false);
   const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [cataloguePage, setCataloguePage] = useState({ filterKey: "", count: 24 });
   const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('grid');
   const { selectedCars, addToComparison, removeFromComparison, isInComparison, clearComparison } = useComparison();
   const isMobile = useIsMobile();
@@ -1008,6 +1008,19 @@ Véhicule : ${selectedCar.name}
     });
     return result;
   }, [selectedCity, selectedType, selectedBrand, selectedCategory]);
+
+  const filterKey = JSON.stringify([selectedCity, selectedType, selectedBrand, selectedCategory]);
+  useEffect(() => {
+    setCataloguePage({ filterKey, count: 24 });
+  }, [filterKey]);
+  const visibleCount = cataloguePage.filterKey === filterKey ? cataloguePage.count : 24;
+  const visibleCars = displayedCars.slice(0, visibleCount);
+  const catalogueLabels = {
+    fr: { more: "Afficher plus de véhicules", count: `${visibleCars.length} véhicules affichés sur ${displayedCars.length}`, empty: "Aucun véhicule ne correspond à ces filtres." },
+    en: { more: "Show more vehicles", count: `${visibleCars.length} vehicles shown out of ${displayedCars.length}`, empty: "No vehicles match these filters." },
+    es: { more: "Mostrar más vehículos", count: `${visibleCars.length} vehículos mostrados de ${displayedCars.length}`, empty: "Ningún vehículo coincide con estos filtros." },
+  };
+  const catalogueLabel = catalogueLabels[language] ?? catalogueLabels.fr;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -1296,7 +1309,7 @@ Véhicule : ${selectedCar.name}
       </section>
 
       {/* Available Cars */}
-      <section className="py-8 md:py-20 pb-32 md:pb-20">
+      <section id="catalogue-results" className="py-8 md:py-20 pb-32 md:pb-20">
         <div className="container px-4">
           <div className="mb-6 md:mb-8">
             <div className="flex items-center justify-between mb-2">
@@ -1340,44 +1353,8 @@ Véhicule : ${selectedCar.name}
           </div>
 
           {/* Mobile Views */}
-          <div className="md:hidden mb-8">
-            {displayedCars.length === 0 ? (
-              <>
-                {viewMode === 'carousel' && (
-                  <Carousel
-                    opts={{
-                      align: "start",
-                      loop: false,
-                    }}
-                    className="w-full"
-                  >
-                    <CarouselContent className="-ml-2">
-                      {[...Array(6)].map((_, i) => (
-                        <CarouselItem key={i} className="pl-2 basis-[90%]">
-                          <CarCardSkeleton viewMode="carousel" />
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
-                )}
-
-                {viewMode === 'grid' && (
-                  <div className="grid grid-cols-2 gap-3">
-                    {[...Array(6)].map((_, i) => (
-                      <CarCardSkeleton key={i} viewMode="grid" />
-                    ))}
-                  </div>
-                )}
-
-                {viewMode === 'list' && (
-                  <div className="space-y-0">
-                    {[...Array(6)].map((_, i) => (
-                      <CarCardSkeleton key={i} viewMode="list" />
-                    ))}
-                  </div>
-                )}
-              </>
-            ) : (
+          {isMobile && <div className="md:hidden mb-8">
+            {displayedCars.length === 0 ? null : (
               <>
                 {viewMode === 'carousel' && (
                   <>
@@ -1390,7 +1367,7 @@ Véhicule : ${selectedCar.name}
                       className="w-full"
                     >
                       <CarouselContent className="-ml-2">
-                        {displayedCars.map((car) => (
+                        {visibleCars.map((car) => (
                           <CarouselItem key={car.id} className="pl-2 basis-[90%]">
                             <SwipeableCarCard
                               car={car}
@@ -1425,7 +1402,7 @@ Véhicule : ${selectedCar.name}
 
                 {viewMode === 'grid' && (
                   <div className="grid grid-cols-2 gap-3">
-                    {displayedCars.map((car) => (
+                    {visibleCars.map((car) => (
                       <SwipeableCarCard
                         key={car.id}
                         car={car}
@@ -1450,7 +1427,7 @@ Véhicule : ${selectedCar.name}
 
                 {viewMode === 'list' && (
                   <div className="space-y-0">
-                    {displayedCars.map((car) => (
+                    {visibleCars.map((car) => (
                       <SwipeableCarCard
                         key={car.id}
                         car={car}
@@ -1474,11 +1451,11 @@ Véhicule : ${selectedCar.name}
                 )}
               </>
             )}
-          </div>
+          </div>}
 
           {/* Desktop Grid View */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {displayedCars.map((car) => (
+          {!isMobile && <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {visibleCars.map((car) => (
               <SwipeableCarCard
                 key={car.id}
                 car={car}
@@ -1498,6 +1475,19 @@ Véhicule : ${selectedCar.name}
                 onPreview={() => setPreviewCar(car)}
               />
             ))}
+          </div>}
+          <div className="mt-8 text-center" aria-live="polite">
+            <p className="text-sm text-muted-foreground mb-4">
+              {displayedCars.length === 0 ? catalogueLabel.empty : catalogueLabel.count}
+            </p>
+            {visibleCars.length < displayedCars.length && (
+              <Button
+                variant="outline"
+                onClick={() => setCataloguePage({ filterKey, count: visibleCount + 24 })}
+              >
+                {catalogueLabel.more}
+              </Button>
+            )}
           </div>
         </div>
       </section>
