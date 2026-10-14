@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { VitePWA } from "vite-plugin-pwa";
@@ -28,7 +28,7 @@ export default defineConfig(({ mode }) => ({
       generateBundle() {
         this.emitFile({ type: "asset", fileName: "version.json", source: JSON.stringify({ version: buildTimestamp, timestamp: Date.parse(buildTimestamp) }) });
       },
-    },
+    } satisfies Plugin,
     react(),
     VitePWA({
       registerType: "autoUpdate",
