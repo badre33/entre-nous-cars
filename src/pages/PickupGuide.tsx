@@ -16,20 +16,20 @@ export default function PickupGuide() {
       <section className="space-y-5">
         <h1 className="text-3xl md:text-5xl">Votre voiture à l’arrivée à Casablanca</h1>
         <p className="text-lg">MRE, touristes et vacanciers : préparez votre prise en charge en ville, à l’aéroport Mohammed V ou près d’une gare. Nos loueurs sont basés à Casablanca. Rabat reste une livraison sur demande depuis Casablanca.</p>
-        <p><strong>Voitures de tourisme uniquement. Minimum trois jours, maximum six mois.</strong> Disponibilité, remise et frais à confirmer avec le loueur. La présence d’un lieu dans ce guide ne signifie pas que Benatna y possède une agence ou un guichet.</p>
+        <p><strong>Voitures de tourisme uniquement. Minimum trois jours, maximum six mois.</strong> Livraison gratuite, convenue à l’avance avec le loueur. La présence d’un lieu dans ce guide ne signifie pas que Benatna y possède une agence ou un guichet.</p>
         <p>La demande se prépare sur le site puis se transmet par WhatsApp. Aucun paiement en ligne ; la réservation doit être confirmée par le loueur.</p>
       </section>
       {['Casablanca','Rabat'].map(city=><section key={city} className="space-y-5">
         <h2 className="text-2xl">{city==='Casablanca'?'Gares et aéroport de Casablanca':'Rabat : gares et aéroport, livraison conditionnelle'}</h2>
-        {city==='Rabat'&&<p>Les véhicules partent de Casablanca. Le loueur étudie la faisabilité, le délai et les frais avant toute confirmation.</p>}
+        {city==='Rabat'&&<p>Les véhicules partent de Casablanca. La livraison est gratuite et convenue à l’avance avec le loueur.</p>}
         <div className="grid md:grid-cols-2 gap-5">{pickupPoints.filter(p=>p.city===city).map(p=><article id={p.id} key={p.id} className="rounded-xl border p-5 space-y-3">
           <h3 className="text-xl font-semibold">{p.name}</h3><p>{p.detail}</p>
           <Link className="inline-block underline font-semibold" to={`/louer?city=${p.city}&pickup=${p.id}`}>Préparer une demande — {p.name}</Link>
         </article>)}</div>
       </section>)}
-      <section className="space-y-4"><h2 className="text-2xl">Une autre gare à Casablanca ou Rabat ?</h2><p>Cette liste présente les principaux points d’arrivée, pas un inventaire exhaustif des gares. Précisez le nom de votre gare sur WhatsApp : le loueur doit valider le rendez-vous et les frais. Aucune remise dans une autre ville n’est proposée.</p><Link className="underline" to="/louer">Préparer mes dates</Link></section>
+      <section className="space-y-4"><h2 className="text-2xl">Une autre gare à Casablanca ou Rabat ?</h2><p>Cette liste présente les principaux points d’arrivée, pas un inventaire exhaustif des gares. Précisez le nom de votre gare sur WhatsApp : la livraison est gratuite et convenue à l’avance avec le loueur. Aucune remise dans une autre ville n’est proposée.</p><Link className="underline" to="/louer">Préparer mes dates</Link></section>
       <section className="space-y-5"><h2 className="text-2xl">Réponses pratiques avant votre demande</h2>{rentalFacts.map(f=><article className="space-y-2" key={f.question}><h3 className="text-lg font-semibold">{f.question}</h3><p>{f.answer}</p></article>)}</section>
-      <section className="space-y-2 text-sm"><h2 className="font-semibold">Repères de transport</h2><p>Les horaires de transport et les accès peuvent changer ; vérifiez-les auprès des opérateurs. Les modalités de location sont celles confirmées par le loueur.</p><p><a className="underline" href="https://www.casablancacity.ma/fr/article/754/gares-ferroviaires">Gares : portail de Casablanca</a> · <a className="underline" href="https://www.oncf.ma/fr/Al-boraq">Trains : ONCF</a> · <a className="underline" href="https://www.onda.ma/">Aéroports : ONDA</a></p></section>
+      <section className="space-y-2 text-sm"><h2 className="font-semibold">Repères de transport</h2><p>Consultez les opérateurs pour les informations de transport. Les modalités de location sont celles confirmées par le loueur.</p><p><a className="underline" href="https://www.casablancacity.ma/fr/article/754/gares-ferroviaires">Gares : portail de Casablanca</a> · <a className="underline" href="https://www.oncf.ma/fr/Al-boraq">Trains : ONCF</a> · <a className="underline" href="https://www.onda.ma/">Aéroports : ONDA</a></p></section>
     </main><Footer />
   </>;
 }

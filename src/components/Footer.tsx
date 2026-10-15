@@ -91,7 +91,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-border text-center space-y-3">
           <h3 className="font-semibold">Location à Casablanca</h3>
           <p>Loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V.</p>
-          <p>Rabat : livraison sur demande, faisabilité et frais à confirmer avec le loueur.</p>
+          <p>Rabat : livraison sur demande, livraison gratuite, convenue à l’avance avec le loueur.</p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link to="/prise-en-charge-casablanca-rabat">Gares et aéroports</Link>
             <Link to="/location-voiture-casablanca">Casablanca</Link>

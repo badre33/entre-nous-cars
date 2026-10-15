@@ -1,3 +1,4 @@
+import { isClassicTourismCar } from "@/utils/cataloguePolicy";
 import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
 import { useState, useEffect, useMemo } from "react";
@@ -696,7 +697,7 @@ const carModels = [
 // Les loueurs et leurs véhicules sont basés à Casablanca.
 const CATALOG_CITIES = ["Casablanca"];
 const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
-  carModels.map((model, modelIdx) => ({
+  carModels.filter(model => isClassicTourismCar(model.name) && !/premium|luxe|prestige/i.test([model.category, ...(model.badges ?? [])].join(" "))).map((model, modelIdx) => ({
     ...model,
     id: cityIdx * 100 + modelIdx + 1,
     city,
@@ -706,17 +707,17 @@ const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
 const LOUER_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
     title: "Location de voiture à Casablanca | Benatna",
-    desc: "Location avec des loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, disponibilité et frais à confirmer.",
+    desc: "Location avec des loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, livraison gratuite convenue à l’avance.",
     url: "https://benatna.ma/louer",
   },
   en: {
     title: "Car rental in Casablanca | Benatna",
-    desc: "Rent from Casablanca-based agencies. City or Mohammed V Airport pickup. Rabat delivery on request, availability and fees subject to confirmation.",
+    desc: "Rent from Casablanca-based agencies. City or Mohammed V Airport pickup. Rabat delivery on request, free delivery arranged in advance.",
     url: "https://benatna.ma/en/louer",
   },
   es: {
     title: "Alquiler de coches en Casablanca | Benatna",
-    desc: "Agencias de alquiler en Casablanca. Recogida en la ciudad o aeropuerto Mohammed V. Rabat bajo petición; disponibilidad y gastos por confirmar.",
+    desc: "Agencias de alquiler en Casablanca. Recogida en la ciudad o aeropuerto Mohammed V. Rabat bajo petición; entrega gratuita acordada de antemano.",
     url: "https://benatna.ma/es/louer",
   },
 };
@@ -861,8 +862,8 @@ ${vehiclesList}`;
     if (selectedCity !== "all") {
       message += `\n\n📍 Ville : ${selectedCity}`;
     }
-    if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande : merci de confirmer la faisabilité et les frais depuis Casablanca.";
-    if (pickupPoint && pickupPoint.city === selectedCity) message += `\nPoint de prise en charge demandé : ${pickupPoint.name} (rendez-vous à confirmer)`;
+    if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande : merci de confirmer la disponibilité ; livraison gratuite depuis Casablanca.";
+    if (pickupPoint && pickupPoint.city === selectedCity) message += `\nPoint de prise en charge demandé : ${pickupPoint.name} (livraison gratuite, convenue à l’avance)`;
     message += buildDatesBlock();
     message += `\n\n💡 Prix indicatifs — tarif final confirmé par le loueur partenaire.`;
     message += `\nMerci de me confirmer la disponibilité.`;
@@ -958,7 +959,7 @@ Véhicule : ${selectedCar.name}
           message += `\n\n📆 Location longue durée (${Math.round(days/30)} mois) — merci de me faire une offre tarifaire adaptée.`;
         }
 
-        if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande, disponibilité et frais à confirmer depuis Casablanca.";
+        if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande, livraison gratuite convenue à l’avance depuis Casablanca.";
         message += `\n\nJe souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité.`;
 
         window.open(
@@ -1043,8 +1044,8 @@ Véhicule : ${selectedCar.name}
       <HreflangTags path="/louer" />
       <StructuredData type="rental" />
       <CarProductSchema cars={displayedCars.slice(0, 20)} />
-      {pickupPoint && pickupPoint.city === selectedCity && <p className="px-4 py-3 text-center bg-secondary/30">Point demandé : {pickupPoint.name} — rendez-vous et frais à confirmer.</p>}
-      <p className="bg-secondary/30 px-4 py-3 text-center" role="note">Casablanca : prise en charge en ville ou à l’aéroport Mohammed V. Rabat : livraison sur demande, faisabilité et frais à confirmer par le loueur. Aucune autre ville desservie actuellement.</p>
+      {pickupPoint && pickupPoint.city === selectedCity && <p className="px-4 py-3 text-center bg-secondary/30">Point demandé : {pickupPoint.name} — livraison gratuite, convenue à l’avance.</p>}
+      <p className="bg-secondary/30 px-4 py-3 text-center" role="note">Casablanca : prise en charge en ville ou à l’aéroport Mohammed V. Rabat : livraison sur demande, livraison gratuite convenue à l’avance. Aucune autre ville desservie actuellement.</p>
       <PullToRefreshIndicator 
         isPulling={isPulling}
         isRefreshing={isRefreshing}
@@ -1523,7 +1524,7 @@ Véhicule : ${selectedCar.name}
       <StickyCTA
         label="Contacter via WhatsApp"
         onClick={() => {
-          const message = `Bonjour, je souhaite louer un véhicule basé à Casablanca.${selectedCity === "Rabat" ? " Livraison à Rabat sur demande : merci de confirmer la faisabilité et les frais." : " Prise en charge à Casablanca."}`;
+          const message = `Bonjour, je souhaite louer un véhicule basé à Casablanca.${selectedCity === "Rabat" ? " Livraison à Rabat sur demande : merci de confirmer la disponibilité ; livraison gratuite." : " Prise en charge à Casablanca."}`;
           window.open(`https://wa.me/212699024526?text=${encodeURIComponent(message)}`, '_blank');
         }}
         icon={MessageCircle}

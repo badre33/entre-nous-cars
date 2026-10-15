@@ -65,7 +65,7 @@ const casablancaFAQs = [
   },
   {
     question: "Peut-on restituer le véhicule dans une autre ville que Casablanca ?",
-    answer: "Nos loueurs sont basés à Casablanca. Une livraison à Rabat peut être étudiée sur demande ; faisabilité, restitution et frais doivent être confirmés avec le loueur. Nous ne proposons pas de prise en charge dans les autres villes."
+    answer: "Nos loueurs sont basés à Casablanca. Une livraison à Rabat peut être étudiée sur demande ; disponibilité doit être confirmée avec le loueur ; la livraison est gratuite et convenue à l’avance. Nous ne proposons pas de prise en charge dans les autres villes."
   }
 ];
 

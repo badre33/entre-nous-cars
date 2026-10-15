@@ -13,10 +13,13 @@ try {
   const cards=page.locator('#catalogue-results h3');
   await page.getByText('24 véhicules affichés sur',{exact:false}).waitFor();
   assert.equal(await cards.count(),24,'no duplicate hidden catalogue');
+  const total=Number((await page.locator('#catalogue-results h2').innerText()).match(/^\d+/)[0]);
+  const nextCount=Math.min(48,total);
+  assert(!/Mercedes|BMW|Audi|Porsche|Maserati|Range Rover/.test(await cards.allTextContents().then(x=>x.join(' '))));
   const first=await cards.first().innerText();
   await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).click();
-  await page.getByText('48 véhicules affichés sur',{exact:false}).waitFor();
-  assert.equal(await cards.count(),48);assert.equal(await cards.first().innerText(),first,'stable loaded order');
+  await page.getByText(`${nextCount} véhicules affichés sur`,{exact:false}).waitFor();
+  assert.equal(await cards.count(),nextCount);assert.equal(await cards.first().innerText(),first,'stable loaded order');
   await page.getByRole('combobox').first().click();await page.getByRole('option',{name:'Rabat',exact:true}).click();
   await page.getByText('24 véhicules affichés sur',{exact:false}).waitFor();assert.equal(await cards.count(),24);
   while(await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).count())await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).click();
@@ -29,7 +32,7 @@ try {
   if(process.env.TEST_OUTPUT_DIR)await page.screenshot({path:`${process.env.TEST_OUTPUT_DIR}/catalogue-${width}.png`,fullPage:false});
   const bytes=Buffer.byteLength(await page.content());if(process.env.TEST_OUTPUT_DIR)await fs.writeFile(`${process.env.TEST_OUTPUT_DIR}/catalogue-${width}.html`,await page.content());
   assert(bytes<350000,`HTML too big ${bytes}`);assert.deepEqual(errors,[]);
-  console.log(`Viewport ${width}: 24→48, filtres réinitialisés, catalogue complet accessible, HTML ${bytes} octets.`);
+  console.log(`Viewport ${width}: ${24}→${nextCount} sur ${total}, filtres réinitialisés, catalogue complet accessible, HTML ${bytes} octets.`);
   await page.close();
  }
 }finally{await browser.close();}
