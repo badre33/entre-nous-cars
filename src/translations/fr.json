@@ -18,12 +18,12 @@
     "apply": "Appliquer"
   },
   "home": {
-    "heroTitle": "Location de voiture au Maroc, entre nous.",
-    "heroSubtitle": "On fait rebondir votre demande sur des centaines d'agences marocaines. On négocie pour vous. On revient avec le meilleur tarif — et le loueur partenaire vous livre où vous voulez.",
+    "heroTitle": "Location de voiture à Casablanca, entre nous.",
+    "heroSubtitle": "Des loueurs basés à Casablanca, une prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, après confirmation du loueur.",
     "rentCar": "Louer une voiture",
     "becomePartner": "Devenir partenaire",
     "availableCars": "Voitures disponibles",
-    "inCities": "Dans 6 villes du Maroc",
+    "inCities": "Casablanca",
     "partnerAgencies": "Agences partenaires",
     "verifiedTrusted": "Vérifiées et de confiance",
     "satisfiedClients": "Clients satisfaits",
@@ -42,8 +42,8 @@
     "simplicityText": "Réservation en 3 clics, sans paperasse",
     "trustTitle": "Confiance locale",
     "trustText": "Agences marocaines vérifiées et professionnelles",
-    "popularCities": "Nos villes populaires",
-    "popularCitiesSubtitle": "Découvrez notre sélection de véhicules dans les principales villes du Maroc",
+    "popularCities": "Notre zone de prise en charge",
+    "popularCitiesSubtitle": "Casablanca en priorité. Livraison à Rabat sur demande, faisabilité et frais à confirmer.",
     "ourMission": "Notre mission",
     "missionText": "Benatna connecte les voyageurs et résidents avec des agences de location locales de confiance. Notre mission est de rendre la location de voiture au Maroc simple, transparente et accessible à tous, tout en soutenant les entrepreneurs locaux.",
     "discoverCars": "Découvrir les véhicules"
@@ -121,15 +121,21 @@
   "blog": {
     "title": "Blog & Conseils",
     "subtitle": "Guides, conseils et actualités pour votre location de voiture au Maroc",
-    "allCategories": "Toutes les catégories",
-    "readMore": "Lire l'article",
+    "all": "Tous",
+    "readMore": "Lire la suite",
     "backToArticles": "Retour aux articles",
     "drivingTips": "Conseils de conduite",
     "drivingTipsText": "Tout savoir pour conduire en toute sécurité au Maroc",
     "travelGuides": "Guides touristiques",
     "travelGuidesText": "Les meilleurs itinéraires et destinations",
     "localPractices": "Pratiques locales",
-    "localPracticesText": "Culture et usages de la route marocaine"
+    "localPracticesText": "Culture et usages de la route marocaine",
+    "driving": "Conduite",
+    "tourism": "Tourisme",
+    "insurance": "Assurance",
+    "budget": "Budget",
+    "practical": "Pratique",
+    "aboutCat": "À propos"
   },
   "contact": {
     "title": "Contactez-nous",
@@ -155,8 +161,8 @@
   },
   "rent": {
     "title": "Louer une voiture",
-    "findIdealCar": "Location de Voiture au Maroc — Comparez 300+ Véhicules",
-    "subtitle": "Réservez dès 250 DH/jour auprès d'agences locales vérifiées. Livraison partout au Maroc, réponse WhatsApp en 2 minutes.",
+    "findIdealCar": "Location de voiture à Casablanca",
+    "subtitle": "Catalogue indicatif de nos loueurs à Casablanca. Disponibilité et tarif final à confirmer. Rabat sur demande.",
     "filters": "Filtres",
     "category": "Catégorie",
     "allCategories": "Toutes catégories",
@@ -260,25 +266,6 @@
     "travelGuidesCardText": "Découvrez les plus beaux itinéraires du pays",
     "localPracticesCard": "Pratiques locales",
     "localPracticesCardText": "Comprenez les usages et coutumes marocaines"
-  },
-  "blog": {
-    "title": "Blog & Conseils",
-    "subtitle": "Guides, conseils et actualités pour votre location de voiture au Maroc",
-    "all": "Tous",
-    "readMore": "Lire la suite",
-    "backToArticles": "Retour aux articles",
-    "drivingTips": "Conseils de conduite",
-    "drivingTipsText": "Tout savoir pour conduire en toute sécurité au Maroc",
-    "travelGuides": "Guides touristiques",
-    "travelGuidesText": "Les meilleurs itinéraires et destinations",
-    "localPractices": "Pratiques locales",
-    "localPracticesText": "Culture et usages de la route marocaine",
-    "driving": "Conduite",
-    "tourism": "Tourisme",
-    "insurance": "Assurance",
-    "budget": "Budget",
-    "practical": "Pratique",
-    "aboutCat": "À propos"
   },
   "testimonials": {
     "ahmed": "Depuis qu'on a rejoint Benatna, notre taux de réservation a augmenté de 40%. La plateforme est simple à utiliser et l'équipe est très réactive. On reçoit des clients de qualité qui recherchent vraiment un service local et authentique.",

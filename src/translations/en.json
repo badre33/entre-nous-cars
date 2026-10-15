@@ -18,12 +18,12 @@
     "apply": "Apply"
   },
   "home": {
-    "heroTitle": "Mobility, between us.",
-    "heroSubtitle": "Find the perfect car from trusted local agencies. Book in 3 clicks, drive with peace of mind.",
+    "heroTitle": "Car rental in Casablanca, between us.",
+    "heroSubtitle": "Casablanca-based agencies, pickup in the city or at Mohammed V Airport. Rabat delivery on request, subject to agency confirmation.",
     "rentCar": "Rent a car",
     "becomePartner": "Become a partner",
     "availableCars": "Available cars",
-    "inCities": "In 6 Moroccan cities",
+    "inCities": "Casablanca",
     "partnerAgencies": "Partner agencies",
     "verifiedTrusted": "Verified and trusted",
     "satisfiedClients": "Satisfied customers",
@@ -42,8 +42,8 @@
     "simplicityText": "Book in 3 clicks, no paperwork",
     "trustTitle": "Local trust",
     "trustText": "Verified and professional Moroccan agencies",
-    "popularCities": "Our popular cities",
-    "popularCitiesSubtitle": "Discover our vehicle selection in Morocco's main cities",
+    "popularCities": "Our pickup area",
+    "popularCitiesSubtitle": "Casablanca first. Rabat delivery on request; availability and fees must be confirmed.",
     "ourMission": "Our mission",
     "missionText": "Benatna connects travelers and residents with trusted local rental agencies. Our mission is to make car rental in Morocco simple, transparent and accessible to all, while supporting local entrepreneurs.",
     "discoverCars": "Discover the vehicles"
@@ -142,8 +142,8 @@
   },
   "rent": {
     "title": "Rent a car",
-    "findIdealCar": "Car Rental in Morocco — Compare 300+ Vehicles",
-    "subtitle": "Find the perfect car for your trip in Morocco",
+    "findIdealCar": "Car rental in Casablanca",
+    "subtitle": "Indicative catalogue from Casablanca agencies. Availability and final prices require confirmation. Rabat on request.",
     "filters": "Filters",
     "category": "Category",
     "allCategories": "All categories",

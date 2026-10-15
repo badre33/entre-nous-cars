@@ -692,9 +692,8 @@ const carModels = [
   },
 ];
 
-// Chaque modèle est proposé dans les 6 villes (les agences partenaires
-// couvrent tout le territoire) → catalogue complet par ville.
-const CATALOG_CITIES = ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"];
+// Les loueurs et leurs véhicules sont basés à Casablanca.
+const CATALOG_CITIES = ["Casablanca"];
 const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
   carModels.map((model, modelIdx) => ({
     ...model,
@@ -705,18 +704,18 @@ const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
 
 const LOUER_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
-    title: "Location Voiture Maroc dès 250 DH/jour - 300+ Véhicules | Benatna",
-    desc: "300+ véhicules disponibles à la location au Maroc dès 250 DH/jour. Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès. Livraison aéroport et hôtel, réservation WhatsApp en 2 minutes.",
+    title: "Location de voiture à Casablanca | Benatna",
+    desc: "Location avec des loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, disponibilité et frais à confirmer.",
     url: "https://benatna.ma/louer",
   },
   en: {
-    title: "Car Rental Morocco from 250 MAD/day - 300+ Vehicles | Benatna",
-    desc: "300+ rental cars in Morocco from 250 MAD/day. Casablanca, Marrakech, Rabat, Tangier, Agadir, Fez. Airport and hotel delivery, WhatsApp booking in 2 minutes.",
+    title: "Car rental in Casablanca | Benatna",
+    desc: "Rent from Casablanca-based agencies. City or Mohammed V Airport pickup. Rabat delivery on request, availability and fees subject to confirmation.",
     url: "https://benatna.ma/en/louer",
   },
   es: {
-    title: "Alquiler de Coches Marruecos desde 250 MAD/día - 300+ Vehículos | Benatna",
-    desc: "Más de 300 coches de alquiler en Marruecos desde 250 MAD/día. Casablanca, Marrakech, Rabat, Tánger, Agadir, Fez. Entrega en aeropuerto y hotel, reserva por WhatsApp en 2 minutos.",
+    title: "Alquiler de coches en Casablanca | Benatna",
+    desc: "Agencias de alquiler en Casablanca. Recogida en la ciudad o aeropuerto Mohammed V. Rabat bajo petición; disponibilidad y gastos por confirmar.",
     url: "https://benatna.ma/es/louer",
   },
 };
@@ -726,7 +725,7 @@ const Louer = () => {
   const louerMeta = LOUER_META[language] ?? LOUER_META.fr;
 
   const [searchParams] = useSearchParams();
-  const [selectedCity, setSelectedCity] = useState<string>("all");
+  const [selectedCity, setSelectedCity] = useState<string>("Casablanca");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
   const [startTime, setStartTime] = useState<string>("");
@@ -772,7 +771,7 @@ const Louer = () => {
     const endDateFromUrl = searchParams.get('endDate');
     
     if (cityFromUrl) {
-      setSelectedCity(cityFromUrl);
+      setSelectedCity(cityFromUrl === "Rabat" ? "Rabat" : "Casablanca");
     }
     if (startDateFromUrl) {
       setStartDate(new Date(startDateFromUrl));
@@ -860,6 +859,7 @@ ${vehiclesList}`;
     if (selectedCity !== "all") {
       message += `\n\n📍 Ville : ${selectedCity}`;
     }
+    if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande : merci de confirmer la faisabilité et les frais depuis Casablanca.";
     message += buildDatesBlock();
     message += `\n\n💡 Prix indicatifs — tarif final confirmé par le loueur partenaire.`;
     message += `\nMerci de me confirmer la disponibilité.`;
@@ -955,6 +955,7 @@ Véhicule : ${selectedCar.name}
           message += `\n\n📆 Location longue durée (${Math.round(days/30)} mois) — merci de me faire une offre tarifaire adaptée.`;
         }
 
+        if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande, disponibilité et frais à confirmer depuis Casablanca.";
         message += `\n\nJe souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité.`;
 
         window.open(
@@ -965,7 +966,7 @@ Véhicule : ${selectedCar.name}
     }
   };
 
-  const cities = ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"];
+  const cities = ["Casablanca", "Rabat"];
   
   // Marques et catégories dérivées du catalogue réel (pas de filtre mort)
   const brands = [...new Set(cars.map(c => c.brand))].sort();
@@ -988,7 +989,7 @@ Véhicule : ${selectedCar.name}
   const displayedCars = useMemo(() => {
     // Appliquer les filtres
     const filtered = cars.filter(car => {
-      if (selectedCity && selectedCity !== "all" && car.city !== selectedCity) return false;
+      if (selectedCity && selectedCity !== "all" && car.city !== (selectedCity === "Rabat" ? "Casablanca" : selectedCity)) return false;
       if (selectedType && selectedType !== "all" && car.type !== selectedType) return false;
       if (selectedBrand && selectedBrand !== "all" && car.brand !== selectedBrand) return false;
       if (selectedCategory && selectedCategory !== "all" && car.category !== selectedCategory) return false;
@@ -1039,6 +1040,7 @@ Véhicule : ${selectedCar.name}
       <HreflangTags path="/louer" />
       <StructuredData type="rental" />
       <CarProductSchema cars={displayedCars.slice(0, 20)} />
+      <p className="bg-secondary/30 px-4 py-3 text-center" role="note">Casablanca : prise en charge en ville ou à l’aéroport Mohammed V. Rabat : livraison sur demande, faisabilité et frais à confirmer par le loueur. Aucune autre ville desservie actuellement.</p>
       <PullToRefreshIndicator 
         isPulling={isPulling}
         isRefreshing={isRefreshing}
@@ -1517,7 +1519,7 @@ Véhicule : ${selectedCar.name}
       <StickyCTA
         label="Contacter via WhatsApp"
         onClick={() => {
-          const message = `Bonjour, je suis intéressé par la location d'un véhicule${selectedCity !== "all" ? ` à ${selectedCity}` : ""}.`;
+          const message = `Bonjour, je souhaite louer un véhicule basé à Casablanca.${selectedCity === "Rabat" ? " Livraison à Rabat sur demande : merci de confirmer la faisabilité et les frais." : " Prise en charge à Casablanca."}`;
           window.open(`https://wa.me/212699024526?text=${encodeURIComponent(message)}`, '_blank');
         }}
         icon={MessageCircle}

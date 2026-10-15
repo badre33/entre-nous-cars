@@ -128,8 +128,8 @@ export const OrganizationSchema = () => {
     },
     "priceRange": "150-900 MAD",
     "areaServed": {
-      "@type": "Country",
-      "name": "Morocco"
+      "@type": "City",
+      "name": "Casablanca"
     },
     // Catalogue d'offres : chaque véhicule cité porte SON offre complète
     // (prix, devise, disponibilité, URL). Sans cela Google refuse l'extrait

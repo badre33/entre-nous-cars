@@ -1,3 +1,4 @@
+import { ServiceAreaGuard } from "@/components/ServiceAreaGuard";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -298,7 +299,7 @@ const App = () => {
                 <Sonner />
                 <ScrollToTop />
                 <Suspense fallback={<PageSkeleton />}>
-                  <Routes>
+                  <ServiceAreaGuard><Routes>
                     <Route path="/" element={<Index />} />
                     <Route path="/nos-services" element={<NosServices />} />
                     <Route path="/louer" element={<Louer />} />
@@ -412,7 +413,7 @@ const App = () => {
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/analytics" element={<AnalyticsDashboard />} />
                     <Route path="*" element={<NotFound />} />
-                  </Routes>
+                  </Routes></ServiceAreaGuard>
                 </Suspense>
                 <BottomNavigation />
                 <DeferredComponents />

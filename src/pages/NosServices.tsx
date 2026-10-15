@@ -38,9 +38,10 @@ const NosServices = () => {
     resistance: 2.5
   });
 
-  const filteredServices = activeCategory === 'all' 
-    ? services 
-    : services.filter(s => s.category === activeCategory);
+  const localServices = services.filter(s => /casablanca/i.test(s.slug));
+  const filteredServices = activeCategory === 'all'
+    ? localServices
+    : localServices.filter(s => s.category === activeCategory);
 
   const getCategoryColor = (category: Service['category']) => {
     const colors = {
@@ -66,22 +67,22 @@ const NosServices = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <PullToRefreshIndicator 
+      <PullToRefreshIndicator
         isPulling={isPulling}
         isRefreshing={isRefreshing}
         pullDistance={pullDistance}
         pullPercentage={pullPercentage}
       />
-      
+
       <Helmet>
         <title>Nos Services de Location de Voiture au Maroc | Benatna</title>
-        <meta 
-          name="description" 
-          content="Découvrez tous nos services de location : aéroports, jeune conducteur, longue durée, SUV 4x4, véhicules de luxe et spéciaux. Tarifs dès 250 DH/jour partout au Maroc." 
+        <meta
+          name="description"
+          content="Découvrez tous nos services de location : aéroports, jeune conducteur, longue durée, SUV 4x4, véhicules de luxe et spéciaux. Tarifs dès 250 DH/jour à Casablanca ; livraison à Rabat sur demande, faisabilité et frais à confirmer."
         />
-        <meta 
-          name="keywords" 
-          content="services location voiture maroc, location aéroport, jeune conducteur, longue durée, suv 4x4, voiture luxe" 
+        <meta
+          name="keywords"
+          content="services location voiture maroc, location aéroport, jeune conducteur, longue durée, suv 4x4, voiture luxe"
         />
         <meta property="og:title" content="Nos Services de Location de Voiture au Maroc | Benatna" />
         <meta property="og:description" content="Découvrez tous nos services de location adaptés à vos besoins : aéroports, jeune conducteur, longue durée, SUV, véhicules spéciaux." />
@@ -100,7 +101,7 @@ const NosServices = () => {
               Nos Services de Location de Voiture
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in [animation-delay:200ms]">
-              Une gamme complète de services adaptés à tous vos besoins de mobilité au Maroc. 
+              Une gamme complète de services adaptés à tous vos besoins de mobilité au Maroc.
               Des tarifs transparents, une flotte récente et un service client disponible 24/7.
             </p>
             <div className="flex flex-wrap gap-4 justify-center text-sm animate-fade-in [animation-delay:400ms]">
@@ -110,7 +111,7 @@ const NosServices = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Check className="h-5 w-5 text-primary" />
-                <span>6 villes du Maroc</span>
+                <span>Casablanca • Rabat sur demande</span>
               </div>
               <div className="flex items-center gap-2">
                 <Check className="h-5 w-5 text-primary" />
@@ -128,8 +129,8 @@ const NosServices = () => {
             {serviceCategories.map((cat) => {
               const Icon = iconMap[cat.icon as keyof typeof iconMap];
               return (
-                <TabsTrigger 
-                  key={cat.id} 
+                <TabsTrigger
+                  key={cat.id}
                   value={cat.id}
                   className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3"
                 >
@@ -158,8 +159,8 @@ const NosServices = () => {
             <Card key={service.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
               {/* Image */}
               <div className="relative h-48 overflow-hidden rounded-t-lg">
-                <img 
-                  src={service.image} 
+                <img
+                  src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
@@ -221,9 +222,9 @@ const NosServices = () => {
               Notre équipe est à votre écoute pour créer une offre sur-mesure adaptée à vos besoins spécifiques.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                asChild 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 variant="secondary"
                 className="bg-background text-foreground hover:bg-background/90"
               >
@@ -231,9 +232,9 @@ const NosServices = () => {
                   Nous contacter
                 </Link>
               </Button>
-              <Button 
-                asChild 
-                size="lg" 
+              <Button
+                asChild
+                size="lg"
                 variant="outline"
                 className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
               >

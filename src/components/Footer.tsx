@@ -32,11 +32,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/location-voiture-coupe-monde-2026-maroc" className="text-muted-foreground hover:text-foreground transition-colors font-semibold">
-                  ⚽ Mondial 2026 Maroc
-                </Link>
-              </li>
-              <li>
                 <Link to="/partenaires" className="text-muted-foreground hover:text-foreground transition-colors">
                   {t('common.partners')}
                 </Link>
@@ -93,133 +88,16 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Section Nos Services - SEO */}
-        <div className="pt-8 border-t border-border">
-          <h3 className="text-lg font-semibold mb-6 text-center">Nos Services de Location</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-            {/* Locations Aéroports */}
-            <div>
-              <h4 className="font-semibold mb-3 text-sm text-primary">Locations Aéroports</h4>
-              <ul className="space-y-2 text-xs">
-                <li>
-                  <Link to="/location-voiture-aeroport-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Aéroport Casablanca
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-voiture-aeroport-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Aéroport Marrakech
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-voiture-aeroport-rabat" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Aéroport Rabat
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-voiture-aeroport-agadir" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Aéroport Agadir
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-voiture-aeroport-tanger" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Aéroport Tanger
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Jeune Conducteur */}
-            <div>
-              <h4 className="font-semibold mb-3 text-sm text-primary">Jeune Conducteur</h4>
-              <ul className="space-y-2 text-xs">
-                <li>
-                  <Link to="/location-jeune-conducteur-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Casablanca -21 ans
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-jeune-conducteur-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Marrakech -21 ans
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-jeune-conducteur-rabat" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Rabat -21 ans
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Longue Durée & Spécial */}
-            <div>
-              <h4 className="font-semibold mb-3 text-sm text-primary">Formules Longue Durée</h4>
-              <ul className="space-y-2 text-xs">
-                <li>
-                  <Link to="/location-longue-duree-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Longue Durée Casa
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-longue-duree-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Longue Durée Marrakech
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-weekend-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Weekend Marrakech
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-voiture-sans-carte-credit-marrakech" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Sans Carte Crédit
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* SUV & Aventure */}
-            <div>
-              <h4 className="font-semibold mb-3 text-sm text-primary">SUV & Aventure</h4>
-              <ul className="space-y-2 text-xs">
-                <li>
-                  <Link to="/location-suv-atlas" className="text-muted-foreground hover:text-foreground transition-colors">
-                    SUV Atlas Montagne
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-4x4-desert" className="text-muted-foreground hover:text-foreground transition-colors">
-                    4x4 Désert Merzouga
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-suv-sud-maroc" className="text-muted-foreground hover:text-foreground transition-colors">
-                    SUV Sud Marocain
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Véhicules Spéciaux */}
-            <div>
-              <h4 className="font-semibold mb-3 text-sm text-primary">Véhicules Spéciaux</h4>
-              <ul className="space-y-2 text-xs">
-                <li>
-                  <Link to="/location-voiture-electrique-casablanca" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Voiture Électrique
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/location-cabriolet-agadir" className="text-muted-foreground hover:text-foreground transition-colors">
-                    Cabriolet Agadir
-                  </Link>
-                </li>
-              </ul>
-            </div>
+        <div className="pt-8 border-t border-border text-center space-y-3">
+          <h3 className="font-semibold">Location à Casablanca</h3>
+          <p>Loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V.</p>
+          <p>Rabat : livraison sur demande, faisabilité et frais à confirmer avec le loueur.</p>
+          <div className="flex justify-center gap-4 flex-wrap">
+            <Link to="/location-voiture-casablanca">Casablanca</Link>
+            <Link to="/location-voiture-aeroport-casablanca">Aéroport Mohammed V</Link>
+            <Link to="/louer?city=Rabat">Demander une livraison à Rabat</Link>
           </div>
         </div>
-        
-        
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <div className="mb-3 flex items-center justify-center gap-3">
             <Link to="/" className="hover:text-foreground transition-colors">Français</Link>

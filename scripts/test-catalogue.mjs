@@ -17,12 +17,12 @@ try {
   await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).click();
   await page.getByText('48 véhicules affichés sur',{exact:false}).waitFor();
   assert.equal(await cards.count(),48);assert.equal(await cards.first().innerText(),first,'stable loaded order');
-  await page.getByRole('combobox').first().click();await page.getByRole('option',{name:'Casablanca',exact:true}).click();
+  await page.getByRole('combobox').first().click();await page.getByRole('option',{name:'Rabat',exact:true}).click();
   await page.getByText('24 véhicules affichés sur',{exact:false}).waitFor();assert.equal(await cards.count(),24);
   while(await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).count())await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).click();
   const count=await page.locator('#catalogue-results h2').innerText();
   assert.equal(await cards.count(),Number(count.match(/^\d+/)[0]),'full filtered catalogue reachable');
-  await page.getByRole('combobox').first().click();await page.getByRole('option',{name:'Toutes les villes',exact:true}).click();
+  await page.getByRole('combobox').first().click();await page.getByRole('option',{name:'Casablanca',exact:true}).click();
   await page.getByText('24 véhicules affichés sur',{exact:false}).waitFor();assert.equal(await cards.count(),24);
   if(width===1280){await page.locator('#catalogue-results [role=checkbox]').first().locator('..').click();await page.locator('#catalogue-results [role=checkbox][aria-checked=true]').first().waitFor();}
   if(width===390){for(const name of ['Vue liste','Vue carrousel','Vue grille']){await page.getByRole('button',{name,exact:true}).click();assert.equal(await cards.count(),24);}}

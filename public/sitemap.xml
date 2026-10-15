@@ -95,31 +95,15 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-marrakech</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
   <url>
     <loc>https://benatna.ma/location-voiture-rabat</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-tanger</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-agadir</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-fes</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
+
+
 
   <!-- ============================================================ -->
   <!-- Pages AÉROPORT (haute valeur commerciale) — 6 villes          -->
@@ -129,31 +113,15 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-aeroport-marrakech</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
+
   <url>
     <loc>https://benatna.ma/location-voiture-aeroport-rabat</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-aeroport-tanger</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-aeroport-agadir</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-aeroport-fes</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
+
+
+
 
   <!-- ============================================================ -->
   <!-- Long-tail "Sans carte de crédit" (haute conversion)           -->
@@ -163,11 +131,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-sans-carte-credit-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
+
 
   <!-- ============================================================ -->
   <!-- Long-tail "Jeune conducteur"                                  -->
@@ -177,11 +141,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-jeune-conducteur-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://benatna.ma/location-jeune-conducteur-rabat</loc>
     <changefreq>monthly</changefreq>
@@ -196,35 +156,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-longue-duree-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
 
   <!-- ============================================================ -->
   <!-- Long-tail "Type véhicule" (4x4, SUV, cabriolet, etc.)         -->
   <!-- ============================================================ -->
-  <url>
-    <loc>https://benatna.ma/location-4x4-desert</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-suv-atlas</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-suv-sud-maroc</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-cabriolet-agadir</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
+
+
+
+
   <url>
     <loc>https://benatna.ma/location-voiture-electrique-casablanca</loc>
     <changefreq>monthly</changefreq>
@@ -234,11 +174,7 @@
   <!-- ============================================================ -->
   <!-- Événements & usages spécifiques                               -->
   <!-- ============================================================ -->
-  <url>
-    <loc>https://benatna.ma/location-weekend-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
 
   <!-- ============================================================ -->
   <!-- Quartiers Casablanca                                          -->
@@ -272,40 +208,16 @@
   <!-- ============================================================ -->
   <!-- Quartiers Marrakech                                           -->
   <!-- ============================================================ -->
-  <url>
-    <loc>https://benatna.ma/location-voiture-gueliz-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-hivernage-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-medina-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-palmeraie-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-route-ourika-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
+
+
+
+
+
+
   <!-- ============================================================ -->
   <!-- ÉVÉNEMENTS 2026 (haute priorité — événements imminents)      -->
   <!-- ============================================================ -->
-  <url>
-    <loc>https://benatna.ma/location-voiture-coupe-monde-2026-maroc</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+
   <url>
     <loc>https://benatna.ma/location-voiture-ete-2026-maroc</loc>
     <changefreq>weekly</changefreq>
@@ -313,11 +225,7 @@
   </url>
 
   <!-- Sprint MRE/touristes : points d'entrée stratégiques -->
-  <url>
-    <loc>https://benatna.ma/location-voiture-tanger-med-port</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
+
   <url>
     <loc>https://benatna.ma/location-voiture-mre-maroc</loc>
     <changefreq>weekly</changefreq>
@@ -335,11 +243,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-gare-marrakech</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
+
   <url>
     <loc>https://benatna.ma/location-voiture-agdal-rabat</loc>
     <changefreq>weekly</changefreq>
@@ -364,11 +268,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-automatique-marrakech</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-  </url>
+
   <url>
     <loc>https://benatna.ma/caution-location-voiture-maroc</loc>
     <changefreq>monthly</changefreq>
@@ -606,11 +506,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/comparatif/location-voiture-casablanca-vs-marrakech</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+
   <url>
     <loc>https://benatna.ma/comparatif/location-economique-vs-premium-maroc</loc>
     <changefreq>monthly</changefreq>

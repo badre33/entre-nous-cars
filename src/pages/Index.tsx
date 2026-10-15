@@ -38,11 +38,7 @@ const BreadcrumbListSchema = lazy(() => import("@/components/schemas").then(m =>
 import { createBreadcrumbs } from "@/components/schemas";
 // WebP optimized images (compressed and resized for display)
 import cityCasablanca from "@/assets/city-casablanca-optimized.webp";
-import cityMarrakech from "@/assets/city-marrakech-optimized.webp";
 import cityRabat from "@/assets/city-rabat-optimized.webp";
-import cityTanger from "@/assets/city-tanger.jpg";
-import cityAgadir from "@/assets/city-agadir.jpg";
-import cityFes from "@/assets/city-fes.jpg";
 
 // Hero image: WebP in public folder for LCP optimization
 const heroImageWebp = "/hero-home-new.webp";
@@ -50,18 +46,18 @@ const heroImageWebp = "/hero-home-new.webp";
 // Metas multilingues de la page d'accueil (FR canonique, EN /en, ES /es)
 const HOME_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
-    title: "Benatna — Location de voiture au Maroc dès 250 DH/jour | La startup des loueurs locaux",
-    desc: "Benatna, la startup marocaine qui gère le parc de centaines de loueurs locaux pour vous obtenir les meilleurs prix. Voiture dès 250 DH/jour, livraison partout au Maroc, réponse WhatsApp en 2 minutes.",
+    title: "Benatna — Location de voiture à Casablanca",
+    desc: "Des loueurs basés à Casablanca pour vos séjours et vacances. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, à confirmer.",
     url: "https://benatna.ma/",
   },
   en: {
-    title: "Benatna — Car Rental in Morocco from 250 MAD/day | The Local Agencies Marketplace",
-    desc: "Benatna is the Moroccan startup managing a fleet of hundreds of local rental agencies to get you the best prices. Cars from 250 MAD/day, delivery anywhere in Morocco, reply on WhatsApp in 2 minutes.",
+    title: "Benatna — Car rental in Casablanca",
+    desc: "Casablanca-based agencies for your holidays and stays. City or Mohammed V Airport pickup. Rabat delivery on request, subject to confirmation.",
     url: "https://benatna.ma/en",
   },
   es: {
-    title: "Benatna — Alquiler de coches en Marruecos desde 250 MAD/día | Agencias locales al mejor precio",
-    desc: "Benatna, la startup marroquí que gestiona la flota de cientos de agencias locales para conseguirte los mejores precios. Coches desde 250 MAD/día, entrega en todo Marruecos, respuesta por WhatsApp en 2 minutos.",
+    title: "Benatna — Alquiler de coches en Casablanca",
+    desc: "Agencias en Casablanca para vacaciones y estancias. Recogida en ciudad o aeropuerto Mohammed V. Rabat bajo petición y confirmación.",
     url: "https://benatna.ma/es",
   },
 };
@@ -132,12 +128,8 @@ const Index = () => {
   }, []);
 
   const popularCities = [
-    { name: "Casablanca", image: cityCasablanca, vehicles: 52, slug: "Casablanca" },
-    { name: "Marrakech", image: cityMarrakech, vehicles: 50, slug: "Marrakech" },
-    { name: "Rabat", image: cityRabat, vehicles: 50, slug: "Rabat" },
-    { name: "Tanger", image: cityTanger, vehicles: 50, slug: "Tanger" },
-    { name: "Agadir", image: cityAgadir, vehicles: 50, slug: "Agadir" },
-    { name: "Fès", image: cityFes, vehicles: 50, slug: "Fès" },
+    { name: "Casablanca", image: cityCasablanca, vehicles: "Casablanca", slug: "Casablanca" },
+    { name: "Rabat", image: cityRabat, vehicles: "Sur demande", slug: "Rabat" },
   ];
   
   return (
@@ -145,7 +137,7 @@ const Index = () => {
       <Helmet>
         <title>{homeMeta.title}</title>
         <meta name="description" content={homeMeta.desc} />
-        <meta name="keywords" content="location voiture maroc, location auto casablanca, louer voiture marrakech, location véhicule rabat, rent car morocco, agence location voiture, voiture de tourisme maroc" />
+        <meta name="keywords" content="location voiture casablanca, aéroport Mohammed V, loueur Casablanca, livraison Rabat sur demande" />
         <meta property="og:title" content={homeMeta.title} />
         <meta property="og:description" content={homeMeta.desc} />
       </Helmet>
@@ -311,152 +303,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats Section - Compact on mobile */}
-      <section className="py-8 sm:py-16 lg:py-20 bg-gradient-to-b from-primary/5 to-background">
-        <div 
-          ref={statsAnimation.ref}
-          className="container px-4 sm:px-6"
-        >
-          {/* Mobile: Horizontal compact stats */}
-          <div className={`grid grid-cols-3 sm:hidden gap-2 max-w-md mx-auto transition-all duration-700 ${
-            statsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <div className="text-center p-3 bg-card rounded-xl shadow-sm border border-border/30">
-              <span className="text-2xl font-bold text-primary block">302+</span>
-              <p className="text-xs text-muted-foreground mt-0.5">Voitures</p>
-            </div>
-            <div className="text-center p-3 bg-card rounded-xl shadow-sm border border-border/30">
-              <span className="text-2xl font-bold text-secondary block">24+</span>
-              <p className="text-xs text-muted-foreground mt-0.5">Agences</p>
-            </div>
-            <div className="text-center p-3 bg-card rounded-xl shadow-sm border border-border/30">
-              <span className="text-2xl font-bold text-accent block">1200+</span>
-              <p className="text-xs text-muted-foreground mt-0.5">Clients</p>
-            </div>
-          </div>
-          
-          {/* Desktop: Full stats */}
-          <div className={`hidden sm:grid sm:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto transition-all duration-700 ${
-            statsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <div className="text-center group hover:scale-110 transition-transform duration-300">
-              <div className="mb-2">
-                <span className="text-5xl md:text-6xl font-bold text-primary">
-                  <Suspense fallback={<span>302+</span>}><AnimatedCounter end={302} suffix="+" /></Suspense>
-                </span>
-              </div>
-              <p className="text-xl font-semibold mb-2">{t('home.availableCars')}</p>
-              <p className="text-sm text-muted-foreground px-4">
-                {t('home.inCities')}
-              </p>
-            </div>
-            
-            <div className="text-center group hover:scale-110 transition-transform duration-300">
-              <div className="mb-2">
-                <span className="text-5xl md:text-6xl font-bold text-secondary">
-                  <Suspense fallback={<span>24+</span>}><AnimatedCounter end={24} suffix="+" /></Suspense>
-                </span>
-              </div>
-              <p className="text-xl font-semibold mb-2">{t('home.partnerAgencies')}</p>
-              <p className="text-sm text-muted-foreground px-4">
-                {t('home.verifiedTrusted')}
-              </p>
-            </div>
-            
-            <div className="text-center group hover:scale-110 transition-transform duration-300">
-              <div className="mb-2">
-                <span className="text-5xl md:text-6xl font-bold text-accent">
-                  <Suspense fallback={<span>1200+</span>}><AnimatedCounter end={1200} suffix="+" /></Suspense>
-                </span>
-              </div>
-              <p className="text-xl font-semibold mb-2">{t('home.satisfiedClients')}</p>
-              <p className="text-sm text-muted-foreground px-4">
-                {t('home.sinceLaunch')}
-              </p>
-            </div>
-          </div>
-          
-          {/* Trust Badges */}
-          <div className="mt-12 sm:mt-16 flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto px-4">
-            {/* Google Reviews */}
-            <div className="flex items-center gap-2 sm:gap-3 bg-card px-4 sm:px-6 py-3 sm:py-4 rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-              <div className="flex flex-col items-center gap-1">
-                <div className="flex items-center gap-2">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                  </svg>
-                  <div className="text-left">
-                    <p className="text-sm font-semibold">Google</p>
-                    <div className="flex items-center gap-1">
-                      <span className="text-lg font-bold">4.8</span>
-                      <div className="flex">
-                        {[...Array(5)].map((_, i) => (
-                          <svg key={i} className="w-3 h-3 fill-yellow-400" viewBox="0 0 24 24">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                          </svg>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            {/* TripAdvisor */}
-            <div className="flex items-center gap-3 bg-card px-6 py-4 rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-2">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" fill="#00AA6C"/>
-                  <path d="M8.5 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm7 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" fill="white"/>
-                  <circle cx="8.5" cy="10" r="0.8" fill="#000"/>
-                  <circle cx="15.5" cy="10" r="0.8" fill="#000"/>
-                  <path d="M4 10c0-2.5 2-4.5 4.5-4.5 1.3 0 2.4.5 3.2 1.3.8-.8 1.9-1.3 3.2-1.3 2.5 0 4.5 2 4.5 4.5" stroke="white" strokeWidth="1.5" fill="none"/>
-                </svg>
-                <div className="text-left">
-                  <p className="text-sm font-semibold">TripAdvisor</p>
-                  <div className="flex items-center gap-1">
-                    <span className="text-lg font-bold">4.9</span>
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-3 h-3 fill-[#00AA6C]" viewBox="0 0 24 24">
-                          <circle cx="12" cy="12" r="10"/>
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Trustpilot */}
-            <div className="flex items-center gap-3 bg-card px-6 py-4 rounded-xl shadow-sm border border-border/50 hover:shadow-md transition-shadow">
-              <div className="flex items-center gap-2">
-                <div className="bg-[#00B67A] w-6 h-6 rounded flex items-center justify-center">
-                  <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                </div>
-                <div className="text-left">
-                  <p className="text-sm font-semibold">Trustpilot</p>
-                  <div className="flex items-center gap-1">
-                    <span className="text-lg font-bold">4.7</span>
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <svg key={i} className="w-3 h-3 fill-[#00B67A]" viewBox="0 0 24 24">
-                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* How It Works */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-secondary/20 to-background">
@@ -727,7 +574,7 @@ const Index = () => {
                 <Shield className="w-6 h-6 text-primary" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-2xl">50+</p>
+                <p className="font-bold text-2xl">Loueurs locaux</p>
                 <p className="text-sm text-muted-foreground">Agences partenaires</p>
               </div>
             </div>
@@ -736,8 +583,8 @@ const Index = () => {
                 <CheckCircle className="w-6 h-6 text-secondary" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-2xl">300+</p>
-                <p className="text-sm text-muted-foreground">Véhicules disponibles</p>
+                <p className="font-bold text-2xl">Sur demande</p>
+                <p className="text-sm text-muted-foreground">Disponibilité à confirmer</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -745,8 +592,8 @@ const Index = () => {
                 <MapPin className="w-6 h-6 text-accent" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-2xl">6</p>
-                <p className="text-sm text-muted-foreground">Villes couvertes</p>
+                <p className="font-bold text-2xl">Casablanca</p>
+                <p className="text-sm text-muted-foreground">Zone principale</p>
               </div>
             </div>
           </div>
@@ -754,83 +601,7 @@ const Index = () => {
       </section>
 
       {/* World Cup 2026 — Morocco qualified, group C — first match Morocco-Brazil June 13 */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl" />
-        </div>
-        <div className="container px-4 sm:px-6 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-8">
-              <Badge className="mb-4 text-base px-6 py-2 bg-gradient-to-r from-primary to-accent text-white border-0">
-                🏆 Événement Spécial
-              </Badge>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                Coupe du Monde 2026 — Maroc qualifié
-              </h2>
-              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Coupe d'Afrique des Nations • 21 Déc 2025 - 18 Jan 2026
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 mb-10">
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-xl">
-                <CardContent className="pt-8 pb-6">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">6 Villes Hôtes</h3>
-                      <p className="text-muted-foreground text-sm">
-                        Casablanca, Rabat, Marrakech, Agadir, Fès, Tanger
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    <Badge variant="outline" className="text-xs">Stades Modernes</Badge>
-                    <Badge variant="outline" className="text-xs">Accès Optimisé</Badge>
-                    <Badge variant="outline" className="text-xs">Parking Disponible</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-2 border-accent/20 hover:border-accent/40 transition-all duration-300 hover:shadow-xl">
-                <CardContent className="pt-8 pb-6">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-6 h-6 text-accent" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">Offres Spéciales</h3>
-                      <p className="text-muted-foreground text-sm">
-                        Tarifs groupes, réservation anticipée, véhicules adaptés
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mt-4">
-                    <Badge variant="outline" className="text-xs">Tarifs Groupes</Badge>
-                    <Badge variant="outline" className="text-xs">Citadines & SUV</Badge>
-                    <Badge variant="outline" className="text-xs">Annulation Flexible</Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-            
-            <div className="text-center">
-              <Link to="/location-voiture-coupe-monde-2026-maroc">
-                <Button size="lg" className="rounded-full text-lg px-10 h-14 bg-gradient-to-r from-primary to-accent hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Voir Nos Offres Coupe du Monde 2026
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <p className="text-sm text-muted-foreground mt-4">
-                Réservez maintenant pour la Coupe du Monde 2026. Maroc-Brésil le 13 juin. Tarifs MRE spéciaux.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Popular Cities */}
       <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
@@ -863,7 +634,7 @@ const Index = () => {
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                       <h3 className="text-xl sm:text-2xl font-barlow font-bold text-white mb-1">{city.name}</h3>
                       <p className="text-white/90 text-xs sm:text-sm font-medium">
-                        {city.vehicles} {t('common.vehicles')}
+                        {city.name === "Rabat" ? "Livraison sur demande, à confirmer" : "Prise en charge en ville et à l’aéroport Mohammed V"}
                       </p>
                     </div>
                   </div>
