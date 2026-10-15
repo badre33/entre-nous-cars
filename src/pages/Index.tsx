@@ -585,7 +585,7 @@ const Index = () => {
 
       <section className="container py-16 text-center space-y-5">
         <h2 className="text-3xl">MRE, touristes et vacanciers : votre séjour commence à Casablanca</h2>
-        <p>Voitures de tourisme pour trois jours minimum et six mois maximum. Prise en charge à Casablanca ; livraison à Rabat sur demande, faisabilité et frais à confirmer.</p>
+        <p>Voitures de tourisme pour trois jours minimum et six mois maximum. Prise en charge à Casablanca ; livraison à Rabat sur demande, livraison gratuite convenue à l’avance.</p>
         <p>Pas de vans, minibus, utilitaires, prestations de mariage, événementielles ou locations professionnelles.</p>
         <Link className="inline-block rounded-lg bg-primary text-primary-foreground px-6 py-3" to="/prise-en-charge-casablanca-rabat">Arriver en gare ou à l’aéroport : préparer ma prise en charge</Link>
       </section>

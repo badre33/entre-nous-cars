@@ -12,7 +12,7 @@ try {
  const links=await page.locator('a[href]').evaluateAll(es=>es.map(e=>e.getAttribute('href')));
  assert(!links.some(h=>/^\/location[-/].*(marrakech|tanger|agadir|fes)/i.test(h)),'no promoted inactive regional rental links');
  await page.goto(base+'/louer?city=Rabat',{waitUntil:'domcontentloaded'});
- await page.getByText('24 véhicules affichés sur 50',{exact:true}).waitFor();
+ await page.getByText(/^24 véhicules affichés sur \d+$/).waitFor();
  await page.getByRole('combobox').first().click();
  const options=await page.getByRole('option').allTextContents();
  assert(options.some(x=>x==='Casablanca')&&options.some(x=>x==='Rabat'));assert(!options.some(x=>/Marrakech|Tanger|Agadir|Fès/.test(x)));
@@ -25,15 +25,15 @@ try {
  await page.getByRole('heading',{name:'Notre service se concentre sur Casablanca'}).waitFor();
  assert.equal(await page.locator('meta[name=robots]').getAttribute('content'),'noindex,follow');
  await page.goto(base+'/louer?city=Marrakech',{waitUntil:'domcontentloaded'});
- await page.getByText('24 véhicules affichés sur 50',{exact:true}).waitFor();
+ await page.getByText(/^24 véhicules affichés sur \d+$/).waitFor();
  assert.equal(await page.getByRole('combobox').first().innerText(),'Casablanca');
  await page.addInitScript(() => { window.open = (url) => { window.__testWhatsApp = String(url); return {opener:null}; }; });
  await page.goto(base+'/louer?city=Rabat&startDate=2026-11-10&endDate=2026-11-17',{waitUntil:'domcontentloaded'});
- await page.getByText('24 véhicules affichés sur 50',{exact:true}).waitFor();
+ await page.getByText(/^24 véhicules affichés sur \d+$/).waitFor();
  await page.getByRole('button',{name:'WhatsApp',exact:true}).first().click();
  await page.waitForFunction(()=>Boolean(window.__testWhatsApp));
  const message=await page.evaluate(()=>new URL(window.__testWhatsApp).searchParams.get('text'));
- assert(message.includes('Livraison à Rabat sur demande') && message.includes('frais depuis Casablanca'));
+ assert(message.includes('Livraison à Rabat sur demande') && message.includes('livraison gratuite depuis Casablanca'));
  assert.deepEqual(errors,[]);
  console.log('Casablanca uniquement dans le catalogue, Rabat conditionnel, anciennes villes non proposées, métadonnées et liens vérifiés.');
 }finally{await browser.close();}

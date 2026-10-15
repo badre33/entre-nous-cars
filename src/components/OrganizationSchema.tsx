@@ -1,3 +1,4 @@
+import { isClassicTourismCar } from "@/utils/cataloguePolicy";
 import { Helmet } from "react-helmet-async";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
 import { currentDailyPrice } from "@/utils/priceCalculations";
@@ -130,7 +131,7 @@ export const OrganizationSchema = () => {
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Location de Voitures",
-      "itemListElement": CATALOG_HIGHLIGHTS.map((group) => ({
+      "itemListElement": CATALOG_HIGHLIGHTS.map(group => ({ ...group, vehicles: group.vehicles.filter(v => isClassicTourismCar(v.name)) })).filter(group => group.vehicles.length > 0).map((group) => ({
         "@type": "OfferCatalog",
         "name": group.category,
         "itemListElement": group.vehicles.map((vehicle) => {

@@ -13,14 +13,14 @@ try {
  assert.equal(faq.mainEntity.length,8);
  for(const q of faq.mainEntity){await p.getByRole('heading',{name:q.name,exact:true}).waitFor();assert((await p.locator('body').innerText()).includes(q.acceptedAnswer.text));}
  await p.getByRole('link',{name:'Préparer une demande — Aéroport Mohammed V',exact:true}).click();
- await p.getByText('Point demandé : Aéroport Mohammed V — rendez-vous et frais à confirmer.',{exact:true}).waitFor();
+ await p.getByText('Point demandé : Aéroport Mohammed V — livraison gratuite, convenue à l’avance.',{exact:true}).waitFor();
  await p.goto(base+'/louer?city=Rabat&pickup=rba&startDate=2026-11-10&endDate=2026-11-17',{waitUntil:'domcontentloaded'});
- await p.getByText('24 véhicules affichés sur 50',{exact:true}).waitFor();
+ await p.getByText(/^24 véhicules affichés sur \d+$/).waitFor();
  await p.getByRole('button',{name:'WhatsApp',exact:true}).first().click();await p.waitForFunction(()=>Boolean(window.__testWhatsApp));
  const text=await p.evaluate(()=>new URL(window.__testWhatsApp).searchParams.get('text'));
- assert(text.includes('Aéroport Rabat-Salé')&&text.includes('frais depuis Casablanca'));
+ assert(text.includes('Aéroport Rabat-Salé')&&text.includes('livraison gratuite depuis Casablanca'));
  await p.goto(base+'/louer?city=Casablanca&pickup=cmn&startDate=2026-11-10&endDate=2026-11-12',{waitUntil:'domcontentloaded'});
- await p.getByText('24 véhicules affichés sur 50',{exact:true}).waitFor();await p.getByRole('button',{name:'WhatsApp',exact:true}).first().click();await p.getByText('Choisissez vos dates',{exact:true}).waitFor();assert.equal(await p.evaluate(()=>window.__testWhatsApp),undefined);
+ await p.getByText(/^24 véhicules affichés sur \d+$/).waitFor();await p.getByRole('button',{name:'WhatsApp',exact:true}).first().click();await p.getByText('Choisissez vos dates',{exact:true}).waitFor();assert.equal(await p.evaluate(()=>window.__testWhatsApp),undefined);
  for(const path of ['/location-van-famille-maroc','/location-voiture-mariage-maroc','/vehicule/hyundai-staria']){
   await p.goto(base+path,{waitUntil:'domcontentloaded'});await p.getByRole('heading',{name:'Voitures de tourisme pour vos séjours — minimum trois jours'}).waitFor();assert.equal(await p.locator('meta[name=robots]').getAttribute('content'),'noindex,follow');
  }

@@ -1,3 +1,4 @@
+import { isClassicTourismCar } from "@/utils/cataloguePolicy";
 import { VehicleProductSchema } from "./schemas";
 import { topVehicles } from "@/data/topVehiclesData";
 
@@ -15,6 +16,8 @@ export const VehicleProductSchemas = ({ city, limit }: VehicleProductSchemasProp
   let vehiclesToDisplay = city 
     ? topVehicles.filter(v => v.cities.includes(city))
     : topVehicles;
+
+  vehiclesToDisplay = vehiclesToDisplay.filter(v => isClassicTourismCar(v.name));
 
   if (limit) {
     vehiclesToDisplay = vehiclesToDisplay.slice(0, limit);
