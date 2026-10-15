@@ -59,11 +59,7 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
       },
       areaServed: [{ "@type": "City", name: "Casablanca" }],
       description: "Location de voitures au Maroc avec transparence des prix et processus 100% digital. Trouvez votre véhicule idéal parmi nos agences partenaires vérifiées.",
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "247"
-      }
+
     };
 
     // Service schema for rental service
@@ -227,7 +223,7 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
     } : null;
 
     // Combine all schemas
-    const schemas: any[] = [organization, breadcrumb];
+    const schemas: Record<string, unknown>[] = [organization, breadcrumb];
     
     if (type === "home" || type === "rental") {
       schemas.push(localBusiness, service);

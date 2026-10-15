@@ -14,22 +14,17 @@ import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { StructuredData } from "@/components/StructuredData";
 import { generateHeroImageAlt, generateCityImageAlt } from "@/utils/seoHelpers";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { globalReviews } from "@/data/reviewsData";
 
 // ⚡ PERF: composants below-the-fold lazy-loaded (réduit TBT + LCP)
 const AnimatedCounter = lazy(() => import("@/components/AnimatedCounter"));
 const FloatingCTA = lazy(() => import("@/components/FloatingCTA").then(m => ({ default: m.FloatingCTA })));
 const SEOLinks = lazy(() => import("@/components/SEOLinks").then(m => ({ default: m.SEOLinks })));
-const CustomerReviews = lazy(() => import("@/components/CustomerReviews").then(m => ({ default: m.CustomerReviews })));
 
 // ⚡ PERF: schemas SEO JSON-LD lazy-loaded (Google Bot exécute JS, pas grave)
-const ReviewsSchema = lazy(() => import("@/components/ReviewsSchema").then(m => ({ default: m.ReviewsSchema })));
 const ServiceSchema = lazy(() => import("@/components/ServiceSchema").then(m => ({ default: m.ServiceSchema })));
 const HowToSchema = lazy(() => import("@/components/HowToSchema"));
 const OfferSchema = lazy(() => import("@/components/OfferSchema").then(m => ({ default: m.OfferSchema })));
 const VehicleProductSchemas = lazy(() => import("@/components/VehicleProductSchemas").then(m => ({ default: m.VehicleProductSchemas })));
-const EnhancedAggregateRatingSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.EnhancedAggregateRatingSchema })));
-const IndividualReviewsSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.IndividualReviewsSchema })));
 const OpeningHoursSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.OpeningHoursSchema })));
 const SitelinksSearchBoxSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.SitelinksSearchBoxSchema })));
 const BreadcrumbListSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.BreadcrumbListSchema })));
@@ -76,27 +71,27 @@ const Index = () => {
   const howItWorksAnimation = useScrollAnimation(0.2);
   const whyAnimation = useScrollAnimation(0.2);
   const citiesAnimation = useScrollAnimation(0.2);
-  
+
   // Préchargement intelligent des images suivantes
   useIntelligentPreloader([
     { selector: 'img[data-city-image]', attribute: 'src' },
     { selector: 'img[loading="lazy"]', attribute: 'src' }
   ], 0.6);
-  
+
   useEffect(() => {
     // Check if desktop once on mount to avoid reflow during render
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
     checkDesktop();
-    
+
     // Use matchMedia for resize detection (no reflow)
     const mql = window.matchMedia('(min-width: 768px)');
     const handleResize = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
     mql.addEventListener('change', handleResize);
-    
+
     // Defer parallax setup to avoid blocking FID
     let rafId: number | null = null;
     let isScrolling = false;
-    
+
     const updateParallax = () => {
       // Only update if desktop (already in state, no reflow)
       if (mql.matches) {
@@ -105,7 +100,7 @@ const Index = () => {
       }
       isScrolling = false;
     };
-    
+
     const handleScroll = () => {
       // Throttle with requestAnimationFrame to avoid blocking main thread
       if (!isScrolling) {
@@ -113,12 +108,12 @@ const Index = () => {
         rafId = requestAnimationFrame(updateParallax);
       }
     };
-    
+
     // Defer scroll listener registration to improve FID
     const timeoutId = setTimeout(() => {
       window.addEventListener('scroll', handleScroll, { passive: true });
     }, 100);
-    
+
     return () => {
       clearTimeout(timeoutId);
       mql.removeEventListener('change', handleResize);
@@ -131,7 +126,7 @@ const Index = () => {
     { name: "Casablanca", image: cityCasablanca, vehicles: "Casablanca", slug: "Casablanca" },
     { name: "Rabat", image: cityRabat, vehicles: "Sur demande", slug: "Rabat" },
   ];
-  
+
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
@@ -148,85 +143,34 @@ const Index = () => {
       <ServiceSchema />
       <HowToSchema />
       <OfferSchema />
-      <ReviewsSchema
-        reviews={[
-          {
-            name: 'Amina Benali',
-            location: 'Casablanca',
-            rating: 5,
-            comment: 'Service impeccable ! J\'ai loué une Clio pour visiter Marrakech. La voiture était propre, récente et le prix très compétitif. Je recommande vivement Benatna.',
-            date: 'Il y a 2 jours',
-            car: 'Renault Clio',
-          },
-          {
-            name: 'Youssef Alami',
-            location: 'Rabat',
-            rating: 5,
-            comment: 'Excellente expérience du début à la fin. L\'assistance client est réactive et professionnelle. J\'ai eu un surclassement gratuit vers un SUV. Merci !',
-            date: 'Il y a 5 jours',
-            car: 'Dacia Duster',
-          },
-          {
-            name: 'Sofia Mansouri',
-            location: 'Marrakech',
-            rating: 5,
-            comment: 'Parfait pour mon séjour touristique ! La réservation en ligne est simple et rapide. La voiture m\'attendait à l\'aéroport. Aucun souci pendant toute la durée de location.',
-            date: 'Il y a 1 semaine',
-            car: 'Toyota Yaris',
-          },
-          {
-            name: 'Mehdi Tazi',
-            location: 'Fès',
-            rating: 5,
-            comment: 'Très bonne agence ! Prix transparents, pas de frais cachés. La voiture était en parfait état. Je loue régulièrement chez Benatna et je ne suis jamais déçu.',
-            date: 'Il y a 2 semaines',
-            car: 'Toyota Corolla',
-          },
-          {
-            name: 'Karima El Fassi',
-            location: 'Tanger',
-            rating: 5,
-            comment: 'Location ultra simple, voiture nickel et tarifs imbattables. L\'équipe Benatna est top !',
-            date: 'Il y a 3 semaines',
-            car: 'Hyundai i20',
-          },
-        ]}
-        averageRating={4.8}
-        totalReviews={1247}
-      />
-      
+
+
       {/* Schema AggregateRating pour étoiles Google */}
-      <EnhancedAggregateRatingSchema 
+
+
+      <OpeningHoursSchema
         entityType="Organization"
         entityName="Benatna Location de Voiture Maroc"
       />
-      <IndividualReviewsSchema
-        reviews={globalReviews.slice(0, 10)}
-        entityType="Organization"
-      />
-      <OpeningHoursSchema 
-        entityType="Organization"
-        entityName="Benatna Location de Voiture Maroc"
-      />
-      
+
       {/* Product Schema pour top 20 véhicules */}
       <VehicleProductSchemas limit={20} />
-      
+
       {/* BreadcrumbList Schema (Homepage) */}
       <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
       </Suspense>
 
       <Header />
-      
+
       <main>
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[560px] sm:min-h-[600px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
         {/* LCP-optimized WebP hero image from public folder for fast discovery */}
-        <img 
-          src={heroImageWebp} 
+        <img
+          src={heroImageWebp}
           alt={generateHeroImageAlt()}
           className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
-          style={{ 
+          style={{
             transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
           }}
           width="1920"
@@ -237,7 +181,7 @@ const Index = () => {
           decoding="sync"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-        
+
         <div className="container relative z-10 text-center text-white px-3 sm:px-6 animate-fade-in py-4 sm:py-10">
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 sm:mb-5 text-white drop-shadow-lg animate-fade-in leading-tight font-pacifico">
             {t('home.heroTitle')}
@@ -276,22 +220,7 @@ const Index = () => {
           <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-4 sm:mb-7 px-0 sm:px-4">
             <HeroSearchForm />
           </div>
-          
-          {/* Mobile: Quick trust indicators in hero */}
-          <div className="flex sm:hidden items-center justify-center gap-4 mt-2 animate-fade-in [animation-delay:600ms]">
-            <div className="flex items-center gap-1.5 text-white/90 text-xs">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-3 h-3 fill-yellow-400" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                ))}
-              </div>
-              <span className="font-semibold">4.8</span>
-              <span className="text-white/70">(1200+ avis)</span>
-            </div>
-          </div>
-          
+
           {/* Desktop: Partner CTA */}
           <div className="hidden sm:flex gap-3 sm:gap-4 justify-center flex-wrap animate-fade-in [animation-delay:600ms]">
             <Link to="/partenaires">
@@ -317,11 +246,11 @@ const Index = () => {
               Louez votre voiture en 3 étapes simples
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
             {/* Connection lines between steps */}
             <div className="hidden md:block absolute top-24 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent opacity-30" />
-            
+
             {/* Step 1 */}
             <Card className="relative border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -347,7 +276,7 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Step 2 */}
             <Card className="relative border-2 hover:border-secondary transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -373,7 +302,7 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Step 3 */}
             <Card className="relative border-2 hover:border-accent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -400,7 +329,7 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
-          
+
           <div className="text-center mt-12">
             <p className="text-muted-foreground mb-6">
               Prêt à démarrer votre aventure ?
@@ -489,7 +418,7 @@ const Index = () => {
               Ce qui nous rend différents et meilleurs
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {/* Transparency */}
             <Card className="relative border-2 hover:border-primary transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
@@ -515,7 +444,7 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Simplicity */}
             <Card className="relative border-2 hover:border-secondary transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
               <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
@@ -540,7 +469,7 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Trust */}
             <Card className="relative border-2 hover:border-accent transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
@@ -566,7 +495,7 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
-          
+
           {/* Trust indicators */}
           <div className="mt-16 flex flex-wrap justify-center gap-8 items-center">
             <div className="flex items-center gap-3">
@@ -612,15 +541,15 @@ const Index = () => {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {popularCities.map((city) => (
-              <Link 
+              <Link
                 key={city.name}
                 to={`/louer?city=${encodeURIComponent(city.slug)}`}
                 className="group"
               >
                 <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="relative h-40 sm:h-48 overflow-hidden">
-                    <img 
-                      src={city.image} 
+                    <img
+                      src={city.image}
                       alt={generateCityImageAlt(city.name)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       width="800"
@@ -654,185 +583,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* For Whom */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-secondary/30">
-        <div className="container px-4 sm:px-6">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl text-center mb-4 sm:mb-6 px-4">{t('forWho.title')}</h2>
-          <p className="text-center text-base sm:text-lg md:text-xl text-muted-foreground mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
-            {t('forWho.subtitle')}
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
-            {/* Voyageurs & Expats */}
-            <div className="text-center">
-              <div className="bg-card rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                  <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
-                </div>
-                <h3 className="text-xl sm:text-2xl font-barlow font-semibold mb-3 sm:mb-4">{t('forWho.travelers')}</h3>
-                <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">
-                  {t('forWho.travelersText')}
-                </p>
-                
-                <div className="space-y-4 text-left flex-1">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.airportPickup')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.airportPickupText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.digitalProcess')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.digitalProcessText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.transparentPrices')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.transparentPricesText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.multilingualSupport')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.multilingualSupportText')}</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-6 pt-6 border-t">
-                  <p className="text-sm font-medium text-primary">{t('forWho.useCaseLabel')}</p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    {t('forWho.travelersUseCase')}
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Résidents */}
-            <div className="text-center">
-              <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Shield className="w-8 h-8 text-secondary" />
-                </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('forWho.residents')}</h3>
-                <p className="text-muted-foreground mb-6">
-                  {t('forWho.residentsText')}
-                </p>
-                
-                <div className="space-y-4 text-left flex-1">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.flexibleRentals')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.flexibleRentalsText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.wideChoice')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.wideChoiceText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.residentRates')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.residentRatesText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.deliveryAvailable')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.deliveryAvailableText')}</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-6 pt-6 border-t">
-                  <p className="text-sm font-medium text-secondary">{t('forWho.useCaseLabel')}</p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    {t('forWho.residentsUseCase')}
-                  </p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Agences de location */}
-            <div className="text-center">
-              <div className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-                <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <ArrowRight className="w-8 h-8 text-accent" />
-                </div>
-                <h3 className="text-2xl font-barlow font-semibold mb-4">{t('forWho.agencies')}</h3>
-                <p className="text-muted-foreground mb-6">
-                  {t('forWho.agenciesText')}
-                </p>
-                
-                <div className="space-y-4 text-left flex-1">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.wideClientele')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.wideClienteleText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.digitalPlatform')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.digitalPlatformText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.fairCommission')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.fairCommissionText')}</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-sm">{t('forWho.dedicatedSupport')}</p>
-                      <p className="text-sm text-muted-foreground">{t('forWho.dedicatedSupportText')}</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-6 pt-6 border-t">
-                  <p className="text-sm font-medium text-accent">{t('forWho.benefitsLabel')}</p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    {t('forWho.agenciesBenefits')}
-                  </p>
-                </div>
-                
-                <Link to="/partenaires" className="mt-4">
-                  <Button variant="partner" size="sm" className="w-full group">
-                    {t('forWho.becomePartner')}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section className="container py-16 text-center space-y-5">
+        <h2 className="text-3xl">MRE, touristes et vacanciers : votre séjour commence à Casablanca</h2>
+        <p>Voitures de tourisme pour trois jours minimum et six mois maximum. Prise en charge à Casablanca ; livraison à Rabat sur demande, faisabilité et frais à confirmer.</p>
+        <p>Pas de vans, minibus, utilitaires, prestations de mariage, événementielles ou locations professionnelles.</p>
+        <Link className="inline-block rounded-lg bg-primary text-primary-foreground px-6 py-3" to="/prise-en-charge-casablanca-rabat">Arriver en gare ou à l’aéroport : préparer ma prise en charge</Link>
       </section>
 
       {/* Blog Preview */}
@@ -844,13 +599,13 @@ const Index = () => {
               {t('guides.subtitle')}
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Link to="/blog/assurance-voiture-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-40 sm:h-48 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop" 
+                  <img
+                    src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop"
                     alt="Conseils de conduite au Maroc"
                     width="800"
                     height="500"
@@ -883,8 +638,8 @@ const Index = () => {
             <Link to="/blog/conseils-conduite-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop" 
+                  <img
+                    src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop"
                     alt="Road trips au Maroc"
                     width="800"
                     height="500"
@@ -917,8 +672,8 @@ const Index = () => {
             <Link to="/blog/road-trips-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop" 
+                  <img
+                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop"
                     alt="Assurance voiture au Maroc"
                     width="800"
                     height="500"
@@ -981,7 +736,7 @@ const Index = () => {
       {/* ⚡ PERF: composants below-the-fold en Suspense (chargés en arrière-plan) */}
       <Suspense fallback={null}>
         {/* Customer Reviews */}
-        <CustomerReviews />
+
 
         {/* Loyalty Program */}
 

@@ -1,3 +1,4 @@
+import PickupGuide from "@/pages/PickupGuide";
 import { ServiceAreaGuard } from "@/components/ServiceAreaGuard";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -322,6 +323,7 @@ const App = () => {
                     <Route path="/es/a-propos" element={<LangRoute lang="es"><APropos /></LangRoute>} />
                     <Route path="/es/partenaires" element={<LangRoute lang="es"><Partenaires /></LangRoute>} />
                     <Route path="/es/blog" element={<LangRoute lang="es"><Blog /></LangRoute>} />
+                    <Route path="/prise-en-charge-casablanca-rabat" element={<PickupGuide />} />
                     <Route path="/faq" element={<FAQ />} />
                     <Route path="/glossaire" element={<Glossaire />} />
                     <Route path="/comparatifs" element={<ComparatifsList />} />

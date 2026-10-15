@@ -14,9 +14,6 @@ import carCupraFormentor1 from "@/assets/car-cupra-formentor-1.jpg";
 import carCupraFormentor2 from "@/assets/car-cupra-formentor-2.jpg";
 import carAudiA3_1 from "@/assets/car-audi-a3-1.jpg";
 import carAudiA3_2 from "@/assets/car-audi-a3-2.jpg";
-import carHyundaiStaria1 from "@/assets/car-hyundai-staria-1.jpg";
-import carHyundaiStaria2 from "@/assets/car-hyundai-staria-2.jpg";
-import carHyundaiStaria3 from "@/assets/car-hyundai-staria-3.jpg";
 // Fallback single photos for models without multi-photo set
 import carDuster from "@/assets/car-duster.jpg";
 import carSandero from "@/assets/car-dacia-sandero.jpg";
@@ -107,7 +104,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     priceFrom: 2300,
     priceDisplay: "2300 MAD/jour",
     photos: [carRangeRoverSport1, carRangeRoverSport2, carRangeRoverSport3],
-    description: "Le Range Rover Sport allie élégance britannique, performance et capacité tout-terrain. Idéal pour les mariages, événements VIP et tourisme premium au Maroc. Modèle récent (moins de 2 ans), entretenu en concession officielle.",
+    description: "Le Range Rover Sport allie élégance britannique, performance et capacité tout-terrain. Pour les séjours touristiques et les vacances au départ de Casablanca. Modèle récent (moins de 2 ans), entretenu en concession officielle.",
     options: {
       transmission: "Automatique 8 rapports",
       seats: 5,
@@ -181,7 +178,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     priceFrom: 1060,
     priceDisplay: "1060 MAD/jour",
     photos: [carMercedesC1, carMercedesC2, carMercedesC3],
-    description: "La Mercedes Classe C 2025 incarne l'élégance et la sophistication allemande. Finition AMG Line disponible. Parfaite pour les déplacements business, mariages et clients VIP.",
+    description: "La Mercedes Classe C 2025 incarne l'élégance et la sophistication allemande. Finition AMG Line disponible. Pour les séjours touristiques et les vacances à Casablanca.",
     options: {
       transmission: "Automatique 9G-Tronic",
       seats: 5,
@@ -245,7 +242,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
       blindSpotMonitoring: true,
     },
     highlights: ["Design sportif unique", "DSG 7 ultra-rapide", "Conduite dynamique"],
-    perfectFor: ["Jeunes professionnels", "Couples touristes", "City breaks Marrakech"],
+    perfectFor: ["Voyageurs en séjour", "Couples touristes", "Séjours à Casablanca"],
   },
   "hyundai-tucson": {
     slug: "hyundai-tucson",
@@ -283,43 +280,6 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     },
     highlights: ["Garantie 5 ans incluse", "Tech avancée", "Confort 5 places"],
     perfectFor: ["Familles MRE", "Road trip Atlas", "Aéroport CMN/RAK"],
-  },
-  "hyundai-staria": {
-    slug: "hyundai-staria",
-    name: "Hyundai Staria",
-    brand: "Hyundai",
-    category: "Van 9 Places Premium",
-    priceFrom: 1450,
-    priceDisplay: "1450 MAD/jour",
-    photos: [carHyundaiStaria1, carHyundaiStaria2, carHyundaiStaria3],
-    description: "Le Hyundai Staria est le van futuriste qui révolutionne le transport de groupe. 9 places spacieuses, design avant-gardiste. Idéal pour grandes familles MRE et groupes touristiques.",
-    options: {
-      transmission: "Automatique 8 rapports",
-      seats: 9,
-      doors: 5,
-      luggage: "Énorme (jusqu'à 1303L)",
-      fuel: "Diesel",
-      consumption: "8,5L/100km",
-      enginePower: "177 ch",
-      acceleration: "12s (0-100 km/h)",
-      airConditioning: true,
-      bluetooth: true,
-      gps: true,
-      cruiseControl: true,
-      parkingSensors: true,
-      rearCamera: true,
-      sunroof: false,
-      leatherSeats: false,
-      keyless: true,
-      androidAuto: true,
-      appleCarPlay: true,
-      isofix: true,
-      automaticEmergencyBraking: true,
-      laneAssist: true,
-      blindSpotMonitoring: true,
-    },
-    highlights: ["9 places vraies", "Design futuriste", "Climatisation 3 zones"],
-    perfectFor: ["Grandes familles MRE", "Groupes touristiques", "Transferts aéroport groupe"],
   },
   "audi-a3": {
     slug: "audi-a3",
@@ -542,7 +502,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     photos: [carMercedesGLC],
     description: "Le Mercedes GLC est le SUV premium de référence. Élégance, confort, technologie.",
     options: { transmission: "Automatique 9G-Tronic", seats: 5, doors: 5, luggage: "620L", fuel: "Diesel/Hybride", enginePower: "265 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
-    highlights: ["SUV référence", "Confort premium", "Image Mercedes"], perfectFor: ["Familles premium", "Affaires"]
+    highlights: ["SUV référence", "Confort premium", "Image Mercedes"], perfectFor: ["Familles premium", "Séjours personnels"]
   },
   "mercedes-gle": {
     slug: "mercedes-gle", name: "Mercedes GLE", brand: "Mercedes-Benz",
@@ -558,7 +518,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     photos: [carBmw5],
     description: "La BMW Série 5 incarne le plaisir de conduire allemand au format executive. Sport et confort.",
     options: { transmission: "Automatique 8 rapports", seats: 5, doors: 4, luggage: "520L", fuel: "Diesel/Essence", enginePower: "265 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
-    highlights: ["Plaisir de conduire", "Sport business", "M Sport disponible"], perfectFor: ["Business", "Couples premium", "Affaires"]
+    highlights: ["Plaisir de conduire", "Confort de conduite", "M Sport disponible"], perfectFor: ["Vacances", "Couples premium", "Séjours personnels"]
   },
   "bmw-x5": {
     slug: "bmw-x5", name: "BMW X5", brand: "BMW",
@@ -566,7 +526,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     photos: [carBmwX5],
     description: "Le BMW X5 est le grand SUV premium qui combine sportivité allemande et confort de voyage.",
     options: { transmission: "Automatique 8 rapports", seats: 5, doors: 5, luggage: "650L", fuel: "Diesel/Hybride", enginePower: "286 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
-    highlights: ["SUV sportif", "Plaisir de conduire", "Tech BMW"], perfectFor: ["Familles premium", "Atlas", "Image business"]
+    highlights: ["SUV sportif", "Plaisir de conduire", "Tech BMW"], perfectFor: ["Familles premium", "Atlas", "Séjour confortable"]
   },
   "audi-a4": {
     slug: "audi-a4", name: "Audi A4", brand: "Audi",
@@ -574,7 +534,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     photos: [carAudiA4],
     description: "L Audi A4 est la berline premium de référence. Quality allemande, technologie, confort.",
     options: { transmission: "Automatique S-Tronic", seats: 5, doors: 4, luggage: "460L", fuel: "Diesel/Essence", enginePower: "204 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
-    highlights: ["Audi Virtual Cockpit", "Confort premium", "Quattro disponible"], perfectFor: ["Business", "Couples", "Affaires"]
+    highlights: ["Audi Virtual Cockpit", "Confort premium", "Quattro disponible"], perfectFor: ["Vacances", "Couples", "Séjours personnels"]
   },
   "audi-a6": {
     slug: "audi-a6", name: "Audi A6", brand: "Audi",
@@ -582,7 +542,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     photos: [carAudiA6],
     description: "L Audi A6 est la grande berline executive Audi. Présence, technologie, confort longue distance.",
     options: { transmission: "Automatique Tiptronic", seats: 5, doors: 4, luggage: "530L", fuel: "Diesel/Hybride", enginePower: "286 ch", airConditioning: true, bluetooth: true, gps: true, cruiseControl: true, parkingSensors: true, rearCamera: true, sunroof: true, leatherSeats: true, keyless: true, androidAuto: true, appleCarPlay: true, isofix: true, automaticEmergencyBraking: true, laneAssist: true, blindSpotMonitoring: true },
-    highlights: ["Grande berline luxe", "MMI Navigation Plus", "Quattro disponible"], perfectFor: ["VIP", "Affaires", "Voyages longue distance"]
+    highlights: ["Grande berline luxe", "MMI Navigation Plus", "Quattro disponible"], perfectFor: ["VIP", "Séjours personnels", "Voyages longue distance"]
   },
   "audi-q3": {
     slug: "audi-q3", name: "Audi Q3", brand: "Audi",

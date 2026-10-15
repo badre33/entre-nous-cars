@@ -1,3 +1,4 @@
+import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
 import { useState, useEffect, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -725,6 +726,7 @@ const Louer = () => {
   const louerMeta = LOUER_META[language] ?? LOUER_META.fr;
 
   const [searchParams] = useSearchParams();
+  const pickupPoint = pickupPoints.find(p => p.id === searchParams.get("pickup"));
   const [selectedCity, setSelectedCity] = useState<string>("Casablanca");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
@@ -860,6 +862,7 @@ ${vehiclesList}`;
       message += `\n\n📍 Ville : ${selectedCity}`;
     }
     if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande : merci de confirmer la faisabilité et les frais depuis Casablanca.";
+    if (pickupPoint && pickupPoint.city === selectedCity) message += `\nPoint de prise en charge demandé : ${pickupPoint.name} (rendez-vous à confirmer)`;
     message += buildDatesBlock();
     message += `\n\n💡 Prix indicatifs — tarif final confirmé par le loueur partenaire.`;
     message += `\nMerci de me confirmer la disponibilité.`;
@@ -1040,6 +1043,7 @@ Véhicule : ${selectedCar.name}
       <HreflangTags path="/louer" />
       <StructuredData type="rental" />
       <CarProductSchema cars={displayedCars.slice(0, 20)} />
+      {pickupPoint && pickupPoint.city === selectedCity && <p className="px-4 py-3 text-center bg-secondary/30">Point demandé : {pickupPoint.name} — rendez-vous et frais à confirmer.</p>}
       <p className="bg-secondary/30 px-4 py-3 text-center" role="note">Casablanca : prise en charge en ville ou à l’aéroport Mohammed V. Rabat : livraison sur demande, faisabilité et frais à confirmer par le loueur. Aucune autre ville desservie actuellement.</p>
       <PullToRefreshIndicator 
         isPulling={isPulling}

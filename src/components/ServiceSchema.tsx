@@ -14,7 +14,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
       "@type": "Service",
       "@id": `${baseUrl}${citySlug}#location-courte-duree`,
       "name": `Location de Voiture Courte Durée ${cityName}`,
-      "description": `Service de location de voiture courte durée (1-30 jours) à ${cityName}. Idéal pour vos déplacements professionnels, vacances et week-ends. Demande en 2 minutes sur WhatsApp, confirmation directe par le loueur, sans carte de crédit requise.`,
+      "description": `Service de location de voiture courte durée (3-30 jours) à ${cityName}. Idéal pour vos vacances et séjours touristiques. Demande en 2 minutes sur WhatsApp, confirmation directe par le loueur, sans carte de crédit requise.`,
       "provider": {
         "@type": "Organization",
         "name": "Benatna",
@@ -65,7 +65,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
       "@type": "Service",
       "@id": `${baseUrl}${citySlug}#location-longue-duree`,
       "name": `Location de Voiture Longue Durée ${cityName}`,
-      "description": `Service de location de voiture longue durée (plus de 30 jours) à ${cityName}. Solution flexible pour vos besoins professionnels ou personnels prolongés. Tarifs dégressifs et conditions avantageuses.`,
+      "description": `Service de location de voiture longue durée (de 31 jours à 6 mois) à ${cityName}. Solution flexible pour vos séjours personnels prolongés. Tarifs dégressifs et conditions avantageuses.`,
       "provider": {
         "@type": "Organization",
         "name": "Benatna",
