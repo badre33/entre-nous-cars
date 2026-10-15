@@ -14,5 +14,5 @@ A12,P2,Verifier eligibilite fiche et identite locale,a_faire,local,S11,Modele re
 A13,P2,Preparer liste de partenaires pertinents,a_faire,recommandation,ARCHITECTURE.md,Liste motivee et codes source; aucune sollicitation envoyee,aucune,recherche
 A14,P2,Configurer un test payant limite,non_lance,paid,PLAN-90-JOURS.md,Compte budget plafond duree et mesure valides,A01;A02;A03;budget;compte,administrateur
 A15,P1,Examiner avertissements donnees produits et avis,a_faire,SEO technique,GSC ancien releve,Faits reels et schemas conformes; pas de faux avis,acces_rapport,technique
-A16,P1,Maintenir traces et versionner le dossier,fait_local,documentation,README.md,Sources journal decisions preuves backlog coherents,aucune,documentation
+A16,P1,Maintenir traces et versionner le dossier,versionne_pr20,documentation,README.md,Sources journal decisions preuves et backlog valides; sauvegarde privee PR20,aucune,documentation
 A17,P1,Relier guides pratiques cites aux besoins de sejour Casablanca,a_faire,SEO GEO,S17;ARCHITECTURE.md,Liens contextuels utiles et mesure; pas de reintroduction hors zone,A01;A02;A05,contenu
