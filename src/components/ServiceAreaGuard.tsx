@@ -7,7 +7,7 @@ import Footer from './Footer';
 // Keep existing URLs, but do not advertise a rental service outside the operating area.
 export function ServiceAreaGuard({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
-  const luxury = /^\/vehicule\//.test(pathname) && /mercedes|bmw|audi|porsche|maserati|jaguar|range-rover|lexus|volvo/i.test(pathname);
+  const luxury = /^\/vehicule\//.test(pathname) && /touareg|mercedes|bmw|audi|porsche|maserati|jaguar|range-rover|lexus|volvo/i.test(pathname);
   const excluded = luxury || /mariage|van-famille|minibus|utilitaire|professionnel|luxe-evenement|hyundai-staria/i.test(pathname);
   const rentalPage = /^\/location[-/]/.test(pathname);
   const rabat = rentalPage && /rabat/i.test(pathname);
