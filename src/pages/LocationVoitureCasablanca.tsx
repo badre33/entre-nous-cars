@@ -65,7 +65,7 @@ const casablancaFAQs = [
   },
   {
     question: "Peut-on restituer le véhicule dans une autre ville que Casablanca ?",
-    answer: "Oui, le service aller-simple est disponible vers les principales villes du Maroc (Marrakech, Rabat, Tanger, Agadir, Fès). Des frais de transfert peuvent s'appliquer selon la destination. Le loueur vous propose son meilleur tarif directement sur WhatsApp."
+    answer: "Nos loueurs sont basés à Casablanca. Une livraison à Rabat peut être étudiée sur demande ; faisabilité, restitution et frais doivent être confirmés avec le loueur. Nous ne proposons pas de prise en charge dans les autres villes."
   }
 ];
 
@@ -785,12 +785,7 @@ const LocationVoitureCasablanca = () => {
               Découvrez aussi nos autres destinations
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                to="/location-voiture-marrakech"
-                className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"
-              >
-                Location voiture Marrakech
-              </Link>
+              
               <Link 
                 to="/location-voiture-rabat"
                 className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"

@@ -37,7 +37,7 @@ export default defineConfig(({ mode }) => ({
       manifest: {
         name: "Benatna – Location de Voiture au Maroc",
         short_name: "Benatna",
-        description: "Location de voiture au Maroc. Prix transparents, processus digital, sans surprises. Disponible dans 6 villes.",
+        description: "Location de voiture à Casablanca et à l’aéroport Mohammed V. Livraison à Rabat sur demande, faisabilité et frais à confirmer.",
         theme_color: "#ffda00",
         background_color: "#f5ffe4",
         display: "standalone",
