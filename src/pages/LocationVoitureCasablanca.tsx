@@ -785,7 +785,7 @@ const LocationVoitureCasablanca = () => {
               Découvrez aussi nos autres destinations
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              
+
               <Link 
                 to="/location-voiture-rabat"
                 className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-full text-sm transition-colors"
