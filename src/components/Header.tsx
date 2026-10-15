@@ -28,11 +28,7 @@ const Header = () => {
   
   const cities = [
     { name: 'Casablanca', path: '/location-voiture-casablanca' },
-    { name: 'Marrakech', path: '/location-voiture-marrakech' },
-    { name: 'Rabat', path: '/location-voiture-rabat' },
-    { name: 'Tanger', path: '/location-voiture-tanger' },
-    { name: 'Agadir', path: '/location-voiture-agadir' },
-    { name: 'Fès', path: '/location-voiture-fes' },
+    { name: 'Rabat — sur demande', path: '/location-voiture-rabat' },
   ];
 
   const isCityActive = cities.some(city => isActive(city.path));
@@ -66,15 +62,7 @@ const Header = () => {
       >
         Services
       </Link>
-      <Link 
-        to="/location-voiture-coupe-monde-2026-maroc" 
-        onClick={onLinkClick}
-        className={`${mobile ? 'text-lg py-3 px-4 rounded-lg' : 'text-sm'} font-medium transition-colors hover:text-primary ${
-          isActive('/location-voiture-coupe-monde-2026-maroc') ? 'text-foreground bg-accent' : 'text-muted-foreground'
-        }`}
-      >
-        ⚽ Mondial 2026
-      </Link>
+
       
       {mobile ? (
         <div className="space-y-1">

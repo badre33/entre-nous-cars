@@ -6,7 +6,7 @@ interface ServiceSchemaProps {
 
 export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
   const baseUrl = "https://benatna.ma";
-  const cityName = city || "Maroc";
+  const cityName = city || "Casablanca";
   const citySlug = city ? `/location-voiture-${city.toLowerCase()}` : "";
 
   const services = [
@@ -22,7 +22,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "telephone": "+212699024526"
       },
       "areaServed": {
-        "@type": city ? "City" : "Country",
+        "@type": "City",
         "name": cityName
       },
       "serviceType": "Location de voiture courte durée",
@@ -73,7 +73,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "telephone": "+212699024526"
       },
       "areaServed": {
-        "@type": city ? "City" : "Country",
+        "@type": "City",
         "name": cityName
       },
       "serviceType": "Location de voiture longue durée",
@@ -144,7 +144,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "telephone": "+212699024526"
       },
       "areaServed": {
-        "@type": city ? "City" : "Country",
+        "@type": "City",
         "name": cityName
       },
       "serviceType": "Assurance automobile",
@@ -199,7 +199,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
         "telephone": "+212699024526"
       },
       "areaServed": {
-        "@type": city ? "City" : "Country",
+        "@type": "City",
         "name": cityName
       },
       "serviceType": "Service inclus",
@@ -228,7 +228,7 @@ export const ServiceSchema = ({ city }: ServiceSchemaProps) => {
       "logo": `${baseUrl}/logo-benatna.png`
     },
     "areaServed": {
-      "@type": city ? "City" : "Country",
+      "@type": "City",
       "name": cityName
     },
     "hasOfferCatalog": {

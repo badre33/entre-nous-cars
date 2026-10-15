@@ -16,14 +16,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const cities = ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"];
+const cities = ["Casablanca", "Rabat"];
 
 export const HeroSearchForm = () => {
   const { t } = useLanguage();
   const navigate = useNavigate();
   const { toast } = useToast();
   const isMobile = useIsMobile();
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Casablanca");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [startTime, setStartTime] = useState("10:00");

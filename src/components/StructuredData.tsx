@@ -29,7 +29,7 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
         "@type": "ContactPoint",
         telephone: "+212-699-024-526",
         contactType: "Customer Service",
-        areaServed: "MA",
+        areaServed: "Casablanca",
         availableLanguage: ["French", "Arabic", "English"]
       },
       sameAs: [
@@ -57,32 +57,7 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
         latitude: 33.5731104,
         longitude: -7.5898434
       },
-      areaServed: [
-        {
-          "@type": "City",
-          name: "Casablanca"
-        },
-        {
-          "@type": "City",
-          name: "Marrakech"
-        },
-        {
-          "@type": "City",
-          name: "Rabat"
-        },
-        {
-          "@type": "City",
-          name: "Tanger"
-        },
-        {
-          "@type": "City",
-          name: "Agadir"
-        },
-        {
-          "@type": "City",
-          name: "Fès"
-        }
-      ],
+      areaServed: [{ "@type": "City", name: "Casablanca" }],
       description: "Location de voitures au Maroc avec transparence des prix et processus 100% digital. Trouvez votre véhicule idéal parmi nos agences partenaires vérifiées.",
       aggregateRating: {
         "@type": "AggregateRating",
@@ -101,8 +76,8 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
         name: "Benatna"
       },
       areaServed: {
-        "@type": "Country",
-        name: "Maroc"
+        "@type": "City",
+        name: "Casablanca"
       },
       hasOfferCatalog: {
         "@type": "OfferCatalog",
@@ -245,7 +220,7 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
           name: "Puis-je louer une voiture dans une ville et la rendre dans une autre ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui, nous proposons la location aller-simple entre les principales villes du Maroc (Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès)."
+            text: "Nos loueurs sont basés à Casablanca. Une livraison à Rabat peut être étudiée sur demande ; faisabilité et frais sont à confirmer."
           }
         }
       ]
