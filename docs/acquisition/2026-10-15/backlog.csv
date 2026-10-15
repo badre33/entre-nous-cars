@@ -1,0 +1,18 @@
+id,priorite,action,etat,domaine,reference,critere_acceptation,dependances,role
+A01,P0,Corriger la semantique WhatsApp et dedupliquer,a_faire,code et parcours,MESURE.md,Un geste = une sortie; aucun faux message recu,aucune,technique
+A02,P0,Nettoyer URL libres et ajouter attribution UTM controlee,a_faire,code et parcours,MESURE.md,Pas de texte client en analytics; campagne conservee,A01,technique
+A03,P0,Definir suivi prive des demandes et resultats,specifie,operation,suivi-demandes-modele.csv,Contacts recus distingues des clics; acces administrateur,aucune,administrateur
+A04,P1,Verifier consolidation www et domaines secondaires,a_faire,SEO technique,STATUS.md,Canonical et redirections coherentes; pas de migration presumee,aucune,technique
+A05,P1,Relire les huit pages centrales et les liens,a_faire,SEO contenu,ARCHITECTURE.md,Intention unique et faits coherents; prix existants,aucune,contenu
+A06,P1,Evaluer les variantes quartier et autres pages,a_faire,architecture,inventaire-pages.csv,Decisions URL par URL motivees; pas de suppression de masse,A05,contenu
+A07,P1,Produire C01 arrivee Mohammed V,brouillon_pret,Meta,PLAN-90-JOURS.md,Images autorisees et CTA mesure; pas de promesse de stock,A01;A02,creation
+A08,P1,Produire C02 choix categorie et C03 gare,brouillon_pret,Meta,PLAN-90-JOURS.md,Trois angles distincts; liens avec campagne,A01;A02,creation
+A09,P1,Controler indexation finale Google et IndexNow,a_controler,referencement,SEARCH-DISCOVERY-2026-10-15.md,Preuve indexation finale ou motif; ne pas confondre HTTP 202,aucune,SEO
+A10,P1,Connexion Bing sitemap et reference AI Performance,fait,Bing,question connexion du tour precedent,Autorisation recue; connexion et soumission confirmees; preuves sauvegardees,aucune,administrateur
+A11,P1,Tester presence IA sur questions stables,a_faire,GEO,tests-ia-modele.csv,Date moteur question liens captures et exactitude,acces_moteur,recherche
+A12,P2,Verifier eligibilite fiche et identite locale,a_faire,local,S11,Modele reel compatible; aucune fausse agence,clarifier_modele_operationnel,administrateur
+A13,P2,Preparer liste de partenaires pertinents,a_faire,recommandation,ARCHITECTURE.md,Liste motivee et codes source; aucune sollicitation envoyee,aucune,recherche
+A14,P2,Configurer un test payant limite,non_lance,paid,PLAN-90-JOURS.md,Compte budget plafond duree et mesure valides,A01;A02;A03;budget;compte,administrateur
+A15,P1,Examiner avertissements donnees produits et avis,a_faire,SEO technique,GSC ancien releve,Faits reels et schemas conformes; pas de faux avis,acces_rapport,technique
+A16,P1,Maintenir traces et versionner le dossier,fait_local,documentation,README.md,Sources journal decisions preuves backlog coherents,aucune,documentation
+A17,P1,Relier guides pratiques cites aux besoins de sejour Casablanca,a_faire,SEO GEO,S17;ARCHITECTURE.md,Liens contextuels utiles et mesure; pas de reintroduction hors zone,A01;A02;A05,contenu
