@@ -93,6 +93,7 @@ const Footer = () => {
           <p>Loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V.</p>
           <p>Rabat : livraison sur demande, faisabilité et frais à confirmer avec le loueur.</p>
           <div className="flex justify-center gap-4 flex-wrap">
+            <Link to="/prise-en-charge-casablanca-rabat">Gares et aéroports</Link>
             <Link to="/location-voiture-casablanca">Casablanca</Link>
             <Link to="/location-voiture-aeroport-casablanca">Aéroport Mohammed V</Link>
             <Link to="/louer?city=Rabat">Demander une livraison à Rabat</Link>

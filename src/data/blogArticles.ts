@@ -884,13 +884,12 @@ export const blogArticles: BlogArticle[] = [
       
       "**SUV et 4x4** (Dacia Duster, VW Tiguan, Toyota RAV4) : 350 à 600 MAD/jour (35-60€). Recommandés pour les routes de montagne et le désert. Consommation : 7-9 L/100km.",
       
-      "**Véhicules premium** (Mercedes Classe C, BMW Série 3, Audi A4) : 800 à 1500 MAD/jour (80-150€). Pour voyages d'affaires ou confort maximum. Consommation : 7-8 L/100km.",
-      
-      "**Minibus 7-9 places** (Hyundai H1, Mercedes Vito) : 700 à 1000 MAD/jour (70-100€). Pour groupes et familles nombreuses. Consommation : 9-11 L/100km.",
+      "**Véhicules premium** (Mercedes Classe C, BMW Série 3, Audi A4) : 800 à 1500 MAD/jour (80-150€). Pour les séjours touristiques avec davantage de confort. Consommation : 7-8 L/100km.",
+
       
       "### Prix Selon la Durée de Location",
       
-      "Plus vous louez longtemps, moins le prix journalier est élevé. **1-2 jours** : prix plein. **3-6 jours** : -10%. **7-13 jours** : -15 à -20%. **14-29 jours** : -20 à -25%. **30+ jours** : -25 à -35%.",
+      "Plus vous louez longtemps, moins le prix journalier est élevé. Chez Benatna, la durée minimum est de **3 jours**, avec un maximum de **6 mois**. Le tarif final et les éventuelles remises doivent être confirmés par le loueur.",
       
       "Exemple concret : Une Renault Clio coûte 300 MAD/jour pour 2 jours (400 MAD total), mais seulement 140 MAD/jour pour 10 jours (1 400 MAD total au lieu de 2 000 MAD).",
       
