@@ -223,7 +223,7 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
     } : null;
 
     // Combine all schemas
-    const schemas: any[] = [organization, breadcrumb];
+    const schemas: Record<string, unknown>[] = [organization, breadcrumb];
     
     if (type === "home" || type === "rental") {
       schemas.push(localBusiness, service);

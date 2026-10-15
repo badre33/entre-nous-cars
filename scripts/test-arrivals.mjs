@@ -25,5 +25,6 @@ try {
   await p.goto(base+path,{waitUntil:'domcontentloaded'});await p.getByRole('heading',{name:'Voitures de tourisme pour vos séjours — minimum trois jours'}).waitFor();assert.equal(await p.locator('meta[name=robots]').getAttribute('content'),'noindex,follow');
  }
  await p.goto(base+'/faq',{waitUntil:'domcontentloaded'});await p.getByRole('heading',{name:'Questions fréquentes — Casablanca et Rabat'}).waitFor();await p.getByText('Le site permet de préparer une demande, puis de la transmettre par WhatsApp.',{exact:false}).waitFor();
+ await p.goto(base+'/',{waitUntil:'domcontentloaded'});await p.getByRole('heading',{level:1,name:/Casablanca/}).waitFor();assert(!/1200\+ avis|1,247 avis|1247 avis/.test(await p.locator('body').innerText()));
  assert.deepEqual(errors,[]);console.log('8 points d’arrivée, FAQ/JSON-LD cohérents, rendez-vous dans demande simulée, minimum 3 jours et offres exclues validés. Aucun envoi WhatsApp ni paiement.');
 } finally {await b.close();}

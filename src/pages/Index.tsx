@@ -71,27 +71,27 @@ const Index = () => {
   const howItWorksAnimation = useScrollAnimation(0.2);
   const whyAnimation = useScrollAnimation(0.2);
   const citiesAnimation = useScrollAnimation(0.2);
-  
+
   // Préchargement intelligent des images suivantes
   useIntelligentPreloader([
     { selector: 'img[data-city-image]', attribute: 'src' },
     { selector: 'img[loading="lazy"]', attribute: 'src' }
   ], 0.6);
-  
+
   useEffect(() => {
     // Check if desktop once on mount to avoid reflow during render
     const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
     checkDesktop();
-    
+
     // Use matchMedia for resize detection (no reflow)
     const mql = window.matchMedia('(min-width: 768px)');
     const handleResize = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
     mql.addEventListener('change', handleResize);
-    
+
     // Defer parallax setup to avoid blocking FID
     let rafId: number | null = null;
     let isScrolling = false;
-    
+
     const updateParallax = () => {
       // Only update if desktop (already in state, no reflow)
       if (mql.matches) {
@@ -100,7 +100,7 @@ const Index = () => {
       }
       isScrolling = false;
     };
-    
+
     const handleScroll = () => {
       // Throttle with requestAnimationFrame to avoid blocking main thread
       if (!isScrolling) {
@@ -108,12 +108,12 @@ const Index = () => {
         rafId = requestAnimationFrame(updateParallax);
       }
     };
-    
+
     // Defer scroll listener registration to improve FID
     const timeoutId = setTimeout(() => {
       window.addEventListener('scroll', handleScroll, { passive: true });
     }, 100);
-    
+
     return () => {
       clearTimeout(timeoutId);
       mql.removeEventListener('change', handleResize);
@@ -126,7 +126,7 @@ const Index = () => {
     { name: "Casablanca", image: cityCasablanca, vehicles: "Casablanca", slug: "Casablanca" },
     { name: "Rabat", image: cityRabat, vehicles: "Sur demande", slug: "Rabat" },
   ];
-  
+
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
@@ -143,34 +143,34 @@ const Index = () => {
       <ServiceSchema />
       <HowToSchema />
       <OfferSchema />
-      
-      
+
+
       {/* Schema AggregateRating pour étoiles Google */}
-      
-      
-      <OpeningHoursSchema 
+
+
+      <OpeningHoursSchema
         entityType="Organization"
         entityName="Benatna Location de Voiture Maroc"
       />
-      
+
       {/* Product Schema pour top 20 véhicules */}
       <VehicleProductSchemas limit={20} />
-      
+
       {/* BreadcrumbList Schema (Homepage) */}
       <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
       </Suspense>
 
       <Header />
-      
+
       <main>
       {/* Hero Section with Parallax */}
       <section className="relative min-h-[560px] sm:min-h-[600px] md:h-[650px] lg:h-[700px] flex items-center justify-center overflow-hidden">
         {/* LCP-optimized WebP hero image from public folder for fast discovery */}
-        <img 
-          src={heroImageWebp} 
+        <img
+          src={heroImageWebp}
           alt={generateHeroImageAlt()}
           className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
-          style={{ 
+          style={{
             transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
           }}
           width="1920"
@@ -181,7 +181,7 @@ const Index = () => {
           decoding="sync"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
-        
+
         <div className="container relative z-10 text-center text-white px-3 sm:px-6 animate-fade-in py-4 sm:py-10">
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 sm:mb-5 text-white drop-shadow-lg animate-fade-in leading-tight font-pacifico">
             {t('home.heroTitle')}
@@ -220,7 +220,7 @@ const Index = () => {
           <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-4 sm:mb-7 px-0 sm:px-4">
             <HeroSearchForm />
           </div>
-          
+
           {/* Desktop: Partner CTA */}
           <div className="hidden sm:flex gap-3 sm:gap-4 justify-center flex-wrap animate-fade-in [animation-delay:600ms]">
             <Link to="/partenaires">
@@ -246,11 +246,11 @@ const Index = () => {
               Louez votre voiture en 3 étapes simples
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 relative">
             {/* Connection lines between steps */}
             <div className="hidden md:block absolute top-24 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent opacity-30" />
-            
+
             {/* Step 1 */}
             <Card className="relative border-2 hover:border-primary transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -276,7 +276,7 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Step 2 */}
             <Card className="relative border-2 hover:border-secondary transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -302,7 +302,7 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Step 3 */}
             <Card className="relative border-2 hover:border-accent transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 rounded-3xl group overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -329,7 +329,7 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
-          
+
           <div className="text-center mt-12">
             <p className="text-muted-foreground mb-6">
               Prêt à démarrer votre aventure ?
@@ -418,7 +418,7 @@ const Index = () => {
               Ce qui nous rend différents et meilleurs
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {/* Transparency */}
             <Card className="relative border-2 hover:border-primary transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
@@ -444,7 +444,7 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Simplicity */}
             <Card className="relative border-2 hover:border-secondary transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
               <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
@@ -469,7 +469,7 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
-            
+
             {/* Trust */}
             <Card className="relative border-2 hover:border-accent transition-all duration-500 hover:shadow-2xl rounded-3xl group overflow-hidden bg-card/50 backdrop-blur">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500" />
@@ -495,7 +495,7 @@ const Index = () => {
               </CardContent>
             </Card>
           </div>
-          
+
           {/* Trust indicators */}
           <div className="mt-16 flex flex-wrap justify-center gap-8 items-center">
             <div className="flex items-center gap-3">
@@ -541,15 +541,15 @@ const Index = () => {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {popularCities.map((city) => (
-              <Link 
+              <Link
                 key={city.name}
                 to={`/louer?city=${encodeURIComponent(city.slug)}`}
                 className="group"
               >
                 <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="relative h-40 sm:h-48 overflow-hidden">
-                    <img 
-                      src={city.image} 
+                    <img
+                      src={city.image}
                       alt={generateCityImageAlt(city.name)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       width="800"
@@ -599,13 +599,13 @@ const Index = () => {
               {t('guides.subtitle')}
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             <Link to="/blog/assurance-voiture-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-40 sm:h-48 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop" 
+                  <img
+                    src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop"
                     alt="Conseils de conduite au Maroc"
                     width="800"
                     height="500"
@@ -638,8 +638,8 @@ const Index = () => {
             <Link to="/blog/conseils-conduite-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop" 
+                  <img
+                    src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop"
                     alt="Road trips au Maroc"
                     width="800"
                     height="500"
@@ -672,8 +672,8 @@ const Index = () => {
             <Link to="/blog/road-trips-maroc" className="group">
               <Card className="overflow-hidden border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop" 
+                  <img
+                    src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop"
                     alt="Assurance voiture au Maroc"
                     width="800"
                     height="500"
@@ -736,7 +736,7 @@ const Index = () => {
       {/* ⚡ PERF: composants below-the-fold en Suspense (chargés en arrière-plan) */}
       <Suspense fallback={null}>
         {/* Customer Reviews */}
-        
+
 
         {/* Loyalty Program */}
 
