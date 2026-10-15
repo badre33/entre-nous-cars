@@ -14,22 +14,17 @@ import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { StructuredData } from "@/components/StructuredData";
 import { generateHeroImageAlt, generateCityImageAlt } from "@/utils/seoHelpers";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { globalReviews } from "@/data/reviewsData";
 
 // ⚡ PERF: composants below-the-fold lazy-loaded (réduit TBT + LCP)
 const AnimatedCounter = lazy(() => import("@/components/AnimatedCounter"));
 const FloatingCTA = lazy(() => import("@/components/FloatingCTA").then(m => ({ default: m.FloatingCTA })));
 const SEOLinks = lazy(() => import("@/components/SEOLinks").then(m => ({ default: m.SEOLinks })));
-const CustomerReviews = lazy(() => import("@/components/CustomerReviews").then(m => ({ default: m.CustomerReviews })));
 
 // ⚡ PERF: schemas SEO JSON-LD lazy-loaded (Google Bot exécute JS, pas grave)
-const ReviewsSchema = lazy(() => import("@/components/ReviewsSchema").then(m => ({ default: m.ReviewsSchema })));
 const ServiceSchema = lazy(() => import("@/components/ServiceSchema").then(m => ({ default: m.ServiceSchema })));
 const HowToSchema = lazy(() => import("@/components/HowToSchema"));
 const OfferSchema = lazy(() => import("@/components/OfferSchema").then(m => ({ default: m.OfferSchema })));
 const VehicleProductSchemas = lazy(() => import("@/components/VehicleProductSchemas").then(m => ({ default: m.VehicleProductSchemas })));
-const EnhancedAggregateRatingSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.EnhancedAggregateRatingSchema })));
-const IndividualReviewsSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.IndividualReviewsSchema })));
 const OpeningHoursSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.OpeningHoursSchema })));
 const SitelinksSearchBoxSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.SitelinksSearchBoxSchema })));
 const BreadcrumbListSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.BreadcrumbListSchema })));
@@ -148,62 +143,11 @@ const Index = () => {
       <ServiceSchema />
       <HowToSchema />
       <OfferSchema />
-      <ReviewsSchema
-        reviews={[
-          {
-            name: 'Amina Benali',
-            location: 'Casablanca',
-            rating: 5,
-            comment: 'Service impeccable ! J\'ai loué une Clio pour visiter Marrakech. La voiture était propre, récente et le prix très compétitif. Je recommande vivement Benatna.',
-            date: 'Il y a 2 jours',
-            car: 'Renault Clio',
-          },
-          {
-            name: 'Youssef Alami',
-            location: 'Rabat',
-            rating: 5,
-            comment: 'Excellente expérience du début à la fin. L\'assistance client est réactive et professionnelle. J\'ai eu un surclassement gratuit vers un SUV. Merci !',
-            date: 'Il y a 5 jours',
-            car: 'Dacia Duster',
-          },
-          {
-            name: 'Sofia Mansouri',
-            location: 'Marrakech',
-            rating: 5,
-            comment: 'Parfait pour mon séjour touristique ! La réservation en ligne est simple et rapide. La voiture m\'attendait à l\'aéroport. Aucun souci pendant toute la durée de location.',
-            date: 'Il y a 1 semaine',
-            car: 'Toyota Yaris',
-          },
-          {
-            name: 'Mehdi Tazi',
-            location: 'Fès',
-            rating: 5,
-            comment: 'Très bonne agence ! Prix transparents, pas de frais cachés. La voiture était en parfait état. Je loue régulièrement chez Benatna et je ne suis jamais déçu.',
-            date: 'Il y a 2 semaines',
-            car: 'Toyota Corolla',
-          },
-          {
-            name: 'Karima El Fassi',
-            location: 'Tanger',
-            rating: 5,
-            comment: 'Location ultra simple, voiture nickel et tarifs imbattables. L\'équipe Benatna est top !',
-            date: 'Il y a 3 semaines',
-            car: 'Hyundai i20',
-          },
-        ]}
-        averageRating={4.8}
-        totalReviews={1247}
-      />
+      
       
       {/* Schema AggregateRating pour étoiles Google */}
-      <EnhancedAggregateRatingSchema 
-        entityType="Organization"
-        entityName="Benatna Location de Voiture Maroc"
-      />
-      <IndividualReviewsSchema
-        reviews={globalReviews.slice(0, 10)}
-        entityType="Organization"
-      />
+      
+      
       <OpeningHoursSchema 
         entityType="Organization"
         entityName="Benatna Location de Voiture Maroc"
@@ -275,21 +219,6 @@ const Index = () => {
           {/* Search Form */}
           <div className="animate-fade-in [animation-delay:400ms] max-w-5xl mx-auto mb-4 sm:mb-7 px-0 sm:px-4">
             <HeroSearchForm />
-          </div>
-          
-          {/* Mobile: Quick trust indicators in hero */}
-          <div className="flex sm:hidden items-center justify-center gap-4 mt-2 animate-fade-in [animation-delay:600ms]">
-            <div className="flex items-center gap-1.5 text-white/90 text-xs">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-3 h-3 fill-yellow-400" viewBox="0 0 24 24">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                ))}
-              </div>
-              <span className="font-semibold">4.8</span>
-              <span className="text-white/70">(1200+ avis)</span>
-            </div>
           </div>
           
           {/* Desktop: Partner CTA */}
@@ -807,7 +736,7 @@ const Index = () => {
       {/* ⚡ PERF: composants below-the-fold en Suspense (chargés en arrière-plan) */}
       <Suspense fallback={null}>
         {/* Customer Reviews */}
-        <CustomerReviews />
+        
 
         {/* Loyalty Program */}
 

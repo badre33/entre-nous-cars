@@ -105,13 +105,6 @@ export const OrganizationSchema = () => {
       "https://www.youtube.com/@benatna",
       "https://twitter.com/benatna"
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": BUSINESS_INFO.rating.value,
-      "reviewCount": BUSINESS_INFO.rating.count,
-      "bestRating": BUSINESS_INFO.rating.best,
-      "worstRating": BUSINESS_INFO.rating.worst
-    },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [

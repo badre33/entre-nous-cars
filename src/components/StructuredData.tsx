@@ -59,11 +59,7 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
       },
       areaServed: [{ "@type": "City", name: "Casablanca" }],
       description: "Location de voitures au Maroc avec transparence des prix et processus 100% digital. Trouvez votre véhicule idéal parmi nos agences partenaires vérifiées.",
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "247"
-      }
+
     };
 
     // Service schema for rental service
