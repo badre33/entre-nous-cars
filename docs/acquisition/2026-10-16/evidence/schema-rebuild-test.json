@@ -1,0 +1,94 @@
+{
+  "testedAt": "2026-10-16T13:16:10.652Z",
+  "engine": "PGlite PostgreSQL; auth schema and platform roles simulated locally",
+  "migrations": [
+    "20251216000000_roles_prerequisite.sql",
+    "20251216161118_12591319-4807-437f-bd5e-d593ce76ed59.sql",
+    "20260612000000_rental_requests.sql",
+    "20261010140000_restrict_analytics_and_rental_intake.sql",
+    "20261016000000_reconcile_new_project.sql"
+  ],
+  "checks": [
+    {
+      "name": "columns:user_roles",
+      "passed": true
+    },
+    {
+      "name": "rls:user_roles",
+      "passed": true
+    },
+    {
+      "name": "columns:rental_requests",
+      "passed": true
+    },
+    {
+      "name": "rls:rental_requests",
+      "passed": true
+    },
+    {
+      "name": "columns:analytics_events",
+      "passed": true
+    },
+    {
+      "name": "rls:analytics_events",
+      "passed": true
+    },
+    {
+      "name": "columns:analytics_sessions",
+      "passed": true
+    },
+    {
+      "name": "rls:analytics_sessions",
+      "passed": true
+    },
+    {
+      "name": "function_acl:has_role",
+      "passed": true
+    },
+    {
+      "name": "function_acl:insert_analytics_event",
+      "passed": true
+    },
+    {
+      "name": "function_acl:touch_analytics_session",
+      "passed": true
+    },
+    {
+      "name": "function_acl:set_rental_requests_updated_at",
+      "passed": true
+    },
+    {
+      "name": "only_two_admin_read_policies",
+      "passed": true
+    },
+    {
+      "name": "all_indexes_match_snapshot",
+      "passed": true
+    },
+    {
+      "name": "all_constraints_match_snapshot",
+      "passed": true
+    },
+    {
+      "name": "table_grants_match_snapshot",
+      "passed": true
+    },
+    {
+      "name": "anon:RPC_collection_and_no_read",
+      "passed": true
+    },
+    {
+      "name": "authenticated:RPC_collection_and_no_read",
+      "passed": true
+    },
+    {
+      "name": "admin_can_read_analytics",
+      "passed": true
+    }
+  ],
+  "productionChanged": false,
+  "limitations": [
+    "Supabase-managed rls_auto_enable event trigger is platform-owned and intentionally excluded.",
+    "No auth user or admin membership seeded in migrations."
+  ]
+}
