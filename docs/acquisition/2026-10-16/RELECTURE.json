@@ -88,10 +88,11 @@
       "id": "R09",
       "priorite": "P1",
       "sujet": "A01 A02 A03 mesure et suivi prive",
-      "etat": "prepare_tests_reussis_activation_SQL_en_attente",
-      "preuve_production": null,
+      "etat": "SQL_active_nettoye_frontend_en_preview",
+      "preuve_production": "evidence/measurement-production-sql.json; evidence/analytics-history-after.json",
       "preuve_test": "evidence/measurement-schema-test.json; evidence/measurement-browser-test.json",
-      "limite": "37 controles SQL, 15 controles navigateur; pas de migration ni de nettoyage historique execute en production."
+      "limite": "Activation et nettoyage autorises effectues; tests reels RLS/RPC passes et fixtures annulees. Publication frontend encore en attente.",
+      "pr": 28
     },
     {
       "id": "R10",

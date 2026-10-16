@@ -1,6 +1,6 @@
 # Mesure et suivi privé : implantation du 16 octobre
 
-État : code et tests locaux prêts ; activation SQL et publication R09 encore à confirmer dans RELECTURE.json. Ne pas présenter ce document comme une preuve de mise en production.
+État : activation SQL et nettoyage historique exécutés après accord explicite du propriétaire. Contrôle réel RLS/RPC réussi, toutes les fixtures annulées. Préversion frontend vérifiée ; fusion et contrôle production à suivre dans RELECTURE.json.
 
 Le circuit de mesure est Supabase. Les chargements automatiques GTM, GA4, Meta Pixel et Vercel Analytics/Speed Insights ont été retirés du code préparé pour éviter les circuits concurrents et les URL non contrôlées. Aucune campagne ni nouvelle balise publicitaire n’est activée. Une future réactivation marketing demande une vérification de ses événements, des données transmises et de son autorisation.
 
