@@ -67,14 +67,17 @@
       "id": "R07",
       "priorite": "P1",
       "sujet": "Supabase configuration et reconstruction schema",
-      "etat": "a_faire",
-      "preuve_production": null
+      "etat": "fait_versionne_reconstruction_locale_validee",
+      "preuve_production": "../historique-technique et supabase/schema-reference/schema-snapshot.json; evidence/schema-rebuild-test.json",
+      "pr": 26,
+      "commit": "c892967f22f2015f8db815148f46e9d2d54ee37b",
+      "limite": "Versionnement et tests; aucune migration executee en production."
     },
     {
       "id": "R08",
       "priorite": "P1",
       "sujet": "Mise a jour cache PWA",
-      "etat": "a_faire",
+      "etat": "test_local_reussi_preview_a_faire",
       "preuve_production": null
     },
     {

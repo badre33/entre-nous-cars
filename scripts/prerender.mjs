@@ -54,7 +54,7 @@ const outFileFor = (route) =>
  * et aucune description : on exige donc que les balises posées par Helmet
  * soient présentes ET stables sur deux vérifications consécutives.
  */
-const SHELL_TITLE = "Benatna — Location de voiture au Maroc dès 250 DH/jour";
+const SHELL_TITLE = "Benatna — Location de voiture à Casablanca";
 
 /**
  * Le prérendu n'est valable que si React a VRAIMENT fini.
