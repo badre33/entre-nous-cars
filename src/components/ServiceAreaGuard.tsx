@@ -3,19 +3,17 @@ import { Link, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from './Header';
 import Footer from './Footer';
+import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 
 // Keep existing URLs, but do not advertise a rental service outside the operating area.
 export function ServiceAreaGuard({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
-  const luxury = /^\/vehicule\//.test(pathname) && /touareg|mercedes|bmw|audi|porsche|maserati|jaguar|range-rover|lexus|volvo/i.test(pathname);
-  const excluded = luxury || /mariage|van-famille|minibus|utilitaire|professionnel|luxe-evenement|hyundai-staria/i.test(pathname);
-  const rentalPage = /^\/location[-/]/.test(pathname);
-  const rabat = rentalPage && /rabat/i.test(pathname);
-  const unavailable = rentalPage && /marrakech|tanger|agadir|f[eè]s|merzouga|desert|atlas|sud-maroc|coupe-monde|can-2025/i.test(pathname);
+  const { excluded, rabat, unavailable } = serviceAreaPolicy(pathname);
   if (!rabat && !unavailable && !excluded) return children;
   return <>
     <Helmet>
       <title>{excluded ? 'Voitures de tourisme, minimum trois jours | Benatna' : rabat ? 'Livraison à Rabat sur demande | Benatna Casablanca' : 'Zone de location actuelle | Benatna Casablanca'}</title>
+      <link rel="canonical" href={`https://benatna.ma${pathname}`} />
       <meta name="robots" content={pathname === '/location-voiture-rabat' ? 'index,follow' : 'noindex,follow'} />
       <meta name="description" content="Loueurs basés à Casablanca. Prise en charge à Casablanca et à l’aéroport Mohammed V. Livraison à Rabat sur demande, livraison gratuite convenue à l’avance." />
     </Helmet>

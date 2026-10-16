@@ -167,6 +167,8 @@ const renderRoute = async (browser, route) => {
 
 const main = async () => {
   const routes = await readRoutes();
+  // Preserve the unrendered application shell for known private/dynamic routes.
+  await fs.copyFile(path.join(DIST, "index.html"), path.join(DIST, "app-shell.html"));
   console.log(`prerender: ${routes.length} routes`);
   await fs.rm(STAGE, { recursive: true, force: true });
 
@@ -255,10 +257,9 @@ const main = async () => {
   if (failed.length) {
     console.error(`prerender: ${failed.length} échec(s) :`);
     for (const f of failed) console.error(`  - ${f.route}: ${f.error}`);
-    // Une page non prérendue reste servie par la réécriture SPA : le site
-    // fonctionne toujours. On ne fait échouer le build que si tout casse.
-    if (failed.length > routes.length * 0.25) {
-      console.error("prerender: trop d'échecs, build interrompu");
+    // Toute page du sitemap doit disposer de son HTML avant publication.
+    if (failed.length > 0) {
+      console.error("prerender: page manquante, build interrompu");
       process.exit(1);
     }
   }

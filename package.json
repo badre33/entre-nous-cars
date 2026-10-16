@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "prerender": "node scripts/prerender.mjs",
     "build:prerender": "vite build && npm run prerender:safe",
-    "prerender:safe": "node scripts/prerender.mjs || echo \"prerender ignore : le site reste deploye en mode application (HTML genere par le navigateur)\"",
+    "prerender:safe": "node scripts/prerender.mjs && node scripts/static-route-policy.mjs",
     "test:maintenance": "node scripts/test-maintenance.mjs",
     "test:catalogue": "node scripts/test-catalogue.mjs"
   },
