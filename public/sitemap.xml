@@ -72,11 +72,6 @@
     <priority>0.65</priority>
   </url>
   <url>
-    <loc>https://benatna.ma/blog/marrakech-en-voiture-guide</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  <url>
     <loc>https://benatna.ma/blog/pourquoi-benatna</loc>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
@@ -114,12 +109,6 @@
     <priority>0.85</priority>
   </url>
 
-  <url>
-    <loc>https://benatna.ma/location-voiture-aeroport-rabat</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
 
 
 
@@ -138,12 +127,6 @@
   <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/location-jeune-conducteur-casablanca</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://benatna.ma/location-jeune-conducteur-rabat</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -218,12 +201,6 @@
   <!-- ÉVÉNEMENTS 2026 (haute priorité — événements imminents)      -->
   <!-- ============================================================ -->
 
-  <url>
-    <loc>https://benatna.ma/location-voiture-ete-2026-maroc</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
   <!-- Sprint MRE/touristes : points d'entrée stratégiques -->
 
   <url>
@@ -231,28 +208,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-circuit-villes-imperiales</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
 
   <!-- Sprint 2 : gares + quartiers Rabat -->
   <url>
     <loc>https://benatna.ma/location-voiture-gare-casa-voyageurs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://benatna.ma/location-voiture-agdal-rabat</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/location-voiture-souissi-rabat</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
 
   <!-- Page prix transparente — gros gisement search "prix location voiture maroc" -->
@@ -280,11 +241,6 @@
     <loc>https://benatna.ma/location-voiture-gare-oncf-maroc</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/top-activites-marrakech-en-voiture</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
 
   <!-- Sprint $38k V3 — Hub /guide-maroc + 10 longue traîne info -->
@@ -324,11 +280,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://benatna.ma/location-voiture-avec-chauffeur-maroc</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
     <loc>https://benatna.ma/accident-voiture-location-maroc-que-faire</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -345,11 +296,6 @@
   </url>
 
   <!-- Page comparative anti-franchise -->
-  <url>
-    <loc>https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
 
   <!-- Sprint GEO — 4 pages optimisées LLM -->
   <url>
@@ -472,16 +418,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://benatna.ma/blog/quartier-gueliz-marrakech-guide-voiture</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/blog/road-trip-atlas-marrakech-4x4</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://benatna.ma/comparatifs</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -505,17 +441,6 @@
     <loc>https://benatna.ma/comparatif/location-courte-duree-vs-longue-duree-maroc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://benatna.ma/comparatif/location-economique-vs-premium-maroc</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://benatna.ma/blog/marrakech-merzouga-voiture-itineraire</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://benatna.ma/blog/louer-voiture-maroc-sans-carte-credit-mre</loc>
