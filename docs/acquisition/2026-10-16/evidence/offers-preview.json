@@ -1,0 +1,68 @@
+{
+  "deployment": "dpl_24LgCaU46GwrkzzKhN1tKrPNpDtr",
+  "pages": [
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "noindex": false,
+      "sitemapCount": 73,
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/location-voiture-avec-chauffeur-maroc",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://benatna.ma/location-voiture-avec-chauffeur-maroc",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/comparatif/location-economique-vs-premium-maroc",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://benatna.ma/comparatif/location-economique-vs-premium-maroc",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/location-voiture-ete-2026-maroc",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://benatna.ma/location-voiture-ete-2026-maroc",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/top-activites-marrakech-en-voiture",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://benatna.ma/top-activites-marrakech-en-voiture",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/location-voiture-circuit-villes-imperiales",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://benatna.ma/location-voiture-circuit-villes-imperiales",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/benatna-vs-avis-hertz-europcar-sixt",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/location-voiture-agdal-rabat",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://benatna.ma/location-voiture-agdal-rabat",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/blog/marrakech-en-voiture-guide",
+      "status": 200,
+      "noindex": true,
+      "canonical": "https://benatna.ma/blog/marrakech-en-voiture-guide",
+      "javascriptExecuted": false
+    }
+  ]
+}

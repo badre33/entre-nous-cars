@@ -1,0 +1,210 @@
+{
+  "checkedAt": "2026-10-16T12:57:55.085363+00:00",
+  "base": "https://benatna.ma",
+  "javascriptExecuted": false,
+  "pages": [
+    {
+      "path": "/location-voiture-marrakech",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-marrakech"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Zone de location actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-marrakech"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-voiture-tanger",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-tanger"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Zone de location actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-tanger"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-van-famille-maroc",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-van-famille-maroc"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Voitures de tourisme, minimum trois jours | Benatna"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-van-famille-maroc"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-voiture-mariage-maroc",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-mariage-maroc"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Voitures de tourisme, minimum trois jours | Benatna"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-mariage-maroc"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/benatna-page-inventee-verification-20261016",
+      "status": 404,
+      "canonical": [],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Page introuvable | Benatna"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/benatna-page-inventee-verification-20261016"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/auth",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/auth"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Application Benatna"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/auth"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/analytics",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/analytics"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Application Benatna"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/analytics"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/vehicule/dacia-logan",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-logan"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Application Benatna"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/vehicule/dacia-logan"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/vehicule/modele-invente-20261016",
+      "status": 404,
+      "canonical": [],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Page introuvable | Benatna"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/vehicule/modele-invente-20261016"
+      ],
+      "ok": true
+    }
+  ]
+}

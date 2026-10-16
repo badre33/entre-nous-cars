@@ -36,16 +36,16 @@ const contactSchema = z.object({
 
 const PAGE_META: Record<string, { title: string; desc: string }> = {
   fr: {
-    title: "Contact Benatna — WhatsApp +212 699 024 526 | Location Voiture Maroc",
-    desc: "Contactez Benatna par WhatsApp +212 699 024 526, formulaire ou email. Service 7j/7. Location de voiture au Maroc dès 250 DH/jour.",
+    title: "Contact Benatna — WhatsApp +212 699 024 526 | Location Voiture Casablanca",
+    desc: "Contactez Benatna par WhatsApp +212 699 024 526, formulaire ou email. Voitures de tourisme à Casablanca, de trois jours à six mois. Rabat sur demande.",
   },
   en: {
-    title: "Contact Benatna — WhatsApp +212 699 024 526 | Car Rental Morocco",
-    desc: "Reach Benatna on WhatsApp +212 699 024 526, by form or email. 7 days a week. Car rental in Morocco from 250 MAD/day.",
+    title: "Contact Benatna — WhatsApp +212 699 024 526 | Car Rental Casablanca",
+    desc: "Reach Benatna on WhatsApp +212 699 024 526, by form or email. Tourist car rental in Casablanca, from three days to six months. Rabat on request.",
   },
   es: {
-    title: "Contacto Benatna — WhatsApp +212 699 024 526 | Alquiler Coches Marruecos",
-    desc: "Contacta con Benatna por WhatsApp +212 699 024 526, formulario o email. 7 días a la semana. Alquiler de coches en Marruecos desde 250 MAD/día.",
+    title: "Contacto Benatna — WhatsApp +212 699 024 526 | Alquiler Coches Casablanca",
+    desc: "Contacta con Benatna por WhatsApp +212 699 024 526, formulario o email. Coches turísticos en Casablanca, de tres días a seis meses. Rabat bajo petición.",
   },
 };
 

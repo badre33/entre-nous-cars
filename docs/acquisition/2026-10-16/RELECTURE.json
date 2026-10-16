@@ -22,22 +22,27 @@
       "id": "R02",
       "priorite": "P0",
       "sujet": "HTML brut des routes retirees et vrais 404",
-      "etat": "validation_preview_a_faire",
-      "preuve_production": null
+      "etat": "fait",
+      "preuve_production": "evidence/routes-production.json",
+      "pr": 22,
+      "commit": "c8104714233b927d83cc01e5b1cae2fdaefb40a7"
     },
     {
       "id": "R03",
       "priorite": "P1",
       "sujet": "Offres contradictoires dans sitemap",
-      "etat": "a_faire",
-      "preuve_production": null
+      "etat": "fait",
+      "preuve_production": "evidence/offers-production-notices.json; evidence/offers-production-html.json",
+      "pr": 23,
+      "commit": "e48be2ac0c901fa1dd83636a8a28f96fcb99fdb8"
     },
     {
       "id": "R04",
       "priorite": "P1",
       "sujet": "Decisions inventaire URL par URL",
-      "etat": "a_faire",
-      "preuve_production": null
+      "etat": "fait_decisions_87_URL",
+      "preuve_production": "evidence/offers-production-notices.json; evidence/offers-production-html.json",
+      "pr": 23
     },
     {
       "id": "R05",

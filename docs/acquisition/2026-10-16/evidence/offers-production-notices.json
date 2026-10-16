@@ -1,0 +1,329 @@
+{
+  "checkedAt": "2026-10-16T13:03:52.545600+00:00",
+  "base": "https://benatna.ma",
+  "javascriptExecuted": false,
+  "pages": [
+    {
+      "path": "/location-voiture-aeroport-rabat",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-aeroport-rabat"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-aeroport-rabat"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-jeune-conducteur-rabat",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-jeune-conducteur-rabat"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-jeune-conducteur-rabat"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-voiture-agdal-rabat",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-agdal-rabat"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-agdal-rabat"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-voiture-souissi-rabat",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-souissi-rabat"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-souissi-rabat"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/blog/marrakech-en-voiture-guide",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/blog/marrakech-en-voiture-guide"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/blog/marrakech-en-voiture-guide"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/blog/quartier-gueliz-marrakech-guide-voiture",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/blog/quartier-gueliz-marrakech-guide-voiture"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/blog/quartier-gueliz-marrakech-guide-voiture"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/blog/road-trip-atlas-marrakech-4x4",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/blog/road-trip-atlas-marrakech-4x4"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/blog/road-trip-atlas-marrakech-4x4"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/blog/marrakech-merzouga-voiture-itineraire",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/blog/marrakech-merzouga-voiture-itineraire"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/blog/marrakech-merzouga-voiture-itineraire"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-voiture-avec-chauffeur-maroc",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-avec-chauffeur-maroc"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-avec-chauffeur-maroc"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/comparatif/location-economique-vs-premium-maroc",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/comparatif/location-economique-vs-premium-maroc"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/comparatif/location-economique-vs-premium-maroc"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-voiture-ete-2026-maroc",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-ete-2026-maroc"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-ete-2026-maroc"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/top-activites-marrakech-en-voiture",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/top-activites-marrakech-en-voiture"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/top-activites-marrakech-en-voiture"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/location-voiture-circuit-villes-imperiales",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/location-voiture-circuit-villes-imperiales"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/location-voiture-circuit-villes-imperiales"
+      ],
+      "ok": true
+    },
+    {
+      "path": "/benatna-vs-avis-hertz-europcar-sixt",
+      "status": 200,
+      "canonical": [
+        "https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Offre actuelle | Benatna Casablanca"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt"
+      ],
+      "ok": true
+    }
+  ]
+}

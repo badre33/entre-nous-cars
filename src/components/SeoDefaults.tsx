@@ -18,17 +18,17 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const DEFAULTS: Record<string, { desc: string; locale: string }> = {
   fr: {
     desc:
-      "La startup marocaine qui gère le parc de centaines de loueurs locaux pour vous obtenir les meilleurs prix. Voiture dès 250 DH/jour, livraison partout au Maroc, réponse WhatsApp en 2 minutes.",
+      "Voitures de tourisme à Casablanca pour vos séjours. Minimum trois jours, maximum six mois. Livraison gratuite aux points desservis ; Rabat sur demande.",
     locale: "fr_MA",
   },
   en: {
     desc:
-      "The Moroccan startup that manages the fleets of hundreds of local rental agencies to get you the best price. Cars from 250 MAD/day, delivery anywhere in Morocco, WhatsApp reply in 2 minutes.",
+      "Tourist car rental in Casablanca, from three days to six months. Free delivery at served locations; Rabat on request.",
     locale: "en_US",
   },
   es: {
     desc:
-      "La startup marroquí que gestiona la flota de cientos de agencias locales para conseguirte el mejor precio. Coches desde 250 MAD/día, entrega en todo Marruecos, respuesta por WhatsApp en 2 minutos.",
+      "Coches turísticos en Casablanca, de tres días a seis meses. Entrega gratuita en los puntos atendidos; Rabat bajo petición.",
     locale: "es_ES",
   },
 };
@@ -44,14 +44,14 @@ export const SeoDefaults = () => {
       <meta property="og:site_name" content="Benatna" />
       <meta property="og:type" content="website" />
       <meta property="og:locale" content={d.locale} />
-      <meta property="og:title" content="Benatna — Location de voiture au Maroc dès 250 DH/jour" />
+      <meta property="og:title" content="Benatna — Location de voiture à Casablanca" />
       <meta property="og:description" content={d.desc} />
       <meta property="og:image" content="https://benatna.ma/og-image.png" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content="Benatna — Location de voiture au Maroc dès 250 DH/jour" />
+      <meta name="twitter:title" content="Benatna — Location de voiture à Casablanca" />
       <meta name="twitter:description" content={d.desc} />
       <meta name="twitter:image" content="https://benatna.ma/og-image.png" />
     </Helmet>
