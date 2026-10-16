@@ -107,6 +107,84 @@ export type Database = {
         }
         Relationships: []
       }
+      rental_requests: {
+        Row: {
+          id: string
+          created_at: string
+          updated_at: string
+          full_name: string
+          phone: string
+          email: string | null
+          vehicle_name: string | null
+          vehicle_slug: string | null
+          city: string
+          pickup_date: string
+          return_date: string
+          message: string | null
+          source_page: string | null
+          source_page_title: string | null
+          utm_source: string | null
+          utm_medium: string | null
+          utm_campaign: string | null
+          user_agent: string | null
+          status: string
+          whatsapp_sent: boolean
+          whatsapp_sent_at: string | null
+          notes: string | null
+          assigned_to: string | null
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          updated_at?: string
+          full_name: string
+          phone: string
+          email?: string | null
+          vehicle_name?: string | null
+          vehicle_slug?: string | null
+          city: string
+          pickup_date: string
+          return_date: string
+          message?: string | null
+          source_page?: string | null
+          source_page_title?: string | null
+          utm_source?: string | null
+          utm_medium?: string | null
+          utm_campaign?: string | null
+          user_agent?: string | null
+          status?: string
+          whatsapp_sent?: boolean
+          whatsapp_sent_at?: string | null
+          notes?: string | null
+          assigned_to?: string | null
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          updated_at?: string
+          full_name?: string
+          phone?: string
+          email?: string | null
+          vehicle_name?: string | null
+          vehicle_slug?: string | null
+          city?: string
+          pickup_date?: string
+          return_date?: string
+          message?: string | null
+          source_page?: string | null
+          source_page_title?: string | null
+          utm_source?: string | null
+          utm_medium?: string | null
+          utm_campaign?: string | null
+          user_agent?: string | null
+          status?: string
+          whatsapp_sent?: boolean
+          whatsapp_sent_at?: string | null
+          notes?: string | null
+          assigned_to?: string | null
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

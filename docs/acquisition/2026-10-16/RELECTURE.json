@@ -48,15 +48,20 @@
       "id": "R05",
       "priorite": "P1",
       "sujet": "Titres et durees pages centrales",
-      "etat": "a_faire",
-      "preuve_production": null
+      "etat": "fait",
+      "preuve_production": "evidence/core-production-metadata.json",
+      "pr": 24,
+      "commit": "f35f92d826df572d442fd1f2fc6ff9e314922ccd"
     },
     {
       "id": "R06",
       "priorite": "P1",
       "sujet": "Fusion PR20 et archives de reprise sans donnees personnelles",
-      "etat": "partiel_PR20_fusionnee_archives_a_completer",
-      "preuve_production": null
+      "etat": "fait_avec_captures_actuelles_expurgees",
+      "preuve_production": "historique-technique/gsc-current-*; evidence/docs-preview.json",
+      "pr": 25,
+      "commit": "e1540b1de825ac0b4006e862a781b0634c3e0282",
+      "limite": "Six captures historiques privées remplacées par relevés actuels et manifeste des originaux."
     },
     {
       "id": "R07",
@@ -83,8 +88,11 @@
       "id": "R10",
       "priorite": "P2",
       "sujet": "Archivage documentation obsolete",
-      "etat": "a_faire",
-      "preuve_production": null
+      "etat": "fait",
+      "preuve_production": null,
+      "pr": 25,
+      "commit": "e1540b1de825ac0b4006e862a781b0634c3e0282",
+      "resultat": "28 documents originaux archives intacts; README et CLAUDE actifs à jour"
     },
     {
       "id": "R11",

@@ -1,0 +1,18 @@
+{
+  "deployment": "dpl_EqMMzGZknk5tWjQkZHJAvmtXeek2",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Benatna — Location de voiture à Casablanca",
+      "canonical": "https://benatna.ma/",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "sitemapCount": 73,
+      "javascriptExecuted": false
+    }
+  ]
+}

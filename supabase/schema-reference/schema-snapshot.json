@@ -1,0 +1,750 @@
+{
+  "enums": [
+    {
+      "name": "app_role",
+      "label": "user",
+      "order": 2
+    },
+    {
+      "name": "app_role",
+      "label": "admin",
+      "order": 1
+    }
+  ],
+  "grants": [
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "user_roles",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "TRUNCATE",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "user_roles",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "REFERENCES",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "user_roles",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "TRIGGER",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "rental_requests",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "TRUNCATE",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "rental_requests",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "REFERENCES",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "rental_requests",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "TRIGGER",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "analytics_events",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "TRUNCATE",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "analytics_events",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "REFERENCES",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "analytics_events",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "TRIGGER",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "analytics_events",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "analytics_sessions",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "TRUNCATE",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "analytics_sessions",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "REFERENCES",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "service_role",
+      "grantor": "postgres",
+      "table_name": "analytics_sessions",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "TRIGGER",
+      "with_hierarchy": "NO"
+    },
+    {
+      "grantee": "authenticated",
+      "grantor": "postgres",
+      "table_name": "analytics_sessions",
+      "is_grantable": "NO",
+      "table_schema": "public",
+      "table_catalog": "postgres",
+      "privilege_type": "SELECT",
+      "with_hierarchy": "YES"
+    }
+  ],
+  "tables": [
+    {
+      "rls": true,
+      "name": "user_roles",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "default": "gen_random_uuid()",
+          "not_null": true
+        },
+        {
+          "name": "user_id",
+          "type": "uuid",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "role",
+          "type": "app_role",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "default": "now()",
+          "not_null": true
+        }
+      ],
+      "force_rls": false
+    },
+    {
+      "rls": true,
+      "name": "rental_requests",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "default": "gen_random_uuid()",
+          "not_null": true
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "default": "now()",
+          "not_null": true
+        },
+        {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "default": "now()",
+          "not_null": true
+        },
+        {
+          "name": "full_name",
+          "type": "text",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "phone",
+          "type": "text",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "email",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "vehicle_name",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "vehicle_slug",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "city",
+          "type": "text",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "pickup_date",
+          "type": "date",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "return_date",
+          "type": "date",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "message",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "source_page",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "source_page_title",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "utm_source",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "utm_medium",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "utm_campaign",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "user_agent",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "status",
+          "type": "text",
+          "default": "'new'::text",
+          "not_null": true
+        },
+        {
+          "name": "whatsapp_sent",
+          "type": "boolean",
+          "default": "false",
+          "not_null": true
+        },
+        {
+          "name": "whatsapp_sent_at",
+          "type": "timestamp with time zone",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "notes",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "assigned_to",
+          "type": "uuid",
+          "default": null,
+          "not_null": false
+        }
+      ],
+      "force_rls": false
+    },
+    {
+      "rls": true,
+      "name": "analytics_events",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "default": "gen_random_uuid()",
+          "not_null": true
+        },
+        {
+          "name": "event_type",
+          "type": "text",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "event_name",
+          "type": "text",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "page_path",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "referrer",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "source",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "device_type",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "user_agent",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "session_id",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "visitor_id",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "properties",
+          "type": "jsonb",
+          "default": "'{}'::jsonb",
+          "not_null": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "default": "now()",
+          "not_null": true
+        }
+      ],
+      "force_rls": false
+    },
+    {
+      "rls": true,
+      "name": "analytics_sessions",
+      "columns": [
+        {
+          "name": "id",
+          "type": "uuid",
+          "default": "gen_random_uuid()",
+          "not_null": true
+        },
+        {
+          "name": "session_id",
+          "type": "text",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "visitor_id",
+          "type": "text",
+          "default": null,
+          "not_null": true
+        },
+        {
+          "name": "start_time",
+          "type": "timestamp with time zone",
+          "default": "now()",
+          "not_null": true
+        },
+        {
+          "name": "end_time",
+          "type": "timestamp with time zone",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "page_views",
+          "type": "integer",
+          "default": "1",
+          "not_null": false
+        },
+        {
+          "name": "events_count",
+          "type": "integer",
+          "default": "0",
+          "not_null": false
+        },
+        {
+          "name": "entry_page",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "exit_page",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "device_type",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "source",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "country",
+          "type": "text",
+          "default": null,
+          "not_null": false
+        },
+        {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "default": "now()",
+          "not_null": true
+        }
+      ],
+      "force_rls": false
+    }
+  ],
+  "indexes": [
+    {
+      "indexdef": "CREATE UNIQUE INDEX user_roles_pkey ON public.user_roles USING btree (id)",
+      "indexname": "user_roles_pkey",
+      "tablename": "user_roles",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE UNIQUE INDEX user_roles_user_id_role_key ON public.user_roles USING btree (user_id, role)",
+      "indexname": "user_roles_user_id_role_key",
+      "tablename": "user_roles",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE UNIQUE INDEX rental_requests_pkey ON public.rental_requests USING btree (id)",
+      "indexname": "rental_requests_pkey",
+      "tablename": "rental_requests",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX rental_requests_created_at_idx ON public.rental_requests USING btree (created_at DESC)",
+      "indexname": "rental_requests_created_at_idx",
+      "tablename": "rental_requests",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX rental_requests_status_idx ON public.rental_requests USING btree (status)",
+      "indexname": "rental_requests_status_idx",
+      "tablename": "rental_requests",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX rental_requests_phone_idx ON public.rental_requests USING btree (phone)",
+      "indexname": "rental_requests_phone_idx",
+      "tablename": "rental_requests",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX rental_requests_city_idx ON public.rental_requests USING btree (city)",
+      "indexname": "rental_requests_city_idx",
+      "tablename": "rental_requests",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX idx_analytics_events_created_at ON public.analytics_events USING btree (created_at DESC)",
+      "indexname": "idx_analytics_events_created_at",
+      "tablename": "analytics_events",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX idx_analytics_events_event_type ON public.analytics_events USING btree (event_type)",
+      "indexname": "idx_analytics_events_event_type",
+      "tablename": "analytics_events",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE UNIQUE INDEX analytics_events_pkey ON public.analytics_events USING btree (id)",
+      "indexname": "analytics_events_pkey",
+      "tablename": "analytics_events",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX idx_analytics_events_event_name ON public.analytics_events USING btree (event_name)",
+      "indexname": "idx_analytics_events_event_name",
+      "tablename": "analytics_events",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX idx_analytics_events_page_path ON public.analytics_events USING btree (page_path)",
+      "indexname": "idx_analytics_events_page_path",
+      "tablename": "analytics_events",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX idx_analytics_events_session_id ON public.analytics_events USING btree (session_id)",
+      "indexname": "idx_analytics_events_session_id",
+      "tablename": "analytics_events",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE UNIQUE INDEX analytics_sessions_pkey ON public.analytics_sessions USING btree (id)",
+      "indexname": "analytics_sessions_pkey",
+      "tablename": "analytics_sessions",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE UNIQUE INDEX analytics_sessions_session_id_key ON public.analytics_sessions USING btree (session_id)",
+      "indexname": "analytics_sessions_session_id_key",
+      "tablename": "analytics_sessions",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX idx_analytics_sessions_created_at ON public.analytics_sessions USING btree (created_at DESC)",
+      "indexname": "idx_analytics_sessions_created_at",
+      "tablename": "analytics_sessions",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX idx_analytics_sessions_session_id ON public.analytics_sessions USING btree (session_id)",
+      "indexname": "idx_analytics_sessions_session_id",
+      "tablename": "analytics_sessions",
+      "schemaname": "public",
+      "tablespace": null
+    },
+    {
+      "indexdef": "CREATE INDEX idx_analytics_sessions_visitor_id ON public.analytics_sessions USING btree (visitor_id)",
+      "indexname": "idx_analytics_sessions_visitor_id",
+      "tablename": "analytics_sessions",
+      "schemaname": "public",
+      "tablespace": null
+    }
+  ],
+  "policies": [
+    {
+      "cmd": "SELECT",
+      "qual": "has_role(auth.uid(), 'admin'::app_role)",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "analytics_events",
+      "permissive": "PERMISSIVE",
+      "policyname": "analytics_admin_read",
+      "schemaname": "public",
+      "with_check": null
+    },
+    {
+      "cmd": "SELECT",
+      "qual": "has_role(auth.uid(), 'admin'::app_role)",
+      "roles": [
+        "authenticated"
+      ],
+      "tablename": "analytics_sessions",
+      "permissive": "PERMISSIVE",
+      "policyname": "sessions_admin_read",
+      "schemaname": "public",
+      "with_check": null
+    }
+  ],
+  "triggers": [
+    {
+      "table": "rental_requests",
+      "definition": "CREATE TRIGGER rental_requests_updated_at BEFORE UPDATE ON public.rental_requests FOR EACH ROW EXECUTE FUNCTION set_rental_requests_updated_at()"
+    }
+  ],
+  "functions": [
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "name": "has_role",
+      "definition": "CREATE OR REPLACE FUNCTION public.has_role(_user_id uuid, _role app_role)\n RETURNS boolean\n LANGUAGE sql\n STABLE SECURITY DEFINER\n SET search_path TO 'public', 'pg_temp'\nAS $function$\n SELECT EXISTS (SELECT 1 FROM public.user_roles WHERE user_id = _user_id AND role = _role);\n$function$\n"
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "anon=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "name": "insert_analytics_event",
+      "definition": "CREATE OR REPLACE FUNCTION public.insert_analytics_event(p_event_type text, p_event_name text, p_page_path text DEFAULT NULL::text, p_referrer text DEFAULT NULL::text, p_source text DEFAULT NULL::text, p_device_type text DEFAULT NULL::text, p_user_agent text DEFAULT NULL::text, p_session_id text DEFAULT NULL::text, p_visitor_id text DEFAULT NULL::text, p_properties jsonb DEFAULT '{}'::jsonb)\n RETURNS uuid\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public', 'pg_temp'\nAS $function$\nDECLARE event_id uuid;\nBEGIN\n IF p_event_type IS NULL OR length(p_event_type) NOT BETWEEN 1 AND 100\n OR p_event_name IS NULL OR length(p_event_name) NOT BETWEEN 1 AND 100\n OR p_session_id IS NULL OR length(p_session_id) NOT BETWEEN 1 AND 100\n OR p_visitor_id IS NULL OR length(p_visitor_id) NOT BETWEEN 1 AND 100\n OR coalesce(length(p_page_path),0) > 2048 OR coalesce(length(p_referrer),0) > 2048\n OR coalesce(length(p_source),0) > 100 OR coalesce(length(p_device_type),0) > 50\n OR coalesce(length(p_user_agent),0) > 500\n OR jsonb_typeof(coalesce(p_properties,'{}'::jsonb)) <> 'object'\n OR octet_length(coalesce(p_properties,'{}'::jsonb)::text) > 10000 THEN\n RAISE EXCEPTION 'Invalid analytics payload' USING ERRCODE = '22023';\n END IF;\n -- Serialize per-session checks to avoid concurrent requests bypassing the limit.\n PERFORM pg_advisory_xact_lock(hashtextextended(p_session_id, 0));\n IF (SELECT count(*) FROM public.analytics_events WHERE session_id=p_session_id\n AND created_at > now() - interval '1 hour') >= 120 THEN\n RAISE EXCEPTION 'Session event limit reached' USING ERRCODE = '22023';\n END IF;\n INSERT INTO public.analytics_events(event_type,event_name,page_path,referrer,source,device_type,user_agent,session_id,visitor_id,properties)\n VALUES(p_event_type,p_event_name,p_page_path,p_referrer,p_source,p_device_type,p_user_agent,p_session_id,p_visitor_id,coalesce(p_properties,'{}'::jsonb)) RETURNING id INTO event_id;\n RETURN event_id;\nEND $function$\n"
+    },
+    {
+      "acl": [
+        "postgres=X/postgres",
+        "anon=X/postgres",
+        "authenticated=X/postgres"
+      ],
+      "name": "touch_analytics_session",
+      "definition": "CREATE OR REPLACE FUNCTION public.touch_analytics_session(p_session_id text, p_visitor_id text, p_path text, p_device_type text DEFAULT NULL::text, p_source text DEFAULT NULL::text)\n RETURNS void\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'public', 'pg_temp'\nAS $function$\nBEGIN\n IF p_session_id IS NULL OR length(p_session_id) NOT BETWEEN 1 AND 100\n OR p_visitor_id IS NULL OR length(p_visitor_id) NOT BETWEEN 1 AND 100\n OR p_path IS NULL OR length(p_path) NOT BETWEEN 1 AND 2048\n OR coalesce(length(p_device_type),0) > 50 OR coalesce(length(p_source),0) > 100 THEN\n RAISE EXCEPTION 'Invalid session payload' USING ERRCODE = '22023';\n END IF;\n INSERT INTO public.analytics_sessions(session_id,visitor_id,entry_page,exit_page,device_type,source)\n VALUES(p_session_id,p_visitor_id,p_path,p_path,p_device_type,p_source)\n ON CONFLICT(session_id) DO UPDATE SET\n page_views=least(coalesce(analytics_sessions.page_views,0)+1,10000),\n exit_page=EXCLUDED.exit_page, end_time=now()\n WHERE analytics_sessions.visitor_id=EXCLUDED.visitor_id;\nEND $function$\n"
+    },
+    {
+      "acl": [
+        "postgres=X/postgres"
+      ],
+      "name": "set_rental_requests_updated_at",
+      "definition": "CREATE OR REPLACE FUNCTION public.set_rental_requests_updated_at()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nBEGIN NEW.updated_at = now(); RETURN NEW; END;\n$function$\n"
+    },
+    {
+      "acl": null,
+      "name": "rls_auto_enable",
+      "definition": "CREATE OR REPLACE FUNCTION public.rls_auto_enable()\n RETURNS event_trigger\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO 'pg_catalog'\nAS $function$\nDECLARE\n cmd record;\n tbl name;\nBEGIN\n FOR cmd IN\n SELECT *\n FROM pg_event_trigger_ddl_commands()\n WHERE command_tag IN ('CREATE TABLE', 'CREATE TABLE AS', 'SELECT INTO')\n AND object_type IN ('table','partitioned table')\n LOOP\n IF cmd.schema_name IS NOT NULL AND cmd.schema_name IN ('public') AND cmd.schema_name NOT IN ('pg_catalog','information_schema') AND cmd.schema_name NOT LIKE 'pg_toast%' AND cmd.schema_name NOT LIKE 'pg_temp%' THEN\n BEGIN\n SELECT c.relname INTO tbl FROM pg_catalog.pg_class c WHERE c.oid = cmd.objid;\n EXECUTE format('alter table if exists %I.%I enable row level security', cmd.schema_name, tbl);\n RAISE LOG 'rls_auto_enable: enabled RLS on %', cmd.object_identity;\n EXCEPTION\n WHEN OTHERS THEN\n RAISE LOG 'rls_auto_enable: failed to enable RLS on %', cmd.object_identity;\n END;\n ELSE\n RAISE LOG 'rls_auto_enable: skip % (either system schema or not in enforced list: %.)', cmd.object_identity, cmd.schema_name;\n END IF;\n END LOOP;\nEND;\n$function$\n"
+    }
+  ],
+  "constraints": [
+    {
+      "name": "user_roles_pkey",
+      "table": "user_roles",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "user_roles_user_id_role_key",
+      "table": "user_roles",
+      "definition": "UNIQUE (user_id, role)"
+    },
+    {
+      "name": "user_roles_user_id_fkey",
+      "table": "user_roles",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE"
+    },
+    {
+      "name": "analytics_events_pkey",
+      "table": "analytics_events",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "analytics_sessions_pkey",
+      "table": "analytics_sessions",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "analytics_sessions_session_id_key",
+      "table": "analytics_sessions",
+      "definition": "UNIQUE (session_id)"
+    },
+    {
+      "name": "rental_requests_status_check",
+      "table": "rental_requests",
+      "definition": "CHECK ((status = ANY (ARRAY['new'::text, 'contacted'::text, 'quoted'::text, 'won'::text, 'lost'::text, 'spam'::text])))"
+    },
+    {
+      "name": "rental_requests_pkey",
+      "table": "rental_requests",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "rental_requests_assigned_to_fkey",
+      "table": "rental_requests",
+      "definition": "FOREIGN KEY (assigned_to) REFERENCES auth.users(id)"
+    },
+    {
+      "name": "rental_period_limits",
+      "table": "rental_requests",
+      "definition": "CHECK (((return_date >= (pickup_date + 3)) AND (return_date <= ((pickup_date + '6 mons'::interval))::date)))"
+    }
+  ]
+}
