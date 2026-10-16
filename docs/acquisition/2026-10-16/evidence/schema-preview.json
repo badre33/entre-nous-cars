@@ -1,0 +1,19 @@
+{
+  "deployment": "dpl_98LhnYnk9VLX5rxDibJKmD4y9RYf",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "canonical": "https://benatna.ma/",
+      "noindex": false,
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/auth",
+      "status": 200,
+      "canonical": "https://benatna.ma/auth",
+      "noindex": true,
+      "javascriptExecuted": false
+    }
+  ]
+}

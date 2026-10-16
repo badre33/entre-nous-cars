@@ -1,0 +1,38 @@
+{
+  "deployment": "dpl_G8HckchC2hEMUJT117eGiTxvYvMK",
+  "commit": "e1540b1de825ac0b4006e862a781b0634c3e0282",
+  "javascriptExecuted": false,
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/"
+      ],
+      "sitemapCount": null,
+      "canonicalPresent": true
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/sitemap.xml"
+      ],
+      "sitemapCount": 73,
+      "canonicalPresent": null
+    }
+  ],
+  "limitation": "La documentation est vérifiée par Git et les empreintes ; ce curl contrôle la non-régression du site."
+}

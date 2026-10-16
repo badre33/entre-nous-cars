@@ -1,0 +1,27 @@
+{
+  "testedAt": "2026-10-16T13:22:45.281Z",
+  "test": "Old generated service worker and legacy HTML -> new build at the same origin, next visit without manual cache clearing",
+  "backendScriptsDisabledInFixture": true,
+  "legacyDocumentObserved": true,
+  "newDocumentObservedOnNextVisit": true,
+  "upgradeNavigations": 2,
+  "unknownRouteStatus": 404,
+  "unknownRouteHeading": "Page introuvable",
+  "precacheHtmlEntries": 0,
+  "externalRequestsAllowed": false,
+  "limitations": [
+    "Online update tested. No promise of current HTML while offline.",
+    "GTM and application modules stripped from the fixture to avoid sending test analytics; actual generated workers and registration scripts are used."
+  ],
+  "oldWorkerSha256": "6d0d443d8223b0bb2e54a14e7281315d2085b3eff45b6d3c413d5cb6e288733a",
+  "newWorkerSha256": "bec85766eef40ade36b6630eb8f8a0d9cb50a77ad3bdc129d05c02686284e7d7",
+  "oldBuildVersion": {
+    "version": "2026-10-16T13:02:25.822Z",
+    "timestamp": 1792155745822
+  },
+  "newBuildVersion": {
+    "version": "2026-10-16T13:21:53.551Z",
+    "timestamp": 1792156913551
+  },
+  "fixtureMarker": "data-test-release=legacy/current; app and vendor scripts omitted from served fixture, worker registration retained"
+}

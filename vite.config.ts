@@ -91,28 +91,19 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,woff2}"],
-        navigateFallback: '/index.html',
+        globPatterns: ["**/*.{js,css,woff2}"],
+        navigateFallback: null,
+        navigationPreload: true,
         navigateFallbackDenylist: [/^\/api/, /^\/version\.json/],
         cleanupOutdatedCaches: true,
         skipWaiting: true,
         clientsClaim: true,
         runtimeCaching: [
-          // Pages HTML - cache très court pour éviter les versions obsolètes
+          // Never replace a document or a 404 with a precached home page.
+          // Online visits always receive the current route HTML from the server.
           {
             urlPattern: ({ request }) => request.mode === "navigate",
-            handler: "NetworkFirst",
-            options: {
-              cacheName: "pages-cache",
-              networkTimeoutSeconds: 3, // Réduit de 5s à 3s
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60 * 60, // 1 heure au lieu de 7 jours
-              },
-              cacheableResponse: {
-                statuses: [0, 200],
-              },
-            },
+            handler: "NetworkOnly",
           },
           // Chunks JS hashés - NetworkFirst pour éviter les mismatches
           {

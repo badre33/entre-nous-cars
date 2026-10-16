@@ -83,7 +83,7 @@
     <!-- ===== ACCESSIBILITY ===== -->
     <meta name="color-scheme" content="light dark">
     
-    <title>Benatna — Location de voiture au Maroc dès 250 DH/jour</title>
+    <title>Benatna — Location de voiture à Casablanca</title>
     <meta name="author" content="Benatna" />
 
     <!-- Google Search Console verification -->
@@ -187,16 +187,19 @@
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           setTimeout(() => {
-            navigator.serviceWorker.register('/sw.js');
+            navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
+              .then(function (registration) { return registration.update(); })
+              .catch(function () { /* Offline: retry on the next visit. */ });
           }, 2000);
         });
         // Quand un nouveau service worker prend le contrôle (nouvelle version
         // déployée, skipWaiting actif), on recharge une seule fois pour servir
         // les nouveaux assets et éviter les ChunkLoadError / vieilles versions.
         var swRefreshing = false;
+        var hadControllerAtLoad = Boolean(navigator.serviceWorker.controller);
         navigator.serviceWorker.addEventListener('controllerchange', function () {
           if (swRefreshing) return;
-          if (!navigator.serviceWorker.controller) return; // première installation : pas de reload
+          if (!hadControllerAtLoad || !navigator.serviceWorker.controller) return; // première installation
           swRefreshing = true;
           window.location.reload();
         });
