@@ -1,0 +1,1600 @@
+{
+  "checkedAt": "2026-10-16T12:40:13.271763+00:00",
+  "javascriptExecuted": false,
+  "source": "dist",
+  "count": 87,
+  "pages": [
+    {
+      "url": "https://benatna.ma/",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/index.html"
+      ],
+      "sha256": "6819c068e412dde94e80942a68024d60756b0b5c507bf06da3575664a10c61d5",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/"
+      ],
+      "robots": [],
+      "title": [
+        "Benatna — Location de voiture à Casablanca"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/louer",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/louer/index.html"
+      ],
+      "sha256": "1807bbfa91c227ff19d09ca4d8ec965fa911a7f895ce93331fc98d882fe3ced9",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/louer"
+      ],
+      "robots": [],
+      "title": [
+        "Location de voiture à Casablanca | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/nos-services",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/nos-services/index.html"
+      ],
+      "sha256": "b104101fa1d816b222b43a903f515d5440a93d00c97cf895575f285a5a1a515a",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/nos-services"
+      ],
+      "robots": [],
+      "title": [
+        "Nos Services de Location de Voiture au Maroc | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/a-propos",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/a-propos/index.html"
+      ],
+      "sha256": "c88cd12ccd0096453817ebec6692d1478e0ede4330bd30fdd3bcb565dbd8d3c8",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/a-propos"
+      ],
+      "robots": [],
+      "title": [
+        "À Propos de Benatna — La startup des loueurs locaux au Maroc"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/notre-histoire",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/notre-histoire/index.html"
+      ],
+      "sha256": "e92452f75646b4847e3856e0abd3ecf2bc11f682a205842a82b23392bd83b714",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/notre-histoire"
+      ],
+      "robots": [
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      ],
+      "title": [
+        "Notre histoire — Benatna, la plateforme des loueurs marocains"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/contact",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/contact/index.html"
+      ],
+      "sha256": "7818798fa51eda4a9008f7b2fb9ff60156e0525de3ab2d7bf006e66eaafbe576",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/contact"
+      ],
+      "robots": [],
+      "title": [
+        "Contact Benatna — WhatsApp +212 699 024 526 | Location Voiture Maroc"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/partenaires",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/partenaires/index.html"
+      ],
+      "sha256": "1d7424e1744f73df69406b161f69d580ecf5f341946d3e1d63334772eb35c73e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/partenaires"
+      ],
+      "robots": [],
+      "title": [
+        "Devenir Partenaire Benatna — Loueurs de voitures au Maroc"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/index.html"
+      ],
+      "sha256": "91216e8b0f4644f00d0ff9584d9ee695159c2a7d956f5225670c6f0cb460c897",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog"
+      ],
+      "robots": [],
+      "title": [
+        "Blog Location Voiture Maroc - Guides &amp; Conseils | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/faq",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/faq/index.html"
+      ],
+      "sha256": "94fd26fd640af32b6b9b030c09231060f813d8462a49e39331393b270b40c469",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/faq"
+      ],
+      "robots": [],
+      "title": [
+        "Questions location Casablanca, Rabat sur demande | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/glossaire",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/glossaire/index.html"
+      ],
+      "sha256": "8541b635ec6e63aba0402d2825e75cc5b6009a5295ea020f5d95112261de5283",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/glossaire"
+      ],
+      "robots": [
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      ],
+      "title": [
+        "Glossaire Location Voiture Maroc - 50+ Termes Expliqués | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/assurance-voiture-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/assurance-voiture-maroc/index.html"
+      ],
+      "sha256": "dcfea1f8cc5e517517c3630c1b78f289ee2f5ee3f18f76fc70aedbac751d547b",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/assurance-voiture-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Comprendre l'assurance voiture au Maroc | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/conseils-conduite-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/conseils-conduite-maroc/index.html"
+      ],
+      "sha256": "7b37871c08c8d897d774c30624c6b21453bbd720369c1d573211e145950649c9",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/conseils-conduite-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "10 conseils essentiels pour conduire au Maroc | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/marrakech-en-voiture-guide",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/marrakech-en-voiture-guide/index.html"
+      ],
+      "sha256": "f280d333cf9d9144f9060752e5b7249759286ce90c2d8d1d6ee7695851d88276",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/marrakech-en-voiture-guide"
+      ],
+      "robots": [],
+      "title": [
+        "Découvrir Marrakech en Voiture : Guide Complet des Incontournables | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/pourquoi-benatna",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/pourquoi-benatna/index.html"
+      ],
+      "sha256": "f880565ef2c61765ce6fba078521b1955b140b5acbc2b5c38e697c3e2e41790e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/pourquoi-benatna"
+      ],
+      "robots": [],
+      "title": [
+        "Benatna : la révolution de la location de voiture au Maroc | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/road-trips-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/road-trips-maroc/index.html"
+      ],
+      "sha256": "71e0dacd846dee2a9f980ded4fb4426e3d25dd83828589c8dd0545b71801a12f",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/road-trips-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Les plus beaux road trips au Maroc en voiture | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-casablanca/index.html"
+      ],
+      "sha256": "791df82861733e51dfaa8dbd22bf6c818bdf36afee46dfe9234c92ceb4f770fb",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Casablanca dès 250 DH/jour | Livraison Aéroport &amp; Hôtel - Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-rabat",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-rabat/index.html"
+      ],
+      "sha256": "16cf0022ae7b123d706fef161fd17243f7ba9f7b7e9c1f355d85a0dff50acb61",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-rabat"
+      ],
+      "robots": [
+        "index,follow"
+      ],
+      "title": [
+        "Livraison à Rabat sur demande | Benatna Casablanca"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-aeroport-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-aeroport-casablanca/index.html"
+      ],
+      "sha256": "621a83c56d36e6994a56c0eaa368661d6b41b06c0450dda224e061fb8cdd0a87",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-aeroport-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Aéroport Casablanca CMN dès 250 DH/jour - Livraison Gratuite au Terminal | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-aeroport-rabat",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-aeroport-rabat/index.html"
+      ],
+      "sha256": "85f872287c5da02170bff08ba95e7319b9b57480a4ae64aec1103edc596e37ed",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-aeroport-rabat"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Livraison à Rabat sur demande | Benatna Casablanca"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-sans-carte-credit-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-sans-carte-credit-casablanca/index.html"
+      ],
+      "sha256": "c527797e30d8dbde43cddbcf0d3e5d2e5be905c9f8610a2a7c9a9f68782fa27d",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-sans-carte-credit-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Sans Carte de Crédit Casablanca - Espèces &amp; Virement dès 250 DH/jour | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-jeune-conducteur-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-jeune-conducteur-casablanca/index.html"
+      ],
+      "sha256": "d6ba32d327e577d9ac6668aa21ca45db10c2a1e92b1a575d7a23e7117e17a758",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-jeune-conducteur-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Jeune Conducteur Casablanca -21 ans | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-jeune-conducteur-rabat",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-jeune-conducteur-rabat/index.html"
+      ],
+      "sha256": "7337768aeeb812370c3dc6fd49f9e15ed367518d287b4402422a8818690c8d07",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-jeune-conducteur-rabat"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Livraison à Rabat sur demande | Benatna Casablanca"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-longue-duree-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-longue-duree-casablanca/index.html"
+      ],
+      "sha256": "67450d23541f358b92023de75952869591b4ccdb394f0c527e62858e94a87440",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-longue-duree-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Longue Durée Casablanca - Tarifs Mensuels | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-electrique-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-electrique-casablanca/index.html"
+      ],
+      "sha256": "cbe74379bb5bf0e44005dd2858ad8a278ed8f38476d5969285139e43a5dbe8f6",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-electrique-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Électrique Casablanca - VW ID.3, ID.4 | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-ain-diab-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-ain-diab-casablanca/index.html"
+      ],
+      "sha256": "b17be2829206929e1cb2fa5c7042879ee768ec00b9b6b315f60738f3f00e2398",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-ain-diab-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Ain Diab Casablanca | Corniche &amp; Plages - Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-anfa-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-anfa-casablanca/index.html"
+      ],
+      "sha256": "6fb68dffdbccfac984f8c1b1eedd6fb42108fb263f4d3c431b50e83a6582872c",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-anfa-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Anfa Casablanca | Quartier Résidentiel Chic - Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-hassan-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-hassan-casablanca/index.html"
+      ],
+      "sha256": "1bafb73892c6af5edcc61eb3cff0cc91e933b8622fd1595a93e6efef72a46c6e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-hassan-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Quartier Hassan Casablanca | Centre Historique - Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-maarif-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-maarif-casablanca/index.html"
+      ],
+      "sha256": "d981d0f27929625337233c9aac80b6e5993bccc87c47f86b8ad0b5b12c52c35e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-maarif-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Maarif Casablanca | Quartier Central - Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-sidi-maarouf-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-sidi-maarouf-casablanca/index.html"
+      ],
+      "sha256": "93c59729b5cbe19e1740d4e140e4480ff65d119b059cabd5259b7603fdaa7fb0",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-sidi-maarouf-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Sidi Maarouf Casablanca | Zone Industrielle - Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-ete-2026-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-ete-2026-maroc/index.html"
+      ],
+      "sha256": "03afb160feb1b64a4e775e01ba3a0bc85b629d7336dc4a1953139d19acc4163e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-ete-2026-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Été 2026 Maroc - Anticipez Juin-Août dès 250 DH/jour | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-mre-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-mre-maroc/index.html"
+      ],
+      "sha256": "079075dfa184b15076f474024e20c271a0455f03ead857ae8a96e7ca4ee354ce",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-mre-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture MRE Maroc - Sans Carte Crédit, Paiement DH/€ | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-circuit-villes-imperiales",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-circuit-villes-imperiales/index.html"
+      ],
+      "sha256": "7190c8ce8dd66bc1686737e7e1736dd6d02834db6e78148a5aa7cba11d7b448e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-circuit-villes-imperiales"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Circuit Villes Impériales Maroc - Autotour 7-14 jours | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-gare-casa-voyageurs",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-gare-casa-voyageurs/index.html"
+      ],
+      "sha256": "fd47527ede5835570944ee0a72da6d2b830f4de033d2b4e23f0933aea08faa2b",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-gare-casa-voyageurs"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Gare Casa-Voyageurs - LGV Al Boraq Tanger | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-agdal-rabat",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-agdal-rabat/index.html"
+      ],
+      "sha256": "32c6ce157bfdbea29ba78c4ea803f8392b5c9118b0f9ecc8ee77ee0f90aa859f",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-agdal-rabat"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Livraison à Rabat sur demande | Benatna Casablanca"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-souissi-rabat",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-souissi-rabat/index.html"
+      ],
+      "sha256": "5691b3d05198636486b8e28464b4d32688c9d29b8067eff1428e2ff43593f336",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-souissi-rabat"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "title": [
+        "Livraison à Rabat sur demande | Benatna Casablanca"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/prix-location-voiture-maroc-2026",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/prix-location-voiture-maroc-2026/index.html"
+      ],
+      "sha256": "2ef2872136f1f07461b9d24b74f1c0d06e0ade18cb3a6df1fc2bfb968bb81c76",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/prix-location-voiture-maroc-2026"
+      ],
+      "robots": [],
+      "title": [
+        "Prix Location Voiture Maroc 2026 - Tarifs Transparents par Ville | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-automatique-casablanca",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-automatique-casablanca/index.html"
+      ],
+      "sha256": "0c63c18f3a2a70b2ed40ceecfad4e17294bfae8e9b46113b956f7fd2093d3d50",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-automatique-casablanca"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Automatique Casablanca dès 350 DH/j | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/caution-location-voiture-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/caution-location-voiture-maroc/index.html"
+      ],
+      "sha256": "0d63cb8ca7a848eb54d6cd76815ea3d7605f5448adca079f73cfe3c23c4aba01",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/caution-location-voiture-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Caution Location Voiture Maroc : Combien &amp; Comment l'Éviter (2026)"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-gare-oncf-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-gare-oncf-maroc/index.html"
+      ],
+      "sha256": "e3388fc7b64bf2e1359182d94a8330825644d131c223f2b72489d151fd9bf80e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-gare-oncf-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture Gare ONCF Maroc — Tanger, Casa, Rabat, Marrakech"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/top-activites-marrakech-en-voiture",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/top-activites-marrakech-en-voiture/index.html"
+      ],
+      "sha256": "4d1ddac043c73f32b31e4182af16b8845e378f5485263294f97ad66231f15055",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/top-activites-marrakech-en-voiture"
+      ],
+      "robots": [],
+      "title": [
+        "Top 15 Activites a Marrakech en Voiture de Location (Guide 2026)"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/guide-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/guide-maroc/index.html"
+      ],
+      "sha256": "055e0028aed10321dba794bf85f5bfe081389ca3e6c3b4dcb71112eebe854857",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/guide-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Guide Complet : Louer Voiture au Maroc 2026 | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/permis-international-maroc-location-voiture",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/permis-international-maroc-location-voiture/index.html"
+      ],
+      "sha256": "7c28a5de978ee46ad731880893bf2d259b45e3bb3fcc72d189a7caf41d4bd88f",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/permis-international-maroc-location-voiture"
+      ],
+      "robots": [],
+      "title": [
+        "Permis International Obligatoire au Maroc ? Reponse 2026 | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/age-minimum-location-voiture-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/age-minimum-location-voiture-maroc/index.html"
+      ],
+      "sha256": "85d1d48908501f23b79586a236253dc72689a699b7598031842807f7de62901a",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/age-minimum-location-voiture-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Age Minimum Location Voiture Maroc 2026 : 21 ans ? | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/eviter-arnaques-location-voiture-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/eviter-arnaques-location-voiture-maroc/index.html"
+      ],
+      "sha256": "a600f970b8ac8149f2cc4b1e305889fbd57cd71cca7e8823d438000b1a1e1932",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/eviter-arnaques-location-voiture-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Eviter Arnaques Location Voiture Maroc : 10 Pieges (2026) | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/peages-autoroute-maroc-tarifs-2026",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/peages-autoroute-maroc-tarifs-2026/index.html"
+      ],
+      "sha256": "4e078912babf389ac0b41147d8d4bc394e7d441b191ba429556aaa136baf3917",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/peages-autoroute-maroc-tarifs-2026"
+      ],
+      "robots": [],
+      "title": [
+        "Peages Autoroute Maroc Tarifs 2026 : Casa-Marrakech, Casa-Tanger | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/prix-essence-gasoil-maroc-2026",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/prix-essence-gasoil-maroc-2026/index.html"
+      ],
+      "sha256": "fa834b48f8658c403a7c34fe01c18d5143bb0da70d44cc77b230bd68d17d29d9",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/prix-essence-gasoil-maroc-2026"
+      ],
+      "robots": [],
+      "title": [
+        "Prix Essence et Gasoil au Maroc 2026 : Tarifs par Station | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/conduire-maroc-permis-etranger",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/conduire-maroc-permis-etranger/index.html"
+      ],
+      "sha256": "9f36e6afb22ab5ac3596476fa6a72034408a3a6a683f71cef9c9a73cb5fd5512",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/conduire-maroc-permis-etranger"
+      ],
+      "robots": [],
+      "title": [
+        "Conduire au Maroc avec Permis Etranger 2026 : Guide | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/location-voiture-avec-chauffeur-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/location-voiture-avec-chauffeur-maroc/index.html"
+      ],
+      "sha256": "211a55494b40acb3bf2f2587d72a082fd019fbbae887b148caa029f11b239b92",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/location-voiture-avec-chauffeur-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Location Voiture avec Chauffeur Maroc 2026 : Tarifs | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/accident-voiture-location-maroc-que-faire",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/accident-voiture-location-maroc-que-faire/index.html"
+      ],
+      "sha256": "e53e318b3e2819ca4395ee5f3b2936b1468e8cf6010895f00c73b6ce3deef4ee",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/accident-voiture-location-maroc-que-faire"
+      ],
+      "robots": [],
+      "title": [
+        "Accident Voiture de Location Maroc : Que Faire (Guide 2026) | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/courte-vs-longue-duree-location-voiture-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/courte-vs-longue-duree-location-voiture-maroc/index.html"
+      ],
+      "sha256": "4bebeecd73b4eb661f7fd9edff20ddafa50b4985326e0ec54d22853e0810fb04",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/courte-vs-longue-duree-location-voiture-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Courte vs Longue Duree Location Voiture Maroc : Quel Tarif ? | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/essence-ou-diesel-location-voiture-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/essence-ou-diesel-location-voiture-maroc/index.html"
+      ],
+      "sha256": "1b8fb352e5ceee5dca5bb9cbdc1742c65692ff4071ea077932952805e634a791",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/essence-ou-diesel-location-voiture-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Essence ou Diesel pour Louer au Maroc ? Comparatif 2026 | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/benatna-vs-avis-hertz-europcar-sixt/index.html"
+      ],
+      "sha256": "117e688b48c5c5e96609a7a2f0cc644847911d0082f630b111228e9689a3785e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt"
+      ],
+      "robots": [],
+      "title": [
+        "Benatna vs Avis Hertz Europcar Sixt Maroc 2026 : Comparatif Honnete"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/top-agences-location-voiture-maroc-2026",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/top-agences-location-voiture-maroc-2026/index.html"
+      ],
+      "sha256": "02a0282d729732e6b9273a2c431295f746b72af358a0bb698ab2624e7ed254f6",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/top-agences-location-voiture-maroc-2026"
+      ],
+      "robots": [],
+      "title": [
+        "Choisir un loueur à Casablanca : critères de comparaison"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/louer-voiture-maroc-faq-complete",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/louer-voiture-maroc-faq-complete/index.html"
+      ],
+      "sha256": "d0e1e87ab575d07c8ff52c1d793d429051ad7f1e36394def313f9c17864335e3",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/louer-voiture-maroc-faq-complete"
+      ],
+      "robots": [],
+      "title": [
+        "Louer Voiture Maroc 2026 : FAQ Complete (40 Questions) | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/permis-etranger-douane-mre-location-voiture",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/permis-etranger-douane-mre-location-voiture/index.html"
+      ],
+      "sha256": "bf2540142315f52f22c972e2c2b22a4972645d84b77e46578d10937a69030de1",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/permis-etranger-douane-mre-location-voiture"
+      ],
+      "robots": [],
+      "title": [
+        "Permis Etranger Douane MRE Location Voiture Maroc 2026 | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/avis-clients-benatna-2026",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/avis-clients-benatna-2026/index.html"
+      ],
+      "sha256": "4b257b104fc860941ec929a74693b1169ba3ea535865d48540242b23ff85e70e",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/avis-clients-benatna-2026"
+      ],
+      "robots": [],
+      "title": [
+        "Retours clients Benatna : transparence et démarche"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/en",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/en/index.html"
+      ],
+      "sha256": "fd3317b50ffd8e969d47463b41f3a745e5948f1b3665dcdb2012fd4c6821efb2",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/en"
+      ],
+      "robots": [],
+      "title": [
+        "Benatna — Car rental in Casablanca"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/en/louer",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/en/louer/index.html"
+      ],
+      "sha256": "178f1624f5c49d1aedba53cc024e59f28c084b815f923c237a74c13ff65c47e4",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/en/louer"
+      ],
+      "robots": [],
+      "title": [
+        "Car rental in Casablanca | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/en/contact",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/en/contact/index.html"
+      ],
+      "sha256": "57aeb31b7c100f384a99dd40031b11c644d08900dcd8026712642a0dc8ed9588",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/en/contact"
+      ],
+      "robots": [],
+      "title": [
+        "Contact Benatna — WhatsApp +212 699 024 526 | Car Rental Morocco"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/en/a-propos",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/en/a-propos/index.html"
+      ],
+      "sha256": "d90f6f39f4e4b413315b6ed6c4146b41a502b419a4e40e6b91a4177579038438",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/en/a-propos"
+      ],
+      "robots": [],
+      "title": [
+        "About Benatna — The startup behind Morocco's local rental agencies"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/en/partenaires",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/en/partenaires/index.html"
+      ],
+      "sha256": "269495b2cb99a639af07619eb3cbdab3ac736e569bcb9dfcbd3277b4f94640c1",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/en/partenaires"
+      ],
+      "robots": [],
+      "title": [
+        "Become a Benatna Partner — Car rental agencies in Morocco"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/en/blog",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/en/blog/index.html"
+      ],
+      "sha256": "af551afa1fe7d43b684fa0c3906e698ea13b1d4d947515457b2dc1d317a886ed",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/en/blog"
+      ],
+      "robots": [],
+      "title": [
+        "Blog Location Voiture Maroc - Guides &amp; Conseils | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/es",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/es/index.html"
+      ],
+      "sha256": "15662c158cff9ef6ac1fa4511496f2656cdeb5a407401963c7a08289d51ee3c5",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/es"
+      ],
+      "robots": [],
+      "title": [
+        "Benatna — Alquiler de coches en Casablanca"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/es/louer",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/es/louer/index.html"
+      ],
+      "sha256": "d80442e7d8db4b68242a9a020f77dd464326ff01d231e5924313abf937703715",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/es/louer"
+      ],
+      "robots": [],
+      "title": [
+        "Alquiler de coches en Casablanca | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/es/contact",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/es/contact/index.html"
+      ],
+      "sha256": "a628a156d155815d8f774c4728f326d1e5e466c7c26f0a3793909cffe0539744",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/es/contact"
+      ],
+      "robots": [],
+      "title": [
+        "Contacto Benatna — WhatsApp +212 699 024 526 | Alquiler Coches Marruecos"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/es/a-propos",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/es/a-propos/index.html"
+      ],
+      "sha256": "a8f37b23ce9a09eca015246a0c3c931177f1eec2c51c343e7367b7a80a14b61b",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/es/a-propos"
+      ],
+      "robots": [],
+      "title": [
+        "Sobre Benatna — La startup de las agencias locales de Marruecos"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/es/partenaires",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/es/partenaires/index.html"
+      ],
+      "sha256": "1135d8bf8cff53f23417d6e60c883f1584031b42cfcc16e6debe4ec0967eba6a",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/es/partenaires"
+      ],
+      "robots": [],
+      "title": [
+        "Sé Partner de Benatna — Agencias de alquiler en Marruecos"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/es/blog",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/es/blog/index.html"
+      ],
+      "sha256": "3560c5f5e7bf23f51eeb18006c74a49c9ececbf1b53a628001cf8d1c64e5e6e8",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/es/blog"
+      ],
+      "robots": [],
+      "title": [
+        "Blog Location Voiture Maroc - Guides &amp; Conseils | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/budget-location-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/budget-location-maroc/index.html"
+      ],
+      "sha256": "241446729da7f348e4fc45436a4bf01dba392f772d46aaa9803234970144fb0b",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/budget-location-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Budget location de voiture au Maroc : guide complet | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/stationnement-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/stationnement-maroc/index.html"
+      ],
+      "sha256": "d0a58b5eb12768857ae44fcd909cf4da4d0bc44f0d7a2bcb02d60ec9c9311a3d",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/stationnement-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Stationnement au Maroc : tout ce qu'il faut savoir | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/carburant-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/carburant-maroc/index.html"
+      ],
+      "sha256": "23ea5198c2e88aa1b2f967b28d6e1b69dbd34d5afab9769e1c2b90b8e73f0ee4",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/carburant-maroc"
+      ],
+      "robots": [],
+      "title": [
+        "Carburant au Maroc : prix, stations-service et conseils | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/guide-complet-location-voiture-maroc-2025",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/guide-complet-location-voiture-maroc-2025/index.html"
+      ],
+      "sha256": "31ea655693430ecb31addbee68b8a4883cabdf6d622db0e306915be7c71c38bb",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/guide-complet-location-voiture-maroc-2025"
+      ],
+      "robots": [],
+      "title": [
+        "Guide Complet de la Location de Voiture au Maroc en 2025 | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/budget-voyage-maroc-2025",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/budget-voyage-maroc-2025/index.html"
+      ],
+      "sha256": "b09829eb2253386eb0078eb033ed523944cc2c1bfe2cd8ec4f235cae708399a0",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/budget-voyage-maroc-2025"
+      ],
+      "robots": [],
+      "title": [
+        "Budget Voyage au Maroc 2025 : Combien Coûte un Séjour avec Voiture de Location ? | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/meilleurs-spots-ain-diab-casablanca-voiture",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/meilleurs-spots-ain-diab-casablanca-voiture/index.html"
+      ],
+      "sha256": "4dd3d19f26b17537bb87e14a5a99f85a7acc31cee507bf863dcd04c563815f87",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/meilleurs-spots-ain-diab-casablanca-voiture"
+      ],
+      "robots": [],
+      "title": [
+        "Top 10 Spots à Ain Diab Casablanca en Voiture | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/guide-quartier-maarif-casablanca-voiture",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/guide-quartier-maarif-casablanca-voiture/index.html"
+      ],
+      "sha256": "f63ca875cb35bb60ca6096e2d2b4c3afd0cb555246f3eb24da0c36296bc1f6ce",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/guide-quartier-maarif-casablanca-voiture"
+      ],
+      "robots": [],
+      "title": [
+        "Guide Complet du Quartier Maarif à Casablanca en Voiture | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/quartier-gueliz-marrakech-guide-voiture",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/quartier-gueliz-marrakech-guide-voiture/index.html"
+      ],
+      "sha256": "48dae0773006837b5245d5cc273dc75a48bb093568d495f8e527a754fdd8a7de",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/quartier-gueliz-marrakech-guide-voiture"
+      ],
+      "robots": [],
+      "title": [
+        "Guide Guéliz Marrakech en Voiture - Nouveau Centre-Ville | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/road-trip-atlas-marrakech-4x4",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/road-trip-atlas-marrakech-4x4/index.html"
+      ],
+      "sha256": "2dc4a205b5d61c4f622975a0bac33ae18e9ee3216d74efc935e1dcea7363059c",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/road-trip-atlas-marrakech-4x4"
+      ],
+      "robots": [],
+      "title": [
+        "Road Trip Atlas depuis Marrakech en 4x4 - Itinéraire 3 Jours | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/comparatifs",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/comparatifs/index.html"
+      ],
+      "sha256": "19b53957956f11a475fd42a5b69146818568d5e699af0c2ced401a558e595f42",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/comparatifs"
+      ],
+      "robots": [
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      ],
+      "title": [
+        "Guides Comparatifs Location Voiture Maroc - Choisir en Toute Connaissance | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/comparatif/dacia-duster-vs-renault-captur-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/comparatif/dacia-duster-vs-renault-captur-maroc/index.html"
+      ],
+      "sha256": "d1a0fbca33aaa50b7f989e681a0919369d4c956c1bdd28d86ecac1e19d401881",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/comparatif/dacia-duster-vs-renault-captur-maroc"
+      ],
+      "robots": [
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      ],
+      "title": [
+        "Dacia Duster vs Renault Captur : quel SUV louer au Maroc ?"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/comparatif/renault-clio-vs-dacia-sandero-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/comparatif/renault-clio-vs-dacia-sandero-maroc/index.html"
+      ],
+      "sha256": "a251d4da56665f39046a35b53ea8669f3b0ca6c1931230103c4881ff1eb3cdde",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/comparatif/renault-clio-vs-dacia-sandero-maroc"
+      ],
+      "robots": [
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      ],
+      "title": [
+        "Renault Clio vs Dacia Sandero - Comparatif Location Maroc | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/comparatif/location-aeroport-vs-centre-ville-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/comparatif/location-aeroport-vs-centre-ville-maroc/index.html"
+      ],
+      "sha256": "8b09e1cf9039036cb49cfe59c4e88d51e47bee56bb181901ea4c7c9c59fe4831",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/comparatif/location-aeroport-vs-centre-ville-maroc"
+      ],
+      "robots": [
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      ],
+      "title": [
+        "Location Voiture Aéroport vs Centre-Ville Maroc - Où Louer ? | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/comparatif/location-courte-duree-vs-longue-duree-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/comparatif/location-courte-duree-vs-longue-duree-maroc/index.html"
+      ],
+      "sha256": "6fbcf13ac86f882be5f8c70c90d8e60e9b38b68004b54e968c04f2f2d11e511d",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ],
+      "robots": [
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      ],
+      "title": [
+        "Location Voiture Courte vs Longue Durée Maroc - Quel Tarif ? | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/comparatif/location-economique-vs-premium-maroc",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/comparatif/location-economique-vs-premium-maroc/index.html"
+      ],
+      "sha256": "2852c8f0390e817c9fd608fbb97b8db64b01ebac73d2789e2f65eee65780f648",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/comparatif/location-economique-vs-premium-maroc"
+      ],
+      "robots": [
+        "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+      ],
+      "title": [
+        "Location Voiture Économique vs Premium Maroc - Quel Budget ? | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/marrakech-merzouga-voiture-itineraire",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/marrakech-merzouga-voiture-itineraire/index.html"
+      ],
+      "sha256": "67694da782bcfd24597fbd95ea532f6fe19e1ea69cfd3a64fae679f825a4d6bb",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/marrakech-merzouga-voiture-itineraire"
+      ],
+      "robots": [],
+      "title": [
+        "Marrakech → Merzouga en voiture : l'itinéraire complet (3, 4 ou 5 jours) | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/louer-voiture-maroc-sans-carte-credit-mre",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/louer-voiture-maroc-sans-carte-credit-mre/index.html"
+      ],
+      "sha256": "353134e7b73f09119632522b3f06012226d1b04803e5c34ad9b13a055f0d5bdc",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/louer-voiture-maroc-sans-carte-credit-mre"
+      ],
+      "robots": [],
+      "title": [
+        "Louer une voiture au Maroc sans carte de crédit internationale : le guide MRE | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/blog/conduire-au-maroc-quand-on-est-etranger",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/blog/conduire-au-maroc-quand-on-est-etranger/index.html"
+      ],
+      "sha256": "15970dd48bfbbb0860eed036b593597d9a882f72775f6821846ea7a9865fd333",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/blog/conduire-au-maroc-quand-on-est-etranger"
+      ],
+      "robots": [],
+      "title": [
+        "Conduire au Maroc quand on est étranger : ce qui change vraiment | Benatna"
+      ]
+    },
+    {
+      "url": "https://benatna.ma/prise-en-charge-casablanca-rabat",
+      "status": 200,
+      "command": [
+        "read",
+        "dist/prise-en-charge-casablanca-rabat/index.html"
+      ],
+      "sha256": "eb852622497fc9f710a5d0370fe83c06a2526c0b3bf3eb7e656b2e1abcecd60a",
+      "aggregateRating": 0,
+      "unsupportedClaims": [],
+      "canonical": [
+        "https://benatna.ma/prise-en-charge-casablanca-rabat"
+      ],
+      "robots": [],
+      "title": [
+        "Location voiture : gares et aéroports Casablanca, Rabat sur demande | Benatna"
+      ]
+    }
+  ]
+}

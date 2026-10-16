@@ -72,29 +72,7 @@ const marrakechFAQs = [
 ];
 
 // Customer reviews localized to Marrakech
-const marrakechTestimonials = [
-  {
-    name: "Sophie L.",
-    location: "France",
-    rating: 5,
-    comment: "Parfait pour notre road trip vers l'Atlas ! La Duster nous attendait à Menara et nous avons pu partir directement vers la vallée de l'Ourika. Service impeccable et prix transparent.",
-    date: "Janvier 2025"
-  },
-  {
-    name: "Karim A.",
-    location: "Marrakech",
-    rating: 5,
-    comment: "Location longue durée pour 2 mois. Tarif très compétitif comparé aux grandes enseignes. Véhicule récent et bien entretenu. Le support WhatsApp répond rapidement.",
-    date: "Décembre 2024"
-  },
-  {
-    name: "Maria G.",
-    location: "Espagne",
-    rating: 5,
-    comment: "Nous avons loué une voiture pour visiter Essaouira et les cascades d'Ouzoud. Réservation simple, livraison à notre riad dans la Médina. Je recommande vivement !",
-    date: "Novembre 2024"
-  }
-];
+const marrakechTestimonials = [];
 
 const LocationVoitureMarrakech = () => {
 
@@ -130,10 +108,7 @@ const LocationVoitureMarrakech = () => {
         priceRange="150-900 MAD"
       />
 
-      <EnhancedAggregateRatingSchema 
-        entityType="LocalBusiness"
-        entityName="Benatna Location de Voiture Marrakech"
-      />
+
 
       <PriceRangeOfferSchema 
         minPrice="250"
@@ -734,40 +709,7 @@ const LocationVoitureMarrakech = () => {
           </section>
 
           {/* Customer Reviews Section */}
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-              Avis de nos clients à Marrakech
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {marrakechTestimonials.map((testimonial, index) => (
-                <Card key={index} className="border-none shadow-md">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-1 mb-3">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <Quote className="h-8 w-8 text-primary/20 mb-2" />
-                    <p className="text-muted-foreground mb-4 italic">
-                      "{testimonial.comment}"
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{testimonial.date}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="text-center mt-6">
-              <p className="text-muted-foreground">
-                Note moyenne : <span className="font-semibold">4.8/5</span> basée sur plus de 1 200 avis clients
-              </p>
-            </div>
-          </section>
+
 
           {/* Final CTA Section */}
           <section className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center">

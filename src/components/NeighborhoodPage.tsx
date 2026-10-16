@@ -61,10 +61,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
       />
       
       {/* Aggregate Rating */}
-      <EnhancedAggregateRatingSchema 
-        entityType="LocalBusiness"
-        entityName={`Benatna Location Voiture ${neighborhood.name} ${neighborhood.city}`}
-      />
+
       
       {/* Product Schema véhicules ville */}
       <VehicleProductSchemas city={neighborhood.city} />

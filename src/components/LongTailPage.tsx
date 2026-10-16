@@ -111,10 +111,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       <StructuredData type="rental" />
       
       {/* Quick Wins SEO: AggregateRating Schema pour étoiles Google */}
-      <EnhancedAggregateRatingSchema 
-        entityType="Service"
-        entityName={config.title}
-      />
+
       
       {/* Quick Wins SEO: Price Range pour affichage prix dans Google */}
       <PriceRangeOfferSchema 
