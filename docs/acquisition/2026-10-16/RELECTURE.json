@@ -12,14 +12,17 @@
       "id": "R01",
       "priorite": "P0",
       "sujet": "Avis et notes non verifies",
-      "etat": "a_faire",
-      "preuve_production": null
+      "etat": "fait",
+      "preuve_production": "evidence/reviews-production-html.json",
+      "pr": 21,
+      "commit": "4dd7e8cb03699c38d44e523107e369cd6908b66d",
+      "resultat": "87/87 HTTP200 sans aggregateRating ni faux compte detecte"
     },
     {
       "id": "R02",
       "priorite": "P0",
       "sujet": "HTML brut des routes retirees et vrais 404",
-      "etat": "a_faire",
+      "etat": "validation_preview_a_faire",
       "preuve_production": null
     },
     {
@@ -47,7 +50,7 @@
       "id": "R06",
       "priorite": "P1",
       "sujet": "Fusion PR20 et archives de reprise sans donnees personnelles",
-      "etat": "a_faire",
+      "etat": "partiel_PR20_fusionnee_archives_a_completer",
       "preuve_production": null
     },
     {
@@ -82,8 +85,9 @@
       "id": "R11",
       "priorite": "P2",
       "sujet": "Verifier coefficient weekend sans changer prix",
-      "etat": "a_faire",
-      "preuve_production": null
+      "etat": "verifie_sans_changement_tarifaire",
+      "preuve_production": null,
+      "resultat": "Majoration 5% uniquement si duree <=3 et depart vendredi/samedi/dimanche; minimum de location 3 jours, donc exactement 3 jours valides. Intention commerciale non confirmee."
     }
   ]
 }

@@ -1,0 +1,43 @@
+[
+  {
+    "route": "/auth",
+    "title": "Benatna — Location de voiture à Casablanca",
+    "heading": [],
+    "bodyLength": 828,
+    "errors": []
+  },
+  {
+    "route": "/analytics",
+    "title": "Benatna — Location de voiture à Casablanca",
+    "heading": [],
+    "bodyLength": 828,
+    "errors": []
+  },
+  {
+    "route": "/vehicule/dacia-logan",
+    "title": "Dacia Logan - Location 300 MAD/jour | Benatna",
+    "heading": [
+      "Dacia Logan"
+    ],
+    "bodyLength": 742,
+    "errors": []
+  },
+  {
+    "route": "/location-voiture-marrakech",
+    "title": "Zone de location actuelle | Benatna Casablanca",
+    "heading": [
+      "Notre service se concentre sur Casablanca"
+    ],
+    "bodyLength": 1177,
+    "errors": []
+  },
+  {
+    "route": "/location-voiture-mariage-maroc",
+    "title": "Voitures de tourisme, minimum trois jours | Benatna",
+    "heading": [
+      "Voitures de tourisme pour vos séjours — minimum trois jours"
+    ],
+    "bodyLength": 1195,
+    "errors": []
+  }
+]

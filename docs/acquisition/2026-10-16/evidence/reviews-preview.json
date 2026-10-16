@@ -1,0 +1,47 @@
+{
+  "deployment": "dpl_FMgiiRMBgw5t5tFkGBkLpyrJrYTg",
+  "head": "98bbce914342d53b13ff4123f3d7c3d4d340f480",
+  "javascriptExecuted": false,
+  "checks": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "path": "/avis-clients-benatna-2026",
+        "status": 200,
+        "aggregateRating": 0,
+        "unsupported": false,
+        "title": "Retours clients Benatna : transparence et démarche"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "path": "/top-agences-location-voiture-maroc-2026",
+        "status": 200,
+        "aggregateRating": 0,
+        "unsupported": false,
+        "title": "Choisir un loueur à Casablanca : critères de comparaison"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "path": "/location-voiture-avec-chauffeur-maroc",
+        "status": 200,
+        "aggregateRating": 0,
+        "unsupported": false,
+        "title": "Location Voiture avec Chauffeur Maroc 2026 : Tarifs | Benatna"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "path": "/comparatif/location-economique-vs-premium-maroc",
+        "status": 200,
+        "aggregateRating": 0,
+        "unsupported": false,
+        "title": "Location Voiture Économique vs Premium Maroc - Quel Budget ? | Benatna"
+      }
+    }
+  ]
+}

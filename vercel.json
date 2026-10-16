@@ -80,12 +80,7 @@
       "permanent": true
     }
   ],
-  "rewrites": [
-    {
-      "source": "/((?!api/|assets/|.*\\..*).*)",
-      "destination": "/index.html"
-    }
-  ],
+  "rewrites": [],
   "headers": [
     {
       "source": "/assets/(.*)",
