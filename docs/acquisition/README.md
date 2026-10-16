@@ -4,6 +4,8 @@ Commencer ici avant toute nouvelle intervention marketing. Dossier créé le 15 
 
 ## Référence actuelle
 
+- [Rapport de relecture et limites](2026-10-16/RAPPORT-RELECTURE.md)
+- [Mesure et suivi privé publiés](2026-10-16/MESURE-IMPLEMENTATION.md)
 - [Suivi de relecture du 16 octobre](2026-10-16/RELECTURE.json)
 - [Journal technique historique expurgé](historique-technique/STATUS.md) et [stratégie D001](historique-technique/strategy-casablanca.json)
 - [Ancienne documentation archivée](../../archive/avant-recentrage-2026-10-16/README-ARCHIVE.md)
@@ -32,4 +34,4 @@ Casablanca prioritaire. Rabat sur demande depuis Casablanca. Aucune autre ville 
 5. En cas de changement public : conserver PR, commit, déploiement et contrôle public. Un brouillon n’est pas une publication ; un envoi n’est pas une indexation.
 6. Conserver l’historique et ajouter une décision qui remplace explicitement la précédente lorsqu’une règle change.
 
-Les fichiers synchronisés de `sources/` restent en lecture seule. Ce dossier est un livrable local, pas un service de surveillance automatique. Cette copie est versionnée dans le dépôt privé Benatna, [PR #20](https://github.com/badre33/entre-nous-cars/pull/20), brouillon documentaire non fusionné. Les changements techniques précédemment publiés sont traçables dans [HISTORIQUE.md](HISTORIQUE.md) et les PR #11 à #19 ; les preuves d’indexation sont dans [les preuves de cette session](evidence/).
+Les fichiers synchronisés de `sources/` restent en lecture seule. Ce dossier est un livrable local, pas un service de surveillance automatique. Cette copie est versionnée dans le dépôt privé Benatna. La [PR #20](https://github.com/badre33/entre-nous-cars/pull/20) est fusionnée ; les corrections et preuves du 16 octobre sont détaillées dans le suivi actuel. Les changements techniques précédemment publiés sont traçables dans [HISTORIQUE.md](HISTORIQUE.md) et les PR #11 à #19 ; les preuves d’indexation sont dans [les preuves de cette session](evidence/).

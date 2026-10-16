@@ -88,11 +88,12 @@
       "id": "R09",
       "priorite": "P1",
       "sujet": "A01 A02 A03 mesure et suivi prive",
-      "etat": "SQL_active_nettoye_frontend_en_preview",
-      "preuve_production": "evidence/measurement-production-sql.json; evidence/analytics-history-after.json",
+      "etat": "fait",
+      "preuve_production": "evidence/measurement-production-sql.json; evidence/analytics-history-after.json; evidence/measurement-production-html.json; evidence/measurement-production-routes.json; evidence/demandes-production-admin.png",
       "preuve_test": "evidence/measurement-schema-test.json; evidence/measurement-browser-test.json",
-      "limite": "Activation et nettoyage autorises effectues; tests reels RLS/RPC passes et fixtures annulees. Publication frontend encore en attente.",
-      "pr": 28
+      "limite": "15 scenarios navigateur sur fichiers publies avec API simulees; verification SQL reelle separee. Session administrateur reelle ouvre le suivi vide sans creer de contact. Une ancienne session navigateur a necessite plusieurs navigations avant mise a jour.",
+      "pr": 28,
+      "commit": "599e52cb76b5841aa46fa9d29052010552854ce2"
     },
     {
       "id": "R10",

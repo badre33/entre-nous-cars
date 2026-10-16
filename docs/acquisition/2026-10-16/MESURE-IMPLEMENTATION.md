@@ -1,6 +1,6 @@
 # Mesure et suivi privé : implantation du 16 octobre
 
-État : activation SQL et nettoyage historique exécutés après accord explicite du propriétaire. Contrôle réel RLS/RPC réussi, toutes les fixtures annulées. Préversion frontend vérifiée ; fusion et contrôle production à suivre dans RELECTURE.json.
+État : activation SQL et nettoyage historique exécutés après accord explicite du propriétaire. Contrôle réel RLS/RPC réussi, toutes les fixtures annulées. PR28 fusionnée et publiée (599e52cb76b5841aa46fa9d29052010552854ce2). HTML brut 73/73, huit pages centrales, trois routes privées et vraie404 vérifiés. Quinze tests UI sur les fichiers publiés avec API simulées ; session administrateur réelle : suivi accessible, zéro demande.
 
 Le circuit de mesure est Supabase. Les chargements automatiques GTM, GA4, Meta Pixel et Vercel Analytics/Speed Insights ont été retirés du code préparé pour éviter les circuits concurrents et les URL non contrôlées. Aucune campagne ni nouvelle balise publicitaire n’est activée. Une future réactivation marketing demande une vérification de ses événements, des données transmises et de son autorisation.
 

@@ -6,13 +6,15 @@ const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'dist');
 const source = await fs.readFile(path.join(root, 'src/utils/serviceAreaPolicy.ts'), 'utf8');
 const js = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.ESNext } }).outputText;
-const { serviceAreaPolicy } = await import('data:text/javascript;base64,' + Buffer.from(js).toString('base64'));
+const { serviceAreaPolicy, retiredOfferPaths } = await import('data:text/javascript;base64,' + Buffer.from(js).toString('base64'));
 const app = await fs.readFile(path.join(root, 'src/App.tsx'), 'utf8');
 const routes = new Set([...app.matchAll(/<Route\s+path="([^":*]+)"/g)].map(m => m[1]));
 for (const [file, prefix] of [['vehicleDetails.ts', '/vehicule/'], ['blogArticles.ts', '/blog/'], ['comparisonsData.ts', '/comparatif/']]) {
   const data = await fs.readFile(path.join(root, 'src/data', file), 'utf8');
   for (const match of data.matchAll(/\bslug:\s*["']([^"']+)["']/g)) routes.add(prefix + match[1]);
 }
+// Retired routes remain known even when their old content is archived.
+for (const route of Object.keys(retiredOfferPaths)) routes.add(route);
 // Previously published model URL, now excluded from the offer.
 routes.add('/vehicule/hyundai-staria');
 const shell = (await fs.readFile(path.join(dist, 'app-shell.html'), 'utf8'))

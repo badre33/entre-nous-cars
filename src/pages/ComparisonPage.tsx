@@ -1,3 +1,4 @@
+import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -313,7 +314,7 @@ export default function ComparisonPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   {comparison.relatedComparisons.map(relatedId => {
                     const related = comparisons.find(c => c.id === relatedId);
-                    if (!related) return null;
+                    if (!related || (serviceAreaPolicy(`/comparatif/${related.slug}`).notice && serviceAreaPolicy(`/comparatif/${related.slug}`).noindex)) return null;
                     return (
                       <Card key={relatedId} className="hover:shadow-lg transition-shadow">
                         <CardContent className="pt-6">

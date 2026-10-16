@@ -1,0 +1,49 @@
+{
+  "deployment": "dpl_9ipL2i5LgfCQBjzECFhbvVqNJuLF",
+  "commit": "08831dd63c860f7845c32422444b3bae8f80ab7d",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "noindex": false,
+      "canonical": "<link rel=\"canonical\" href=\"https://benatna.ma/\" data-rh=\"true\">",
+      "activeVendor": false,
+      "networkOnly": false,
+      "passed": true
+    },
+    {
+      "path": "/demandes",
+      "status": 200,
+      "noindex": true,
+      "canonical": "<link rel=\"canonical\" href=\"https://benatna.ma/demandes\">",
+      "activeVendor": false,
+      "networkOnly": false,
+      "passed": true
+    },
+    {
+      "path": "/auth",
+      "status": 200,
+      "noindex": true,
+      "canonical": "<link rel=\"canonical\" href=\"https://benatna.ma/auth\">",
+      "activeVendor": false,
+      "networkOnly": false,
+      "passed": true
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "noindex": false,
+      "activeVendor": false,
+      "networkOnly": true,
+      "passed": true
+    },
+    {
+      "path": "/verification-inconnue-r09",
+      "status": 404,
+      "noindex": true,
+      "activeVendor": false,
+      "networkOnly": false,
+      "passed": true
+    }
+  ]
+}
