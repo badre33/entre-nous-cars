@@ -1,7 +1,7 @@
 id,priorite,action,etat,domaine,reference,critere_acceptation,dependances,role
-A01,P0,Corriger la semantique WhatsApp et dedupliquer,tests_locaux_reussis_activation_en_attente,code et parcours,MESURE.md,Un geste = une sortie; aucun faux message recu,aucune,technique
-A02,P0,Nettoyer URL libres et ajouter attribution UTM controlee,tests_locaux_reussis_activation_en_attente,code et parcours,MESURE.md,Pas de texte client en analytics; campagne conservee,A01,technique
-A03,P0,Definir suivi prive des demandes et resultats,prepare_validation_SQL_requise,operation,suivi-demandes-modele.csv,Contacts recus distingues des clics; acces administrateur,aucune,administrateur
+A01,P0,Corriger la semantique WhatsApp et dedupliquer,fait_production_PR28,code et parcours,MESURE.md,Un geste = une sortie; aucun faux message recu,aucune,technique
+A02,P0,Nettoyer URL libres et ajouter attribution UTM controlee,fait_production_PR28,code et parcours,MESURE.md,Pas de texte client en analytics; campagne conservee,A01,technique
+A03,P0,Definir suivi prive des demandes et resultats,fait_production_PR28,operation,suivi-demandes-modele.csv,Contacts recus distingues des clics; acces administrateur,aucune,administrateur
 A04,P1,Verifier consolidation www et domaines secondaires,a_faire,SEO technique,STATUS.md,Canonical et redirections coherentes; pas de migration presumee,aucune,technique
 A05,P1,Relire les huit pages centrales et les liens,a_faire,SEO contenu,ARCHITECTURE.md,Intention unique et faits coherents; prix existants,aucune,contenu
 A06,P1,Evaluer les variantes quartier et autres pages,decisions_87_URL_versionnees,architecture,inventaire-pages.csv,Decisions URL par URL motivees; pas de suppression de masse,A05,contenu
