@@ -1,3 +1,4 @@
+import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -30,8 +31,15 @@ interface LongTailPageProps {
  * Optimisé pour la conversion et le référencement
  */
 export const LongTailPage = ({ config }: LongTailPageProps) => {
-  const retiredPaths = ["/location-voiture-mariage-maroc", "/location-voiture-luxe-evenement", "/location-van-famille-maroc", "/location-utilitaire-demenagement-casablanca"];
-  config = { ...config, relatedPages: config.relatedPages?.filter(p => !retiredPaths.includes(p.link)), relatedServices: config.relatedServices?.filter(p => !retiredPaths.includes(p.link)) };
+  const canRecommend = (link: string) => {
+    try {
+      const url = new URL(link, 'https://benatna.ma');
+      if (url.origin !== 'https://benatna.ma') return true;
+      const policy = serviceAreaPolicy(url.pathname);
+      return !policy.notice || !policy.noindex;
+    } catch { return false; }
+  };
+  config = { ...config, relatedPages: config.relatedPages?.filter(p => canRecommend(p.link)), relatedServices: config.relatedServices?.filter(p => canRecommend(p.link)) };
   const navigate = useNavigate();
 
   // Les métadonnées sont posées par Helmet plus bas. Les poser aussi

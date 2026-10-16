@@ -1,3 +1,4 @@
+import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 import { useState, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Header from '@/components/Header';
@@ -235,7 +236,7 @@ export default function Glossaire() {
                                         Pages liées :
                                       </p>
                                       <div className="flex flex-wrap gap-2">
-                                        {term.relatedPages.map((page, idx) => (
+                                        {term.relatedPages.filter(page => { const policy = serviceAreaPolicy(page.url); return !policy.notice || !policy.noindex; }).map((page, idx) => (
                                           <Link
                                             key={idx}
                                             to={page.url}
