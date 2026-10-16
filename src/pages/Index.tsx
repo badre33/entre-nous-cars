@@ -42,17 +42,17 @@ const heroImageWebp = "/hero-home-new.webp";
 const HOME_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
     title: "Benatna — Location de voiture à Casablanca",
-    desc: "Des loueurs basés à Casablanca pour vos séjours et vacances. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, à confirmer.",
+    desc: "Des loueurs basés à Casablanca pour vos séjours et vacances. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, à confirmer. Minimum trois jours, maximum six mois.",
     url: "https://benatna.ma/",
   },
   en: {
     title: "Benatna — Car rental in Casablanca",
-    desc: "Casablanca-based agencies for your holidays and stays. City or Mohammed V Airport pickup. Rabat delivery on request, subject to confirmation.",
+    desc: "Casablanca-based agencies for your holidays and stays. City or Mohammed V Airport pickup. Rabat delivery on request, subject to confirmation. Minimum three days, maximum six months.",
     url: "https://benatna.ma/en",
   },
   es: {
     title: "Benatna — Alquiler de coches en Casablanca",
-    desc: "Agencias en Casablanca para vacaciones y estancias. Recogida en ciudad o aeropuerto Mohammed V. Rabat bajo petición y confirmación.",
+    desc: "Agencias en Casablanca para vacaciones y estancias. Recogida en ciudad o aeropuerto Mohammed V. Rabat bajo petición y confirmación. Mínimo tres días, máximo seis meses.",
     url: "https://benatna.ma/es",
   },
 };
@@ -194,7 +194,7 @@ const Index = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 animate-fade-in [animation-delay:300ms] px-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <span className="text-sm sm:text-base">💰</span>
-              <span>Dès <strong>300 DH</strong>/jour</span>
+              <span>Dès <strong>300 DH</strong>/jour · minimum trois jours</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <span className="text-sm sm:text-base">💳</span>

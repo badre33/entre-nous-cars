@@ -707,17 +707,17 @@ const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
 const LOUER_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
     title: "Location de voiture à Casablanca | Benatna",
-    desc: "Location avec des loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, livraison gratuite convenue à l’avance.",
+    desc: "Location avec des loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, livraison gratuite convenue à l’avance. Minimum trois jours, maximum six mois.",
     url: "https://benatna.ma/louer",
   },
   en: {
     title: "Car rental in Casablanca | Benatna",
-    desc: "Rent from Casablanca-based agencies. City or Mohammed V Airport pickup. Rabat delivery on request, free delivery arranged in advance.",
+    desc: "Rent from Casablanca-based agencies. City or Mohammed V Airport pickup. Rabat delivery on request, free delivery arranged in advance. Minimum three days, maximum six months.",
     url: "https://benatna.ma/en/louer",
   },
   es: {
     title: "Alquiler de coches en Casablanca | Benatna",
-    desc: "Agencias de alquiler en Casablanca. Recogida en la ciudad o aeropuerto Mohammed V. Rabat bajo petición; entrega gratuita acordada de antemano.",
+    desc: "Agencias de alquiler en Casablanca. Recogida en la ciudad o aeropuerto Mohammed V. Rabat bajo petición; entrega gratuita acordada de antemano. Mínimo tres días, máximo seis meses.",
     url: "https://benatna.ma/es/louer",
   },
 };

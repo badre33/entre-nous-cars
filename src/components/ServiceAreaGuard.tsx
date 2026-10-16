@@ -15,7 +15,7 @@ export function ServiceAreaGuard({ children }: { children: ReactNode }) {
       <title>{retired ? 'Offre actuelle | Benatna Casablanca' : excluded ? 'Voitures de tourisme, minimum trois jours | Benatna' : rabat ? 'Livraison à Rabat sur demande | Benatna Casablanca' : 'Zone de location actuelle | Benatna Casablanca'}</title>
       <link rel="canonical" href={`https://benatna.ma${pathname}`} />
       <meta name="robots" content={pathname === '/location-voiture-rabat' ? 'index,follow' : 'noindex,follow'} />
-      <meta name="description" content="Loueurs basés à Casablanca. Prise en charge à Casablanca et à l’aéroport Mohammed V. Livraison à Rabat sur demande, livraison gratuite convenue à l’avance." />
+      <meta name="description" content="Loueurs basés à Casablanca. Prise en charge à Casablanca et à l’aéroport Mohammed V. Livraison à Rabat sur demande, livraison gratuite convenue à l’avance. Minimum trois jours, maximum six mois." />
     </Helmet>
     <Header />
     <main className="container py-20 space-y-6">

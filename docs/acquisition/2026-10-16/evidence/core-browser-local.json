@@ -1,0 +1,44 @@
+[
+  {
+    "width": 1280,
+    "route": "/location-voiture-casablanca",
+    "heading": "Location de voiture à Casablanca pour votre séjour",
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "route": "/location-voiture-aeroport-casablanca",
+    "heading": "Votre voiture à l’aéroport Mohammed V de Casablanca",
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "route": "/location-longue-duree-casablanca",
+    "heading": "Une voiture pour un séjour prolongé à Casablanca",
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "route": "/location-voiture-casablanca",
+    "heading": "Location de voiture à Casablanca pour votre séjour",
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "route": "/location-voiture-aeroport-casablanca",
+    "heading": "Votre voiture à l’aéroport Mohammed V de Casablanca",
+    "horizontalOverflow": false,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "route": "/location-longue-duree-casablanca",
+    "heading": "Une voiture pour un séjour prolongé à Casablanca",
+    "horizontalOverflow": false,
+    "errors": []
+  }
+]

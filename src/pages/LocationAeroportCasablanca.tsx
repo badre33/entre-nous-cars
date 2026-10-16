@@ -1,10 +1,6 @@
-import { LongTailPage } from "@/components/LongTailPage";
-import { additionalLongTailPages } from "@/data/additionalLongTailPages";
+import { CoreRentalLanding } from '@/components/CoreRentalLanding';
+import { coreRentalPages } from '@/data/coreRentalPages';
 
-const LocationAeroportCasablanca = () => {
-  const config = additionalLongTailPages.find(p => p.slug === "location-voiture-aeroport-casablanca");
-  if (!config) return null;
-  return <LongTailPage config={config} />;
-};
-
-export default LocationAeroportCasablanca;
+export default function LocationAeroportCasablanca() {
+  return <CoreRentalLanding content={coreRentalPages.airport} />;
+}

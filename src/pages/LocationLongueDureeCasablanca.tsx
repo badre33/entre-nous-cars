@@ -1,10 +1,6 @@
-import { LongTailPage } from "@/components/LongTailPage";
-import { additionalLongTailPages } from "@/data/additionalLongTailPages";
+import { CoreRentalLanding } from '@/components/CoreRentalLanding';
+import { coreRentalPages } from '@/data/coreRentalPages';
 
-const LocationLongueDureeCasablanca = () => {
-  const config = additionalLongTailPages.find(p => p.slug === "location-longue-duree-casablanca");
-  if (!config) return null;
-  return <LongTailPage config={config} />;
-};
-
-export default LocationLongueDureeCasablanca;
+export default function LocationLongueDureeCasablanca() {
+  return <CoreRentalLanding content={coreRentalPages.longStay} />;
+}

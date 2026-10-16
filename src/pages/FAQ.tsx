@@ -16,7 +16,7 @@ export default function FAQ() {
   return <>
     <Helmet>
       <title>Questions location Casablanca, Rabat sur demande | Benatna</title>
-      <meta name="description" content="MRE, touristes et vacanciers : location minimum trois jours à Casablanca, Rabat sur demande. Disponibilité et réservation confirmées par le loueur, sans paiement en ligne." />
+      <meta name="description" content="MRE, touristes et vacanciers : location de trois jours à six mois à Casablanca, Rabat sur demande. Disponibilité et réservation confirmées par le loueur, sans paiement en ligne." />
       <script type="application/ld+json">{JSON.stringify(schema)}</script>
     </Helmet>
     <Header />
