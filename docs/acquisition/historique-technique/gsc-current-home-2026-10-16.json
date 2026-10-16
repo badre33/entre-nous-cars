@@ -1,0 +1,13 @@
+{
+  "observedAt": "2026-10-16T13:07:48.958Z",
+  "url": "https://benatna.ma/",
+  "status": "Cette URL n’a pas été indexée par Google",
+  "reason": "Page en double sans URL canonique sélectionnée par l’utilisateur",
+  "lastCrawl": "2026-10-15 22:16:55",
+  "crawlAllowed": true,
+  "fetch": "Réussie",
+  "indexingAllowed": true,
+  "userCanonical": "Aucun",
+  "googleCanonical": "https://www.benatna.ma/",
+  "limitation": "État du dernier crawl Google ; le HTML public actuel contient une canonique benatna.ma. Aucune indexation finale ne peut être déclarée."
+}

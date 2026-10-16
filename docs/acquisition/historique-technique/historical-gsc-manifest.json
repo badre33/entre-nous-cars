@@ -1,0 +1,38 @@
+[
+  {
+    "originalFile": "gsc-casablanca-indexation.png",
+    "sha256": "dbc6bc7ee652dda22e3d04cf6aba1d721ad5ece6b61e9fe0a7a4cde842ee1e1b",
+    "included": false,
+    "reason": "Capture historique avec bandeau de compte personnel. Original conservé localement ; relevés actuels sans bandeau fournis séparément."
+  },
+  {
+    "originalFile": "gsc-catalogue-indexation.png",
+    "sha256": "959a152205b0e8d0275bf2c8d41ff29ee4d8f715ff6ad8edecc824aea00236c7",
+    "included": false,
+    "reason": "Capture historique avec bandeau de compte personnel. Original conservé localement ; relevés actuels sans bandeau fournis séparément."
+  },
+  {
+    "originalFile": "gsc-faq-indexation.png",
+    "sha256": "d0ba864fd069c0bc8a5b2754d63cb6876d86d7b6a48cdbcc4205d9832e6cd0c1",
+    "included": false,
+    "reason": "Capture historique avec bandeau de compte personnel. Original conservé localement ; relevés actuels sans bandeau fournis séparément."
+  },
+  {
+    "originalFile": "gsc-guide-indexation.png",
+    "sha256": "d58cbb6f429d42319525a813748cb53f6ee6b2854be245d5060962758152db1c",
+    "included": false,
+    "reason": "Capture historique avec bandeau de compte personnel. Original conservé localement ; relevés actuels sans bandeau fournis séparément."
+  },
+  {
+    "originalFile": "gsc-home-indexation.png",
+    "sha256": "b45ecb7a4261e8dbe6f26425d7fc76c2fad14573be8493036d25109af03109ae",
+    "included": false,
+    "reason": "Capture historique avec bandeau de compte personnel. Original conservé localement ; relevés actuels sans bandeau fournis séparément."
+  },
+  {
+    "originalFile": "gsc-sitemap-sent.png",
+    "sha256": "042c9986165fe9c79b33b9b55d5a3de2e0b7756f37b8e99377b56062524d6e43",
+    "included": false,
+    "reason": "Même règle de confidentialité."
+  }
+]
