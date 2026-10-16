@@ -38,7 +38,7 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
         <h1 className="text-3xl md:text-5xl font-semibold">{content.heading}</h1>
         <p className="text-lg">{content.intro}</p>
         <p><strong>Trois jours minimum, six mois maximum.</strong> Voitures touristiques classiques pour MRE, touristes et vacanciers ; demandes locales aux mêmes conditions.</p>
-        <Link className="inline-block rounded-lg bg-primary text-primary-foreground px-6 py-3" to="/louer?city=Casablanca">Voir les modèles et prix journaliers indicatifs</Link>
+        <Link className="inline-block rounded-lg bg-primary text-foreground px-6 py-3" to="/louer?city=Casablanca">Voir les modèles et prix journaliers indicatifs</Link>
       </section>
       {content.sections.map(section => <section key={section.title} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title}</h2><p>{section.text}</p></section>)}
       <section className="space-y-4"><h2 className="text-2xl font-semibold">Questions fréquentes</h2>{faqs.map(faq => <div key={faq.question}><h3 className="font-semibold">{faq.question}</h3><p>{faq.answer}</p></div>)}</section>
