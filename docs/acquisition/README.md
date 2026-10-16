@@ -4,12 +4,17 @@ Commencer ici avant toute nouvelle intervention marketing. Dossier créé le 15 
 
 ## Référence actuelle
 
+- [Suivi de relecture du 16 octobre](2026-10-16/RELECTURE.json)
+- [Journal technique historique expurgé](historique-technique/STATUS.md) et [stratégie D001](historique-technique/strategy-casablanca.json)
+- [Ancienne documentation archivée](../../archive/avant-recentrage-2026-10-16/README-ARCHIVE.md)
+
+
 - [Architecture et priorités](2026-10-15/ARCHITECTURE.md)
 - [Recherches, tendances et limites](2026-10-15/RECHERCHE.md)
 - [Mesure des demandes et attribution](2026-10-15/MESURE.md)
 - [Plan de travail sur 90 jours](2026-10-15/PLAN-90-JOURS.md)
 - [Backlog exécutable](2026-10-15/backlog.csv)
-- [Inventaire des 87 URL du sitemap](2026-10-15/inventaire-pages.csv)
+- [Décisions sur les 87 URL initiales (73 conservées dans le sitemap)](2026-10-15/inventaire-pages.csv)
 - [Échantillon Meta avec identifiants](2026-10-15/observations-meta.csv)
 - [Sources officielles datées](2026-10-15/sources.csv)
 - [Décisions](decisions.jsonl) et [journal des actions](journal.jsonl)

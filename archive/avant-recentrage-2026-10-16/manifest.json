@@ -1,0 +1,142 @@
+[
+  {
+    "original": "AGENT_IA.md",
+    "archive": "archive/avant-recentrage-2026-10-16/AGENT_IA.md",
+    "sha256": "ce7d0226eff1039e9f61aff1b25c8979dce8ec3636fb37ceedd454ecce003792"
+  },
+  {
+    "original": "BREADCRUMB_IMPLEMENTATION.md",
+    "archive": "archive/avant-recentrage-2026-10-16/BREADCRUMB_IMPLEMENTATION.md",
+    "sha256": "3637c46a05fa673753a73f73f63b1215094760863e543bb103cdb109b93cb53c"
+  },
+  {
+    "original": "BREADCRUMB_SCHEMA_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/BREADCRUMB_SCHEMA_GUIDE.md",
+    "sha256": "850ef5538bb48f73e8a4df0c664b87a8b399638b1d3aa794d4b949aeb7342c47"
+  },
+  {
+    "original": "CANONICAL_TAGS_AUDIT.md",
+    "archive": "archive/avant-recentrage-2026-10-16/CANONICAL_TAGS_AUDIT.md",
+    "sha256": "ff3d492653c03e26b2be58cb6d51b6f5a2c2fb8a66f1670edd0b36052118572d"
+  },
+  {
+    "original": "CLAUDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/CLAUDE.md",
+    "sha256": "441b6798ea7a628a2dcf67b1d45f580678fbe0ea82eb9c5be37464e414326dd6"
+  },
+  {
+    "original": "CODE_SPLITTING_IMPLEMENTATION.md",
+    "archive": "archive/avant-recentrage-2026-10-16/CODE_SPLITTING_IMPLEMENTATION.md",
+    "sha256": "90b4b5fba8d0078398e6980537333a296091974562e1dd76763335d3f4748db8"
+  },
+  {
+    "original": "COMPARISON_GUIDES_IMPLEMENTATION.md",
+    "archive": "archive/avant-recentrage-2026-10-16/COMPARISON_GUIDES_IMPLEMENTATION.md",
+    "sha256": "496ab9ad861d312179121d5e10266e5d141d69c04038910c6b8b7f74b343318d"
+  },
+  {
+    "original": "COMPETITOR_KEYWORDS_GAP_ANALYSIS.md",
+    "archive": "archive/avant-recentrage-2026-10-16/COMPETITOR_KEYWORDS_GAP_ANALYSIS.md",
+    "sha256": "6f829e6bd504503f971f827122480db3dd00101956c66d1c99b733f5fd10cb51"
+  },
+  {
+    "original": "GEO_TAGGED_IMAGES_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/GEO_TAGGED_IMAGES_GUIDE.md",
+    "sha256": "b2d37dd5049c5dc878b2303cf7bee72d0b2e11992ea0bcb3866bbf0b1e1aad3a"
+  },
+  {
+    "original": "GLOSSARY_SEO_IMPLEMENTATION.md",
+    "archive": "archive/avant-recentrage-2026-10-16/GLOSSARY_SEO_IMPLEMENTATION.md",
+    "sha256": "1124bca891de81219975dbb1de2a7c81a742fd9bee0976b339ce168ea506d63c"
+  },
+  {
+    "original": "HYPERLOCAL_BLOG_IMPLEMENTATION.md",
+    "archive": "archive/avant-recentrage-2026-10-16/HYPERLOCAL_BLOG_IMPLEMENTATION.md",
+    "sha256": "e4f735b2c72f35e1ed5558850d3c020a7b0b3f788b7801cf96d20a19506a1cce"
+  },
+  {
+    "original": "IMAGE_OPTIMIZATION_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/IMAGE_OPTIMIZATION_GUIDE.md",
+    "sha256": "c9f5a9872cec9937bdea898b23b7144ff2b99d8f37858bea7d50eb4ff3673440"
+  },
+  {
+    "original": "MOBILE_FIRST_IMPLEMENTATION.md",
+    "archive": "archive/avant-recentrage-2026-10-16/MOBILE_FIRST_IMPLEMENTATION.md",
+    "sha256": "aae0791a09cb9a61a41bf777d3261d97402a80fc17ddd7d3ccd1d0beae73ee2a"
+  },
+  {
+    "original": "MOBILE_FIRST_OPTIMIZATION_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/MOBILE_FIRST_OPTIMIZATION_GUIDE.md",
+    "sha256": "a063dc5e055f856ffbaba5d684e810519902cea9424c91401f493135cfa85ec5"
+  },
+  {
+    "original": "MOBILE_FORMS_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/MOBILE_FORMS_GUIDE.md",
+    "sha256": "afeae948cb06bb6c441003ec3b22ad62a46d9831927771dc21029a086432e4d8"
+  },
+  {
+    "original": "MOBILE_GESTURES_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/MOBILE_GESTURES_GUIDE.md",
+    "sha256": "3bd931c3f690560241c5c64825792e385697e2cb4ca575154ef05983950db94e"
+  },
+  {
+    "original": "MOBILE_OPTIMIZATION.md",
+    "archive": "archive/avant-recentrage-2026-10-16/MOBILE_OPTIMIZATION.md",
+    "sha256": "8837ead9b85b5e1feeaa6db96c890b70a01dc50ef3ebaf40a39dada2966ed2f4"
+  },
+  {
+    "original": "OG_IMAGES_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/OG_IMAGES_GUIDE.md",
+    "sha256": "b4b6f870961e2e5bdd6816c43203fcb339039d7b0dfedf46768120a5bb040b0e"
+  },
+  {
+    "original": "PAGINATION_SEO_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/PAGINATION_SEO_GUIDE.md",
+    "sha256": "0c8dc5d3b5029e0d4794449cfa4cbfdd1386a5892717079d93732d462a059aac"
+  },
+  {
+    "original": "PERFORMANCE_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/PERFORMANCE_GUIDE.md",
+    "sha256": "95a58f33989da622e5b3e0e7325b8559a8bd444358b81adfc94a4e086ae756f9"
+  },
+  {
+    "original": "PWA_INSTALLATION_GUIDE.md",
+    "archive": "archive/avant-recentrage-2026-10-16/PWA_INSTALLATION_GUIDE.md",
+    "sha256": "0dc04275b5ad0efd2182eaefbc39b808a13e5f5bf9f5d1eb214c65ffc36f9b3e"
+  },
+  {
+    "original": "README.md",
+    "archive": "archive/avant-recentrage-2026-10-16/README.md",
+    "sha256": "e7e80e6265ae9ce7bf3962d887d13ef7ab2e563ab47727dd541dab9969cde8e6"
+  },
+  {
+    "original": "SEO_ACTION_PLAN.md",
+    "archive": "archive/avant-recentrage-2026-10-16/SEO_ACTION_PLAN.md",
+    "sha256": "2b92893d163def2d2a76a40298a6b8a99df3874435f10254f4fd1e1fe9cd4e69"
+  },
+  {
+    "original": "SEO_QUICK_WINS_IMPLEMENTED.md",
+    "archive": "archive/avant-recentrage-2026-10-16/SEO_QUICK_WINS_IMPLEMENTED.md",
+    "sha256": "52aa132a4479d0e48754036f3fcaf0b547fba9a605f4aaa4e222f55b20449ae7"
+  },
+  {
+    "original": "SEO_STRATEGY.md",
+    "archive": "archive/avant-recentrage-2026-10-16/SEO_STRATEGY.md",
+    "sha256": "d5c9a19361d339d63d56756937be2b99d2e92fecd6c5543e17498f0f8f4e7654"
+  },
+  {
+    "original": "SOCIAL_PROOF_IMPLEMENTATION.md",
+    "archive": "archive/avant-recentrage-2026-10-16/SOCIAL_PROOF_IMPLEMENTATION.md",
+    "sha256": "e7d572dc69a0f3dd02a001111185be1a242d49d60e3f56408e7bef9bc2c02b86"
+  },
+  {
+    "original": "TECHNICAL_FEATURES.md",
+    "archive": "archive/avant-recentrage-2026-10-16/TECHNICAL_FEATURES.md",
+    "sha256": "9109a35dd4b6f73e77b8f300ca551a3887802d2273e6c89afb1c8f6fb71774d1"
+  },
+  {
+    "original": "fix-conditions-script.md",
+    "archive": "archive/avant-recentrage-2026-10-16/fix-conditions-script.md",
+    "sha256": "ec9f539e7dd7b82752ee991a2403903278787cc8c22bca6632bdeb5439cd4e14"
+  }
+]

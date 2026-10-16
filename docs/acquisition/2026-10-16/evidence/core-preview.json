@@ -1,0 +1,69 @@
+{
+  "deployment": "dpl_AXXphCh3257F9PXfusQqo7Hp2Mrm",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Benatna — Location de voiture à Casablanca",
+      "description": "Des loueurs basés à Casablanca pour vos séjours et vacances. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, à confirmer. Minimum trois jours, maximum six mois.",
+      "canonical": "https://benatna.ma/",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/louer",
+      "status": 200,
+      "title": "Location de voiture à Casablanca | Benatna",
+      "description": "Location avec des loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, livraison gratuite convenue à l’avance. Minimum trois jours, maximum six mois.",
+      "canonical": "https://benatna.ma/louer",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/location-voiture-casablanca",
+      "status": 200,
+      "title": "Location de voiture à Casablanca, minimum 3 jours | Benatna",
+      "description": "Voitures classiques pour votre séjour à Casablanca. Minimum 3 jours, maximum 6 mois. Livraison gratuite aux gares et aéroports desservis. Rabat sur demande.",
+      "canonical": "https://benatna.ma/location-voiture-casablanca",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/location-voiture-aeroport-casablanca",
+      "status": 200,
+      "title": "Location voiture aéroport Casablanca Mohammed V, 3 jours minimum | Benatna",
+      "description": "Préparez votre voiture à l’aéroport Mohammed V de Casablanca. Livraison gratuite convenue à l’avance. Minimum 3 jours, maximum 6 mois. Demande WhatsApp.",
+      "canonical": "https://benatna.ma/location-voiture-aeroport-casablanca",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/prise-en-charge-casablanca-rabat",
+      "status": 200,
+      "title": "Location voiture : gares et aéroports Casablanca, Rabat sur demande | Benatna",
+      "description": "MRE et touristes : voiture de tourisme à Casablanca, aéroport Mohammed V, Casa-Voyageurs, Casa-Port, Oasis et Aïn Sebaâ. Rabat sur demande. Minimum 3 jours.",
+      "canonical": "https://benatna.ma/prise-en-charge-casablanca-rabat",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/location-voiture-rabat",
+      "status": 200,
+      "title": "Livraison à Rabat sur demande | Benatna Casablanca",
+      "description": "Loueurs basés à Casablanca. Prise en charge à Casablanca et à l’aéroport Mohammed V. Livraison à Rabat sur demande, livraison gratuite convenue à l’avance. Minimum trois jours, maximum six mois.",
+      "canonical": "https://benatna.ma/location-voiture-rabat",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/faq",
+      "status": 200,
+      "title": "Questions location Casablanca, Rabat sur demande | Benatna",
+      "description": "MRE, touristes et vacanciers : location de trois jours à six mois à Casablanca, Rabat sur demande. Disponibilité et réservation confirmées par le loueur, sans paiement en ligne.",
+      "canonical": "https://benatna.ma/faq",
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/location-longue-duree-casablanca",
+      "status": 200,
+      "title": "Location voiture pour un séjour à Casablanca, jusqu’à 6 mois | Benatna",
+      "description": "Voiture de tourisme pour un séjour personnel à Casablanca, de 3 jours à 6 mois calendaires. Prix à confirmer avec le loueur. Livraison gratuite aux points desservis.",
+      "canonical": "https://benatna.ma/location-longue-duree-casablanca",
+      "javascriptExecuted": false
+    }
+  ]
+}

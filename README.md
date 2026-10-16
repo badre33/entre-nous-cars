@@ -1,20 +1,7 @@
 # Benatna
 
-Marketplace de location de voitures au Maroc pour MRE, touristes et particuliers : de 3 jours à 6 mois.
+Location touristique à Casablanca ; Rabat sur demande depuis Casablanca. Voitures classiques, de trois jours à six mois calendaires, livraison gratuite aux points desservis. Demande WhatsApp ; pas de paiement en ligne ni de réservation automatiquement confirmée.
 
-## Développement
+Commencer par [la documentation actuelle](docs/acquisition/README.md), [les décisions](docs/acquisition/decisions.jsonl) et [le suivi de relecture](docs/acquisition/2026-10-16/RELECTURE.json). Les anciens audits sont [archivés](archive/avant-recentrage-2026-10-16/README-ARCHIVE.md).
 
-```sh
-npm ci
-npm run dev
-npm run build
-```
-
-React 18, TypeScript, Vite, Supabase et Vercel. Le dépôt utilise npm et `package-lock.json`.
-Les variables frontend nécessaires sont décrites dans `.env.example` et configurées dans Vercel ; ne pas committer de secrets.
-Le déploiement sur main déclenche la publication : vérifier d’abord les changements sur une branche et une prévisualisation.
-
-## Fonctions serveur
-
-`generate-og-image` conserve son contrat JSON et retourne l’image publique de marque.
-`chat-assistant` requiert `AI_CHAT_COMPLETIONS_URL` (HTTPS), `AI_API_KEY` et `AI_MODEL` configurés côté Supabase. L’API choisie doit accepter le contrat chat completions en streaming et les outils. Aucun fournisseur n’est configuré par défaut ; sans configuration, la fonction répond 503 avec le contact WhatsApp. Le frontend actuel n’appelle pas cet assistant.
+Développement : `npm install`, puis `npm run dev`. Build public : `npm run build:prerender` ; le build échoue si une page du sitemap ne peut pas être prérendue. Les variables publiques Supabase doivent cibler le nouveau projet ; aucun secret dans Git.

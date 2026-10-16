@@ -1,0 +1,69 @@
+{
+  "decisionDate": "2026-10-15",
+  "primaryMarket": "Casablanca",
+  "secondaryMarket": "Rabat sur demande depuis Casablanca, livraison gratuite convenue à l’avance",
+  "laterMarket": "Marrakech seulement après validation d'un partenaire local fiable ; aucune offre actuelle",
+  "excludedCurrentMarkets": [
+    "Tanger",
+    "autres villes de prise en charge"
+  ],
+  "priorityCustomers": [
+    "MRE",
+    "touristes",
+    "vacanciers"
+  ],
+  "secondaryCustomers": [
+    "locaux pour séjours personnels aux mêmes conditions"
+  ],
+  "products": "Catalogue indicatif de voitures touristiques classiques ; luxe exclu ; prix journaliers existants conservés",
+  "excludedProducts": [
+    "vans",
+    "minibus",
+    "utilitaires",
+    "mariages",
+    "événementiel",
+    "locations professionnelles",
+    "véhicules de luxe"
+  ],
+  "rentalDuration": {
+    "minimumDays": 3,
+    "maximumCalendarMonths": 6
+  },
+  "conversion": "Demande WhatsApp ; pas de paiement en ligne ; disponibilité, prix, rendez-vous et réservation à confirmer par le loueur",
+  "publishedActions": [
+    "guide gares/aéroports",
+    "FAQ factuelle et JSON-LD cohérents",
+    "point de rendez-vous dans les demandes",
+    "liens internes et sitemap",
+    "retrait des offres hors cible"
+  ],
+  "operationsNext": [
+    "développer les demandes MRE/touristes sur Casablanca",
+    "Rabat en deuxième zone sur demande",
+    "Marrakech dans une phase ultérieure, non proposée actuellement"
+  ],
+  "metrics": [
+    "demandes qualifiées par point d'arrivée",
+    "délai de réponse du loueur",
+    "demandes confirmées",
+    "demandes refusées et motifs",
+    "locations effectivement réalisées"
+  ],
+  "searchAI": {
+    "approach": "contenu visible utile, prérendu, indexabilité, informations cohérentes ; aucun score de citations IA inventé",
+    "rankingGuarantee": false,
+    "trainingPolicyChanged": false
+  },
+  "sources": [
+    "https://developers.google.com/search/docs/appearance/ai-features",
+    "https://developers.openai.com/api/docs/bots",
+    "https://www.casablancacity.ma/fr/article/754/gares-ferroviaires",
+    "https://www.oncf.ma/fr/Al-boraq"
+  ],
+  "delivery": {
+    "free": true,
+    "places": "gares et aéroports desservis de Casablanca et Rabat",
+    "arrangements": "convenus à l’avance avec le loueur",
+    "extraDeliveryCharge": false
+  }
+}
