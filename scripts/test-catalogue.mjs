@@ -17,7 +17,7 @@ try {
   const nextCount=Math.min(48,total);
   assert(!/Mercedes|BMW|Audi|Porsche|Maserati|Range Rover/.test(await cards.allTextContents().then(x=>x.join(' '))));
   const first=await cards.first().innerText();
-  await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).click();
+  if(total>24)await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).click();
   await page.getByText(`${nextCount} véhicules affichés sur`,{exact:false}).waitFor();
   assert.equal(await cards.count(),nextCount);assert.equal(await cards.first().innerText(),first,'stable loaded order');
   await page.getByRole('combobox').first().click();await page.getByRole('option',{name:'Rabat',exact:true}).click();

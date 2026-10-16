@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-10-16T13:42:48.880Z",
+  "method": "Read-only aggregate SQL; no contact row or message content exported",
+  "counts": {
+    "rental_requests_count": 0,
+    "analytics_events_count": 437,
+    "events_with_free_url_fields": 21,
+    "events_with_whatsapp_text_parameter": 3,
+    "legacy_message_sent_claims": 0,
+    "admin_count": 1
+  }
+}

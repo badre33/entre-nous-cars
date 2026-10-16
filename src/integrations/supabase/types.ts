@@ -109,6 +109,9 @@ export type Database = {
       }
       rental_requests: {
         Row: {
+          received_at: string | null
+          loss_reason: string | null
+          attribution_confidence: string
           id: string
           created_at: string
           updated_at: string
@@ -118,8 +121,8 @@ export type Database = {
           vehicle_name: string | null
           vehicle_slug: string | null
           city: string
-          pickup_date: string
-          return_date: string
+          pickup_date: string | null
+          return_date: string | null
           message: string | null
           source_page: string | null
           source_page_title: string | null
@@ -134,6 +137,9 @@ export type Database = {
           assigned_to: string | null
         }
         Insert: {
+          received_at?: string | null
+          loss_reason?: string | null
+          attribution_confidence?: string
           id?: string
           created_at?: string
           updated_at?: string
@@ -143,8 +149,8 @@ export type Database = {
           vehicle_name?: string | null
           vehicle_slug?: string | null
           city: string
-          pickup_date: string
-          return_date: string
+          pickup_date?: string | null
+          return_date?: string | null
           message?: string | null
           source_page?: string | null
           source_page_title?: string | null
@@ -159,6 +165,9 @@ export type Database = {
           assigned_to?: string | null
         }
         Update: {
+          received_at?: string | null
+          loss_reason?: string | null
+          attribution_confidence?: string
           id?: string
           created_at?: string
           updated_at?: string
@@ -168,8 +177,8 @@ export type Database = {
           vehicle_name?: string | null
           vehicle_slug?: string | null
           city?: string
-          pickup_date?: string
-          return_date?: string
+          pickup_date?: string | null
+          return_date?: string | null
           message?: string | null
           source_page?: string | null
           source_page_title?: string | null

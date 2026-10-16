@@ -1,0 +1,27 @@
+{
+  "deployment": "dpl_GLer7kipfq9gthCWReMQPkLjkuHv",
+  "pages": [
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "javascriptExecuted": false,
+      "networkOnly": true,
+      "precacheHtmlEntries": 0
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/auth",
+      "status": 200,
+      "javascriptExecuted": false
+    },
+    {
+      "path": "/benatna-page-inventee-pwa-preview",
+      "status": 404,
+      "javascriptExecuted": false
+    }
+  ]
+}

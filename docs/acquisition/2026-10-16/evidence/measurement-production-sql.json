@@ -1,0 +1,12 @@
+{
+  "observedAt": "2026-10-16T14:15:03.133Z",
+  "project": "ojbdzmrpbhoibqvoejbj",
+  "activation": "success",
+  "cleanup": "success",
+  "verification": "success",
+  "verification_events_after_rollback": 0,
+  "verification_sessions_after_rollback": 0,
+  "verification_leads_after_rollback": 0,
+  "admin_count": 1,
+  "application_tables_with_rls": 4
+}

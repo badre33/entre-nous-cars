@@ -15,7 +15,7 @@ import { OrganizationSchema } from "@/components/OrganizationSchema";
 import { SitelinksSearchBoxSchema } from "@/components/schemas";
 import { CanonicalUrl } from "@/components/CanonicalUrl";
 import { SeoDefaults } from "@/components/SeoDefaults";
-// MetaPixel, IntelligentRoutePrefetcher, Analytics, SpeedInsights are lazy-loaded
+// Navigation helpers and WhatsApp load after the initial page
 // in DeferredComponents below to reduce initial bundle size (TBT optimization)
 import React, { lazy, Suspense, useEffect, useState, ComponentType } from "react";
 
@@ -150,6 +150,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 // Auth and Analytics pages
 const Auth = lazy(() => import("./pages/Auth"));
 const AnalyticsDashboard = lazy(() => import("./pages/Analytics"));
+const PrivateLeads = lazy(() => import("./pages/PrivateLeads"));
 
 // Analytics tracking component - deferred to avoid FID impact
 const AnalyticsTrackerComponent = () => {
@@ -186,28 +187,21 @@ const AnalyticsTrackerComponent = () => {
 
 // Runtime dynamic import loader - loads non-critical components after page is interactive
 // This significantly reduces TBT (Total Blocking Time) on mobile by ~40-60% by moving
-// MetaPixel, Vercel Analytics/SpeedInsights, IntelligentRoutePrefetcher, BackToTop,
+// IntelligentRoutePrefetcher, BackToTop,
 // and WhatsAppButton out of the initial bundle.
 const DeferredComponents = () => {
   const [BackToTop, setBackToTop] = useState<ComponentType | null>(null);
   const [WhatsApp, setWhatsApp] = useState<ComponentType | null>(null);
-  const [MetaPixel, setMetaPixel] = useState<ComponentType | null>(null);
   const [Prefetcher, setPrefetcher] = useState<ComponentType | null>(null);
-  const [VercelAnalytics, setVercelAnalytics] = useState<ComponentType | null>(null);
-  const [VercelSpeedInsights, setVercelSpeedInsights] = useState<ComponentType | null>(null);
 
   useEffect(() => {
     // PHASE 1 (early, ~500ms): conversion-critical + analytics that should capture LCP
     const loadEarly = async () => {
       try {
-        const [waModule, vaModule, vsModule] = await Promise.all([
+        const [waModule] = await Promise.all([
           import("@/components/WhatsAppButton"),
-          import("@vercel/analytics/react"),
-          import("@vercel/speed-insights/react"),
         ]);
         setWhatsApp(() => waModule.default);
-        setVercelAnalytics(() => vaModule.Analytics);
-        setVercelSpeedInsights(() => vsModule.SpeedInsights);
       } catch (e) {
         // Fail silently — these are non-critical
       }
@@ -216,13 +210,11 @@ const DeferredComponents = () => {
     // PHASE 2 (later, ~1.5s after idle): truly optional features
     const loadLate = async () => {
       try {
-        const [bttModule, mpModule, prefModule] = await Promise.all([
+        const [bttModule, prefModule] = await Promise.all([
           import("@/components/BackToTop"),
-          import("@/components/MetaPixel"),
           import("@/components/IntelligentRoutePrefetcher"),
         ]);
         setBackToTop(() => bttModule.BackToTop);
-        setMetaPixel(() => mpModule.MetaPixel);
         setPrefetcher(() => prefModule.IntelligentRoutePrefetcher);
       } catch (e) {
         // Fail silently — these are non-critical
@@ -263,10 +255,7 @@ const DeferredComponents = () => {
     <>
       {WhatsApp && <WhatsApp />}
       {BackToTop && <BackToTop />}
-      {MetaPixel && <MetaPixel />}
       {Prefetcher && <Prefetcher />}
-      {VercelAnalytics && <VercelAnalytics />}
-      {VercelSpeedInsights && <VercelSpeedInsights />}
     </>
   );
 };
@@ -291,7 +280,7 @@ const App = () => {
             <CanonicalUrl />
             <OrganizationSchema />
             <SitelinksSearchBoxSchema />
-            {/* MetaPixel, IntelligentRoutePrefetcher, Analytics, SpeedInsights are now in DeferredComponents below */}
+            {/* Non-critical navigation helpers are in DeferredComponents below */}
             <AnalyticsTrackerComponent />
             <LanguageProvider>
               <SeoDefaults />
@@ -414,6 +403,7 @@ const App = () => {
                     {/* Auth & Analytics */}
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/analytics" element={<AnalyticsDashboard />} />
+                    <Route path="/demandes" element={<PrivateLeads />} />
                     <Route path="*" element={<NotFound />} />
                   </Routes></ServiceAreaGuard>
                 </Suspense>

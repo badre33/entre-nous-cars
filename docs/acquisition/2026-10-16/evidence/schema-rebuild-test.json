@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-10-16T13:16:10.652Z",
+  "testedAt": "2026-10-16T13:38:54.639Z",
   "engine": "PGlite PostgreSQL; auth schema and platform roles simulated locally",
   "migrations": [
     "20251216000000_roles_prerequisite.sql",
@@ -89,6 +89,7 @@
   "productionChanged": false,
   "limitations": [
     "Supabase-managed rls_auto_enable event trigger is platform-owned and intentionally excluded.",
-    "No auth user or admin membership seeded in migrations."
+    "No auth user or admin membership seeded in migrations.",
+    "Baseline snapshot through 20261016000000; latest private workflow tested separately."
   ]
 }

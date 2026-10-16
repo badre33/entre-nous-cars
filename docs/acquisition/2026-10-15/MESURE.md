@@ -1,6 +1,6 @@
 # Mesurer les leads, sans confondre les étapes
 
-Spécification à mettre en œuvre, pas une instrumentation déjà validée. Administration réservée au propriétaire Benatna ; données opérationnelles séparées des statistiques agrégées.
+Spécification du 15 octobre ; implantation préparée et testée localement le 16 octobre. État de publication et preuves dans ../2026-10-16/RELECTURE.json et MESURE-IMPLEMENTATION.md. Administration réservée au propriétaire Benatna ; données opérationnelles séparées des statistiques agrégées.
 
 ## Constats vérifiables dans le dépôt
 

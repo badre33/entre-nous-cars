@@ -1,0 +1,11 @@
+{
+  "observedAt": "2026-10-16T14:14:41.528Z",
+  "project": "ojbdzmrpbhoibqvoejbj",
+  "events_total": 438,
+  "sessions_total": 155,
+  "events_with_free_url_fields": 0,
+  "events_with_query_path": 0,
+  "events_with_referrer": 0,
+  "sessions_with_query_path": 0,
+  "limit": "Live traffic increased events from 437 to 438 between observations; cleanup preserves every row."
+}
