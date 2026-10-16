@@ -46,45 +46,11 @@ const LocationVoitureFes = () => {
         telephone="+212699024526"
         priceRange="150-750 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Mehdi Tazi',
-            location: 'Fès',
-            rating: 5,
-            comment: 'Très bonne agence ! Prix transparents, pas de frais cachés. La voiture était en parfait état. Je loue régulièrement chez Benatna.',
-            date: 'Il y a 2 semaines',
-          },
-          {
-            name: 'Leila Benjelloun',
-            location: 'Fès',
-            rating: 5,
-            comment: 'Parfait pour découvrir Fès et ses environs. Service professionnel.',
-            date: 'Il y a 5 jours',
-          },
-          {
-            name: 'Amine Fassi',
-            location: 'Fès',
-            rating: 5,
-            comment: 'Excellent service à Fès. Je recommande sans hésiter !',
-            date: 'Il y a 1 semaine',
-          },
-        ]}
-        averageRating={4.8}
-        totalReviews={1247}
-        city="Fès"
-      />
+
       
       {/* Schema AggregateRating pour étoiles Google */}
-      <EnhancedAggregateRatingSchema 
-        entityType="LocalBusiness"
-        entityName="Benatna Location de Voiture Fès"
-      />
-      <IndividualReviewsSchema
-        reviews={fesReviews}
-        entityType="LocalBusiness"
-        city="Fès"
-      />
+
+
       <OpeningHoursSchema 
         city="Fès"
         entityType="LocalBusiness"
@@ -157,14 +123,7 @@ const LocationVoitureFes = () => {
                 <div className="text-sm text-muted-foreground">Service Client</div>
               </CardContent>
             </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="flex items-center justify-center gap-1 text-3xl font-bold text-primary mb-2">
-                  4.8 <Star className="h-6 w-6 fill-primary" />
-                </div>
-                <div className="text-sm text-muted-foreground">Note Moyenne</div>
-              </CardContent>
-            </Card>
+
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 mb-12">

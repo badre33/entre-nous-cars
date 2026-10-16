@@ -82,26 +82,14 @@ export const ComparisonSchema = ({
       {
         "@type": "Product",
         "name": item1Name,
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": item1Rating,
-          "reviewCount": BUSINESS_INFO.rating.count,
-          "bestRating": "5",
-          "worstRating": "1"
-        },
+
         ...(item1Offer && { "offers": item1Offer }),
         ...(item1Image && { "image": item1Image })
       },
       {
         "@type": "Product",
         "name": item2Name,
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": item2Rating,
-          "reviewCount": BUSINESS_INFO.rating.count,
-          "bestRating": "5",
-          "worstRating": "1"
-        },
+
         ...(item2Offer && { "offers": item2Offer }),
         ...(item2Image && { "image": item2Image })
       }

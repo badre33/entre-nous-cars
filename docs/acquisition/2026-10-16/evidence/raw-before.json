@@ -1,0 +1,922 @@
+[
+  {
+    "url": "https://benatna.ma/",
+    "status": 200,
+    "aggregateRating": 8,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/louer",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/louer\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/nos-services",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/nos-services\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/a-propos",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/a-propos\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/notre-histoire",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/notre-histoire\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/contact",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/contact\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/partenaires",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/partenaires\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/faq",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/faq\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/glossaire",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/glossaire\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/assurance-voiture-maroc",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/assurance-voiture-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/conseils-conduite-maroc",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/conseils-conduite-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/marrakech-en-voiture-guide",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/marrakech-en-voiture-guide\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/pourquoi-benatna",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/pourquoi-benatna\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/road-trips-maroc",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/road-trips-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-casablanca",
+    "status": 200,
+    "aggregateRating": 15,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": true
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-rabat",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-rabat\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-aeroport-casablanca",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-aeroport-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-aeroport-rabat",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-aeroport-rabat\" data-rh=\"true\">"
+    ],
+    "noindex": true,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-sans-carte-credit-casablanca",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-sans-carte-credit-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-jeune-conducteur-casablanca",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-jeune-conducteur-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-jeune-conducteur-rabat",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-jeune-conducteur-rabat\" data-rh=\"true\">"
+    ],
+    "noindex": true,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-longue-duree-casablanca",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-longue-duree-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-electrique-casablanca",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-electrique-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-ain-diab-casablanca",
+    "status": 200,
+    "aggregateRating": 12,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-ain-diab-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-anfa-casablanca",
+    "status": 200,
+    "aggregateRating": 12,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-anfa-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-hassan-casablanca",
+    "status": 200,
+    "aggregateRating": 12,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-hassan-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-maarif-casablanca",
+    "status": 200,
+    "aggregateRating": 12,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-maarif-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-sidi-maarouf-casablanca",
+    "status": 200,
+    "aggregateRating": 12,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-sidi-maarouf-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-ete-2026-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-ete-2026-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-mre-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-mre-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-circuit-villes-imperiales",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-circuit-villes-imperiales\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-gare-casa-voyageurs",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-gare-casa-voyageurs\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-agdal-rabat",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-agdal-rabat\" data-rh=\"true\">"
+    ],
+    "noindex": true,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-souissi-rabat",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-souissi-rabat\" data-rh=\"true\">"
+    ],
+    "noindex": true,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/prix-location-voiture-maroc-2026",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/prix-location-voiture-maroc-2026\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-automatique-casablanca",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-automatique-casablanca\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/caution-location-voiture-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/caution-location-voiture-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-gare-oncf-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-gare-oncf-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/top-activites-marrakech-en-voiture",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/top-activites-marrakech-en-voiture\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/guide-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/guide-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/permis-international-maroc-location-voiture",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/permis-international-maroc-location-voiture\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/age-minimum-location-voiture-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/age-minimum-location-voiture-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/eviter-arnaques-location-voiture-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/eviter-arnaques-location-voiture-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/peages-autoroute-maroc-tarifs-2026",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/peages-autoroute-maroc-tarifs-2026\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/prix-essence-gasoil-maroc-2026",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/prix-essence-gasoil-maroc-2026\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/conduire-maroc-permis-etranger",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/conduire-maroc-permis-etranger\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-avec-chauffeur-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/location-voiture-avec-chauffeur-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/accident-voiture-location-maroc-que-faire",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/accident-voiture-location-maroc-que-faire\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/courte-vs-longue-duree-location-voiture-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/courte-vs-longue-duree-location-voiture-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/essence-ou-diesel-location-voiture-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/essence-ou-diesel-location-voiture-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/benatna-vs-avis-hertz-europcar-sixt\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/top-agences-location-voiture-maroc-2026",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/top-agences-location-voiture-maroc-2026\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": true
+  },
+  {
+    "url": "https://benatna.ma/louer-voiture-maroc-faq-complete",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/louer-voiture-maroc-faq-complete\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/permis-etranger-douane-mre-location-voiture",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/permis-etranger-douane-mre-location-voiture\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/avis-clients-benatna-2026",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/avis-clients-benatna-2026\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": true
+  },
+  {
+    "url": "https://benatna.ma/en",
+    "status": 200,
+    "aggregateRating": 8,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/en\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/en/louer",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/en/louer\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/en/contact",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/en/contact\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/en/a-propos",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/en/a-propos\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/en/partenaires",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/en/partenaires\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/en/blog",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/en/blog\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/es",
+    "status": 200,
+    "aggregateRating": 8,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/es\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/es/louer",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/es/louer\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/es/contact",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/es/contact\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/es/a-propos",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/es/a-propos\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/es/partenaires",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/es/partenaires\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/es/blog",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/es/blog\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/budget-location-maroc",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/budget-location-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/stationnement-maroc",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/stationnement-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/carburant-maroc",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/carburant-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/guide-complet-location-voiture-maroc-2025",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/guide-complet-location-voiture-maroc-2025\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/budget-voyage-maroc-2025",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/budget-voyage-maroc-2025\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/meilleurs-spots-ain-diab-casablanca-voiture",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/meilleurs-spots-ain-diab-casablanca-voiture\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/guide-quartier-maarif-casablanca-voiture",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/guide-quartier-maarif-casablanca-voiture\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/quartier-gueliz-marrakech-guide-voiture",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/quartier-gueliz-marrakech-guide-voiture\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/road-trip-atlas-marrakech-4x4",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/road-trip-atlas-marrakech-4x4\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/comparatifs",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/comparatifs\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/comparatif/dacia-duster-vs-renault-captur-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/comparatif/dacia-duster-vs-renault-captur-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/comparatif/renault-clio-vs-dacia-sandero-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/comparatif/renault-clio-vs-dacia-sandero-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/comparatif/location-aeroport-vs-centre-ville-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/comparatif/location-aeroport-vs-centre-ville-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/comparatif/location-courte-duree-vs-longue-duree-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/comparatif/location-courte-duree-vs-longue-duree-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/comparatif/location-economique-vs-premium-maroc",
+    "status": 200,
+    "aggregateRating": 2,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/comparatif/location-economique-vs-premium-maroc\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/marrakech-merzouga-voiture-itineraire",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/marrakech-merzouga-voiture-itineraire\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/louer-voiture-maroc-sans-carte-credit-mre",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/louer-voiture-maroc-sans-carte-credit-mre\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/blog/conduire-au-maroc-quand-on-est-etranger",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/blog/conduire-au-maroc-quand-on-est-etranger\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/prise-en-charge-casablanca-rabat",
+    "status": 200,
+    "aggregateRating": 0,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/prise-en-charge-casablanca-rabat\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-marrakech",
+    "status": 200,
+    "aggregateRating": 8,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-tanger",
+    "status": 200,
+    "aggregateRating": 8,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-van-famille-maroc",
+    "status": 200,
+    "aggregateRating": 8,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/location-voiture-mariage-maroc",
+    "status": 200,
+    "aggregateRating": 8,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  },
+  {
+    "url": "https://benatna.ma/verification-url-inconnue-20261016",
+    "status": 200,
+    "aggregateRating": 8,
+    "canonical": [
+      "<link rel=\"canonical\" href=\"https://benatna.ma/\" data-rh=\"true\">"
+    ],
+    "noindex": false,
+    "review_claim": false
+  }
+]

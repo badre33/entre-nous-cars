@@ -9,13 +9,6 @@ interface VehicleOffer {
   eligibleRegion?: string;
 }
 
-interface VehicleReview {
-  author: string;
-  rating: number;
-  reviewBody: string;
-  datePublished: string;
-}
-
 interface VehicleProductSchemaProps {
   vehicleName: string;
   vehicleModel: string;
@@ -28,11 +21,6 @@ interface VehicleProductSchemaProps {
   fuelType?: string;
   transmission?: string;
   seats?: number;
-  reviews?: VehicleReview[];
-  aggregateRating?: {
-    ratingValue: string;
-    reviewCount: string;
-  };
   sku?: string;
   city?: string;
 }
@@ -55,8 +43,6 @@ export const VehicleProductSchema = ({
   fuelType = "Diesel",
   transmission = "Manuelle",
   seats = 5,
-  reviews = [],
-  aggregateRating,
   sku,
   city
 }: VehicleProductSchemaProps) => {
@@ -159,36 +145,6 @@ export const VehicleProductSchema = ({
         "unitCode": "HUR"
       }
     },
-    
-    // Avis agrégés
-    ...(aggregateRating && {
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": aggregateRating.ratingValue,
-        "reviewCount": aggregateRating.reviewCount,
-        "bestRating": "5",
-        "worstRating": "1"
-      }
-    }),
-    
-    // Avis individuels
-    ...(reviews.length > 0 && {
-      "review": reviews.map(review => ({
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": review.author
-        },
-        "datePublished": review.datePublished,
-        "reviewBody": review.reviewBody,
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": review.rating.toString(),
-          "bestRating": "5",
-          "worstRating": "1"
-        }
-      }))
-    }),
     
     // Informations supplémentaires
     "provider": {

@@ -45,10 +45,7 @@ export const VehicleProductSchemas = ({ city, limit }: VehicleProductSchemasProp
           fuelType={vehicle.fuelType}
           transmission={vehicle.transmission}
           seats={vehicle.seats}
-          aggregateRating={{
-            ratingValue: vehicle.averageRating,
-            reviewCount: vehicle.reviewCount
-          }}
+
           city={city}
         />
       ))}

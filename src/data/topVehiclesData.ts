@@ -15,8 +15,8 @@ export interface TopVehicle {
   transmission: string;
   seats: number;
   features: string[];
-  averageRating: string;
-  reviewCount: string;
+
+
   availability: "En stock" | "Sur demande";
   cities: string[];
 }
@@ -34,8 +34,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Manuelle",
     seats: 5,
     features: ["Climatisation", "Bluetooth", "USB", "Direction assistée", "Airbags"],
-    averageRating: "4.7",
-    reviewCount: "89",
+
+
     availability: "En stock",
     cities: ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"]
   },
@@ -51,8 +51,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Manuelle",
     seats: 5,
     features: ["Climatisation", "Écran tactile", "GPS", "Bluetooth", "Caméra recul", "Régulateur vitesse"],
-    averageRating: "4.8",
-    reviewCount: "142",
+
+
     availability: "En stock",
     cities: ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"]
   },
@@ -68,8 +68,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Manuelle",
     seats: 5,
     features: ["Climatisation", "GPS", "Coffre 445L", "Garde au sol 210mm", "4x2", "Bluetooth"],
-    averageRating: "4.8",
-    reviewCount: "203",
+
+
     availability: "En stock",
     cities: ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"]
   },
@@ -85,8 +85,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Automatique",
     seats: 5,
     features: ["Climatisation bi-zone", "GPS", "Écran 8''", "Caméra recul", "Régulateur adaptatif", "Sièges chauffants"],
-    averageRating: "4.8",
-    reviewCount: "98",
+
+
     availability: "En stock",
     cities: ["Casablanca", "Marrakech", "Rabat", "Tanger"]
   },
@@ -102,8 +102,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Automatique",
     seats: 5,
     features: ["Climatisation auto", "GPS", "Digital Cockpit", "Caméra recul", "Park Assist", "LED Matrix"],
-    averageRating: "4.9",
-    reviewCount: "112",
+
+
     availability: "En stock",
     cities: ["Casablanca", "Marrakech", "Rabat"]
   },
@@ -119,8 +119,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Manuelle",
     seats: 7,
     features: ["Climatisation", "GPS", "7 places", "Coffre 607L", "Barres toit", "Bluetooth"],
-    averageRating: "4.8",
-    reviewCount: "76",
+
+
     availability: "En stock",
     cities: ["Casablanca", "Marrakech", "Rabat", "Fès"]
   },
@@ -136,8 +136,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Automatique",
     seats: 5,
     features: ["Climatisation auto", "MBUX", "Écran 10.25''", "Caméra recul", "Sièges cuir", "Commande vocale"],
-    averageRating: "5.0",
-    reviewCount: "54",
+
+
     availability: "Sur demande",
     cities: ["Casablanca", "Marrakech", "Rabat"]
   },
@@ -153,8 +153,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Automatique",
     seats: 5,
     features: ["Climatisation bi-zone", "iDrive 7", "Écran 12.3''", "Caméra 360°", "Sièges sport cuir", "Toit ouvrant"],
-    averageRating: "5.0",
-    reviewCount: "67",
+
+
     availability: "Sur demande",
     cities: ["Casablanca", "Marrakech"]
   },
@@ -170,8 +170,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Automatique",
     seats: 5,
     features: ["Climatisation bi-zone", "GPS", "Écran 8''", "Caméra recul", "Régulateur adaptatif", "Garantie 7 ans"],
-    averageRating: "4.8",
-    reviewCount: "102",
+
+
     availability: "En stock",
     cities: ["Casablanca", "Marrakech", "Rabat", "Tanger"]
   },
@@ -187,8 +187,8 @@ export const topVehicles: TopVehicle[] = [
     transmission: "Manuelle",
     seats: 5,
     features: ["Climatisation", "Bluetooth", "USB", "Direction assistée", "Airbags"],
-    averageRating: "4.6",
-    reviewCount: "76",
+
+
     availability: "En stock",
     cities: ["Casablanca", "Marrakech", "Rabat", "Tanger", "Agadir", "Fès"]
   }
@@ -201,7 +201,5 @@ export const getVehiclesByCity = (city: string): TopVehicle[] => {
   );
 };
 
-// Top 5 véhicules les plus loués
-export const topRentedVehicles = topVehicles
-  .sort((a, b) => parseInt(b.reviewCount) - parseInt(a.reviewCount))
-  .slice(0, 5);
+// Sélection éditoriale, sans prétendre mesurer des locations ou avis réels.
+export const topRentedVehicles = topVehicles.slice(0, 5);

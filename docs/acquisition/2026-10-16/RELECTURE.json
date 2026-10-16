@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-16",
+  "regles": [
+    "une PR par sujet",
+    "preview verifiee avant fusion",
+    "controle HTML brut production",
+    "aucun DNS Nindohost",
+    "aucun changement de prix sans accord"
+  ],
+  "points": [
+    {
+      "id": "R01",
+      "priorite": "P0",
+      "sujet": "Avis et notes non verifies",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R02",
+      "priorite": "P0",
+      "sujet": "HTML brut des routes retirees et vrais 404",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R03",
+      "priorite": "P1",
+      "sujet": "Offres contradictoires dans sitemap",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R04",
+      "priorite": "P1",
+      "sujet": "Decisions inventaire URL par URL",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R05",
+      "priorite": "P1",
+      "sujet": "Titres et durees pages centrales",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R06",
+      "priorite": "P1",
+      "sujet": "Fusion PR20 et archives de reprise sans donnees personnelles",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R07",
+      "priorite": "P1",
+      "sujet": "Supabase configuration et reconstruction schema",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R08",
+      "priorite": "P1",
+      "sujet": "Mise a jour cache PWA",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R09",
+      "priorite": "P1",
+      "sujet": "A01 A02 A03 mesure et suivi prive",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R10",
+      "priorite": "P2",
+      "sujet": "Archivage documentation obsolete",
+      "etat": "a_faire",
+      "preuve_production": null
+    },
+    {
+      "id": "R11",
+      "priorite": "P2",
+      "sujet": "Verifier coefficient weekend sans changer prix",
+      "etat": "a_faire",
+      "preuve_production": null
+    }
+  ]
+}

@@ -43,12 +43,7 @@ export const BUSINESS_INFO = {
   website: "https://benatna.ma",
   
   // Notation moyenne
-  rating: {
-    value: "4.8",
-    count: "1247",
-    best: "5",
-    worst: "1"
-  },
+
   
   // Description
   description: "Plateforme de mise en relation avec des agences de location locales au Maroc. Véhicules neufs et récents, prix transparents, sans carte de crédit. Livraison gratuite par les loueurs partenaires."

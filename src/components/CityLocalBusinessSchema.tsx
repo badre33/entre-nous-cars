@@ -73,13 +73,7 @@ export const CityLocalBusinessSchema = ({
       "https://www.facebook.com/benatna",
       "https://www.instagram.com/benatna"
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "250",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
+
     "areaServed": {
       "@type": "City",
       "name": cityName

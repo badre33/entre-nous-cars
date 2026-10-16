@@ -46,45 +46,11 @@ const LocationVoitureTanger = () => {
         telephone="+212699024526"
         priceRange="150-850 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Karima El Fassi',
-            location: 'Tanger',
-            rating: 5,
-            comment: 'Location ultra simple, voiture nickel et tarifs imbattables. L\'équipe Benatna est top !',
-            date: 'Il y a 3 semaines',
-          },
-          {
-            name: 'Rachid Senhaji',
-            location: 'Tanger',
-            rating: 5,
-            comment: 'Parfait pour visiter le Nord du Maroc. Service rapide et efficace.',
-            date: 'Il y a 1 semaine',
-          },
-          {
-            name: 'Meryem Chaoui',
-            location: 'Tanger',
-            rating: 5,
-            comment: 'Très contente de mon expérience à Tanger. Je recommande !',
-            date: 'Il y a 4 jours',
-          },
-        ]}
-        averageRating={4.8}
-        totalReviews={1247}
-        city="Tanger"
-      />
+
       
       {/* Schema AggregateRating pour étoiles Google */}
-      <EnhancedAggregateRatingSchema 
-        entityType="LocalBusiness"
-        entityName="Benatna Location de Voiture Tanger"
-      />
-      <IndividualReviewsSchema
-        reviews={tangerReviews}
-        entityType="LocalBusiness"
-        city="Tanger"
-      />
+
+
       <OpeningHoursSchema 
         city="Tanger"
         entityType="LocalBusiness"
@@ -157,14 +123,7 @@ const LocationVoitureTanger = () => {
                 <div className="text-sm text-muted-foreground">Service Client</div>
               </CardContent>
             </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="flex items-center justify-center gap-1 text-3xl font-bold text-primary mb-2">
-                  4.8 <Star className="h-6 w-6 fill-primary" />
-                </div>
-                <div className="text-sm text-muted-foreground">Note Moyenne</div>
-              </CardContent>
-            </Card>
+
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 mb-12">

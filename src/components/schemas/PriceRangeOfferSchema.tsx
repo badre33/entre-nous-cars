@@ -126,12 +126,7 @@ export const PriceRangeOfferSchema = ({
       "name": BUSINESS_INFO.name
     },
     "offers": offers,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": BUSINESS_INFO.rating.value,
-      "reviewCount": BUSINESS_INFO.rating.count,
-      "bestRating": BUSINESS_INFO.rating.best
-    }
+
   };
 
   return (

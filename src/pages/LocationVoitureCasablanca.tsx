@@ -70,29 +70,7 @@ const casablancaFAQs = [
 ];
 
 // Customer reviews localized to Casablanca
-const casablancaTestimonials = [
-  {
-    name: "Youssef M.",
-    location: "Casablanca",
-    rating: 5,
-    comment: "Service impeccable à l'aéroport Mohammed V. L'agent m'attendait à la sortie avec une Dacia Duster impeccable. Processus rapide et prix conforme à ma réservation.",
-    date: "Janvier 2025"
-  },
-  {
-    name: "Claire D.",
-    location: "France",
-    rating: 5,
-    comment: "Première location au Maroc et excellente expérience. La Clio était récente et propre. Livraison à mon hôtel à Ain Diab sans supplément. Je recommande !",
-    date: "Décembre 2024"
-  },
-  {
-    name: "Hamid B.",
-    location: "Casablanca",
-    rating: 5,
-    comment: "Location longue durée pour 3 mois. Tarif très compétitif et véhicule fiable. Le support WhatsApp est réactif pour toute question.",
-    date: "Novembre 2024"
-  }
-];
+const casablancaTestimonials = [];
 
 const LocationVoitureCasablanca = () => {
 
@@ -128,10 +106,7 @@ const LocationVoitureCasablanca = () => {
         priceRange="150-900 MAD"
       />
 
-      <EnhancedAggregateRatingSchema 
-        entityType="LocalBusiness"
-        entityName="Benatna Location de Voiture Casablanca"
-      />
+
 
       <PriceRangeOfferSchema 
         minPrice="250"
@@ -709,40 +684,7 @@ const LocationVoitureCasablanca = () => {
           </section>
 
           {/* Customer Reviews Section */}
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-              Avis de nos clients à Casablanca
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {casablancaTestimonials.map((testimonial, index) => (
-                <Card key={index} className="border-none shadow-md">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-1 mb-3">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <Quote className="h-8 w-8 text-primary/20 mb-2" />
-                    <p className="text-muted-foreground mb-4 italic">
-                      "{testimonial.comment}"
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-muted-foreground">{testimonial.location}</p>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{testimonial.date}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            <div className="text-center mt-6">
-              <p className="text-muted-foreground">
-                Note moyenne : <span className="font-semibold">4.8/5</span> basée sur plus de 1 200 avis clients
-              </p>
-            </div>
-          </section>
+
 
           {/* Final CTA Section */}
           <section className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-8 md:p-12 text-center">

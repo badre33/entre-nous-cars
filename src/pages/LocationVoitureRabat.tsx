@@ -70,29 +70,7 @@ const rabatFAQs = [
 ];
 
 // Customer reviews localized to Rabat
-const rabatTestimonials = [
-  {
-    name: "Karim A.",
-    location: "Rabat",
-    rating: 5,
-    comment: "Location de 3 mois pour une mission professionnelle. Tarif très compétitif, véhicule fiable et service irréprochable. La livraison au bureau à Hay Riad était parfaite.",
-    date: "Janvier 2025"
-  },
-  {
-    name: "Sophie M.",
-    location: "France",
-    rating: 5,
-    comment: "De retour au Maroc pour deux mois de vacances. Récupération simple à l'aéroport Rabat-Salé, Dacia Duster impeccable. J'ai pu visiter Chefchaouen et Meknès sans contrainte.",
-    date: "Décembre 2024"
-  },
-  {
-    name: "Mohamed B.",
-    location: "Rabat",
-    rating: 5,
-    comment: "Consultant indépendant, j'ai besoin d'un véhicule flexible pour mes rendez-vous entre Rabat et Casablanca. Benatna m'offre cette souplesse avec un excellent rapport qualité-prix.",
-    date: "Novembre 2024"
-  }
-];
+const rabatTestimonials = [];
 
 const LocationVoitureRabat = () => {
 
@@ -128,10 +106,7 @@ const LocationVoitureRabat = () => {
         priceRange="150-800 MAD"
       />
 
-      <EnhancedAggregateRatingSchema 
-        entityType="LocalBusiness"
-        entityName="Benatna Location de Voiture Rabat"
-      />
+
 
       <PriceRangeOfferSchema 
         minPrice="250"
@@ -708,35 +683,7 @@ const LocationVoitureRabat = () => {
           </section>
 
           {/* Customer Reviews Section */}
-          <section className="mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">
-              Avis de nos clients à Rabat
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {rabatTestimonials.map((testimonial, index) => (
-                <Card key={index} className="border-none shadow-md">
-                  <CardContent className="pt-6">
-                    <div className="flex items-center gap-1 mb-3">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                    <Quote className="h-8 w-8 text-primary/20 mb-2" />
-                    <p className="text-muted-foreground mb-4 italic">
-                      "{testimonial.comment}"
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-xs text-muted-foreground">{testimonial.location}</p>
-                      </div>
-                      <span className="text-xs text-muted-foreground">{testimonial.date}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
+
 
           {/* Internal Links Section - max 2 liens vers autres villes */}
           <section className="mb-16">

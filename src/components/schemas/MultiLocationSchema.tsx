@@ -60,12 +60,7 @@ export const MultiLocationSchema = ({ locations }: MultiLocationSchemaProps) => 
       "opens": "00:00",
       "closes": "23:59"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": BUSINESS_INFO.rating.value,
-      "reviewCount": BUSINESS_INFO.rating.count,
-      "bestRating": BUSINESS_INFO.rating.best
-    },
+
     "parentOrganization": {
       "@type": "Organization",
       "@id": `${BUSINESS_INFO.website}#organization`,

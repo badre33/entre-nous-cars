@@ -46,45 +46,11 @@ const LocationVoitureAgadir = () => {
         telephone="+212699024526"
         priceRange="150-900 MAD"
       />
-      <ReviewsSchema 
-        reviews={[
-          {
-            name: 'Ahmed Benkirane',
-            location: 'Agadir',
-            rating: 5,
-            comment: 'Super expérience à Agadir. Voiture idéale pour la plage et les excursions.',
-            date: 'Il y a 2 jours',
-          },
-          {
-            name: 'Salma Ouazzani',
-            location: 'Agadir',
-            rating: 5,
-            comment: 'Service au top ! Livraison à l\'aéroport Al Massira impeccable.',
-            date: 'Il y a 1 semaine',
-          },
-          {
-            name: 'Khalid Moussaoui',
-            location: 'Agadir',
-            rating: 5,
-            comment: 'Excellent rapport qualité-prix pour Agadir. Je recommande vivement.',
-            date: 'Il y a 2 semaines',
-          },
-        ]}
-        averageRating={4.8}
-        totalReviews={1247}
-        city="Agadir"
-      />
+
       
       {/* Schema AggregateRating pour étoiles Google */}
-      <EnhancedAggregateRatingSchema 
-        entityType="LocalBusiness"
-        entityName="Benatna Location de Voiture Agadir"
-      />
-      <IndividualReviewsSchema
-        reviews={agadirReviews}
-        entityType="LocalBusiness"
-        city="Agadir"
-      />
+
+
       <OpeningHoursSchema 
         city="Agadir"
         entityType="LocalBusiness"
@@ -157,14 +123,7 @@ const LocationVoitureAgadir = () => {
                 <div className="text-sm text-muted-foreground">Service Client</div>
               </CardContent>
             </Card>
-            <Card>
-              <CardContent className="pt-6 text-center">
-                <div className="flex items-center justify-center gap-1 text-3xl font-bold text-primary mb-2">
-                  4.8 <Star className="h-6 w-6 fill-primary" />
-                </div>
-                <div className="text-sm text-muted-foreground">Note Moyenne</div>
-              </CardContent>
-            </Card>
+
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
