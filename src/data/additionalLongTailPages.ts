@@ -765,7 +765,6 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       buttonLink: '/contact'
     },
     relatedServices: [
-      { title: 'Location Voiture Été 2026 Maroc', description: 'Guide complet haute saison juin-août 2026 : prix, conseils, anticipation.', link: '/location-voiture-ete-2026-maroc' },
       { title: 'Location Sans Carte de Crédit', description: 'Paiement en MAD, espèces ou virement acceptés. Spécial MRE et locaux.', link: '/location-voiture-sans-carte-credit-casablanca' },
       { title: 'Location Aéroport Casablanca', description: 'Livraison gratuite au terminal Mohammed V CMN, service 24/7.', link: '/location-voiture-aeroport-casablanca' }
     ],
@@ -913,7 +912,6 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     relatedServices: [
       { title: 'Location Voiture MRE Maroc', description: 'Hub MRE : sans CB internationale, paiement DH/€, livraison ferry et aéroport.', link: '/location-voiture-mre-maroc' },
-      { title: 'Location Voiture Été 2026', description: 'Anticipez votre été au Maroc — haute saison juin-août.', link: '/location-voiture-ete-2026-maroc' },
       { title: 'Location Sans Carte de Crédit', description: 'Paiement en espèces, virement, mobile money — spécial MRE.', link: '/location-voiture-sans-carte-credit-casablanca' }
     ],
     relatedPages: [
@@ -984,8 +982,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     relatedServices: [
       { title: 'Location Voiture Tanger Med Port', description: 'Livraison ferry 24/7 pour MRE arrivant d\'Espagne, France, Italie.', link: '/location-voiture-tanger-med-port' },
-      { title: 'Location Voiture Coupe du Monde 2026', description: 'Spécial MRE pour vivre la Coupe du Monde en famille.', link: '/location-voiture-coupe-monde-2026-maroc' },
-      { title: 'Location Voiture Été 2026', description: 'Haute saison MRE — anticipez juin-août 2026.', link: '/location-voiture-ete-2026-maroc' }
+      { title: 'Location Voiture Coupe du Monde 2026', description: 'Spécial MRE pour vivre la Coupe du Monde en famille.', link: '/location-voiture-coupe-monde-2026-maroc' }
     ],
     relatedPages: [
       { title: 'Sans Carte de Crédit Casablanca', link: '/location-voiture-sans-carte-credit-casablanca' },
@@ -1054,7 +1051,6 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       buttonLink: '/contact'
     },
     relatedServices: [
-      { title: 'Location Voiture Été 2026', description: 'Haute saison juin-août — anticipez votre circuit.', link: '/location-voiture-ete-2026-maroc' },
       { title: 'Location Voiture MRE Maroc', description: 'Spécial MRE qui rentrent en famille pour le circuit.', link: '/location-voiture-mre-maroc' },
       { title: 'Location Aéroport Casablanca CMN', description: 'Démarrage circuit depuis votre arrivée à Casa.', link: '/location-voiture-aeroport-casablanca' }
     ],
@@ -1416,7 +1412,6 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     relatedServices: [
       { title: 'Location Voiture MRE Maroc', description: 'Tarifs spéciaux pour MRE, paiement DH ou €.', link: '/location-voiture-mre-maroc' },
-      { title: 'Location Voiture Été 2026', description: 'Anticipez les hausses de prix été — réservez avant fin avril.', link: '/location-voiture-ete-2026-maroc' },
       { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dégressifs.', link: '/location-longue-duree-casablanca' }
     ],
     relatedPages: [
@@ -1740,7 +1735,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       sections: [
         { title: 'Regles de conduite et obligations legales', content: 'Conduire au Maroc demande de connaitre quelques specificites legales. **Permis** : un permis europeen, canadien, americain ou australien est valide jusque 1 an apres entree sur le territoire. **Permis international** : pas obligatoire si tu as un permis EU/CA/US, recommande pour certains pays asiatiques ou africains. **Age minimum** : 21 ans typique, 23 ans sur SUV et premium, 25 ans sur luxe. **Permis ancien** : minimum 1 an d anciennete pour la majorite des loueurs. **Documents a avoir sur soi** : permis original, contrat location, carte grise, attestation assurance. Voir nos guides detailles : <a href=\"/permis-international-maroc-location-voiture\">Permis international Maroc</a>, <a href=\"/age-minimum-location-voiture-maroc\">Age minimum location</a>, <a href=\"/conduire-maroc-permis-etranger\">Conduire avec permis etranger</a>.' },
         { title: 'Couts annexes a prevoir', content: 'Au-dela du prix de location, prevoyez ces couts. **Carburant** : essence 15 DH/L environ, gasoil 14 DH/L. Plein citadine 600-700 DH, SUV 900-1100 DH. **Peages autoroute** : Casa-Marrakech 80 DH, Casa-Tanger 90 DH, Casa-Rabat 15 DH. Carte autoroute Maroc disponible en station. **Parking** : 10-20 DH/h gardien centre-ville, 30-50 DH/jour. **Caution** : 3000-20000 DH selon categorie, espece ou virement chez Benatna (pas de CB bloquee). **Franchise assurance** : 3000-8000 DH selon contrat, rachat possible +30-50 DH/jour. Voir nos guides : <a href=\"/prix-essence-gasoil-maroc-2026\">Prix essence/gasoil 2026</a>, <a href=\"/peages-autoroute-maroc-tarifs-2026\">Peages autoroute</a>, <a href=\"/caution-location-voiture-maroc\">Caution location</a>.' },
-        { title: 'Choix du vehicule et formules', content: '**Citadine** (Sandero, i10, Picanto) pour 2-4 personnes en ville : 300-400 DH/jour. **Berline** (Clio, Yaris) pour confort et autoroute : 420-500 DH/jour. **SUV** (Duster, Tucson, Qashqai) pour 5 personnes et excursions Atlas/desert : 650-850 DH/jour. **Premium** (Mercedes, BMW) pour image : 1300-2000 DH/jour. **Van 7-9 places** (Jogger) pour familles : 1000-1300 DH/jour. **Boite manuelle vs automatique** : automatique conseille en ville et MRE habitues. **Essence vs diesel** : diesel 30% moins cher a la pompe, conseille longs sejours. **Courte (1-7j) vs longue duree (mensuel)** : longue duree -10 a -15% vs cumul journalier. Voir : <a href=\"/location-voiture-avec-chauffeur-maroc\">Location avec chauffeur</a>, <a href=\"/courte-vs-longue-duree-location-voiture-maroc\">Courte vs longue duree</a>, <a href=\"/essence-ou-diesel-location-voiture-maroc\">Essence ou diesel</a>.' },
+        { title: 'Choix du vehicule et formules', content: '**Citadine** (Sandero, i10, Picanto) pour 2-4 personnes en ville : 300-400 DH/jour. **Berline** (Clio, Yaris) pour confort et autoroute : 420-500 DH/jour. **SUV** (Duster, Tucson, Qashqai) pour 5 personnes et excursions Atlas/desert : 650-850 DH/jour. **Premium** (Mercedes, BMW) pour image : 1300-2000 DH/jour. **Van 7-9 places** (Jogger) pour familles : 1000-1300 DH/jour. **Boite manuelle vs automatique** : automatique conseille en ville et MRE habitues. **Essence vs diesel** : diesel 30% moins cher a la pompe, conseille longs sejours. **Courte (1-7j) vs longue duree (mensuel)** : longue duree -10 a -15% vs cumul journalier. Voir : <a href=\"/faq\">Conditions de location</a>, <a href=\"/courte-vs-longue-duree-location-voiture-maroc\">Courte vs longue duree</a>, <a href=\"/essence-ou-diesel-location-voiture-maroc\">Essence ou diesel</a>.' },
         { title: 'Bonnes pratiques et securite', content: '**A la prise** : photos detaillees du vehicule (carrosserie, intérieur, kilometrage, carburant), etat des lieux signe. **Sur la route** : prudence aux scooters, calches, pietons. Ralentir aux speed bumps. Police de circulation presente sur grandes avenues. **Arnaques courantes** : faux gardiens parking (donner 5-10 DH suffit), pompes a essence trichant (verifier remise a zero), accidents simules. **En cas d accident** : appeler 19 (police), faire constat amiable, photos. Contacter immediatement Benatna par WhatsApp pour gestion assurance. Voir : <a href=\"/eviter-arnaques-location-voiture-maroc\">Eviter arnaques</a>, <a href=\"/accident-voiture-location-maroc-que-faire\">Accident : que faire</a>.' }
       ],
       faq: [
@@ -1812,7 +1807,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       sections: [
         { title: 'Bareme standard par categorie de vehicule', content: '**Citadine economique** (Sandero, i10, Picanto, Yaris) : **21 ans minimum**, 1 an d anciennete permis. Surcharge jeune conducteur (-25 ans) : 30-50 DH/jour. **Berline/compacte** (Clio, Megane, Polo, Corolla) : **23 ans minimum**, 2 ans permis. **SUV** (Duster, Qashqai, Tucson) : **23 ans minimum**, 2 ans permis. **Berline confort/premium** (Mercedes Classe A, BMW Serie 3, Audi A4) : **25 ans minimum**, 3 ans permis. **SUV luxe** (Mercedes GLE, BMW X5, Range Rover) : **25-28 ans selon contrat**, 5 ans permis.' },
         { title: 'Surcharge jeune conducteur : combien et pourquoi ?', content: 'Si tu as **moins de 25 ans**, la plupart des loueurs (Hertz, Avis, Sixt) appliquent une **surcharge jeune conducteur de 50-100 DH/jour** (statistiquement, accidents plus frequents). Chez Benatna : **surcharge plus modeste 30-50 DH/jour** pour citadine, supprimee si tu as **3+ ans d anciennete permis**. Pour MRE jeune adulte (etudiant en Europe rentrant au Maroc), bareme adapte sur dossier. <a href=\"/location-voiture-jeune-conducteur-casablanca\">Voir notre page Jeune conducteur Casa</a>.' },
-        { title: 'Que faire si je n ai que 19-20 ans ?', content: '**Tres difficile** de louer chez la majorite des loueurs (legalement permis depuis 18 ans en France, mais la plupart exigent 21 ans). Quelques options : (1) Demander a un parent/freres aines de 21+ ans de figurer comme conducteur principal au contrat, toi en conducteur secondaire si autorise. (2) **Location avec chauffeur** disponible chez Benatna, pas de minimum d age conducteur. (3) Attendre tes 21 ans. Voir <a href=\"/location-voiture-avec-chauffeur-maroc\">Location avec chauffeur</a>.' },
+        { title: 'Que faire si je n ai que 19-20 ans ?', content: '**Tres difficile** de louer chez la majorite des loueurs (legalement permis depuis 18 ans en France, mais la plupart exigent 21 ans). Quelques options : (1) Demander a un parent/freres aines de 21+ ans de figurer comme conducteur principal au contrat, toi en conducteur secondaire si autorise. (2) La location avec chauffeur ne fait pas partie de l offre actuelle de Benatna. (3) Attendre tes 21 ans. Voir <a href=\"/faq\">Conditions de location</a>.' },
         { title: 'Documents requis selon ton age', content: '**21-24 ans** : permis original, piece identite, carte CB ou virement caution, justificatif domicile. **25 ans et plus** : memes documents, plus de souplesse sur la categorie. **Etudiant MRE** : carte etudiant europeenne acceptee comme justificatif. Pour location longue duree (1+ mois), **garant marocain** parfois demande aux moins de 25 ans.' }
       ],
       faq: [

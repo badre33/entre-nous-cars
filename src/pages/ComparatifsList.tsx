@@ -1,3 +1,4 @@
+import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -23,7 +24,7 @@ export default function ComparatifsList() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const filteredComparisons = comparisons.filter(comp => {
+  const filteredComparisons = comparisons.filter(comp => !serviceAreaPolicy('/comparatif/' + comp.slug).notice).filter(comp => {
     const matchesSearch = searchTerm === '' || 
       comp.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       comp.introduction.toLowerCase().includes(searchTerm.toLowerCase());
@@ -97,11 +98,11 @@ export default function ComparatifsList() {
                 onClick={() => setSelectedCategory(null)}
                 className="rounded-full"
               >
-                Tous ({comparisons.length})
+                Tous ({comparisons.filter(c => !serviceAreaPolicy('/comparatif/' + c.slug).notice).length})
               </Button>
               {comparisonCategories.map((category) => {
                 const Icon = iconMap[category.icon as keyof typeof iconMap];
-                const count = comparisons.filter(c => c.category === category.id).length;
+                const count = comparisons.filter(c => !serviceAreaPolicy('/comparatif/' + c.slug).notice && c.category === category.id).length;
                 return (
                   <Button
                     key={category.id}
