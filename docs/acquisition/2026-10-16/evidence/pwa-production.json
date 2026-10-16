@@ -1,0 +1,82 @@
+{
+  "commit": "f6cadc57da4931bd1d14d58834bd72e5324d2213",
+  "deployment": "dpl_9fkwmez8BfjYqokzpjji1WhJ8voc",
+  "javascriptExecuted": false,
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "cacheControl": [
+        "public, max-age=0, must-revalidate"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-D",
+        "-",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/"
+      ]
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "cacheControl": [
+        "no-cache, no-store, must-revalidate"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-D",
+        "-",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/sw.js"
+      ],
+      "networkOnly": true,
+      "precacheHtmlEntries": 0,
+      "sha256": "5068c0837465210f898069d7152bc34e575ae5552ab5b7f8d29bae5004daef23"
+    },
+    {
+      "path": "/version.json",
+      "status": 200,
+      "cacheControl": [
+        "no-cache, no-store, must-revalidate"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-D",
+        "-",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/version.json"
+      ]
+    },
+    {
+      "path": "/benatna-page-inventee-pwa-production",
+      "status": 404,
+      "cacheControl": [
+        "public, max-age=0, must-revalidate"
+      ],
+      "command": [
+        "curl",
+        "-sS",
+        "--max-time",
+        "40",
+        "-D",
+        "-",
+        "-w",
+        "\n%{http_code}",
+        "https://benatna.ma/benatna-page-inventee-pwa-production"
+      ]
+    }
+  ]
+}

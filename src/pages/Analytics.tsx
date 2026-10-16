@@ -1,8 +1,9 @@
+import { useAdminAccess } from '@/hooks/useAdminAccess';
 import { getAnalyticsDateRange, buildAnalyticsTimeSeries, fetchAnalyticsPages } from "@/utils/analyticsData";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import Header from "@/components/Header";
@@ -59,36 +60,26 @@ const Analytics = () => {
   const [dateRange, setDateRange] = useState("7");
   const [eventTypeFilter, setEventTypeFilter] = useState("all");
   const [pageFilter, setPageFilter] = useState("all");
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-
-  // Auth check
+  const access = useAdminAccess();
+  const queryClient = useQueryClient();
+  const isAuthenticated = access === 'loading' ? null : access === 'admin';
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      setIsAuthenticated(!!session?.user);
-      if (!session?.user) {
-        navigate("/auth");
-      }
-    });
-
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setIsAuthenticated(!!session?.user);
-      if (!session?.user) {
-        navigate("/auth");
-      }
-    });
-
-    return () => subscription.unsubscribe();
-  }, [navigate]);
+    if (access === 'anonymous') navigate('/auth');
+    if (access !== 'admin') {
+      queryClient.removeQueries({ queryKey: ['analytics-events'] });
+      queryClient.removeQueries({ queryKey: ['analytics-sessions'] });
+    }
+  }, [access, navigate, queryClient]);
 
   const { startDate, endDate } = getAnalyticsDateRange(Number(dateRange));
 
   // Fetch events
-  const { data: events, isLoading: eventsLoading, error: eventsError, refetch: refetchEvents } = useQuery({
+  const { data: rawEvents, isLoading: eventsLoading, error: eventsError, refetch: refetchEvents } = useQuery({
     queryKey: ['analytics-events', dateRange, eventTypeFilter, pageFilter],
-    queryFn: async () => fetchAnalyticsPages(async (from, to) => {
+    queryFn: async ({ signal }) => fetchAnalyticsPages(async (from, to) => {
       let query = supabase
         .from('analytics_events')
-        .select('*')
+        .select('*').abortSignal(signal)
         .gte('created_at', startDate.toISOString())
         .lte('created_at', endDate.toISOString())
         .order('created_at', { ascending: false })
@@ -108,12 +99,12 @@ const Analytics = () => {
   });
 
   // Fetch sessions
-  const { data: sessions, isLoading: sessionsLoading, error: sessionsError, refetch: refetchSessions } = useQuery({
+  const { data: rawSessions, isLoading: sessionsLoading, error: sessionsError, refetch: refetchSessions } = useQuery({
     queryKey: ['analytics-sessions', dateRange],
-    queryFn: async () => fetchAnalyticsPages(async (from, to) => {
+    queryFn: async ({ signal }) => fetchAnalyticsPages(async (from, to) => {
       const { data, error } = await supabase
         .from('analytics_sessions')
-        .select('*')
+        .select('*').abortSignal(signal)
         .gte('created_at', startDate.toISOString())
         .lte('created_at', endDate.toISOString())
         .order('created_at', { ascending: false })
@@ -124,6 +115,11 @@ const Analytics = () => {
     }),
     enabled: isAuthenticated === true,
   });
+
+  const events = rawEvents?.filter(event => event.properties?.is_test !== true && !['/auth','/analytics','/demandes'].includes(event.page_path));
+  const realSessionIds = new Set(events?.map(event => event.session_id));
+  const testSessionIds = new Set(rawEvents?.filter(event => event.properties?.is_test === true).map(event => event.session_id));
+  const sessions = rawSessions?.filter(session => !testSessionIds.has(session.session_id) || realSessionIds.has(session.session_id));
 
   // Calculate KPIs
   const totalPageViews = events?.filter(e => e.event_name === 'page_view').length || 0;
@@ -141,11 +137,12 @@ const Analytics = () => {
   const singlePageSessions = Object.values(sessionPageViews).filter(v => v === 1).length;
   const bounceRate = uniqueSessions > 0 ? ((singlePageSessions / uniqueSessions) * 100).toFixed(1) : '0';
 
-  // Conversions
+  // Actions de contact
   const conversions = events?.filter(e => e.event_type === 'conversion') || [];
   const ctaClicks = events?.filter(e => e.event_name === 'cta_click').length || 0;
-  const whatsappClicks = events?.filter(e => e.event_name === 'whatsapp_click').length || 0;
-  const formSubmits = events?.filter(e => e.event_name === 'form_submit').length || 0;
+  const whatsappHandoffs = events?.filter(e => e.event_name === 'whatsapp_handoff').length || 0;
+  const legacyWhatsAppClicks = events?.filter(e => e.event_name === 'whatsapp_click').length || 0;
+  const formSubmits = events?.filter(e => e.event_name === 'form_prepared').length || 0;
 
   // Time series data
   const timeSeriesData = buildAnalyticsTimeSeries(events ?? []);
@@ -226,8 +223,8 @@ const Analytics = () => {
       csvContent += `"Pages/Session","${avgPagesPerSession}"\n`;
       csvContent += `"Taux de rebond","${bounceRate}%"\n`;
       csvContent += `"Clics CTA","${ctaClicks}"\n`;
-      csvContent += `"Clics WhatsApp","${whatsappClicks}"\n`;
-      csvContent += `"Formulaires soumis","${formSubmits}"\n`;
+      csvContent += `"Sorties WhatsApp (nouvelle mesure)","${whatsappHandoffs}"\n`;
+      csvContent += `"Préparations de formulaire","${formSubmits}"\n`;
     }
 
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -263,6 +260,10 @@ const Analytics = () => {
     return <div className="min-h-screen flex items-center justify-center">Chargement...</div>;
   }
 
+  if (isAuthenticated !== true) {
+    return <main className="container py-12"><h1>Accès réservé à l’administrateur</h1><p>{access === 'error' ? 'Impossible de vérifier les droits. Rechargez pour réessayer.' : 'Ce compte ne peut pas consulter les statistiques.'}</p><Link to="/auth">Se connecter</Link></main>;
+  }
+
   if (eventsError || sessionsError) {
     return (
       <div className="min-h-screen bg-background flex flex-col">
@@ -295,6 +296,7 @@ const Analytics = () => {
           </div>
           
           <div className="flex flex-wrap gap-2">
+            <Button asChild variant="outline" size="sm"><Link to="/demandes">Suivi privé des demandes</Link></Button>
             <Button variant="outline" size="sm" onClick={handleRefresh}>
               <RefreshCw className="h-4 w-4 mr-2" />
               Actualiser
@@ -454,12 +456,12 @@ const Analytics = () => {
             <CardContent className="pt-6">
               <div className="flex items-center gap-2">
                 <Globe className="h-5 w-5 text-green-600" />
-                <span className="text-sm text-muted-foreground">WhatsApp</span>
+                <span className="text-sm text-muted-foreground">Sorties WhatsApp</span>
               </div>
               {isLoading ? (
                 <Skeleton className="h-8 w-20 mt-2" />
               ) : (
-                <p className="text-2xl font-bold mt-2">{whatsappClicks}</p>
+                <div><p className="text-2xl font-bold mt-2">{whatsappHandoffs}</p><p className="text-xs mt-2">Une sortie ne prouve pas un message reçu. Anciens clics non dédupliqués : {legacyWhatsAppClicks}.</p></div>
               )}
             </CardContent>
           </Card>
@@ -468,7 +470,7 @@ const Analytics = () => {
             <CardContent className="pt-6">
               <div className="flex items-center gap-2">
                 <Clock className="h-5 w-5 text-blue-500" />
-                <span className="text-sm text-muted-foreground">Formulaires</span>
+                <span className="text-sm text-muted-foreground">Formulaires préparés</span>
               </div>
               {isLoading ? (
                 <Skeleton className="h-8 w-20 mt-2" />
@@ -482,7 +484,7 @@ const Analytics = () => {
             <CardContent className="pt-6">
               <div className="flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 text-purple-500" />
-                <span className="text-sm text-muted-foreground">Conversions totales</span>
+                <span className="text-sm text-muted-foreground">Actions de contact totales</span>
               </div>
               {isLoading ? (
                 <Skeleton className="h-8 w-20 mt-2" />

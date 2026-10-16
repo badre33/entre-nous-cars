@@ -1,466 +1,134 @@
-import { supabase } from "@/integrations/supabase/client";
+import { supabase } from '@/integrations/supabase/client';
+import { analyticsEventId, appendCampaignCode, captureCampaignAttribution, getCampaignAttribution, safeAnalyticsPath, sanitizeAnalyticsProperties } from './analyticsPrivacy';
 
-// Generate unique visitor ID stored in localStorage
-const getVisitorId = (): string => {
-  let visitorId = localStorage.getItem('benatna_visitor_id');
-  if (!visitorId) {
-    visitorId = 'v_' + Math.random().toString(36).substring(2, 15) + Date.now().toString(36);
-    localStorage.setItem('benatna_visitor_id', visitorId);
-  }
-  return visitorId;
-};
-
-// Generate session ID (new session after 30min inactivity)
-const getSessionId = (): string => {
-  const SESSION_TIMEOUT = 30 * 60 * 1000; // 30 minutes
+export type EventType = 'traffic' | 'behavior' | 'conversion' | 'marketing' | 'engagement';
+interface TrackEventOptions { eventType: EventType; eventName: string; properties?: Record<string, unknown> }
+const visitorFallback = 'v_' + analyticsEventId();
+let sessionFallback = { id: 's_' + analyticsEventId(), lastActivity: Date.now() };
+function visitorId(): string {
+  try { let id = localStorage.getItem('benatna_visitor_id'); if (!id || !/^v_[a-z0-9-]{8,80}$/i.test(id)) { id = visitorFallback; localStorage.setItem('benatna_visitor_id', id); } return id; }
+  catch { return visitorFallback; }
+}
+function sessionId(): string {
   const now = Date.now();
-  
-  let sessionData = JSON.parse(localStorage.getItem('benatna_session') || '{}');
-  
-  if (!sessionData.id || (now - sessionData.lastActivity) > SESSION_TIMEOUT) {
-    sessionData = {
-      id: 's_' + Math.random().toString(36).substring(2, 15) + Date.now().toString(36),
-      startTime: now,
-      lastActivity: now
-    };
-  } else {
-    sessionData.lastActivity = now;
-  }
-  
-  localStorage.setItem('benatna_session', JSON.stringify(sessionData));
-  return sessionData.id;
-};
-
-// Detect device type
-const getDeviceType = (): 'mobile' | 'tablet' | 'desktop' => {
-  const ua = navigator.userAgent;
-  if (/tablet|ipad|playbook|silk/i.test(ua)) return 'tablet';
-  if (/mobile|iphone|ipod|android|blackberry|opera mini|iemobile/i.test(ua)) return 'mobile';
-  return 'desktop';
-};
-
-// Get traffic source
-const getSource = (): string => {
-  const referrer = document.referrer;
-  if (!referrer) return 'Direct';
-  
   try {
-    const domain = new URL(referrer).hostname;
-    if (domain.includes('facebook') || domain.includes('fb.')) return 'Facebook';
-    if (domain.includes('instagram')) return 'Instagram';
-    if (domain.includes('google')) return 'Google';
-    if (domain.includes('bing')) return 'Bing';
-    if (domain.includes('twitter') || domain.includes('x.com')) return 'Twitter/X';
-    if (domain.includes('linkedin')) return 'LinkedIn';
-    if (domain.includes('youtube')) return 'YouTube';
-    return domain.substring(0, 200); // Limit domain length
-  } catch {
-    return 'Unknown';
-  }
-};
-
-// Event types for categorization - must match database enum
-export type EventType = 
-  | 'traffic'      // visites, visiteurs, pages vues
-  | 'behavior'     // temps sur page, taux rebond, clics, parcours
-  | 'conversion'   // formulaires, achats, téléchargements
-  | 'marketing'    // sources, performance CTA
-  | 'engagement';  // likes, partages, commentaires
-
-interface TrackEventOptions {
-  eventType: EventType;
-  eventName: string;
-  properties?: Record<string, unknown>;
+    const stored = JSON.parse(localStorage.getItem('benatna_session') || 'null');
+    if (stored && typeof stored.id === 'string' && /^s_[a-z0-9-]{8,80}$/i.test(stored.id) && Number.isFinite(stored.lastActivity) && stored.lastActivity <= now && now - stored.lastActivity < 30 * 60 * 1000) sessionFallback = stored;
+  } catch { /* In-memory session remains available when storage is blocked. */ }
+  if (now - sessionFallback.lastActivity >= 30 * 60 * 1000) sessionFallback = { id: 's_' + analyticsEventId(), lastActivity: now };
+  sessionFallback.lastActivity = now;
+  try { localStorage.setItem('benatna_session', JSON.stringify(sessionFallback)); } catch { /* optional */ }
+  return sessionFallback.id;
 }
-
+function deviceType(): string {
+  const ua = navigator.userAgent;
+  return /tablet|ipad|playbook|silk/i.test(ua) ? 'tablet' : /mobile|iphone|ipod|android/i.test(ua) ? 'mobile' : 'desktop';
+}
+function trafficSource(): string {
+  const campaign = getCampaignAttribution();
+  if (campaign) return campaign.last.source;
+  if (!document.referrer) return 'Direct';
+  try {
+    const host = new URL(document.referrer).hostname;
+    for (const [domain, label] of [['google.', 'Google'], ['bing.', 'Bing'], ['facebook.', 'Facebook'], ['instagram.', 'Instagram'], ['chatgpt.', 'ChatGPT'], ['perplexity.', 'Perplexity'], ['youtube.', 'YouTube'], ['linkedin.', 'LinkedIn']]) if (host.includes(domain)) return label;
+  } catch { /* No raw referrer is retained. */ }
+  return 'Other';
+}
+function whatsappUrl(value: string | URL | undefined): URL | null {
+  try { const url = new URL(String(value), window.location.origin); return url.protocol === 'https:' && ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? url : null; }
+  catch { return null; }
+}
+function withCampaign(url: URL): string {
+  const text = url.searchParams.get('text') || '';
+  url.searchParams.set('text', appendCampaignCode(text));
+  return url.toString();
+}
 class AnalyticsTracker {
-  private pageStartTime: number = Date.now();
-  private isInitialized: boolean = false;
-  
+  private initialized = false;
+  private pageStartTime = Date.now();
+  private lastPage = '';
+  private activeGesture: string | null = null;
+  private seenHandoffs = new Set<string>();
   init() {
-    if (this.isInitialized) return;
-    this.isInitialized = true;
-    
-    // Track page visibility changes for time on page
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden') {
-        this.trackTimeOnPage();
-      } else {
-        this.pageStartTime = Date.now();
+    if (this.initialized) return;
+    this.initialized = true;
+    captureCampaignAttribution();
+    document.addEventListener('click', () => { this.activeGesture = analyticsEventId(); window.setTimeout(() => { this.activeGesture = null; }, 0); }, true);
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') this.trackTimeOnPage(); else this.pageStartTime = Date.now(); });
+    window.addEventListener('pagehide', () => this.trackTimeOnPage());
+    document.addEventListener('click', event => {
+      const target = event.target instanceof Element ? event.target.closest('a,button') : null;
+      if (!target) return;
+      const href = target.getAttribute('href') || '';
+      const whatsapp = whatsappUrl(href);
+      if (whatsapp && !event.defaultPrevented) {
+        target.setAttribute('href', withCampaign(whatsapp));
+        this.trackWhatsAppClick({ source_attr: 'anchor' });
+      } else if (href.startsWith('tel:')) {
+        void this.trackEvent({ eventType: 'conversion', eventName: 'phone_click' });
+      } else if (target.hasAttribute('data-analytics-cta')) {
+        this.trackCTAClick(target.getAttribute('data-analytics-cta') || 'generic', safeAnalyticsPath(window.location.pathname));
       }
     });
-    
-    // Track before unload for bounce rate
-    window.addEventListener('beforeunload', () => {
-      this.trackTimeOnPage();
-    });
-    
-    // Track clicks on important elements
-    document.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement;
-      
-      // Track CTA clicks
-      if (target.closest('button, a')) {
-        const element = target.closest('button, a') as HTMLElement;
-        const text = element.textContent?.trim().substring(0, 50) || '';
-        const href = element.getAttribute('href') || '';
-        const ariaLabel = (element.getAttribute('aria-label') || '').toLowerCase();
-        const dataAction = (element.getAttribute('data-action') || '').toLowerCase();
-        const className = (element.className || '').toString().toLowerCase();
-        const haystack = `${href} ${ariaLabel} ${dataAction} ${className} ${text.toLowerCase()}`;
-        
-        // Track WhatsApp clicks (covers <a href>, window.open handlers, aria-labels, data-action, class names, text)
-        const isWhatsApp =
-          href.includes('whatsapp') ||
-          href.includes('wa.me') ||
-          ariaLabel.includes('whatsapp') ||
-          dataAction.includes('whatsapp') ||
-          className.includes('whatsapp') ||
-          /\bwhatsapp\b/i.test(text);
-        if (isWhatsApp) {
-          this.trackEvent({
-            eventType: 'conversion',
-            eventName: 'whatsapp_click',
-            properties: { button_text: text, href: href.substring(0, 200), source_attr: ariaLabel ? 'aria' : (href ? 'href' : 'text') }
-          });
-        }
-        
-        // Track phone clicks
-        if (href.startsWith('tel:')) {
-          this.trackEvent({
-            eventType: 'conversion',
-            eventName: 'phone_click',
-            properties: { phone: href.replace('tel:', '').substring(0, 50) }
-          });
-        }
-        
-        // Track CTA buttons (skip if already counted as WhatsApp to avoid double counting)
-        if (!isWhatsApp && (
-            element.classList.contains('cta') || 
-            text.toLowerCase().includes('réserver') ||
-            text.toLowerCase().includes('louer') ||
-            text.toLowerCase().includes('voir'))) {
-          this.trackEvent({
-            eventType: 'marketing',
-            eventName: 'cta_click',
-            properties: { button_text: text, href: href.substring(0, 200) }
-          });
-        }
-      }
-    });
-
-    // Catch-all: intercept window.open to track any programmatic WhatsApp opening
-    try {
-      const originalOpen = window.open.bind(window);
-      window.open = ((url?: string | URL, target?: string, features?: string) => {
-        try {
-          const urlStr = typeof url === 'string' ? url : url?.toString() || '';
-          if (urlStr.includes('wa.me') || urlStr.includes('whatsapp')) {
-            this.trackEvent({
-              eventType: 'conversion',
-              eventName: 'whatsapp_click',
-              properties: { href: urlStr.substring(0, 200), source_attr: 'window_open' }
-            });
-          }
-        } catch (_) { /* noop */ }
-        return originalOpen(url as string, target, features);
-      }) as typeof window.open;
-    } catch (_) { /* noop */ }
+    const originalOpen = window.open.bind(window);
+    window.open = ((url?: string | URL, target?: string, features?: string) => {
+      const whatsapp = whatsappUrl(url);
+      if (whatsapp) this.trackWhatsAppClick({ source_attr: 'window_open' });
+      return originalOpen(whatsapp ? withCampaign(whatsapp) : url, target, features);
+    }) as typeof window.open;
   }
-
-  // Explicit tracker for code paths that build the WhatsApp URL programmatically
-  trackWhatsAppClick(context?: Record<string, unknown>) {
-    this.trackEvent({
-      eventType: 'conversion',
-      eventName: 'whatsapp_click',
-      properties: { source_attr: 'explicit', ...(context || {}) }
-    });
+  trackWhatsAppClick(context: Record<string, unknown> = {}) {
+    if (!this.activeGesture) { this.activeGesture = analyticsEventId(); window.setTimeout(() => { this.activeGesture = null; }, 0); }
+    const id = this.activeGesture;
+    if (this.seenHandoffs.has(id)) return;
+    this.seenHandoffs.add(id);
+    if (this.seenHandoffs.size > 200) this.seenHandoffs.delete(this.seenHandoffs.values().next().value!);
+    void this.trackEvent({ eventType: 'conversion', eventName: 'whatsapp_handoff', properties: { ...context, event_id: id } });
   }
-  
-  /**
-   * Track an analytics event using the secure RPC function
-   * This ensures server-side validation and bypasses restrictive RLS policies
-   */
-  async trackEvent({ eventType, eventName, properties = {} }: TrackEventOptions) {
-    // === GA4 FORWARDING ===
-    // Forward this event to Google Analytics 4 via gtag if available.
-    // This means EVERY tracked event (WhatsApp clicks, phone clicks, CTA
-    // clicks, form submits) automatically shows up in GA4 Realtime + Events.
+  async trackEvent({ eventType, eventName, properties = {} }: TrackEventOptions): Promise<void> {
+    if (!/^[a-z][a-z0-9_]{0,63}$/.test(eventName) || ['whatsapp_message_sent', 'lead_received', 'lead_qualified', 'offer_sent', 'rental_confirmed', 'rental_completed', 'lead_lost'].includes(eventName)) return;
+    if (['/auth', '/analytics', '/demandes'].includes(safeAnalyticsPath(window.location.pathname))) return;
+    const safe = sanitizeAnalyticsProperties(properties);
     try {
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        const gtag = (window as any).gtag;
-        const flatProps: Record<string, string | number | boolean> = {
-          event_category: eventType || 'engagement',
-          page_path: window.location.pathname,
-          page_title: document.title,
-        };
-        if (properties) {
-          for (const [k, v] of Object.entries(properties)) {
-            if (typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean') {
-              flatProps[k] = v;
-            } else if (v != null) {
-              flatProps[k] = String(v).substring(0, 200);
-            }
-          }
-        }
-        gtag('event', eventName || 'unknown_event', flatProps);
-      }
-
-      // === GTM dataLayer push (for tags configured in Tag Manager) ===
-      if (typeof window !== 'undefined' && (window as any).dataLayer) {
-        (window as any).dataLayer.push({
-          event: eventName || 'custom_event',
-          event_category: eventType || 'engagement',
-          page_path: window.location.pathname,
-          page_title: document.title,
-          ...properties,
-        });
-      }
-    } catch (_) { /* fail silently if GA4 not loaded or blocked */ }
-
-    try {
-      // Sanitize and limit property values to prevent oversized payloads
-      const sanitizedProperties = JSON.parse(JSON.stringify(properties));
-      const propertiesString = JSON.stringify(sanitizedProperties);
-      
-      // Skip if properties are too large (max 10KB)
-      if (propertiesString.length > 10000) {
-        console.warn('Analytics: Properties too large, skipping event');
-        return;
-      }
-
-      // Use the secure RPC function instead of direct insert
-      // This bypasses RLS and validates input server-side
       const { error } = await supabase.rpc('insert_analytics_event', {
-        p_event_type: eventType,
-        p_event_name: eventName.substring(0, 100),
-        p_page_path: window.location.pathname.substring(0, 2048),
-        p_referrer: document.referrer.substring(0, 2048) || null,
-        p_source: getSource(),
-        p_device_type: getDeviceType(),
-        p_user_agent: navigator.userAgent.substring(0, 500),
-        p_session_id: getSessionId(),
-        p_visitor_id: getVisitorId(),
-        p_properties: sanitizedProperties
+        p_event_type: eventType, p_event_name: eventName, p_page_path: safeAnalyticsPath(window.location.pathname), p_referrer: null,
+        p_source: trafficSource(), p_device_type: deviceType(), p_user_agent: null, p_session_id: sessionId(), p_visitor_id: visitorId(), p_properties: safe,
       });
-      
-      if (error) {
-        // Log error in development only
-        if (import.meta.env.DEV) {
-          console.error('Analytics RPC error:', error);
-        }
-        return;
-      }
-      
-      // Log in development
-      if (import.meta.env.DEV) {
-        console.log('📊 Analytics:', eventName);
-      }
-    } catch (error) {
-      // Silently fail in production to avoid affecting user experience
-      if (import.meta.env.DEV) {
-        console.error('Analytics tracking error:', error);
-      }
-    }
+      if (error && import.meta.env.DEV) console.warn('Analytics event was not stored');
+    } catch { /* Measurement never blocks the rental request. */ }
   }
-  
-  // Traffic events
   trackPageView(path: string) {
+    captureCampaignAttribution();
+    const safe = safeAnalyticsPath(path);
+    if (safe === this.lastPage) return;
+    if (['/auth', '/analytics', '/demandes'].includes(safe)) { this.lastPage = safe; return; }
+    this.lastPage = safe;
     this.pageStartTime = Date.now();
-    this.trackEvent({
-      eventType: 'traffic',
-      eventName: 'page_view',
-      properties: { path: path.substring(0, 500) }
-    });
-    this.updateSession(path);
+    void this.trackEvent({ eventType: 'traffic', eventName: 'page_view', properties: { path: safe } });
+    void this.updateSession(safe);
   }
-  
-  /**
-   * Update session using the secure RPC function
-   * This ensures server-side validation and proper session management
-   */
   private async updateSession(path: string) {
-    try {
-      // Use the secure RPC function for session updates
-      const { error } = await supabase.rpc('touch_analytics_session', {
-        p_session_id: getSessionId(),
-        p_visitor_id: getVisitorId(),
-        p_path: path.substring(0, 2048),
-        p_device_type: getDeviceType(),
-        p_source: getSource()
-      });
-      
-      if (error && import.meta.env.DEV) {
-        console.error('Session RPC error:', error);
-      }
-    } catch (error) {
-      // Silently fail in production
-      if (import.meta.env.DEV) {
-        console.error('Session tracking error:', error);
-      }
-    }
+    try { await supabase.rpc('touch_analytics_session', { p_session_id: sessionId(), p_visitor_id: visitorId(), p_path: path, p_device_type: deviceType(), p_source: trafficSource() }); }
+    catch { /* optional */ }
   }
-  
-  // Behavior events
   trackTimeOnPage() {
-    const timeSpent = Math.round((Date.now() - this.pageStartTime) / 1000);
-    if (timeSpent > 1 && timeSpent < 7200) { // Max 2 hours to filter outliers
-      this.trackEvent({
-        eventType: 'behavior',
-        eventName: 'time_on_page',
-        properties: { seconds: timeSpent, page: window.location.pathname.substring(0, 500) }
-      });
-    }
+    const seconds = Math.round((Date.now() - this.pageStartTime) / 1000);
+    this.pageStartTime = Date.now();
+    if (seconds > 1 && seconds < 7200) void this.trackEvent({ eventType: 'behavior', eventName: 'time_on_page', properties: { seconds } });
   }
-  
-  trackScroll(percentage: number) {
-    if (percentage >= 0 && percentage <= 100) {
-      this.trackEvent({
-        eventType: 'behavior',
-        eventName: 'scroll_depth',
-        properties: { percentage: Math.round(percentage) }
-      });
-    }
-  }
-  
-  trackClick(elementId: string, elementType: string) {
-    this.trackEvent({
-      eventType: 'behavior',
-      eventName: 'click',
-      properties: { 
-        element_id: elementId.substring(0, 100), 
-        element_type: elementType.substring(0, 50) 
-      }
-    });
-  }
-  
-  // Conversion events
-  trackFormSubmit(formName: string, formData?: Record<string, unknown>) {
-    // Don't log sensitive form data
-    const safeData = formData ? { fields_count: Object.keys(formData).length } : {};
-    this.trackEvent({
-      eventType: 'conversion',
-      eventName: 'form_submit',
-      properties: { form_name: formName.substring(0, 100), ...safeData }
-    });
-  }
-  
-  trackBookingStarted(vehicleId: string, vehicleName: string) {
-    this.trackEvent({
-      eventType: 'conversion',
-      eventName: 'booking_started',
-      properties: { 
-        vehicle_id: vehicleId.substring(0, 100), 
-        vehicle_name: vehicleName.substring(0, 100) 
-      }
-    });
-  }
-  
-  trackBookingCompleted(vehicleId: string, vehicleName: string, price: number) {
-    this.trackEvent({
-      eventType: 'conversion',
-      eventName: 'booking_completed',
-      properties: { 
-        vehicle_id: vehicleId.substring(0, 100), 
-        vehicle_name: vehicleName.substring(0, 100), 
-        price: Math.max(0, price) 
-      }
-    });
-  }
-  
-  trackDownload(fileName: string) {
-    this.trackEvent({
-      eventType: 'conversion',
-      eventName: 'download',
-      properties: { file_name: fileName.substring(0, 200) }
-    });
-  }
-  
-  // Marketing events
-  trackCTAClick(ctaName: string, ctaLocation: string) {
-    this.trackEvent({
-      eventType: 'marketing',
-      eventName: 'cta_click',
-      properties: { 
-        cta_name: ctaName.substring(0, 100), 
-        cta_location: ctaLocation.substring(0, 100) 
-      }
-    });
-  }
-  
-  trackCampaignView(campaignId: string, campaignName: string) {
-    this.trackEvent({
-      eventType: 'marketing',
-      eventName: 'campaign_view',
-      properties: { 
-        campaign_id: campaignId.substring(0, 100), 
-        campaign_name: campaignName.substring(0, 100) 
-      }
-    });
-  }
-  
-  // Engagement events
-  trackShare(platform: string, contentType: string) {
-    this.trackEvent({
-      eventType: 'engagement',
-      eventName: 'share',
-      properties: { 
-        platform: platform.substring(0, 50), 
-        content_type: contentType.substring(0, 50) 
-      }
-    });
-  }
-  
-  trackLike(contentId: string, contentType: string) {
-    this.trackEvent({
-      eventType: 'engagement',
-      eventName: 'like',
-      properties: { 
-        content_id: contentId.substring(0, 100), 
-        content_type: contentType.substring(0, 50) 
-      }
-    });
-  }
-  
-  trackComment(contentId: string) {
-    this.trackEvent({
-      eventType: 'engagement',
-      eventName: 'comment',
-      properties: { content_id: contentId.substring(0, 100) }
-    });
-  }
-  
-  // Search events
-  trackSearch(query: string, resultsCount: number) {
-    this.trackEvent({
-      eventType: 'behavior',
-      eventName: 'search',
-      properties: { 
-        query: query.substring(0, 200), 
-        results_count: Math.max(0, resultsCount) 
-      }
-    });
-  }
-  
-  // Vehicle interaction
-  trackVehicleView(vehicleId: string, vehicleName: string) {
-    this.trackEvent({
-      eventType: 'behavior',
-      eventName: 'vehicle_view',
-      properties: { 
-        vehicle_id: vehicleId.substring(0, 100), 
-        vehicle_name: vehicleName.substring(0, 100) 
-      }
-    });
-  }
-  
-  trackVehicleCompare(vehicleIds: string[]) {
-    this.trackEvent({
-      eventType: 'behavior',
-      eventName: 'vehicle_compare',
-      properties: { vehicle_ids: vehicleIds.slice(0, 10).map(id => id.substring(0, 100)) }
-    });
-  }
+  trackScroll(percentage: number) { if (percentage >= 0 && percentage <= 100) void this.trackEvent({ eventType: 'behavior', eventName: 'scroll_depth', properties: { percentage: Math.round(percentage) } }); }
+  trackClick(elementId: string, elementType: string) { return this.trackEvent({ eventType: 'behavior', eventName: 'click', properties: { element_id: elementId, element_type: elementType } }); }
+  trackFormSubmit(formName: string, formData?: Record<string, unknown>) { return this.trackEvent({ eventType: 'conversion', eventName: 'form_prepared', properties: { form_name: formName, fields_count: Object.keys(formData || {}).length } }); }
+  trackBookingStarted(vehicleId: string, vehicleName: string) { return this.trackEvent({ eventType: 'conversion', eventName: 'rental_request_prepared', properties: { vehicle_id: vehicleId, vehicle_name: vehicleName } }); }
+  trackBookingCompleted(vehicleId: string, vehicleName: string, price: number) { return this.trackEvent({ eventType: 'conversion', eventName: 'rental_request_prepared', properties: { vehicle_id: vehicleId, vehicle_name: vehicleName, price } }); }
+  trackDownload(fileName: string) { return this.trackEvent({ eventType: 'conversion', eventName: 'download', properties: { file_name: fileName } }); }
+  trackCTAClick(name: string, location: string) { return this.trackEvent({ eventType: 'marketing', eventName: 'cta_click', properties: { cta_name: name, cta_location: location } }); }
+  trackCampaignView(id: string, name: string) { return this.trackEvent({ eventType: 'marketing', eventName: 'campaign_view', properties: { campaign_id: id, campaign_name: name } }); }
+  trackShare(platform: string, contentType: string) { return this.trackEvent({ eventType: 'engagement', eventName: 'share', properties: { platform, content_type: contentType } }); }
+  trackLike(contentId: string, contentType: string) { return this.trackEvent({ eventType: 'engagement', eventName: 'like', properties: { content_id: contentId, content_type: contentType } }); }
+  trackComment(contentId: string) { return this.trackEvent({ eventType: 'engagement', eventName: 'comment', properties: { content_id: contentId } }); }
+  trackSearch(_query: string, resultsCount: number) { return this.trackEvent({ eventType: 'behavior', eventName: 'search', properties: { results_count: resultsCount } }); }
+  trackVehicleView(vehicleId: string, vehicleName: string) { return this.trackEvent({ eventType: 'behavior', eventName: 'vehicle_view', properties: { vehicle_id: vehicleId, vehicle_name: vehicleName } }); }
+  trackVehicleCompare(ids: string[]) { return this.trackEvent({ eventType: 'behavior', eventName: 'vehicle_compare', properties: { vehicle_ids: ids.slice(0, 10).join(',') } }); }
 }
-
 export const analyticsTracker = new AnalyticsTracker();

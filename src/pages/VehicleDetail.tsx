@@ -15,21 +15,11 @@ const VehicleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const vehicle = slug ? getVehicleDetail(slug) : undefined;
 
-  // Scroll to top + GTM vehicle_view event
+  // Scroll to the vehicle and record one internal view
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
     if (vehicle) {
-      // Push to dataLayer for GTM
-      if (typeof window !== 'undefined' && (window as any).dataLayer) {
-        (window as any).dataLayer.push({
-          event: 'vehicle_view',
-          vehicle_slug: vehicle.slug,
-          vehicle_name: vehicle.name,
-          price: vehicle.priceFrom,
-          category: vehicle.category,
-        });
-      }
-      // Also track via analytics
+      // One internal vehicle-view event; no duplicate vendor push.
       analytics.trackVehicleView(vehicle.slug, vehicle.name).catch(() => {});
     }
   }, [slug, vehicle]);

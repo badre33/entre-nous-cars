@@ -77,15 +77,21 @@
       "id": "R08",
       "priorite": "P1",
       "sujet": "Mise a jour cache PWA",
-      "etat": "test_local_reussi_preview_a_faire",
-      "preuve_production": null
+      "etat": "fait",
+      "preuve_production": "evidence/pwa-production.json",
+      "pr": 27,
+      "commit": "f6cadc57da4931bd1d14d58834bd72e5324d2213",
+      "preuve_test": "evidence/pwa-upgrade-local.json",
+      "limite": "Fraicheur en ligne ; aucune promesse de document actuel hors connexion."
     },
     {
       "id": "R09",
       "priorite": "P1",
       "sujet": "A01 A02 A03 mesure et suivi prive",
-      "etat": "a_faire",
-      "preuve_production": null
+      "etat": "prepare_tests_reussis_activation_SQL_en_attente",
+      "preuve_production": null,
+      "preuve_test": "evidence/measurement-schema-test.json; evidence/measurement-browser-test.json",
+      "limite": "37 controles SQL, 15 controles navigateur; pas de migration ni de nettoyage historique execute en production."
     },
     {
       "id": "R10",

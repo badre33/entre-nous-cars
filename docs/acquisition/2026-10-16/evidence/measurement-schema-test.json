@@ -1,0 +1,167 @@
+{
+  "testedAt": "2026-10-16T14:02:59.115Z",
+  "engine": "PGlite PostgreSQL with synthetic Auth roles/users",
+  "migrations": [
+    "20251216000000_roles_prerequisite.sql",
+    "20251216161118_12591319-4807-437f-bd5e-d593ce76ed59.sql",
+    "20260612000000_rental_requests.sql",
+    "20261010140000_restrict_analytics_and_rental_intake.sql",
+    "20261016000000_reconcile_new_project.sql",
+    "20261016010000_private_measurement_and_leads.sql"
+  ],
+  "checks": [
+    {
+      "name": "latest_chain_on_empty_database",
+      "passed": true
+    },
+    {
+      "name": "anon:cannot_insert_role",
+      "passed": true
+    },
+    {
+      "name": "anon:cannot_insert_lead",
+      "passed": true
+    },
+    {
+      "name": "anon:cannot_delete_lead",
+      "passed": true
+    },
+    {
+      "name": "authenticated:cannot_insert_role",
+      "passed": true
+    },
+    {
+      "name": "authenticated:cannot_insert_lead",
+      "passed": true
+    },
+    {
+      "name": "authenticated:cannot_delete_lead",
+      "passed": true
+    },
+    {
+      "name": "anon:no_private_read",
+      "passed": true
+    },
+    {
+      "name": "nonadmin:no_private_rows",
+      "passed": true
+    },
+    {
+      "name": "nonadmin:cannot_update_private_row",
+      "passed": true
+    },
+    {
+      "name": "admin:read_update_workflow",
+      "passed": true
+    },
+    {
+      "name": "admin:no_delete_permission",
+      "passed": true
+    },
+    {
+      "name": "received_without_dates",
+      "passed": true
+    },
+    {
+      "name": "received_two_days",
+      "passed": true
+    },
+    {
+      "name": "lost_two_days",
+      "passed": true
+    },
+    {
+      "name": "qualified_two_days_rejected",
+      "passed": true
+    },
+    {
+      "name": "confirmed_two_days_rejected",
+      "passed": true
+    },
+    {
+      "name": "qualified_without_dates_rejected",
+      "passed": true
+    },
+    {
+      "name": "qualified_outside_area_rejected",
+      "passed": true
+    },
+    {
+      "name": "qualified_three_days",
+      "passed": true
+    },
+    {
+      "name": "six_calendar_months_clamped",
+      "passed": true
+    },
+    {
+      "name": "over_six_months_rejected",
+      "passed": true
+    },
+    {
+      "name": "lost_reason_required",
+      "passed": true
+    },
+    {
+      "name": "received_outside_area_allowed",
+      "passed": true
+    },
+    {
+      "name": "observed_campaign_must_be_known",
+      "passed": true
+    },
+    {
+      "name": "rpc:sanitize_urls_and_free_text",
+      "passed": true
+    },
+    {
+      "name": "rpc:idempotent_whatsapp_handoff",
+      "passed": true
+    },
+    {
+      "name": "rpc:cannot_forge_whatsapp_message_sent",
+      "passed": true
+    },
+    {
+      "name": "rpc:cannot_forge_lead_received",
+      "passed": true
+    },
+    {
+      "name": "rpc:cannot_forge_lead_qualified",
+      "passed": true
+    },
+    {
+      "name": "rpc:cannot_forge_rental_confirmed",
+      "passed": true
+    },
+    {
+      "name": "rpc:cannot_forge_rental_completed",
+      "passed": true
+    },
+    {
+      "name": "rpc:handoff_requires_event_id",
+      "passed": true
+    },
+    {
+      "name": "rpc:private_pages_not_recorded",
+      "passed": true
+    },
+    {
+      "name": "optional_historic_redaction_removes_free_fields_without_deleting_events_or_leads",
+      "passed": true
+    },
+    {
+      "name": "historic_session_parameters_are_not_retained",
+      "passed": true
+    },
+    {
+      "name": "privileged_live_verification_script_rolls_back_every_fixture",
+      "passed": true
+    }
+  ],
+  "productionChanged": false,
+  "limitations": [
+    "Historical rows are not rewritten; NOT VALID qualification/loss constraints apply to new and changed rows.",
+    "Only synthetic contacts are used; each role test rolls back."
+  ]
+}

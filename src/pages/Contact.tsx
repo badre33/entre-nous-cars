@@ -122,25 +122,15 @@ const Contact = () => {
                       
                       const whatsappMessage = `Nouveau message de contact\n\nNom: ${data.nom}\nTéléphone: ${data.tel}\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
                       
+                      const popup = window.open(
+                        `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,
+                        '_blank'
+                      );
+                      setIsSubmitting(false);
                       toast({
-                        title: "✓ Message envoyé !",
-                        description: "Nous vous répondrons dans les plus brefs délais",
+                        title: popup ? "WhatsApp est ouvert" : "Ouverture WhatsApp demandée",
+                        description: "Envoyez le message dans WhatsApp pour transmettre la demande. Le formulaire est conservé : aucun envoi n’est confirmé ici.",
                       });
-                      
-                      // Capture form ref BEFORE setTimeout to avoid TypeError:
-                      // e.currentTarget becomes null after React pools the event.
-                      const formEl = e.currentTarget;
-                      setTimeout(() => {
-                        setIsSubmitting(false);
-                        window.open(
-                          `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,
-                          '_blank'
-                        );
-                        // Reset form (guarded — formEl might be detached if user navigated away)
-                        if (formEl && typeof formEl.reset === 'function') {
-                          formEl.reset();
-                        }
-                      }, 1000);
                     } catch (error) {
                       setIsSubmitting(false);
                       if (error instanceof z.ZodError) {
@@ -211,7 +201,7 @@ const Contact = () => {
                     className="w-full rounded-full text-lg min-h-[56px] hover:scale-105 transition-transform duration-300 touch-target touch-feedback"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Envoi..." : t('contactForm.sendWhatsApp')}
+                    {isSubmitting ? "Préparation..." : language === "en" ? "Prepare the WhatsApp request" : language === "es" ? "Preparar la solicitud en WhatsApp" : "Préparer la demande sur WhatsApp"}
                   </Button>
                 </form>
               </CardContent>
