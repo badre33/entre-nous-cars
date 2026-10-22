@@ -209,7 +209,7 @@ const LocationVoitureRabat = () => {
                 </Button>
               </Link>
               <a 
-                href="https://wa.me/212699024526?text=Bonjour, je souhaite louer une voiture à Rabat."
+                href="/louer?demande=1&city=Rabat"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -581,7 +581,7 @@ const LocationVoitureRabat = () => {
                         et nous organisons la livraison selon vos besoins.
                       </p>
                       <a 
-                        href="https://wa.me/212699024526?text=Bonjour, je souhaite une livraison personnalisée à Rabat."
+                        href="/louer?demande=1&city=Rabat"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:underline font-medium"
@@ -722,7 +722,7 @@ const LocationVoitureRabat = () => {
                 </Button>
               </Link>
               <a 
-                href="https://wa.me/212699024526?text=Bonjour, je souhaite réserver une voiture à Rabat."
+                href="/louer?demande=1&city=Rabat"
                 target="_blank"
                 rel="noopener noreferrer"
               >

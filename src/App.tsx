@@ -1,3 +1,4 @@
+import RentalRequestDialog from '@/components/RentalRequestDialog';
 import PickupGuide from "@/pages/PickupGuide";
 import { ServiceAreaGuard } from "@/components/ServiceAreaGuard";
 import { Toaster } from "@/components/ui/toaster";
@@ -277,6 +278,7 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
           <BrowserRouter>
+            <RentalRequestDialog />
             <CanonicalUrl />
             <OrganizationSchema />
             <SitelinksSearchBoxSchema />

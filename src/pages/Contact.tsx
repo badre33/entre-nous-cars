@@ -1,3 +1,4 @@
+import { requestRental } from '@/utils/rentalRequest';
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -122,15 +123,9 @@ const Contact = () => {
                       
                       const whatsappMessage = `Nouveau message de contact\n\nNom: ${data.nom}\nTéléphone: ${data.tel}\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
                       
-                      const popup = window.open(
-                        `https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`,
-                        '_blank'
-                      );
+                      requestRental({ notes: whatsappMessage });
                       setIsSubmitting(false);
-                      toast({
-                        title: popup ? "WhatsApp est ouvert" : "Ouverture WhatsApp demandée",
-                        description: "Envoyez le message dans WhatsApp pour transmettre la demande. Le formulaire est conservé : aucun envoi n’est confirmé ici.",
-                      });
+                      toast({ title: "Complétez votre demande", description: "Précisez les dates, le véhicule et le lieu, puis confirmez le récapitulatif. Vos informations de contact sont conservées." });
                     } catch (error) {
                       setIsSubmitting(false);
                       if (error instanceof z.ZodError) {
@@ -221,7 +216,7 @@ const Contact = () => {
                         {t('contactForm.contactDirectly')}
                       </p>
                       <a 
-                        href={`https://wa.me/${BUSINESS_INFO.whatsapp}`}
+                        href="/louer?demande=1"
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-lg font-medium text-primary hover:text-primary/80 transition-colors"

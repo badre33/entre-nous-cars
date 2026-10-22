@@ -1,0 +1,110 @@
+{
+  "base": "http://127.0.0.1:4319",
+  "checkedAt": "2026-10-22T21:32:45.367Z",
+  "checks": [
+    {
+      "width": 1280,
+      "name": "home_empty_fields_cannot_open_whatsapp",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "two_day_period_blocked",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "review_requires_explicit_confirmation",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "confirmed_request_contains_vehicle_dates_and_place",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "catalogue_prefills_model_and_dates_but_still_requires_place",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "comparison_preserves_multiple_models_and_requires_review",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "vehicle_detail_legacy_anchor_cannot_bypass_form",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "legacy_window_open_cannot_bypass_form",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "partner_application_remains_separate_from_rental_qualification",
+      "passed": true
+    },
+    {
+      "width": 1280,
+      "name": "no_browser_errors_or_message_text_in_analytics",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "home_empty_fields_cannot_open_whatsapp",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "two_day_period_blocked",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "review_requires_explicit_confirmation",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "confirmed_request_contains_vehicle_dates_and_place",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "catalogue_prefills_model_and_dates_but_still_requires_place",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "comparison_preserves_multiple_models_and_requires_review",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "vehicle_detail_legacy_anchor_cannot_bypass_form",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "legacy_window_open_cannot_bypass_form",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "partner_application_remains_separate_from_rental_qualification",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "name": "no_browser_errors_or_message_text_in_analytics",
+      "passed": true
+    }
+  ],
+  "realMessagesSent": 0,
+  "limitations": [
+    "Outbounds are stubbed and Supabase analytics responses mocked. Actual reception on a phone is not claimed."
+  ]
+}

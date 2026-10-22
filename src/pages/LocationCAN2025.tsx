@@ -539,7 +539,7 @@ const LocationCAN2025 = () => {
                   {language === 'en' ? "Book Now" : language === 'es' ? "Reservar Ahora" : "Réserver Maintenant"}
                 </Button>
               </Link>
-              <a href={`https://wa.me/${BUSINESS_INFO.whatsapp}?text=${encodeURIComponent(language === 'en' ? "Hello, I want to rent a vehicle for AFCON 2025" : language === 'es' ? "Hola, quiero alquilar un vehículo para la CAN 2025" : "Bonjour, je souhaite louer un véhicule pour la CAN 2025")}`} target="_blank" rel="noopener noreferrer">
+              <a href="/louer?demande=1" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-10 py-6 h-auto text-lg">
                   {language === 'en' ? "WhatsApp Us" : language === 'es' ? "Contáctenos" : "Contactez WhatsApp"}
                 </Button>

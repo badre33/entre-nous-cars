@@ -281,7 +281,7 @@ export default function Glossaire() {
                   <Link to="/contact">Nous Contacter</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace(/\s/g, '')}`} target="_blank" rel="noopener noreferrer">
+                  <a href="/louer?demande=1" target="_blank" rel="noopener noreferrer">
                     WhatsApp {BUSINESS_INFO.whatsapp}
                   </a>
                 </Button>

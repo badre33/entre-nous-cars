@@ -211,7 +211,7 @@ const LocationVoitureMarrakech = () => {
                 </Button>
               </Link>
               <a 
-                href="https://wa.me/212699024526?text=Bonjour, je souhaite louer une voiture à Marrakech."
+                href="/louer?demande=1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -605,7 +605,7 @@ const LocationVoitureMarrakech = () => {
                         nous organisons la livraison selon vos besoins.
                       </p>
                       <a 
-                        href="https://wa.me/212699024526?text=Bonjour, je souhaite une livraison personnalisée à Marrakech."
+                        href="/louer?demande=1"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:underline font-medium"
@@ -731,7 +731,7 @@ const LocationVoitureMarrakech = () => {
                 </Button>
               </Link>
               <a 
-                href="https://wa.me/212699024526?text=Bonjour, je souhaite louer une voiture à Marrakech."
+                href="/louer?demande=1"
                 target="_blank"
                 rel="noopener noreferrer"
               >

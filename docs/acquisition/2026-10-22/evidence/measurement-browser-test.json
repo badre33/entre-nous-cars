@@ -1,0 +1,72 @@
+{
+  "testedAt": "2026-10-22T21:32:55.990Z",
+  "base": "http://127.0.0.1:4319",
+  "checks": [
+    {
+      "name": "opening_widget_is_not_a_handoff",
+      "passed": true
+    },
+    {
+      "name": "one_widget_gesture_one_handoff_with_campaign_code",
+      "passed": true
+    },
+    {
+      "name": "no_message_phone_email_or_free_url_in_analytics",
+      "passed": true
+    },
+    {
+      "name": "campaign_survives_internal_navigation_without_query_or_canonical_pollution",
+      "passed": true
+    },
+    {
+      "name": "legacy_anchor_cannot_bypass_qualification_and_records_one_confirmed_handoff",
+      "passed": true
+    },
+    {
+      "name": "contact_form_keeps_data_and_does_not_claim_delivery_or_leak_text",
+      "passed": true
+    },
+    {
+      "name": "no_automatic_advertising_vendor_requests_or_browser_errors",
+      "passed": true
+    },
+    {
+      "name": "unregistered_utm_text_is_not_retained",
+      "passed": true
+    },
+    {
+      "name": "public:private_ui_denied_without_fetching_contacts_or_tracking",
+      "passed": true
+    },
+    {
+      "name": "user:private_ui_denied_without_fetching_contacts_or_tracking",
+      "passed": true
+    },
+    {
+      "name": "missing_count_is_an_error_not_a_false_zero",
+      "passed": true
+    },
+    {
+      "name": "admin_records_a_real_contact_separately_from_clicks_with_unknown_dates",
+      "passed": true
+    },
+    {
+      "name": "incomplete_contact_cannot_be_qualified_in_ui",
+      "passed": true
+    },
+    {
+      "name": "two_day_contact_cannot_be_qualified_in_ui",
+      "passed": true
+    },
+    {
+      "name": "admin_can_follow_proposal_confirmation_and_completion_without_marketing_pii",
+      "passed": true
+    }
+  ],
+  "productionChanged": false,
+  "realMessagesSent": 0,
+  "limitations": [
+    "Supabase responses are mocked with synthetic users and contacts for UI tests.",
+    "Actual RLS, constraints and RPC semantics are tested separately on PostgreSQL."
+  ]
+}

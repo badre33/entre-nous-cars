@@ -1,3 +1,4 @@
+import { requestRental } from '@/utils/rentalRequest';
 import { isClassicTourismCar } from "@/utils/cataloguePolicy";
 import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
@@ -17,7 +18,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 import { cn } from "@/lib/utils";
-import confetti from "canvas-confetti";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 // import { SocialProofNotification } from "@/components/SocialProofNotification";
@@ -28,7 +28,6 @@ import { StructuredData } from "@/components/StructuredData";
 import { CarProductSchema } from "@/components/CarProductSchema";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { calculateDays, calculateDailyPrice, formatPrice, currentDailyPrice } from "@/utils/priceCalculations";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
@@ -800,112 +799,18 @@ const Louer = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const openWhatsApp = (message: string) => {
-    if (!startDate || !endDate || !isValidRentalPeriod(format(startDate, "yyyy-MM-dd"), format(endDate, "yyyy-MM-dd"), startTime || "00:00", endTime || "00:00")) {
-      toast({ title: "Choisissez vos dates", description: RENTAL_PERIOD_MESSAGE, variant: "destructive" });
-      return false;
-    }
-    const popup = window.open(`https://wa.me/212699024526?text=${encodeURIComponent(message)}`, '_blank');
-    if (!popup) {
-      toast({ title: "WhatsApp n’a pas pu s’ouvrir", description: "Autorisez les fenêtres puis réessayez.", variant: "destructive" });
-      return false;
-    }
-    popup.opener = null;
-    return true;
+  const requestFromCatalogue = (vehicles: string[], start = startDate, end = endDate) => {
+    const dateValue = (value?: Date) => value && Number.isFinite(value.getTime()) ? format(value, 'yyyy-MM-dd') : '';
+    requestRental({ vehicles, startDate: dateValue(start), endDate: dateValue(end), city: selectedCity === 'Rabat' ? 'Rabat' : 'Casablanca', pickupId: pickupPoint?.city === selectedCity ? pickupPoint.id : '' });
   };
-
-  // Bloc dates commun aux messages WhatsApp (si l'utilisateur a saisi des dates)
-  const buildDatesBlock = (): string => {
-    if (!startDate || !endDate) return "";
-    const dateDebut = format(startDate, "dd/MM/yyyy");
-    const dateFin = format(endDate, "dd/MM/yyyy");
-    const days = calculateDays(startDate, endDate);
-    let block = `\n📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})`;
-    if (startTime && endTime) {
-      block += `\n🕙 Prise en charge ${startTime} · Retour ${endTime}`;
-    }
-    return block;
+  const handleWhatsAppClick = (carName: string) => {
+    const models = [...new Set(selectedCars.map(car => car.name))];
+    if (!models.includes(carName)) models.push(carName);
+    if (models.length > 3) { toast({ title: 'Trois modèles maximum', description: 'Retirez un modèle de votre sélection avant d’en ajouter un autre.' }); return; }
+    requestFromCatalogue(models);
   };
-
-  const fireConfetti = () => {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#ffda00', '#d0f690', '#048592']
-    });
-  };
-
-  // Prix journalier dynamique — identique à celui affiché sur les cartes
-  // (saison/événement inclus), pour que le message WhatsApp soit cohérent
-  // avec ce que le client voit à l'écran.
-  const displayedDailyPrice = (priceDisplay: string, city: string): string => {
-    const base = parseInt(priceDisplay.replace(/[^\d]/g, ''));
-    if (!base) return priceDisplay;
-    const days = calculateDays(startDate, endDate);
-    const daily = days > 0
-      ? calculateDailyPrice(base, days, { date: startDate, city })
-      : currentDailyPrice(base, city);
-    return `${daily} DH`;
-  };
-
-  // Envoi direct WhatsApp pour UN véhicule (bouton WhatsApp de la carte)
-  // Construit le message de demande pour 1 à 3 véhicules
-  const buildRequestMessage = (cars: { name: string; city: string; priceDisplay: string }[]): string => {
-    const vehiclesList = cars
-      .map(car => `🚗 ${car.name} — ${displayedDailyPrice(car.priceDisplay, car.city)}/jour (${car.city})`)
-      .join('\n');
-
-    let message = `Bonjour Benatna 👋
-
-Je souhaite louer ${cars.length > 1 ? "l'un de ces véhicules" : "ce véhicule"} :
-${vehiclesList}`;
-
-    if (selectedCity !== "all") {
-      message += `\n\n📍 Ville : ${selectedCity}`;
-    }
-    if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande : merci de confirmer la disponibilité ; livraison gratuite depuis Casablanca.";
-    if (pickupPoint && pickupPoint.city === selectedCity) message += `\nPoint de prise en charge demandé : ${pickupPoint.name} (livraison gratuite, convenue à l’avance)`;
-    message += buildDatesBlock();
-    message += `\n\n💡 Prix indicatifs — tarif final confirmé par le loueur partenaire.`;
-    message += `\nMerci de me confirmer la disponibilité.`;
-    return message;
-  };
-
-  // Envoi direct WhatsApp depuis une carte.
-  // Si des véhicules sont sélectionnés, la demande part pour TOUTE la sélection
-  // (+ la voiture cliquée si elle n'en fait pas partie).
-  const handleWhatsAppClick = (carName: string, city: string, priceDisplay: string) => {
-    fireConfetti();
-
-    const cars = selectedCars.map(c => ({ name: c.name, city: c.city, priceDisplay: c.priceDisplay }));
-    if (!cars.some(c => c.name === carName)) {
-      cars.push({ name: carName, city, priceDisplay });
-    }
-
-    if (!openWhatsApp(buildRequestMessage(cars))) return;
-
-    if (selectedCars.length > 0) {
-      toast({
-        title: "WhatsApp est ouvert",
-        description: `Envoyez le message pour transmettre votre demande pour ${cars.length} véhicule${cars.length > 1 ? 's' : ''}.`,
-      });
-      clearComparison();
-    }
-  };
-
-  // Envoi direct WhatsApp via le bouton flottant (sélection 1 à 3 véhicules)
   const handleSendSelection = () => {
-    if (selectedCars.length === 0) return;
-    fireConfetti();
-
-    if (!openWhatsApp(buildRequestMessage(selectedCars))) return;
-
-    toast({
-      title: "WhatsApp est ouvert",
-      description: "Envoyez votre message dans WhatsApp pour transmettre la demande.",
-    });
-    clearComparison();
+    if (selectedCars.length) requestFromCatalogue([...new Set(selectedCars.map(car => car.name))]);
   };
 
   const handleShowAvailability = (carName: string, city: string, priceDisplay: string) => {
@@ -922,54 +827,7 @@ ${vehiclesList}`;
     setEndDate(end);
     setShowAvailability(false);
     
-    // Envoyer automatiquement sur WhatsApp avec les dates
-    if (selectedCar) {
-      // Animation confettis
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#ffda00', '#d0f690', '#048592']
-      });
-      
-      // Toast de confirmation
-      toast({
-        title: "Dates sélectionnées !",
-        description: `Du ${format(start, "dd/MM/yyyy", { locale: fr })} au ${format(end, "dd/MM/yyyy", { locale: fr })}`,
-      });
-      
-      // Construire le message WhatsApp optimisé pour la conversion
-      setTimeout(() => {
-        const dateDebut = format(start, "dd/MM/yyyy", { locale: fr });
-        const dateFin = format(end, "dd/MM/yyyy", { locale: fr });
-        const days = calculateDays(start, end);
-        const basePrice = parseInt(selectedCar.price.replace(/[^\d]/g, ''));
-        // Utilise le moteur dynamique (saison + événement + ville)
-        const dailyPrice = calculateDailyPrice(basePrice, days, { date: start, city: selectedCar.city });
-        const totalPrice = formatPrice(dailyPrice * days);
-        const isLongTerm = days >= 90; // longue durée = 3 mois +
-
-        let message = `🚗 *DEMANDE DE RÉSERVATION*
-
-Véhicule : ${selectedCar.name}
-📍 Ville : ${selectedCar.city}
-📅 Du ${dateDebut} au ${dateFin} (${days} jour${days > 1 ? 's' : ''})
-💰 Tarif indicatif : ${dailyPrice} DH/jour
-💵 Prix total indicatif : ${totalPrice}`;
-
-        if (isLongTerm) {
-          message += `\n\n📆 Location longue durée (${Math.round(days/30)} mois) — merci de me faire une offre tarifaire adaptée.`;
-        }
-
-        if (selectedCity === "Rabat") message += "\nLivraison à Rabat sur demande, livraison gratuite convenue à l’avance depuis Casablanca.";
-        message += `\n\nJe souhaite réserver ce véhicule pour ces dates. Merci de me confirmer rapidement la disponibilité.`;
-
-        window.open(
-          `https://wa.me/212699024526?text=${encodeURIComponent(message)}`,
-          '_blank'
-        );
-      }, 500);
-    }
+    if (selectedCar) requestFromCatalogue([selectedCar.name], start, end);
   };
 
   const cities = ["Casablanca", "Rabat"];
@@ -1392,7 +1250,7 @@ Véhicule : ${selectedCar.name}
                                 }
                               }}
                               onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                              onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                              onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                               onPreview={() => setPreviewCar(car)}
                             />
                           </CarouselItem>
@@ -1427,7 +1285,7 @@ Véhicule : ${selectedCar.name}
                           }
                         }}
                         onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                        onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                        onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                         onPreview={() => setPreviewCar(car)}
                       />
                     ))}
@@ -1452,7 +1310,7 @@ Véhicule : ${selectedCar.name}
                           }
                         }}
                         onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                        onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                        onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                         onPreview={() => setPreviewCar(car)}
                       />
                     ))}
@@ -1480,7 +1338,7 @@ Véhicule : ${selectedCar.name}
                   }
                 }}
                 onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
-                onWhatsAppClick={() => handleWhatsAppClick(car.name, car.city, car.priceDisplay)}
+                onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                 onPreview={() => setPreviewCar(car)}
               />
             ))}
@@ -1525,10 +1383,7 @@ Véhicule : ${selectedCar.name}
       {/* Sticky WhatsApp CTA on Mobile */}
       <StickyCTA
         label="Contacter via WhatsApp"
-        onClick={() => {
-          const message = `Bonjour, je souhaite louer un véhicule basé à Casablanca.${selectedCity === "Rabat" ? " Livraison à Rabat sur demande : merci de confirmer la disponibilité ; livraison gratuite." : " Prise en charge à Casablanca."}`;
-          window.open(`https://wa.me/212699024526?text=${encodeURIComponent(message)}`, '_blank');
-        }}
+        onClick={() => requestFromCatalogue([])}
         icon={MessageCircle}
       />
       
@@ -1541,7 +1396,7 @@ Véhicule : ${selectedCar.name}
         isOpen={!!previewCar}
         onClose={() => setPreviewCar(null)}
         onShowAvailability={() => previewCar && handleShowAvailability(previewCar.name, previewCar.city, previewCar.priceDisplay)}
-        onWhatsAppClick={() => previewCar && handleWhatsAppClick(previewCar.name, previewCar.city, previewCar.priceDisplay)}
+        onWhatsAppClick={() => previewCar && handleWhatsAppClick(previewCar.name)}
       />
 
     </div>

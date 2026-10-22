@@ -1,3 +1,4 @@
+import { WHATSAPP_HANDOFF_EVENT } from './rentalRequest';
 import { supabase } from '@/integrations/supabase/client';
 import { analyticsEventId, appendCampaignCode, captureCampaignAttribution, getCampaignAttribution, safeAnalyticsPath, sanitizeAnalyticsProperties } from './analyticsPrivacy';
 
@@ -70,12 +71,7 @@ class AnalyticsTracker {
         this.trackCTAClick(target.getAttribute('data-analytics-cta') || 'generic', safeAnalyticsPath(window.location.pathname));
       }
     });
-    const originalOpen = window.open.bind(window);
-    window.open = ((url?: string | URL, target?: string, features?: string) => {
-      const whatsapp = whatsappUrl(url);
-      if (whatsapp) this.trackWhatsAppClick({ source_attr: 'window_open' });
-      return originalOpen(whatsapp ? withCampaign(whatsapp) : url, target, features);
-    }) as typeof window.open;
+    window.addEventListener(WHATSAPP_HANDOFF_EVENT, () => this.trackWhatsAppClick({ source_attr: 'confirmed_window_open' }));
   }
   trackWhatsAppClick(context: Record<string, unknown> = {}) {
     if (!this.activeGesture) { this.activeGesture = analyticsEventId(); window.setTimeout(() => { this.activeGesture = null; }, 0); }
