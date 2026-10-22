@@ -21,7 +21,7 @@ const CATALOG_HIGHLIGHTS = [
         name: "Renault Clio",
         brand: "Renault",
         basePrice: 400,
-        image: "/car-clio.jpg",
+        image: "/vehicle-photo-pending.svg",
         description: "Citadine confortable 5 places, boîte automatique disponible, parfaite pour un séjour touristique."
       },
       {

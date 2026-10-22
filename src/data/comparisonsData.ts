@@ -143,7 +143,7 @@ export const comparisons: Comparison[] = [
     introduction: 'Renault Clio et Dacia Sandero : deux citadines best-sellers au Maroc, partageant la même plateforme mais avec des positionnements différents. Compactes, économiques et faciles à conduire, elles dominent le marché de la location économique.',
     item1: {
       name: 'Renault Clio',
-      image: '/car-clio.jpg',
+      image: '/vehicle-photo-pending.svg',
       price: '180-250 DH/jour',
       specs: {
         'Passagers': '5 places',

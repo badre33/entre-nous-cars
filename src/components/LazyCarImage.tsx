@@ -72,7 +72,7 @@ export default function LazyCarImage({
           src={src}
           srcSet={generateSrcSet(src)}
           sizes={sizes}
-          alt={alt}
+          alt={src.includes("vehicle-photo-pending.svg") ? `${alt} : photo à remplacer, illustration neutre` : alt}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           fetchPriority={priority ? "high" : "auto"}
