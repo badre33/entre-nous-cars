@@ -17,3 +17,15 @@ Le propriétaire refuse les demandes de location sans dates confirmées, choix d
 ## Vérifications de cette PR photos
 
 Prix et formules inchangés ; identifiants des autres fiches conservés ; retrait de la photo Clio publique et de ses références actives ; illustrations provisoires sans prétendre représenter les modèles. Build/prérendu et catalogue à vérifier avant fusion. Le changement du parcours WhatsApp est un sujet séparé.
+
+## Livraison des corrections
+
+Photos : PR #30 fusionnée (9c69159371525a3f30aca2ee3abe79e7e9aee57c), production Vercel dpl_ANwoXg7ZWBmWpuxcFXpv8HqrDgUj READY. Vérifications publiées :23variantes, image provisoire accessible, ancienne photo Clio publique404.
+
+Qualification : le bouton accueil, le catalogue, les comparaisons, les fiches véhicule et les anciens liens de location passent par un formulaire commun. Dates futures valides (3jours à6mois), modèle connu et lieu précis obligatoires ; récapitulatif et case de confirmation avant ouverture WhatsApp. Les candidatures des loueurs sur /partenaires restent distinctes. Aucun changement de prix, de base de données ni de publicité.
+
+Les liens HTML de location pointent vers /louer?demande=1 : ils ne peuvent plus ouvrir directement le message vide avant chargement de JavaScript. Une garde des anciens liens et window.open protège aussi les appels résiduels. Les analytics comptent le passage effectif à WhatsApp, pas l’ouverture du formulaire ; texte et dates restent exclus des événements.
+
+Validation : build et prérendu73pages ; audit HTML sans JavaScript73pages sans lien direct de location WhatsApp ;20contrôles navigateur1280/390px ;15contrôles de mesure/confidentialité ;12contrôles de validation des demandes. Les sorties WhatsApp sont simulées et les réponses analytics isolées : aucun message réel envoyé, aucune réception sur téléphone prouvée. Le client conserve la possibilité de modifier son texte dans WhatsApp après ouverture.
+
+Retour arrière : rétablir le commit de production photos9c69159371525a3f30aca2ee3abe79e7e9aee57c. Aucune migration à annuler.

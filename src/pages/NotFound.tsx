@@ -138,7 +138,7 @@ const NotFound = () => {
                     </Button>
                   </Link>
                   <a 
-                    href="https://wa.me/212699024526" 
+                    href="/louer?demande=1"
                     target="_blank" 
                     rel="noopener noreferrer"
                   >

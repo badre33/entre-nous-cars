@@ -42,10 +42,7 @@ const VehicleDetail = () => {
 
   // Prix dynamique identique à celui affiché sur la page (saison/événement inclus)
   const detailDailyPrice = currentDailyPrice(parseInt(String(vehicle.priceFrom).replace(/[^\d]/g, '')) || Number(vehicle.priceFrom));
-  const whatsappMessage = encodeURIComponent(
-    `Bonjour, je souhaite louer le ${vehicle.name} (${detailDailyPrice} DH/jour, prix indicatif). Pouvez-vous me confirmer la disponibilité ?`
-  );
-  const whatsappLink = `https://wa.me/212699024526?text=${whatsappMessage}`;
+  const whatsappLink = `/louer?demande=1&modele=${encodeURIComponent(vehicle.name)}`;
 
   const FeatureRow = ({ label, value }: { label: string; value: boolean | string | undefined }) => {
     if (value === undefined) return null;

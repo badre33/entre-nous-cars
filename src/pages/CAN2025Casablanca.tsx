@@ -254,7 +254,7 @@ const CAN2025Casablanca = () => {
                   Voir les Véhicules Disponibles
                 </Button>
               </Link>
-              <a href={`https://wa.me/${BUSINESS_INFO.whatsapp}?text=Bonjour, je souhaite louer une voiture pour la CAN 2025 à Casablanca`} target="_blank" rel="noopener noreferrer">
+              <a href="/louer?demande=1" target="_blank" rel="noopener noreferrer">
                 <Button size="lg" variant="outline" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
                   WhatsApp
                 </Button>

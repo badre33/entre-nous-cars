@@ -273,7 +273,7 @@ export default function ComparisonPage() {
                       </Link>
                     </Button>
                     <Button asChild variant="outline" size="lg" className="flex-1">
-                      <a href={`https://wa.me/${BUSINESS_INFO.whatsapp.replace(/\s/g, '')}`} target="_blank" rel="noopener noreferrer">
+                      <a href="/louer?demande=1" target="_blank" rel="noopener noreferrer">
                         Conseil Personnalisé
                       </a>
                     </Button>
