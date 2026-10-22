@@ -1,0 +1,359 @@
+{
+  "date": "2026-10-22",
+  "cards": 24,
+  "models": 16,
+  "inventory": [
+    {
+      "name": "Renault Clio",
+      "sourcePhoto": "@/assets/car-clio.jpg",
+      "variants": [
+        {
+          "type": "Automatique",
+          "category": "Berline",
+          "basePrice": 400,
+          "brand": "Renault"
+        },
+        {
+          "type": "Manuelle",
+          "category": "Berline",
+          "basePrice": 400,
+          "brand": "Renault"
+        }
+      ],
+      "slug": "renault-clio",
+      "index": 1,
+      "vehicleURL": "https://benatna.ma/vehicule/renault-clio",
+      "imageURL": "https://benatna.ma/assets/car-clio-i2wqbeYU.jpg",
+      "photoCopy": "originaux/car-clio.jpg",
+      "sha256": "0cb37a8ea8ac8e2ca71be62efec9566e7bdb14f5f0dfd76bf2b6933d8c6b388a",
+      "status": "À remplacer — retrait demandé"
+    },
+    {
+      "name": "Dacia Duster",
+      "sourcePhoto": "@/assets/car-duster.jpg",
+      "variants": [
+        {
+          "type": "Manuelle",
+          "category": "SUV",
+          "basePrice": 380,
+          "brand": "Dacia"
+        },
+        {
+          "type": "Automatique",
+          "category": "SUV",
+          "basePrice": 380,
+          "brand": "Dacia"
+        }
+      ],
+      "slug": "dacia-duster",
+      "index": 2,
+      "vehicleURL": "https://benatna.ma/vehicule/dacia-duster",
+      "imageURL": "https://benatna.ma/assets/car-duster-C6XMLyPv.jpg",
+      "photoCopy": "originaux/car-duster.jpg",
+      "sha256": "5cabfac3a87e2ff16fc499e0c343abf50c6969165182b7465e3d3a4918a55ba0",
+      "status": "Validée par le propriétaire"
+    },
+    {
+      "name": "Volkswagen Golf",
+      "sourcePhoto": "@/assets/car-vw-golf.jpg",
+      "variants": [
+        {
+          "type": "Automatique",
+          "category": "Berline",
+          "basePrice": 650,
+          "brand": "Volkswagen"
+        },
+        {
+          "type": "Manuelle",
+          "category": "Berline",
+          "basePrice": 650,
+          "brand": "Volkswagen"
+        }
+      ],
+      "slug": "vw-golf",
+      "index": 3,
+      "vehicleURL": "https://benatna.ma/vehicule/vw-golf",
+      "imageURL": "https://benatna.ma/assets/car-vw-golf-Dj3itI30.jpg",
+      "photoCopy": "originaux/car-vw-golf.jpg",
+      "sha256": "08f74e551f558233b3225e0a3c599d848b10832334fb6fc0772e54afd7d76b11",
+      "status": "À vérifier par le propriétaire",
+      "duplicateAliasRemoved": "VW Golf automatique — même photo, prix et conditions"
+    },
+    {
+      "name": "Hyundai Tucson",
+      "sourcePhoto": "@/assets/car-hyundai-tucson.jpg",
+      "variants": [
+        {
+          "type": "Automatique",
+          "category": "SUV",
+          "basePrice": 640,
+          "brand": "Hyundai"
+        }
+      ],
+      "slug": "hyundai-tucson",
+      "index": 4,
+      "vehicleURL": "https://benatna.ma/vehicule/hyundai-tucson",
+      "imageURL": "https://benatna.ma/assets/car-hyundai-tucson-1-DMK61sGh.jpg",
+      "photoCopy": "originaux/car-hyundai-tucson.jpg",
+      "sha256": "684ecfd866a2658bc49859464527e95808f99714cb2f616708c7c05ac2e4d674",
+      "status": "À vérifier par le propriétaire"
+    },
+    {
+      "name": "Kia Sportage",
+      "sourcePhoto": "@/assets/car-kia-sportage.jpg",
+      "variants": [
+        {
+          "type": "Automatique",
+          "category": "SUV",
+          "basePrice": 640,
+          "brand": "Kia"
+        },
+        {
+          "type": "Manuelle",
+          "category": "SUV",
+          "basePrice": 640,
+          "brand": "Kia"
+        }
+      ],
+      "slug": "kia-sportage",
+      "index": 5,
+      "vehicleURL": "https://benatna.ma/vehicule/kia-sportage",
+      "imageURL": "https://benatna.ma/assets/car-kia-sportage-BvLSBLhv.jpg",
+      "photoCopy": "originaux/car-kia-sportage.jpg",
+      "sha256": "d2defe58800f4a2f02fa2f90716e0f7e06557461106bedfb0f3d9474d3a3d793",
+      "status": "Validée par le propriétaire"
+    },
+    {
+      "name": "Seat Ibiza",
+      "sourcePhoto": "@/assets/car-seat-ibiza.jpg",
+      "variants": [
+        {
+          "type": "Manuelle",
+          "category": "Citadine",
+          "basePrice": 400,
+          "brand": "Seat"
+        },
+        {
+          "type": "Automatique",
+          "category": "Citadine",
+          "basePrice": 400,
+          "brand": "Seat"
+        }
+      ],
+      "slug": "seat-ibiza",
+      "index": 6,
+      "vehicleURL": "https://benatna.ma/vehicule/seat-ibiza",
+      "imageURL": "https://benatna.ma/assets/car-seat-ibiza-CITa-ZWU.jpg",
+      "photoCopy": "originaux/car-seat-ibiza.jpg",
+      "sha256": "24f3e99912dd91215ed03bb6203204ededb578abe09ed59193e89009bea23fc9",
+      "status": "À remplacer — mauvais modèle signalé",
+      "differentDetailPhoto": "originaux/fiche-seat-ibiza-utilisait-sandero.jpg",
+      "note": "La fiche détaillée utilisait la photo de la Dacia Sandero; le catalogue une autre image."
+    },
+    {
+      "name": "Hyundai Accent",
+      "sourcePhoto": "@/assets/car-hyundai-accent.jpg",
+      "variants": [
+        {
+          "type": "Automatique",
+          "category": "Berline",
+          "basePrice": 440,
+          "brand": "Fiat"
+        },
+        {
+          "type": "Manuelle",
+          "category": "Berline",
+          "basePrice": 440,
+          "brand": "Fiat"
+        }
+      ],
+      "slug": "hyundai-accent",
+      "index": 7,
+      "vehicleURL": "https://benatna.ma/vehicule/hyundai-accent",
+      "imageURL": "https://benatna.ma/assets/car-hyundai-accent-CHXwe3Ge.jpg",
+      "photoCopy": "originaux/car-hyundai-accent.jpg",
+      "sha256": "be372050adbd79c6c1ceb260b45be398030eea6f6a4c7321ce98753199f33078",
+      "status": "Validée par le propriétaire"
+    },
+    {
+      "name": "Dacia Sandero",
+      "sourcePhoto": "@/assets/car-dacia-sandero.jpg",
+      "variants": [
+        {
+          "type": "Manuelle",
+          "category": "Citadine",
+          "basePrice": 300,
+          "brand": "Dacia"
+        }
+      ],
+      "slug": "dacia-sandero",
+      "index": 8,
+      "vehicleURL": "https://benatna.ma/vehicule/dacia-sandero",
+      "imageURL": "https://benatna.ma/assets/car-dacia-sandero-BO1kLQCy.jpg",
+      "photoCopy": "originaux/car-dacia-sandero.jpg",
+      "sha256": "b4fc911193c97deb5927742e47f2b9d4b9777c3b428f6782fa02123ed9b05e0b",
+      "status": "À vérifier par le propriétaire"
+    },
+    {
+      "name": "Dacia Logan",
+      "sourcePhoto": "@/assets/car-dacia-logan.jpg",
+      "variants": [
+        {
+          "type": "Manuelle",
+          "category": "Berline",
+          "basePrice": 300,
+          "brand": "Dacia"
+        }
+      ],
+      "slug": "dacia-logan",
+      "index": 9,
+      "vehicleURL": "https://benatna.ma/vehicule/dacia-logan",
+      "imageURL": "https://benatna.ma/assets/car-dacia-logan-B0cw87Dv.jpg",
+      "photoCopy": "originaux/car-dacia-logan.jpg",
+      "sha256": "dbf74d313d10cc6ad412229dc7696b851f9e438affae59324c00407b4a84e4b8",
+      "status": "À remplacer — mauvais modèle signalé"
+    },
+    {
+      "name": "Dacia Sandero Stepway",
+      "sourcePhoto": "@/assets/car-sandero-stepway.jpg",
+      "variants": [
+        {
+          "type": "Manuelle",
+          "category": "Citadine",
+          "basePrice": 300,
+          "brand": "Dacia"
+        }
+      ],
+      "slug": "dacia-sandero-stepway",
+      "index": 10,
+      "vehicleURL": "https://benatna.ma/vehicule/dacia-sandero-stepway",
+      "imageURL": "https://benatna.ma/assets/car-sandero-stepway-Whq85aVW.jpg",
+      "photoCopy": "originaux/car-sandero-stepway.jpg",
+      "sha256": "043dbd9d5507197eb6d928c54ab3e382b6a80378651d225d5464ecc7df3c4190",
+      "status": "À vérifier par le propriétaire"
+    },
+    {
+      "name": "Dacia Jogger",
+      "sourcePhoto": "@/assets/car-dacia-jogger.jpg",
+      "variants": [
+        {
+          "type": "Automatique",
+          "category": "SUV",
+          "basePrice": 380,
+          "brand": "Peugeot"
+        },
+        {
+          "type": "Manuelle",
+          "category": "Monospace",
+          "basePrice": 380,
+          "brand": "Dacia"
+        }
+      ],
+      "slug": "dacia-jogger",
+      "index": 11,
+      "vehicleURL": "https://benatna.ma/vehicule/dacia-jogger",
+      "imageURL": "https://benatna.ma/assets/car-dacia-jogger-DHkjb51U.jpg",
+      "photoCopy": "originaux/car-dacia-jogger.jpg",
+      "sha256": "c76339ae642ff4e45090733db5b41a124482de00b83d3c99ddb8b83440959e42",
+      "status": "À vérifier par le propriétaire"
+    },
+    {
+      "name": "Hyundai Bayon",
+      "sourcePhoto": "@/assets/car-hyundai-bayon.jpg",
+      "variants": [
+        {
+          "type": "Automatique",
+          "category": "SUV",
+          "basePrice": 560,
+          "brand": "Hyundai"
+        }
+      ],
+      "slug": "hyundai-bayon",
+      "index": 12,
+      "vehicleURL": "https://benatna.ma/vehicule/hyundai-bayon",
+      "imageURL": "https://benatna.ma/assets/car-hyundai-bayon-Hy5GBsCU.jpg",
+      "photoCopy": "originaux/car-hyundai-bayon.jpg",
+      "sha256": "a60b54e42c88ee208ba9bec6a9411f97a90aebfbc3032a891c2a73d894342cc2",
+      "status": "À vérifier par le propriétaire"
+    },
+    {
+      "name": "Opel Corsa",
+      "sourcePhoto": "@/assets/car-opel-corsa.jpg",
+      "variants": [
+        {
+          "type": "Manuelle",
+          "category": "Citadine",
+          "basePrice": 400,
+          "brand": "Opel"
+        }
+      ],
+      "slug": "opel-corsa",
+      "index": 13,
+      "vehicleURL": "https://benatna.ma/vehicule/opel-corsa",
+      "imageURL": "https://benatna.ma/assets/car-opel-corsa-BbtBOgF5.jpg",
+      "photoCopy": "originaux/car-opel-corsa.jpg",
+      "sha256": "27e9c197c7335a93fef6dd0375603904fc533e79b4a3f391f76e5b5475412c99",
+      "status": "À vérifier par le propriétaire"
+    },
+    {
+      "name": "Peugeot 208",
+      "sourcePhoto": "@/assets/car-peugeot-208.jpg",
+      "variants": [
+        {
+          "type": "Manuelle",
+          "category": "Citadine",
+          "basePrice": 400,
+          "brand": "Peugeot"
+        }
+      ],
+      "slug": "peugeot-208",
+      "index": 14,
+      "vehicleURL": "https://benatna.ma/vehicule/peugeot-208",
+      "imageURL": "https://benatna.ma/assets/car-peugeot-208-DTN_tjWM.jpg",
+      "photoCopy": "originaux/car-peugeot-208.jpg",
+      "sha256": "447ee81777225ff3f69ddc8482d32346643cf7f615080f37b397e2c6a00c1c09",
+      "status": "À vérifier par le propriétaire"
+    },
+    {
+      "name": "Hyundai i20",
+      "sourcePhoto": "@/assets/car-hyundai-i20.jpg",
+      "variants": [
+        {
+          "type": "Manuelle",
+          "category": "Citadine",
+          "basePrice": 400,
+          "brand": "Hyundai"
+        }
+      ],
+      "slug": "hyundai-i20",
+      "index": 15,
+      "vehicleURL": "https://benatna.ma/vehicule/hyundai-i20",
+      "imageURL": "https://benatna.ma/assets/car-hyundai-i20-BGofVkd3.jpg",
+      "photoCopy": "originaux/car-hyundai-i20.jpg",
+      "sha256": "de6a6bd004ed402ed73f8176f2164ef6d43a4e3ea4aad8276942cef3b704d5e3",
+      "status": "À vérifier par le propriétaire"
+    },
+    {
+      "name": "Volkswagen T-Roc",
+      "sourcePhoto": "@/assets/car-vw-troc.jpg",
+      "variants": [
+        {
+          "type": "Automatique",
+          "category": "SUV Compact",
+          "basePrice": 650,
+          "brand": "Volkswagen"
+        }
+      ],
+      "slug": "vw-t-roc",
+      "index": 16,
+      "vehicleURL": "https://benatna.ma/vehicule/vw-t-roc",
+      "imageURL": "https://benatna.ma/assets/car-vw-troc-JU_I1FyS.jpg",
+      "photoCopy": "originaux/car-vw-troc.jpg",
+      "sha256": "e006f58370b11dc36e18d29ec389210fc9278442f140106dbd791c9a03e6dd92",
+      "status": "À vérifier par le propriétaire"
+    }
+  ],
+  "cardsBefore": 24,
+  "cardsAfter": 23,
+  "scope": "Modèles visibles du catalogue touristique et fiches détaillées correspondantes. Les fichiers historiques de modèles retirés ne sont pas des véhicules affichables."
+}

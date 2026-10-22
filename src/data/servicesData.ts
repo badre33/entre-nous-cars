@@ -43,7 +43,7 @@ export const services: Service[] = [
     shortDescription: 'Dès 21 ans avec supplément raisonnable de 50 DH/jour. Assurance adaptée incluse.',
     features: ['Dès 21 ans', '+50 DH/jour seulement', 'Assurance incluse', 'Caution réduite 3000 DH'],
     priceFrom: '250 DH',
-    image: '/car-clio.jpg',
+    image: '/vehicle-photo-pending.svg',
     popular: true,
   },
   {

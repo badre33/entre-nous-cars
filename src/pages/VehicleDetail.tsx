@@ -85,7 +85,7 @@ const VehicleDetail = () => {
             <div className="relative rounded-2xl overflow-hidden bg-muted aspect-[4/3] mb-3">
               <img
                 src={vehicle.photos[currentPhoto]}
-                alt={`${vehicle.name} - photo ${currentPhoto + 1}`}
+                alt={vehicle.photos[currentPhoto].includes("vehicle-photo-pending.svg") ? `${vehicle.name} : photo à remplacer, illustration neutre` : `${vehicle.name} - photo ${currentPhoto + 1}`}
                 className="w-full h-full object-cover transition-opacity duration-300"
                 loading="lazy"
               />

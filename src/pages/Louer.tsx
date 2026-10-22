@@ -42,7 +42,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import SwipeableCarCard from "@/components/SwipeableCarCard";
 import CarPreviewDialog from "@/components/CarPreviewDialog";
 import heroImage from "@/assets/hero-rent.jpg";
-import carClio from "@/assets/car-clio.jpg";
+const carClio = "/vehicle-photo-pending.svg";
 import carCorolla from "@/assets/car-corolla.jpg";
 import carDuster from "@/assets/car-duster.jpg";
 import carPeugeot208 from "@/assets/car-peugeot-208.jpg";
@@ -55,7 +55,7 @@ import carBmwX3 from "@/assets/car-bmw-x3.jpg";
 import carCitroenC3 from "@/assets/car-citroen-c3.jpg";
 import carFordFocus from "@/assets/car-ford-focus.jpg";
 import carNissanQashqai from "@/assets/car-nissan-qashqai.jpg";
-import carSeatIbiza from "@/assets/car-seat-ibiza.jpg";
+const carSeatIbiza = "/vehicle-photo-pending.svg";
 import carFiatTipo from "@/assets/car-fiat-tipo.jpg";
 import carOpelCorsa from "@/assets/car-opel-corsa.jpg";
 import carOpelAstra from "@/assets/car-opel-astra.jpg";
@@ -76,7 +76,7 @@ import carRenaultCaptur from "@/assets/car-renault-captur.jpg";
 import carPeugeot3008 from "@/assets/car-peugeot-3008.jpg";
 import carPeugeot308 from "@/assets/car-peugeot-308.jpg";
 import carDaciaSandero from "@/assets/car-dacia-sandero.jpg";
-import carDaciaLogan from "@/assets/car-dacia-logan.jpg";
+const carDaciaLogan = "/vehicle-photo-pending.svg";
 import carVwTiguan from "@/assets/car-vw-tiguan.jpg";
 import carVwPolo from "@/assets/car-vw-polo.jpg";
 import carHyundaiI20 from "@/assets/car-hyundai-i20.jpg";
@@ -702,7 +702,9 @@ const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
     id: cityIdx * 100 + modelIdx + 1,
     city,
   }))
-);
+).filter((car, index, catalogue) => catalogue.findIndex(candidate =>
+  candidate.name.replace(/^VW /, "Volkswagen ") === car.name.replace(/^VW /, "Volkswagen ") && candidate.type === car.type
+) === index);
 
 const LOUER_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {

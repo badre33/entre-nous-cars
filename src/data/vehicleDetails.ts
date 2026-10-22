@@ -17,8 +17,8 @@ import carAudiA3_2 from "@/assets/car-audi-a3-2.jpg";
 // Fallback single photos for models without multi-photo set
 import carDuster from "@/assets/car-duster.jpg";
 import carSandero from "@/assets/car-dacia-sandero.jpg";
-import carLogan from "@/assets/car-dacia-logan.jpg";
-import carClio from "@/assets/car-clio.jpg";
+const carLogan = "/vehicle-photo-pending.svg";
+const carClio = "/vehicle-photo-pending.svg";
 import carAccent from "@/assets/car-hyundai-accent.jpg";
 import carSportage from "@/assets/car-kia-sportage.jpg";
 import carEvoque from "@/assets/car-range-rover-evoque.jpg";
@@ -619,7 +619,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   "seat-ibiza": {
     slug: "seat-ibiza", name: "Seat Ibiza", brand: "Seat",
     category: "Citadine Sport", priceFrom: 400, priceDisplay: "400 MAD/jour",
-    photos: [carSandero],
+    photos: ["/vehicle-photo-pending.svg"],
     description: "La Seat Ibiza combine design espagnol et fiabilité Volkswagen Group. Citadine sport accessible.",
     options: { transmission: "Manuelle/DSG", seats: 5, doors: 5, luggage: "355L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
     highlights: ["Design espagnol", "Base VW", "Sport accessible"], perfectFor: ["Jeunes", "Couples", "Tourisme"]
