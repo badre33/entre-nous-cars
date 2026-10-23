@@ -268,6 +268,7 @@ export default function SwipeableCarCard({
           <div className="mb-2">
             <h3 className="text-sm font-semibold truncate mb-0.5">{car.name}</h3>
             <p className="text-xs text-muted-foreground truncate">{car.category}</p>
+            <p className="text-xs font-medium">{car.type}</p>
           </div>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-1 text-xs text-muted-foreground">
