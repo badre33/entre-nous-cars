@@ -35,7 +35,6 @@ import carCorsa from "@/assets/car-opel-corsa.jpg";
 import carPeugeot208 from "@/assets/car-peugeot-208.jpg";
 import carJogger from "@/assets/car-dacia-jogger.jpg";
 import carStepway from "@/assets/car-sandero-stepway.jpg";
-import carBayon from "@/assets/car-hyundai-bayon.jpg";
 import carAudiA4 from "@/assets/car-audi-a4.jpg";
 import carAudiA6 from "@/assets/car-audi-a6.jpg";
 import carAudiQ3 from "@/assets/car-audi-q3.jpg";
@@ -423,14 +422,6 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     description: "La Hyundai Accent offre le meilleur rapport confort/prix de sa catégorie. Berline moderne avec garantie 5 ans.",
     options: { transmission: "Automatique", seats: 5, doors: 4, luggage: "460L", fuel: "Essence", consumption: "6.0L/100km", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true, keyless: true },
     highlights: ["Garantie 5 ans", "Boîte auto incluse", "Confort moderne"], perfectFor: ["MRE retour", "Visites multi-villes", "Première location"]
-  },
-  "hyundai-bayon": {
-    slug: "hyundai-bayon", name: "Hyundai Bayon", brand: "Hyundai",
-    category: "Crossover Urbain", priceFrom: 560, priceDisplay: "560 MAD/jour",
-    photos: [carBayon],
-    description: "Le Hyundai Bayon est le crossover urbain qui mixe design SUV et agilité citadine.",
-    options: { transmission: "Manuelle / Auto", seats: 5, doors: 5, luggage: "411L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true },
-    highlights: ["Design SUV compact", "Tech avancée", "Conso modeste"], perfectFor: ["Couples", "Tourisme urbain", "Trajets courts"]
   },
   "kia-sportage": {
     slug: "kia-sportage", name: "Kia Sportage", brand: "Kia",
