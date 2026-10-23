@@ -13,6 +13,8 @@ try {
   const cards=page.locator('#catalogue-results h3');
   await page.getByText('22 véhicules affichés sur',{exact:false}).waitFor();
   assert.equal(await cards.count(),22,'no duplicate hidden catalogue');
+  assert.match(await cards.nth(0).locator('..').innerText(), /Automatique/);
+  assert.match(await cards.nth(1).locator('..').innerText(), /Manuelle/);
   const names=await cards.allTextContents();assert(!names.includes('Hyundai Bayon'));assert(names.includes('Hyundai Tucson'));assert.equal(new Set(names).size,15);
   const total=Number((await page.locator('#catalogue-results h2').innerText()).match(/^\d+/)[0]);
   const nextCount=Math.min(48,total);
