@@ -790,13 +790,11 @@ const Louer = () => {
 
   const requestFromCatalogue = (vehicles: string[], start = startDate, end = endDate) => {
     const dateValue = (value?: Date) => value && Number.isFinite(value.getTime()) ? format(value, 'yyyy-MM-dd') : '';
-    requestRental({ vehicles, startDate: dateValue(start), endDate: dateValue(end), city: selectedCity === 'Rabat' ? 'Rabat' : 'Casablanca', pickupId: pickupPoint?.city === selectedCity ? pickupPoint.id : '' });
+    const selected = [...new Set(selectedCars.map(car => car.name))];
+    requestRental({ vehicles: selected.length ? selected : vehicles, startDate: dateValue(start), endDate: dateValue(end), city: selectedCity === 'Rabat' ? 'Rabat' : 'Casablanca', pickupId: pickupPoint?.city === selectedCity ? pickupPoint.id : '' });
   };
   const handleWhatsAppClick = (carName: string) => {
-    const models = [...new Set(selectedCars.map(car => car.name))];
-    if (!models.includes(carName)) models.push(carName);
-    if (models.length > 3) { toast({ title: 'Trois modèles maximum', description: 'Retirez un modèle de votre sélection avant d’en ajouter un autre.' }); return; }
-    requestFromCatalogue(models);
+    requestFromCatalogue([carName]);
   };
   const handleSendSelection = () => {
     if (selectedCars.length) requestFromCatalogue([...new Set(selectedCars.map(car => car.name))]);

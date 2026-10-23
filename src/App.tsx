@@ -278,6 +278,7 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
           <BrowserRouter>
+            <ComparisonProvider>
             <RentalRequestDialog />
             <CanonicalUrl />
             <OrganizationSchema />
@@ -286,7 +287,6 @@ const App = () => {
             <AnalyticsTrackerComponent />
             <LanguageProvider>
               <SeoDefaults />
-              <ComparisonProvider>
                 <Toaster />
                 <Sonner />
                 <ScrollToTop />
@@ -411,8 +411,8 @@ const App = () => {
                 </Suspense>
                 <BottomNavigation />
                 <DeferredComponents />
-              </ComparisonProvider>
             </LanguageProvider>
+            </ComparisonProvider>
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>

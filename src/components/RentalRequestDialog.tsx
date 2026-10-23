@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useComparison } from '@/contexts/ComparisonContext';
+import { useEffect, useRef, useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { pickupPoints } from '@/data/pickupPoints';
@@ -7,6 +8,9 @@ import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, no
 const empty = (): ConfirmedRental => ({ vehicles: [], startDate: '', endDate: '', city: 'Casablanca', pickupId: '', otherPlace: '' });
 const field = 'w-full rounded-md border border-input bg-background px-3 py-2 text-base';
 export default function RentalRequestDialog() {
+  const { selectedCars } = useComparison();
+  const selectionRef = useRef<string[]>([]);
+  useEffect(() => { selectionRef.current = [...new Set(selectedCars.map(car => normalizeVehicleName(car.name)))]; }, [selectedCars]);
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState<ConfirmedRental>(empty);
   const [review, setReview] = useState(false);
@@ -16,7 +20,7 @@ export default function RentalRequestDialog() {
     const show = (draft: RentalDraft) => {
       const slug = window.location.pathname.match(/^\/vehicule\/([^/]+)$/)?.[1];
       const inferred = slug ? rentalVehicleSlugs[slug] : undefined;
-      const vehicles = (draft.vehicles?.length ? draft.vehicles : inferred ? [inferred] : []).map(normalizeVehicleName).filter(n => rentalVehicleNames.includes(n as typeof rentalVehicleNames[number]));
+      const vehicles = (selectionRef.current.length ? selectionRef.current : draft.vehicles?.length ? draft.vehicles : inferred ? [inferred] : []).map(normalizeVehicleName).filter(n => rentalVehicleNames.includes(n as typeof rentalVehicleNames[number]));
       setValue({ ...empty(), ...draft, vehicles, startDate: draft.startDate || '', endDate: draft.endDate || '', pickupId: draft.pickupId || '', otherPlace: '' });
       setError(''); setReview(false); setConfirmed(false); setOpen(true);
     };
@@ -35,16 +39,26 @@ export default function RentalRequestDialog() {
     if (openConfirmedRental(value)) { setOpen(false); setValue(empty()); }
     else setError('WhatsApp n’a pas pu s’ouvrir. Autorisez les fenêtres puis réessayez. Votre demande est conservée.');
   };
-  const multiple = value.vehicles.length > 1;
+  const vehicleFields = value.vehicles.length ? value.vehicles : [''];
   return <Dialog open={open} onOpenChange={next => { setOpen(next); if (!next) { setValue(empty()); setError(''); } }}>
     <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto">
       <DialogHeader><DialogTitle>{review ? 'Vérifiez votre demande' : 'Préparer ma demande de location'}</DialogTitle><DialogDescription>Renseignez les dates, le véhicule et le lieu de prise en charge avant d’ouvrir WhatsApp. Le loueur confirmera ensuite la disponibilité et le tarif.</DialogDescription></DialogHeader>
       <form onSubmit={submit} className="space-y-4">
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
         {!review ? <>
-          <label className="block space-y-1"><span>Véhicule souhaité</span><select required aria-label="Véhicule souhaité" className={field} value={value.vehicles.join('|')} onChange={e => change({ vehicles: e.target.value ? e.target.value.split('|') : [] })}>
-            <option value="">Choisir un modèle</option>{multiple && <option value={value.vehicles.join('|')}>{value.vehicles.join(' / ')}</option>}{rentalVehicleNames.map(name => <option key={name} value={name}>{name}</option>)}
-          </select></label>
+          <fieldset className="space-y-3">
+            <legend className="font-medium">Véhicules souhaités — 3 maximum</legend>
+            {vehicleFields.map((vehicle, index) => <div key={index} className="flex items-end gap-2">
+              <label className="block flex-1 min-w-0 space-y-1"><span>Véhicule {index + 1}</span>
+                <select required aria-label={index === 0 ? 'Véhicule souhaité' : `Véhicule souhaité ${index + 1}`} className={field} value={vehicle} onChange={e => { const vehicles = [...value.vehicles]; vehicles[index] = e.target.value; change({ vehicles }); }}>
+                  <option value="">Choisir un modèle</option>
+                  {rentalVehicleNames.map(name => <option key={name} value={name} disabled={name !== vehicle && value.vehicles.includes(name)}>{name}</option>)}
+                </select>
+              </label>
+              {vehicleFields.length > 1 && <Button type="button" variant="outline" aria-label={`Retirer le véhicule ${index + 1}`} onClick={() => change({ vehicles: value.vehicles.filter((_, i) => i !== index) })}>Retirer</Button>}
+            </div>)}
+            {vehicleFields.length < 3 && <Button type="button" variant="outline" disabled={!value.vehicles.length || value.vehicles.some(v => !v)} onClick={() => change({ vehicles: [...value.vehicles, ''] })}>Ajouter un véhicule (3 maximum)</Button>}
+          </fieldset>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"><label className="block space-y-1"><span>Date de départ</span><input required type="date" aria-label="Date de départ de la demande" min={localToday()} className={field} value={value.startDate} onChange={e => change({ startDate: e.target.value })} /></label><label className="block space-y-1"><span>Date de retour</span><input required type="date" aria-label="Date de retour de la demande" min={value.startDate || localToday()} className={field} value={value.endDate} onChange={e => change({ endDate: e.target.value })} /></label></div>
           <p className="text-sm text-muted-foreground">De 3 jours minimum à 6 mois maximum.</p>
           <label className="block space-y-1"><span>Ville de prise en charge</span><select required aria-label="Ville de prise en charge" className={field} value={value.city} onChange={e => change({ city: e.target.value as ConfirmedRental['city'], pickupId: '', otherPlace: '' })}><option>Casablanca</option><option>Rabat</option></select></label>
