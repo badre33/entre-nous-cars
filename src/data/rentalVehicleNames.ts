@@ -13,7 +13,18 @@ export const rentalVehicleNames = [
   "Opel Corsa",
   "Peugeot 208",
   "Hyundai i20",
-  "Volkswagen T-Roc"
+  "Volkswagen T-Roc",
+  "Audi A3",
+  "Mercedes Classe A",
+  "Range Rover Evoque",
+  "Range Rover Sport",
+  "Mercedes CLA",
+  "Audi Q3 Sportback",
+  "Mercedes GLA",
+  "Volkswagen Touareg",
+  "Cupra Formentor",
+  "Mercedes Classe C",
+  "Porsche Macan",
 ] as const;
 
 export const rentalVehicleSlugs: Record<string, string> = {
@@ -31,5 +42,16 @@ export const rentalVehicleSlugs: Record<string, string> = {
   "opel-corsa": "Opel Corsa",
   "peugeot-208": "Peugeot 208",
   "hyundai-i20": "Hyundai i20",
-  "vw-t-roc": "Volkswagen T-Roc"
+  "vw-t-roc": "Volkswagen T-Roc",
+  "audi-a3": "Audi A3",
+  "mercedes-classe-a": "Mercedes Classe A",
+  "range-rover-evoque": "Range Rover Evoque",
+  "range-rover-sport": "Range Rover Sport",
+  "mercedes-cla": "Mercedes CLA",
+  "audi-q3-sportback": "Audi Q3 Sportback",
+  "mercedes-gla": "Mercedes GLA",
+  "vw-touareg": "Volkswagen Touareg",
+  "cupra-formentor": "Cupra Formentor",
+  "mercedes-classe-c": "Mercedes Classe C",
+  "porsche-macan": "Porsche Macan",
 };

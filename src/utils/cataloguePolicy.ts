@@ -1,3 +1,6 @@
-// Indicative tourist-car catalogue; luxury and commercial transport are excluded.
-export const isClassicTourismCar = (name: string) =>
-  !/touareg|mercedes|\bbmw\b|\baudi\b|porsche|maserati|jaguar|range rover|land rover|lexus|volvo|bentley|ferrari|lamborghini|staria|vito|multivan/i.test(name);
+import { rentalVehicleNames } from "@/data/rentalVehicleNames";
+import { approvedPremiumVehicles } from "@/data/premiumVehicles";
+const allowedNames: ReadonlySet<string> = new Set(rentalVehicleNames);
+const premiumNames: ReadonlySet<string> = new Set(approvedPremiumVehicles.map(model => model.name));
+export const isClassicTourismCar = (name: string) => allowedNames.has(name.replace(/^VW /, "Volkswagen "));
+export const isPremiumTourismCar = (name: string) => premiumNames.has(name);

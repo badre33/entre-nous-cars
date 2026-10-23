@@ -63,6 +63,10 @@ const VehicleDetail = () => {
       <Helmet>
         <title>{vehicle.name} - Location {vehicle.priceDisplay} | Benatna</title>
         <meta name="description" content={vehicle.description.substring(0, 155)} />
+        <link rel="canonical" href={`https://benatna.ma/vehicule/${vehicle.slug}`} />
+        <meta property="og:title" content={`${vehicle.name} à Casablanca | Benatna`} />
+        <meta property="og:description" content={vehicle.description.substring(0, 155)} />
+        <meta property="og:image" content={vehicle.photos[0].startsWith('/') ? `https://benatna.ma${vehicle.photos[0]}` : vehicle.photos[0]} />
       </Helmet>
 
       <div className="container mx-auto px-4 py-6 max-w-6xl">

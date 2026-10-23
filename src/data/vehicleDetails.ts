@@ -1,17 +1,18 @@
+import { approvedPremiumVehicles } from "./premiumVehicles";
 // Vehicle details data — multi-photo + options for /vehicule/:slug pages
-import carRangeRoverSport1 from "@/assets/car-range-rover-sport-1.jpg";
-import carRangeRoverSport2 from "@/assets/car-range-rover-sport-2.jpg";
-import carRangeRoverSport3 from "@/assets/car-range-rover-sport-3.jpg";
-import carVwTouareg1 from "@/assets/car-vw-touareg-1.jpg";
-import carVwTouareg2 from "@/assets/car-vw-touareg-2.jpg";
-import carVwTouareg3 from "@/assets/car-vw-touareg-3.jpg";
-import carMercedesC1 from "@/assets/car-mercedes-c-1.jpg";
-import carMercedesC2 from "@/assets/car-mercedes-c-2.jpg";
-import carMercedesC3 from "@/assets/car-mercedes-c-3.jpg";
-import carCupraFormentor1 from "@/assets/car-cupra-formentor-1.jpg";
-import carCupraFormentor2 from "@/assets/car-cupra-formentor-2.jpg";
-import carAudiA3_1 from "@/assets/car-audi-a3-1.jpg";
-import carAudiA3_2 from "@/assets/car-audi-a3-2.jpg";
+const carRangeRoverSport1 = "/vehicles/benatna/range-rover-sport.webp";
+const carRangeRoverSport2 = "/vehicles/benatna/range-rover-sport.webp";
+const carRangeRoverSport3 = "/vehicles/benatna/range-rover-sport.webp";
+const carVwTouareg1 = "/vehicles/benatna/vw-touareg.webp";
+const carVwTouareg2 = "/vehicles/benatna/vw-touareg.webp";
+const carVwTouareg3 = "/vehicles/benatna/vw-touareg.webp";
+const carMercedesC1 = "/vehicles/benatna/mercedes-classe-c.webp";
+const carMercedesC2 = "/vehicles/benatna/mercedes-classe-c.webp";
+const carMercedesC3 = "/vehicles/benatna/mercedes-classe-c.webp";
+const carCupraFormentor1 = "/vehicles/benatna/cupra-formentor.webp";
+const carCupraFormentor2 = "/vehicles/benatna/cupra-formentor.webp";
+const carAudiA3_1 = "/vehicles/benatna/audi-a3.webp";
+const carAudiA3_2 = "/vehicles/benatna/audi-a3.webp";
 // Fallback single photos for models without multi-photo set
 const carDuster = "/vehicles/benatna/dacia-duster.webp";
 const carSandero = "/vehicles/benatna/dacia-sandero.webp";
@@ -19,14 +20,14 @@ const carLogan = "/vehicles/benatna/dacia-logan.webp";
 const carClio = "/vehicles/benatna/renault-clio.webp";
 const carAccent = "/vehicles/benatna/hyundai-accent.webp";
 const carSportage = "/vehicles/benatna/kia-sportage.webp";
-import carEvoque from "@/assets/car-range-rover-evoque.jpg";
-import carMercedesA from "@/assets/car-mercedes-a.jpg";
+const carEvoque = "/vehicles/benatna/range-rover-evoque.webp";
+const carMercedesA = "/vehicles/benatna/mercedes-classe-a.webp";
 import carMercedesE from "@/assets/car-mercedes-e.jpg";
 import carMercedesG from "@/assets/car-mercedes-g.jpg";
 import carBmw5 from "@/assets/car-bmw-5.jpg";
 import carBmwX5 from "@/assets/car-bmw-x5.jpg";
 import carAudiQ8 from "@/assets/car-audi-q8.jpg";
-import carPorscheMacan from "@/assets/car-porsche-macan.jpg";
+const carPorscheMacan = "/vehicles/benatna/porsche-macan.webp";
 import carPorscheCayenne from "@/assets/car-porsche-cayenne.jpg";
 const carVwGolf = "/vehicles/benatna/volkswagen-golf.webp";
 const carCorsa = "/vehicles/benatna/opel-corsa.webp";
@@ -38,8 +39,8 @@ import carAudiA6 from "@/assets/car-audi-a6.jpg";
 import carAudiQ3 from "@/assets/car-audi-q3.jpg";
 import carAudiQ5 from "@/assets/car-audi-q5.jpg";
 import carAudiQ7 from "@/assets/car-audi-q7.jpg";
-import carMercedesCLA from "@/assets/car-mercedes-cla.jpg";
-import carMercedesGLA from "@/assets/car-mercedes-gla.jpg";
+const carMercedesCLA = "/vehicles/benatna/mercedes-cla.webp";
+const carMercedesGLA = "/vehicles/benatna/mercedes-gla.webp";
 import carMercedesGLB from "@/assets/car-mercedes-glb.jpg";
 import carMercedesGLC from "@/assets/car-mercedes-glc.jpg";
 import carMercedesGLE from "@/assets/car-mercedes-gle.jpg";
@@ -640,6 +641,19 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   }
 
 };
+
+// Selected premium cars use one approved illustration and a consistent indicative price.
+for (const model of approvedPremiumVehicles) {
+  vehicleDetails[model.slug] = {
+    slug: model.slug, name: model.name, brand: model.brand,
+    category: /Sportback|Rover|GLA|Touareg|Formentor|Macan/.test(model.name) ? "SUV Premium" : "Berline Premium",
+    priceFrom: model.price, priceDisplay: `${model.price} MAD/jour`, photos: [model.image],
+    description: `${model.name} pour vos séjours au départ de Casablanca. Livraison à Rabat sur demande. Location de trois jours à six mois. Illustration du modèle : disponibilité, version, couleur et équipements à confirmer avec le loueur. Le tarif affiché est indicatif et varie selon les dates, la durée et les conditions du loueur. Pour préparer votre demande, choisissez vos dates, ce modèle et votre lieu précis de prise en charge. Vous vérifiez ensuite le récapitulatif et confirmez ces informations avant d’ouvrir WhatsApp. La livraison est gratuite aux points desservis de Casablanca et convenue à l’avance ; une livraison à Rabat peut être étudiée depuis Casablanca. Aucun paiement en ligne : le loueur confirme la disponibilité, le tarif final et ses conditions avant votre accord.`,
+    options: { transmission: "Automatique", seats: 5, doors: 5, luggage: "Selon version", fuel: "Selon version", airConditioning: true, bluetooth: true },
+    highlights: ["Boîte automatique", "Séjours touristiques", "Disponibilité sur demande"],
+    perfectFor: ["MRE", "Touristes", "Vacances et séjours personnels"]
+  };
+}
 
 export const getVehicleDetail = (slug: string): VehicleDetail | undefined => {
   return vehicleDetails[slug];
