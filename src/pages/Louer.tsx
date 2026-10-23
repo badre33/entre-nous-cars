@@ -148,7 +148,6 @@ import carDaciaJogger from "@/assets/car-dacia-jogger.jpg";
 import carToyotaCHR from "@/assets/car-toyota-chr.jpg";
 import carNissanXTrail from "@/assets/car-nissan-xtrail.jpg";
 import carFordPuma from "@/assets/car-ford-puma.jpg";
-import carHyundaiBayon from "@/assets/car-hyundai-bayon.jpg";
 import carKiaNiro from "@/assets/car-kia-niro.jpg";
 import carMazda2 from "@/assets/car-mazda-2.jpg";
 import carCitroenEC4 from "@/assets/car-citroen-ec4.jpg";
@@ -546,16 +545,6 @@ const carModels = [
     price: 380,
     priceDisplay: "380 MAD",
     conditions: ["Caution: 5200 MAD", "340 km/jour inclus", "Âge minimum: 23 ans"]
-  },
-  {
-    image: carHyundaiBayon,
-    name: "Hyundai Bayon",
-    brand: "Hyundai",
-    type: "Automatique",
-    category: "SUV",
-    price: 560,
-    priceDisplay: "560 MAD",
-    conditions: ["Caution: 6100 MAD", "380 km/jour inclus", "Âge minimum: 24 ans"]
   },
   {
     image: carPorscheMacan,

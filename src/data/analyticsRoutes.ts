@@ -144,7 +144,6 @@ export const analyticsPaths = new Set([
   "/vehicule/dacia-sandero",
   "/vehicule/dacia-sandero-stepway",
   "/vehicule/hyundai-accent",
-  "/vehicule/hyundai-bayon",
   "/vehicule/hyundai-i20",
   "/vehicule/hyundai-santa-fe",
   "/vehicule/hyundai-staria",
