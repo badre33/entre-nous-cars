@@ -1,0 +1,122 @@
+[
+  {
+    "model": "Renault Clio",
+    "source": "renault-clio-5-phase2-bleu-benatna-v1.png",
+    "url": "/vehicles/benatna/renault-clio.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 342236
+  },
+  {
+    "model": "Dacia Duster",
+    "source": "dacia-duster-iii-gris-benatna-v1.png",
+    "url": "/vehicles/benatna/dacia-duster.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 319308
+  },
+  {
+    "model": "Volkswagen Golf",
+    "source": "volkswagen-golf-8-fl-noire-benatna-v1.png",
+    "url": "/vehicles/benatna/volkswagen-golf.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 331436
+  },
+  {
+    "model": "Hyundai Tucson",
+    "source": "hyundai-tucson-restyle-blanc-benatna-v1.png",
+    "url": "/vehicles/benatna/hyundai-tucson.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 324338
+  },
+  {
+    "model": "Kia Sportage",
+    "source": "kia-sportage-restyle-argent-benatna-v1.png",
+    "url": "/vehicles/benatna/kia-sportage.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 334640
+  },
+  {
+    "model": "Seat Ibiza",
+    "source": "seat-ibiza-rouge-benatna-v1.png",
+    "url": "/vehicles/benatna/seat-ibiza.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 324286
+  },
+  {
+    "model": "Hyundai Accent",
+    "source": "hyundai-accent-bleue-benatna-v1.png",
+    "url": "/vehicles/benatna/hyundai-accent.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 326100
+  },
+  {
+    "model": "Dacia Sandero",
+    "source": "dacia-sandero-blanche-benatna-v2-art-deco.png",
+    "url": "/vehicles/benatna/dacia-sandero.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 307216
+  },
+  {
+    "model": "Dacia Logan",
+    "source": "dacia-logan-grise-benatna-v1.png",
+    "url": "/vehicles/benatna/dacia-logan.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 337942
+  },
+  {
+    "model": "Dacia Sandero Stepway",
+    "source": "dacia-stepway-kaki-benatna-v1.png",
+    "url": "/vehicles/benatna/dacia-stepway.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 340752
+  },
+  {
+    "model": "Dacia Jogger",
+    "source": "dacia-jogger-bleu-benatna-v1.png",
+    "url": "/vehicles/benatna/dacia-jogger.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 380442
+  },
+  {
+    "model": "Opel Corsa",
+    "source": "opel-corsa-bordeaux-benatna-v1.png",
+    "url": "/vehicles/benatna/opel-corsa.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 313502
+  },
+  {
+    "model": "Peugeot 208",
+    "source": "peugeot-208-bleue-benatna-v1.png",
+    "url": "/vehicles/benatna/peugeot-208.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 286850
+  },
+  {
+    "model": "Hyundai i20",
+    "source": "hyundai-i20-grise-benatna-v1.png",
+    "url": "/vehicles/benatna/hyundai-i20.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 271710
+  },
+  {
+    "model": "Volkswagen T-Roc",
+    "source": "volkswagen-troc-blanc-benatna-v1.png",
+    "url": "/vehicles/benatna/volkswagen-troc.webp",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 313044
+  }
+]

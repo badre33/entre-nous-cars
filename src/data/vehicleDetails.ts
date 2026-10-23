@@ -5,8 +5,6 @@ import carRangeRoverSport3 from "@/assets/car-range-rover-sport-3.jpg";
 import carVwTouareg1 from "@/assets/car-vw-touareg-1.jpg";
 import carVwTouareg2 from "@/assets/car-vw-touareg-2.jpg";
 import carVwTouareg3 from "@/assets/car-vw-touareg-3.jpg";
-import carHyundaiTucson1 from "@/assets/car-hyundai-tucson-1.jpg";
-import carHyundaiTucson3 from "@/assets/car-hyundai-tucson-3.jpg";
 import carMercedesC1 from "@/assets/car-mercedes-c-1.jpg";
 import carMercedesC2 from "@/assets/car-mercedes-c-2.jpg";
 import carMercedesC3 from "@/assets/car-mercedes-c-3.jpg";
@@ -15,12 +13,12 @@ import carCupraFormentor2 from "@/assets/car-cupra-formentor-2.jpg";
 import carAudiA3_1 from "@/assets/car-audi-a3-1.jpg";
 import carAudiA3_2 from "@/assets/car-audi-a3-2.jpg";
 // Fallback single photos for models without multi-photo set
-import carDuster from "@/assets/car-duster.jpg";
-import carSandero from "@/assets/car-dacia-sandero.jpg";
-const carLogan = "/vehicle-photo-pending.svg";
-const carClio = "/vehicle-photo-pending.svg";
-import carAccent from "@/assets/car-hyundai-accent.jpg";
-import carSportage from "@/assets/car-kia-sportage.jpg";
+const carDuster = "/vehicles/benatna/dacia-duster.webp";
+const carSandero = "/vehicles/benatna/dacia-sandero.webp";
+const carLogan = "/vehicles/benatna/dacia-logan.webp";
+const carClio = "/vehicles/benatna/renault-clio.webp";
+const carAccent = "/vehicles/benatna/hyundai-accent.webp";
+const carSportage = "/vehicles/benatna/kia-sportage.webp";
 import carEvoque from "@/assets/car-range-rover-evoque.jpg";
 import carMercedesA from "@/assets/car-mercedes-a.jpg";
 import carMercedesE from "@/assets/car-mercedes-e.jpg";
@@ -30,11 +28,11 @@ import carBmwX5 from "@/assets/car-bmw-x5.jpg";
 import carAudiQ8 from "@/assets/car-audi-q8.jpg";
 import carPorscheMacan from "@/assets/car-porsche-macan.jpg";
 import carPorscheCayenne from "@/assets/car-porsche-cayenne.jpg";
-import carVwGolf from "@/assets/car-vw-golf.jpg";
-import carCorsa from "@/assets/car-opel-corsa.jpg";
-import carPeugeot208 from "@/assets/car-peugeot-208.jpg";
-import carJogger from "@/assets/car-dacia-jogger.jpg";
-import carStepway from "@/assets/car-sandero-stepway.jpg";
+const carVwGolf = "/vehicles/benatna/volkswagen-golf.webp";
+const carCorsa = "/vehicles/benatna/opel-corsa.webp";
+const carPeugeot208 = "/vehicles/benatna/peugeot-208.webp";
+const carJogger = "/vehicles/benatna/dacia-jogger.webp";
+const carStepway = "/vehicles/benatna/dacia-stepway.webp";
 import carAudiA4 from "@/assets/car-audi-a4.jpg";
 import carAudiA6 from "@/assets/car-audi-a6.jpg";
 import carAudiQ3 from "@/assets/car-audi-q3.jpg";
@@ -45,8 +43,8 @@ import carMercedesGLA from "@/assets/car-mercedes-gla.jpg";
 import carMercedesGLB from "@/assets/car-mercedes-glb.jpg";
 import carMercedesGLC from "@/assets/car-mercedes-glc.jpg";
 import carMercedesGLE from "@/assets/car-mercedes-gle.jpg";
-import carHyundaiI20 from "@/assets/car-hyundai-i20.jpg";
-import carVwTRoc from "@/assets/car-vw-troc.jpg";
+const carHyundaiI20 = "/vehicles/benatna/hyundai-i20.webp";
+const carVwTRoc = "/vehicles/benatna/volkswagen-troc.webp";
 import carHyundaiSantaFe from "@/assets/car-hyundai-santa-fe.jpg";
 
 export interface VehicleOption {
@@ -250,7 +248,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     category: "SUV Familial",
     priceFrom: 640,
     priceDisplay: "640 MAD/jour",
-    photos: [carHyundaiTucson1, carHyundaiTucson3],
+    photos: ["/vehicles/benatna/hyundai-tucson.webp"],
     description: "Le Hyundai Tucson nouvelle génération combine design futuriste, technologie embarquée et fiabilité éprouvée. Le choix #1 des familles MRE qui veulent un SUV confortable sans se ruiner.",
     options: {
       transmission: "Automatique 8 rapports",
@@ -610,7 +608,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   "seat-ibiza": {
     slug: "seat-ibiza", name: "Seat Ibiza", brand: "Seat",
     category: "Citadine Sport", priceFrom: 400, priceDisplay: "400 MAD/jour",
-    photos: ["/vehicle-photo-pending.svg"],
+    photos: ["/vehicles/benatna/seat-ibiza.webp"],
     description: "La Seat Ibiza combine design espagnol et fiabilité Volkswagen Group. Citadine sport accessible.",
     options: { transmission: "Manuelle/DSG", seats: 5, doors: 5, luggage: "355L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
     highlights: ["Design espagnol", "Base VW", "Sport accessible"], perfectFor: ["Jeunes", "Couples", "Tourisme"]

@@ -14,21 +14,21 @@ const CATALOG_HIGHLIGHTS = [
         name: "Dacia Sandero",
         brand: "Dacia",
         basePrice: 300,
-        image: "/car-sandero-stepway.jpg",
+        image: "/vehicles/benatna/dacia-stepway.webp",
         description: "Citadine économique 5 places, climatisation, idéale pour la ville et les trajets quotidiens au Maroc."
       },
       {
         name: "Renault Clio",
         brand: "Renault",
         basePrice: 400,
-        image: "/vehicle-photo-pending.svg",
+        image: "/vehicles/benatna/renault-clio.webp",
         description: "Citadine confortable 5 places, boîte automatique disponible, parfaite pour un séjour touristique."
       },
       {
         name: "Peugeot 208",
         brand: "Peugeot",
         basePrice: 400,
-        image: "/car-peugeot-208.jpg",
+        image: "/vehicles/benatna/peugeot-208.webp",
         description: "Citadine récente et sobre en carburant, adaptée aux trajets ville et autoroute."
       }
     ]
@@ -40,7 +40,7 @@ const CATALOG_HIGHLIGHTS = [
         name: "Dacia Duster",
         brand: "Dacia",
         basePrice: 380,
-        image: "/car-duster.jpg",
+        image: "/vehicles/benatna/dacia-duster.webp",
         description: "SUV robuste 5 places, garde au sol élevée, recommandé pour l'Atlas, le désert et les routes de montagne."
       }
     ]

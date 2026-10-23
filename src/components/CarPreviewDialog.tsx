@@ -53,7 +53,7 @@ export default function CarPreviewDialog({
         </DialogHeader>
         <div className="space-y-4">
           <div className="relative h-64 rounded-lg overflow-hidden">
-            <img src={car.image} alt={car.name} className="w-full h-full object-cover" />
+            <img src={car.image} alt={car.name} className="w-full h-full object-contain" />
             {car.badges && (
               <div className="absolute top-2 left-2 flex flex-col gap-1">
                 {car.badges.map((badge, idx) => (

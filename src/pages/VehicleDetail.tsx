@@ -83,7 +83,7 @@ const VehicleDetail = () => {
               <img
                 src={vehicle.photos[currentPhoto]}
                 alt={vehicle.photos[currentPhoto].includes("vehicle-photo-pending.svg") ? `${vehicle.name} : photo à remplacer, illustration neutre` : `${vehicle.name} - photo ${currentPhoto + 1}`}
-                className="w-full h-full object-cover transition-opacity duration-300"
+                className="w-full h-full object-contain transition-opacity duration-300"
                 loading="lazy"
               />
               {vehicle.photos.length > 1 && (
