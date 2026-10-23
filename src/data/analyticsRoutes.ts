@@ -132,6 +132,7 @@ export const analyticsPaths = new Set([
   "/vehicule/audi-a4",
   "/vehicule/audi-a6",
   "/vehicule/audi-q3",
+  "/vehicule/audi-q3-sportback",
   "/vehicule/audi-q5",
   "/vehicule/audi-q7",
   "/vehicule/audi-q8",

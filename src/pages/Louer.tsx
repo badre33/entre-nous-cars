@@ -1,5 +1,5 @@
 import { requestRental } from '@/utils/rentalRequest';
-import { isClassicTourismCar } from "@/utils/cataloguePolicy";
+import { isClassicTourismCar, isPremiumTourismCar } from "@/utils/cataloguePolicy";
 import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
 import { useState, useEffect, useMemo } from "react";
@@ -48,7 +48,7 @@ const carPeugeot208 = "/vehicles/benatna/peugeot-208.webp";
 const carVwGolf = "/vehicles/benatna/volkswagen-golf.webp";
 const carHyundaiTucson = "/vehicles/benatna/hyundai-tucson.webp";
 const carKiaSportage = "/vehicles/benatna/kia-sportage.webp";
-import carMercedesC from "@/assets/car-mercedes-c.jpg";
+const carMercedesC = "/vehicles/benatna/mercedes-classe-c.webp";
 import carAudiA4 from "@/assets/car-audi-a4.jpg";
 import carBmwX3 from "@/assets/car-bmw-x3.jpg";
 import carCitroenC3 from "@/assets/car-citroen-c3.jpg";
@@ -124,22 +124,22 @@ import carBmwX1 from "@/assets/car-bmw-x1.jpg";
 import carBmwX5 from "@/assets/car-bmw-x5.jpg";
 import carBmw1 from "@/assets/car-bmw-1.jpg";
 import carBmwX2 from "@/assets/car-bmw-x2.jpg";
-import carAudiA3 from "@/assets/car-audi-a3.jpg";
+const carAudiA3 = "/vehicles/benatna/audi-a3.webp";
 import carAudiA6 from "@/assets/car-audi-a6.jpg";
 import carAudiQ3 from "@/assets/car-audi-q3.jpg";
 import carAudiQ5 from "@/assets/car-audi-q5.jpg";
 import carAudiQ7 from "@/assets/car-audi-q7.jpg";
 import carAudiA1 from "@/assets/car-audi-a1.jpg";
-import carMercedesA from "@/assets/car-mercedes-a.jpg";
+const carMercedesA = "/vehicles/benatna/mercedes-classe-a.webp";
 import carMercedesE from "@/assets/car-mercedes-e.jpg";
-import carMercedesGLA from "@/assets/car-mercedes-gla.jpg";
+const carMercedesGLA = "/vehicles/benatna/mercedes-gla.webp";
 import carMercedesGLC from "@/assets/car-mercedes-glc.jpg";
 import carMercedesGLE from "@/assets/car-mercedes-gle.jpg";
-import carMercedesCLA from "@/assets/car-mercedes-cla.jpg";
+const carMercedesCLA = "/vehicles/benatna/mercedes-cla.webp";
 import carMercedesGLB from "@/assets/car-mercedes-glb.jpg";
 import carVwJetta from "@/assets/car-vw-jetta.jpg";
 import carVwArteon from "@/assets/car-vw-arteon.jpg";
-import carVwTouareg from "@/assets/car-vw-touareg.jpg";
+const carVwTouareg = "/vehicles/benatna/vw-touareg.webp";
 import carVwTaigo from "@/assets/car-vw-taigo.jpg";
 import carVwID4 from "@/assets/car-vw-id4.jpg";
 import carPeugeot5008 from "@/assets/car-peugeot-5008.jpg";
@@ -165,9 +165,9 @@ import carMaseratiLevante from "@/assets/car-maserati-levante.jpg";
 import carMercedesECabrio from "@/assets/car-mercedes-e-cabrio.jpg";
 import carBmw4Cabrio from "@/assets/car-bmw-4-cabrio.jpg";
 import carAudiA5Cabrio from "@/assets/car-audi-a5-cabrio.jpg";
-import carPorscheMacan from "@/assets/car-porsche-macan.jpg";
+const carPorscheMacan = "/vehicles/benatna/porsche-macan.webp";
 import carJaguarFPace from "@/assets/car-jaguar-fpace.jpg";
-import carRangeRoverEvoque from "@/assets/car-range-rover-evoque.jpg";
+const carRangeRoverEvoque = "/vehicles/benatna/range-rover-evoque.webp";
 import carLexusNX from "@/assets/car-lexus-nx.jpg";
 import carVolvoXC60 from "@/assets/car-volvo-xc60.jpg";
 import carBmwZ4 from "@/assets/car-bmw-z4.jpg";
@@ -178,10 +178,10 @@ import carAudiQ8 from "@/assets/car-audi-q8.jpg";
 import carPorscheCayenne from "@/assets/car-porsche-cayenne.jpg";
 import carPorschePanamera from "@/assets/car-porsche-panamera.jpg";
 import carPorsche911 from "@/assets/car-porsche-911.jpg";
-import carRangeRoverSport from "@/assets/car-range-rover-sport.jpg";
+const carRangeRoverSport = "/vehicles/benatna/range-rover-sport.webp";
 import carRangeRoverVelar from "@/assets/car-range-rover-velar.jpg";
 import carAudiEtronGT from "@/assets/car-audi-etron-gt.jpg";
-import carCupraFormentor from "@/assets/car-cupra-formentor.jpg";
+const carCupraFormentor = "/vehicles/benatna/cupra-formentor.webp";
 import carHyundaiStaria from "@/assets/car-hyundai-staria.jpg";
 
 // Helper function to generate conditions for all cars
@@ -191,6 +191,7 @@ const generateConditions = (minAge: number): string[] => {
 
 // Modèles uniques du catalogue (le champ ville est généré ci-dessous)
 const carModels = [
+  { image: "/vehicles/benatna/audi-q3-sportback.webp", name: "Audi Q3 Sportback", brand: "Audi", type: "Automatique", category: "SUV Premium", price: 1020, priceDisplay: "1020 MAD", conditions: ["Conditions à confirmer avec le loueur"] },
   {
     image: carClio,
     name: "Renault Clio",
@@ -684,13 +685,12 @@ const carModels = [
 
 // Les loueurs et leurs véhicules sont basés à Casablanca.
 const CATALOG_CITIES = ["Casablanca"];
-const cars = CATALOG_CITIES.flatMap((city, cityIdx) =>
-  carModels.filter(model => isClassicTourismCar(model.name) && !/premium|luxe|prestige/i.test([model.category, ...(model.badges ?? [])].join(" "))).map((model, modelIdx) => ({
-    ...model,
-    id: cityIdx * 100 + modelIdx + 1,
-    city,
-  }))
-).filter((car, index, catalogue) => catalogue.findIndex(candidate =>
+const classicModels = carModels.filter(model => isClassicTourismCar(model.name) && !isPremiumTourismCar(model.name));
+const premiumModels = carModels.filter(model => isPremiumTourismCar(model.name));
+const cars = CATALOG_CITIES.flatMap(city => [
+  ...classicModels.map((model, index) => ({ ...model, id: index + 1, city })),
+  ...premiumModels.map((model, index) => ({ ...model, id: 1001 + index, city }))
+]).filter((car, index, catalogue) => catalogue.findIndex(candidate =>
   candidate.name.replace(/^VW /, "Volkswagen ") === car.name.replace(/^VW /, "Volkswagen ") && candidate.type === car.type
 ) === index);
 
