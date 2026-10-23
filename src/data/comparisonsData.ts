@@ -42,7 +42,7 @@ export const comparisons: Comparison[] = [
     introduction: 'Le Dacia Duster et le Renault Captur sont les deux SUV compacts les plus demandés en location au Maroc. Tous deux économiques et polyvalents, ils ne s\'adressent pourtant pas au même voyage : l\'un encaisse les pistes de l\'Atlas et du Sud, l\'autre privilégie le confort sur route et en ville. Voici comment choisir selon votre itinéraire.',
     item1: {
       name: 'Dacia Duster',
-      image: '/car-duster.jpg',
+      image: '/vehicles/benatna/dacia-duster.webp',
       price: '400-500 DH/jour',
       specs: {
         'Passagers': '5 places',
@@ -143,7 +143,7 @@ export const comparisons: Comparison[] = [
     introduction: 'Renault Clio et Dacia Sandero : deux citadines best-sellers au Maroc, partageant la même plateforme mais avec des positionnements différents. Compactes, économiques et faciles à conduire, elles dominent le marché de la location économique.',
     item1: {
       name: 'Renault Clio',
-      image: '/vehicle-photo-pending.svg',
+      image: '/vehicles/benatna/renault-clio.webp',
       price: '180-250 DH/jour',
       specs: {
         'Passagers': '5 places',
@@ -175,7 +175,7 @@ export const comparisons: Comparison[] = [
     },
     item2: {
       name: 'Dacia Sandero',
-      image: '/car-dacia-sandero.jpg',
+      image: '/vehicles/benatna/dacia-sandero.webp',
       price: '150-300 DH/jour',
       specs: {
         'Passagers': '5 places',
@@ -543,7 +543,7 @@ export const comparisons: Comparison[] = [
     introduction: 'Catégorie économique ou premium : un choix qui peut doubler votre budget location. Entre Dacia Sandero à 300 DH/jour et Mercedes Classe A à 650 DH/jour, explorons les différences réelles pour vous aider à choisir judicieusement.',
     item1: {
       name: 'Catégorie Économique',
-      image: '/car-dacia-sandero.jpg',
+      image: '/vehicles/benatna/dacia-sandero.webp',
       price: '150-250 DH/jour',
       specs: {
         'Exemples': 'Sandero, Clio, Toyota Yaris',
