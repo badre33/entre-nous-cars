@@ -1,0 +1,14 @@
+// Snapshot of the public indicative catalogue; never a live-stock feed.
+import fs from 'node:fs/promises';import {build} from 'esbuild';
+const bundle=async entry=>{const r=await build({entryPoints:[entry],bundle:true,platform:'node',format:'esm',write:false});return import('data:text/javascript;base64,'+Buffer.from(r.outputFiles[0].text).toString('base64'));};
+const {rentalVehicleNames,rentalVehicleSlugs}=await bundle('src/data/rentalVehicleNames.ts');const {currentDailyPrice}=await bundle('src/lib/pricing.ts');
+const source=await fs.readFile('src/pages/Louer.tsx','utf8');
+const names=new Set(rentalVehicleNames);const paths=Object.fromEntries([...source.matchAll(/const (car\w+) = "([^"]+)";/g)].map(m=>[m[1],m[2]]));
+let literal=source.split('const carModels = [')[1].split('\n];')[0];
+literal=literal.replace(/image: (car\w+)/g,(_,id)=>'image: '+JSON.stringify(paths[id]||'')).replace(/generateConditions\(\d+\)/g,'[]');
+const models=new Function('return ['+literal+'];')();const rows=[];
+for(const name of names){const variants=models.filter(m=>m.name.replace(/^VW /,'Volkswagen ')===name);const model=variants.reduce((a,b)=>a.price<=b.price?a:b);const slug=Object.entries(rentalVehicleSlugs).find(([,v])=>v===name)?.[0];if(!slug||!model.image.startsWith('/vehicles/benatna/'))throw Error('Missing public model/photo: '+name);
+rows.push({id:'benatna-'+slug,title:`Location ${name} à Casablanca — tarif/jour`,description:`Location de voiture de tourisme, et non vente du véhicule. Tarif journalier indicatif, location de 3 jours minimum à 6 mois maximum. Modèle, version, couleur, équipements, disponibilité et prix final à confirmer avec le loueur. Prise en charge à Casablanca, livraison gratuite aux points desservis convenue à l’avance ; Rabat sur demande depuis Casablanca. Aucun paiement en ligne. Illustration générée Benatna. Consultez le site pour les dates et le tarif actualisé.`,availability:'available for order',condition:'used',price:currentDailyPrice(model.price,'Casablanca').toFixed(2)+' MAD',link:'https://benatna.ma/vehicule/'+slug,image_link:'https://benatna.ma/vehicles/meta/'+slug+'.jpg',brand:model.brand,custom_label_0:'location-tourisme-casablanca',custom_label_1:'tarif-indicatif-par-jour',source_image:model.image,slug});}
+await fs.mkdir('output',{recursive:true});await fs.writeFile('output/meta-catalogue-models.json',JSON.stringify(rows,null,2)+'\n');
+const fields=['id','title','description','availability','condition','price','link','image_link','brand','custom_label_0','custom_label_1'];
+const csv=fields.join(',')+'\n'+rows.map(row=>fields.map(k=>'"'+String(row[k]).replaceAll('"','""')+'"').join(',')).join('\n')+'\n';await fs.writeFile('public/catalogue-meta-benatna.csv',csv);console.log(`${rows.length} indicative model offers exported (snapshot, not live stock).`);
