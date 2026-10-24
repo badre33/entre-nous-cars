@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { generateStrongPassword } from '@/utils/strongPassword';
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,13 @@ const Auth = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [feedback, setFeedback] = useState<{ kind: 'error' | 'success'; text: string; focus?: boolean } | null>(null);
+  const feedbackRef = useRef<HTMLParagraphElement>(null);
+  useEffect(() => {
+    if (!feedback || (feedback.kind === 'success' && !feedback.focus)) return;
+    feedbackRef.current?.focus({ preventScroll: true });
+    feedbackRef.current?.scrollIntoView({ block: 'center', behavior: 'instant' });
+  }, [feedback]);
   
   // Form states
   const [loginEmail, setLoginEmail] = useState("");
@@ -41,43 +49,28 @@ const Auth = () => {
     return () => subscription.unsubscribe();
   }, [navigate]);
 
+  const showAuthError = (error: { message: string; code?: string; status?: number }, signup = false) => {
+    let text = signup ? 'La création du compte est impossible pour le moment. Réessayez ou connectez-vous si vous avez déjà un compte.' : 'La connexion est impossible pour le moment. Réessayez.';
+    if (error.code === 'invalid_credentials' || error.message.includes('Invalid login credentials')) text = 'Email ou mot de passe incorrect.';
+    else if (error.code === 'email_not_confirmed') text = 'Confirmez votre adresse depuis le message reçu par email, puis connectez-vous.';
+    else if (error.status === 429) text = 'Trop de tentatives. Patientez avant de réessayer.';
+    else if (error.code === 'weak_password') text = 'Choisissez un mot de passe unique plus robuste, ou utilisez la proposition générée.';
+    setFeedback({ kind: 'error', text });
+  };
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setFeedback(null);
     setIsLoading(true);
-
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: loginEmail,
-        password: loginPassword,
-      });
-
-      if (error) {
-        if (error.message.includes("Invalid login credentials")) {
-          toast({
-            title: "Erreur de connexion",
-            description: "Email ou mot de passe incorrect.",
-            variant: "destructive",
-          });
-        } else {
-          toast({
-            title: "Erreur",
-            description: error.message,
-            variant: "destructive",
-          });
-        }
-      } else {
-        toast({
-          title: "Connexion réussie",
-          description: "Bienvenue !",
-        });
-        navigate("/analytics");
+      const { error } = await supabase.auth.signInWithPassword({ email: loginEmail.trim(), password: loginPassword });
+      if (error) showAuthError(error);
+      else {
+        toast({ title: 'Connexion réussie', description: 'Vérification de votre accès administrateur.' });
+        navigate('/analytics');
       }
-    } catch (error) {
-      toast({
-        title: "Erreur",
-        description: "Une erreur inattendue s'est produite.",
-        variant: "destructive",
-      });
+    } catch {
+      setFeedback({ kind: 'error', text: 'La connexion est impossible pour le moment. Vérifiez votre connexion et réessayez.' });
     } finally {
       setIsLoading(false);
     }
@@ -85,65 +78,39 @@ const Auth = () => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+    setFeedback(null);
     if (signupPassword !== signupConfirmPassword) {
-      toast({
-        title: "Erreur",
-        description: "Les mots de passe ne correspondent pas.",
-        variant: "destructive",
-      });
+      setFeedback({ kind: 'error', text: 'Les mots de passe ne correspondent pas.' });
       return;
     }
-
     if (signupPassword.length < 12) {
-      toast({
-        title: "Erreur",
-        description: "Le mot de passe doit contenir au moins 12 caractères.",
-        variant: "destructive",
-      });
+      setFeedback({ kind: 'error', text: 'Le mot de passe doit contenir au moins 12 caractères.' });
       return;
     }
-
     setIsLoading(true);
-
     try {
-      const { error } = await supabase.auth.signUp({
-        email: signupEmail,
-        password: signupPassword,
-        options: {
-          emailRedirectTo: `${window.location.origin}/analytics`,
-        },
+      const { data, error } = await supabase.auth.signUp({
+        email: signupEmail.trim(), password: signupPassword,
+        options: { emailRedirectTo: `${window.location.origin}/analytics` },
       });
-
-      if (error) {
-        if (error.message.includes("already registered")) {
-          toast({
-            title: "Compte existant",
-            description: "Cet email est déjà utilisé. Essayez de vous connecter.",
-            variant: "destructive",
-          });
-        } else {
-          toast({
-            title: "Erreur",
-            description: error.message,
-            variant: "destructive",
-          });
-        }
-      } else {
-        toast({
-          title: "Compte créé !",
-          description: "Vous pouvez maintenant accéder au dashboard.",
-        });
-        navigate("/analytics");
-      }
-    } catch (error) {
-      toast({
-        title: "Erreur",
-        description: "Une erreur inattendue s'est produite.",
-        variant: "destructive",
-      });
+      if (error) showAuthError(error, true);
+      else if (data.session) navigate('/analytics');
+      else setFeedback({ kind: 'success', focus: true, text: 'Consultez votre messagerie pour confirmer votre adresse, puis connectez-vous. La création d’un compte ne donne pas accès aux données administrateur.' });
+    } catch {
+      setFeedback({ kind: 'error', text: 'La création du compte est impossible pour le moment. Vérifiez votre connexion et réessayez.' });
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const suggestPassword = () => {
+    try {
+      const password = generateStrongPassword();
+      setSignupPassword(password);
+      setSignupConfirmPassword(password);
+      setFeedback({ kind: 'success', text: 'Mot de passe proposé dans les deux champs. Enregistrez-le dans votre gestionnaire de mots de passe avant de continuer.' });
+    } catch {
+      setFeedback({ kind: 'error', text: 'La proposition automatique est indisponible. Utilisez votre gestionnaire de mots de passe ou une phrase de passe unique.' });
     }
   };
 
@@ -156,30 +123,31 @@ const Auth = () => {
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-bold">Analytics Benatna</CardTitle>
             <CardDescription>
-              Connectez-vous pour accéder au tableau de bord
+              Espace administrateur : accès réservé au compte autorisé.
             </CardDescription>
           </CardHeader>
           
           <CardContent>
-            <Tabs defaultValue="login" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="login" className="text-white data-[state=active]:text-black">Connexion</TabsTrigger>
-                <TabsTrigger value="signup" className="text-white data-[state=active]:text-black">Inscription</TabsTrigger>
+            <Tabs defaultValue="login" onValueChange={() => { setFeedback(null); setShowPassword(false); }} className="w-full">
+              {feedback && <p ref={feedbackRef} tabIndex={-1} role={feedback.kind === 'error' ? 'alert' : 'status'} className={`mb-4 text-sm ${feedback.kind === 'error' ? 'text-destructive' : 'text-foreground'}`}>{feedback.text}</p>}
+              <TabsList className="grid h-auto w-full grid-cols-2 border border-input bg-[#f5ffe4]">
+                <TabsTrigger value="login" disabled={isLoading} className="min-h-11 transition-none text-black data-[state=active]:bg-[#4c7a15] data-[state=active]:text-white">Connexion</TabsTrigger>
+                <TabsTrigger value="signup" disabled={isLoading} className="min-h-11 transition-none text-black data-[state=active]:bg-[#4c7a15] data-[state=active]:text-white">Inscription</TabsTrigger>
               </TabsList>
               
               <TabsContent value="login">
-                <form onSubmit={handleLogin} className="space-y-4">
+                <form aria-label="Connexion administrateur" onSubmit={handleLogin} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="login-email">Email</Label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="login-email"
                         name="email"
                         autoComplete="username"
                         type="email"
                         placeholder="votre@email.com"
-                        className="pl-10"
+                        className="min-h-11 pl-10 text-base"
                         value={loginEmail}
                         onChange={(e) => setLoginEmail(e.target.value)}
                         required
@@ -190,14 +158,14 @@ const Auth = () => {
                   <div className="space-y-2">
                     <Label htmlFor="login-password">Mot de passe</Label>
                     <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="login-password"
                         name="password"
                         autoComplete="current-password"
                         type={showPassword ? "text" : "password"}
                         placeholder="••••••••"
-                        className="pl-10 pr-10"
+                        className="min-h-11 pl-10 pr-12 text-base"
                         value={loginPassword}
                         onChange={(e) => setLoginPassword(e.target.value)}
                         required
@@ -205,14 +173,16 @@ const Auth = () => {
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+                        aria-label={showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
+                        aria-pressed={showPassword}
+                        className="absolute right-0 top-0 flex h-11 w-11 items-center justify-center text-muted-foreground hover:text-foreground"
                       >
                         {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                       </button>
                     </div>
                   </div>
                   
-                  <Button type="submit" className="w-full" disabled={isLoading}>
+                  <Button type="submit" className="min-h-11 w-full" disabled={isLoading}>
                     {isLoading ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -226,18 +196,18 @@ const Auth = () => {
               </TabsContent>
               
               <TabsContent value="signup">
-                <form onSubmit={handleSignup} className="space-y-4">
+                <form aria-label="Inscription" onSubmit={handleSignup} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="signup-email">Email</Label>
                     <div className="relative">
-                      <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="signup-email"
                         name="email"
                         autoComplete="username"
                         type="email"
                         placeholder="votre@email.com"
-                        className="pl-10"
+                        className="min-h-11 pl-10 text-base"
                         value={signupEmail}
                         onChange={(e) => setSignupEmail(e.target.value)}
                         required
@@ -248,7 +218,7 @@ const Auth = () => {
                   <div className="space-y-2">
                     <Label htmlFor="signup-password">Mot de passe</Label>
                     <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="signup-password"
                         name="password"
@@ -256,7 +226,7 @@ const Auth = () => {
                         aria-describedby="signup-password-help"
                         type={showPassword ? "text" : "password"}
                         placeholder="Minimum 12 caractères"
-                        className="pl-10 pr-10"
+                        className="min-h-11 pl-10 pr-12 text-base"
                         value={signupPassword}
                         onChange={(e) => setSignupPassword(e.target.value)}
                         required
@@ -265,7 +235,9 @@ const Auth = () => {
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+                        aria-label={showPassword ? 'Masquer le mot de passe' : 'Afficher le mot de passe'}
+                        aria-pressed={showPassword}
+                        className="absolute right-0 top-0 flex h-11 w-11 items-center justify-center text-muted-foreground hover:text-foreground"
                       >
                         {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                       </button>
@@ -276,17 +248,19 @@ const Auth = () => {
                     Choisissez au moins 12 caractères, par exemple une phrase de plusieurs mots sans lien entre eux. Utilisez un mot de passe unique ou celui proposé par votre gestionnaire de mots de passe.
                   </p>
 
+                  <Button type="button" variant="outline" className="min-h-11 h-auto w-full whitespace-normal" disabled={isLoading} onClick={suggestPassword}>Proposer un mot de passe robuste</Button>
+
                   <div className="space-y-2">
                     <Label htmlFor="signup-confirm">Confirmer le mot de passe</Label>
                     <div className="relative">
-                      <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input
                         id="signup-confirm"
                         name="password-confirmation"
                         autoComplete="new-password"
                         type={showPassword ? "text" : "password"}
                         placeholder="Confirmez votre mot de passe"
-                        className="pl-10"
+                        className="min-h-11 pl-10 text-base"
                         value={signupConfirmPassword}
                         onChange={(e) => setSignupConfirmPassword(e.target.value)}
                         required
@@ -294,7 +268,7 @@ const Auth = () => {
                     </div>
                   </div>
                   
-                  <Button type="submit" className="w-full" disabled={isLoading}>
+                  <Button type="submit" className="min-h-11 w-full" disabled={isLoading}>
                     {isLoading ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
