@@ -97,7 +97,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     category: 'contrat',
     relatedTerms: ['location-aeroport', 'point-rendez-vous'],
     relatedPages: [
-      { label: 'Aéroport Casablanca', url: '/location-aeroport-casablanca' },
+      { label: 'Aéroport Casablanca', url: '/location-voiture-aeroport-casablanca' },
       { label: 'Aéroport Marrakech', url: '/location-aeroport-marrakech' }
     ]
   },
@@ -214,7 +214,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     definition: "Véhicule à moteur électrique rechargeable. Disponibilité croissante au Maroc (ex: Dacia Spring, VW ID.3) avec bornes de recharge à Casablanca, Rabat, Marrakech.",
     category: 'vehicule',
     relatedTerms: ['voiture-hybride', 'borne-recharge'],
-    relatedPages: [{ label: 'Location Électrique Casablanca', url: '/location-electrique-casablanca' }]
+    relatedPages: [{ label: 'Location Électrique Casablanca', url: '/location-voiture-electrique-casablanca' }]
   },
   {
     id: 'voiture-hybride',
@@ -425,7 +425,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     category: 'contrat',
     relatedTerms: ['carte-bancaire', 'caution'],
     relatedPages: [
-      { label: 'Sans Carte Casablanca', url: '/location-sans-carte-casablanca' },
+      { label: 'Sans Carte Casablanca', url: '/location-voiture-sans-carte-credit-casablanca' },
       { label: 'Sans Carte Marrakech', url: '/location-sans-carte-marrakech' }
     ]
   },
