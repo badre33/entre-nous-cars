@@ -20,14 +20,14 @@ export function StickyCTA({
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-20 md:hidden left-0 right-0 z-30 will-change-transform" style={{ transform: 'translateZ(0)' }}>
+    <div className="fixed bottom-[calc(4rem+env(safe-area-inset-bottom,0px))] md:hidden left-0 right-0 z-30 will-change-transform" style={{ transform: 'translateZ(0)' }}>
       <div className="bg-gradient-to-t from-background via-background to-transparent pt-4 pb-4 px-4">
         <Button
           onClick={onClick}
           size="lg"
           className={cn(
             "w-full shadow-2xl hover:shadow-primary/50 transition-all duration-300",
-            "hover:scale-105 min-h-[56px] text-base font-semibold touch-target touch-feedback",
+            "min-h-[48px] text-base font-semibold touch-target touch-feedback",
             "animate-scale-in",
             className
           )}

@@ -1383,6 +1383,7 @@ const Louer = () => {
       
       {/* Sticky WhatsApp CTA on Mobile */}
       <StickyCTA
+        show={selectedCars.length === 0}
         label="Contacter via WhatsApp"
         onClick={() => requestFromCatalogue([])}
         icon={MessageCircle}
