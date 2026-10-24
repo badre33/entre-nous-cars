@@ -3,7 +3,8 @@ import { isClassicTourismCar, isPremiumTourismCar } from "@/utils/cataloguePolic
 import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
 import { useState, useEffect, useMemo } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { rentalVehicleSlugs } from "@/data/rentalVehicleNames";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -1343,6 +1344,19 @@ const Louer = () => {
               </Button>
             )}
           </div>
+        </div>
+      </section>
+
+      <section className="py-10 border-t" aria-labelledby="catalogue-model-links">
+        <div className="container">
+          <h2 id="catalogue-model-links" className="text-xl font-semibold mb-4">Découvrez nos modèles à Casablanca</h2>
+          <nav aria-label="Fiches des modèles de location">
+            <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+              {Object.entries(rentalVehicleSlugs).map(([slug, name]) => (
+                <li key={slug}><Link to={`/vehicule/${slug}`} className="text-sm underline underline-offset-4 hover:text-primary focus-visible:outline focus-visible:outline-2">{name}</Link></li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </section>
 
