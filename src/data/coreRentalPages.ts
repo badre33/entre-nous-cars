@@ -1,6 +1,6 @@
 import type { CoreRentalContent } from '@/components/CoreRentalLanding';
 
-export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay', CoreRentalContent> = {
+export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'casaVoyageurs', CoreRentalContent> = {
   casablanca: {
     path: '/location-voiture-casablanca',
     title: 'Location de voiture à Casablanca, minimum 3 jours | Benatna',
@@ -14,6 +14,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay', Core
     ],
   },
   airport: {
+    pickupId: 'cmn',
     path: '/location-voiture-aeroport-casablanca',
     title: 'Location voiture aéroport Casablanca Mohammed V, 3 jours minimum | Benatna',
     description: 'Préparez votre voiture à l’aéroport Mohammed V de Casablanca. Livraison gratuite convenue à l’avance. Minimum 3 jours, maximum 6 mois. Demande WhatsApp.',
@@ -35,6 +36,19 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay', Core
       { title: 'Une durée définie par vos dates', text: 'Benatna traite les demandes de trois jours minimum à six mois calendaires maximum. Précisez les dates de départ et de retour, même pour un séjour de plusieurs mois. Une prolongation dépend de l’accord du loueur ; elle ne doit pas être supposée automatique.' },
       { title: 'Un tarif à confirmer pour la période', text: 'Les prix journaliers existants du catalogue permettent de comparer les modèles à titre indicatif. Demandez au loueur une proposition couvrant toute votre période ainsi que ses conditions de caution et de contrat. Aucune remise mensuelle, mensualité fixe ou assurance particulière n’est promise sur cette page.' },
       { title: 'Des séjours personnels depuis Casablanca', text: 'L’offre vise d’abord les MRE, touristes et vacanciers, avec des demandes locales possibles aux mêmes conditions. Il ne s’agit pas d’une offre de flotte d’entreprise ou de location professionnelle. La prise en charge se prépare à Casablanca ; une livraison gratuite à Rabat peut être demandée depuis Casablanca, selon la disponibilité du loueur.' },
+    ],
+  },
+  casaVoyageurs: {
+    path: '/location-voiture-gare-casa-voyageurs',
+    pickupId: 'casa-voyageurs',
+    title: 'Location voiture gare Casa-Voyageurs, minimum 3 jours | Benatna',
+    description: 'Préparez une voiture à la gare Casa-Voyageurs à Casablanca. Livraison gratuite convenue à l’avance, de 3 jours à 6 mois. Tarif et disponibilité à confirmer.',
+    heading: 'Votre voiture à la gare Casa-Voyageurs',
+    intro: 'Vous arrivez à Casablanca en train ? Préparez vos dates et votre choix de voiture avant le voyage. Le loueur confirme la disponibilité, le tarif et le point de rendez-vous près de la gare Casa-Voyageurs.',
+    sections: [
+      { title: 'Préparer votre arrivée en gare', text: 'La livraison est gratuite et convenue à l’avance avec le loueur. Précisez votre train et les informations utiles à votre arrivée pour organiser le rendez-vous. Cette page ne garantit ni guichet Benatna, ni emplacement précis, ni délai de remise des clés.' },
+      { title: 'Choisir le véhicule pour votre séjour', text: 'Comparez les modèles, la transmission et le nombre de places dans le catalogue. Vous pouvez retenir jusqu’à trois modèles pour votre demande. La location dure au minimum trois jours et au maximum six mois calendaires ; les prix journaliers sont indicatifs jusqu’à confirmation du loueur.' },
+      { title: 'Une autre gare ou une arrivée à l’aéroport ?', text: 'Le guide présente aussi Casa-Port, Oasis, Aïn Sebaâ et l’aéroport Mohammed V. Choisissez le lieu précis dans votre demande. Nos loueurs sont basés à Casablanca ; Rabat reste une livraison sur demande depuis Casablanca, à confirmer avec le loueur.' },
     ],
   },
 };
