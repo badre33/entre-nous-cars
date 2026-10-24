@@ -1,6 +1,6 @@
 import { chromium } from 'playwright';import assert from 'node:assert/strict';import fs from 'node:fs/promises';
 const base=process.env.TEST_BASE||'http://127.0.0.1:4319';const project='ojbdzmrpbhoibqvoejbj';const checks=[];const pass=name=>checks.push({name,passed:true});
-const evidence='docs/acquisition/2026-10-22/evidence';await fs.mkdir(evidence,{recursive:true});
+const evidence=process.env.TEST_OUTPUT_DIR||'docs/acquisition/2026-10-22/evidence';await fs.mkdir(evidence,{recursive:true});
 const browser=await chromium.launch({headless:true,...(process.env.TEST_CHROME_PATH?{executablePath:process.env.TEST_CHROME_PATH}:process.platform==='darwin'?{executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'}:{})});
 const canary='PRIVATE_CANARY_881122';const syntheticUser='00000000-0000-0000-0000-000000000001';
 async function contextFor(actor='public'){
@@ -41,7 +41,7 @@ async function qualify(page) {
  await page.getByLabel('Véhicule souhaité',{exact:true}).selectOption('Renault Clio');
  await page.getByLabel('Date de départ de la demande',{exact:true}).fill('2027-01-01');
  await page.getByLabel('Date de retour de la demande',{exact:true}).fill('2027-01-04');
- await page.getByLabel('Ville de prise en charge',{exact:true}).selectOption('Casablanca');
+ await page.getByRole('dialog').getByLabel('Ville de prise en charge',{exact:true}).selectOption('Casablanca');
  await page.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('cmn');
  await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
  await page.getByRole('checkbox',{name:'Je confirme mes dates, mon véhicule et mon lieu de prise en charge.',exact:true}).check();

@@ -1,0 +1,24 @@
+{
+  "before": {
+    "entry": "assets/index-jD8o9z82.js",
+    "bytes": 787588,
+    "gzipBytes": 246132,
+    "supabaseModulesInEntry": 73
+  },
+  "after": {
+    "entry": "assets/index-C5TuRvx8.js",
+    "bytes": 633885,
+    "gzipBytes": 206647,
+    "supabaseModulesInEntry": 0
+  },
+  "precache": {
+    "before": {
+      "files": 161,
+      "KiB": 2452.55
+    },
+    "after": {
+      "files": 9,
+      "KiB": 738.58
+    }
+  }
+}

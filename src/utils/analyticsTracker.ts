@@ -1,5 +1,5 @@
 import { WHATSAPP_HANDOFF_EVENT } from './rentalRequest';
-import { supabase } from '@/integrations/supabase/client';
+import { publicAnalyticsRpc } from './publicAnalyticsRpc';
 import { analyticsEventId, appendCampaignCode, captureCampaignAttribution, getCampaignAttribution, safeAnalyticsPath, sanitizeAnalyticsProperties } from './analyticsPrivacy';
 
 export type EventType = 'traffic' | 'behavior' | 'conversion' | 'marketing' | 'engagement';
@@ -86,7 +86,7 @@ class AnalyticsTracker {
     if (['/auth', '/analytics', '/demandes'].includes(safeAnalyticsPath(window.location.pathname))) return;
     const safe = sanitizeAnalyticsProperties(properties);
     try {
-      const { error } = await supabase.rpc('insert_analytics_event', {
+      const { error } = await publicAnalyticsRpc('insert_analytics_event', {
         p_event_type: eventType, p_event_name: eventName, p_page_path: safeAnalyticsPath(window.location.pathname), p_referrer: null,
         p_source: trafficSource(), p_device_type: deviceType(), p_user_agent: null, p_session_id: sessionId(), p_visitor_id: visitorId(), p_properties: safe,
       });
@@ -104,7 +104,7 @@ class AnalyticsTracker {
     void this.updateSession(safe);
   }
   private async updateSession(path: string) {
-    try { await supabase.rpc('touch_analytics_session', { p_session_id: sessionId(), p_visitor_id: visitorId(), p_path: path, p_device_type: deviceType(), p_source: trafficSource() }); }
+    try { await publicAnalyticsRpc('touch_analytics_session', { p_session_id: sessionId(), p_visitor_id: visitorId(), p_path: path, p_device_type: deviceType(), p_source: trafficSource() }); }
     catch { /* optional */ }
   }
   trackTimeOnPage() {

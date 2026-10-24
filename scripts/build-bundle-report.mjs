@@ -1,0 +1,3 @@
+import { build } from 'vite';
+import fs from 'node:fs/promises';import {gzipSync} from 'node:zlib';
+await build({mode:'new-project',plugins:[{name:'measure-bundle',async generateBundle(_,bundle){const chunks=Object.values(bundle).filter(x=>x.type==='chunk').map(c=>({file:c.fileName,entry:c.isEntry,imports:c.imports,dynamicImports:c.dynamicImports,bytes:Buffer.byteLength(c.code),gzip:gzipSync(c.code).length,modules:Object.entries(c.modules).map(([id,m])=>({id:id.replace(process.cwd()+'/',''),bytes:m.renderedLength})).sort((a,b)=>b.bytes-a.bytes)}));await fs.writeFile(process.env.BUNDLE_REPORT||'/tmp/benatna-bundle-report.json',JSON.stringify(chunks,null,2));}}]});
