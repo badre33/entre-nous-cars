@@ -99,8 +99,11 @@ export default function Glossaire() {
                 Glossaire Location Voiture Maroc
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                Plus de 50 termes essentiels expliqués simplement pour comprendre votre location de voiture au Maroc
+                Les termes utiles pour préparer votre location à Casablanca, avec Rabat sur demande depuis Casablanca
               </p>
+
+              <p className="mb-5">De trois jours à six mois calendaires. Livraison gratuite aux points desservis, rendez-vous convenu à l’avance et conditions confirmées par le loueur.</p>
+              <p className="text-sm mb-8">Informations officielles : <a className="underline" href="https://www.acaps.ma/fr/grand-public/biens/assurance-automobile">assurance automobile — ACAPS</a> · <a className="underline" href="https://www.narsa-securiteroutiere.ma/fr/">sécurité routière — NARSA</a>.</p>
 
               {/* Search */}
               <div className="relative max-w-2xl mx-auto">
@@ -110,6 +113,7 @@ export default function Glossaire() {
                   placeholder="Rechercher un terme (ex: franchise, assurance, caution...)"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
+                  aria-label="Rechercher dans le glossaire"
                   className="pl-12 h-14 text-lg"
                 />
               </div>

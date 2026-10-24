@@ -1,6 +1,6 @@
 import type { CoreRentalContent } from '@/components/CoreRentalLanding';
 
-export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'casaVoyageurs', CoreRentalContent> = {
+export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'casaVoyageurs' | 'automatic' | 'railway', CoreRentalContent> = {
   casablanca: {
     path: '/location-voiture-casablanca',
     title: 'Location de voiture à Casablanca, minimum 3 jours | Benatna',
@@ -51,4 +51,46 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
       { title: 'Une autre gare ou une arrivée à l’aéroport ?', text: 'Le guide présente aussi Casa-Port, Oasis, Aïn Sebaâ et l’aéroport Mohammed V. Choisissez le lieu précis dans votre demande. Nos loueurs sont basés à Casablanca ; Rabat reste une livraison sur demande depuis Casablanca, à confirmer avec le loueur.' },
     ],
   },
+  automatic: {
+    "path": "/location-voiture-automatique-casablanca",
+    "title": "Location voiture automatique à Casablanca, 3 jours minimum | Benatna",
+    "description": "Comparez les voitures automatiques pour votre séjour à Casablanca. De 3 jours à 6 mois, livraison gratuite aux points desservis. Tarif et modèle confirmés par le loueur.",
+    "heading": "Une voiture automatique pour votre séjour à Casablanca",
+    "intro": "Vous préférez une boîte automatique pour vos vacances ou votre retour au pays ? Comparez les modèles du catalogue et utilisez le filtre de transmission. Votre demande permet au loueur de confirmer une version adaptée à vos dates, vos passagers et vos bagages.",
+    "sections": [
+        {
+            "title": "Faire confirmer la version automatique",
+            "text": "Un même modèle peut exister en boîte manuelle ou automatique. Vérifiez la transmission de la version présentée, puis précisez votre préférence dans votre échange avec le loueur. Les photos et les prix journaliers du catalogue sont indicatifs ; le véhicule et le tarif final sont confirmés avant votre accord."
+        },
+        {
+            "title": "Une prise en charge à Casablanca",
+            "text": "La livraison est gratuite aux points desservis, notamment Mohammed V et les gares de Casablanca indiquées dans le guide. Le lieu précis et le rendez-vous sont convenus à l’avance. Rabat reste une livraison demandée depuis Casablanca, selon la disponibilité du loueur. Votre itinéraire de séjour peut ensuite être discuté avec lui selon le contrat."
+        },
+        {
+            "title": "Préparer une demande complète",
+            "text": "Choisissez vos dates, un à trois modèles et votre lieu de prise en charge. La durée est de trois jours minimum à six mois calendaires maximum. Vérifiez le récapitulatif avant d’ouvrir WhatsApp. Le loueur précise les documents, la caution et les modalités de règlement ; la demande ne confirme pas automatiquement une réservation."
+        }
+    ]
+},
+  railway: {
+    "path": "/location-voiture-gare-oncf-maroc",
+    "title": "Location voiture en gare de Casablanca, Rabat sur demande | Benatna",
+    "description": "Préparez votre voiture à votre arrivée en gare de Casablanca. Livraison gratuite convenue à l’avance, 3 jours à 6 mois. Rabat sur demande depuis Casablanca.",
+    "heading": "Votre voiture à l’arrivée en gare de Casablanca",
+    "intro": "Vous arrivez en train pour un séjour à Casablanca ? Préparez votre demande avec vos dates, le modèle souhaité et votre gare d’arrivée. Les loueurs sont basés à Casablanca ; ils confirment avec vous le véhicule, le tarif et le rendez-vous avant le déplacement.",
+    "sections": [
+        {
+            "title": "Choisir la gare de prise en charge",
+            "text": "Le guide commun présente Casa-Voyageurs, Casa-Port, Oasis et Aïn Sebaâ. Choisissez le point précis dans votre demande et échangez avec le loueur pour organiser votre arrivée. La livraison est gratuite aux points desservis. La présence d’une gare dans le guide ne correspond pas à un guichet ou un comptoir Benatna."
+        },
+        {
+            "title": "Préparer un rendez-vous avant votre train",
+            "text": "Communiquez les informations utiles à votre arrivée pour convenir du lieu de rencontre avec le loueur. En cas de changement de voyage, contactez-le pour adapter l’organisation. Les modalités de remise du véhicule et de retour sont fixées à l’avance ; aucun délai de réponse ou de remise des clés n’est imposé par cette page."
+        },
+        {
+            "title": "Demander Rabat depuis Casablanca",
+            "text": "Rabat-Ville et Rabat Agdal figurent dans le guide comme possibilités de livraison depuis Casablanca, à confirmer avec le loueur. La durée reste de trois jours minimum à six mois calendaires maximum. Comparez les modèles du catalogue, puis préparez une demande qualifiée avec vos dates et le point d’arrivée choisi."
+        }
+    ]
+},
 };
