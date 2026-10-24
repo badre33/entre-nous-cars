@@ -10,11 +10,7 @@ interface FAQSchemaEnrichedProps {
   pageName?: string;
 }
 
-/**
- * Schema FAQ Enrichi et Systématique
- * Permet d'obtenir des Rich Snippets (Position 0) dans Google
- * Impact SEO: Augmente la visibilité de 40-50% et le CTR de 30%
- */
+// Publishes the supplied questions and answers as FAQPage structured data.
 export const FAQSchemaEnriched = ({ faqs, pageName }: FAQSchemaEnrichedProps) => {
   const faqSchema = {
     "@context": "https://schema.org",

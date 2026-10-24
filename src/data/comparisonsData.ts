@@ -230,107 +230,87 @@ export const comparisons: Comparison[] = [
 
   // COMPARAISONS SERVICES
   {
-    id: 'location-aeroport-vs-centre',
-    title: 'Location Aéroport vs Centre-Ville',
-    slug: 'location-aeroport-vs-centre-ville-maroc',
-    metaTitle: 'Location Voiture Aéroport vs Centre-Ville Maroc - Où Louer ? | Benatna',
-    metaDescription: 'Faut-il louer à l\'aéroport ou en centre-ville au Maroc ? Comparatif complet : prix, disponibilité, horaires, avantages. Guide pratique 2024.',
-    category: 'services',
-    introduction: 'Louer une voiture à l\'aéroport ou en centre-ville : un choix stratégique qui impacte votre budget et votre confort. Ce comparatif détaille tous les critères pour vous aider à décider selon votre situation.',
-    item1: {
-      name: 'Location à l\'Aéroport',
-      image: '/city-casablanca.jpg',
-      price: 'Standard + 0-10%',
-      specs: {
-        'Disponibilité': '24h/24 - 7j/7',
-        'Délai récupération': '10-30 minutes',
-        'Parking gratuit': 'Inclus',
-        'Navette': 'Non nécessaire',
-        'Villes': 'Casa, Marrakech, Rabat, Agadir, Fès, Tanger'
-      },
-      pros: [
-        '✅ Gain de temps énorme (pas de taxi/navette)',
-        '✅ Service 24h/24 pour vols de nuit',
-        '✅ Large choix de véhicules',
-        '✅ Parking inclus à l\'aéroport',
-        '✅ Idéal pour démarrer road trip immédiatement',
-        '✅ Restitution simplifiée avant vol',
-        '✅ Accueil personnalisé comptoir'
-      ],
-      cons: [
-        '❌ Supplément aéroport possible (0-10%)',
-        '❌ Affluence aux heures de pointe',
-        '❌ Parfois queue au comptoir',
-        '❌ Conduite immédiate après vol (fatigue)'
-      ],
-      bestFor: [
-        '🎯 Touristes arrivant de l\'étranger',
-        '🎯 Road trips dès l\'arrivée',
-        '🎯 Vols tôt/tard (24h/24)',
-        '🎯 Séjours hors centre-ville',
-        '🎯 Gain de temps maximum'
-      ]
+    "id": "location-aeroport-vs-centre",
+    "title": "Aéroport ou centre-ville à Casablanca",
+    slug: "location-aeroport-vs-centre-ville-maroc",
+    "metaTitle": "Location voiture : aéroport ou centre-ville à Casablanca | Benatna",
+    "metaDescription": "Choisir votre prise en charge à Casablanca : Mohammed V ou point en ville convenu avec le loueur. Livraison gratuite aux points desservis, minimum 3 jours.",
+    "category": "services",
+    "introduction": "Choisissez le point de prise en charge selon votre arrivée à Casablanca et l’organisation de votre séjour. Dans les deux cas, la livraison aux points desservis est gratuite et le rendez-vous est convenu à l’avance avec le loueur. La location dure de trois jours à six mois calendaires.",
+    "item1": {
+        "name": "Arrivée à Mohammed V",
+        "image": "/city-casablanca.jpg",
+        "price": "Tarif à confirmer",
+        "specs": {
+            "Lieu": "Aéroport Mohammed V, Casablanca",
+            "Rendez-vous": "Convenu à l’avance",
+            "Livraison": "Gratuite au point desservi",
+            "Durée": "3 jours à 6 mois"
+        },
+        "pros": [
+            "Prise en charge adaptée à une arrivée en avion",
+            "Lieu de rencontre convenu avant le déplacement",
+            "Retour organisé avec le loueur"
+        ],
+        "cons": [
+            "Prévenir le loueur si votre voyage change",
+            "Vérifier le lieu précis avant votre arrivée"
+        ],
+        "bestFor": [
+            "MRE et touristes arrivant en avion",
+            "Voyageurs souhaitant préparer leur voiture avant le départ"
+        ]
     },
-    item2: {
-      name: 'Location Centre-Ville',
-      image: '/city-marrakech.jpg',
-      price: 'Standard',
-      specs: {
-        'Disponibilité': '8h-20h généralement',
-        'Délai récupération': '30-60 minutes',
-        'Parking': 'À prévoir',
-        'Navette': 'Taxi/transport nécessaire',
-        'Villes': 'Tous quartiers Casa, Marrakech, Rabat'
-      },
-      pros: [
-        '✅ Prix standard (pas de supplément)',
-        '✅ Multiples points de retrait',
-        '✅ Livraison hôtel souvent gratuite',
-        '✅ Moins d\'affluence',
-        '✅ Conseils locaux personnalisés',
-        '✅ Restitution flexible quartiers',
-        '✅ Idéal si déjà installé'
-      ],
-      cons: [
-        '❌ Nécessite transport aéroport → ville',
-        '❌ Horaires limités (8h-20h souvent)',
-        '❌ Délai de livraison si hôtel',
-        '❌ Moins de choix véhicules premium',
-        '❌ Complique logistique arrivée'
-      ],
-      bestFor: [
-        '🎯 Voyageurs déjà en ville',
-        '🎯 Besoin ponctuel après installation',
-        '🎯 Budget strict (éviter supplément)',
-        '🎯 Horaires flexibles',
-        '🎯 Livraison hôtel souhaitée'
-      ]
+    "item2": {
+        "name": "Point convenu à Casablanca",
+        "image": "/city-casablanca.jpg",
+        "price": "Tarif à confirmer",
+        "specs": {
+            "Lieu": "Point desservi à Casablanca",
+            "Rendez-vous": "Convenu à l’avance",
+            "Livraison": "Gratuite au point desservi",
+            "Durée": "3 jours à 6 mois"
+        },
+        "pros": [
+            "Prise en charge adaptée à un séjour déjà commencé",
+            "Possibilité de choisir une gare ou une adresse à confirmer",
+            "Organisation du retour avec le loueur"
+        ],
+        "cons": [
+            "Faire confirmer que l’adresse est desservie",
+            "Prévoir votre trajet jusqu’au rendez-vous convenu"
+        ],
+        "bestFor": [
+            "Voyageurs déjà installés à Casablanca",
+            "Arrivées en gare",
+            "Séjours personnels et vacances"
+        ]
     },
-    verdict: {
-      winner: 'item1',
-      summary: 'Pour la majorité des touristes, la location à l\'aéroport est la solution optimale.',
-      recommendation: '**Choisissez l\'Aéroport si** (recommandé) : Vous arrivez en avion, voulez démarrer immédiatement, avez un vol tôt/tard, ou prévoyez un road trip.\n\n**Choisissez le Centre-Ville si** : Vous êtes déjà installé en ville, avez besoin d\'une voiture quelques jours après arrivée, ou souhaitez éviter tout supplément.'
+    "verdict": {
+        "winner": "tie",
+        "summary": "Le meilleur point est celui qui correspond à votre arrivée et au rendez-vous confirmé par le loueur.",
+        "recommendation": "Choisissez Mohammed V si vous arrivez en avion et souhaitez y organiser la prise en charge. Si vous êtes déjà à Casablanca ou arrivez en train, choisissez un point desservi adapté à votre séjour. Dans les deux cas, vérifiez le modèle, le tarif final et les conditions avec le loueur avant votre accord."
     },
-    faq: [
-      {
-        question: 'Quel est le supplément pour location à l\'aéroport au Maroc ?',
-        answer: 'Chez Benatna, le supplément aéroport est de 0-10% selon la ville. À Casablanca et Marrakech, il est souvent inclus dans le tarif de base. Le gain de temps justifie largement ce léger surcoût.'
-      },
-      {
-        question: 'La livraison en centre-ville est-elle gratuite ?',
-        answer: 'Oui, les loueurs partenaires livrent gratuitement dans de nombreux quartiers de Casablanca (Maarif, Anfa, Ain Diab), Marrakech (Guéliz, Hivernage) et Rabat (Hassan, Agdal). Vérifiez la zone avec le loueur sur WhatsApp.'
-      },
-      {
-        question: 'Peut-on louer à l\'aéroport et restituer en centre-ville ?',
-        answer: 'Oui absolument ! De nombreux loueurs partenaires proposent la restitution flexible : vous pouvez prendre à l\'aéroport de Casablanca et rendre à Marrakech centre-ville par exemple. Pratique pour circuits multi-villes.'
-      },
-      {
-        question: 'Quels sont les horaires de location en centre-ville ?',
-        answer: 'Les agences centre-ville sont généralement ouvertes de 8h à 20h en semaine, et 9h-18h le week-end. Pour des besoins hors horaires, la location aéroport 24h/24 est préférable.'
-      }
+    "faq": [
+        {
+            "question": "La livraison à l’aéroport est-elle payante ?",
+            "answer": "La livraison au point desservi de Mohammed V est gratuite et convenue à l’avance avec le loueur. Le prix de location du véhicule est confirmé pour vos dates."
+        },
+        {
+            "question": "Comment choisir une prise en charge en ville ?",
+            "answer": "Indiquez la gare ou l’adresse souhaitée à Casablanca. Le loueur confirme le point desservi et le rendez-vous avant votre déplacement. La livraison au point convenu est gratuite."
+        },
+        {
+            "question": "Puis-je demander Rabat ?",
+            "answer": "Une livraison à Rabat peut être demandée depuis Casablanca, selon la disponibilité du loueur. Confirmez avec lui le lieu de prise en charge et l’organisation du retour avant votre accord."
+        },
+        {
+            "question": "Quand le rendez-vous est-il fixé ?",
+            "answer": "Il est convenu à l’avance avec le loueur en fonction de votre arrivée. Préparez une demande avec vos dates, un à trois modèles et le lieu précis ; le loueur confirme ensuite le véhicule, le tarif et les conditions."
+        }
     ],
-    relatedComparisons: ['location-courte-vs-longue-duree', 'avec-vs-sans-chauffeur']
-  },
+    "relatedComparisons": []
+},
   {
     id: 'location-courte-vs-longue-duree',
     title: 'Location Courte Durée vs Longue Durée',
