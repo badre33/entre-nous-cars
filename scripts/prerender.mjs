@@ -69,7 +69,9 @@ const makeReady = (route) => `() => {
   const root = document.getElementById('root');
   if (!root || root.children.length === 0) return false;
   if (!document.querySelector('h1')) return false;
-  if (document.body.innerText.trim().length < 1200) return false;
+  // A factual vehicle card is shorter than an editorial page. Keep the other
+  // title, metadata and stability checks; do not pad copy to meet a word count.
+  if (document.body.innerText.trim().length < ${route.startsWith('/vehicule/') ? 500 : 1200}) return false;
 
   const head = document.head;
   if (!head.querySelector('link[rel="canonical"]')) return false;
@@ -137,7 +139,7 @@ const renderRoute = async (browser, route) => {
     const looksUnfinished = (h) => {
       const text = visibleTextLength(h);
       const skeletons = (h.match(/animate-pulse/g) || []).length;
-      return text < 900 || (skeletons > 3 && text < 2500);
+      return text < (route.startsWith('/vehicule/') ? 500 : 900) || (skeletons > 3 && text < 2500);
     };
 
     let html = await capture();

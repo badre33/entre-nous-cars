@@ -5,18 +5,19 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run sitemap && vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "prerender": "node scripts/prerender.mjs",
-    "build:prerender": "vite build && npm run prerender:safe",
-    "prerender:safe": "node scripts/prerender.mjs && node scripts/static-route-policy.mjs",
+    "build:prerender": "npm run sitemap && vite build && npm run prerender:safe",
+    "prerender:safe": "node scripts/prerender.mjs && node scripts/static-route-policy.mjs && node scripts/audit-vehicle-indexability.mjs --dist dist --output /tmp/benatna-vehicle-indexability-build.json",
     "test:maintenance": "node scripts/test-maintenance.mjs",
     "test:catalogue": "node scripts/test-catalogue.mjs",
     "test:schema-baseline": "node scripts/test-schema-rebuild.mjs",
     "test:measurement-schema": "node scripts/test-measurement-schema.mjs",
-    "test:measurement-browser": "node scripts/test-measurement-browser.mjs"
+    "test:measurement-browser": "node scripts/test-measurement-browser.mjs",
+    "sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
