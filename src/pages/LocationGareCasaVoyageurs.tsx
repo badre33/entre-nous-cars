@@ -1,10 +1,6 @@
-import { LongTailPage } from "@/components/LongTailPage";
-import { additionalLongTailPages } from "@/data/additionalLongTailPages";
+import { CoreRentalLanding } from '@/components/CoreRentalLanding';
+import { coreRentalPages } from '@/data/coreRentalPages';
 
-const LocationGareCasaVoyageurs = () => {
-  const config = additionalLongTailPages.find(p => p.slug === "location-voiture-gare-casa-voyageurs");
-  if (!config) return null;
-  return <LongTailPage config={config} />;
-};
-
-export default LocationGareCasaVoyageurs;
+export default function LocationGareCasaVoyageurs() {
+  return <CoreRentalLanding content={coreRentalPages.casaVoyageurs} />;
+}

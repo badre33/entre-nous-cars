@@ -207,7 +207,7 @@ const Index = () => {
           </div>
 
           {/* Slogan anti-franchise : prix transparent, tous clients egaux */}
-          <div className="flex flex-col items-center justify-center mb-4 sm:mb-6 animate-fade-in [animation-delay:350ms] px-2">
+          <div className="hidden sm:flex flex-col items-center justify-center mb-4 sm:mb-6 animate-fade-in [animation-delay:350ms] px-2">
             <p className="text-base sm:text-xl md:text-2xl font-bold text-white drop-shadow-lg text-center">
               ✨ Le prix annoncé est le prix payé.
             </p>

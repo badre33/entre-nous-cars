@@ -5,7 +5,7 @@ const y=new Date().getFullYear()+1;const start=`${y}-01-01`;const end=`${y}-01-0
 async function fill(page,vehicle='Renault Clio'){
  if(vehicle)await page.getByLabel('Véhicule souhaité',{exact:true}).selectOption(vehicle);
  await page.getByLabel('Date de départ de la demande',{exact:true}).fill(start);await page.getByLabel('Date de retour de la demande',{exact:true}).fill(end);
- await page.getByLabel('Ville de prise en charge',{exact:true}).selectOption('Casablanca');await page.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('cmn');
+ await page.getByRole('dialog').getByLabel('Ville de prise en charge',{exact:true}).selectOption('Casablanca');await page.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('cmn');
 }
 async function confirm(page){await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();await page.getByRole('checkbox',{name:'Je confirme mes dates, mon véhicule et mon lieu de prise en charge.',exact:true}).check();await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).click();}
 try {for(const width of [1280,390]){
