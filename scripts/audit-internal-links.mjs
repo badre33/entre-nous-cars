@@ -15,6 +15,7 @@ async function load(route){
  if(!cache.has(route))cache.set(route,base ? fetch(base+route,{signal:AbortSignal.timeout(30000)}).then(response=>response.status===200?response.text():null).catch(()=>null) : fs.readFile(path.join(dist,route.slice(1),'index.html'),'utf8').catch(()=>null));
  return cache.get(route);
 }
+const renderedHTML=html=>html.replace(/<!--[\s\S]*?-->/g,'').replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi,'').replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi,'');
 const decode=value=>value.replaceAll('&amp;','&').replaceAll('&quot;','"').replaceAll('&#x27;',"'");
 const problems=[],redirects=[],external=new Set(),targets=new Set();
 let references=0;
@@ -22,7 +23,7 @@ for(const source of pages){
  const html=await load(source);
  if(html===null){problems.push({source,reason:'Source HTML missing'});continue;}
  // Read only rendered anchors, never scripts, metadata or source-code strings.
- for(const match of html.matchAll(/<a\b[^>]*\bhref=["']([^"']*)["'][^>]*>/gi)){
+ for(const match of renderedHTML(html).matchAll(/<a\b[^>]*\shref=["']([^"']*)["'][^>]*>/gi)){
   const href=decode(match[1]);let url;
   try{url=new URL(href,origin+source);}catch{problems.push({source,href,reason:'Invalid URL'});continue;}
   if(!['https:','http:'].includes(url.protocol))continue;
@@ -47,7 +48,7 @@ for(const source of pages){
   }
   if(url.hash){
    let id;try{id=decodeURIComponent(url.hash.slice(1));}catch{problems.push({source,href,reason:'Invalid fragment encoding'});continue;}
-   const ids=[...targetHTML.matchAll(/\bid=["']([^"']*)["']/g)].map(item=>decode(item[1]));
+   const ids=[...renderedHTML(targetHTML).matchAll(/\sid=["']([^"']*)["']/g)].map(item=>decode(item[1]));
    if(!ids.includes(id))problems.push({source,href,destination,reason:'Missing fragment target'});
   }
  }
