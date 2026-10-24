@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { vehicleImageSrcSet } from "@/utils/vehicleImages";
 import { cn } from "@/lib/utils";
 
 interface LazyCarImageProps {
@@ -24,16 +25,6 @@ export default function LazyCarImage({
   const [error, setError] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLDivElement>(null);
-
-  // Note: WebP files need to be manually converted or generated via build process
-  // For now, we'll rely on browser caching and lazy loading
-  // To enable WebP: convert images manually or use vite-plugin-imagemin
-  
-  // Generate srcset for responsive images with proper densities
-  const generateSrcSet = (imageSrc: string) => {
-    // Provide 1x and 2x versions for retina displays
-    return `${imageSrc} 1x, ${imageSrc} 2x`;
-  };
 
   // Intersection Observer for lazy loading with mobile-optimized margins
   useEffect(() => {
@@ -70,7 +61,7 @@ export default function LazyCarImage({
       {(isInView || priority) && (
         <img
           src={src}
-          srcSet={generateSrcSet(src)}
+          srcSet={vehicleImageSrcSet(src)}
           sizes={sizes}
           alt={src.includes("vehicle-photo-pending.svg") ? `${alt} : photo à remplacer, illustration neutre` : alt}
           loading={priority ? "eager" : "lazy"}
