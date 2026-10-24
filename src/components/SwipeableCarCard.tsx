@@ -142,6 +142,7 @@ export default function SwipeableCarCard({
               <LazyCarImage 
                 src={car.image} 
                 alt={imageAlt}
+                sizes={viewMode === "list" ? "96px" : viewMode === "grid" ? "(max-width: 767px) calc((100vw - 44px) / 2), (max-width: 1023px) 50vw, 33vw" : "(max-width: 767px) 85vw, 33vw"}
                 className="w-full h-full object-cover"
               />
               {car.badges && car.badges.length > 0 && (
@@ -236,6 +237,7 @@ export default function SwipeableCarCard({
             <LazyCarImage 
               src={car.image} 
               alt={imageAlt}
+                sizes={viewMode === "list" ? "96px" : viewMode === "grid" ? "(max-width: 767px) calc((100vw - 44px) / 2), (max-width: 1023px) 50vw, 33vw" : "(max-width: 767px) 85vw, 33vw"}
               className="w-full h-full object-cover"
             />
           </AspectRatio>
@@ -336,6 +338,7 @@ export default function SwipeableCarCard({
         <LazyCarImage 
           src={car.image} 
           alt={imageAlt}
+                sizes={viewMode === "list" ? "96px" : viewMode === "grid" ? "(max-width: 767px) calc((100vw - 44px) / 2), (max-width: 1023px) 50vw, 33vw" : "(max-width: 767px) 85vw, 33vw"}
           className="w-full h-full object-cover"
         />
         

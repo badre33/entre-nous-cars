@@ -1,3 +1,4 @@
+import { vehicleImageSrcSet } from "@/utils/vehicleImages";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -80,28 +81,29 @@ const VehicleDetail = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {/* LEFT — Photos + tabs (2/3) */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 min-w-0">
             {/* Carousel principal */}
             <div className="relative rounded-2xl overflow-hidden bg-muted aspect-[4/3] mb-3">
               <img
                 src={vehicle.photos[currentPhoto]}
                 alt={vehicle.photos[currentPhoto].includes("vehicle-photo-pending.svg") ? `${vehicle.name} : photo à remplacer, illustration neutre` : `${vehicle.name} - photo ${currentPhoto + 1}`}
                 className="w-full h-full object-contain transition-opacity duration-300"
-                loading="lazy"
+                srcSet={vehicleImageSrcSet(vehicle.photos[currentPhoto])}
+                sizes="(max-width: 767px) calc(100vw - 32px), 720px"
+                loading="eager" fetchPriority="high" decoding="async"
               />
               {vehicle.photos.length > 1 && (
                 <>
                   <button
                     onClick={prevPhoto}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 hover:bg-background shadow-md flex items-center justify-center transition"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-background/90 hover:bg-background shadow-md flex items-center justify-center transition"
                     aria-label="Photo précédente"
                   >
                     <ChevronLeft className="h-5 w-5" />
                   </button>
                   <button
                     onClick={nextPhoto}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 hover:bg-background shadow-md flex items-center justify-center transition"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-background/90 hover:bg-background shadow-md flex items-center justify-center transition"
                     aria-label="Photo suivante"
                   >
                     <ChevronRight className="h-5 w-5" />
@@ -124,15 +126,89 @@ const VehicleDetail = () => {
                       currentPhoto === idx ? "border-primary" : "border-transparent opacity-60 hover:opacity-100"
                     }`}
                   >
-                    <img src={photo} alt={`Miniature ${idx + 1}`} className="w-full h-full object-cover" />
+                    <img src={photo} srcSet={vehicleImageSrcSet(photo)} sizes="80px" loading="lazy" decoding="async" alt={`Miniature ${idx + 1}`} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
             )}
 
+          </div>
+          {/* RIGHT — Sidebar prix + CTA */}
+          <div className="md:col-span-1 md:col-start-3 md:row-start-1 md:row-span-2 min-w-0">
+            <Card className="md:sticky md:top-4">
+              <CardContent className="p-5 space-y-4">
+                <div>
+                  <Badge variant="secondary" className="mb-2">{vehicle.category}</Badge>
+                  <h1 className="text-2xl font-bold">{vehicle.name}</h1>
+                  <p className="text-sm text-muted-foreground">{vehicle.brand}</p>
+                </div>
+
+                <div className="py-3 border-y border-border">
+                  <p className="text-xs text-muted-foreground mb-1">À partir de</p>
+                  <p className="text-3xl font-bold text-primary">{currentDailyPrice(parseInt(String(vehicle.priceFrom).replace(/[^\d]/g, '')) || vehicle.priceFrom)} <span className="text-base font-medium text-muted-foreground">DH/jour</span></p>
+                  {currentContextBadge() && (
+                    <p className="text-xs text-secondary font-medium mt-1">{currentContextBadge()}</p>
+                  )}
+                  <p className="text-xs text-muted-foreground mt-1">Prix indicatif — chaque loueur partenaire gère sa tarification, confirmée sur WhatsApp. Location longue durée dès 3 mois : tarif négocié en direct.</p>
+                </div>
+
+                {/* Quick specs */}
+                <div className="grid grid-cols-3 gap-2 text-center text-xs">
+                  <div className="flex flex-col items-center gap-1">
+                    <Users className="h-4 w-4 text-muted-foreground" />
+                    <span>{vehicle.options.seats} places</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1">
+                    <Briefcase className="h-4 w-4 text-muted-foreground" />
+                    <span>Coffre</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-1">
+                    <Fuel className="h-4 w-4 text-muted-foreground" />
+                    <span>{vehicle.options.fuel.split(" ")[0]}</span>
+                  </div>
+                </div>
+
+                {/* CTAs */}
+                <div className="space-y-2">
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    <Button className="w-full bg-green-600 hover:bg-green-700">
+                      <MessageCircle className="h-4 w-4 mr-2" />
+                      Réserver ce véhicule
+                    </Button>
+                  </a>
+                  <a href="tel:+212699024526">
+                    <Button variant="outline" className="w-full">
+                      <Phone className="h-4 w-4 mr-2" />
+                      Appeler
+                    </Button>
+                  </a>
+                </div>
+
+                <div className="pt-3 border-t border-border space-y-2 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
+                    <span>Sans carte de crédit internationale</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
+                    <span>Livraison aéroport gratuite par le loueur</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
+                    <span>Annulation flexible via WhatsApp</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
+                    <span>Assurance tous risques incluse</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="md:col-span-2 min-w-0">
             {/* Tabs Présentation / Équipements / Conditions */}
             <Tabs defaultValue="presentation" className="w-full">
-              <TabsList className="grid grid-cols-3 w-full bg-muted">
+              <TabsList className="grid grid-cols-3 w-full h-auto min-h-12 bg-muted [&_button]:min-h-11 [&_button]:px-1 [&_button]:whitespace-normal">
                 <TabsTrigger value="presentation" className="text-foreground/80 data-[state=active]:text-foreground data-[state=active]:bg-background data-[state=active]:shadow-sm font-medium">Présentation</TabsTrigger>
                 <TabsTrigger value="equipements" className="text-foreground/80 data-[state=active]:text-foreground data-[state=active]:bg-background data-[state=active]:shadow-sm font-medium">Équipements</TabsTrigger>
                 <TabsTrigger value="conditions" className="text-foreground/80 data-[state=active]:text-foreground data-[state=active]:bg-background data-[state=active]:shadow-sm font-medium">Conditions</TabsTrigger>
@@ -210,84 +286,11 @@ const VehicleDetail = () => {
                 <p><strong>Kilométrage :</strong> Illimité inclus</p>
                 <p><strong>Assurance :</strong> Tous risques incluse (franchise 3 000-8 000 DH selon catégorie)</p>
                 <p><strong>Caution :</strong> Espèces, virement SEPA, Cash Plus ou Wafacash acceptés. CB internationale NON obligatoire.</p>
-                <p><strong>Livraison :</strong> Gratuite par le loueur partenaire aux aéroports CMN, RAK, RBA, TNG, AGA, FEZ + gares ONCF Casa-Voyageurs, Marrakech, Rabat-Agdal, Tanger Ville</p>
-                <p><strong>Restitution :</strong> Même point que retrait, ou one-way avec supplément modeste</p>
+                <p><strong>Livraison :</strong> Gratuite et convenue à l’avance à Casablanca, notamment à l’aéroport Mohammed V et aux gares desservies. Rabat sur demande depuis Casablanca, à confirmer avec le loueur.</p>
+                <p><strong>Restitution :</strong> Lieu convenu à l’avance avec le loueur.</p>
                 <p><strong>Annulation :</strong> Se gère directement avec le loueur — prévenez simplement sur WhatsApp</p>
               </TabsContent>
             </Tabs>
-          </div>
-
-          {/* RIGHT — Sidebar prix + CTA */}
-          <div className="md:col-span-1">
-            <Card className="sticky top-4">
-              <CardContent className="p-5 space-y-4">
-                <div>
-                  <Badge variant="secondary" className="mb-2">{vehicle.category}</Badge>
-                  <h1 className="text-2xl font-bold">{vehicle.name}</h1>
-                  <p className="text-sm text-muted-foreground">{vehicle.brand}</p>
-                </div>
-
-                <div className="py-3 border-y border-border">
-                  <p className="text-xs text-muted-foreground mb-1">À partir de</p>
-                  <p className="text-3xl font-bold text-primary">{currentDailyPrice(parseInt(String(vehicle.priceFrom).replace(/[^\d]/g, '')) || vehicle.priceFrom)} <span className="text-base font-medium text-muted-foreground">DH/jour</span></p>
-                  {currentContextBadge() && (
-                    <p className="text-xs text-secondary font-medium mt-1">{currentContextBadge()}</p>
-                  )}
-                  <p className="text-xs text-muted-foreground mt-1">Prix indicatif — chaque loueur partenaire gère sa tarification, confirmée sur WhatsApp. Location longue durée dès 3 mois : tarif négocié en direct.</p>
-                </div>
-
-                {/* Quick specs */}
-                <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                  <div className="flex flex-col items-center gap-1">
-                    <Users className="h-4 w-4 text-muted-foreground" />
-                    <span>{vehicle.options.seats} places</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
-                    <Briefcase className="h-4 w-4 text-muted-foreground" />
-                    <span>Coffre</span>
-                  </div>
-                  <div className="flex flex-col items-center gap-1">
-                    <Fuel className="h-4 w-4 text-muted-foreground" />
-                    <span>{vehicle.options.fuel.split(" ")[0]}</span>
-                  </div>
-                </div>
-
-                {/* CTAs */}
-                <div className="space-y-2">
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-green-600 hover:bg-green-700">
-                      <MessageCircle className="h-4 w-4 mr-2" />
-                      Réserver ce véhicule
-                    </Button>
-                  </a>
-                  <a href="tel:+212699024526">
-                    <Button variant="outline" className="w-full">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Appeler
-                    </Button>
-                  </a>
-                </div>
-
-                <div className="pt-3 border-t border-border space-y-2 text-xs text-muted-foreground">
-                  <div className="flex items-center gap-2">
-                    <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Sans carte de crédit internationale</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Livraison aéroport gratuite par le loueur</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Annulation flexible via WhatsApp</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Assurance tous risques incluse</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
