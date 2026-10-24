@@ -232,7 +232,7 @@ export const comparisons: Comparison[] = [
   {
     "id": "location-aeroport-vs-centre",
     "title": "Aéroport ou centre-ville à Casablanca",
-    "slug": "location-aeroport-vs-centre-ville-maroc",
+    slug: "location-aeroport-vs-centre-ville-maroc",
     "metaTitle": "Location voiture : aéroport ou centre-ville à Casablanca | Benatna",
     "metaDescription": "Choisir votre prise en charge à Casablanca : Mohammed V ou point en ville convenu avec le loueur. Livraison gratuite aux points desservis, minimum 3 jours.",
     "category": "services",
