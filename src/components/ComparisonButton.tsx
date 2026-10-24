@@ -31,18 +31,18 @@ export default function ComparisonButton({ onClick }: ComparisonButtonProps) {
   };
 
   return (
-    <div className="fixed bottom-40 md:bottom-8 left-4 md:left-auto md:right-8 z-50 animate-scale-in">
+    <div className="fixed bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] md:bottom-8 left-4 right-4 md:left-auto md:right-8 z-40 animate-scale-in">
       <Button
         onClick={handleClick}
         size="lg"
         className={cn(
-          "group relative h-16 md:h-14 px-6 shadow-xl hover:shadow-2xl touch-target touch-feedback",
+          "group relative w-full md:w-auto min-h-12 h-auto md:h-14 py-3 px-3 md:px-6 shadow-xl hover:shadow-2xl touch-target touch-feedback",
           "bg-[#25D366] hover:bg-[#128C7E] text-white",
-          "transition-all duration-300 hover:scale-105 min-w-[200px] md:min-w-0"
+          "transition-all duration-300 md:hover:scale-105"
         )}
       >
         <MessageCircle className="mr-2 h-6 w-6 md:h-5 md:w-5" />
-        <span className="font-semibold text-base md:text-sm">Envoyer sur WhatsApp</span>
+        <span className="font-semibold text-sm whitespace-normal md:whitespace-nowrap">Envoyer sur WhatsApp</span>
         <Badge
           variant="secondary"
           className={cn(
@@ -54,7 +54,7 @@ export default function ComparisonButton({ onClick }: ComparisonButtonProps) {
           {selectedCars.length}
         </Badge>
       </Button>
-      <p className="text-center text-xs text-white bg-black/60 backdrop-blur-sm rounded-full px-3 py-1 mt-2">
+      <p className="sr-only md:not-sr-only md:text-center md:text-xs md:text-white md:bg-black/60 md:backdrop-blur-sm md:rounded-full md:px-3 md:py-1 md:mt-2">
         {selectedCars.length}/{MAX_COMPARISON} véhicule{selectedCars.length > 1 ? "s" : ""} sélectionné{selectedCars.length > 1 ? "s" : ""}
       </p>
     </div>

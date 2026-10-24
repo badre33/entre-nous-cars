@@ -9,7 +9,7 @@ try{for(const width of [390,1280]){
  await page.route('**/*',r=>new URL(r.request().url()).origin===base?r.continue():r.abort());
  await page.addInitScript(()=>{window.__outbound=[];window.open=url=>{window.__outbound.push(String(url));return {opener:null};};});
  await chooseThree(page);
- if(width===390)await page.getByRole('button',{name:'Contacter via WhatsApp',exact:true}).click();else{await page.waitForTimeout(350);await page.getByRole('button',{name:/Envoyer sur WhatsApp/}).click();}
+ await page.waitForTimeout(350);await page.getByRole('button',{name:/Envoyer sur WhatsApp/}).click();
  assert.deepEqual(await selected(page),expected,'all three selected models must enter the request');
  const year=new Date().getFullYear()+1;await page.getByLabel('Date de départ de la demande',{exact:true}).fill(`${year}-01-01`);await page.getByLabel('Date de retour de la demande',{exact:true}).fill(`${year}-01-04`);await page.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('cmn');
  await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();for(const model of expected)assert((await page.getByRole('dialog').innerText()).includes(model));

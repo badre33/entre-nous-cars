@@ -6,7 +6,7 @@ import { pickupPoints } from '@/data/pickupPoints';
 import { rentalVehicleNames, rentalVehicleSlugs } from '@/data/rentalVehicleNames';
 import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, normalizeVehicleName, validateRental, rentalPlace, openConfirmedRental, type RentalDraft, type ConfirmedRental } from '@/utils/rentalRequest';
 const empty = (): ConfirmedRental => ({ vehicles: [], startDate: '', endDate: '', city: 'Casablanca', pickupId: '', otherPlace: '' });
-const field = 'w-full rounded-md border border-input bg-background px-3 py-2 text-base';
+const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-background px-3 py-2 text-base';
 export default function RentalRequestDialog() {
   const { selectedCars } = useComparison();
   const selectionRef = useRef<string[]>([]);
@@ -41,8 +41,8 @@ export default function RentalRequestDialog() {
   };
   const vehicleFields = value.vehicles.length ? value.vehicles : [''];
   return <Dialog open={open} onOpenChange={next => { setOpen(next); if (!next) { setValue(empty()); setError(''); } }}>
-    <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto">
-      <DialogHeader><DialogTitle>{review ? 'Vérifiez votre demande' : 'Préparer ma demande de location'}</DialogTitle><DialogDescription>Renseignez les dates, le véhicule et le lieu de prise en charge avant d’ouvrir WhatsApp. Le loueur confirmera ensuite la disponibilité et le tarif.</DialogDescription></DialogHeader>
+    <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto overscroll-contain [&_button]:whitespace-normal [&_button]:h-auto [&_button]:min-h-11">
+      <DialogHeader className="pr-8"><DialogTitle>{review ? 'Vérifiez votre demande' : 'Préparer ma demande de location'}</DialogTitle><DialogDescription>Renseignez les dates, le véhicule et le lieu de prise en charge avant d’ouvrir WhatsApp. Le loueur confirmera ensuite la disponibilité et le tarif.</DialogDescription></DialogHeader>
       <form onSubmit={submit} className="space-y-4">
         {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
         {!review ? <>
