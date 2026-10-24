@@ -1,0 +1,560 @@
+{
+  "checkedAt": "2026-10-24T18:03:53.592Z",
+  "source": "https://benatna.ma",
+  "javascriptExecuted": false,
+  "sitemapUrlCount": 84,
+  "approvedModels": 26,
+  "vehicleUrlsInSitemap": 11,
+  "pages": [
+    {
+      "slug": "audi-a3",
+      "name": "Audi A3",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/audi-a3"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Audi A3 - Location 900 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Audi A3"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "audi-q3-sportback",
+      "name": "Audi Q3 Sportback",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/audi-q3-sportback"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Audi Q3 Sportback - Location 1020 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Audi Q3 Sportback"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "cupra-formentor",
+      "name": "Cupra Formentor",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/cupra-formentor"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Cupra Formentor - Location 940 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Cupra Formentor"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "dacia-duster",
+      "name": "Dacia Duster",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-duster"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "dacia-jogger",
+      "name": "Dacia Jogger",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-jogger"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "dacia-logan",
+      "name": "Dacia Logan",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-logan"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "dacia-sandero",
+      "name": "Dacia Sandero",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-sandero"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "dacia-sandero-stepway",
+      "name": "Dacia Sandero Stepway",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-sandero-stepway"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "hyundai-accent",
+      "name": "Hyundai Accent",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/hyundai-accent"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "hyundai-i20",
+      "name": "Hyundai i20",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/hyundai-i20"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "hyundai-tucson",
+      "name": "Hyundai Tucson",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/hyundai-tucson"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "kia-sportage",
+      "name": "Kia Sportage",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/kia-sportage"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "mercedes-cla",
+      "name": "Mercedes CLA",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/mercedes-cla"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Mercedes CLA - Location 1060 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Mercedes CLA"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "mercedes-classe-a",
+      "name": "Mercedes Classe A",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/mercedes-classe-a"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Mercedes Classe A - Location 900 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Mercedes Classe A"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "mercedes-classe-c",
+      "name": "Mercedes Classe C",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/mercedes-classe-c"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Mercedes Classe C - Location 1060 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Mercedes Classe C"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "mercedes-gla",
+      "name": "Mercedes GLA",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/mercedes-gla"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Mercedes GLA - Location 1020 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Mercedes GLA"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "opel-corsa",
+      "name": "Opel Corsa",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/opel-corsa"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "peugeot-208",
+      "name": "Peugeot 208",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/peugeot-208"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "porsche-macan",
+      "name": "Porsche Macan",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/porsche-macan"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Porsche Macan - Location 2300 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Porsche Macan"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "range-rover-evoque",
+      "name": "Range Rover Evoque",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/range-rover-evoque"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Range Rover Evoque - Location 1880 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Range Rover Evoque"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "range-rover-sport",
+      "name": "Range Rover Sport",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/range-rover-sport"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Range Rover Sport - Location 2300 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Range Rover Sport"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "renault-clio",
+      "name": "Renault Clio",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/renault-clio"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "seat-ibiza",
+      "name": "Seat Ibiza",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/seat-ibiza"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "vw-golf",
+      "name": "Volkswagen Golf",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/vw-golf"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "vw-t-roc",
+      "name": "Volkswagen T-Roc",
+      "status": 200,
+      "inSitemap": false,
+      "canonical": [
+        "https://benatna.ma/vehicule/vw-t-roc"
+      ],
+      "robots": [
+        "noindex,follow"
+      ],
+      "headerRobots": "",
+      "title": "Application Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Location de voiture au Maroc, entre nous."
+      ],
+      "bodyHasModel": false,
+      "hasPrice": true,
+      "hasApprovedPhoto": false,
+      "passed": false
+    },
+    {
+      "slug": "vw-touareg",
+      "name": "Volkswagen Touareg",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/vw-touareg"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Volkswagen Touareg - Location 1250 MAD/jour | Benatna",
+      "titleTargetsCasablanca": false,
+      "h1": [
+        "Volkswagen Touareg"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    }
+  ]
+}

@@ -41,8 +41,8 @@ const VehicleDetail = () => {
   const nextPhoto = () => setCurrentPhoto((p) => (p + 1) % vehicle.photos.length);
   const prevPhoto = () => setCurrentPhoto((p) => (p - 1 + vehicle.photos.length) % vehicle.photos.length);
 
-  // Prix dynamique identique à celui affiché sur la page (saison/événement inclus)
-  const detailDailyPrice = currentDailyPrice(parseInt(String(vehicle.priceFrom).replace(/[^\d]/g, '')) || Number(vehicle.priceFrom));
+  const seoTitle = `${vehicle.name} à Casablanca | Location voiture Benatna`;
+  const seoDescription = `Location ${vehicle.name} à Casablanca : 3 jours à 6 mois, livraison gratuite convenue à l’avance. Rabat sur demande. Disponibilité et tarif à confirmer.`;
   const whatsappLink = `/louer?demande=1&modele=${encodeURIComponent(vehicle.name)}`;
 
   const FeatureRow = ({ label, value }: { label: string; value: boolean | string | undefined }) => {
@@ -62,11 +62,11 @@ const VehicleDetail = () => {
   return (
     <>
       <Helmet>
-        <title>{vehicle.name} - Location {vehicle.priceDisplay} | Benatna</title>
-        <meta name="description" content={vehicle.description.substring(0, 155)} />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
         <link rel="canonical" href={`https://benatna.ma/vehicule/${vehicle.slug}`} />
-        <meta property="og:title" content={`${vehicle.name} à Casablanca | Benatna`} />
-        <meta property="og:description" content={vehicle.description.substring(0, 155)} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
         <meta property="og:image" content={vehicle.photos[0].startsWith('/') ? `https://benatna.ma${vehicle.photos[0]}` : vehicle.photos[0]} />
       </Helmet>
 
@@ -149,7 +149,8 @@ const VehicleDetail = () => {
                   {currentContextBadge() && (
                     <p className="text-xs text-secondary font-medium mt-1">{currentContextBadge()}</p>
                   )}
-                  <p className="text-xs text-muted-foreground mt-1">Prix indicatif — chaque loueur partenaire gère sa tarification, confirmée sur WhatsApp. Location longue durée dès 3 mois : tarif négocié en direct.</p>
+                  <p className="text-xs text-muted-foreground mt-1">Prix indicatif, à confirmer avec le loueur pour vos dates.</p>
+                  <p className="text-sm mt-2">Prise en charge à Casablanca, de 3 jours à 6 mois. Livraison gratuite convenue à l’avance ; Rabat sur demande.</p>
                 </div>
 
                 {/* Quick specs */}

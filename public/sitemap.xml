@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- ============================================================ -->
-  <!-- Homepage + core pages                                         -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/</loc>
     <changefreq>daily</changefreq>
@@ -38,10 +35,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- ============================================================ -->
-  <!-- Content & SEO pages                                           -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/blog</loc>
     <changefreq>weekly</changefreq>
@@ -57,10 +50,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- ============================================================ -->
-  <!-- Blog posts                                                    -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/blog/assurance-voiture-maroc</loc>
     <changefreq>monthly</changefreq>
@@ -81,87 +70,41 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
   </url>
-
-  <!-- ============================================================ -->
-  <!-- Pages villes principales (6 villes)                           -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/location-voiture-casablanca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://benatna.ma/location-voiture-rabat</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-
-
-
-  <!-- ============================================================ -->
-  <!-- Pages AÉROPORT (haute valeur commerciale) — 6 villes          -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/location-voiture-aeroport-casablanca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
-
-
-
-
-  <!-- ============================================================ -->
-  <!-- Long-tail "Sans carte de crédit" (haute conversion)           -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/location-voiture-sans-carte-credit-casablanca</loc>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-
-
-  <!-- ============================================================ -->
-  <!-- Long-tail "Jeune conducteur"                                  -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/location-jeune-conducteur-casablanca</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- ============================================================ -->
-  <!-- Long-tail "Longue durée"                                      -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/location-longue-duree-casablanca</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-
-  <!-- ============================================================ -->
-  <!-- Long-tail "Type véhicule" (4x4, SUV, cabriolet, etc.)         -->
-  <!-- ============================================================ -->
-
-
-
-
   <url>
     <loc>https://benatna.ma/location-voiture-electrique-casablanca</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <!-- ============================================================ -->
-  <!-- Événements & usages spécifiques                               -->
-  <!-- ============================================================ -->
-
-
-  <!-- ============================================================ -->
-  <!-- Quartiers Casablanca                                          -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/location-voiture-ain-diab-casablanca</loc>
     <changefreq>monthly</changefreq>
@@ -187,63 +130,36 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- ============================================================ -->
-  <!-- Quartiers Marrakech                                           -->
-  <!-- ============================================================ -->
-
-
-
-
-
-
-  <!-- ============================================================ -->
-  <!-- ÉVÉNEMENTS 2026 (haute priorité — événements imminents)      -->
-  <!-- ============================================================ -->
-
-  <!-- Sprint MRE/touristes : points d'entrée stratégiques -->
-
   <url>
     <loc>https://benatna.ma/location-voiture-mre-maroc</loc>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-
-  <!-- Sprint 2 : gares + quartiers Rabat -->
   <url>
     <loc>https://benatna.ma/location-voiture-gare-casa-voyageurs</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Page prix transparente — gros gisement search "prix location voiture maroc" -->
   <url>
     <loc>https://benatna.ma/prix-location-voiture-maroc-2026</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Sprint $38k — Keywords concurrents (Auto Casa/Marrakech + Caution) -->
   <url>
     <loc>https://benatna.ma/location-voiture-automatique-casablanca</loc>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-
   <url>
     <loc>https://benatna.ma/caution-location-voiture-maroc</loc>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-
-  <!-- Sprint $38k V2 — Hub gares ONCF + TOFU Top activites Marrakech -->
   <url>
     <loc>https://benatna.ma/location-voiture-gare-oncf-maroc</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Sprint $38k V3 — Hub /guide-maroc + 10 longue traîne info -->
   <url>
     <loc>https://benatna.ma/guide-maroc</loc>
     <changefreq>weekly</changefreq>
@@ -294,10 +210,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-
-  <!-- Page comparative anti-franchise -->
-
-  <!-- Sprint GEO — 4 pages optimisées LLM -->
   <url>
     <loc>https://benatna.ma/top-agences-location-voiture-maroc-2026</loc>
     <changefreq>monthly</changefreq>
@@ -318,10 +230,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- ============================================================ -->
-  <!-- CAN 2025 (événement passé, conservé pour SEO résiduel)        -->
-  <!-- ============================================================ -->
   <url>
     <loc>https://benatna.ma/en</loc>
     <changefreq>weekly</changefreq>
@@ -452,16 +360,137 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://benatna.ma/prise-en-charge-casablanca-rabat</loc></url>
-  <url><loc>https://benatna.ma/vehicule/audi-a3</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/mercedes-classe-a</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/range-rover-evoque</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/range-rover-sport</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/audi-q3-sportback</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/mercedes-gla</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/vw-touareg</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/cupra-formentor</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/mercedes-classe-c</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/porsche-macan</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://benatna.ma/vehicule/mercedes-cla</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url>
+    <loc>https://benatna.ma/prise-en-charge-casablanca-rabat</loc>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/renault-clio</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/dacia-duster</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/vw-golf</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/hyundai-tucson</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/kia-sportage</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/seat-ibiza</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/hyundai-accent</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/dacia-sandero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/dacia-logan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/dacia-sandero-stepway</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/dacia-jogger</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/opel-corsa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/peugeot-208</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/hyundai-i20</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/vw-t-roc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/audi-a3</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/mercedes-classe-a</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/range-rover-evoque</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/range-rover-sport</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/mercedes-cla</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/audi-q3-sportback</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/mercedes-gla</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/vw-touareg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/cupra-formentor</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/mercedes-classe-c</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/vehicule/porsche-macan</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>

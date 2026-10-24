@@ -1,0 +1,365 @@
+[
+  {
+    "path": "/",
+    "changefreq": "daily",
+    "priority": "1.0"
+  },
+  {
+    "path": "/louer",
+    "changefreq": "daily",
+    "priority": "0.95"
+  },
+  {
+    "path": "/nos-services",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/a-propos",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/notre-histoire",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/contact",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/partenaires",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/blog",
+    "changefreq": "weekly",
+    "priority": "0.75"
+  },
+  {
+    "path": "/faq",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/glossaire",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/blog/assurance-voiture-maroc",
+    "changefreq": "monthly",
+    "priority": "0.65"
+  },
+  {
+    "path": "/blog/conseils-conduite-maroc",
+    "changefreq": "monthly",
+    "priority": "0.65"
+  },
+  {
+    "path": "/blog/pourquoi-benatna",
+    "changefreq": "monthly",
+    "priority": "0.65"
+  },
+  {
+    "path": "/blog/road-trips-maroc",
+    "changefreq": "monthly",
+    "priority": "0.65"
+  },
+  {
+    "path": "/location-voiture-casablanca",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/location-voiture-rabat",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/location-voiture-aeroport-casablanca",
+    "changefreq": "weekly",
+    "priority": "0.85"
+  },
+  {
+    "path": "/location-voiture-sans-carte-credit-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.75"
+  },
+  {
+    "path": "/location-jeune-conducteur-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/location-longue-duree-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/location-voiture-electrique-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/location-voiture-ain-diab-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/location-voiture-anfa-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/location-voiture-hassan-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/location-voiture-maarif-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/location-voiture-sidi-maarouf-casablanca",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/location-voiture-mre-maroc",
+    "changefreq": "weekly",
+    "priority": "0.95"
+  },
+  {
+    "path": "/location-voiture-gare-casa-voyageurs",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/prix-location-voiture-maroc-2026",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/location-voiture-automatique-casablanca",
+    "changefreq": "weekly",
+    "priority": "0.95"
+  },
+  {
+    "path": "/caution-location-voiture-maroc",
+    "changefreq": "monthly",
+    "priority": "0.85"
+  },
+  {
+    "path": "/location-voiture-gare-oncf-maroc",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/guide-maroc",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/permis-international-maroc-location-voiture",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/age-minimum-location-voiture-maroc",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/eviter-arnaques-location-voiture-maroc",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/peages-autoroute-maroc-tarifs-2026",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/prix-essence-gasoil-maroc-2026",
+    "changefreq": "monthly",
+    "priority": "0.85"
+  },
+  {
+    "path": "/conduire-maroc-permis-etranger",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/accident-voiture-location-maroc-que-faire",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/courte-vs-longue-duree-location-voiture-maroc",
+    "changefreq": "monthly",
+    "priority": "0.75"
+  },
+  {
+    "path": "/essence-ou-diesel-location-voiture-maroc",
+    "changefreq": "monthly",
+    "priority": "0.75"
+  },
+  {
+    "path": "/top-agences-location-voiture-maroc-2026",
+    "changefreq": "monthly",
+    "priority": "0.95"
+  },
+  {
+    "path": "/louer-voiture-maroc-faq-complete",
+    "changefreq": "monthly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/permis-etranger-douane-mre-location-voiture",
+    "changefreq": "monthly",
+    "priority": "0.85"
+  },
+  {
+    "path": "/avis-clients-benatna-2026",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/en",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/en/louer",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/en/contact",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/en/a-propos",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/en/partenaires",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/en/blog",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/es",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/es/louer",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/es/contact",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/es/a-propos",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/es/partenaires",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/es/blog",
+    "changefreq": "weekly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/blog/budget-location-maroc",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/blog/stationnement-maroc",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/blog/carburant-maroc",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/blog/guide-complet-location-voiture-maroc-2025",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/blog/budget-voyage-maroc-2025",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/blog/meilleurs-spots-ain-diab-casablanca-voiture",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/blog/guide-quartier-maarif-casablanca-voiture",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/comparatifs",
+    "changefreq": "monthly",
+    "priority": "0.7"
+  },
+  {
+    "path": "/comparatif/dacia-duster-vs-renault-captur-maroc",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/comparatif/renault-clio-vs-dacia-sandero-maroc",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/comparatif/location-aeroport-vs-centre-ville-maroc",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/comparatif/location-courte-duree-vs-longue-duree-maroc",
+    "changefreq": "monthly",
+    "priority": "0.6"
+  },
+  {
+    "path": "/blog/louer-voiture-maroc-sans-carte-credit-mre",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/blog/conduire-au-maroc-quand-on-est-etranger",
+    "changefreq": "monthly",
+    "priority": "0.8"
+  },
+  {
+    "path": "/prise-en-charge-casablanca-rabat"
+  }
+]

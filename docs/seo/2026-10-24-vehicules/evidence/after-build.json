@@ -1,0 +1,556 @@
+{
+  "checkedAt": "2026-10-24T18:11:30.923Z",
+  "source": "dist",
+  "javascriptExecuted": false,
+  "sitemapUrlCount": 99,
+  "approvedModels": 26,
+  "vehicleUrlsInSitemap": 26,
+  "pages": [
+    {
+      "slug": "audi-a3",
+      "name": "Audi A3",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/audi-a3"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Audi A3 à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Audi A3"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "audi-q3-sportback",
+      "name": "Audi Q3 Sportback",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/audi-q3-sportback"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Audi Q3 Sportback à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Audi Q3 Sportback"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "cupra-formentor",
+      "name": "Cupra Formentor",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/cupra-formentor"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Cupra Formentor à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Cupra Formentor"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "dacia-duster",
+      "name": "Dacia Duster",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-duster"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Dacia Duster à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Dacia Duster"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "dacia-jogger",
+      "name": "Dacia Jogger",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-jogger"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Dacia Jogger à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Dacia Jogger"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "dacia-logan",
+      "name": "Dacia Logan",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-logan"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Dacia Logan à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Dacia Logan"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "dacia-sandero",
+      "name": "Dacia Sandero",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-sandero"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Dacia Sandero à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Dacia Sandero"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "dacia-sandero-stepway",
+      "name": "Dacia Sandero Stepway",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/dacia-sandero-stepway"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Dacia Sandero Stepway à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Dacia Sandero Stepway"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "hyundai-accent",
+      "name": "Hyundai Accent",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/hyundai-accent"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Hyundai Accent à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Hyundai Accent"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "hyundai-i20",
+      "name": "Hyundai i20",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/hyundai-i20"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Hyundai i20 à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Hyundai i20"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "hyundai-tucson",
+      "name": "Hyundai Tucson",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/hyundai-tucson"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Hyundai Tucson à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Hyundai Tucson"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "kia-sportage",
+      "name": "Kia Sportage",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/kia-sportage"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Kia Sportage à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Kia Sportage"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "mercedes-cla",
+      "name": "Mercedes CLA",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/mercedes-cla"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Mercedes CLA à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Mercedes CLA"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "mercedes-classe-a",
+      "name": "Mercedes Classe A",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/mercedes-classe-a"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Mercedes Classe A à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Mercedes Classe A"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "mercedes-classe-c",
+      "name": "Mercedes Classe C",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/mercedes-classe-c"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Mercedes Classe C à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Mercedes Classe C"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "mercedes-gla",
+      "name": "Mercedes GLA",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/mercedes-gla"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Mercedes GLA à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Mercedes GLA"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "opel-corsa",
+      "name": "Opel Corsa",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/opel-corsa"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Opel Corsa à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Opel Corsa"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "peugeot-208",
+      "name": "Peugeot 208",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/peugeot-208"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Peugeot 208 à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Peugeot 208"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "porsche-macan",
+      "name": "Porsche Macan",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/porsche-macan"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Porsche Macan à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Porsche Macan"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "range-rover-evoque",
+      "name": "Range Rover Evoque",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/range-rover-evoque"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Range Rover Evoque à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Range Rover Evoque"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "range-rover-sport",
+      "name": "Range Rover Sport",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/range-rover-sport"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Range Rover Sport à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Range Rover Sport"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "renault-clio",
+      "name": "Renault Clio",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/renault-clio"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Renault Clio à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Renault Clio"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "seat-ibiza",
+      "name": "Seat Ibiza",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/seat-ibiza"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Seat Ibiza à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Seat Ibiza"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "vw-golf",
+      "name": "Volkswagen Golf",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/vw-golf"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Volkswagen Golf à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Volkswagen Golf"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "vw-t-roc",
+      "name": "Volkswagen T-Roc",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/vw-t-roc"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Volkswagen T-Roc à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Volkswagen T-Roc"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    },
+    {
+      "slug": "vw-touareg",
+      "name": "Volkswagen Touareg",
+      "status": 200,
+      "inSitemap": true,
+      "canonical": [
+        "https://benatna.ma/vehicule/vw-touareg"
+      ],
+      "robots": [],
+      "headerRobots": "",
+      "title": "Volkswagen Touareg à Casablanca | Location voiture Benatna",
+      "titleTargetsCasablanca": true,
+      "linkedFromCatalogue": true,
+      "h1": [
+        "Volkswagen Touareg"
+      ],
+      "bodyHasModel": true,
+      "hasPrice": true,
+      "hasApprovedPhoto": true,
+      "passed": true
+    }
+  ]
+}
