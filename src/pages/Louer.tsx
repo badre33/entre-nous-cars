@@ -1,4 +1,5 @@
-import { requestRental } from '@/utils/rentalRequest';
+import { parseLocalRentalDate } from '@/utils/rentalDate';
+import { localToday, requestRental } from '@/utils/rentalRequest';
 import { isClassicTourismCar, isPremiumTourismCar } from "@/utils/cataloguePolicy";
 import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
@@ -13,12 +14,8 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Calendar as CalendarIcon, MapPin, Car, CalendarCheck, LayoutGrid, List, Rows3, MessageCircle } from "lucide-react";
 import { useComparison } from "@/contexts/ComparisonContext";
 import ComparisonButton from "@/components/ComparisonButton";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { format } from "date-fns";
-import { fr } from "date-fns/locale";
-import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 // import { SocialProofNotification } from "@/components/SocialProofNotification";
@@ -722,8 +719,6 @@ const Louer = () => {
   const [selectedCity, setSelectedCity] = useState<string>("Casablanca");
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
-  const [startTime, setStartTime] = useState<string>("");
-  const [endTime, setEndTime] = useState<string>("");
   const [selectedType, setSelectedType] = useState<string>("all");
   const [selectedBrand, setSelectedBrand] = useState<string>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
@@ -764,20 +759,10 @@ const Louer = () => {
     const startDateFromUrl = searchParams.get('startDate');
     const endDateFromUrl = searchParams.get('endDate');
     
-    if (cityFromUrl) {
-      setSelectedCity(cityFromUrl === "Rabat" ? "Rabat" : "Casablanca");
-    }
-    if (startDateFromUrl) {
-      setStartDate(new Date(startDateFromUrl));
-    }
-    if (endDateFromUrl) {
-      setEndDate(new Date(endDateFromUrl));
-    }
-    const startTimeFromUrl = searchParams.get('startTime');
-    const endTimeFromUrl = searchParams.get('endTime');
-    if (startTimeFromUrl) setStartTime(startTimeFromUrl);
-    if (endTimeFromUrl) setEndTime(endTimeFromUrl);
-  }, [searchParams]);
+    setSelectedCity(cityFromUrl === 'Rabat' || (!cityFromUrl && pickupPoint?.city === 'Rabat') ? 'Rabat' : 'Casablanca');
+    setStartDate(parseLocalRentalDate(startDateFromUrl));
+    setEndDate(parseLocalRentalDate(endDateFromUrl));
+  }, [searchParams, pickupPoint]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -807,7 +792,7 @@ const Louer = () => {
   };
 
   const handleSelectDates = (start: Date, end: Date) => {
-    if (!isValidRentalPeriod(format(start, "yyyy-MM-dd"), format(end, "yyyy-MM-dd"), startTime || "00:00", endTime || "00:00")) {
+    if (!isValidRentalPeriod(format(start, "yyyy-MM-dd"), format(end, "yyyy-MM-dd"))) {
       toast({ title: "Dates de location invalides", description: RENTAL_PERIOD_MESSAGE, variant: "destructive" });
       return;
     }
@@ -924,14 +909,14 @@ const Louer = () => {
           {/* Search Bar */}
           <Card className="max-w-4xl mx-auto rounded-2xl shadow-xl">
             <CardContent className="p-3 sm:p-6">
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-2 sm:gap-4 mb-4">
-                <div className="space-y-2 col-span-2 md:col-span-1">
+              <div className="grid grid-cols-1 min-[360px]:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-4">
+                <div className="space-y-2 min-[360px]:col-span-2 md:col-span-1">
                   <label className="text-xs text-muted-foreground flex items-center gap-2">
                     <MapPin className="w-4 h-4" />
                     {t('common.city')}
                   </label>
                   <Select value={selectedCity} onValueChange={setSelectedCity}>
-                    <SelectTrigger className="bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base">
+                    <SelectTrigger aria-label="Ville du catalogue" className="bg-secondary/20 border-0 min-h-12 text-base">
                       <SelectValue placeholder="Ville" className="truncate" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
@@ -943,101 +928,18 @@ const Louer = () => {
                   </Select>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground flex items-center gap-2">
-                    <CalendarIcon className="w-4 h-4" />
-                    {t('common.startDate')}
-                  </label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        className={cn(
-                          "w-full justify-start text-left font-normal bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base",
-                          !startDate && "text-muted-foreground"
-                        )}
-                      >
-                        <CalendarIcon className="mr-2 h-4 w-4 shrink-0" />
-                        <span className="truncate">
-                          {startDate
-                            ? format(startDate, isMobile ? "dd/MM/yyyy" : "PPP", { locale: fr })
-                            : "Sélectionner"}
-                        </span>
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={startDate}
-                        onSelect={setStartDate}
-                        disabled={(date) => date < new Date()}
-                        initialFocus
-                        className="pointer-events-auto"
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground flex items-center gap-2">
-                    <CalendarIcon className="w-4 h-4" />
-                    Heure
-                  </label>
-                  <input
-                    type="time"
-                    defaultValue="10:00"
-                    className="w-full px-2 py-2 h-11 bg-secondary/20 border-0 rounded-lg focus:ring-2 focus:ring-primary text-sm"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground flex items-center gap-2">
-                    <CalendarIcon className="w-4 h-4" />
-                    {t('common.endDate')}
-                  </label>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant="outline"
-                        className={cn(
-                          "w-full justify-start text-left font-normal bg-secondary/20 border-0 h-11 text-xs sm:text-sm md:text-base",
-                          !endDate && "text-muted-foreground"
-                        )}
-                      >
-                        <CalendarIcon className="mr-2 h-4 w-4 shrink-0" />
-                        <span className="truncate">
-                          {endDate
-                            ? format(endDate, isMobile ? "dd/MM/yyyy" : "PPP", { locale: fr })
-                            : "Sélectionner"}
-                        </span>
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={endDate}
-                        onSelect={setEndDate}
-                        disabled={(date) => date < (startDate || new Date())}
-                        initialFocus
-                        className="pointer-events-auto"
-                      />
-                    </PopoverContent>
-                  </Popover>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-xs text-muted-foreground flex items-center gap-2">
-                    <CalendarIcon className="w-4 h-4" />
-                    Heure
-                  </label>
-                  <input
-                    type="time"
-                    defaultValue="10:00"
-                    className="w-full px-2 py-2 h-11 bg-secondary/20 border-0 rounded-lg focus:ring-2 focus:ring-primary text-sm"
-                  />
-                </div>
+                <label className="block min-w-0 space-y-2">
+                  <span className="text-sm text-muted-foreground flex items-center gap-2"><CalendarIcon className="w-4 h-4" />{t('common.startDate')}</span>
+                  <input aria-label="Date de départ du catalogue" type="date" min={localToday()} value={startDate ? format(startDate, 'yyyy-MM-dd') : ''} onChange={e=>setStartDate(parseLocalRentalDate(e.target.value))} className="w-full min-w-0 min-h-12 rounded-lg bg-secondary/20 px-2 py-2 text-base" />
+                </label>
+                <label className="block min-w-0 space-y-2">
+                  <span className="text-sm text-muted-foreground flex items-center gap-2"><CalendarIcon className="w-4 h-4" />{t('common.endDate')}</span>
+                  <input aria-label="Date de retour du catalogue" type="date" min={startDate ? format(startDate, 'yyyy-MM-dd') : localToday()} value={endDate ? format(endDate, 'yyyy-MM-dd') : ''} onChange={e=>setEndDate(parseLocalRentalDate(e.target.value))} className="w-full min-w-0 min-h-12 rounded-lg bg-secondary/20 px-2 py-2 text-base" />
+                </label>
               </div>
 
+              <p className="text-sm text-muted-foreground mb-4">De 3 jours à 6 mois. Le rendez-vous est convenu avec le loueur.</p>
+              {startDate && endDate && !isValidRentalPeriod(format(startDate, 'yyyy-MM-dd'), format(endDate, 'yyyy-MM-dd')) && <p role="alert" className="text-sm text-destructive mb-4">{RENTAL_PERIOD_MESSAGE}</p>}
               <div className="grid md:grid-cols-3 gap-4">
                 {/* Mobile: Bottom Sheets */}
                 {isMobile ? (
