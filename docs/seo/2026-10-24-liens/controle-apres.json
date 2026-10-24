@@ -1,0 +1,17 @@
+{
+  "base": "dist",
+  "checkedAt": "2026-10-24T19:14:19.665Z",
+  "scope": "Rendered anchors on sitemap HTML pages; exact configured redirects only. HTTP destinations checked when --base is provided. External URLs inventoried but not fetched. JS-only states, private source pages and backlinks excluded.",
+  "pages": 99,
+  "references": 2860,
+  "uniqueInternalDestinations": 72,
+  "problems": [],
+  "redirects": [],
+  "external": [
+    "https://www.visitmorocco.com/",
+    "https://www.gov.ma/",
+    "https://www.casablancacity.ma/fr/article/754/gares-ferroviaires",
+    "https://www.oncf.ma/fr/Al-boraq",
+    "https://www.onda.ma/"
+  ]
+}

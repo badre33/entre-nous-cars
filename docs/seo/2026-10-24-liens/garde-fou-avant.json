@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-10-24T19:12:47.647Z",
+  "scope": "Rendered anchors on sitemap HTML pages; exact redirects only; external URLs inventoried but not fetched. JS-only states, private pages and backlinks excluded.",
+  "pages": 99,
+  "references": 2860,
+  "uniqueInternalDestinations": 75,
+  "problems": [
+    {
+      "source": "/glossaire",
+      "href": "/location-aeroport-casablanca",
+      "destination": "/location-aeroport-casablanca",
+      "reason": "Missing internal destination"
+    },
+    {
+      "source": "/glossaire",
+      "href": "/location-sans-carte-casablanca",
+      "destination": "/location-sans-carte-casablanca",
+      "reason": "Missing internal destination"
+    },
+    {
+      "source": "/glossaire",
+      "href": "/location-electrique-casablanca",
+      "destination": "/location-electrique-casablanca",
+      "reason": "Missing internal destination"
+    }
+  ],
+  "redirects": [],
+  "external": [
+    "https://www.visitmorocco.com/",
+    "https://www.gov.ma/",
+    "https://www.casablancacity.ma/fr/article/754/gares-ferroviaires",
+    "https://www.oncf.ma/fr/Al-boraq",
+    "https://www.onda.ma/"
+  ]
+}
