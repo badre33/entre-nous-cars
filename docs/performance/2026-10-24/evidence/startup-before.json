@@ -1,0 +1,62 @@
+{
+  "measuredAt": "2026-10-24T17:43:57.408Z",
+  "base": "http://127.0.0.1:4319",
+  "conditions": {
+    "viewport": "390x844",
+    "dpr": 2,
+    "cpuSlowdown": 4,
+    "downloadBytesPerSecond": 200000,
+    "latencyMs": 150,
+    "coldCache": true,
+    "serviceWorker": "blocked",
+    "thirdParties": "blocked"
+  },
+  "samples": [
+    {
+      "run": 1,
+      "readyMs": 2386.899999856949,
+      "lcpMs": 1060,
+      "longTaskMs": 214,
+      "blockingMs": 114,
+      "jsBytes": 815244,
+      "jsRequests": 13,
+      "dialogOpens": true,
+      "errors": []
+    },
+    {
+      "run": 2,
+      "readyMs": 2408.2000000476837,
+      "lcpMs": 1076,
+      "longTaskMs": 289,
+      "blockingMs": 139,
+      "jsBytes": 815244,
+      "jsRequests": 13,
+      "dialogOpens": true,
+      "errors": []
+    },
+    {
+      "run": 3,
+      "readyMs": 2368.7000000476837,
+      "lcpMs": 1016,
+      "longTaskMs": 232,
+      "blockingMs": 132,
+      "jsBytes": 815244,
+      "jsRequests": 13,
+      "dialogOpens": true,
+      "errors": []
+    }
+  ],
+  "median": {
+    "readyMs": 2386.899999856949,
+    "lcpMs": 1060,
+    "longTaskMs": 232,
+    "blockingMs": 132,
+    "jsBytes": 815244,
+    "jsRequests": 13
+  },
+  "limitations": [
+    "Controlled local lab measurements, not field Core Web Vitals or a Lighthouse score.",
+    "Preview serves JavaScript without CDN compression; decoded bytes are reported.",
+    "Metrics stop when the search form has React event handlers; dialog opening is checked afterwards."
+  ]
+}

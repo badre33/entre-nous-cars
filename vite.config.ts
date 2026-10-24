@@ -91,7 +91,9 @@ export default defineConfig(({ mode }) => ({
         ]
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,woff2}"],
+        // Precache startup assets only. Visited route chunks use runtimeCaching below;
+        // a first visit must not download every admin and SEO page.
+        globPatterns: ["**/*.{css,woff2}", "assets/index-*.js"],
         navigateFallback: null,
         navigationPreload: true,
         navigateFallbackDenylist: [/^\/api/, /^\/version\.json/],
@@ -111,6 +113,8 @@ export default defineConfig(({ mode }) => ({
             handler: "NetworkFirst",
             options: {
               cacheName: "js-chunks-cache",
+              // Hashed public JS is identical across Origin variants (module vs fetch).
+              matchOptions: { ignoreVary: true },
               networkTimeoutSeconds: 3,
               expiration: {
                 maxEntries: 100,
