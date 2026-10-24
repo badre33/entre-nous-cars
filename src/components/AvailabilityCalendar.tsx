@@ -22,6 +22,7 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
   const today = new Date();
+  today.setHours(0, 0, 0, 0);
   const isMobile = useIsMobile();
 
   const handleDateSelect = (date: Date | undefined) => {
@@ -66,9 +67,9 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl w-[95vw] sm:w-full max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-6rem)] overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle className="text-2xl">
+      <DialogContent className="p-3 sm:p-6 max-w-3xl w-[95vw] sm:w-full max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-6rem)] overflow-y-auto">
+        <DialogHeader className="pr-8">
+          <DialogTitle className="text-xl sm:text-2xl">
             Disponibilités - {carName}
           </DialogTitle>
         </DialogHeader>
@@ -84,7 +85,7 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
               modifiers={modifiers}
               modifiersClassNames={modifiersClassNames}
               locale={fr}
-              className="pointer-events-auto border rounded-lg p-4"
+              className="pointer-events-auto border rounded-lg p-2 sm:p-4"
               numberOfMonths={isMobile ? 1 : 2}
             />
           </div>
@@ -93,7 +94,7 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
           {startDate && (
             <div className="p-4 bg-primary/10 rounded-lg space-y-2">
               <p className="font-medium">Dates sélectionnées :</p>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-4">
                 <div className="flex items-center gap-2">
                   <CalendarIcon className="w-4 h-4" />
                   <span className="font-semibold">{format(startDate, "dd MMM yyyy", { locale: fr })}</span>
@@ -113,7 +114,7 @@ const AvailabilityCalendar = ({ carName, isOpen, onClose, onSelectDates }: Avail
 
 
           {/* Actions */}
-          <div className="flex gap-3 justify-end">
+          <div className="flex flex-col-reverse sm:flex-row gap-3 justify-end">
             <Button variant="outline" onClick={onClose}>
               Annuler
             </Button>

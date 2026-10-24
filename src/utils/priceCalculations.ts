@@ -54,8 +54,10 @@ export function calculateTotalPrice(basePrice: number, days: number, opts?: { da
  */
 export function calculateDays(start: Date | undefined, end: Date | undefined): number {
   if (!start || !end) return 0;
-  const diffTime = Math.abs(end.getTime() - start.getTime());
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  // Rental dates count calendar days, including days with a DST clock change.
+  const startDay = Date.UTC(start.getFullYear(), start.getMonth(), start.getDate());
+  const endDay = Date.UTC(end.getFullYear(), end.getMonth(), end.getDate());
+  const diffDays = Math.abs(endDay - startDay) / 86_400_000;
   return Math.max(1, diffDays);
 }
 

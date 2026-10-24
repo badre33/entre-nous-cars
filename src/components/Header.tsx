@@ -164,12 +164,12 @@ const Header = () => {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-8">
           <NavLinks />
         </nav>
         
         {/* Desktop Actions */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
           <LanguageSelector />
           <Link to="/louer">
             <Button className="rounded-full">
@@ -179,11 +179,11 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu - Optimized for touch */}
-        <div className="flex md:hidden items-center gap-2 touch-target">
+        <div className="flex lg:hidden items-center gap-2">
           <LanguageSelector />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden min-w-[48px] min-h-[48px] touch-target touch-feedback">
+              <Button variant="ghost" size="icon" aria-label="Ouvrir le menu" className="lg:hidden min-w-[48px] min-h-[48px] touch-target touch-feedback">
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>
@@ -193,7 +193,7 @@ const Header = () => {
                 <SheetTitle className="text-left font-pacifico text-2xl">benatna</SheetTitle>
               </SheetHeader>
               {/* Scrollable nav area — overflow-y-auto fixes the menu scroll bug on mobile */}
-              <nav className="flex flex-col gap-1 px-4 py-4 flex-1 overflow-y-auto overscroll-contain">
+              <nav aria-label="Navigation du menu" className="flex flex-col gap-1 px-4 py-4 flex-1 overflow-y-auto overscroll-contain">
                 <NavLinks mobile onLinkClick={() => setIsOpen(false)} />
               </nav>
               {/* Fixed CTA at bottom — always reachable */}
