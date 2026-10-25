@@ -1,3 +1,4 @@
+import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -152,6 +153,10 @@ export default function ComparatifsList() {
                           <div className="aspect-video rounded-lg overflow-hidden">
                             <img
                               src={comparison.item1.image}
+                              srcSet={vehicleImageSrcSet(comparison.item1.image)}
+                              sizes="(min-width: 1024px) 180px, (min-width: 768px) 22vw, 42vw"
+                              loading="lazy"
+                              decoding="async"
                               alt={comparison.item1.name}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
@@ -159,6 +164,10 @@ export default function ComparatifsList() {
                           <div className="aspect-video rounded-lg overflow-hidden">
                             <img
                               src={comparison.item2.image}
+                              srcSet={vehicleImageSrcSet(comparison.item2.image)}
+                              sizes="(min-width: 1024px) 180px, (min-width: 768px) 22vw, 42vw"
+                              loading="lazy"
+                              decoding="async"
                               alt={comparison.item2.name}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />

@@ -1,0 +1,1055 @@
+{
+  "base": "dist",
+  "checkedAt": "2026-10-25T15:41:26.921Z",
+  "pages": 99,
+  "images": 89,
+  "failures": [
+    {
+      "url": "/hero-rent.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ],
+      "passed": false,
+      "error": "ENOENT: no such file or directory, open '/Users/badreddineharkaoui/.codex/.chatgpt-projects/g-p-68ecd360ba488191b80c10cfd75bd237/output/benatna-repository/dist/hero-rent.jpg'"
+    },
+    {
+      "url": "/hero-partners.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ],
+      "passed": false,
+      "error": "ENOENT: no such file or directory, open '/Users/badreddineharkaoui/.codex/.chatgpt-projects/g-p-68ecd360ba488191b80c10cfd75bd237/output/benatna-repository/dist/hero-partners.jpg'"
+    }
+  ],
+  "results": [
+    {
+      "url": "/assets/city-casablanca-optimized-BD3mwJlr.webp",
+      "sources": [
+        "/",
+        "/en",
+        "/es"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 24486,
+      "passed": true
+    },
+    {
+      "url": "/hero-home-new.webp",
+      "sources": [
+        "/",
+        "/en",
+        "/es"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 45242,
+      "passed": true
+    },
+    {
+      "url": "/assets/city-rabat-optimized-C1HJqBCN.webp",
+      "sources": [
+        "/",
+        "/en",
+        "/es"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 22536,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/renault-clio.webp",
+      "sources": [
+        "/louer",
+        "/nos-services",
+        "/en/louer",
+        "/es/louer",
+        "/comparatifs",
+        "/comparatif/renault-clio-vs-dacia-sandero-maroc",
+        "/vehicule/renault-clio"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 342236,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/dacia-duster.webp",
+      "sources": [
+        "/louer",
+        "/en/louer",
+        "/es/louer",
+        "/comparatifs",
+        "/comparatif/dacia-duster-vs-renault-captur-maroc",
+        "/vehicule/dacia-duster"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 319308,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/renault-clio-480.webp",
+      "sources": [
+        "/louer",
+        "/en/louer",
+        "/es/louer",
+        "/vehicule/renault-clio"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 46584,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-duster-480.webp",
+      "sources": [
+        "/louer",
+        "/en/louer",
+        "/es/louer",
+        "/vehicule/dacia-duster"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 44200,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-duster-960.webp",
+      "sources": [
+        "/louer",
+        "/en/louer",
+        "/es/louer",
+        "/vehicule/dacia-duster"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 136296,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/renault-clio-960.webp",
+      "sources": [
+        "/louer",
+        "/en/louer",
+        "/es/louer",
+        "/vehicule/renault-clio"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 149396,
+      "passed": true
+    },
+    {
+      "url": "/car-corolla.jpg",
+      "sources": [
+        "/nos-services"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "jpeg",
+      "bytes": 38089,
+      "passed": true
+    },
+    {
+      "url": "/car-vw-id3.jpg",
+      "sources": [
+        "/nos-services"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "jpeg",
+      "bytes": 59346,
+      "passed": true
+    },
+    {
+      "url": "/city-casablanca.jpg",
+      "sources": [
+        "/nos-services",
+        "/comparatifs",
+        "/comparatif/location-aeroport-vs-centre-ville-maroc"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 371068,
+      "passed": true
+    },
+    {
+      "url": "/hero-rent.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ],
+      "passed": false,
+      "error": "ENOENT: no such file or directory, open '/Users/badreddineharkaoui/.codex/.chatgpt-projects/g-p-68ecd360ba488191b80c10cfd75bd237/output/benatna-repository/dist/hero-rent.jpg'"
+    },
+    {
+      "url": "/hero-partners.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ],
+      "passed": false,
+      "error": "ENOENT: no such file or directory, open '/Users/badreddineharkaoui/.codex/.chatgpt-projects/g-p-68ecd360ba488191b80c10cfd75bd237/output/benatna-repository/dist/hero-partners.jpg'"
+    },
+    {
+      "url": "/assets/about-mission-BMB_qyq7.jpg",
+      "sources": [
+        "/a-propos",
+        "/en/a-propos",
+        "/es/a-propos"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "jpeg",
+      "bytes": 111819,
+      "passed": true
+    },
+    {
+      "url": "/car-renault-captur.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/dacia-duster-vs-renault-captur-maroc"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "jpeg",
+      "bytes": 172478,
+      "passed": true
+    },
+    {
+      "url": "/city-marrakech.jpg",
+      "sources": [
+        "/comparatifs"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "jpeg",
+      "bytes": 62202,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/dacia-sandero.webp",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/renault-clio-vs-dacia-sandero-maroc",
+        "/vehicule/dacia-sandero"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 307216,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/volkswagen-golf.webp",
+      "sources": [
+        "/vehicule/vw-golf"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 331436,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/volkswagen-golf-480.webp",
+      "sources": [
+        "/vehicule/vw-golf"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 44756,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/volkswagen-golf-960.webp",
+      "sources": [
+        "/vehicule/vw-golf"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 142818,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/hyundai-tucson.webp",
+      "sources": [
+        "/vehicule/hyundai-tucson"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 324338,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/hyundai-tucson-480.webp",
+      "sources": [
+        "/vehicule/hyundai-tucson"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 43956,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/kia-sportage.webp",
+      "sources": [
+        "/vehicule/kia-sportage"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 334640,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/hyundai-tucson-960.webp",
+      "sources": [
+        "/vehicule/hyundai-tucson"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 142634,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/kia-sportage-480.webp",
+      "sources": [
+        "/vehicule/kia-sportage"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 45980,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/kia-sportage-960.webp",
+      "sources": [
+        "/vehicule/kia-sportage"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 144522,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/seat-ibiza-480.webp",
+      "sources": [
+        "/vehicule/seat-ibiza"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 45216,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/seat-ibiza-960.webp",
+      "sources": [
+        "/vehicule/seat-ibiza"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 139838,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/seat-ibiza.webp",
+      "sources": [
+        "/vehicule/seat-ibiza"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 324286,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/hyundai-accent.webp",
+      "sources": [
+        "/vehicule/hyundai-accent"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 326100,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/hyundai-accent-480.webp",
+      "sources": [
+        "/vehicule/hyundai-accent"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 44938,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-sandero-480.webp",
+      "sources": [
+        "/vehicule/dacia-sandero"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 45580,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/hyundai-accent-960.webp",
+      "sources": [
+        "/vehicule/hyundai-accent"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 138524,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-sandero-960.webp",
+      "sources": [
+        "/vehicule/dacia-sandero"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 138380,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-logan-480.webp",
+      "sources": [
+        "/vehicule/dacia-logan"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 46464,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/dacia-logan.webp",
+      "sources": [
+        "/vehicule/dacia-logan"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 337942,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-logan-960.webp",
+      "sources": [
+        "/vehicule/dacia-logan"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 146480,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-stepway-480.webp",
+      "sources": [
+        "/vehicule/dacia-sandero-stepway"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 48682,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/dacia-stepway.webp",
+      "sources": [
+        "/vehicule/dacia-sandero-stepway"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 340752,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-stepway-960.webp",
+      "sources": [
+        "/vehicule/dacia-sandero-stepway"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 151488,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/dacia-jogger.webp",
+      "sources": [
+        "/vehicule/dacia-jogger"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 380442,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-jogger-480.webp",
+      "sources": [
+        "/vehicule/dacia-jogger"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 53820,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/dacia-jogger-960.webp",
+      "sources": [
+        "/vehicule/dacia-jogger"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 170846,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/opel-corsa.webp",
+      "sources": [
+        "/vehicule/opel-corsa"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 313502,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/opel-corsa-480.webp",
+      "sources": [
+        "/vehicule/opel-corsa"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 42612,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/opel-corsa-960.webp",
+      "sources": [
+        "/vehicule/opel-corsa"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 134174,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/peugeot-208.webp",
+      "sources": [
+        "/vehicule/peugeot-208"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 286850,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/peugeot-208-480.webp",
+      "sources": [
+        "/vehicule/peugeot-208"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 40354,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/peugeot-208-960.webp",
+      "sources": [
+        "/vehicule/peugeot-208"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 121670,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/hyundai-i20.webp",
+      "sources": [
+        "/vehicule/hyundai-i20"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 271710,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/hyundai-i20-480.webp",
+      "sources": [
+        "/vehicule/hyundai-i20"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 41406,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/hyundai-i20-960.webp",
+      "sources": [
+        "/vehicule/hyundai-i20"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 121180,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/volkswagen-troc-480.webp",
+      "sources": [
+        "/vehicule/vw-t-roc"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 47102,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/volkswagen-troc.webp",
+      "sources": [
+        "/vehicule/vw-t-roc"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 313044,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/volkswagen-troc-960.webp",
+      "sources": [
+        "/vehicule/vw-t-roc"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 138890,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/audi-a3-480.webp",
+      "sources": [
+        "/vehicule/audi-a3"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 47276,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/audi-a3.webp",
+      "sources": [
+        "/vehicule/audi-a3"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 335140,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/audi-a3-960.webp",
+      "sources": [
+        "/vehicule/audi-a3"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 147252,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/mercedes-classe-a.webp",
+      "sources": [
+        "/vehicule/mercedes-classe-a"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 329080,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/mercedes-classe-a-480.webp",
+      "sources": [
+        "/vehicule/mercedes-classe-a"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 47676,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/mercedes-classe-a-960.webp",
+      "sources": [
+        "/vehicule/mercedes-classe-a"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 147056,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/range-rover-evoque.webp",
+      "sources": [
+        "/vehicule/range-rover-evoque"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 280500,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/range-rover-evoque-480.webp",
+      "sources": [
+        "/vehicule/range-rover-evoque"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 42918,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/range-rover-evoque-960.webp",
+      "sources": [
+        "/vehicule/range-rover-evoque"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 127978,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/range-rover-sport.webp",
+      "sources": [
+        "/vehicule/range-rover-sport"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 258598,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/range-rover-sport-480.webp",
+      "sources": [
+        "/vehicule/range-rover-sport"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 40986,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/range-rover-sport-960.webp",
+      "sources": [
+        "/vehicule/range-rover-sport"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 116238,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/mercedes-cla.webp",
+      "sources": [
+        "/vehicule/mercedes-cla"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 268914,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/mercedes-cla-480.webp",
+      "sources": [
+        "/vehicule/mercedes-cla"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 37428,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/audi-q3-sportback.webp",
+      "sources": [
+        "/vehicule/audi-q3-sportback"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 280170,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/mercedes-cla-960.webp",
+      "sources": [
+        "/vehicule/mercedes-cla"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 114264,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/audi-q3-sportback-480.webp",
+      "sources": [
+        "/vehicule/audi-q3-sportback"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 42332,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/audi-q3-sportback-960.webp",
+      "sources": [
+        "/vehicule/audi-q3-sportback"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 123126,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/mercedes-gla-480.webp",
+      "sources": [
+        "/vehicule/mercedes-gla"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 52954,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/mercedes-gla-960.webp",
+      "sources": [
+        "/vehicule/mercedes-gla"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 163132,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/mercedes-gla.webp",
+      "sources": [
+        "/vehicule/mercedes-gla"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 367218,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/vw-touareg-480.webp",
+      "sources": [
+        "/vehicule/vw-touareg"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 48226,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/vw-touareg.webp",
+      "sources": [
+        "/vehicule/vw-touareg"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 335474,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/vw-touareg-960.webp",
+      "sources": [
+        "/vehicule/vw-touareg"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 146200,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/cupra-formentor.webp",
+      "sources": [
+        "/vehicule/cupra-formentor"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 368106,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/cupra-formentor-480.webp",
+      "sources": [
+        "/vehicule/cupra-formentor"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 52250,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/cupra-formentor-960.webp",
+      "sources": [
+        "/vehicule/cupra-formentor"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 164132,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/mercedes-classe-c.webp",
+      "sources": [
+        "/vehicule/mercedes-classe-c"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 326098,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/porsche-macan-480.webp",
+      "sources": [
+        "/vehicule/porsche-macan"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 52734,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/mercedes-classe-c-480.webp",
+      "sources": [
+        "/vehicule/mercedes-classe-c"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 47016,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/mercedes-classe-c-960.webp",
+      "sources": [
+        "/vehicule/mercedes-classe-c"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 143958,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/porsche-macan.webp",
+      "sources": [
+        "/vehicule/porsche-macan"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 366060,
+      "passed": true
+    },
+    {
+      "url": "/vehicles/benatna/responsive/porsche-macan-960.webp",
+      "sources": [
+        "/vehicule/porsche-macan"
+      ],
+      "status": 200,
+      "type": "local",
+      "kind": "webp",
+      "bytes": 164778,
+      "passed": true
+    }
+  ],
+  "external": [
+    "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop",
+    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop",
+    "http://127.0.0.1:4319/assets/city-tanger-BaEXJ01R.jpg",
+    "http://127.0.0.1:4319/assets/city-casablanca-CFBDMbtv.jpg",
+    "http://127.0.0.1:4319/assets/blog-revolution-location-DenXHtSA.jpg",
+    "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1506521781263-d8422e82f27a?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1545262810-77515befe149?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f?w=1200&h=600&fit=crop"
+  ],
+  "scope": "Rendered img/src and img|source/srcset on sitemap HTML. Includes responsive candidates. CSS backgrounds, JS-only states and external images are excluded. File signatures checked; visual accuracy is not inferred."
+}

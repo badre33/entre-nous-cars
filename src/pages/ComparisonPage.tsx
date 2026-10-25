@@ -1,3 +1,4 @@
+import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -97,6 +98,10 @@ export default function ComparisonPage() {
                   <div className="aspect-video relative overflow-hidden">
                     <img
                       src={comparison.item1.image}
+                      srcSet={vehicleImageSrcSet(comparison.item1.image)}
+                      sizes="(min-width: 1024px) 560px, (min-width: 768px) 44vw, 90vw"
+                      loading="lazy"
+                      decoding="async"
                       alt={comparison.item1.name}
                       className="w-full h-full object-cover"
                     />
@@ -129,6 +134,10 @@ export default function ComparisonPage() {
                   <div className="aspect-video relative overflow-hidden">
                     <img
                       src={comparison.item2.image}
+                      srcSet={vehicleImageSrcSet(comparison.item2.image)}
+                      sizes="(min-width: 1024px) 560px, (min-width: 768px) 44vw, 90vw"
+                      loading="lazy"
+                      decoding="async"
                       alt={comparison.item2.name}
                       className="w-full h-full object-cover"
                     />

@@ -1,0 +1,270 @@
+{
+  "pages": 99,
+  "uniqueImages": 37,
+  "missing": [
+    {
+      "image": "/hero-rent.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ]
+    },
+    {
+      "image": "/hero-partners.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ]
+    }
+  ],
+  "images": [
+    {
+      "url": "/hero-home-new.webp",
+      "sources": [
+        "/",
+        "/en",
+        "/es"
+      ]
+    },
+    {
+      "url": "/assets/city-casablanca-optimized-BD3mwJlr.webp",
+      "sources": [
+        "/",
+        "/en",
+        "/es"
+      ]
+    },
+    {
+      "url": "/assets/city-rabat-optimized-C1HJqBCN.webp",
+      "sources": [
+        "/",
+        "/en",
+        "/es"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/renault-clio.webp",
+      "sources": [
+        "/louer",
+        "/nos-services",
+        "/en/louer",
+        "/es/louer",
+        "/comparatifs",
+        "/comparatif/renault-clio-vs-dacia-sandero-maroc",
+        "/vehicule/renault-clio"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/dacia-duster.webp",
+      "sources": [
+        "/louer",
+        "/en/louer",
+        "/es/louer",
+        "/comparatifs",
+        "/comparatif/dacia-duster-vs-renault-captur-maroc",
+        "/vehicule/dacia-duster"
+      ]
+    },
+    {
+      "url": "/city-casablanca.jpg",
+      "sources": [
+        "/nos-services",
+        "/comparatifs",
+        "/comparatif/location-aeroport-vs-centre-ville-maroc"
+      ]
+    },
+    {
+      "url": "/car-corolla.jpg",
+      "sources": [
+        "/nos-services"
+      ]
+    },
+    {
+      "url": "/car-vw-id3.jpg",
+      "sources": [
+        "/nos-services"
+      ]
+    },
+    {
+      "url": "/assets/about-mission-BMB_qyq7.jpg",
+      "sources": [
+        "/a-propos",
+        "/en/a-propos",
+        "/es/a-propos"
+      ]
+    },
+    {
+      "url": "/car-renault-captur.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/dacia-duster-vs-renault-captur-maroc"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/dacia-sandero.webp",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/renault-clio-vs-dacia-sandero-maroc",
+        "/vehicule/dacia-sandero"
+      ]
+    },
+    {
+      "url": "/hero-rent.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ]
+    },
+    {
+      "url": "/hero-partners.jpg",
+      "sources": [
+        "/comparatifs",
+        "/comparatif/location-courte-duree-vs-longue-duree-maroc"
+      ]
+    },
+    {
+      "url": "/city-marrakech.jpg",
+      "sources": [
+        "/comparatifs"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/volkswagen-golf.webp",
+      "sources": [
+        "/vehicule/vw-golf"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/hyundai-tucson.webp",
+      "sources": [
+        "/vehicule/hyundai-tucson"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/kia-sportage.webp",
+      "sources": [
+        "/vehicule/kia-sportage"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/seat-ibiza.webp",
+      "sources": [
+        "/vehicule/seat-ibiza"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/hyundai-accent.webp",
+      "sources": [
+        "/vehicule/hyundai-accent"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/dacia-logan.webp",
+      "sources": [
+        "/vehicule/dacia-logan"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/dacia-stepway.webp",
+      "sources": [
+        "/vehicule/dacia-sandero-stepway"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/dacia-jogger.webp",
+      "sources": [
+        "/vehicule/dacia-jogger"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/opel-corsa.webp",
+      "sources": [
+        "/vehicule/opel-corsa"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/peugeot-208.webp",
+      "sources": [
+        "/vehicule/peugeot-208"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/hyundai-i20.webp",
+      "sources": [
+        "/vehicule/hyundai-i20"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/volkswagen-troc.webp",
+      "sources": [
+        "/vehicule/vw-t-roc"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/audi-a3.webp",
+      "sources": [
+        "/vehicule/audi-a3"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/mercedes-classe-a.webp",
+      "sources": [
+        "/vehicule/mercedes-classe-a"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/range-rover-evoque.webp",
+      "sources": [
+        "/vehicule/range-rover-evoque"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/range-rover-sport.webp",
+      "sources": [
+        "/vehicule/range-rover-sport"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/mercedes-cla.webp",
+      "sources": [
+        "/vehicule/mercedes-cla"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/audi-q3-sportback.webp",
+      "sources": [
+        "/vehicule/audi-q3-sportback"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/mercedes-gla.webp",
+      "sources": [
+        "/vehicule/mercedes-gla"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/vw-touareg.webp",
+      "sources": [
+        "/vehicule/vw-touareg"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/cupra-formentor.webp",
+      "sources": [
+        "/vehicule/cupra-formentor"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/mercedes-classe-c.webp",
+      "sources": [
+        "/vehicule/mercedes-classe-c"
+      ]
+    },
+    {
+      "url": "/vehicles/benatna/porsche-macan.webp",
+      "sources": [
+        "/vehicule/porsche-macan"
+      ]
+    }
+  ]
+}

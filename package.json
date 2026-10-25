@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "prerender": "node scripts/prerender.mjs",
     "build:prerender": "npm run sitemap && vite build && npm run prerender:safe",
-    "prerender:safe": "node scripts/prerender.mjs && node scripts/static-route-policy.mjs && node scripts/audit-vehicle-indexability.mjs --dist dist --output /tmp/benatna-vehicle-indexability-build.json && node scripts/audit-internal-links.mjs --dist dist --output /tmp/benatna-internal-links-build.json",
+    "prerender:safe": "node scripts/prerender.mjs && node scripts/static-route-policy.mjs && node scripts/audit-vehicle-indexability.mjs --dist dist --output /tmp/benatna-vehicle-indexability-build.json && node scripts/audit-internal-links.mjs --dist dist --output /tmp/benatna-internal-links-build.json && node scripts/audit-rendered-images.mjs --dist dist --output /tmp/benatna-rendered-images-build.json",
     "test:maintenance": "node scripts/test-maintenance.mjs",
     "test:catalogue": "node scripts/test-catalogue.mjs",
     "test:schema-baseline": "node scripts/test-schema-rebuild.mjs",
