@@ -312,106 +312,90 @@ export const comparisons: Comparison[] = [
     "relatedComparisons": []
 },
   {
-    id: 'location-courte-vs-longue-duree',
-    title: 'Location Courte Durée vs Longue Durée',
-    slug: 'location-courte-duree-vs-longue-duree-maroc',
-    metaTitle: 'Location Voiture Courte vs Longue Durée Maroc - Quel Tarif ? | Benatna',
-    metaDescription: 'Comparatif location courte durée vs longue durée au Maroc : économies, flexibilité, services. Quand choisir chaque formule ? Guide tarifaire 2024.',
-    category: 'services',
-    introduction: 'La durée de location impacte fortement votre tarif et vos services. Entre location courte durée (1-6 jours) et longue durée (7+ jours), les différences sont importantes. Découvrez quelle formule correspond à votre besoin.',
-    item1: {
-      name: 'Location Courte Durée',
-      image: '/hero-rent.jpg',
-      price: '150-450 DH/jour',
-      specs: {
-        'Durée': '1-6 jours',
-        'Tarif journalier': 'Standard',
-        'Engagement': 'Aucun',
-        'Caution': '3000-8000 DH',
-        'Modifications': 'Flexibles'
-      },
-      pros: [
-        '✅ Aucun engagement long terme',
-        '✅ Flexibilité maximale',
-        '✅ Annulation facile (24h)',
-        '✅ Idéal week-ends et courts séjours',
-        '✅ Large choix véhicules',
-        '✅ Pas de contrat complexe',
-        '✅ Solution ponctuelle parfaite'
-      ],
-      cons: [
-        '❌ Tarif journalier standard (pas de dégressif)',
-        '❌ Coût total élevé sur plusieurs semaines',
-        '❌ Pas de services additionnels inclus',
-        '❌ Renouvellement fréquent si répété'
-      ],
-      bestFor: [
-        '🎯 Touristes (1 semaine)',
-        '🎯 Week-ends prolongés',
-        '🎯 Déplacements ponctuels',
-        '🎯 Mariages/événements',
-        '🎯 Essai avant longue durée'
-      ]
+    "id": "location-courte-vs-longue-duree",
+    "title": "Court séjour ou séjour prolongé à Casablanca",
+    slug: "location-courte-duree-vs-longue-duree-maroc",
+    "metaTitle": "Location voiture à Casablanca : court séjour ou jusqu’à 6 mois | Benatna",
+    "metaDescription": "Comparez une location pour quelques jours ou plusieurs semaines à Casablanca. De 3 jours à 6 mois, livraison gratuite aux points desservis, tarif confirmé par le loueur.",
+    "category": "services",
+    "introduction": "La bonne durée dépend des dates de votre séjour personnel. Benatna permet de demander une voiture de trois jours minimum à six mois calendaires maximum. Comparez les prix journaliers indicatifs, puis faites confirmer le véhicule, le montant total et les conditions par le loueur.",
+    "item1": {
+        "name": "Court séjour — dès 3 jours",
+        "image": "/vehicles/benatna/renault-clio.webp",
+        "price": "Tarif à confirmer",
+        "specs": {
+            "Durée": "3 jours minimum",
+            "Usage": "Vacances et séjours personnels",
+            "Tarif": "Selon modèle et dates",
+            "Livraison": "Gratuite aux points desservis"
+        },
+        "pros": [
+            "Adapté à un séjour de quelques jours",
+            "Choix de modèles dans le catalogue",
+            "Rendez-vous convenu avant votre arrivée"
+        ],
+        "cons": [
+            "Faire confirmer le véhicule pour vos dates",
+            "Vérifier les conditions de modification et de retour"
+        ],
+        "bestFor": [
+            "Vacanciers",
+            "MRE en court séjour",
+            "Touristes à Casablanca"
+        ]
     },
-    item2: {
-      name: 'Location Longue Durée',
-      image: '/hero-partners.jpg',
-      price: '100-300 DH/jour',
-      specs: {
-        'Durée': '7-365+ jours',
-        'Tarif journalier': '-30% à -50%',
-        'Engagement': 'Souple',
-        'Caution': '2000-5000 DH',
-        'Modifications': 'Sur demande'
-      },
-      pros: [
-        '✅ Économies massives (-30 à -50%)',
-        '✅ Entretien souvent inclus',
-        '✅ Assurance renforcée',
-        '✅ Renouvellement automatique possible',
-        '✅ Caution réduite',
-        '✅ Véhicule dédié stable',
-        '✅ Services premium (assistance 24h)'
-      ],
-      cons: [
-        '❌ Engagement minimum (7-30 jours)',
-        '❌ Moins de flexibilité changement véhicule',
-        '❌ Pénalités si résiliation anticipée',
-        '❌ Contrat plus formel'
-      ],
-      bestFor: [
-        '🎯 Expatriés et résidents',
-        '🎯 Missions professionnelles',
-        '🎯 Étudiants (semestre/année)',
-        '🎯 Projets longs (1-12 mois)',
-        '🎯 Remplacement véhicule perso'
-      ]
+    "item2": {
+        "name": "Séjour prolongé — jusqu’à 6 mois",
+        "image": "/vehicles/benatna/dacia-duster.webp",
+        "price": "Tarif à confirmer",
+        "specs": {
+            "Durée": "6 mois calendaires maximum",
+            "Usage": "Séjours personnels prolongés",
+            "Tarif": "Proposition du loueur",
+            "Livraison": "Gratuite aux points desservis"
+        },
+        "pros": [
+            "Dates adaptées à votre séjour personnel",
+            "Conditions discutées avant votre accord",
+            "Même véhicule demandé pour la durée prévue, à confirmer"
+        ],
+        "cons": [
+            "Vérifier le montant total pour la période",
+            "Faire préciser entretien, kilométrage et conditions de prolongation"
+        ],
+        "bestFor": [
+            "MRE en séjour prolongé",
+            "Vacanciers restant plusieurs semaines",
+            "Séjours personnels de plusieurs mois"
+        ]
     },
-    verdict: {
-      winner: 'tie',
-      summary: 'Le choix dépend de votre durée de séjour et budget. Seuil de rentabilité : 7 jours.',
-      recommendation: '**Choisissez Courte Durée si** : Vous restez moins d\'1 semaine, voulez une flexibilité totale, ou testez une première location.\n\n**Choisissez Longue Durée si** (dès 7+ jours) : Vous restez 1 semaine ou plus, voulez économiser 30-50%, ou avez un besoin récurrent.'
+    "verdict": {
+        "winner": "tie",
+        "summary": "Choisissez les dates correspondant à votre séjour, puis comparez la proposition complète du loueur.",
+        "recommendation": "Pour quelques jours comme pour plusieurs mois, la demande reste comprise entre trois jours et six mois calendaires. Nos loueurs sont basés à Casablanca ; Rabat peut être demandé depuis Casablanca. La livraison aux points desservis est gratuite et le rendez-vous convenu à l’avance. Les photos illustrent des modèles du catalogue et ne garantissent pas leur disponibilité pour vos dates."
     },
-    faq: [
-      {
-        question: 'À partir de combien de jours la longue durée est-elle rentable ?',
-        answer: 'Dès 7 jours de location, les tarifs dégressifs de longue durée deviennent intéressants avec 15-20% d\'économie. À partir de 30 jours, l\'économie atteint 40-50% par rapport au tarif journalier standard.'
-      },
-      {
-        question: 'Peut-on passer d\'une location courte à longue durée ?',
-        answer: 'Oui ! Si vous décidez de prolonger votre location courte durée au-delà de 7 jours, Benatna recalcule automatiquement le tarif en longue durée avec remboursement du différentiel.'
-      },
-      {
-        question: 'Quels services sont inclus en longue durée ?',
-        answer: 'En longue durée chez Benatna : entretien préventif inclus, assistance 24h/7j, remplacement véhicule en panne sous 24h, et parfois kilométrage illimité étendu selon contrat.'
-      },
-      {
-        question: 'Y a-t-il une durée minimum pour la longue durée ?',
-        answer: 'La longue durée démarre à partir de 7 jours. Chez Benatna, pas d\'engagement maximum : vous pouvez louer de 1 semaine à 12 mois selon vos besoins, avec flexibilité de prolongation.'
-      }
+    "faq": [
+        {
+            "question": "Quelle durée peut-on demander sur Benatna ?",
+            "answer": "Au minimum trois jours et au maximum six mois calendaires. Indiquez vos dates dans la demande ; le loueur confirme la disponibilité du véhicule et le tarif final."
+        },
+        {
+            "question": "Une longue durée donne-t-elle automatiquement droit à une remise ?",
+            "answer": "Le tarif dépend du véhicule, de la période et de la proposition du loueur. Comparez le montant total pour vos dates ; une remise éventuelle doit être confirmée dans cette proposition."
+        },
+        {
+            "question": "Comment prolonger un séjour ?",
+            "answer": "Contactez le loueur avant le retour prévu. Il vérifie la disponibilité et confirme les nouvelles dates, le tarif et les conditions. La durée maximale proposée sur Benatna reste de six mois calendaires."
+        },
+        {
+            "question": "Quels points de prise en charge sont proposés ?",
+            "answer": "Les points desservis de Casablanca, notamment Mohammed V et les gares du guide commun. Rabat peut être demandé depuis Casablanca, à confirmer avec le loueur. La livraison est gratuite et le rendez-vous convenu à l’avance."
+        }
     ],
-    relatedComparisons: ['location-aeroport-vs-centre', 'avec-vs-sans-assurance-tous-risques']
-  },
+    "relatedComparisons": [
+        "location-aeroport-vs-centre"
+    ]
+},
 
   // COMPARAISONS VILLES
   {
