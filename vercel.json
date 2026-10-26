@@ -5,6 +5,16 @@
   "framework": "vite",
   "redirects": [
     {
+      "source": "/louer/sandero",
+      "destination": "/vehicule/dacia-sandero",
+      "permanent": true
+    },
+    {
+      "source": "/louer/clio-v",
+      "destination": "/vehicule/renault-clio",
+      "permanent": true
+    },
+    {
       "source": "/blog/guide-complet-location-voiture-can-2025",
       "destination": "/blog",
       "permanent": true
