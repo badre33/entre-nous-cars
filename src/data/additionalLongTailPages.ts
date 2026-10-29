@@ -1756,26 +1756,65 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'peages-autoroute-maroc-tarifs-2026',
     title: 'Peages Autoroute Maroc Tarifs 2026',
-    metaTitle: 'Peages Autoroute Maroc Tarifs 2026 : Casa-Marrakech, Casa-Tanger | Benatna',
-    metaDescription: 'Tarifs peages autoroute Maroc 2026 : Casa-Marrakech 80 DH, Casa-Tanger 90 DH, Casa-Rabat 15 DH. Carte interactive et moyens de paiement.',
+    metaTitle: "Péages au Maroc : tarifs ADM et trajets de Casablanca | Benatna",
+    metaDescription: "Consultez les tarifs ADM pour Casablanca–Rabat et l’aéroport Mohammed V, les classes de véhicule et les moyens de paiement. Sources officielles et date de vérification.",
     keywords: 'peages autoroute maroc tarifs, peage casa marrakech, peage casa tanger, autoroute maroc prix',
-    h1: 'Tarifs des Peages Autoroute au Maroc en 2026',
-    heroSubtitle: 'Casa-Marrakech 80 DH • Casa-Tanger 90 DH • Casa-Rabat 15 DH • Moyens de paiement',
+    h1: "Péages au Maroc : préparer son trajet depuis Casablanca",
+    heroSubtitle: "Tarifs par tronçon • Classes ADM • Paiement aux péages",
     category: { label: 'Guide Pratique', href: '/guide-maroc' },
     content: {
-      intro: 'Le **reseau autoroutier marocain** (ADM, Autoroutes du Maroc) compte 1800+ km. Tous les axes principaux sont **a peage**, avec tarifs raisonnables. Voici la **grille complete 2026** pour les trajets les plus frequents, avec moyens de paiement acceptes pour MRE et touristes.',
-      sections: [
-        { title: 'Grille tarifaire principaux trajets 2026', content: 'Voici les tarifs en classe 1 (voiture particuliere) 2026 : **Casablanca → Rabat** : 15 DH (60 km). **Casablanca → Marrakech** : 80 DH (240 km). **Casablanca → Tanger** : 90 DH (340 km). **Casablanca → Fes** : 75 DH (290 km). **Casablanca → Agadir** : 110 DH (460 km, via Marrakech). **Rabat → Tanger** : 75 DH (280 km). **Rabat → Fes** : 60 DH (230 km). **Marrakech → Agadir** : 30 DH (220 km). **Marrakech → Casa Aeroport CMN** : 75 DH. Tarifs susceptibles d evolution annuelle mineure (3-5%). Classe 2 (SUV/camionnette) : +30%. Classe 3 (camion) : +60%.' },
-        { title: 'Moyens de paiement aux peages', content: '**Especes DH** : accepte partout. **CB nationale CMI** : acceptee depuis 2020 sur la majorite des peages. **CB internationale (Visa/Mastercard)** : acceptee mais parfois capricieuse, garder cash de secours. **Pass Jawaz** : badge pre-paye electronique, voie rapide sans arret. Conseil MRE : achetez-le si vous restez 2+ semaines, gain de temps notable. **Application Jibi** : paiement mobile experimental sur certains peages. Pas de paiement euro ni virement aux peages.' },
-        { title: 'Conseils economie carburant et peages', content: '**Eviter les peages** : itineraires alternatifs via routes nationales (N1, N9, etc.), mais **gain economique modeste compense par temps perdu** et fatigue. Exemple : Casa-Marrakech par N9 (route Settat) = 5h vs 2h30 autoroute, economie 80 DH, surconsommation carburant 100-150 DH. **Pas rentable**. Itineraires alternatifs interessants seulement pour : touriste qui veut voir le terroir (Settat, Khouribga, Beni Mellal), ou eviter trafic vacances. **Calcul cout total trajet Casa-Marrakech** : 80 DH peages + 200 DH carburant citadine = 280 DH. Toujours plus economique que le train (250 DH par personne) pour 2+ personnes.' },
-        { title: 'Securite et services sur autoroute', content: '**Stations service** : tous les 30-50 km sur autoroute, ouvertes 24/7, restaurants, toilettes, pompe essence. **Vitesse limite** : 120 km/h autoroute (sauf chantiers). Radars fixes et mobiles **frequents**. **Penalites exces** : 300-700 DH selon depassement. **Assistance** : pannes/accidents, appeler ADM Assistance via panneaux affiches tous les 5 km. Pas de stationnement sur bande d arret d urgence sauf urgence reelle.' }
+      "intro": "Le montant du péage dépend du tronçon emprunté et de la classe du véhicule. Pour préparer votre départ de Casablanca, repérez les gares d’entrée et de sortie plutôt que de vous fier à un prix global entre deux villes. Les exemples ci-dessous proviennent de la grille en ligne d’Autoroutes du Maroc consultée le 29 octobre 2026.",
+      "sections": [
+            {
+                  "title": "Deux tarifs ADM au départ de Casablanca",
+                  "content": "La grille ADM affiche, en classe 1 :\nCasablanca–Rabat : 25 DH.\nCasablanca–Aéroport Mohammed V : 7 DH.\nCes montants concernent les tronçons nommés dans la grille. Un itinéraire comportant d’autres passages peut coûter davantage. Vérifiez le trajet exact sur le site ADM avant le départ ; cette page ne constitue pas une grille complète du réseau."
+            },
+            {
+                  "title": "Vérifier la classe de votre véhicule",
+                  "content": "ADM utilise notamment le nombre d’essieux et la hauteur au droit de l’essieu avant pour définir les classes de péage. Le seul nom commercial du véhicule, par exemple « SUV », ne suffit pas à déterminer sa classe. Consultez les critères officiels liés en bas de page et demandez au loueur la catégorie correspondant au véhicule remis."
+            },
+            {
+                  "title": "Comment payer le péage ?",
+                  "content": "ADM présente quatre moyens de règlement : Pass Jawaz, carte bancaire, carte réseau et espèces. Avant de prendre la route, vérifiez les indications de la voie choisie. Si un Pass Jawaz équipe la voiture de location, convenez avec le loueur de son utilisation et du règlement des passages ; sa présence ne signifie pas que les péages sont inclus dans la location."
+            },
+            {
+                  "title": "Comparer le coût complet de deux itinéraires",
+                  "content": "Pour comparer une autoroute et un autre itinéraire, additionnez les péages et le carburant estimé pour chaque parcours. Tenez aussi compte du temps et des conditions de circulation du jour. Aucun trajet n’est systématiquement le moins cher pour tout le monde. Le budget routier est distinct du tarif de location confirmé par le loueur."
+            }
       ],
-      faq: [
-        { question: 'Combien coute Casa-Marrakech en peages ?', answer: '80 DH classe 1 en 2026 (voiture particuliere).' },
-        { question: 'La CB internationale fonctionne-t-elle aux peages ?', answer: 'Oui sur la majorite mais parfois capricieuse. Gardez especes de secours.' },
-        { question: 'Vaut-il mieux prendre l autoroute ou la route nationale ?', answer: 'Autoroute systematiquement plus rentable (temps + carburant) sauf pour decouverte terroir touristique.' }
+      "faq": [
+            {
+                  "question": "Quel est le péage Casablanca–Rabat en classe 1 ?",
+                  "answer": "La grille en ligne ADM consultée le 29 octobre 2026 indique 25 DH pour le tronçon Casablanca–Rabat. Vérifiez le tarif et les gares empruntées avant votre voyage."
+            },
+            {
+                  "question": "Un SUV est-il automatiquement en classe 2 ?",
+                  "answer": "Non. La classification ADM repose sur des critères physiques, notamment la hauteur au droit de l’essieu avant et le nombre d’essieux. Vérifiez les caractéristiques du véhicule remis."
+            },
+            {
+                  "question": "La livraison gratuite inclut-elle les péages de mon voyage ?",
+                  "answer": "La livraison gratuite Benatna concerne la remise du véhicule aux lieux desservis et convenus à l’avance. Elle ne signifie pas que les péages de vos déplacements sont inclus. Confirmez les conditions du contrat avec le loueur."
+            }
       ]
-    },
+},
+    editorialSources: {
+      "checkedOn": "2026-10-29",
+      "note": "Tarifs lus dans la grille en ligne à cette date, sans garantie de maintien jusqu’à votre départ. Les gares exactes et la classe du véhicule déterminent le montant.",
+      "links": [
+            {
+                  "title": "ADM — grille tarifaire en ligne",
+                  "url": "https://www.adm.co.ma/fr/grille-tarifaire-sur-le-reseau"
+            },
+            {
+                  "title": "ADM — critères de classe de véhicule",
+                  "url": "https://www.adm.co.ma/fr/votre-classe-de-vehicule"
+            },
+            {
+                  "title": "ADM — régler votre passage",
+                  "url": "https://www.adm.co.ma/fr/regler-votre-passage"
+            }
+      ]
+},
     cta: {
       title: 'Préparez votre location à Casablanca',
       subtitle: 'Choisissez jusqu’à trois véhicules, vos dates et votre lieu de prise en charge avant d’ouvrir WhatsApp. Disponibilité et tarif final à confirmer par le loueur.',
@@ -1799,26 +1838,57 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   {
     slug: 'prix-essence-gasoil-maroc-2026',
     title: 'Prix Essence Gasoil Maroc 2026',
-    metaTitle: 'Prix Essence et Gasoil au Maroc 2026 : Tarifs par Station | Benatna',
-    metaDescription: 'Prix essence et gasoil Maroc 2026 : essence 15 DH/L environ, gasoil 14 DH/L. Tarifs par ville et par station. Conseils economie carburant.',
+    metaTitle: "Prix essence et gasoil au Maroc : calculer son budget | Benatna",
+    metaDescription: "Préparez votre budget carburant au Maroc avec le prix affiché en station, la distance et la consommation du véhicule. Méthode de calcul et source officielle datée.",
     keywords: 'prix essence maroc 2026, prix gasoil maroc 2026, prix carburant maroc, prix essence casablanca marrakech',
-    h1: 'Prix de l Essence et du Gasoil au Maroc en 2026',
-    heroSubtitle: 'Essence ~15 DH/L • Gasoil ~14 DH/L • Variations par station et periode',
+    h1: "Prix de l’essence et du gasoil au Maroc : préparer son budget",
+    heroSubtitle: "Prix à vérifier en station • Calcul du budget • Essence ou diesel",
     category: { label: 'Guide Pratique', href: '/guide-maroc' },
     content: {
-      intro: 'Les **prix des carburants au Maroc** ont ete liberalises depuis 2015 mais restent stables. En 2026 : **essence super 15 DH/L environ, gasoil 14 DH/L environ**. Variations selon stations (Afriquia, Total, Shell, Vivo) et zones (urbaines vs autoroute). Guide complet pour MRE et touristes en road trip.',
-      sections: [
-        { title: 'Prix moyens essence et gasoil 2026', content: '**Essence super 95** : entre 14,50 et 15,80 DH/L selon station et periode. Moyenne nationale : **15,00 DH/L** debut 2026. **Gasoil** : entre 13,80 et 14,50 DH/L. Moyenne nationale : **14,15 DH/L**. Variations cycliques selon cours du petrole brut. **GPL (gaz propulsion)** : disponible quelques stations Casa/Rabat, ~6 DH/L mais voiture GPL rare en location. **Diesel premium** (Total Excellium, Afriquia BioPlus) : +0,40 DH/L vs gasoil standard. Conseil : prendre le gasoil standard, suffisant pour voiture location standard.' },
-        { title: 'Comparaison cout entre essence et gasoil', content: 'Sur un trajet **Casa-Marrakech (240 km autoroute)** : citadine essence consomme ~6L/100km = 14L x 15 DH = 210 DH carburant. Citadine gasoil consomme ~5L/100km = 12L x 14 DH = 168 DH carburant. **Economie gasoil = 42 DH** sur ce trajet. Sur **2 semaines de location avec 1500 km parcourus** : essence ~1350 DH carburant total, gasoil ~1050 DH = **economie 300 DH**. Si tu hesites entre 2 modeles similaires l un essence l autre gasoil, **prends le gasoil** pour MRE 2+ semaines.' },
-        { title: 'Stations service principales et reseau', content: '**Afriquia** (groupe marocain, plus dense reseau, environ 600 stations) : tarifs competitifs, paiement CB CMI standard, application mobile. **Total** (international) : tarifs souvent les plus eleves de 10-30 centimes, mais qualite carburant garantie, accepte CB internationale partout. **Shell** : similar Total. **Vivo Energy** : reseau moyen. **Petrom** (roumain) : nouveau venu sur le marche. Stations autoroute Afriquia plus cheres (+30-50 centimes/L) que stations ville. Conseil : faire le plein en ville avant autoroute.' },
-        { title: 'Conseils economie carburant et budget', content: '**Faire le plein** en periode normale, pas dimanche soir (parfois +5 centimes). **Eviter stations autoroute** quand possible. **Conduite economique** : limiter 110 km/h sur autoroute (au lieu de 120) economise 15% carburant. **Climatisation** : -10 a -15% autonomie en ete. **Pneus bien gonfles** : -3-5% consommation. **Budget total typique road trip** : MRE 2 semaines 2000 km = ~1400 DH essence ou 1100 DH gasoil + 200-300 DH peages. **Touriste 1 semaine 800 km** = ~700 DH essence ou 550 DH gasoil + 100-150 DH peages.' }
+      "intro": "Pour estimer votre budget carburant au départ de Casablanca, utilisez le prix au litre affiché par la station au moment du plein. Cette page ne publie pas de cours en temps réel ni de moyenne nationale vérifiée au 29 octobre 2026. Pour un montant adapté à votre voyage, relevez le prix au litre avant de calculer le coût du trajet.",
+      "sections": [
+            {
+                  "title": "Où vérifier le prix de l’essence et du gasoil ?",
+                  "content": "Consultez le prix affiché à la pompe pour le carburant exact du véhicule. Notez la station et la date de votre relevé si vous comparez plusieurs options. Le Conseil de la concurrence suit les variations des marchés et leur répercussion sur les prix à la pompe ; sa note du 1er au 16 mars 2026 est une analyse historique, pas un relevé des prix du jour."
+            },
+            {
+                  "title": "Calculer le coût de votre trajet",
+                  "content": "Budget carburant en DH = distance en km × consommation en litres aux 100 km ÷ 100 × prix en DH par litre.\nExemple de calcul : un parcours de 200 km avec une consommation supposée de 6 L/100 km représente 12 litres. Multipliez ces 12 litres par le prix constaté dans votre station. Les 6 L/100 km sont une hypothèse de calcul, pas une consommation garantie pour un modèle du catalogue."
+            },
+            {
+                  "title": "Essence ou diesel : comparer le budget complet",
+                  "content": "Comparez le prix de location des véhicules disponibles, leur consommation estimée pour votre parcours et le prix de leur carburant en station. Le résultat dépend de ces trois éléments : cette page ne promet pas un pourcentage d’économie ni un carburant toujours plus avantageux. Avant de faire le plein, vérifiez le carburant indiqué sur le véhicule et demandez confirmation au loueur en cas de doute."
+            },
+            {
+                  "title": "Prévoir le plein et la restitution",
+                  "content": "Demandez au loueur le niveau de carburant prévu lors de la remise et de la restitution, puis conservez votre reçu si nécessaire. Ajoutez les péages à votre estimation pour obtenir un budget routier. Les conditions de carburant relèvent du contrat de location ; elles ne sont pas remplacées par ce guide."
+            }
       ],
-      faq: [
-        { question: 'Prix essence au Maroc en 2026 ?', answer: 'Environ 15 DH/L (moyenne nationale debut 2026). Varie de 14,50 a 15,80 selon station.' },
-        { question: 'Plus economique gasoil ou essence ?', answer: 'Gasoil moins cher a la pompe (14 vs 15 DH/L) et consommation moindre. ~25-30% economie sur long trajet.' },
-        { question: 'Peut-on payer en euro ou CB internationale ?', answer: 'CB internationale acceptee partout. Euro non. Privilegier DH especes ou CB.' }
+      "faq": [
+            {
+                  "question": "Quel est le prix de l’essence et du gasoil au Maroc aujourd’hui ?",
+                  "answer": "Cette page ne dispose pas d’un relevé national en temps réel. Vérifiez le prix du carburant concerné dans la station où vous comptez faire le plein, à la date de votre trajet."
+            },
+            {
+                  "question": "Comment calculer mon budget carburant ?",
+                  "answer": "Multipliez la distance par la consommation en litres aux 100 km, divisez par 100, puis multipliez par le prix au litre constaté en station. Ajoutez séparément les péages."
+            },
+            {
+                  "question": "Le diesel est-il toujours plus économique en location ?",
+                  "answer": "Le coût total dépend du tarif de location, de la consommation du véhicule et du prix du carburant. Comparez les véhicules disponibles et votre kilométrage prévu plutôt que de retenir un gain fixe."
+            }
       ]
-    },
+},
+    editorialSources: {
+      "checkedOn": "2026-10-29",
+      "note": "La source ci-dessous décrit une période passée. Elle ne permet pas de certifier les prix à la pompe aujourd’hui. Aucun tarif courant n’est déduit de cette note.",
+      "links": [
+            {
+                  "title": "Conseil de la concurrence — note sur les carburants, 1er–16 mars 2026",
+                  "url": "https://conseil-concurrence.ma/note-sur-levolution-des-prix-du-gasoil-et-de-lessence-sur-les-marches-internationaux-et-leur-repercussion-sur-les-prix-de-vente-a-la-pompe-au-marche-national-periode-du-1er-mars-a/"
+            }
+      ]
+},
     cta: {
       title: 'Préparez votre location à Casablanca',
       subtitle: 'Choisissez jusqu’à trois véhicules, vos dates et votre lieu de prise en charge avant d’ouvrir WhatsApp. Disponibilité et tarif final à confirmer par le loueur.',

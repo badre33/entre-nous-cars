@@ -214,6 +214,19 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
               ))}
             </div>
 
+            {config.editorialSources && (
+              <section aria-labelledby="editorial-sources" className="mb-10 rounded-xl border p-4 md:p-6">
+                <h2 id="editorial-sources" className="text-xl font-semibold mb-3">Sources et vérification</h2>
+                <p className="text-sm mb-3">Vérifié le <time dateTime={config.editorialSources.checkedOn}>{new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(config.editorialSources.checkedOn + 'T00:00:00Z'))}</time>.</p>
+                <p className="text-sm text-muted-foreground mb-3">{config.editorialSources.note}</p>
+                <ul className="space-y-2">
+                  {config.editorialSources.links.map(source => (
+                    <li key={source.url}><a href={source.url} className="inline-flex min-h-[44px] items-center py-2 underline underline-offset-4 break-words">{source.title}</a></li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
             {/* FAQ Section - optimisé mobile */}
             {config.content.faq && config.content.faq.length > 0 && (
               <section id="faq-section" className="mb-12 md:mb-16 scroll-mt-24">
