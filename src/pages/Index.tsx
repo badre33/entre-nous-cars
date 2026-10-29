@@ -24,8 +24,6 @@ const SEOLinks = lazy(() => import("@/components/SEOLinks").then(m => ({ default
 const ServiceSchema = lazy(() => import("@/components/ServiceSchema").then(m => ({ default: m.ServiceSchema })));
 const HowToSchema = lazy(() => import("@/components/HowToSchema"));
 const OfferSchema = lazy(() => import("@/components/OfferSchema").then(m => ({ default: m.OfferSchema })));
-const VehicleProductSchemas = lazy(() => import("@/components/VehicleProductSchemas").then(m => ({ default: m.VehicleProductSchemas })));
-const OpeningHoursSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.OpeningHoursSchema })));
 const SitelinksSearchBoxSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.SitelinksSearchBoxSchema })));
 const BreadcrumbListSchema = lazy(() => import("@/components/schemas").then(m => ({ default: m.BreadcrumbListSchema })));
 
@@ -147,14 +145,6 @@ const Index = () => {
 
       {/* Schema AggregateRating pour étoiles Google */}
 
-
-      <OpeningHoursSchema
-        entityType="Organization"
-        entityName="Benatna Location de Voiture Maroc"
-      />
-
-      {/* Product Schema pour top 20 véhicules */}
-      <VehicleProductSchemas limit={20} />
 
       {/* BreadcrumbList Schema (Homepage) */}
       <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
