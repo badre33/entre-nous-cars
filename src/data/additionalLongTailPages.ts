@@ -1777,10 +1777,18 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       ]
     },
     cta: {
-      title: 'Reservez Votre Voiture au Maroc',
-      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
-      buttonText: 'Reserver via WhatsApp',
-      buttonLink: '/contact'
+      title: 'Préparez votre location à Casablanca',
+      subtitle: 'Choisissez jusqu’à trois véhicules, vos dates et votre lieu de prise en charge avant d’ouvrir WhatsApp. Disponibilité et tarif final à confirmer par le loueur.',
+      buttonText: 'Choisir mes véhicules et mes dates',
+      buttonLink: '/louer?city=Casablanca'
+    },
+    rentalJourney: {
+      intro: 'Vous préparez un trajet au départ de Casablanca ? Benatna vous permet de demander une location de 3 jours à 6 mois. La livraison est gratuite aux aéroports et gares desservis, avec les modalités convenues à l’avance. Une livraison à Rabat peut être demandée depuis Casablanca. Vos déplacements restent soumis aux conditions du loueur.',
+      links: [
+        { title: 'Location de voiture à Casablanca', link: '/location-voiture-casablanca' },
+        { title: 'Livraison à l’aéroport de Casablanca', link: '/location-voiture-aeroport-casablanca' },
+        { title: 'Livraison à la gare Casa-Voyageurs', link: '/location-voiture-gare-casa-voyageurs' }
+      ]
     },
     relatedServices: [
       { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
@@ -1812,10 +1820,18 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       ]
     },
     cta: {
-      title: 'Reservez Votre Voiture au Maroc',
-      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
-      buttonText: 'Reserver via WhatsApp',
-      buttonLink: '/contact'
+      title: 'Préparez votre location à Casablanca',
+      subtitle: 'Choisissez jusqu’à trois véhicules, vos dates et votre lieu de prise en charge avant d’ouvrir WhatsApp. Disponibilité et tarif final à confirmer par le loueur.',
+      buttonText: 'Choisir mes véhicules et mes dates',
+      buttonLink: '/louer?city=Casablanca'
+    },
+    rentalJourney: {
+      intro: 'Vous préparez un trajet au départ de Casablanca ? Benatna vous permet de demander une location de 3 jours à 6 mois. La livraison est gratuite aux aéroports et gares desservis, avec les modalités convenues à l’avance. Une livraison à Rabat peut être demandée depuis Casablanca. Vos déplacements restent soumis aux conditions du loueur.',
+      links: [
+        { title: 'Location de voiture à Casablanca', link: '/location-voiture-casablanca' },
+        { title: 'Livraison à l’aéroport de Casablanca', link: '/location-voiture-aeroport-casablanca' },
+        { title: 'Livraison à la gare Casa-Voyageurs', link: '/location-voiture-gare-casa-voyageurs' }
+      ]
     },
     relatedServices: [
       { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },

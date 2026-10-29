@@ -1,7 +1,6 @@
 import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 import { Helmet } from "react-helmet-async";
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BreadcrumbsEnriched } from "@/components/BreadcrumbsEnriched";
@@ -16,10 +15,8 @@ import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
 import { toast } from "sonner";
 import { 
-  EnhancedAggregateRatingSchema, 
   PriceRangeOfferSchema, 
-  FAQSchemaEnriched,
-  MultiLocationSchema
+  FAQSchemaEnriched
 } from "@/components/schemas";
 
 interface LongTailPageProps {
@@ -40,7 +37,6 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
     } catch { return false; }
   };
   config = { ...config, relatedPages: config.relatedPages?.filter(p => canRecommend(p.link)), relatedServices: config.relatedServices?.filter(p => canRecommend(p.link)) };
-  const navigate = useNavigate();
 
   // Les métadonnées sont posées par Helmet plus bas. Les poser aussi
   // directement dans le DOM laissait la description de cette page derrière
@@ -122,7 +118,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
 
       
       {/* Quick Wins SEO: Price Range pour affichage prix dans Google */}
-      <PriceRangeOfferSchema 
+      {!config.rentalJourney && <PriceRangeOfferSchema
         minPrice="300"
         maxPrice="900"
         city={config.slug.includes('casablanca') ? 'Casablanca' : 
@@ -132,7 +128,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
               config.slug.includes('agadir') ? 'Agadir' :
               config.slug.includes('fes') ? 'Fès' : undefined}
         discount={{ percentage: 10, minDays: 30 }}
-      />
+      />}
       
       {/* Quick Wins SEO: FAQ Schema Enrichi pour Rich Snippets */}
       {config.content.faq && config.content.faq.length > 0 && (
@@ -185,6 +181,22 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
                 {config.content.intro}
               </p>
             </div>
+
+            {config.rentalJourney && (
+              <aside aria-label="Préparer une location à Casablanca" className="mb-8 md:mb-12 rounded-xl border bg-primary/5 p-4 md:p-6">
+                <h2 className="text-xl md:text-2xl font-semibold mb-3">Votre voiture au départ de Casablanca</h2>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">{config.rentalJourney.intro}</p>
+                <ul className="space-y-1">
+                  {config.rentalJourney.links.map(link => (
+                    <li key={link.link}>
+                      <Link to={link.link} className="inline-flex items-center gap-2 min-h-[44px] py-2 text-primary underline underline-offset-4">
+                        {link.title}<ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            )}
 
             {/* Content Sections */}
             <div className="space-y-8 md:space-y-12 mb-12 md:mb-16">
