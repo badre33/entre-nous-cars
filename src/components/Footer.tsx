@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BUSINESS_INFO, getFullAddress } from "@/constants/businessInfo";
 import { MapPin, Phone, Mail } from "lucide-react";
+import { AD_PREFERENCES_EVENT } from '@/utils/metaMeasurement';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -108,6 +109,7 @@ const Footer = () => {
             <Link to="/es" className="hover:text-foreground transition-colors">Español</Link>
           </div>
           © 2026 Benatna - {t('footer.tagline')}
+          <div><button type="button" className="min-h-11 px-3 underline" onClick={() => window.dispatchEvent(new Event(AD_PREFERENCES_EVENT))}>Cookies publicitaires</button></div>
         </div>
       </div>
     </footer>
