@@ -18,8 +18,13 @@ for(const width of [320,390,1280]) for(const slug of ['prix-essence-gasoil-maroc
  assert.equal(await region.getByRole('link').count(),3);
  for(const url of ['/location-voiture-casablanca','/location-voiture-aeroport-casablanca','/location-voiture-gare-casa-voyageurs'])assert.equal(await region.locator(`a[href="${url}"]`).count(),1);
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+ const sources=page.getByRole('region',{name:'Sources et vérification'});
+ await sources.waitFor();assert(await sources.getByRole('link').count()>0);assert.equal(await sources.locator('time').getAttribute('datetime'),'2026-10-29');
  const schema=await page.locator('script[type="application/ld+json"]').allTextContents();
  assert(!schema.some(s=>s.includes('Tarif Standard')||s.includes('Réduction 10%')));
+ const mainText=await page.locator('main').innerText();
+ if(slug.startsWith('prix-essence')) {assert(!mainText.includes('15 DH/L'));assert(mainText.includes('12 litres'));assert(mainText.includes('pas un relevé des prix du jour'));}
+ else {assert(mainText.includes('25 DH'));assert(mainText.includes('7 DH'));assert(!mainText.includes('SUV/camionnette'));assert(!mainText.includes('Toujours plus economique'));}
  const cta=page.getByRole('link',{name:'Choisir mes véhicules et mes dates'}).first();
  assert.equal(await cta.getAttribute('href'),'/louer?city=Casablanca');
  await region.scrollIntoViewIfNeeded();await page.screenshot({path:`${out}/${slug}-${width}.png`});

@@ -32,6 +32,11 @@ export interface LongTailPageConfig {
     buttonText: string;
     buttonLink: string;
   };
+  editorialSources?: {
+    checkedOn: string;
+    note: string;
+    links: Array<{ title: string; url: string }>;
+  };
   rentalJourney?: {
     intro: string;
     links: Array<{ title: string; link: string }>;
