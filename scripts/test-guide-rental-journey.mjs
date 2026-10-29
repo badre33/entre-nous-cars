@@ -12,6 +12,8 @@ for(const width of [320,390,1280]) for(const slug of ['prix-essence-gasoil-maroc
  await context.route('**/*',r=>new URL(r.request().url()).origin===new URL(base).origin?r.continue():r.abort());
  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto(`${base}/${slug}`,{waitUntil:'networkidle'});
+ const consent=page.getByRole('region',{name:'Cookies publicitaires',exact:true});
+ if(await consent.isVisible())await consent.getByRole('button',{name:'Refuser',exact:true}).click();
  const region=page.getByRole('complementary',{name:'Préparer une location à Casablanca'});await region.waitFor();
  assert.equal(await region.getByRole('link').count(),3);
  for(const url of ['/location-voiture-casablanca','/location-voiture-aeroport-casablanca','/location-voiture-gare-casa-voyageurs'])assert.equal(await region.locator(`a[href="${url}"]`).count(),1);
