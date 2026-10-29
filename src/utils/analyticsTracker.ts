@@ -1,4 +1,5 @@
 import { WHATSAPP_HANDOFF_EVENT } from './rentalRequest';
+import { trackMetaWhatsApp } from './metaMeasurement';
 import { publicAnalyticsRpc } from './publicAnalyticsRpc';
 import { analyticsEventId, appendCampaignCode, captureCampaignAttribution, getCampaignAttribution, safeAnalyticsPath, sanitizeAnalyticsProperties } from './analyticsPrivacy';
 
@@ -78,6 +79,7 @@ class AnalyticsTracker {
     const id = this.activeGesture;
     if (this.seenHandoffs.has(id)) return;
     this.seenHandoffs.add(id);
+    trackMetaWhatsApp();
     if (this.seenHandoffs.size > 200) this.seenHandoffs.delete(this.seenHandoffs.values().next().value!);
     void this.trackEvent({ eventType: 'conversion', eventName: 'whatsapp_handoff', properties: { ...context, event_id: id } });
   }

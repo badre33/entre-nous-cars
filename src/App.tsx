@@ -1,4 +1,5 @@
 import RentalRequestDialog from '@/components/RentalRequestDialog';
+import { MetaPixel } from '@/components/MetaPixel';
 import PickupGuide from "@/pages/PickupGuide";
 import { ServiceAreaGuard } from "@/components/ServiceAreaGuard";
 import { Toaster } from "@/components/ui/toaster";
@@ -280,6 +281,7 @@ const App = () => {
           <BrowserRouter>
             <ComparisonProvider>
             <RentalRequestDialog />
+            <MetaPixel />
             <CanonicalUrl />
             <OrganizationSchema />
             <SitelinksSearchBoxSchema />
