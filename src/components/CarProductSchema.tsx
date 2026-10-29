@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { rentalVehicleSlugs } from "@/data/rentalVehicleNames";
 
 interface Car {
   id: number;
@@ -12,69 +13,26 @@ interface Car {
   conditions?: string[];
 }
 
-interface CarProductSchemaProps {
-  cars: Car[];
-}
-
-export const CarProductSchema = ({ cars }: CarProductSchemaProps) => {
-  // Generate individual Product structured data for each car
-  const productSchemas = cars.map((car) => ({
+// Compatibility name: catalogue entries describe models, not confirmed stock.
+export const CarProductSchema = ({ cars }: { cars: Car[] }) => {
+  const names = new Set(cars.map(car => car.name.replace(/^VW /, "Volkswagen ")));
+  const approvedModels = Object.entries(rentalVehicleSlugs);
+  const models = [...names].flatMap(name => {
+    const model = approvedModels.find(([, approvedName]) => approvedName === name);
+    return model ? [model] : [];
+  });
+  if (!models.length) return null;
+  const schema = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": car.name,
-    "description": `Location ${car.name} ${car.category} ${car.type} à ${car.city}. ${car.conditions?.join(", ") || "Kilométrage illimité"}. Demande immédiate sur WhatsApp.`,
-    "image": car.image,
-    "brand": {
-      "@type": "Brand",
-      "name": car.brand
-    },
-    "category": car.category,
-    "offers": {
-      "@type": "Offer",
-      "url": `https://benatna.ma/louer?city=${encodeURIComponent(car.city)}&brand=${encodeURIComponent(car.brand)}`,
-      "priceCurrency": "MAD",
-      "price": car.price,
-      "priceValidUntil": new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 90 days
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "seller": {
-        "@type": "Organization",
-        "name": "Benatna",
-        "url": "https://benatna.ma"
-      },
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": car.price,
-        "priceCurrency": "MAD",
-        "unitText": "jour"
-      }
-    },
-    "additionalProperty": [
-      {
-        "@type": "PropertyValue",
-        "name": "Transmission",
-        "value": car.type
-      },
-      {
-        "@type": "PropertyValue",
-        "name": "Ville",
-        "value": car.city
-      },
-      {
-        "@type": "PropertyValue",
-        "name": "Catégorie",
-        "value": car.category
-      }
-    ]
-  }));
-
-  return (
-    <Helmet>
-      {productSchemas.map((schema, index) => (
-        <script key={index} type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      ))}
-    </Helmet>
-  );
+    "@type": "ItemList",
+    "name": "Modèles de location à Casablanca — disponibilité à confirmer",
+    "numberOfItems": models.length,
+    "itemListElement": models.map(([slug, name], index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": name,
+      "url": `https://benatna.ma/vehicule/${slug}`,
+    })),
+  };
+  return <Helmet><script type="application/ld+json">{JSON.stringify(schema)}</script></Helmet>;
 };
