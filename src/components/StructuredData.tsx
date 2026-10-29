@@ -17,111 +17,6 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
   const currentUrl = `${baseUrl}${location.pathname}`;
 
   const getStructuredData = () => {
-    // Organization schema - always included
-    const organization = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      name: "Benatna",
-      description: "Plateforme marocaine de location de voitures avec des agences locales vérifiées",
-      url: baseUrl,
-      logo: `${baseUrl}/logo.png`,
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+212-699-024-526",
-        contactType: "Customer Service",
-        areaServed: "Casablanca",
-        availableLanguage: ["French", "Arabic", "English"]
-      },
-      sameAs: [
-        "https://www.facebook.com/benatna",
-        "https://www.instagram.com/benatna"
-      ]
-    };
-
-    // Local Business schema for main site
-    const localBusiness = {
-      "@context": "https://schema.org",
-      "@type": "AutoRental",
-      name: "Benatna - Location de Voitures au Maroc",
-      image: `${baseUrl}/og-image.png`,
-      "@id": baseUrl,
-      url: baseUrl,
-      telephone: "+212-699-024-526",
-      priceRange: "250-2000 MAD",
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "MA"
-      },
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: 33.5731104,
-        longitude: -7.5898434
-      },
-      areaServed: [{ "@type": "City", name: "Casablanca" }],
-      description: "Location de voitures au Maroc avec transparence des prix et processus 100% digital. Trouvez votre véhicule idéal parmi nos agences partenaires vérifiées.",
-
-    };
-
-    // Service schema for rental service
-    const service = {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      serviceType: "Location de Voitures",
-      provider: {
-        "@type": "Organization",
-        name: "Benatna"
-      },
-      areaServed: {
-        "@type": "City",
-        name: "Casablanca"
-      },
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Véhicules disponibles",
-        itemListElement: [
-          {
-            "@type": "OfferCatalog",
-            name: "Citadines",
-            itemListElement: [
-              {
-                "@type": "Offer",
-                itemOffered: {
-                  "@type": "Car",
-                  name: "Renault Clio"
-                }
-              }
-            ]
-          },
-          {
-            "@type": "OfferCatalog",
-            name: "SUV",
-            itemListElement: [
-              {
-                "@type": "Offer",
-                itemOffered: {
-                  "@type": "Car",
-                  name: "Dacia Duster"
-                }
-              }
-            ]
-          },
-          {
-            "@type": "OfferCatalog",
-            name: "Berlines",
-            itemListElement: [
-              {
-                "@type": "Offer",
-                itemOffered: {
-                  "@type": "Car",
-                  name: "Toyota Corolla"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    };
-
     // Breadcrumb schema
     const breadcrumb = {
       "@context": "https://schema.org",
@@ -169,8 +64,8 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
         headline: article.title,
         description: article.description,
         image: article.image || `${baseUrl}/og-image.png`,
-        datePublished: article.datePublished || new Date().toISOString(),
-        dateModified: article.dateModified || new Date().toISOString(),
+        ...(article.datePublished ? { datePublished: article.datePublished } : {}),
+        ...(article.dateModified ? { dateModified: article.dateModified } : {}),
         author: {
           "@type": "Organization",
           name: "Benatna"
@@ -190,49 +85,10 @@ export const StructuredData = ({ type = "home", article }: StructuredDataProps) 
       };
     }
 
-    // FAQ Schema for rental page
-    const faqSchema = type === "rental" ? {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Quel est le prix moyen d'une location de voiture au Maroc ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Les prix varient de 400 MAD/jour pour une citadine à 2000 MAD/jour pour un véhicule de luxe. Nos tarifs sont transparents et incluent l'assurance de base."
-          }
-        },
-        {
-          "@type": "Question",
-          name: "Quels documents sont nécessaires pour louer une voiture ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Vous aurez besoin d'un permis de conduire valide (depuis plus d'un an), d'une carte d'identité ou passeport, et d'une carte bancaire pour la caution."
-          }
-        },
-        {
-          "@type": "Question",
-          name: "Puis-je louer une voiture dans une ville et la rendre dans une autre ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Nos loueurs sont basés à Casablanca. Une livraison à Rabat peut être étudiée sur demande ; faisabilité et frais sont à confirmer."
-          }
-        }
-      ]
-    } : null;
+    // The global Organization is emitted once by OrganizationSchema.
+    // Do not invent FAQ answers, stock, prices or a physical rental counter here.
+    const schemas: Record<string, unknown>[] = [breadcrumb];
 
-    // Combine all schemas
-    const schemas: Record<string, unknown>[] = [organization, breadcrumb];
-    
-    if (type === "home" || type === "rental") {
-      schemas.push(localBusiness, service);
-    }
-    
-    if (faqSchema) {
-      schemas.push(faqSchema);
-    }
-    
     if (articleSchema) {
       schemas.push(articleSchema);
     }
