@@ -14,6 +14,7 @@ for(const width of [320,390,1280]) {
  const entries=width===320?Object.entries(models):Object.entries(models).filter(([slug])=>['renault-clio','audi-a3','range-rover-sport'].includes(slug));
  for(const [slug,name] of entries){
   await page.goto(base+'/vehicule/'+slug);await page.getByRole('heading',{name,exact:true}).waitFor();
+  const consent=page.getByRole('region',{name:'Cookies publicitaires',exact:true});if(await consent.isVisible())await consent.getByRole('button',{name:'Refuser',exact:true}).click();
   const photo=page.locator('img[fetchpriority=high]').first();await photo.scrollIntoViewIfNeeded();await photo.evaluate(e=>e.decode());
   const info=await photo.evaluate(e=>({src:e.currentSrc,loaded:e.complete&&e.naturalWidth>0,loading:e.loading}));
   assert(info.loaded && info.loading==='eager');if(width<768)assert(info.src.includes('/responsive/'),'mobile uses actual resized photo');
@@ -21,7 +22,7 @@ for(const width of [320,390,1280]) {
   const summary=page.getByRole('heading',{name,exact:true});const tabs=page.getByRole('tablist');
   if(width<768)assert((await summary.boundingBox()).y<(await tabs.boundingBox()).y,'name and price before detailed tabs');
   for(const tab of await page.getByRole('tab').all()) {const bounds=await tab.boundingBox();assert(bounds.height>=44,'touch-friendly tabs');assert(await tab.evaluate(e=>e.scrollWidth<=e.clientWidth),'tab text fits');}
-  await page.getByRole('tab',{name:'Conditions',exact:true}).click();const conditions=await page.getByRole('tabpanel').innerText();assert(!/RAK|TNG|AGA|FEZ|Marrakech|Tanger Ville/.test(conditions),'no delivery promises outside coverage');assert(conditions.includes('Rabat sur demande'));
+  await tabs.evaluate(e=>e.scrollIntoView({block:'center'}));await page.getByRole('tab',{name:'Conditions',exact:true}).click();const conditions=await page.getByRole('tabpanel').innerText();assert(!/RAK|TNG|AGA|FEZ|Marrakech|Tanger Ville/.test(conditions),'no delivery promises outside coverage');assert(conditions.includes('Rabat sur demande'));
   await page.getByRole('tab',{name:'Présentation',exact:true}).click();
   if(slug==='renault-clio'){await page.screenshot({path:`${output}/clio-${width}.png`,fullPage:true});}
  }
