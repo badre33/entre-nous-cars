@@ -758,6 +758,8 @@ const Louer = () => {
     const cityFromUrl = searchParams.get('city');
     const startDateFromUrl = searchParams.get('startDate');
     const endDateFromUrl = searchParams.get('endDate');
+    const transmissionFromUrl = searchParams.get('transmission');
+    setSelectedType(transmissionFromUrl === 'Automatique' || transmissionFromUrl === 'Manuelle' ? transmissionFromUrl : 'all');
     
     setSelectedCity(cityFromUrl === 'Rabat' || (!cityFromUrl && pickupPoint?.city === 'Rabat') ? 'Rabat' : 'Casablanca');
     setStartDate(parseLocalRentalDate(startDateFromUrl));
