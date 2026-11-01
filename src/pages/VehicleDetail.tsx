@@ -11,6 +11,8 @@ import { getVehicleDetail } from "@/data/vehicleDetails";
 import { analytics } from "@/utils/analytics";
 import { currentDailyPrice } from "@/utils/priceCalculations";
 import { currentContextBadge } from "@/lib/pricing";
+import { casablancaModelContent } from "@/data/casablancaModelContent";
+import { RentalModelLinks } from "@/components/RentalModelLinks";
 
 const VehicleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -41,8 +43,9 @@ const VehicleDetail = () => {
   const nextPhoto = () => setCurrentPhoto((p) => (p + 1) % vehicle.photos.length);
   const prevPhoto = () => setCurrentPhoto((p) => (p - 1 + vehicle.photos.length) % vehicle.photos.length);
 
-  const seoTitle = `${vehicle.name} à Casablanca | Location voiture Benatna`;
-  const seoDescription = `Location ${vehicle.name} à Casablanca : 3 jours à 6 mois, livraison gratuite convenue à l’avance. Rabat sur demande. Disponibilité et tarif à confirmer.`;
+  const editorial = casablancaModelContent[vehicle.slug];
+  const seoTitle = editorial?.title ?? `${vehicle.name} à Casablanca | Location voiture Benatna`;
+  const seoDescription = editorial?.description ?? `Location ${vehicle.name} à Casablanca : 3 jours à 6 mois, livraison gratuite convenue à l’avance. Rabat sur demande. Disponibilité et tarif à confirmer.`;
   const whatsappLink = `/louer?demande=1&modele=${encodeURIComponent(vehicle.name)}`;
 
   const FeatureRow = ({ label, value }: { label: string; value: boolean | string | undefined }) => {
@@ -174,7 +177,7 @@ const VehicleDetail = () => {
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                     <Button className="w-full bg-green-600 hover:bg-green-700">
                       <MessageCircle className="h-4 w-4 mr-2" />
-                      Réserver ce véhicule
+                      Préparer ma demande
                     </Button>
                   </a>
                   <a href="tel:+212699024526">
@@ -188,7 +191,7 @@ const VehicleDetail = () => {
                 <div className="pt-3 border-t border-border space-y-2 text-xs text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Sans carte de crédit internationale</span>
+                    <span>Caution et règlement confirmés par le loueur</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
@@ -196,11 +199,11 @@ const VehicleDetail = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Annulation flexible via WhatsApp</span>
+                    <span>Conditions d’annulation précisées avant accord</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Assurance tous risques incluse</span>
+                    <span>Assurance et franchise à vérifier avec le loueur</span>
                   </div>
                 </div>
               </CardContent>
@@ -216,9 +219,9 @@ const VehicleDetail = () => {
               </TabsList>
 
               <TabsContent value="presentation" className="space-y-4 mt-4">
-                <p className="text-muted-foreground leading-relaxed">{vehicle.description}</p>
+                <p className="text-muted-foreground leading-relaxed">{editorial?.summary ?? vehicle.description}</p>
 
-                <div>
+                {!editorial && <div>
                   <h3 className="font-semibold mb-2">Points forts</h3>
                   <ul className="space-y-1">
                     {vehicle.highlights.map((h, i) => (
@@ -228,7 +231,7 @@ const VehicleDetail = () => {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div>}
 
                 <div>
                   <h3 className="font-semibold mb-2">Parfait pour</h3>
@@ -243,6 +246,7 @@ const VehicleDetail = () => {
               <TabsContent value="equipements" className="space-y-4 mt-4">
                 <div>
                   <h3 className="font-semibold mb-3">Caractéristiques techniques</h3>
+                  <p className="text-sm text-muted-foreground mb-3">Repères indicatifs : la motorisation, la boîte et les équipements de la version proposée sont à confirmer avec le loueur.</p>
                   <FeatureRow label="Transmission" value={vehicle.options.transmission} />
                   <FeatureRow label="Places" value={`${vehicle.options.seats}`} />
                   <FeatureRow label="Portes" value={`${vehicle.options.doors}`} />
@@ -282,18 +286,30 @@ const VehicleDetail = () => {
               </TabsContent>
 
               <TabsContent value="conditions" className="space-y-3 mt-4 text-sm">
-                <p><strong>Âge minimum :</strong> 21 ans (citadine), 23 ans (SUV), 25 ans (premium)</p>
-                <p><strong>Permis :</strong> 1 an d'ancienneté minimum (3 ans pour catégorie premium)</p>
-                <p><strong>Kilométrage :</strong> Illimité inclus</p>
-                <p><strong>Assurance :</strong> Tous risques incluse (franchise 3 000-8 000 DH selon catégorie)</p>
-                <p><strong>Caution :</strong> Espèces, virement SEPA, Cash Plus ou Wafacash acceptés. CB internationale NON obligatoire.</p>
+                <p><strong>Âge et permis :</strong> Les critères et les documents requis sont confirmés par le loueur pour la version demandée.</p>
+                <p><strong>Kilométrage et assurance :</strong> Demandez les limites éventuelles, les garanties et la franchise prévues au contrat.</p>
+                <p><strong>Caution :</strong> Faites préciser son montant, le moyen de dépôt accepté et les conditions de restitution avant votre accord.</p>
                 <p><strong>Livraison :</strong> Gratuite et convenue à l’avance à Casablanca, notamment à l’aéroport Mohammed V et aux gares desservies. Rabat sur demande depuis Casablanca, à confirmer avec le loueur.</p>
                 <p><strong>Restitution :</strong> Lieu convenu à l’avance avec le loueur.</p>
-                <p><strong>Annulation :</strong> Se gère directement avec le loueur — prévenez simplement sur WhatsApp</p>
+                <p><strong>Annulation :</strong> Conditions à convenir avec le loueur avant confirmation ; contactez-le si vos dates changent</p>
               </TabsContent>
             </Tabs>
           </div>
         </div>
+        {editorial && <div className="mt-10 space-y-8">
+          {editorial.sections.map(section => <section key={section.title} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title}</h2><p className="leading-relaxed">{section.text}</p></section>)}
+          <section className="space-y-3">
+            <h2 className="text-2xl font-semibold">Prix, caution et livraison de votre {editorial.name}</h2>
+            <p>Le prix journalier affiché est indicatif. Choisissez une période de trois jours à six mois calendaires pour demander le tarif total. Le loueur précise séparément la caution, le moyen de dépôt accepté et ses conditions de restitution avant votre accord.</p>
+            <p>La livraison est gratuite aux points desservis de Casablanca, avec un rendez-vous convenu à l’avance. La version, les équipements et la disponibilité sont confirmés par le loueur ; les photos illustrent le modèle.</p>
+            <div className="flex flex-wrap gap-4">
+              <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-casablanca">Location de voiture à Casablanca</Link>
+              <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-aeroport-casablanca">Livraison à l’aéroport Mohammed V</Link>
+              <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-gare-casa-voyageurs">Prise en charge à Casa-Voyageurs</Link>
+            </div>
+          </section>
+          <RentalModelLinks exclude={vehicle.slug} />
+        </div>}
       </div>
 
     </>
