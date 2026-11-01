@@ -18,6 +18,6 @@ try{for(const width of [390,1280]){
  // A detail-page button must preserve the same active three-model selection.
  await page.goto(base+'/louer'); // page navigation resets comparison; select again.
  for(const i of [0,2,4])await page.locator('#catalogue-results [role=checkbox]').nth(i).locator('..').click();
- await page.locator('#catalogue-results h3').first().click();await page.getByRole('button',{name:'Réserver ce véhicule',exact:true}).click();assert.deepEqual(await selected(page),expected,'detail handoff preserves selected models');
+ await page.locator('#catalogue-results h3').first().click();await page.getByRole('button',{name:'Préparer ma demande',exact:true}).click();assert.deepEqual(await selected(page),expected,'detail handoff preserves selected models');
  await page.screenshot({path:output+`/multiple-${width}.png`});await page.close();console.log(`${width}: three selected models preserved in form, review, WhatsApp URL and detail handoff; no real message sent.`);
 }}finally{await browser.close();}

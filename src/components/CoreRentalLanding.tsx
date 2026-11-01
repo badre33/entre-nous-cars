@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import { RentalModelLinks } from './RentalModelLinks';
 
 export interface CoreRentalContent {
   path: string;
@@ -10,6 +11,7 @@ export interface CoreRentalContent {
   heading: string;
   intro: string;
   pickupId?: string;
+  showModelComparison?: boolean;
   sections: { title: string; text: string }[];
 }
 
@@ -41,9 +43,10 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
         <p><strong>Trois jours minimum, six mois maximum.</strong> Voitures touristiques classiques pour MRE, touristes et vacanciers ; demandes locales aux mêmes conditions.</p>
         <Link className="inline-flex min-h-12 max-w-full items-center justify-center rounded-lg bg-primary text-primary-foreground px-4 py-3 text-center font-semibold" to={`/louer?city=Casablanca${content.pickupId ? `&pickup=${content.pickupId}` : ""}`}>Voir les modèles et prix journaliers indicatifs</Link>
       </section>
+      {content.showModelComparison && <RentalModelLinks />}
       {content.sections.map(section => <section key={section.title} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title}</h2><p>{section.text}</p></section>)}
       <section className="space-y-4"><h2 className="text-2xl font-semibold">Questions fréquentes</h2>{faqs.map(faq => <div key={faq.question}><h3 className="font-semibold">{faq.question}</h3><p>{faq.answer}</p></div>)}</section>
-      <section className="space-y-3"><h2 className="text-2xl font-semibold">Préparer votre demande</h2><p>Indiquez vos dates, le modèle souhaité, votre nombre de passagers et votre point d’arrivée. Le catalogue est indicatif : le loueur confirme le véhicule, ses documents requis, la caution et les conditions du contrat avant votre accord.</p><p>Nos loueurs sont basés à Casablanca. Rabat est une possibilité sur demande depuis Casablanca, selon leur disponibilité. Aucune prise en charge dans une autre ville n’est proposée actuellement.</p><div className="flex flex-wrap gap-5"><Link to="/prise-en-charge-casablanca-rabat">Guide des gares et aéroports desservis</Link><Link to="/location-voiture-aeroport-casablanca">Arriver à Mohammed V</Link><Link to="/location-longue-duree-casablanca">Préparer un séjour jusqu’à six mois</Link><Link to="/location-voiture-rabat">Demander une livraison à Rabat</Link><Link to="/faq">Toutes les questions</Link></div></section>
+      <section className="space-y-3"><h2 className="text-2xl font-semibold">Préparer votre demande</h2><p>Indiquez vos dates, le modèle souhaité, votre nombre de passagers et votre point d’arrivée. Le catalogue est indicatif : le loueur confirme le véhicule, ses documents requis, la caution et les conditions du contrat avant votre accord.</p><p>Nos loueurs sont basés à Casablanca. Rabat est une possibilité sur demande depuis Casablanca, selon leur disponibilité. Aucune prise en charge dans une autre ville n’est proposée actuellement.</p><div className="flex flex-wrap gap-5"><Link to="/location-voiture-casablanca">Location à Casablanca</Link><Link to="/prise-en-charge-casablanca-rabat">Guide des gares et aéroports desservis</Link><Link to="/location-voiture-aeroport-casablanca">Arriver à Mohammed V</Link><Link to="/location-longue-duree-casablanca">Préparer un séjour jusqu’à six mois</Link><Link to="/location-voiture-rabat">Demander une livraison à Rabat</Link><Link to="/faq">Toutes les questions</Link></div></section>
     </main>
     <Footer />
   </>;

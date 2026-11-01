@@ -2,6 +2,7 @@ import type { CoreRentalContent } from '@/components/CoreRentalLanding';
 
 export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'casaVoyageurs' | 'automatic' | 'railway', CoreRentalContent> = {
   casablanca: {
+    showModelComparison: true,
     path: '/location-voiture-casablanca',
     title: 'Location de voiture à Casablanca, minimum 3 jours | Benatna',
     description: 'Voitures classiques pour votre séjour à Casablanca. Minimum 3 jours, maximum 6 mois. Livraison gratuite aux gares et aéroports desservis. Rabat sur demande.',
@@ -14,14 +15,16 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
     ],
   },
   airport: {
+    showModelComparison: true,
     pickupId: 'cmn',
     path: '/location-voiture-aeroport-casablanca',
     title: 'Location voiture aéroport Casablanca Mohammed V, 3 jours minimum | Benatna',
     description: 'Préparez votre voiture à l’aéroport Mohammed V de Casablanca. Livraison gratuite convenue à l’avance. Minimum 3 jours, maximum 6 mois. Demande WhatsApp.',
-    heading: 'Votre voiture à l’aéroport Mohammed V de Casablanca',
+    heading: 'Location de voiture à l’aéroport Casablanca Mohammed V',
     intro: 'Pour une arrivée à Casablanca, préparez votre demande avant le voyage : dates de location, modèle souhaité, passagers et bagages. Le loueur confirme la disponibilité puis organise avec vous le point de rendez-vous à Mohammed V.',
     sections: [
-      { title: 'Un rendez-vous convenu avant votre arrivée', text: 'La livraison à l’aéroport desservi est gratuite. Échangez avec le loueur pour préciser votre arrivée et le lieu de rencontre avant le déplacement. En cas de changement de voyage, contactez-le pour adapter l’organisation. Aucun terminal précis, guichet Benatna ou délai de remise des clés n’est garanti par cette page.' },
+      { title: 'Un rendez-vous convenu avant votre arrivée', text: 'La livraison à l’aéroport desservi est gratuite. Échangez avec le loueur pour préciser votre arrivée et le lieu de rencontre avant le déplacement. En cas de changement de voyage, contactez-le pour adapter l’organisation. Le point précis de remise du véhicule et les modalités du retour sont fixés avec lui avant votre accord.' },
+      { title: 'Prix et caution pour une location à Mohammed V', text: 'Le prix journalier du catalogue sert de repère : transmettez les dates de départ et de retour pour obtenir le tarif de toute la période. La livraison aux points desservis est gratuite. La caution est distincte du prix de location : son montant, le moyen de dépôt et les conditions de restitution sont précisés par le loueur avant votre accord. Benatna ne propose pas de paiement en ligne.' },
       { title: 'Une voiture adaptée à votre séjour', text: 'Le catalogue présente des voitures de tourisme classiques. Comparez leur capacité et le type de boîte, puis faites confirmer le modèle et les conditions pour vos dates. La location dure au minimum trois jours et au maximum six mois calendaires. Les prix journaliers restent indicatifs jusqu’à la proposition du loueur.' },
       { title: 'Préparer la prise en charge et le retour', text: 'Le loueur vous précise les documents, la caution, les conditions contractuelles et l’organisation du retour avant votre accord. La demande WhatsApp ne remplace pas cette confirmation. Consultez le guide commun si votre arrivée se fait finalement dans une gare de Casablanca, ou si vous souhaitez demander une livraison à Rabat depuis Casablanca.' },
     ],
