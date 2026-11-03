@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { serviceAreaPolicy } from '@/utils/serviceAreaPolicy';
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -93,6 +94,22 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
     });
   }
 
+  const rentalJourney = config.rentalJourney ? (
+    <aside aria-label="Préparer une location à Casablanca" className="mb-8 md:mb-12 rounded-xl border bg-primary/5 p-4 md:p-6">
+      <h2 className="text-xl md:text-2xl font-semibold mb-3">Votre voiture au départ de Casablanca</h2>
+      <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">{config.rentalJourney.intro}</p>
+      <ul className={config.rentalJourney.afterSection === undefined ? "space-y-1" : "grid gap-x-6 gap-y-1 sm:grid-cols-2"}>
+        {config.rentalJourney.links.map(link => (
+          <li key={link.link}>
+            <Link to={link.link} className="inline-flex items-center gap-2 min-h-[44px] py-2 text-primary underline underline-offset-4">
+              {link.title}<ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" />
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  ) : null;
+
   return (
     <div className="min-h-screen flex flex-col">
       <PullToRefreshIndicator 
@@ -185,35 +202,24 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
               </p>
             </div>
 
-            {config.rentalJourney && (
-              <aside aria-label="Préparer une location à Casablanca" className="mb-8 md:mb-12 rounded-xl border bg-primary/5 p-4 md:p-6">
-                <h2 className="text-xl md:text-2xl font-semibold mb-3">Votre voiture au départ de Casablanca</h2>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">{config.rentalJourney.intro}</p>
-                <ul className="space-y-1">
-                  {config.rentalJourney.links.map(link => (
-                    <li key={link.link}>
-                      <Link to={link.link} className="inline-flex items-center gap-2 min-h-[44px] py-2 text-primary underline underline-offset-4">
-                        {link.title}<ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </aside>
-            )}
+            {config.rentalJourney?.afterSection === undefined && rentalJourney}
 
             {/* Content Sections */}
             <div className="space-y-8 md:space-y-12 mb-12 md:mb-16">
               {config.content.sections.map((section, index) => (
-                <section key={index} id={`section-${index}`} className="scroll-mt-24">
-                  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 leading-tight">
-                    {section.title}
-                  </h2>
-                  <div className="prose prose-sm md:prose-lg max-w-none text-muted-foreground">
-                    <p className="leading-relaxed whitespace-pre-line text-sm md:text-base">
-                      {section.content}
-                    </p>
-                  </div>
-                </section>
+                <Fragment key={index}>
+                  <section id={`section-${index}`} className="scroll-mt-24">
+                    <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 md:mb-4 leading-tight">
+                      {section.title}
+                    </h2>
+                    <div className="prose prose-sm md:prose-lg max-w-none text-muted-foreground">
+                      <p className="leading-relaxed whitespace-pre-line text-sm md:text-base">
+                        {section.content}
+                      </p>
+                    </div>
+                  </section>
+                  {config.rentalJourney?.afterSection === index && rentalJourney}
+                </Fragment>
               ))}
             </div>
 

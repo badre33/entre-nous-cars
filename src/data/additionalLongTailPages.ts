@@ -1564,8 +1564,11 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       buttonLink: '/louer?city=Casablanca'
     },
     rentalJourney: {
+      afterSection: 0,
       intro: 'Vous préparez un trajet au départ de Casablanca ? Benatna vous permet de demander une location de 3 jours à 6 mois. La livraison est gratuite aux aéroports et gares desservis, avec les modalités convenues à l’avance. Une livraison à Rabat peut être demandée depuis Casablanca. Vos déplacements restent soumis aux conditions du loueur.',
       links: [
+        { title: 'Estimer le prix de la location', link: '/prix-location-voiture-maroc-2026' },
+        { title: 'Prévoir la caution avec le loueur', link: '/caution-location-voiture-maroc' },
         { title: 'Location de voiture à Casablanca', link: '/location-voiture-casablanca' },
         { title: 'Livraison à l’aéroport de Casablanca', link: '/location-voiture-aeroport-casablanca' },
         { title: 'Livraison à la gare Casa-Voyageurs', link: '/location-voiture-gare-casa-voyageurs' }
@@ -1638,8 +1641,11 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       buttonLink: '/louer?city=Casablanca'
     },
     rentalJourney: {
+      afterSection: 0,
       intro: 'Vous préparez un trajet au départ de Casablanca ? Benatna vous permet de demander une location de 3 jours à 6 mois. La livraison est gratuite aux aéroports et gares desservis, avec les modalités convenues à l’avance. Une livraison à Rabat peut être demandée depuis Casablanca. Vos déplacements restent soumis aux conditions du loueur.',
       links: [
+        { title: 'Estimer le prix de la location', link: '/prix-location-voiture-maroc-2026' },
+        { title: 'Prévoir la caution avec le loueur', link: '/caution-location-voiture-maroc' },
         { title: 'Location de voiture à Casablanca', link: '/location-voiture-casablanca' },
         { title: 'Livraison à l’aéroport de Casablanca', link: '/location-voiture-aeroport-casablanca' },
         { title: 'Livraison à la gare Casa-Voyageurs', link: '/location-voiture-gare-casa-voyageurs' }

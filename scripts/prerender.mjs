@@ -78,6 +78,18 @@ const makeReady = (route) => `() => {
   if (!head.querySelector('meta[name="description"]')) return false;
   if (!head.querySelector('meta[property="og:title"]')) return false;
 
+  // Helmet can commit the page metadata before its global Organization script.
+  // Capture only once that required identity is present, as the final audit expects.
+  const hasOrganization = Array.from(head.querySelectorAll('script[type="application/ld+json"]')).some(script => {
+    try {
+      const data = JSON.parse(script.textContent || 'null');
+      return data?.['@type'] === 'Organization'
+        && data?.['@id'] === 'https://benatna.ma#organization'
+        && Array.isArray(data.sameAs);
+    } catch { return false; }
+  });
+  if (!hasOrganization) return false;
+
   // Titre de secours d'index.html = le Helmet de la page n'a pas encore tourné.
   const shell = ${JSON.stringify(SHELL_TITLE)};
   const isHome = ${JSON.stringify(route === "/")};
