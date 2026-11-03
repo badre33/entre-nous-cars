@@ -334,63 +334,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Notre modèle — storytelling startup marocaine + comparateur Avis */}
-      <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
-        <div className="container relative z-10 px-4 sm:px-6 max-w-5xl">
-          <div className="text-center mb-10 sm:mb-14">
-            <Badge variant="secondary" className="mb-4 text-sm sm:text-base">
-              🇲🇦 Startup marocaine
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">
-              On a fait le calcul pour vous.
-            </h2>
-            <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
-              Une Renault Clio, un mois en août, à Casablanca :
-            </p>
-          </div>
-
-          {/* Tableau comparatif Avis vs Benatna */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto mb-10">
-            <Card className="border-2 border-destructive/30 bg-destructive/5">
-              <CardContent className="p-6 sm:p-8">
-                <p className="text-sm font-medium text-destructive mb-1">Chez Avis Maroc</p>
-                <p className="text-3xl sm:text-5xl font-bold mb-1">9 000 DH</p>
-                <p className="text-xs text-muted-foreground mb-4">minimum — et plus de 10 000 DH en haute saison</p>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>❌ Empreinte carte 8 000 dh</li>
-                  <li>❌ Surcoût jeune conducteur</li>
-                  <li>❌ Voiture « ou similaire »</li>
-                  <li>❌ CA qui repart hors du Maroc</li>
-                </ul>
-              </CardContent>
-            </Card>
-            <Card className="border-2 border-primary bg-primary/5 shadow-lg">
-              <CardContent className="p-6 sm:p-8">
-                <p className="text-sm font-medium text-primary mb-1">Chez Benatna</p>
-                <p className="text-3xl sm:text-5xl font-bold mb-4 text-primary">7 000 DH</p>
-                <ul className="space-y-2 text-sm text-foreground">
-                  <li>✅ Zéro caution CB bloquée</li>
-                  <li>✅ Pas de surcoût jeune conducteur</li>
-                  <li>✅ La voiture que vous voyez, vous la conduisez</li>
-                  <li>✅ CA 100% réinvesti au Maroc</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-8">
-            <p className="text-xl sm:text-2xl font-bold">
-              Vous économisez <span className="text-secondary">2 000 à 3 000 dh</span>. Sur une seule location.
-            </p>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Benatna est une <strong>startup marocaine</strong> qui rassemble les <strong>milliers d'agences de location locales</strong> sur une seule plateforme. Une fois unies, elles font <strong>rapport de force face aux grosses franchises internationales</strong> — Avis, Hertz, Europcar, Sixt. Vous accédez à un choix immense de véhicules au meilleur prix, et chaque dirham dépensé reste au Maroc.
-            </p>
-          </div>
-
-          <div className="text-center">
-            <Link to="/notre-histoire" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold underline underline-offset-4">
-              Lire notre histoire complète →
-            </Link>
+      <section aria-label={t('home.prepareTitle')} className="py-12 sm:py-16 bg-primary/5">
+        <div className="container max-w-5xl px-4 sm:px-6 space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold">{t('home.prepareTitle')}</h2>
+          <p>{t('home.prepareIntro')}</p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card><CardContent className="p-5 space-y-3"><h3 className="text-xl font-semibold">{t('home.comparePriceTitle')}</h3><p>{t('home.comparePriceText')}</p><Link className="inline-flex min-h-11 items-center underline text-primary" to="/prix-location-voiture-maroc-2026">{t('home.comparePriceLink')}</Link></CardContent></Card>
+            <Card><CardContent className="p-5 space-y-3"><h3 className="text-xl font-semibold">{t('home.confirmTermsTitle')}</h3><p>{t('home.confirmTermsText')}</p><Link className="inline-flex min-h-11 items-center underline text-primary" to="/caution-location-voiture-maroc">{t('home.confirmTermsLink')}</Link></CardContent></Card>
           </div>
         </div>
       </section>
@@ -419,7 +369,7 @@ const Index = () => {
                     <Shield className="w-8 h-8 text-white" />
                   </div>
                   <Badge variant="secondary" className="bg-primary/10 text-primary border-0">
-                    100%
+                    Info
                   </Badge>
                 </div>
                 <h3 className="text-2xl font-barlow font-bold mb-4 group-hover:text-primary transition-colors">
@@ -430,7 +380,7 @@ const Index = () => {
                 </p>
                 <div className="flex items-center gap-2 text-sm font-medium text-primary">
                   <CheckCircle className="w-4 h-4" />
-                  <span>Prix garantis sans frais cachés</span>
+                  <span>{t('home.confirmedTerms')}</span>
                 </div>
               </CardContent>
             </Card>
@@ -455,7 +405,7 @@ const Index = () => {
                 </p>
                 <div className="flex items-center gap-2 text-sm font-medium text-secondary">
                   <CheckCircle className="w-4 h-4" />
-                  <span>Réservation en moins de 3 minutes</span>
+                  <span>{t('home.requestInfo')}</span>
                 </div>
               </CardContent>
             </Card>
@@ -480,7 +430,7 @@ const Index = () => {
                 </p>
                 <div className="flex items-center gap-2 text-sm font-medium text-accent">
                   <CheckCircle className="w-4 h-4" />
-                  <span>Agences vérifiées et certifiées</span>
+                  <span>{t('home.localRenters')}</span>
                 </div>
               </CardContent>
             </Card>

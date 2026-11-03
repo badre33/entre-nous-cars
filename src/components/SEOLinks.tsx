@@ -59,17 +59,15 @@ export const SEOLinks = () => {
           <p className="text-muted-foreground leading-relaxed">
             <strong>Benatna</strong> est la plateforme de référence pour la <strong>location de voiture au Maroc</strong>.
             Nos loueurs sont basés à <Link to="/location-voiture-casablanca" className="text-primary hover:underline">Casablanca</Link>.
-            Prise en charge en ville ou à l’aéroport Mohammed V. Rabat : livraison sur demande, faisabilité et frais à confirmer avec le loueur.
+            Prise en charge en ville ou à l’aéroport Mohammed V. Rabat : livraison sur demande, selon la disponibilité du loueur, avec livraison gratuite convenue à l’avance.
           </p>
           <p className="text-muted-foreground leading-relaxed mt-4">
-            Notre service de <strong>location automobile</strong> se distingue par sa transparence totale des prix,
-            son processus 100% digital et l'absence de frais cachés. Que vous recherchiez une citadine économique,
-            un SUV familial ou un véhicule de luxe, notre réseau d'<strong>agences partenaires vérifiées</strong> vous
-            garantit un service professionnel et des véhicules en excellent état.
+            Comparez les modèles et leurs prix journaliers indicatifs dans le catalogue. Le loueur confirme
+            la disponibilité, la version, le tarif de votre période et les conditions avant votre accord.
           </p>
           <p className="text-muted-foreground leading-relaxed mt-4">
             Idéal pour le <strong>tourisme au Maroc</strong>, les séjours des MRE, les vacances et les déplacements personnels,
-            Benatna simplifie votre mobilité avec des tarifs compétitifs dès 300 MAD/jour.
+            préparez vos dates, vos modèles et votre point de remise avant le voyage.
           </p>
 
           {/* Bloc SEO Casablanca - Maillage interne stratégique */}
@@ -80,8 +78,7 @@ export const SEOLinks = () => {
               aéroport international et quartiers d'affaires. Que vous arriviez à l'aéroport Mohammed V ou
               que vous ayez besoin d'un véhicule pendant votre séjour au Maroc, nos agences locales
               partenaires vous proposent une <Link to="/location-voiture-casablanca" className="text-primary hover:underline font-medium">location de voiture à Casablanca</Link> simple
-              et transparente. Réservation 100 % digitale, prix clairs, assistance réactive :
-              découvrez pourquoi des milliers de clients nous font confiance pour leur mobilité casablancaise.
+              et transparente. La demande se prépare sur le site et se transmet par WhatsApp ; le loueur doit confirmer la proposition avant votre accord.
             </p>
           </div>
         </div>

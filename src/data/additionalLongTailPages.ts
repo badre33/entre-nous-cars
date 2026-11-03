@@ -1,3 +1,4 @@
+import { rentalAudiencePages } from './rentalAudiencePages';
 import { rentalSupportPages } from './rentalSupportPages';
 /**
  * Générateur de contenu SEO pour pages longue traîne additionnelles
@@ -923,73 +924,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   // ============================================================
   // SPRINT MRE/TOURISTES — Hub MRE (USP unique sur le marché)
   // ============================================================
-  {
-    slug: 'location-voiture-mre-maroc',
-    title: 'Location Voiture MRE Maroc',
-    metaTitle: 'Location Voiture MRE Maroc - Sans Carte Crédit, Paiement DH/€ | Benatna',
-    metaDescription: 'Spécial Marocains résidant à l\'étranger : location voiture au Maroc sans carte de crédit internationale, paiement en espèces, virement ou Cash Plus. Livraison aéroport et ferry. Dès 250 DH/jour.',
-    keywords: 'location voiture mre maroc, voiture marocains etranger, location voiture mre sans carte credit, voiture mre paiement especes, voiture mre dh euros',
-    h1: 'Location de Voiture au Maroc pour les MRE — Sans Carte de Crédit Internationale',
-    heroSubtitle: 'Paiement DH ou € • Livraison aéroport/ferry gratuite • Documents UE acceptés • Dès 250 DH/jour',
-    category: { label: 'Spécial MRE', href: '/nos-services' },
-    content: {
-      intro: `Si vous êtes **Marocain résidant à l'étranger (MRE)** — en France, Belgique, Espagne, Allemagne, Pays-Bas, Italie ou ailleurs — et que vous rentrez au Maroc pour les vacances, les fêtes (Aïd al-Adha, Aïd al-Fitr), un mariage familial, ou la Coupe du Monde 2026 : **Benatna est conçu pour vous**. Nous savons que la plupart des MRE n'ont pas (ou ne veulent pas utiliser) de **carte de crédit internationale** avec une caution bloquée, paient souvent en **espèces euros ou DH**, et arrivent par **avion ou ferry** avec famille et bagages. Notre service est entièrement adapté : sans carte de crédit obligatoire, paiement flexible, livraison directe au terminal, et équipe qui parle français et darija.`,
-      sections: [
-        {
-          title: 'Pourquoi les MRE choisissent Benatna',
-          content: `Les grandes chaînes internationales (Hertz, Avis, Sixt, Europcar) exigent quasi-systématiquement une **carte de crédit Visa/MasterCard internationale** au nom du conducteur, avec **blocage de caution de 5 000 à 20 000 DH** pendant toute la location. Pour beaucoup de MRE — particulièrement ceux qui paient en cash ou utilisent des cartes de débit Maestro/V-Pay non acceptées par leurs systèmes — c'est un blocage total. Benatna casse ce modèle : nous acceptons les **espèces (DH ou €)**, le **virement bancaire** (RIB fourni avant votre voyage pour transfert SEPA depuis l'Europe), les **portefeuilles mobiles marocains** (Cash Plus, Wafacash), et même la **carte CMI marocaine** si vous en avez une. Aucune caution bloquée sur compte étranger. Vous payez à la livraison ou à la fin de la location selon ce qui vous arrange. Notre équipe parle français, darija, espagnol et anglais — pas de barrière linguistique.`
-        },
-        {
-          title: 'Documents acceptés pour les MRE',
-          content: `Voici exactement ce que vous devez présenter en tant que MRE — rien de plus, rien de moins. **Identité (UN seul de ces documents)** : CIN marocaine (préférée si vous l'avez), passeport européen valide (français, belge, espagnol, etc.), titre de séjour de votre pays de résidence, ou passeport marocain. **Permis de conduire** : votre permis européen actuel est **valide directement au Maroc** sans formalité, à condition qu'il soit valide depuis au moins **2 ans** (ou 1 an avec supplément jeune conducteur). Le **permis international n'est PAS requis** pour les ressortissants de l'UE. Pour les MRE binationaux, votre permis marocain peut aussi être utilisé. **Important** : pas besoin de fournir une carte de crédit pour la caution. Nous vous demandons simplement vos coordonnées WhatsApp pour rester en contact pendant la location. Si vous perdez ou endommagez le véhicule, nous fonctionnons comme dans toute relation de confiance — nous discutons d'abord, jamais de mise en demeure immédiate.`
-        },
-        {
-          title: 'Points de livraison — où on vous attend',
-          content: `Vous arrivez où ? Nous y sommes. **Aéroport Mohammed V Casablanca (CMN)** : terminaux 1 et 2, livraison gratuite 24/7. **Aéroport Marrakech-Menara (RAK)** : terminal unique, sortie principale. **Aéroport Rabat-Salé (RBA)** : terminal compact, idéal pour MRE diplomates et corporate. **Aéroport Tanger Ibn Battouta (TNG)** : terminal moderne, accès rapide centre-ville et Tétouan. **Aéroport Agadir Al-Massira (AGA)** : pour MRE qui rentrent au Souss-Massa ou pour combinés tourisme + famille. **Aéroport Fès-Saïss (FEZ)** : pour MRE originaires du Centre-Nord. **Port Tanger Med** : terminal véhicules ou passagers, livraison 24/7 alignée sur les ferries Algésiras/Tarifa/Sète/Gênes. **Port Nador Beni Ansar** : terminal ferries Almería/Sète (saisonnier été). **Gares ONCF** : Casa-Voyageurs, Rabat-Agdal, Marrakech sur demande (pour MRE Tanger Med → Al Boraq → location à Casa par exemple). **Domicile famille** : possible dans Casa, Rabat, Marrakech intra-urbain, sur demande.`
-        },
-        {
-          title: 'Tarifs et modes de paiement détaillés',
-          content: `Notre grille tarifaire MRE est la **même que celle de tous les clients** — pas de surfacturation "client étranger" comme certains comptoirs intl pratiquent. Citadines 300-350 DH/jour, berlines 400-500, SUV 550-800, vans 7-9 places 900-1200, premium 1200-2000. Pour les **locations longues** (>15 jours typique MRE en vacances), **remise dégressive jusqu'à 20%**. Locations mensuelles : citadine dès **7500 DH/mois** tout compris. **Modes de paiement acceptés** : (1) **Espèces DH ou €** à la livraison ou à la fin, (2) **Virement SEPA** depuis votre banque européenne (IBAN marocain fourni), (3) **Cash Plus / Wafacash** depuis n'importe quel guichet au Maroc, (4) **Carte CMI marocaine** si vous en avez une, (5) **Carte Visa/MasterCard internationale** si vous préférez (mais pas obligatoire et pas de caution bloquée), (6) **Mix** : par exemple 50% virement avant arrivée + 50% espèces à la livraison. Vous choisissez selon ce qui vous arrange.`
-        }
-      ],
-      faq: [
-        {
-          question: 'Je suis MRE en France, ma carte est une Mastercard Maestro (carte de débit). Elle est acceptée ?',
-          answer: 'Pour le paiement, non — les Maestro/V-Pay ne fonctionnent pas au Maroc dans la plupart des cas. Pour la caution, **vous n\'en avez pas besoin avec Benatna**. Préférez payer en espèces, virement SEPA, ou Cash Plus — c\'est ce que font 90% de nos clients MRE.'
-        },
-        {
-          question: 'Mon permis français doit-il être traduit en arabe ou nécessite un permis international ?',
-          answer: 'Non, le **permis français (UE) est valide tel quel au Maroc**. Pas de traduction, pas de permis international requis. Idem pour permis belge, espagnol, allemand, italien, néerlandais, etc. Présentez votre permis tel quel à la livraison.'
-        },
-        {
-          question: 'Je rentre avec ma famille de 5 personnes + 4 grosses valises depuis Paris CDG, quelle voiture conseillez-vous ?',
-          answer: '**SUV (Duster, Qashqai, Tiguan)** à 550-800 DH/jour est le bon compromis : 5 places confortables, coffre 400-500 litres, climatisation efficace pour la chaleur marocaine, garde au sol adaptée si vous allez en zone rurale ou Atlas. Si bagages très volumineux (poussettes, vélos), passez à un **monospace 7 places** comme VW Sharan ou Citroën Jumpy à 900-1200 DH/jour — mais réservez 6-8 semaines à l\'avance en été.'
-        },
-        {
-          question: 'Je veux rendre la voiture le jour de mon retour, mais mon vol part à 3h du matin de CMN, qui récupère ?',
-          answer: 'Notre service est **24/7 à CMN**. Vous nous laissez le véhicule au parking dépose-minute aéroport (P1), un agent Benatna le récupère dans la nuit. Ou si vous préférez : remise des clés à un agent qui vous attend à votre dépose. Pas de surcoût pour horaires de nuit.'
-        },
-        {
-          question: 'Combien de temps à l\'avance dois-je réserver pour la haute saison MRE (juillet-août, Aïd) ?',
-          answer: 'Pour **juillet-août 2026** : 6-8 semaines minimum (idéalement 3 mois). Pour **Aïd al-Adha** (probablement début juin 2026) : 4-6 semaines. Les véhicules populaires (vans 7-9 places, SUV) sont les premiers épuisés. Réservation sans engagement via WhatsApp, modifiable jusqu\'à 7 jours avant.'
-        }
-      ]
-    },
-    cta: {
-      title: 'Réservez Votre Voiture MRE au Maroc',
-      subtitle: 'Sans carte de crédit • Paiement DH/€/SEPA • Livraison aéroport et ferry',
-      buttonText: 'Réserver via WhatsApp',
-      buttonLink: '/contact'
-    },
-    relatedServices: [
-      { title: 'Location Voiture Tanger Med Port', description: 'Livraison ferry 24/7 pour MRE arrivant d\'Espagne, France, Italie.', link: '/location-voiture-tanger-med-port' },
-      { title: 'Location Voiture Coupe du Monde 2026', description: 'Spécial MRE pour vivre la Coupe du Monde en famille.', link: '/location-voiture-coupe-monde-2026-maroc' }
-    ],
-    relatedPages: [
-      { title: 'Sans Carte de Crédit Casablanca', link: '/location-voiture-sans-carte-credit-casablanca' },
-      { title: 'Sans Carte de Crédit Marrakech', link: '/location-voiture-sans-carte-credit-marrakech' }
-    ]
-  },
+  rentalAudiencePages.mre,
   // ============================================================
   // SPRINT MRE/TOURISTES — Circuit Villes Impériales (gap énorme)
   // ============================================================
@@ -2066,44 +2001,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     }
   ]
 },
-  {
-    slug: 'louer-voiture-maroc-faq-complete',
-    title: 'FAQ Complete : Louer Voiture Maroc 2026',
-    metaTitle: 'Louer Voiture Maroc 2026 : FAQ Complete (40 Questions) | Benatna',
-    metaDescription: '40 questions/reponses essentielles pour louer une voiture au Maroc en 2026 : permis, age, caution, assurance, carburant, peages, arnaques. MRE et touristes.',
-    keywords: 'louer voiture maroc faq, location voiture maroc questions reponses, faq location voiture maroc 2026, guide complet location voiture maroc',
-    h1: 'Louer une Voiture au Maroc : FAQ Complete (40 Questions Repondues)',
-    heroSubtitle: 'Tout ce que vous voulez savoir, en une seule page • MRE et touristes',
-    category: { label: 'Guide Pratique', href: '/guide-maroc' },
-    content: {
-      intro: 'Cette **FAQ complete** repond aux **40 questions les plus posees** par les MRE et touristes qui louent une voiture au Maroc. Format Q/R direct, sans bla-bla, mis a jour 2026. Compile par l equipe Benatna a partir de 5000+ conversations WhatsApp clients. **Bookmark cette page** pour ton prochain sejour.',
-      sections: [
-        { title: 'Permis et documents (Q1-Q8)', content: '**Q1 — Mon permis europeen est-il valide au Maroc ?** Oui, 1 an apres entree au territoire. **Q2 — Faut-il un permis international ?** Non si EU/CA/US/AU/NZ. Oui pour permis arabes/asiatiques. **Q3 — Quel age minimum ?** 21 ans citadine, 23 SUV, 25 premium chez Benatna. **Q4 — Anciennete permis requise ?** 1 an minimum (3 pour premium). **Q5 — Quels documents avoir sur soi en conduisant ?** Permis + carte identite/passeport + contrat location + attestation assurance. **Q6 — Permis francais carte rose acceptee ?** Oui, valable jusqu en 2033. **Q7 — Permis canadien Quebec/Ontario reconnu ?** Oui sans permis international. **Q8 — Et si je suis MRE residant en France ?** Permis francais valide normalement, pas de specificite douaniere pour voiture de location.' },
-        { title: 'Caution et paiement (Q9-Q16)', content: '**Q9 — Combien coute la caution ?** 3000-5000 DH citadine, 8000-12000 SUV, 15000-20000 premium chez franchises. Benatna : 2000-5000 DH especes/virement. **Q10 — Caution sans carte de credit ?** Oui chez Benatna : especes DH/euro, virement SEPA, Cash Plus, Wafacash, CB CMI marocaine. **Q11 — Caution remboursee quand ?** Especes : jour meme. Virement : 3-5 jours ouvres. CB : 7-14 jours franchises. **Q12 — Peut-on payer en euros ?** Oui especes euros au taux interbancaire jour. **Q13 — Virement SEPA accepte ?** Oui, RIB BMCE ou Attijariwafa fourni. **Q14 — Cash Plus / Wafacash ?** Oui sur Benatna, ideal MRE sans compte MA. **Q15 — Combien je paie au total Hertz Duster 7 jours ?** Tarif affiche ~350 DH/j (2450), reel facture ~5800 DH apres options et caution CB. **Q16 — Et chez Benatna ?** 520 DH/j tout inclus = 3640 DH 7 jours.' },
-        { title: 'Vehicule, assurance et accident (Q17-Q24)', content: '**Q17 — Quels vehicules en flotte ?** Du Dacia Sandero 300 DH/j a la Mercedes Classe G 3600 DH/j. **Q18 — Boite automatique disponible ?** Oui chez Benatna sur 80% des modeles, meme prix que manuelle (vs +40 DH chez Sixt). **Q19 — Assurance tous risques incluse ?** Oui chez Benatna. Franchise standard 3000-8000 DH, option rachat +30-50 DH/j. **Q20 — Que faire en cas d accident ?** Police 19, constat amiable, photos. Contact Benatna WhatsApp pour suivi. <a href=\"/accident-voiture-location-maroc-que-faire\">Guide complet</a>. **Q21 — Vehicule de remplacement si panne ?** Oui sous 24-48h chez Benatna. **Q22 — Kilometrage illimite ?** Oui systematique chez Benatna. **Q23 — Conducteur additionnel ?** 50-100 DH/j courte duree, gratuit en longue duree. **Q24 — Siege bebe inclus ?** Sur demande gratuite chez Benatna, 100 DH/j chez franchises.' },
-        { title: 'Carburant, peages, routes (Q25-Q32)', content: '**Q25 — Prix essence Maroc 2026 ?** ~15 DH/L. **Q26 — Prix gasoil ?** ~14 DH/L (25% economie vs essence sur longs trajets). **Q27 — Peage Casa-Marrakech ?** 80 DH (240 km). **Q28 — Casa-Tanger ?** 90 DH (340 km). **Q29 — CB internationale accepte aux peages ?** Oui sur la majorite. **Q30 — Tarif moyen parking gardien centre-ville ?** 10-20 DH/h, 30-50 DH/jour. **Q31 — Conduire dans la medina Marrakech ?** Interdit majorite des rues. Garez-vous a Place Foucauld. **Q32 — Routes secondaires praticables ?** Oui en majorite asphaltees. Pour pistes Atlas/desert : SUV/4x4 recommande.' },
-        { title: 'Aeroports et points de livraison (Q33-Q40)', content: '**Q33 — Livraison aeroport CMN incluse ?** Oui gratuite 24/7 chez Benatna. **Q34 — Aeroport Marrakech Menara ?** Oui gratuite 24/7. **Q35 — Tanger Med port ?** Oui gratuite (ferries MRE). **Q36 — Gare Casa-Voyageurs ?** Oui parvis principal. **Q37 — Livraison hotel/riad ?** Oui gratuite jusqu a 20 km du depot ville. **Q38 — One-way Casa-Marrakech ?** Oui supplement 200-400 DH. **Q39 — Restitution en gare au lieu d aeroport ?** Oui sans surcharge. **Q40 — Si mon vol est en retard ?** Aucun probleme, agent suit le vol en temps reel, attente illimitee.' }
-      ],
-      faq: [
-        { question: 'Combien coute un Sandero/Logan a Marrakech basse saison ?', answer: '300-320 DH/jour chez Benatna. 350-450 DH chez Aircar/Sovoy. 450-650 DH reel facture chez Hertz/Avis (avec frais caches).' },
-        { question: 'Le permis francais carte rose est-il toujours valable au Maroc en 2026 ?', answer: 'Oui jusqu en 2033 (date legislation europeenne). Apres conversion obligatoire si residence MA.' },
-        { question: 'Peut-on louer une voiture pour 1 mois au Maroc ?', answer: 'Oui, tarif longue duree -10 a -15%. Citadine ~8500 DH/mois, SUV ~14500. Voir <a href=\"/courte-vs-longue-duree-location-voiture-maroc\">comparatif</a>.' },
-        { question: 'Faut-il un permis international si je suis americain ?', answer: 'Non, permis US accepte directement. Recommande quand meme en complement (cas de doute aux controles).' },
-        { question: 'Que faire si la voiture tombe en panne en pleine nuit ?', answer: 'WhatsApp Benatna 24/7 +212 699 024 526. Agent envoie vehicule de remplacement sous 24-48h.' }
-      ]
-    },
-    cta: {
-      title: 'Encore Des Questions ? WhatsApp en 2 Min',
-      subtitle: 'Reponse personnalisee selon votre voyage MRE ou touriste',
-      buttonText: 'Reserver via WhatsApp',
-      buttonLink: '/contact'
-    },
-    relatedServices: [
-      { title: 'Prix Location Voiture Maroc 2026', description: 'Tarifs transparents.', link: '/prix-location-voiture-maroc-2026' },
-      { title: 'Caution Location Voiture Maroc', description: 'Notre approche transparente.', link: '/caution-location-voiture-maroc' },
-      { title: 'Guide Complet Maroc', description: 'Tous nos guides pratiques.', link: '/guide-maroc' }
-    ]
-  },
+  rentalAudiencePages.faq,
   {
     slug: 'permis-etranger-douane-mre-location-voiture',
     title: 'Permis Etranger et Douane MRE — Location Voiture Maroc',
