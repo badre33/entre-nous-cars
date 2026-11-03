@@ -306,6 +306,8 @@ const VehicleDetail = () => {
               <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-casablanca">Location de voiture à Casablanca</Link>
               <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-aeroport-casablanca">Livraison à l’aéroport Mohammed V</Link>
               <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-gare-casa-voyageurs">Prise en charge à Casa-Voyageurs</Link>
+              <Link className="inline-flex min-h-11 items-center text-primary underline" to="/prix-location-voiture-maroc-2026">Comprendre le prix de votre location</Link>
+              <Link className="inline-flex min-h-11 items-center text-primary underline" to="/caution-location-voiture-maroc">Préparer les questions sur la caution</Link>
             </div>
           </section>
           <RentalModelLinks exclude={vehicle.slug} />
