@@ -28,6 +28,16 @@ export default function PickupGuide() {
         </article>)}</div>
       </section>)}
       <section className="space-y-4"><h2 className="text-2xl">Une autre gare à Casablanca ou Rabat ?</h2><p>Cette liste présente les principaux points d’arrivée, pas un inventaire exhaustif des gares. Précisez le nom de votre gare sur WhatsApp : la livraison est gratuite et convenue à l’avance avec le loueur. Aucune remise dans une autre ville n’est proposée.</p><Link className="underline" to="/louer">Préparer mes dates</Link></section>
+      <section aria-label="Prix, caution et choix du véhicule" className="rounded-xl border p-4 md:p-6 space-y-4">
+        <h2 className="text-2xl">Préparer le prix et les conditions avant votre arrivée</h2>
+        <p>Comparez les modèles sur les mêmes dates. Faites confirmer le tarif total, la caution et les conditions du contrat avant votre accord, puis convenez du lieu précis de remise et de retour.</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <Link className="inline-flex min-h-11 items-center underline" to="/prix-location-voiture-maroc-2026">Prix de location à Casablanca</Link>
+          <Link className="inline-flex min-h-11 items-center underline" to="/caution-location-voiture-maroc">Questions à poser sur la caution</Link>
+          <Link className="inline-flex min-h-11 items-center underline" to="/location-voiture-aeroport-casablanca">Préparer une arrivée à Mohammed V</Link>
+          <Link className="inline-flex min-h-11 items-center underline" to="/location-voiture-gare-oncf-maroc">Choisir une gare de Casablanca</Link>
+        </div>
+      </section>
       <section className="space-y-5"><h2 className="text-2xl">Réponses pratiques avant votre demande</h2>{rentalFacts.map(f=><article className="space-y-2" key={f.question}><h3 className="text-lg font-semibold">{f.question}</h3><p>{f.answer}</p></article>)}</section>
       <section className="space-y-2 text-sm"><h2 className="font-semibold">Repères de transport</h2><p>Consultez les opérateurs pour les informations de transport. Les modalités de location sont celles confirmées par le loueur.</p><p><a className="underline" href="https://www.casablancacity.ma/fr/article/754/gares-ferroviaires">Gares : portail de Casablanca</a> · <a className="underline" href="https://www.oncf.ma/fr/Al-boraq">Trains : ONCF</a> · <a className="underline" href="https://www.onda.ma/">Aéroports : ONDA</a></p></section>
     </main><Footer />
