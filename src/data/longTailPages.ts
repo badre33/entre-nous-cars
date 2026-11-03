@@ -40,6 +40,8 @@ export interface LongTailPageConfig {
     links: Array<{ title: string; url: string }>;
   };
   rentalJourney?: {
+    /** Zero-based section after which to show the rental links; omitted keeps them after the intro. */
+    afterSection?: number;
     intro: string;
     links: Array<{ title: string; link: string }>;
   };
