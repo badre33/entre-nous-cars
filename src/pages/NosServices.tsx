@@ -1,255 +1,46 @@
-import { Helmet } from "react-helmet-async";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { Button } from "@/components/ui/button";
-import { HreflangTags } from "@/utils/hreflangHelper";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { services, serviceCategories, Service } from "@/data/servicesData";
-import { ArrowRight, Check, Grid3x3, Plane, UserCheck, Calendar, Mountain, Sparkles } from "lucide-react";
-import { usePullToRefresh } from "@/hooks/usePullToRefresh";
-import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
-import { toast } from "sonner";
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { HreflangTags } from '@/utils/hreflangHelper';
+import { coreRentalPages } from '@/data/coreRentalPages';
 
-const iconMap = {
-  Grid3x3,
-  Plane,
-  UserCheck,
-  Calendar,
-  Mountain,
-  Sparkles,
-};
-
-const NosServices = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-
-  // Pull to refresh sur mobile
-  const { isPulling, isRefreshing, pullDistance, pullPercentage } = usePullToRefresh({
-    onRefresh: async () => {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      window.location.reload();
-      toast.success("Services actualisés !");
-    },
-    threshold: 80,
-    resistance: 2.5
-  });
-
-  const localServices = services.filter(s => /casablanca/i.test(s.slug));
-  const filteredServices = activeCategory === 'all'
-    ? localServices
-    : localServices.filter(s => s.category === activeCategory);
-
-  const getCategoryColor = (category: Service['category']) => {
-    const colors = {
-      aeroport: 'bg-blue-500/10 text-blue-700 dark:text-blue-400',
-      jeune: 'bg-green-500/10 text-green-700 dark:text-green-400',
-      'longue-duree': 'bg-purple-500/10 text-purple-700 dark:text-purple-400',
-      suv: 'bg-orange-500/10 text-orange-700 dark:text-orange-400',
-      special: 'bg-pink-500/10 text-pink-700 dark:text-pink-400',
-    };
-    return colors[category];
-  };
-
-  const getCategoryLabel = (category: Service['category']) => {
-    const labels = {
-      aeroport: 'Aéroport',
-      jeune: 'Jeune -25 ans',
-      'longue-duree': 'Longue Durée',
-      suv: 'SUV 4x4',
-      special: 'Spécial',
-    };
-    return labels[category];
-  };
-
-  return (
-    <div className="min-h-screen flex flex-col">
-      <PullToRefreshIndicator
-        isPulling={isPulling}
-        isRefreshing={isRefreshing}
-        pullDistance={pullDistance}
-        pullPercentage={pullPercentage}
-      />
-
-      <Helmet>
-        <title>Nos Services de Location de Voiture au Maroc | Benatna</title>
-        <meta
-          name="description"
-          content="Découvrez tous nos services de location : aéroports, jeune conducteur, longue durée, SUV 4x4, véhicules de luxe et spéciaux. Tarifs dès 250 DH/jour à Casablanca ; livraison à Rabat sur demande, faisabilité et frais à confirmer."
-        />
-        <meta
-          name="keywords"
-          content="services location voiture maroc, location aéroport, jeune conducteur, longue durée, suv 4x4, voiture luxe"
-        />
-        <meta property="og:title" content="Nos Services de Location de Voiture au Maroc | Benatna" />
-        <meta property="og:description" content="Découvrez tous nos services de location adaptés à vos besoins : aéroports, jeune conducteur, longue durée, SUV, véhicules spéciaux." />
-        <meta property="og:url" content="https://benatna.ma/nos-services" />
-      </Helmet>
-      <HreflangTags path="/nos-services" />
-
-      <Header />
-      <Breadcrumbs />
-
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 py-16 md:py-20">
-        <div className="container px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 animate-fade-in">
-              Nos Services de Location de Voiture
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 animate-fade-in [animation-delay:200ms]">
-              Une gamme complète de services adaptés à tous vos besoins de mobilité au Maroc.
-              Des tarifs transparents, une flotte récente et un service client disponible 24/7.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center text-sm animate-fade-in [animation-delay:400ms]">
-              <div className="flex items-center gap-2">
-                <Check className="h-5 w-5 text-primary" />
-                <span>21+ services spécialisés</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-5 w-5 text-primary" />
-                <span>Casablanca • Rabat sur demande</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-5 w-5 text-primary" />
-                <span>Tarifs dès 250 DH/jour</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Filters */}
-      <section className="container px-4 py-12">
-        <Tabs value={activeCategory} onValueChange={setActiveCategory} className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 h-auto bg-muted/50 p-2">
-            {serviceCategories.map((cat) => {
-              const Icon = iconMap[cat.icon as keyof typeof iconMap];
-              return (
-                <TabsTrigger
-                  key={cat.id}
-                  value={cat.id}
-                  className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3"
-                >
-                  <Icon className="h-4 w-4" />
-                  <span className="hidden sm:inline">{cat.label}</span>
-                  <span className="sm:hidden">{cat.label.split(' ')[0]}</span>
-                </TabsTrigger>
-              );
-            })}
-          </TabsList>
-        </Tabs>
-
-        {/* Results Count */}
-        <div className="mt-8 text-center text-muted-foreground">
-          <p>
-            {filteredServices.length} service{filteredServices.length > 1 ? 's' : ''} disponible{filteredServices.length > 1 ? 's' : ''}
-            {activeCategory !== 'all' && ` dans la catégorie "${serviceCategories.find(c => c.id === activeCategory)?.label}"`}
-          </p>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="container px-4 pb-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredServices.map((service) => (
-            <Card key={service.id} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
-              {/* Image */}
-              <div className="relative h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                {service.popular && (
-                  <Badge className="absolute top-3 right-3 bg-primary text-primary-foreground">
-                    Populaire
-                  </Badge>
-                )}
-                <Badge className={`absolute top-3 left-3 ${getCategoryColor(service.category)}`}>
-                  {getCategoryLabel(service.category)}
-                </Badge>
-              </div>
-
-              <CardHeader>
-                <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                  {service.title}
-                </CardTitle>
-                <CardDescription className="text-sm">
-                  {service.shortDescription}
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="flex-1">
-                <ul className="space-y-2">
-                  {service.features.slice(0, 4).map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2 text-sm">
-                      <Check className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-
-              <CardFooter className="flex items-center justify-between pt-4 border-t">
-                <div>
-                  <p className="text-xs text-muted-foreground">À partir de</p>
-                  <p className="text-lg font-bold text-primary">{service.priceFrom}</p>
-                </div>
-                <Button asChild size="sm" className="group-hover:bg-primary group-hover:text-primary-foreground">
-                  <Link to={service.slug}>
-                    Découvrir
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground py-16 mb-20">
-        <div className="container px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              Vous ne trouvez pas le service adapté ?
-            </h2>
-            <p className="text-lg mb-8 opacity-90">
-              Notre équipe est à votre écoute pour créer une offre sur-mesure adaptée à vos besoins spécifiques.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                variant="secondary"
-                className="bg-background text-foreground hover:bg-background/90"
-              >
-                <Link to="/contact">
-                  Nous contacter
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
-              >
-                <Link to="/louer">
-                  Voir tous les véhicules
-                </Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-    </div>
-  );
-};
-
-export default NosServices;
+const services = [
+  { key: 'airport', title: 'Arriver à Mohammed V', text: 'Préparer le véhicule et la livraison gratuite avec le loueur avant votre vol.' },
+  { key: 'railway', title: 'Choisir une gare de Casablanca', text: 'Sélectionner Casa-Voyageurs, Casa-Port, Oasis ou Aïn Sebaâ dans votre demande.' },
+  { key: 'automatic', title: 'Comparer les voitures automatiques', text: 'Ouvrir le catalogue filtré et faire confirmer la version pour vos dates.' },
+  { key: 'longStay', title: 'Préparer un séjour au mois', text: 'Demander un tarif pour toute la période, jusqu’à six mois calendaires.' },
+  { key: 'casaVoyageurs', title: 'Arriver à Casa-Voyageurs', text: 'Préciser votre train, vos passagers et vos bagages pour préparer la remise.' },
+  { key: 'casablanca', title: 'Choisir votre voiture à Casablanca', text: 'Comparer les modèles, leurs prix indicatifs et les conditions du loueur.' },
+] as const;
+export default function NosServices() {
+ return <>
+  <Helmet>
+   <title>Préparer votre location de voiture à Casablanca | Benatna</title>
+   <meta name="description" content="Préparez une voiture à Casablanca : Mohammed V, gares, automatique ou séjour au mois. Livraison gratuite aux points desservis, 3 jours à 6 mois. Rabat sur demande." />
+   <meta property="og:title" content="Préparer votre location de voiture à Casablanca | Benatna" />
+   <meta property="og:description" content="Choisissez le modèle, les dates et le lieu. Disponibilité, tarif et conditions confirmés par le loueur." />
+   <meta property="og:url" content="https://benatna.ma/nos-services" />
+  </Helmet>
+  <HreflangTags path="/nos-services" /><Header />
+  <main className="container max-w-5xl px-4 sm:px-6 py-8 md:py-16 space-y-8">
+   <section className="space-y-4">
+    <h1 className="text-3xl md:text-5xl">Préparer votre location de voiture à Casablanca</h1>
+    <p>MRE, touristes et vacanciers : choisissez le modèle et le lieu adaptés à votre séjour. Nos loueurs sont basés à Casablanca ; une livraison à Rabat peut être étudiée depuis Casablanca selon leur disponibilité.</p>
+    <p><strong>Trois jours minimum, six mois calendaires maximum.</strong> Livraison gratuite aux points desservis, rendez-vous convenu à l’avance.</p>
+    <Link className="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary text-primary-foreground px-4 py-3 font-semibold text-center" to="/louer?city=Casablanca">Choisir mes véhicules et mes dates</Link>
+   </section>
+   <section aria-label="Choisir votre parcours de location" className="grid gap-4 sm:grid-cols-2">
+    {services.map(service=><article className="rounded-xl border p-5 space-y-3" key={service.key}>
+     <h2 className="text-xl font-semibold"><Link className="inline-flex min-h-11 items-center text-primary underline underline-offset-4" to={coreRentalPages[service.key].path}>{service.title}</Link></h2>
+     <p>{service.text}</p>
+    </article>)}
+   </section>
+   <section className="space-y-4">
+    <h2 className="text-2xl">Prix, caution et contrat avant votre accord</h2>
+    <p>Le catalogue présente des modèles et des prix journaliers indicatifs. Demandez au loueur le tarif total, la version proposée et les conditions de caution, d’assurance et de kilométrage. Une demande WhatsApp ne confirme pas automatiquement une location. Aucun paiement en ligne n’est proposé sur Benatna.</p>
+    <div className="flex flex-wrap gap-4"><Link className="inline-flex min-h-11 items-center underline" to="/prix-location-voiture-maroc-2026">Comprendre les prix</Link><Link className="inline-flex min-h-11 items-center underline" to="/caution-location-voiture-maroc">Préparer les questions sur la caution</Link><Link className="inline-flex min-h-11 items-center underline" to="/louer-voiture-maroc-faq-complete">Questions pratiques</Link></div>
+   </section>
+  </main><Footer />
+ </>;
+}
