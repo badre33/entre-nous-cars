@@ -139,6 +139,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       )}
       
       <Header />
+      {config.safetyNotice && <aside role="note" aria-label={config.safetyNotice.title} className="container max-w-4xl my-6 rounded-xl border-2 p-4 space-y-2"><h2 className="text-xl font-semibold">{config.safetyNotice.title}</h2><p>{config.safetyNotice.text}</p></aside>}
       <p className="text-center px-4 py-3 bg-primary/10">Pour les MRE, touristes et particuliers : location de 3 jours à 6 mois.</p>
       <BreadcrumbsEnriched items={breadcrumbItems} />
       <StickyProgress sections={sections} />
@@ -153,6 +154,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 animate-fade-in [animation-delay:200ms] leading-relaxed">
               {config.heroSubtitle}
             </p>
+            {!config.deferRentalActions && <>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 justify-center animate-fade-in [animation-delay:400ms]">
               <Link to={config.cta.buttonLink} className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto text-base md:text-lg px-6 md:px-8 min-h-[48px] md:min-h-[44px] touch-target">
@@ -166,6 +168,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
                 Appeler
               </CallButton>
             </div>
+            </>}
           </div>
         </div>
       </section>
