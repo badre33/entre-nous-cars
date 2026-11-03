@@ -1,3 +1,4 @@
+import { reviewedRentalBlogs } from './reviewedRentalBlogs';
 export interface BlogArticle {
   id: number;
   slug: string;
@@ -10,6 +11,8 @@ export interface BlogArticle {
   content: string[];
   featured?: boolean;
   city?: 'casablanca' | 'marrakech' | 'national';
+  reviewedOn?: string;
+  sources?: { title: string; url: string }[];
   readTime?: number;
   keywords?: string[];
 }
@@ -18,42 +21,10 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 31,
     slug: "louer-voiture-maroc-sans-carte-credit-mre",
-    title: "Louer une voiture au Maroc sans carte de crédit internationale : le guide MRE",
-    excerpt: "Pourquoi les comptoirs internationaux refusent votre carte, et comment louer quand même : espèces, virement SEPA, Cash Plus, carte marocaine. Ce qui marche vraiment sur le terrain.",
-    metaDescription: "Location voiture au Maroc sans carte de crédit : les solutions qui marchent pour les MRE — espèces, virement SEPA, Cash Plus, carte CMI. Caution et démarches expliquées.",
     category: "MRE",
     date: "11 août 2026",
     image: new URL("@/assets/city-tanger.jpg", import.meta.url).href,
-    content: [
-      "C'est la mauvaise surprise classique de l'arrivée : vous atterrissez à Casablanca ou à Marrakech, vous présentez votre carte au comptoir de location, et on vous répond que la carte de débit n'est pas acceptée. Il faut une carte de **crédit** internationale, au nom du conducteur, avec un plafond suffisant pour bloquer la caution.",
-      "Si vous êtes MRE et que vous payez tout à la carte Maestro ou V-Pay depuis vingt ans, vous n'avez souvent aucune carte de crédit. Voici pourquoi, et surtout comment contourner le problème.",
-      "## Pourquoi les grandes enseignes exigent une carte de crédit",
-      "La raison est simple : la **caution**. Les franchises internationales bloquent une somme sur la carte pendant toute la durée de la location — de 3 000 DH pour une citadine à plus de 20 000 DH pour un véhicule premium. Techniquement, ce blocage (appelé pré-autorisation) n'est possible que sur une carte de crédit, pas sur une carte de débit.",
-      "Conséquence : même avec l'argent sur votre compte, on vous refuse le véhicule. Et la somme bloquée reste indisponible 7 à 14 jours après la restitution.",
-      "## Les solutions qui fonctionnent réellement au Maroc",
-      "Les loueurs locaux, eux, travaillent depuis toujours avec une clientèle marocaine et MRE. Ils acceptent des modes de règlement que les comptoirs internationaux refusent :",
-      "**Espèces en dirhams ou en euros.** C'est le mode le plus courant. La caution est déposée en liquide à la livraison et **restituée le jour même du retour**, en main propre. Pas d'attente bancaire de deux semaines.",
-      "**Virement SEPA depuis votre banque européenne.** Vous réglez avant l'arrivée depuis la France, la Belgique, l'Espagne ou l'Italie. Le loueur vous fournit son RIB marocain ; le virement SEPA vers le Maroc est courant et arrive en 2 à 4 jours ouvrés. Anticipez donc d'une semaine.",
-      "**Cash Plus ou Wafacash.** Vous déposez la somme dans n'importe quelle agence au Maroc, y compris à l'aéroport. Pratique quand vous ne voulez pas transporter beaucoup de liquide.",
-      "**Carte bancaire marocaine (CMI).** Si vous avez gardé un compte au Maroc, votre carte marocaine passe sans problème.",
-      "**Le règlement mixte.** Beaucoup de MRE font 50 % par virement avant l'arrivée et 50 % en espèces à la livraison. C'est accepté.",
-      "Et si vous avez une carte de crédit internationale, elle fonctionne aussi, évidemment. La différence, c'est qu'elle n'est **pas obligatoire**.",
-      "## Ce qu'on vous demandera quand même",
-      "Ne confondez pas souplesse de paiement et absence de garanties. Il vous faudra dans tous les cas :",
-      "- Un **permis de conduire valide** depuis au moins un an. Un permis français, belge, espagnol ou italien est accepté tel quel, pas besoin de traduction.",
-      "- Une **pièce d'identité** : passeport, CIN marocaine ou carte de séjour.",
-      "- Une **caution**, dans le mode de règlement de votre choix. Son montant dépend de la catégorie du véhicule.",
-      "Sur le [permis international](/permis-international-maroc-location-voiture), la règle est souvent mal comprise : pour un permis européen, il n'est pas exigé pour conduire au Maroc. Il est utile si votre permis n'est pas en caractères latins.",
-      "## Le piège de l'été : réservez avant de partir",
-      "De mi-juin à fin août, la demande explose sur Tanger, Nador, Oujda, Casablanca et Agadir : c'est le pic de retour des MRE. Les véhicules économiques sont les premiers à partir, et les prix montent avec la tension sur les stocks.",
-      "Le réflexe qui fait gagner de l'argent : réserver **avant de prendre le bateau ou l'avion**, pas à l'arrivée. Et si vous restez plusieurs semaines, demandez systématiquement le tarif dégressif — sur un mois ou plus, le prix journalier baisse fortement.",
-      "## Arrivée par ferry à Tanger Med",
-      "Si vous arrivez en bateau depuis Algésiras, Tarifa, Sète ou Gênes, vous pouvez récupérer un véhicule directement au port. Le loueur partenaire cale la livraison sur l'horaire réel du ferry — utile, car les retards sont fréquents en haute saison. Vous sortez de la douane et la voiture vous attend.",
-      "## Comment ça se passe chez Benatna",
-      "Benatna n'est pas un loueur : c'est la plateforme qui regroupe des centaines de loueurs locaux et qui négocie pour vous. Vous envoyez vos dates, votre ville et le type de véhicule sur WhatsApp, nous interrogeons le parc, et nous revenons avec la meilleure offre disponible. Le paiement et la caution se règlent ensuite directement avec le loueur, selon le mode qui vous arrange.",
-      "Pas de carte de crédit obligatoire, pas de somme bloquée pendant deux semaines, et un interlocuteur qui répond en français.",
-      "Regardez les véhicules disponibles dans notre [catalogue](/louer), envoyez vos dates, et vous aurez une réponse en quelques minutes."
-    ]
+    ...reviewedRentalBlogs["louer-voiture-maroc-sans-carte-credit-mre"]
   },
   {
     id: 32,
@@ -100,225 +71,18 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 7,
     slug: "pourquoi-benatna",
-    title: "Benatna : la révolution de la location de voiture au Maroc",
-    excerpt: "Découvrez comment Benatna transforme la location de voiture au Maroc en connectant voyageurs et agences locales de confiance.",
-    metaDescription: "Location voiture Maroc : Benatna connecte voyageurs et agences locales vérifiées. Prix transparents, assurance incluse. Économisez jusqu'à 40% !",
     category: "À propos",
     date: "5 janvier 2025",
     image: new URL("@/assets/blog-revolution-location.jpg", import.meta.url).href,
-    content: [
-      "Benatna n'est pas une énième plateforme de location de voiture. C'est une réponse concrète à un problème que rencontrent quotidiennement voyageurs et résidents au Maroc : comment louer une voiture en toute confiance, à un prix juste, sans mauvaise surprise ?",
-      
-      "## Le constat : un marché opaque et fragmenté",
-      
-      "Pendant des années, louer une voiture au Maroc relevait du parcours du combattant. Les grandes franchises internationales pratiquent des tarifs élevés avec des frais cachés. Les petites agences locales, souvent excellentes, restent invisibles sur internet.",
-      
-      "Résultat : les voyageurs paient trop cher auprès des grandes enseignes, ou prennent des risques en réservant via des canaux peu sécurisés. Les agences locales sérieuses peinent à remplir leur flotte faute de visibilité.",
-      
-      "## Notre mission : connecter l'offre et la demande",
-      
-      "Benatna est née d'une conviction simple : le Maroc regorge d'agences de location professionnelles, fiables et compétitives. Il suffit de les rendre visibles et accessibles.",
-      
-      "Notre plateforme réunit des dizaines d'agences vérifiées dans les principales villes du Maroc. Chaque partenaire est audité selon des critères stricts : état de la flotte, couverture d'assurance, processus de location, avis clients.",
-      
-      "## Pourquoi louer sur Benatna ?",
-      
-      "### 1. Prix justes et transparents",
-      "Pas de frais cachés, pas de surprise au moment de récupérer votre voiture. Le prix affiché est le prix final, assurance tous risques incluse. En moyenne, nos utilisateurs économisent 20 à 40% par rapport aux franchises internationales.",
-      
-      "### 2. Agences locales vérifiées",
-      "Nous ne travaillons qu'avec des agences marocaines sérieuses. Chaque partenaire signe une charte qualité. En cas de problème, notre équipe intervient pour vous assister. Vous bénéficiez de l'expertise locale sans le risque.",
-      
-      "### 3. Processus 100% digital",
-      "Envoyez votre demande en 2 minutes sur WhatsApp. Le loueur partenaire vous confirme directement. Récupérez votre véhicule sans paperasse : vous n'avez qu'à prendre les clés et partir.",
-      
-      "Plus besoin de passer 30 minutes au comptoir à remplir des formulaires, à négocier des assurances supplémentaires, ou à déchiffrer des contrats en petits caractères.",
-      
-      "### 4. Large choix de véhicules",
-      "Plus de 300 voitures disponibles dans 6 villes. Citadines économiques pour explorer la ville, SUV confortables pour les road trips, 4x4 pour le désert. Toutes récentes, bien entretenues, équipées de climatisation et GPS.",
-      
-      "### 5. Support client réactif",
-      "Une question avant de réserver ? Un souci pendant votre location ? Notre équipe basée au Maroc répond en français, anglais et arabe. WhatsApp, email, téléphone : nous sommes là pour vous.",
-      
-      "Pas de centre d'appel délocalisé qui ne connaît pas le terrain. Notre équipe vit au Maroc, connaît les villes, les routes, les agences. Nous répondons rapidement avec des solutions concrètes.",
-      
-      "### 6. Kilométrage illimité",
-      "Explorez le Maroc sans compter les kilomètres. Toutes nos locations incluent le kilométrage illimité. Marrakech, le désert de Merzouga, les plages d'Essaouira, la ville bleue de Chefchaouen : parcourez le pays en toute liberté.",
-      
-      "## Qui sont nos partenaires ?",
-      
-      "### Des agences familiales depuis 20 ans",
-      "La majorité de nos partenaires sont des entreprises familiales installées depuis des décennies. Ils connaissent le métier, entretiennent leur flotte avec soin, et considèrent leur réputation comme leur plus grand capital.",
-      
-      "### Des professionnels certifiés",
-      "Tous nos partenaires possèdent les licences officielles délivrées par les autorités marocaines. Leurs véhicules sont régulièrement contrôlés. Leurs assurances sont à jour et conformes.",
-      
-      "### Présents dans les principales villes",
-      "Nos agences couvrent Casablanca, Marrakech, Rabat, Tanger, Agadir, Fès et leurs aéroports. Où que vous atterrissiez ou séjourniez, un partenaire Benatna est à proximité.",
-      
-      "### Engagement qualité",
-      "Chaque partenaire signe notre charte qualité qui garantit : véhicules propres et entretenus, transparence des tarifs, respect des délais, assistance 24/7, et processus de réclamation clair.",
-      
-      "Si un partenaire ne respecte pas ces engagements, nous le déréférençons immédiatement.",
-      
-      "## Comment ça marche concrètement ?",
-      
-      "### Étape 1 : Recherchez (30 secondes)",
-      "Sur Benatna.ma, sélectionnez votre ville, vos dates de location, et le type de véhicule souhaité. Notre système affiche instantanément toutes les voitures disponibles avec leurs prix finaux.",
-      
-      "### Étape 2 : Comparez (2 minutes)",
-      "Comparez les modèles, les prix, les agences. Consultez les photos, les équipements inclus, les avis clients. Filtrez par prix, par marque, par catégorie. Tout est transparent.",
-      
-      "### Étape 3 : Réservez (2 minutes)",
-      "Une fois votre choix fait, cliquez sur Réserver. Remplissez vos coordonnées et payez en ligne de manière sécurisée. Vous recevez immédiatement votre confirmation par email avec tous les détails.",
-      
-      "### Étape 4 : Récupérez (5 minutes)",
-      "Présentez-vous à l'agence ou à l'aéroport à l'heure convenue. L'agent vous remet votre véhicule après une vérification rapide de l'état. Vous signez, vous partez. Pas de vente forcée d'options, pas de changement de prix.",
-      
-      "### Étape 5 : Roulez en toute sérénité",
-      "Profitez de votre séjour au Maroc. En cas de besoin, contactez votre agence ou notre support Benatna. À la fin de votre location, rendez le véhicule, faites une vérification finale, et c'est terminé.",
-      
-      "## Les avantages pour nos partenaires agences",
-      
-      "Benatna n'est pas qu'une solution pour les clients. C'est aussi un outil de croissance pour les agences locales.",
-      
-      "### Plus de visibilité",
-      "Nos partenaires apparaissent dans les résultats de recherche Google, sur notre site consulté par des milliers de visiteurs mensuels, et sur les réseaux sociaux. Ils touchent une clientèle internationale qu'ils n'auraient jamais atteinte seuls.",
-      
-      "### Réservations en ligne",
-      "Fini les appels téléphoniques à répétition, les emails sans réponse, les réservations oubliées. Notre plateforme gère automatiquement les disponibilités, les confirmations, les rappels. Les agences se concentrent sur leur cœur de métier : bien entretenir leurs voitures.",
-      
-      "### Commission équitable",
-      "Contrairement aux grandes plateformes internationales qui prennent 25 à 35% de commission, Benatna applique une commission juste qui permet aux agences de rester compétitives tout en gagnant correctement leur vie.",
-      
-      "### Paiements sécurisés",
-      "Les paiements sont traités de manière sécurisée. Les agences reçoivent leurs paiements rapidement selon un calendrier clair. Pas de mauvaise surprise, pas de retard.",
-      
-      "## Notre vision pour l'avenir",
-      
-      "### Devenir la référence au Maroc",
-      "Notre ambition est simple : que chaque personne qui souhaite louer une voiture au Maroc pense immédiatement à Benatna. Nous voulons être le réflexe, la plateforme de confiance, le standard du marché.",
-      
-      "### Couvrir tout le territoire",
-      "Aujourd'hui présents dans 6 villes, nous visons 15 villes d'ici fin 2025. Oujda, Tétouan, Nador, Laâyoune, Dakhla... Partout où il y a une demande, nous voulons connecter des agences de qualité.",
-      
-      "### Innover en permanence",
-      "Système de fidélité, locations longue durée pour résidents, partenariats avec hôtels et tours opérateurs... Nous écoutons nos utilisateurs et nos partenaires pour améliorer constamment l'expérience.",
-      
-      "### Rester fidèles à nos valeurs",
-      "Transparence, équité, proximité. Ces trois valeurs guident chaque décision. Nous ne deviendrons jamais une plateforme opaque qui privilégie sa marge au détriment des utilisateurs et des agences.",
-      
-      "## Benatna en chiffres",
-      
-      "Depuis notre lancement début 2024 :",
-      "- Plus de 1 200 clients satisfaits",
-      "- 24 agences partenaires vérifiées",
-      "- 302 véhicules disponibles",
-      "- 6 villes couvertes",
-      "- 98% de satisfaction client",
-      "- Économie moyenne de 30% vs franchises internationales",
-      
-      "Ces chiffres ne sont qu'un début. Chaque mois, de nouvelles agences nous rejoignent, de nouveaux clients nous font confiance, et notre réseau s'étend.",
-      
-      "## Rejoignez la communauté Benatna",
-      
-      "### Vous êtes voyageur ou résident ?",
-      "Testez Benatna pour votre prochaine location. Comparez nos prix, lisez nos avis, réservez en toute confiance. Si vous n'êtes pas satisfait, nous ferons tout pour arranger les choses.",
-      
-      "### Vous êtes une agence de location ?",
-      "Vous êtes professionnel, vous possédez une flotte bien entretenue, vous cherchez à développer votre activité ? Contactez-nous. Nous étudierons ensemble comment Benatna peut booster votre chiffre d'affaires.",
-      
-      "### Suivez-nous",
-      "Instagram, Facebook, LinkedIn : retrouvez nos conseils, nos bons plans, nos témoignages clients. Rejoignez notre communauté de passionnés de road trips marocains.",
-      
-      "## En conclusion",
-      
-      "Benatna n'est pas parfait. Nous sommes une jeune startup, nous apprenons chaque jour, nous faisons des erreurs. Mais nous avons une obsession : rendre la location de voiture au Maroc simple, transparente et accessible à tous.",
-      
-      "Nous croyons au potentiel des agences locales. Nous croyons que le Maroc mérite une plateforme moderne et fiable. Nous croyons que voyageurs et agences peuvent gagner ensemble.",
-      
-      "Si vous partagez cette vision, bienvenue chez Benatna. La mobilité, entre nous."
-    ]
+    ...reviewedRentalBlogs["pourquoi-benatna"]
   },
   {
     id: 1,
     slug: "conseils-conduite-maroc",
-    title: "10 conseils essentiels pour conduire au Maroc",
-    excerpt: "Découvrez les bonnes pratiques et règles de conduite pour rouler en toute sécurité sur les routes marocaines.",
-    metaDescription: "Conduire au Maroc : 10 conseils essentiels pour votre sécurité. Code de la route, autoroutes, villes. Guide complet pour location voiture Maroc.",
     category: "Conduite",
     date: "20 janvier 2025",
     image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&h=600&fit=crop",
-    content: [
-      "Conduire au Maroc est une expérience unique qui demande de l'adaptation. Que vous soyez touriste ou résident, ces conseils vous aideront à circuler en toute sécurité sur les routes marocaines. Le Maroc possède un réseau routier moderne et bien entretenu, mais quelques spécificités locales méritent votre attention pour garantir un séjour sans souci.",
-      
-      "## Avant de Prendre le Volant : Préparation Essentielle",
-      
-      "Avant même de démarrer votre véhicule de location, assurez-vous d'être bien préparé. Vérifiez que votre permis de conduire est valide (permis français accepté, [permis international](/permis-international-maroc-location-voiture) recommandé pour les autres nationalités). Familiarisez-vous avec le véhicule : position des commandes, réglage des rétroviseurs, fonctionnement des feux et du klaxon.",
-      
-      "Programmez votre GPS ou téléchargez les cartes hors ligne de votre région de destination. La couverture réseau est bonne dans les villes mais peut faiblir dans les zones rurales. Ayez toujours le numéro de l'agence de location à portée de main en cas de problème.",
-      
-      "## Les limites de vitesse à respecter",
-      "Les vitesses maximales autorisées au Maroc sont de 120 km/h sur autoroute, 100 km/h sur route nationale et 60 km/h en agglomération (parfois 40 km/h près des écoles). Ces limitations sont clairement indiquées par des panneaux et doivent être strictement respectées.",
-      
-      "Les radars automatiques sont présents sur les autoroutes et certaines nationales. Ils flashent aussi bien en excès de vitesse qu'en cas de non-respect des distances de sécurité. Les amendes sont envoyées par courrier au propriétaire du véhicule (votre agence de location), qui vous les répercutera avec des frais administratifs.",
-      
-      "Sur autoroute, la voie de gauche est réservée aux dépassements. Restez sur la voie de droite par défaut et ne stationnez jamais sur la bande d'arrêt d'urgence sauf urgence absolue.",
-      
-      "## La conduite en ville",
-      "La circulation urbaine au Maroc a ses particularités. Les priorités ne sont pas toujours respectées aux intersections. Il faut être particulièrement vigilant aux ronds-points où le flux est souvent chaotique. La règle officielle veut que les véhicules déjà engagés dans le rond-point aient la priorité, mais dans la pratique, l'anticipation et la courtoisie priment.",
-      
-      "Les deux-roues (motos, scooters, vélos) circulent souvent entre les files et peuvent surgir de n'importe où. Vérifiez toujours vos rétroviseurs et angles morts avant de changer de voie ou de tourner. Soyez également attentif aux piétons qui traversent parfois en dehors des passages cloutés.",
-      
-      "Le klaxon est utilisé fréquemment au Maroc, mais pas de manière agressive. Un coup bref pour signaler votre présence à une intersection ou avant un dépassement est acceptable et même conseillé. Évitez les klaxonnements prolongés qui sont perçus comme agressifs.",
-      
-      "Les feux tricolores sont généralement bien respectés en ville, mais certains conducteurs accélèrent à l'orange. Assurez-vous que l'intersection est dégagée avant de démarrer au vert.",
-      
-      "## Sur les routes rurales",
-      "Les routes de campagne peuvent présenter des surprises : animaux (moutons, chèvres, ânes, vaches), charrettes tirées par des ânes, tracteurs roulant lentement, ou encore piétons marchant sur la chaussée. Réduisez votre vitesse dès que vous apercevez du bétail et klaxonnez doucement pour signaler votre présence.",
-      
-      "Évitez de conduire la nuit sur les routes secondaires. L'éclairage public est rare voire inexistant, les animaux peuvent traverser sans prévenir, et certains véhicules circulent sans feux. Si vous devez rouler de nuit, réduisez votre vitesse de 20-30% par rapport au jour.",
-      
-      "Les routes de montagne (Atlas, Rif) sont sinueuses avec des virages en épingle. Utilisez votre klaxon avant les virages aveugles pour signaler votre présence. Restez sur votre voie et anticipez les véhicules arrivant en sens inverse, surtout les gros camions qui peuvent déborder.",
-      
-      "## Les documents obligatoires",
-      "Gardez toujours avec vous : votre permis de conduire (français ou international accepté), la carte grise du véhicule (fournie par l'agence), l'attestation d'assurance (vignette verte sur le pare-brise), et le contrat de location avec les coordonnées de l'agence.",
-      
-      "Les contrôles de police sont fréquents, surtout aux entrées et sorties des villes. Ils sont généralement courtois et rapides si vos documents sont en règle. Ayez-les toujours à portée de main pour éviter de fouiller dans la boîte à gants.",
-      
-      "En cas d'infraction, les policiers peuvent vous demander de payer l'amende sur place ou vous diriger vers le poste de police le plus proche. Demandez toujours un reçu officiel.",
-      
-      "## Le stationnement",
-      "Dans les villes, les gardiens de parking (reconnaissables à leur gilet) sont omniprésents. Ils vous aident à vous garer et surveillent votre véhicule. Donnez-leur 2 à 5 MAD pour quelques heures, ou 5 à 10 MAD pour une journée complète. C'est une pratique courante et attendue qui assure la sécurité de votre voiture.",
-      
-      "Ne laissez jamais d'objets de valeur visibles dans l'habitacle : sacs, ordinateurs, téléphones, GPS. Rangez tout dans le coffre avant d'arriver à destination. Les vitres teintées sont un plus pour dissuader les voleurs.",
-      
-      "Privilégiez les parkings sécurisés payants pour les longues durées (5-20 MAD selon la ville et la durée). Ils sont nombreux près des centres commerciaux, hôtels et sites touristiques.",
-      
-      "## Les autoroutes",
-      "Le réseau autoroutier marocain est moderne, très bien entretenu et en constante expansion. Plus de 1 800 km d'autoroutes relient les principales villes du royaume. À l'entrée, prenez un ticket au péage. À la sortie, vous payez selon la distance parcourue (environ 0,80 MAD/km). Le paiement se fait en espèces ou par carte bancaire.",
-      
-      "Des stations-service sont présentes tous les 50-70 km avec toilettes propres, cafés, boutiques de souvenirs et aires de repos ombragées. Les prix du carburant y sont identiques à ceux des villes.",
-      
-      "La vitesse est limitée à 120 km/h (parfois réduite à 100 km/h dans certaines zones). Les radars automatiques sont nombreux et ne pardonnent pas. Respectez scrupuleusement les limitations.",
-      
-      "## En cas de problème",
-      "Si vous avez une panne ou un accident, contactez immédiatement votre agence de location. Leur numéro d'urgence 24/7 figure sur votre contrat. Ils vous enverront un dépanneur ou un véhicule de remplacement selon la situation.",
-      
-      "En cas d'accident avec des tiers, appelez la police (190) et ne déplacez pas les véhicules avant leur arrivée, sauf si cela bloque la circulation et présente un danger. Remplissez un constat amiable si possible (fourni par l'agence) et prenez des photos des dégâts sous tous les angles, des plaques d'immatriculation et de la scène globale.",
-      
-      "Échangez vos coordonnées avec l'autre conducteur et les témoins éventuels. Restez calme et courtois, même si vous n'êtes pas en tort. Laissez les assurances gérer le litige.",
-      
-      "## Le carburant",
-      "Faites le plein dans les stations officielles des grandes enseignes (Total, Shell, Afriquia, Winxo). Les prix sont fixes partout au Maroc et affichés clairement. Un pompiste fera le service à votre place, un petit pourboire de 2-5 MAD est apprécié mais pas obligatoire.",
-      
-      "Sur les longs trajets vers le désert ou les zones reculées, faites le plein dès que possible car les stations peuvent être espacées de 100 km ou plus. Ne laissez jamais votre réservoir descendre en dessous du quart.",
-      
-      "Les cartes bancaires internationales sont acceptées dans toutes les stations des villes, mais ayez toujours des espèces en zone rurale.",
-      
-      "## Dernier conseil : Restez zen !",
-      "Restez zen et patient. Le style de conduite marocain peut sembler chaotique au début, mais il suit sa propre logique basée sur l'anticipation et la communication (klaxon, appels de phares). En étant attentif, prudent et respectueux, vous vous adapterez rapidement et profiterez pleinement de la liberté qu'offre la voiture pour découvrir ce magnifique pays."
-    ]
+    ...reviewedRentalBlogs["conseils-conduite-maroc"]
   },
   {
     id: 2,
@@ -811,170 +575,10 @@ export const blogArticles: BlogArticle[] = [
   {
     id: 8,
     slug: "guide-complet-location-voiture-maroc-2025",
-    title: "Guide Complet de la Location de Voiture au Maroc en 2025",
-    excerpt: "Tout ce que vous devez savoir avant de louer une voiture au Maroc : prix, documents, assurances, meilleures agences et conseils pratiques.",
-    metaDescription: "Location voiture Maroc 2025 : guide complet avec prix, documents nécessaires, comparatif des agences, conseils pratiques. Économisez jusqu'à 40% !",
     category: "Guides",
     date: "15 janvier 2025",
     image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=1200&h=600&fit=crop",
-    content: [
-      "Louer une voiture au Maroc est la meilleure façon de découvrir ce magnifique pays en toute liberté. Ce guide complet 2025 vous explique tout ce que vous devez savoir pour réussir votre location : combien ça coûte, quels documents préparer, quelle assurance choisir, comment éviter les pièges, et où trouver les meilleures offres.",
-      
-      "## Pourquoi Louer une Voiture au Maroc ?",
-      
-      "Le Maroc est un pays vaste (710 000 km²) avec des paysages incroyablement variés. En quelques heures de route, vous passez des plages atlantiques aux sommets enneigés de l'Atlas, des médinas impériales aux dunes du Sahara. Les transports en commun existent mais sont lents et ne desservent pas les sites les plus spectaculaires.",
-      
-      "**Avec une voiture de location, vous gagnez en liberté et en confort** : vous vous arrêtez où vous voulez pour photographier un panorama, vous découvrez des villages authentiques hors des circuits touristiques, vous adaptez votre rythme à vos envies. C'est particulièrement appréciable si vous voyagez en famille ou avec des bagages.",
-      
-      "De plus, le réseau routier marocain est excellent. Plus de 1 800 km d'autoroutes modernes relient les grandes villes, et les routes nationales sont généralement en bon état. La conduite est accessible même pour les voyageurs peu habitués à conduire à l'étranger.",
-      
-      "## Combien Coûte la Location de Voiture au Maroc ?",
-      
-      "### Prix par Catégorie de Véhicule (2025)",
-      
-      "**Citadines économiques** (Dacia Sandero, Renault Clio, Toyota Yaris) : 150 à 400 MAD/jour (15-25€). Idéales pour les villes et courts trajets. Consommation : 5-6 L/100km.",
-      
-      "**Berlines compactes** (Toyota Corolla, VW Jetta, Peugeot 308) : 250 à 400 MAD/jour (25-40€). Confortables pour 4 adultes avec bagages. Parfaites pour les longs trajets. Consommation : 6-7 L/100km.",
-      
-      "**SUV et 4x4** (Dacia Duster, VW Tiguan, Toyota RAV4) : 350 à 600 MAD/jour (35-60€). Recommandés pour les routes de montagne et le désert. Consommation : 7-9 L/100km.",
-      
-      "**Véhicules premium** (Mercedes Classe C, BMW Série 3, Audi A4) : 800 à 1500 MAD/jour (80-150€). Pour les séjours touristiques avec davantage de confort. Consommation : 7-8 L/100km.",
-
-      
-      "### Prix Selon la Durée de Location",
-      
-      "Plus vous louez longtemps, moins le prix journalier est élevé. Chez Benatna, la durée minimum est de **3 jours**, avec un maximum de **6 mois**. Le tarif final et les éventuelles remises doivent être confirmés par le loueur.",
-      
-      "Exemple concret : Une Renault Clio coûte 300 MAD/jour pour 2 jours (400 MAD total), mais seulement 140 MAD/jour pour 10 jours (1 400 MAD total au lieu de 2 000 MAD).",
-      
-      "### Prix Selon la Saison",
-      
-      "**Haute saison** (juin-septembre, Noël-Nouvel An, vacances scolaires françaises) : Prix multipliés par 1,3 à 1,5. Réservation indispensable 2-3 semaines à l'avance.",
-      
-      "**Moyenne saison** (avril-mai, octobre-novembre) : Prix standard. Meilleure période qualité/prix avec un climat agréable partout.",
-      
-      "**Basse saison** (janvier-mars, décembre hors fêtes) : Réductions jusqu'à -30%. Parfait pour faire des affaires, mais temps plus frais dans le nord.",
-      
-      "## Quels Documents Sont Nécessaires ?",
-      
-      "### Pour les Marocains",
-      
-      "**Obligatoires** : Carte d'identité nationale (CIN) en cours de validité. Permis de conduire valide depuis au moins 2 ans. Justificatif de domicile récent (facture, attestation de travail).",
-      
-      "**Recommandés** : Carte bancaire au nom du conducteur principal. Numéro de téléphone marocain actif.",
-      
-      "### Pour les Étrangers",
-      
-      "**Obligatoires** : Passeport en cours de validité. Permis de conduire national (Europe, USA, Canada, Australie acceptés). Permis international fortement recommandé (obligatoire pour certaines agences).",
-      
-      "**Important** : Le permis international ne remplace pas votre permis national. Vous devez avoir les deux documents. Le permis international s'obtient gratuitement en préfecture en France (délai : 2-6 semaines).",
-      
-      "### Âge Minimum et Conditions",
-      
-      "**Âge minimum** : 21 ans pour voitures économiques et berlines. 25 ans pour SUV haut de gamme et véhicules premium.",
-      
-      "**Permis** : Obtenu depuis au moins 1 an (certaines agences exigent 2 ans). Permis provisoire non accepté.",
-      
-      "**Conducteur supplémentaire** : Frais de 50-100 MAD/jour. Doit remplir les mêmes conditions et être présent à la prise en charge.",
-      
-      "## Quelles Assurances Choisir ?",
-      
-      "### Assurance au Tiers (Incluse)",
-      
-      "Obligatoire au Maroc, toujours incluse dans le prix de base. Couvre les dommages causés à des tiers (personnes, véhicules, propriétés). Ne couvre PAS les dommages à votre véhicule de location.",
-      
-      "### Assurance Collision (CDW) - Recommandée",
-      
-      "**Prix** : 80 à 150 MAD/jour selon le véhicule. **Couvre** : Dommages au véhicule loué en cas d'accident. Vol du véhicule. Bris de glace, phares, rétroviseurs.",
-      
-      "**Franchise** : Montant restant à votre charge en cas de sinistre. Varie entre 3 000 et 10 000 MAD selon le véhicule. Exemple : Si vous avez un accident causant 8 000 MAD de dégâts avec une franchise de 5 000 MAD, vous payez 5 000 MAD et l'assurance paie 3 000 MAD.",
-      
-      "### Super CDW (Rachat de Franchise)",
-      
-      "**Prix** : 50 à 100 MAD/jour supplémentaire. **Réduit ou supprime complètement la franchise**. Fortement recommandé si vous conduisez dans des zones difficiles (montagnes, désert, grandes villes).",
-      
-      "### Notre Recommandation",
-      
-      "Prenez minimum l'assurance CDW. Pour les circuits montagne/désert ou si c'est votre première fois au Maroc, prenez la Super CDW pour une tranquillité totale.",
-      
-      "## Comment Réserver et Économiser ?",
-      
-      "### Réserver à l'Avance vs Sur Place",
-      
-      "**À l'avance (recommandé)** : Prix 20-40% moins chers qu'au comptoir. Choix plus large de véhicules. Possibilité de comparer les offres. Confirmation directe par le loueur. Pas de mauvaise surprise à l'arrivée.",
-      
-      "**Sur place (déconseillé)** : Prix élevés. Disponibilité limitée en haute saison. Risque de véhicule en mauvais état. Techniques de vente pressantes.",
-      
-      "### Quand Réserver ?",
-      
-      "**Haute saison** : 3-4 semaines minimum à l'avance. Plus vous attendez, plus les prix grimpent et le choix se réduit.",
-      
-      "**Moyenne/basse saison** : 1-2 semaines suffisent. Possibilité de trouver des promotions de dernière minute.",
-      
-      "### Astuces pour Économiser",
-      
-      "**Louez pour 7 jours minimum** pour bénéficier des tarifs dégressifs (-15 à -20%).",
-      
-      "**Évitez la haute saison** si possible. Les prix peuvent doubler entre avril et août.",
-      
-      "**Récupération à l'aéroport** : Souvent plus cher de 10-20%. Si votre hôtel est en ville, récupérez en centre-ville.",
-      
-      "**Évitez le one-way** (restitution dans une ville différente). Frais de 500 à 2000 MAD selon la distance.",
-      
-      "**Refusez les options inutiles** : GPS (utilisez votre smartphone), siège bébé (apportez le vôtre si possible), chaînes à neige (rarement nécessaires).",
-      
-      "## Où Réserver : Comparatif des Options",
-      
-      "### Plateformes Locales (Comme Benatna)",
-      
-      "**Avantages** : Prix jusqu'à 40% moins chers que les franchises internationales. Support en français/arabe/anglais. Agences locales vérifiées. Pas de frais cachés. Kilométrage illimité inclus.",
-      
-      "**Inconvénients** : Flotte parfois moins récente que les grandes franchises (mais bien entretenue).",
-      
-      "### Franchises Internationales (Hertz, Avis, Europcar)",
-      
-      "**Avantages** : Flotte très récente. Présence dans tous les aéroports. Process standardisé. Programmes de fidélité.",
-      
-      "**Inconvénients** : Prix élevés (souvent le double des agences locales). Nombreux frais cachés. Assurances poussées agressivement. Service moins personnalisé.",
-      
-      "### Notre Recommandation",
-      
-      "Pour un meilleur rapport qualité-prix, privilégiez les plateformes locales de confiance comme Benatna. Vous économisez 30-40% avec le même niveau de service.",
-      
-      "## Conseils pour la Prise en Charge",
-      
-      "### À Votre Arrivée",
-      
-      "**Inspectez minutieusement le véhicule** avec l'agent : Rayures, bosses, chocs. État des pneus et roue de secours. Niveau de carburant (prenez une photo du compteur). Fonctionnement des feux, clignotants, essuie-glaces. Propreté intérieure.",
-      
-      "**Photographiez tout** : 360° extérieur. Tableau de bord avec kilométrage. Compteur de carburant. Intérieur. Ces photos vous protègent en cas de litige.",
-      
-      "**Vérifiez les documents** : Carte grise. Attestation d'assurance (vignette verte). Contrat de location signé. Numéro d'urgence 24/7.",
-      
-      "**Testez le véhicule** : Démarrage. Climatisation. Vitesses. Freins. Ne partez pas avec un véhicule défectueux.",
-      
-      "### Pendant la Location",
-      
-      "**Respectez le contrat** : Ne sortez pas du Maroc (interdit). Ne sous-louez pas le véhicule. Ne conduisez pas sous influence d'alcool/drogue. Respectez les limitations de vitesse.",
-      
-      "**Entretenez le véhicule** : Vérifiez l'huile toutes les 1000 km. Contrôlez la pression des pneus chaque semaine. Lavez la voiture si elle est très sale.",
-      
-      "**En cas de problème** : Contactez immédiatement l'agence. Ne faites pas réparer sans leur accord. Gardez tous les justificatifs.",
-      
-      "## Restitution du Véhicule",
-      
-      "**Faites le plein** : Contrat plein/plein. Rendez avec le réservoir plein. Gardez le ticket de caisse (fait dans les 10 km avant la restitution).",
-      
-      "**Nettoyez l'intérieur** : Enlevez vos déchets. Passez un coup d'aspirateur si très sale (frais de nettoyage : 100-300 MAD).",
-      
-      "**Inspection finale** : Faites-la avec l'agent. Vérifiez ensemble l'état. Signez le PV de restitution. Gardez votre copie.",
-      
-      "**Récupérez votre caution** : Si carte bancaire : déblocage automatique sous 7-14 jours. Si espèces : rendu immédiat.",
-      
-      "## En Conclusion",
-      
-      "Louer une voiture au Maroc est simple, sûr et abordable si vous êtes bien préparé. Réservez à l'avance, choisissez une plateforme fiable comme Benatna, prenez l'assurance collision, inspectez soigneusement le véhicule, et profitez de la liberté de découvrir ce merveilleux pays à votre rythme !"
-    ]
+    ...reviewedRentalBlogs["guide-complet-location-voiture-maroc-2025"]
   },
   {
     id: 10,

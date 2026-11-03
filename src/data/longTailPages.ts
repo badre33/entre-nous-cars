@@ -32,6 +32,8 @@ export interface LongTailPageConfig {
     buttonText: string;
     buttonLink: string;
   };
+  safetyNotice?: { title: string; text: string };
+  deferRentalActions?: boolean;
   editorialSources?: {
     checkedOn: string;
     note: string;

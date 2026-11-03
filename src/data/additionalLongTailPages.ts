@@ -1,3 +1,4 @@
+import { reviewedRentalGuides } from './reviewedRentalGuides';
 import { rentalAudiencePages } from './rentalAudiencePages';
 import { rentalSupportPages } from './rentalSupportPages';
 /**
@@ -527,7 +528,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   createMariagePage(),
   createLongueDureePage("Casablanca", "casablanca"),
   createLongueDureePage("Marrakech", "marrakech"),
-  createJeuneConducteurPage("Casablanca", "casablanca"),
+  reviewedRentalGuides.young,
   createJeuneConducteurPage("Marrakech", "marrakech"),
   createJeuneConducteurPage("Rabat", "rabat"),
   createSUVSpecialPage("Atlas Marocain", "location-suv-atlas"),
@@ -1422,43 +1423,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
   // ============================================================
   // SPRINT $38k V3 — Hub /guide-maroc + 10 longue traine info
   // ============================================================
-  {
-    slug: 'guide-maroc',
-    title: 'Guide Maroc Location Voiture',
-    metaTitle: 'Guide Complet : Louer Voiture au Maroc 2026 | Benatna',
-    metaDescription: 'Permis, age, caution, carburant, peages, accidents : guide complet pour louer une voiture au Maroc en 2026. MRE et touristes. Reponses claires.',
-    keywords: 'guide location voiture maroc, louer voiture maroc 2026, conseils location voiture maroc, faq voiture maroc',
-    h1: 'Guide Complet : Louer une Voiture au Maroc en 2026',
-    heroSubtitle: 'Tout ce qu il faut savoir : permis, age, caution, carburant, peages, accidents',
-    category: { label: 'Guide Pratique', href: '/nos-services' },
-    content: {
-      intro: 'Vous preparez votre **location de voiture au Maroc** ? Que vous soyez **MRE** rentrant pour les vacances ou **touriste** en road trip, ce **guide complet 2026** repond a toutes les questions pratiques avant et pendant votre sejour. **10 fiches detaillees** couvrent les regles de conduite, les couts annexes (essence, peages, parking), les obligations (permis, age), et les bonnes pratiques (eviter arnaques, gerer un accident). Compile par l equipe Benatna a partir des 5000+ demandes clients recues en 2025-2026.',
-      sections: [
-        { title: 'Regles de conduite et obligations legales', content: 'Conduire au Maroc demande de connaitre quelques specificites legales. **Permis** : un permis europeen, canadien, americain ou australien est valide jusque 1 an apres entree sur le territoire. **Permis international** : pas obligatoire si tu as un permis EU/CA/US, recommande pour certains pays asiatiques ou africains. **Age minimum** : 21 ans typique, 23 ans sur SUV et premium, 25 ans sur luxe. **Permis ancien** : minimum 1 an d anciennete pour la majorite des loueurs. **Documents a avoir sur soi** : permis original, contrat location, carte grise, attestation assurance. Voir nos guides detailles : <a href=\"/permis-international-maroc-location-voiture\">Permis international Maroc</a>, <a href=\"/age-minimum-location-voiture-maroc\">Age minimum location</a>, <a href=\"/conduire-maroc-permis-etranger\">Conduire avec permis etranger</a>.' },
-        { title: 'Couts annexes a prevoir', content: 'Au-dela du prix de location, prevoyez ces couts. **Carburant** : essence 15 DH/L environ, gasoil 14 DH/L. Plein citadine 600-700 DH, SUV 900-1100 DH. **Peages autoroute** : Casa-Marrakech 80 DH, Casa-Tanger 90 DH, Casa-Rabat 15 DH. Carte autoroute Maroc disponible en station. **Parking** : 10-20 DH/h gardien centre-ville, 30-50 DH/jour. **Caution** : 3000-20000 DH selon categorie, espece ou virement chez Benatna (pas de CB bloquee). **Franchise assurance** : 3000-8000 DH selon contrat, rachat possible +30-50 DH/jour. Voir nos guides : <a href=\"/prix-essence-gasoil-maroc-2026\">Prix essence/gasoil 2026</a>, <a href=\"/peages-autoroute-maroc-tarifs-2026\">Peages autoroute</a>, <a href=\"/caution-location-voiture-maroc\">Caution location</a>.' },
-        { title: 'Choix du vehicule et formules', content: '**Citadine** (Sandero, i10, Picanto) pour 2-4 personnes en ville : 300-400 DH/jour. **Berline** (Clio, Yaris) pour confort et autoroute : 420-500 DH/jour. **SUV** (Duster, Tucson, Qashqai) pour 5 personnes et excursions Atlas/desert : 650-850 DH/jour. **Premium** (Mercedes, BMW) pour image : 1300-2000 DH/jour. **Van 7-9 places** (Jogger) pour familles : 1000-1300 DH/jour. **Boite manuelle vs automatique** : automatique conseille en ville et MRE habitues. **Essence vs diesel** : diesel 30% moins cher a la pompe, conseille longs sejours. **Courte (1-7j) vs longue duree (mensuel)** : longue duree -10 a -15% vs cumul journalier. Voir : <a href=\"/faq\">Conditions de location</a>, <a href=\"/courte-vs-longue-duree-location-voiture-maroc\">Courte vs longue duree</a>, <a href=\"/essence-ou-diesel-location-voiture-maroc\">Essence ou diesel</a>.' },
-        { title: 'Bonnes pratiques et securite', content: '**A la prise** : photos detaillees du vehicule (carrosserie, intérieur, kilometrage, carburant), etat des lieux signe. **Sur la route** : prudence aux scooters, calches, pietons. Ralentir aux speed bumps. Police de circulation presente sur grandes avenues. **Arnaques courantes** : faux gardiens parking (donner 5-10 DH suffit), pompes a essence trichant (verifier remise a zero), accidents simules. **En cas d accident** : appeler 19 (police), faire constat amiable, photos. Contacter immediatement Benatna par WhatsApp pour gestion assurance. Voir : <a href=\"/eviter-arnaques-location-voiture-maroc\">Eviter arnaques</a>, <a href=\"/accident-voiture-location-maroc-que-faire\">Accident : que faire</a>.' }
-      ],
-      faq: [
-        { question: 'Mon permis francais ou belge est-il valide au Maroc ?', answer: 'Oui, valide pendant 1 an sur le territoire marocain. Au-dela, conversion en permis marocain necessaire.' },
-        { question: 'Quel age minimum pour louer chez Benatna ?', answer: '21 ans pour citadine, 23 ans pour SUV, 25 ans pour premium. 1 an d anciennete minimum sur le permis.' },
-        { question: 'Combien coute le plein d essence pour Casa-Marrakech ?', answer: 'Citadine : 200-250 DH de carburant pour ~250 km. Plus 80 DH de peages aller-retour. Total 280-330 DH.' },
-        { question: 'Faut-il un permis international ?', answer: 'Non si tu as permis EU, CA, US, AU, NZ. Recommande pour permis asiatiques ou africains.' },
-        { question: 'Comment payer la voiture sans carte de credit internationale ?', answer: 'Especes DH/euro, virement SEPA, Cash Plus, Wafacash, carte CMI marocaine. Toutes options acceptees chez Benatna.' }
-      ]
-    },
-    cta: {
-      title: 'Reservez Votre Voiture au Maroc',
-      subtitle: 'Sans CB • Livraison aeroport gratuite • Tarifs transparents DH/euro',
-      buttonText: 'Reserver via WhatsApp',
-      buttonLink: '/contact'
-    },
-    relatedServices: [
-      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
-      { title: 'Caution Location Voiture Maroc', description: 'Guide Benatna', link: '/caution-location-voiture-maroc' },
-      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
-    ]
-  },
+  reviewedRentalGuides.planning,
   {
     slug: 'permis-international-maroc-location-voiture',
     title: 'Permis International Maroc',
@@ -1529,41 +1494,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
     ]
   },
-  {
-    slug: 'eviter-arnaques-location-voiture-maroc',
-    title: 'Eviter Arnaques Location Voiture Maroc',
-    metaTitle: 'Eviter Arnaques Location Voiture Maroc : 10 Pieges (2026) | Benatna',
-    metaDescription: '10 arnaques courantes location voiture Maroc : faux gardiens, etat des lieux flou, pompes truques, faux accidents. Comment se proteger. Guide 2026.',
-    keywords: 'arnaques location voiture maroc, pieges location voiture maroc, securite location voiture maroc',
-    h1: '10 Arnaques a Eviter sur la Location de Voiture au Maroc',
-    heroSubtitle: 'Faux gardiens • Etat des lieux flou • Pompes truques • Comment se proteger',
-    category: { label: 'Guide Pratique', href: '/guide-maroc' },
-    content: {
-      intro: 'La majorite des loueurs marocains sont **honnetes et professionnels**. Mais comme partout, quelques pieges existent — surtout pour les **touristes premier voyage** ou les **MRE peu habitues au marche local**. Voici les **10 arnaques les plus courantes** identifiees par notre equipe Benatna sur 5000+ retours clients, avec comment s en proteger.',
-      sections: [
-        { title: 'Arnaques au moment de la prise du vehicule', content: '**(1) Etat des lieux flou** : agent presse, pas de tour complet du vehicule. **Parade** : exiger un tour complet, **photos detaillees** carrosserie, interieur, jantes, kilometrage, niveau carburant. **(2) Vehicule sale a l etat des lieux** : impossible de detecter rayures sous la salete. **Parade** : refuser le vehicule, demander lavage avant signature. **(3) Caution exigee plus haute que contrat** : agent invente un supplement. **Parade** : exiger contrat ecrit et facture preuve. Benatna affiche la caution exacte par WhatsApp avant arrivee.' },
-        { title: 'Arnaques pendant la location', content: '**(4) Faux gardiens parking** : reclament 50-100 DH pour 1h de stationnement. **Parade** : tarif officieux est 5-10 DH. **(5) Pompe a essence trichant** : agent ne remet pas le compteur a zero, te facture 200 DH pour 50 DH d essence. **Parade** : descendre, verifier remise a zero avant de payer. **(6) Faux accident** : voiture te touche legerement, demande arrangement 1000-2000 DH ou police. **Parade** : appeler immediatement le 19 (police) et exiger constat officiel.' },
-        { title: 'Arnaques au retour du vehicule', content: '**(7) Carburant exige plein superieur** : agent reclame ton niveau pourtant correct. **Parade** : photo du compteur a la livraison ET au retour. **(8) Rayure fictive** : agent invente une rayure pour facturer 1500 DH. **Parade** : photos a la prise + signature etat des lieux. Sans ces photos, tu n as aucun recours. **(9) Retard de remboursement caution** : prevu sous 7 jours, dure 30+. **Parade** : Benatna restitue caution **le jour meme en especes** ou 3-5 jours par virement.' },
-        { title: 'Comment Benatna vous protege contre ces arnaques', content: '**Tarif transparent** affiche page prix avant reservation. **Caution claire** : montant exact communique par WhatsApp avant arrivee. **Etat des lieux photo systematique** : le loueur t envoie les photos a la prise par WhatsApp pour conservation. **Suivi WhatsApp** pendant toute la location : tu peux nous joindre 24/7 en cas de probleme. **Restitution caution rapide** : especes le jour meme, virement 3-5 jours. **Constat amiable** standard pour tout dommage : pas d invention de rayure fictive. <a href=\"/caution-location-voiture-maroc\">Voir notre approche caution transparente</a>.' }
-      ],
-      faq: [
-        { question: 'Le faux gardien parking peut-il faire payer 100 DH ?', answer: 'Officieusement non, le tarif est 5-10 DH. Negocier ou ignorer (legalement non obligatoire mais pratique pour eviter degats vehicule).' },
-        { question: 'Comment prouver une rayure inexistante au retour ?', answer: 'Photos detaillees signees a la prise. Sans photos, parole contre parole. Benatna envoie photos par WhatsApp pour preuve.' },
-        { question: 'Que faire si je suspecte une arnaque pompe a essence ?', answer: 'Verifier compteur remis a zero avant pleine, regarder le total final correspond au litres affiches. Payer carte si possible (trace).' }
-      ]
-    },
-    cta: {
-      title: 'Reservez Votre Voiture au Maroc',
-      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
-      buttonText: 'Reserver via WhatsApp',
-      buttonLink: '/contact'
-    },
-    relatedServices: [
-      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
-      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
-      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
-    ]
-  },
+  reviewedRentalGuides.checks,
   {
     slug: 'peages-autoroute-maroc-tarifs-2026',
     title: 'Peages Autoroute Maroc Tarifs 2026',
@@ -1790,41 +1721,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
     ]
   },
-  {
-    slug: 'accident-voiture-location-maroc-que-faire',
-    title: 'Accident Voiture Location Maroc : Que Faire',
-    metaTitle: 'Accident Voiture de Location Maroc : Que Faire (Guide 2026) | Benatna',
-    metaDescription: 'Accident voiture de location au Maroc : etapes constat, police, assurance, contact loueur. Guide complet 2026 pour MRE et touristes.',
-    keywords: 'accident voiture location maroc, constat accident maroc, accident voiture maroc que faire',
-    h1: 'Accident avec Voiture de Location au Maroc : Que Faire ?',
-    heroSubtitle: 'Etapes urgentes • Police 19 • Constat • Contact Benatna • Assurance',
-    category: { label: 'Guide Pratique', href: '/guide-maroc' },
-    content: {
-      intro: 'Avoir un **accident avec une voiture de location au Maroc** est rare mais arrive. Que tu sois MRE ou touriste, voici la **procedure exacte etape par etape** pour gerer la situation calmement : police (numero 19), constat amiable, photos, contact Benatna par WhatsApp, declaration assurance. Guide compile par notre service apres 500+ accidents gérés depuis 2018.',
-      sections: [
-        { title: 'Etapes immediates apres l accident', content: '**Etape 1 — Securiser** : allume warnings, sors triangle a 30-50m, gilet jaune obligatoire (fourni dans la voiture). Si urgence vitale : 15 (SAMU), 19 (police). **Etape 2 — Verifier blessures** tous occupants. Si blessure : 15 immediatement. **Etape 3 — Photographier** la scene avant de bouger les vehicules : positions exactes, plaques, degats, environnement. **Etape 4 — Appeler la police au 19** si : blessure, desaccord avec autre conducteur, dommage important, refus constat amiable autre partie. Sinon, constat amiable suffit. **Etape 5 — Contacter Benatna par WhatsApp** : +212 699 024 526. Nous t accompagnons en temps reel sur la suite.' },
-        { title: 'Le constat amiable : comment le remplir', content: 'Le **constat amiable marocain** existe en arabe et francais. Disponible dans tous les vehicules Benatna en double exemplaire. Remplir : (1) Date, heure, lieu precis. (2) Identite conducteurs (permis, contact). (3) Compagnies assurance et numero police. (4) Croquis schematique des positions. (5) Circonstances cochees (cases pre-imprimees). (6) **Signature des deux conducteurs**. Si l autre conducteur **refuse de signer** : appeler la police au 19 (les agents font un constat officiel). Garder l original, scanner ou photographier les deux exemplaires.' },
-        { title: 'Contact Benatna et gestion assurance', content: '**Contact immediat WhatsApp** Benatna (+212 699 024 526) : envoyer photos accident, scan constat, et tes coordonnees. **Nous prenons la suite** : declaration assurance dans les 48h, suivi expertise vehicule, recuperation du vehicule de remplacement si necessaire. **Vehicule de remplacement** : nous fournissons un equivalent sous 24-48h si l accident immobilise le vehicule (selon dispo flotte). **Couverture assurance** : tous risques couvre au-dela de la **franchise (3000-8000 DH selon contrat)**. Si tu as pris **option rachat de franchise (+30-50 DH/jour)**, franchise reduite a 500 DH ou 0 DH. <a href=\"/caution-location-voiture-maroc\">Voir notre guide caution et franchise</a>.' },
-        { title: 'Ce qu il ne faut PAS faire', content: '**(1) Ne pas accepter arrangement informel** sans constat ecrit, meme si l autre conducteur insiste (risque arnaque). **(2) Ne pas signer un constat sans le lire entierement**, en particulier ne pas cocher cases de responsabilite sans bien comprendre. **(3) Ne pas quitter les lieux** d un accident corporel — delit de fuite, peine d emprisonnement. **(4) Ne pas reparer la voiture ailleurs** sans accord ecrit de Benatna — facturation refusee. **(5) Ne pas oublier de contacter Benatna immediatement** : declaration assurance a delais legaux (48h-5j).' }
-      ],
-      faq: [
-        { question: 'Quel numero appeler en cas d accident grave ?', answer: '19 pour la police, 15 pour le SAMU. Garder ces numeros enregistres dans ton telephone des l arrivee au Maroc.' },
-        { question: 'Combien je vais payer si je suis responsable ?', answer: 'La franchise (3000-8000 DH selon categorie), prelevee sur ta caution. Avec rachat de franchise : 0-500 DH.' },
-        { question: 'Et si l autre conducteur refuse de signer le constat ?', answer: 'Appeler la police au 19. Ils etablissent un constat officiel sur place.' }
-      ]
-    },
-    cta: {
-      title: 'Reservez Votre Voiture au Maroc',
-      subtitle: 'Sans CB • Tarifs transparents • WhatsApp 2 min',
-      buttonText: 'Reserver via WhatsApp',
-      buttonLink: '/contact'
-    },
-    relatedServices: [
-      { title: 'Guide Complet Maroc', description: 'Guide Benatna', link: '/guide-maroc' },
-      { title: 'Prix Location Voiture Maroc 2026', description: 'Guide Benatna', link: '/prix-location-voiture-maroc-2026' },
-      { title: 'Location Voiture MRE Maroc', description: 'Guide Benatna', link: '/location-voiture-mre-maroc' }
-    ]
-  },
+  reviewedRentalGuides.accident,
   {
     slug: 'courte-vs-longue-duree-location-voiture-maroc',
     title: 'Courte vs Longue Duree Location Voiture Maroc',

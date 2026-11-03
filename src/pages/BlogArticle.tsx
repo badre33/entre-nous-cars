@@ -129,6 +129,7 @@ const BlogArticle = () => {
         <meta property="og:image" content={article.image} />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={toIsoDate(article.date)} />
+        {article.reviewedOn && <meta property="article:modified_time" content={article.reviewedOn} />}
         <meta property="article:section" content={article.category} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
@@ -142,7 +143,7 @@ const BlogArticle = () => {
             "description": article.metaDescription,
             "image": article.image?.startsWith("http") ? article.image : `https://benatna.ma${article.image}`,
             "datePublished": toIsoDate(article.date),
-            "dateModified": toIsoDate(article.date),
+            "dateModified": article.reviewedOn ?? toIsoDate(article.date),
             "articleSection": article.category,
             "inLanguage": "fr-MA",
             "author": { "@type": "Organization", "name": "Benatna", "url": "https://benatna.ma" },
@@ -199,6 +200,7 @@ const BlogArticle = () => {
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
                 <span>{article.date}</span>
+                {article.reviewedOn && <span>Mis à jour le <time dateTime={article.reviewedOn}>{new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(article.reviewedOn + 'T00:00:00Z'))}</time></span>}
               </div>
             </div>
           </header>
@@ -259,6 +261,8 @@ const BlogArticle = () => {
                 }
               })}
           </div>
+
+          {article.sources && <aside aria-label="Sources officielles" className="mt-8 rounded-xl border p-4 space-y-3"><h2 className="text-2xl font-semibold">Sources officielles</h2><ul>{article.sources.map(source=><li key={source.url}><a className="inline-flex min-h-11 items-center text-primary underline" href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>)}</ul></aside>}
 
           {/* CTA */}
           <div className="mt-16 p-8 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl text-center hover:shadow-xl transition-shadow duration-300">
