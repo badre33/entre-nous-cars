@@ -18,6 +18,9 @@ export interface CoreRentalContent {
   faqs?: { question: string; answer: string }[];
   relatedLinks?: { to: string; label: string; text: string }[];
   sections: { title: string; text: string }[];
+  priceRows?: { category: string; models: string; from: number }[];
+  audience?: { title: string; text: string }[];
+  exclusions?: string;
 }
 
 export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
@@ -49,9 +52,19 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
       <section className="space-y-5">
         <h1 className="text-3xl md:text-5xl font-semibold">{content.heading}</h1>
         <p className="text-lg">{content.intro}</p>
-        <p><strong>Trois jours minimum, six mois maximum.</strong> Voitures touristiques classiques pour MRE, touristes et vacanciers ; demandes locales aux mêmes conditions.</p>
+        <p><strong>Trois jours minimum.</strong> Voitures de tourisme pour MRE, touristes et vacanciers ; résidents au Maroc aux mêmes conditions.</p>
         <Link className="inline-flex min-h-12 max-w-full items-center justify-center rounded-lg bg-primary text-primary-foreground px-4 py-3 text-center font-semibold" to={catalogueHref}>Voir les modèles et prix journaliers indicatifs</Link>
       </section>
+      {content.priceRows && <section aria-label="Prix de départ" className="space-y-4">
+        <h2 className="text-2xl font-semibold">Prix de départ par catégorie</h2>
+        <div className="grid gap-3 sm:grid-cols-2">{content.priceRows.map(row => <Link key={row.category} to={catalogueHref} className="rounded-lg border p-4 flex items-center justify-between gap-4 hover:border-primary"><span><span className="block font-semibold">{row.category}</span><span className="block text-sm text-muted-foreground">{row.models}</span></span><span className="text-right whitespace-nowrap"><span className="block text-xs text-muted-foreground">dès</span><span className="text-xl font-bold text-primary">{row.from} DH</span><span className="text-sm">/jour</span></span></Link>)}</div>
+        <p className="text-sm text-muted-foreground">Prix journaliers de départ hors juillet-août et périodes de fêtes, location de trois jours minimum. Le loueur confirme le prix total pour vos dates.</p>
+      </section>}
+      {content.audience && <section aria-label="Pour qui" className="space-y-4">
+        <h2 className="text-2xl font-semibold">Pour qui ?</h2>
+        <div className="grid gap-4 md:grid-cols-3">{content.audience.map(item => <div key={item.title} className="rounded-lg border p-4 space-y-2"><h3 className="font-semibold">{item.title}</h3><p>{item.text}</p></div>)}</div>
+        {content.exclusions && <p className="text-sm">{content.exclusions}</p>}
+      </section>}
       {content.pickupIds && <section aria-label="Choisir votre gare à Casablanca" className="space-y-4">
         <h2 className="text-2xl font-semibold">Choisir votre gare à Casablanca</h2>
         <p>Retrouvez le lieu dans le catalogue, puis renseignez vos dates et vos modèles. La livraison est gratuite et le rendez-vous est convenu avec le loueur avant votre arrivée.</p>
