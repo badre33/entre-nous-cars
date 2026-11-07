@@ -145,6 +145,26 @@
     "priority": "0.95"
   },
   {
+    "path": "/location-voiture-pas-cher-casablanca",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/location-suv-casablanca",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/location-voiture-7-places-casablanca",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
+    "path": "/location-voiture-semaine-casablanca",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
     "path": "/caution-location-voiture-maroc",
     "changefreq": "monthly",
     "priority": "0.85"

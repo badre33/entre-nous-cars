@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { RentalModelLinks } from './RentalModelLinks';
 import { pickupPoints } from '@/data/pickupPoints';
+import { vehicleDetails } from '@/data/vehicleDetails';
 
 export interface CoreRentalContent {
   path: string;
@@ -21,6 +22,8 @@ export interface CoreRentalContent {
   priceRows?: { category: string; models: string; from: number }[];
   audience?: { title: string; text: string }[];
   exclusions?: string;
+  models?: string[];
+  weekly?: boolean;
 }
 
 export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
@@ -59,6 +62,15 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
         <h2 className="text-2xl font-semibold">Prix de départ par catégorie</h2>
         <div className="grid gap-3 sm:grid-cols-2">{content.priceRows.map(row => <Link key={row.category} to={catalogueHref} className="rounded-lg border p-4 flex items-center justify-between gap-4 hover:border-primary"><span><span className="block font-semibold">{row.category}</span><span className="block text-sm text-muted-foreground">{row.models}</span></span><span className="text-right whitespace-nowrap"><span className="block text-xs text-muted-foreground">dès</span><span className="text-xl font-bold text-primary">{row.from} DH</span><span className="text-sm">/jour</span></span></Link>)}</div>
         <p className="text-sm text-muted-foreground">Prix journaliers de départ hors juillet-août et périodes de fêtes, location de trois jours minimum. Le loueur confirme le prix total pour vos dates.</p>
+      </section>}
+      {content.models && <section aria-label="Modèles et prix" className="space-y-4">
+        <h2 className="text-2xl font-semibold">{content.weekly ? 'Prix pour 7 jours par modèle' : 'Modèles et prix de départ'}</h2>
+        <div className="grid gap-4 sm:grid-cols-2">{content.models.map(slug => vehicleDetails[slug]).filter(Boolean).map(v => <Link key={v.slug} to={`/vehicule/${v.slug}`} className="rounded-lg border overflow-hidden flex gap-4 items-center p-3 hover:border-primary">
+          <img src={v.photos[0]} alt={`${v.name} en location à Casablanca`} loading="lazy" width={120} height={80} className="w-28 h-20 object-cover rounded-md shrink-0" />
+          <span className="min-w-0 flex-1"><span className="block font-semibold">{v.name}</span><span className="block text-sm text-muted-foreground">{v.category} · {v.options.seats} places · {v.options.transmission}</span></span>
+          <span className="text-right whitespace-nowrap"><span className="block text-xs text-muted-foreground">dès</span><span className="text-lg font-bold text-primary">{(content.weekly ? v.priceFrom * 7 : v.priceFrom).toLocaleString('fr-FR')} DH</span><span className="block text-xs">{content.weekly ? 'les 7 jours' : '/jour'}</span></span>
+        </Link>)}</div>
+        <p className="text-sm text-muted-foreground">Prix de départ hors juillet-août et périodes de fêtes{content.weekly ? '' : ', location de trois jours minimum'}. Le loueur confirme le modèle et le prix total pour vos dates.</p>
       </section>}
       {content.audience && <section aria-label="Pour qui" className="space-y-4">
         <h2 className="text-2xl font-semibold">Pour qui ?</h2>

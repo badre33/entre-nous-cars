@@ -1,6 +1,10 @@
 import type { CoreRentalContent } from '@/components/CoreRentalLanding';
 
 const rentalJourneyLinks = [
+  { "to": "/location-voiture-pas-cher-casablanca", "label": "Voitures pas chères dès 250 DH", "text": "Sandero, Logan, Stepway, Clio et 208 : comparer les modèles économiques." },
+  { "to": "/location-suv-casablanca", "label": "SUV dès 380 DH", "text": "Duster, Tucson, Sportage et T-Roc pour la famille et les bagages." },
+  { "to": "/location-voiture-7-places-casablanca", "label": "Voiture 7 places et familiale", "text": "Dacia Jogger 7 places et SUV familiaux pour arriver à plusieurs." },
+  { "to": "/location-voiture-semaine-casablanca", "label": "Prix à la semaine", "text": "Le prix de 7 jours modèle par modèle, dès 1 750 DH." },
   {
     "to": "/location-voiture-automatique-casablanca",
     "label": "Voitures automatiques à Casablanca",
@@ -34,7 +38,7 @@ const tourismAudience = [
 
 const tourismExclusions = 'Benatna propose uniquement des voitures de tourisme : pas de van, d’utilitaire, de minibus, de voiture de mariage ni de location professionnelle.';
 
-export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'casaVoyageurs' | 'automatic' | 'railway', CoreRentalContent> = {
+export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'casaVoyageurs' | 'automatic' | 'railway' | 'budget' | 'suv' | 'family' | 'week', CoreRentalContent> = {
   casablanca: {
     relatedLinks: rentalJourneyLinks,
     showModelComparison: true,
@@ -255,4 +259,87 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
     relatedLinks: [...rentalJourneyLinks, {"to": "/location-voiture-gare-casa-voyageurs", "label": "Préparer une arrivée à Casa-Voyageurs", "text": "Les informations utiles pour votre arrivée, votre modèle et la remise du véhicule."}]
 },
 
+
+  budget: {
+    path: '/location-voiture-pas-cher-casablanca',
+    title: 'Location voiture pas cher Casablanca dès 250 DH/jour | Benatna',
+    description: 'Location de voiture pas chère à Casablanca : Dacia Sandero, Logan et Stepway dès 250 DH/jour, Clio et 208 dès 400 DH. Livraison gratuite aéroport et gare, 3 jours minimum, réponse sur WhatsApp.',
+    heading: 'Location de voiture pas chère à Casablanca dès 250 DH/jour',
+    intro: 'Vous cherchez une voiture économique pour vos vacances à Casablanca ? Les citadines et berlines Dacia sont proposées dès 250 DH par jour, la Clio, la 208 ou l’i20 dès 400 DH. Comparez les modèles ci-dessous, puis envoyez vos dates sur WhatsApp pour recevoir le prix total de votre séjour.',
+    models: ['dacia-sandero', 'dacia-logan', 'dacia-sandero-stepway', 'renault-clio', 'peugeot-208', 'opel-corsa', 'hyundai-i20', 'seat-ibiza'],
+    audience: tourismAudience,
+    exclusions: tourismExclusions,
+    relatedLinks: rentalJourneyLinks,
+    sections: [
+      { title: 'Payer moins cher sa location à Casablanca', text: 'Les prix les plus bas s’appliquent hors juillet-août et hors périodes de fêtes. Réservez plusieurs semaines avant votre arrivée, choisissez une citadine ou une berline Dacia et regroupez vos dates : à partir de 15 jours, le tarif journalier baisse légèrement. La livraison à l’aéroport Mohammed V et dans les gares desservies est gratuite.' },
+      { title: 'Citadine ou berline ?', text: 'La Sandero et la Stepway sont faciles à garer en ville. La Logan offre un coffre plus grand pour les valises, au même prix de départ. Pour une boîte automatique, comparez la Clio, la 208 ou l’i20 selon la version disponible.' },
+    ],
+    faqs: [
+      { question: 'Quelle est la voiture de location la moins chère à Casablanca ?', answer: 'La Dacia Sandero, la Dacia Logan et la Sandero Stepway, à partir de 250 DH par jour hors haute saison, pour une location de trois jours minimum.' },
+      { question: 'Peut-on louer à 100, 150 ou 200 DH par jour ?', answer: 'Nos prix de départ sont de 250 DH par jour. Le loueur confirme le prix total pour vos dates ; les longues périodes de location peuvent bénéficier d’un tarif légèrement inférieur.' },
+      { question: 'Y a-t-il des frais de livraison ?', answer: 'Non. La remise est gratuite à l’aéroport Mohammed V et dans les gares desservies de Casablanca.' },
+      { question: 'Comment réserver ?', answer: 'Par WhatsApp : envoyez vos dates, le modèle souhaité et votre lieu d’arrivée. Aucun paiement en ligne.' },
+    ],
+  },
+  suv: {
+    path: '/location-suv-casablanca',
+    title: 'Location SUV Casablanca dès 380 DH/jour | Benatna',
+    description: 'Louez un SUV à Casablanca : Dacia Duster dès 380 DH/jour, Hyundai Tucson et Kia Sportage dès 640 DH. Livraison gratuite aéroport et gare, 3 jours minimum, demande sur WhatsApp.',
+    heading: 'Location de SUV à Casablanca dès 380 DH/jour',
+    intro: 'Un SUV pour les routes du Maroc, la famille et les bagages ? Le Dacia Duster est proposé dès 380 DH par jour, en boîte manuelle ou automatique ; le Hyundai Tucson, le Kia Sportage et le VW T-Roc offrent plus de confort. Comparez les modèles, puis demandez le prix de votre séjour sur WhatsApp.',
+    models: ['dacia-duster', 'hyundai-tucson', 'kia-sportage', 'vw-t-roc'],
+    audience: tourismAudience,
+    exclusions: tourismExclusions,
+    relatedLinks: rentalJourneyLinks,
+    sections: [
+      { title: 'Pourquoi choisir un SUV', text: 'Plus de place pour les passagers et les valises, une position de conduite haute et un meilleur confort sur les routes secondaires. Pour un trajet en famille depuis l’aéroport Mohammed V ou un circuit au départ de Casablanca, c’est le choix le plus courant.' },
+      { title: 'Duster, Tucson ou Sportage ?', text: 'Le Duster est le SUV le plus abordable, dès 380 DH par jour. Le Tucson et le Sportage, dès 640 DH, sont automatiques et plus spacieux. Indiquez le nombre de passagers et de bagages dans votre demande : le loueur vous oriente vers le modèle adapté.' },
+    ],
+    faqs: [
+      { question: 'Combien coûte la location d’un SUV à Casablanca ?', answer: 'À partir de 380 DH par jour pour un Dacia Duster et dès 640 DH pour un Hyundai Tucson ou un Kia Sportage, hors haute saison, pour trois jours minimum.' },
+      { question: 'Existe-t-il des SUV automatiques ?', answer: 'Oui : le Duster en version automatique, le Tucson, le Sportage et le T-Roc. Précisez la boîte souhaitée dans votre demande.' },
+      { question: 'Le SUV peut-il m’attendre à l’aéroport ?', answer: 'Oui, la remise est gratuite à l’aéroport Mohammed V et dans les gares desservies, à un point convenu à l’avance avec le loueur.' },
+    ],
+  },
+  family: {
+    path: '/location-voiture-7-places-casablanca',
+    title: 'Location voiture 7 places et familiale Casablanca dès 380 DH/jour | Benatna',
+    description: 'Location de voiture 7 places à Casablanca : Dacia Jogger dès 380 DH/jour. SUV familiaux Duster, Tucson et Sportage. Livraison gratuite à l’aéroport Mohammed V, 3 jours minimum.',
+    heading: 'Location de voiture 7 places et familiale à Casablanca',
+    intro: 'Vous arrivez à plusieurs, avec les enfants et les valises ? Le Dacia Jogger 7 places est proposé dès 380 DH par jour. Pour cinq passagers avec beaucoup de bagages, comparez aussi le Duster, le Tucson et le Sportage. La voiture vous attend à l’aéroport ou en gare, sans frais de livraison.',
+    models: ['dacia-jogger', 'dacia-duster', 'hyundai-tucson', 'kia-sportage'],
+    audience: tourismAudience,
+    exclusions: tourismExclusions,
+    relatedLinks: rentalJourneyLinks,
+    sections: [
+      { title: 'Le Dacia Jogger 7 places', text: 'Trois rangées de sièges pour sept personnes. Avec tous les sièges occupés, le coffre devient plus petit : pour sept passagers et de grosses valises, précisez le nombre de bagages dans votre demande pour que le loueur confirme que tout rentre.' },
+      { title: 'Préparer une arrivée en famille', text: 'Indiquez votre heure d’arrivée, le nombre d’adultes et d’enfants et le nombre de valises. Si vous avez besoin d’un siège enfant, demandez-le au loueur : la disponibilité et le prix éventuel sont confirmés avant votre accord.' },
+    ],
+    faqs: [
+      { question: 'Quel est le prix d’une voiture 7 places à Casablanca ?', answer: 'Le Dacia Jogger 7 places est proposé à partir de 380 DH par jour hors haute saison, pour trois jours minimum.' },
+      { question: 'Proposez-vous des vans 9 places ?', answer: 'Non. Benatna propose uniquement des voitures de tourisme ; la plus grande capacité est le Dacia Jogger 7 places.' },
+      { question: 'La livraison à l’aéroport est-elle gratuite ?', answer: 'Oui, à l’aéroport Mohammed V et dans les gares desservies de Casablanca.' },
+    ],
+  },
+  week: {
+    path: '/location-voiture-semaine-casablanca',
+    title: 'Location voiture 1 semaine Casablanca dès 1 750 DH | Benatna',
+    description: 'Louez une voiture une semaine à Casablanca : Dacia Sandero dès 1 750 DH les 7 jours, Duster dès 2 660 DH. Livraison gratuite aéroport et gare, demande sur WhatsApp.',
+    heading: 'Location de voiture pour une semaine à Casablanca',
+    intro: 'Une semaine de vacances à Casablanca ou au Maroc ? Voici le prix de départ pour 7 jours, modèle par modèle : dès 1 750 DH pour une Dacia Sandero, 2 660 DH pour un Duster ou un Jogger 7 places. Envoyez vos dates sur WhatsApp pour recevoir le prix total confirmé par le loueur.',
+    models: ['dacia-sandero', 'dacia-logan', 'renault-clio', 'dacia-duster', 'dacia-jogger', 'hyundai-tucson'],
+    weekly: true,
+    audience: tourismAudience,
+    exclusions: tourismExclusions,
+    relatedLinks: rentalJourneyLinks,
+    sections: [
+      { title: 'Ce que comprend le prix à la semaine', text: 'Le prix affiché correspond à sept jours au tarif de départ, hors juillet-août et hors périodes de fêtes. La livraison à l’aéroport Mohammed V et dans les gares desservies est gratuite. La caution est séparée du prix et vous est précisée par le loueur avant votre accord.' },
+      { title: 'Prolonger ou raccourcir', text: 'Vous pouvez demander de trois jours à plusieurs semaines. À partir de 15 jours, le tarif journalier baisse légèrement. Pour prolonger pendant le séjour, prévenez le loueur à l’avance afin qu’il confirme la disponibilité de la voiture.' },
+    ],
+    faqs: [
+      { question: 'Combien coûte une voiture pour une semaine à Casablanca ?', answer: 'À partir de 1 750 DH pour 7 jours avec une Dacia Sandero ou Logan, 2 660 DH avec un Duster ou un Jogger 7 places, hors haute saison.' },
+      { question: 'Peut-on louer pour un week-end ?', answer: 'La durée minimum est de trois jours. Un week-end de deux jours ne peut pas être demandé.' },
+      { question: 'Comment réserver ?', answer: 'Par WhatsApp : envoyez vos dates, le modèle souhaité et votre lieu d’arrivée. Le loueur confirme la disponibilité et le prix total. Aucun paiement en ligne.' },
+    ],
+  },
 };
