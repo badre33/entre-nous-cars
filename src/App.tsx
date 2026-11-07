@@ -86,6 +86,10 @@ const PrixLocationVoiture2026 = lazy(() => import("./pages/PrixLocationVoiture20
 
 // Sprint $38k — Pages keywords concurrents
 const LocationVoitureAutomatiqueCasablanca = lazy(() => import("./pages/LocationVoitureAutomatiqueCasablanca"));
+const LocationVoiturePasCherCasablanca = lazy(() => import("./pages/LocationVoiturePasCherCasablanca"));
+const LocationSuvCasablanca = lazy(() => import("./pages/LocationSuvCasablanca"));
+const LocationVoiture7PlacesCasablanca = lazy(() => import("./pages/LocationVoiture7PlacesCasablanca"));
+const LocationVoitureSemaineCasablanca = lazy(() => import("./pages/LocationVoitureSemaineCasablanca"));
 const LocationVoitureAutomatiqueMarrakech = lazy(() => import("./pages/LocationVoitureAutomatiqueMarrakech"));
 const CautionLocationVoitureMaroc = lazy(() => import("./pages/CautionLocationVoitureMaroc"));
 const LocationVoitureGareOncfMaroc = lazy(() => import("./pages/LocationVoitureGareOncfMaroc"));
@@ -348,6 +352,10 @@ const App = () => {
                     <Route path="/location-voiture-souissi-rabat" element={<LocationSouissiRabat />} />
                     <Route path="/prix-location-voiture-maroc-2026" element={<PrixLocationVoiture2026 />} />
                     <Route path="/location-voiture-automatique-casablanca" element={<LocationVoitureAutomatiqueCasablanca />} />
+                    <Route path="/location-voiture-pas-cher-casablanca" element={<LocationVoiturePasCherCasablanca />} />
+                    <Route path="/location-suv-casablanca" element={<LocationSuvCasablanca />} />
+                    <Route path="/location-voiture-7-places-casablanca" element={<LocationVoiture7PlacesCasablanca />} />
+                    <Route path="/location-voiture-semaine-casablanca" element={<LocationVoitureSemaineCasablanca />} />
                     <Route path="/location-voiture-automatique-marrakech" element={<LocationVoitureAutomatiqueMarrakech />} />
                     <Route path="/caution-location-voiture-maroc" element={<CautionLocationVoitureMaroc />} />
                     <Route path="/location-voiture-gare-oncf-maroc" element={<LocationVoitureGareOncfMaroc />} />
