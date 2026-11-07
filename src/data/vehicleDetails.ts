@@ -384,7 +384,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "dacia-sandero": {
     slug: "dacia-sandero", name: "Dacia Sandero", brand: "Dacia",
-    category: "Citadine Économique", priceFrom: 300, priceDisplay: "300 MAD/jour",
+    category: "Citadine Économique", priceFrom: 250, priceDisplay: "250 MAD/jour",
     photos: [carSandero],
     description: "La Dacia Sandero est la citadine la plus vendue en Europe et au Maroc. Confortable, fiable, économique. Le choix #1 des familles MRE budget-conscious.",
     options: { transmission: "Manuelle 5", seats: 5, doors: 5, luggage: "320L", fuel: "Essence", consumption: "5.8L/100km", enginePower: "90 ch", airConditioning: true, bluetooth: true, gps: false, cruiseControl: true, parkingSensors: false, rearCamera: false, sunroof: false, leatherSeats: false, keyless: false, androidAuto: true, appleCarPlay: true, isofix: true },
@@ -392,7 +392,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "dacia-logan": {
     slug: "dacia-logan", name: "Dacia Logan", brand: "Dacia",
-    category: "Berline Économique", priceFrom: 300, priceDisplay: "300 MAD/jour",
+    category: "Berline Économique", priceFrom: 250, priceDisplay: "250 MAD/jour",
     photos: [carLogan],
     description: "La Dacia Logan offre l'espace d'une berline pour le prix d'une citadine. Idéale pour les longs trajets et les familles MRE.",
     options: { transmission: "Manuelle 5", seats: 5, doors: 4, luggage: "510L", fuel: "Essence", consumption: "5.5L/100km", airConditioning: true, bluetooth: true, isofix: true, androidAuto: true, appleCarPlay: true },
@@ -400,7 +400,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "dacia-sandero-stepway": {
     slug: "dacia-sandero-stepway", name: "Dacia Sandero Stepway", brand: "Dacia",
-    category: "Crossover Économique", priceFrom: 300, priceDisplay: "300 MAD/jour",
+    category: "Crossover Économique", priceFrom: 250, priceDisplay: "250 MAD/jour",
     photos: [carStepway],
     description: "La Sandero Stepway combine l'esprit baroudeur d'un crossover avec le budget d'une citadine.",
     options: { transmission: "Manuelle 5", seats: 5, doors: 5, luggage: "328L", fuel: "Essence", airConditioning: true, bluetooth: true, isofix: true, androidAuto: true, appleCarPlay: true },

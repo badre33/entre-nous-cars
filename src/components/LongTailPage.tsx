@@ -136,7 +136,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       
       {/* Quick Wins SEO: Price Range pour affichage prix dans Google */}
       {!config.rentalJourney && <PriceRangeOfferSchema
-        minPrice="300"
+        minPrice="250"
         maxPrice="900"
         city={config.slug.includes('casablanca') ? 'Casablanca' : 
               config.slug.includes('marrakech') ? 'Marrakech' : 
