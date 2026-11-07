@@ -4,7 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from '@/components/ui/button';
 import { pickupPoints } from '@/data/pickupPoints';
 import { rentalVehicleNames, rentalVehicleSlugs } from '@/data/rentalVehicleNames';
-import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, normalizeVehicleName, validateRental, rentalPlace, openConfirmedRental, type RentalDraft, type ConfirmedRental } from '@/utils/rentalRequest';
+import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, normalizeVehicleName, validateRental, rentalPlace, openConfirmedRental, openDirectWhatsApp, directWhatsAppText, type RentalDraft, type ConfirmedRental } from '@/utils/rentalRequest';
 const empty = (): ConfirmedRental => ({ vehicles: [], startDate: '', endDate: '', city: 'Casablanca', pickupId: '', otherPlace: '' });
 const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-background px-3 py-2 text-base';
 export default function RentalRequestDialog() {
@@ -51,6 +51,10 @@ export default function RentalRequestDialog() {
   return <Dialog open={open} onOpenChange={next => { setOpen(next); if (!next) { setValue(empty()); setError(null); } }}>
     <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto overscroll-contain [&_button]:whitespace-normal [&_button]:h-auto [&_button]:min-h-11">
       <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1}>{review ? 'Vérifiez votre demande' : 'Préparer ma demande de location'}</DialogTitle><DialogDescription>Renseignez les dates, le véhicule et le lieu de prise en charge avant d’ouvrir WhatsApp. Le loueur confirmera ensuite la disponibilité et le tarif.</DialogDescription></DialogHeader>
+      {!review && <div className="rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 p-3 text-sm">
+        <p className="mb-2">Pas encore de dates précises ou une simple question ?</p>
+        <Button type="button" className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={() => { openDirectWhatsApp(directWhatsAppText(value.vehicles)); setOpen(false); setValue(empty()); }}>Écrire directement sur WhatsApp</Button>
+      </div>}
       <form onSubmit={submit} className="min-w-0 space-y-4">
         {error && <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-destructive">{error.message}</p>}
         {!review ? <>
