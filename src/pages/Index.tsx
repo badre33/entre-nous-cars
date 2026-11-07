@@ -39,17 +39,17 @@ const heroImageWebp = "/hero-home-new.webp";
 // Metas multilingues de la page d'accueil (FR canonique, EN /en, ES /es)
 const HOME_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
-    title: "Benatna | Louer une voiture à Casablanca dès 250 DH/jour",
+    title: "Benatna | Louer une voiture de tourisme à Casablanca",
     desc: "Des loueurs basés à Casablanca pour vos séjours et vacances. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, à confirmer. Minimum trois jours, maximum six mois.",
     url: "https://benatna.ma/",
   },
   en: {
-    title: "Benatna | Rent a car in Casablanca from 250 MAD/day",
+    title: "Benatna | Rent a tourist car in Casablanca",
     desc: "Casablanca-based agencies for your holidays and stays. City or Mohammed V Airport pickup. Rabat delivery on request, subject to confirmation. Minimum three days, maximum six months.",
     url: "https://benatna.ma/en",
   },
   es: {
-    title: "Benatna | Alquila un coche en Casablanca desde 250 MAD/día",
+    title: "Benatna | Alquila un coche turístico en Casablanca",
     desc: "Agencias en Casablanca para vacaciones y estancias. Recogida en ciudad o aeropuerto Mohammed V. Rabat bajo petición y confirmación. Mínimo tres días, máximo seis meses.",
     url: "https://benatna.ma/es",
   },
