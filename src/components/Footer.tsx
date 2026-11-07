@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { AD_PREFERENCES_EVENT } from '@/utils/metaMeasurement';
 
 const Footer = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   return (
     <footer className="w-full border-t border-border bg-card mt-20">
@@ -96,7 +96,7 @@ const Footer = () => {
           <div className="flex justify-center gap-4 flex-wrap">
             <Link to="/prise-en-charge-casablanca-rabat">Gares et aéroports</Link>
             <Link to="/location-voiture-casablanca">Casablanca</Link>
-            <Link to="/location-voiture-aeroport-casablanca">Aéroport Mohammed V</Link>
+            <Link to={language === "en" ? "/en/car-rental-casablanca-airport" : language === "es" ? "/es/alquiler-coche-aeropuerto-casablanca" : "/location-voiture-aeroport-casablanca"}>{language === "en" ? "Casablanca airport car rental" : language === "es" ? "Alquiler aeropuerto Casablanca" : "Aéroport Mohammed V"}</Link>
             <Link to="/louer?city=Rabat">Demander une livraison à Rabat</Link>
           </div>
         </div>

@@ -275,6 +275,11 @@
     "priority": "0.8"
   },
   {
+    "path": "/en/car-rental-casablanca-airport",
+    "changefreq": "weekly",
+    "priority": "0.9"
+  },
+  {
     "path": "/es",
     "changefreq": "weekly",
     "priority": "0.9"
@@ -303,6 +308,11 @@
     "path": "/es/blog",
     "changefreq": "weekly",
     "priority": "0.8"
+  },
+  {
+    "path": "/es/alquiler-coche-aeropuerto-casablanca",
+    "changefreq": "weekly",
+    "priority": "0.9"
   },
   {
     "path": "/blog/budget-location-maroc",
