@@ -276,6 +276,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://benatna.ma/en/car-rental-casablanca-airport</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://benatna.ma/es</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -304,6 +309,11 @@
     <loc>https://benatna.ma/es/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://benatna.ma/es/alquiler-coche-aeropuerto-casablanca</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://benatna.ma/blog/budget-location-maroc</loc>

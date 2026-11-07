@@ -64,6 +64,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
     ],
   },
   airport: {
+    alternates: { fr: '/location-voiture-aeroport-casablanca', en: '/en/car-rental-casablanca-airport', es: '/es/alquiler-coche-aeropuerto-casablanca' },
     relatedLinks: rentalJourneyLinks,
     showModelComparison: true,
     pickupId: 'cmn',

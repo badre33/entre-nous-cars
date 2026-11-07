@@ -77,6 +77,8 @@ export const analyticsPaths = new Set([
   "/location-voiture-ain-diab-casablanca",
   "/location-voiture-anfa-casablanca",
   "/location-voiture-automatique-casablanca",
+  "/en/car-rental-casablanca-airport",
+  "/es/alquiler-coche-aeropuerto-casablanca",
   "/location-voiture-pas-cher-casablanca",
   "/location-suv-casablanca",
   "/location-voiture-7-places-casablanca",

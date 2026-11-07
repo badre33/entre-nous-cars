@@ -86,6 +86,8 @@ const PrixLocationVoiture2026 = lazy(() => import("./pages/PrixLocationVoiture20
 
 // Sprint $38k — Pages keywords concurrents
 const LocationVoitureAutomatiqueCasablanca = lazy(() => import("./pages/LocationVoitureAutomatiqueCasablanca"));
+const CarRentalCasablancaAirportEn = lazy(() => import("./pages/CarRentalCasablancaAirportEn"));
+const CarRentalCasablancaAirportEs = lazy(() => import("./pages/CarRentalCasablancaAirportEs"));
 const LocationVoiturePasCherCasablanca = lazy(() => import("./pages/LocationVoiturePasCherCasablanca"));
 const LocationSuvCasablanca = lazy(() => import("./pages/LocationSuvCasablanca"));
 const LocationVoiture7PlacesCasablanca = lazy(() => import("./pages/LocationVoiture7PlacesCasablanca"));
@@ -314,12 +316,14 @@ const App = () => {
                     <Route path="/en/a-propos" element={<LangRoute lang="en"><APropos /></LangRoute>} />
                     <Route path="/en/partenaires" element={<LangRoute lang="en"><Partenaires /></LangRoute>} />
                     <Route path="/en/blog" element={<LangRoute lang="en"><Blog /></LangRoute>} />
+                    <Route path="/en/car-rental-casablanca-airport" element={<CarRentalCasablancaAirportEn />} />
                     <Route path="/es" element={<LangRoute lang="es"><Index /></LangRoute>} />
                     <Route path="/es/louer" element={<LangRoute lang="es"><Louer /></LangRoute>} />
                     <Route path="/es/contact" element={<LangRoute lang="es"><Contact /></LangRoute>} />
                     <Route path="/es/a-propos" element={<LangRoute lang="es"><APropos /></LangRoute>} />
                     <Route path="/es/partenaires" element={<LangRoute lang="es"><Partenaires /></LangRoute>} />
                     <Route path="/es/blog" element={<LangRoute lang="es"><Blog /></LangRoute>} />
+                    <Route path="/es/alquiler-coche-aeropuerto-casablanca" element={<CarRentalCasablancaAirportEs />} />
                     <Route path="/prise-en-charge-casablanca-rabat" element={<PickupGuide />} />
                     <Route path="/faq" element={<FAQ />} />
                     <Route path="/glossaire" element={<Glossaire />} />

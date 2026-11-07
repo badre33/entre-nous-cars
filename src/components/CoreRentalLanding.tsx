@@ -24,6 +24,7 @@ export interface CoreRentalContent {
   exclusions?: string;
   models?: string[];
   weekly?: boolean;
+  alternates?: { fr: string; en: string; es: string };
 }
 
 export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
@@ -42,6 +43,10 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
       <meta name="description" content={content.description} />
       <meta name="robots" content="index,follow" />
       <link rel="canonical" href={`https://benatna.ma${content.path}`} />
+      {content.alternates && <link rel="alternate" hrefLang="fr" href={`https://benatna.ma${content.alternates.fr}`} />}
+      {content.alternates && <link rel="alternate" hrefLang="en" href={`https://benatna.ma${content.alternates.en}`} />}
+      {content.alternates && <link rel="alternate" hrefLang="es" href={`https://benatna.ma${content.alternates.es}`} />}
+      {content.alternates && <link rel="alternate" hrefLang="x-default" href={`https://benatna.ma${content.alternates.fr}`} />}
       <meta property="og:title" content={content.title} />
       <meta property="og:description" content={content.description} />
       <meta property="og:url" content={`https://benatna.ma${content.path}`} />
@@ -52,6 +57,7 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
     <Header />
     <main className="container max-w-5xl px-4 sm:px-6 py-8 md:py-16 space-y-8 md:space-y-10">
       <nav aria-label="Fil d’Ariane"><Link to="/">Benatna</Link> / Casablanca</nav>
+      {content.alternates && <p className="text-sm">Also in <Link lang="en" hrefLang="en" className="underline" to={content.alternates.en}>English</Link> · También en <Link lang="es" hrefLang="es" className="underline" to={content.alternates.es}>español</Link></p>}
       <section className="space-y-5">
         <h1 className="text-3xl md:text-5xl font-semibold">{content.heading}</h1>
         <p className="text-lg">{content.intro}</p>
