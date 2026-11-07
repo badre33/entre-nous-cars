@@ -19,19 +19,44 @@ const rentalJourneyLinks = [
 ];
 
 
+const tourismPriceRows = [
+  { category: 'Citadine', models: 'Dacia Sandero, Sandero Stepway', from: 250 },
+  { category: 'Berline', models: 'Dacia Logan', from: 250 },
+  { category: 'SUV', models: 'Dacia Duster, manuelle ou automatique', from: 380 },
+  { category: 'Familiale 7 places', models: 'Dacia Jogger', from: 380 },
+];
+
+const tourismAudience = [
+  { title: 'MRE en vacances au pays', text: 'Vous atterrissez à Mohammed V avec la famille et les valises : la voiture vous attend à l’aéroport, sans frais de livraison, pour toute la durée de votre séjour.' },
+  { title: 'Touristes et voyageurs', text: 'Visitez Casablanca et ses environs à votre rythme. Citadine pour la ville, SUV ou 7 places pour les trajets à plusieurs.' },
+  { title: 'Résidents au Maroc', text: 'Un séjour en famille, des invités à transporter, une voiture en panne : même service et mêmes prix, à partir de trois jours.' },
+];
+
+const tourismExclusions = 'Benatna propose uniquement des voitures de tourisme : pas de van, d’utilitaire, de minibus, de voiture de mariage ni de location professionnelle.';
+
 export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'casaVoyageurs' | 'automatic' | 'railway', CoreRentalContent> = {
   casablanca: {
     relatedLinks: rentalJourneyLinks,
     showModelComparison: true,
     path: '/location-voiture-casablanca',
-    title: 'Location de voiture à Casablanca, minimum 3 jours | Benatna',
-    description: 'Voitures classiques pour votre séjour à Casablanca. Minimum 3 jours, maximum 6 mois. Livraison gratuite aux gares et aéroports desservis. Rabat sur demande.',
-    heading: 'Location de voiture à Casablanca pour votre séjour',
-    intro: 'Vous arrivez pour des vacances, un retour au pays ou un séjour personnel ? Benatna vous permet de préparer une demande auprès de loueurs basés à Casablanca, puis de confirmer avec eux une voiture adaptée à votre séjour.',
+    title: 'Location voiture Casablanca dès 250 DH/jour | Benatna',
+    description: 'Louez une voiture à Casablanca dès 250 DH/jour pour vos vacances : citadine, berline, SUV ou 7 places. Livraison gratuite à l’aéroport Mohammed V et en gare. 3 jours minimum, réponse sur WhatsApp.',
+    heading: 'Location de voiture à Casablanca dès 250 DH/jour',
+    intro: 'Vous arrivez à Casablanca pour les vacances, pour voir la famille ou pour découvrir le Maroc ? Benatna interroge des loueurs basés à Casablanca et vous trouve une voiture de tourisme à partir de 250 DH par jour. Envoyez vos dates sur WhatsApp, recevez une proposition, puis récupérez la voiture à l’aéroport ou en gare sans frais de livraison.',
+    priceRows: tourismPriceRows,
+    audience: tourismAudience,
+    exclusions: tourismExclusions,
     sections: [
-      { title: 'Choisir une voiture de tourisme classique', text: 'Comparez les modèles du catalogue selon le nombre de passagers, les bagages et la transmission souhaitée. Une citadine peut convenir aux déplacements en ville ; une berline ou un SUV classique peut offrir davantage de place. Les modèles et prix journaliers affichés sont indicatifs : ils ne prouvent pas une disponibilité pour vos dates.' },
-      { title: 'Organiser votre arrivée à Casablanca', text: 'La livraison est gratuite aux points desservis, notamment l’aéroport Mohammed V et les gares indiquées dans notre guide. Transmettez votre point d’arrivée avant le départ pour convenir du rendez-vous avec le loueur. La présence d’un point dans le guide ne signifie pas que Benatna y possède une agence ou un comptoir.' },
-      { title: 'Recevoir une proposition pour vos dates', text: 'Choisissez une période de trois jours à six mois calendaires. Votre demande WhatsApp sert à préciser vos besoins ; le loueur vérifie le modèle, le tarif final et ses conditions. Il n’y a ni paiement en ligne sur Benatna ni réservation automatiquement confirmée en cliquant sur WhatsApp.' },
+      { title: 'Comment se passe votre location', text: 'Choisissez un ou plusieurs modèles et vos dates dans le catalogue, puis envoyez votre demande sur WhatsApp. Le loueur vous confirme le modèle, le prix total, la caution et les documents à prévoir. Vous recevez la voiture au point convenu : aéroport Mohammed V, gare Casa-Voyageurs, Casa-Port ou un autre point desservi, sans frais de livraison.' },
+      { title: 'Ce qui fait le prix', text: 'Les prix de départ s’appliquent hors périodes de forte demande. En juillet-août et autour des fêtes (Aïd, fin d’année), le tarif journalier augmente ; à partir de 15 jours, il baisse légèrement. Le loueur confirme le montant total de votre période avant tout accord. La caution est séparée du prix de location et vous est précisée à l’avance.' },
+      { title: 'En famille : SUV et 7 places', text: 'Pour une famille avec bagages, comparez le Dacia Duster et le Dacia Jogger 7 places, dès 380 DH par jour. Indiquez le nombre de passagers et de valises dans votre demande : le loueur vous oriente vers le modèle adapté.' },
+    ],
+    faqs: [
+      { question: 'Quel est le prix d’une location de voiture à Casablanca ?', answer: 'À partir de 250 DH par jour pour une citadine ou une berline (Dacia Sandero, Logan) et dès 380 DH pour un SUV ou un 7 places, hors haute saison. Le loueur confirme le prix total pour vos dates.' },
+      { question: 'Quelle est la durée minimum ?', answer: 'Trois jours. Un week-end de deux jours ne peut pas être demandé.' },
+      { question: 'La livraison à l’aéroport est-elle payante ?', answer: 'Non. La remise de la voiture est gratuite à l’aéroport Mohammed V et dans les gares desservies de Casablanca. Le lieu et l’heure sont convenus à l’avance avec le loueur.' },
+      { question: 'Comment réserver ?', answer: 'Par WhatsApp : indiquez vos dates, le modèle souhaité et votre lieu d’arrivée. Il n’y a pas de paiement en ligne ; la location est confirmée après l’accord du loueur et le vôtre.' },
+      { question: 'Proposez-vous des vans ou de la location professionnelle ?', answer: 'Non. Benatna propose uniquement des voitures de tourisme pour des séjours personnels : pas de van, d’utilitaire, de minibus, de voiture de mariage ni de location professionnelle.' },
     ],
   },
   airport: {
@@ -39,15 +64,23 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
     showModelComparison: true,
     pickupId: 'cmn',
     path: '/location-voiture-aeroport-casablanca',
-    title: 'Location voiture aéroport Casablanca Mohammed V, 3 jours minimum | Benatna',
-    description: 'Préparez votre voiture à l’aéroport Mohammed V de Casablanca. Livraison gratuite convenue à l’avance. Minimum 3 jours, maximum 6 mois. Demande WhatsApp.',
-    heading: 'Location de voiture à l’aéroport Casablanca Mohammed V',
-    intro: 'Pour une arrivée à Casablanca, préparez votre demande avant le voyage : dates de location, modèle souhaité, passagers et bagages. Le loueur confirme la disponibilité puis organise avec vous le point de rendez-vous à Mohammed V.',
+    title: 'Location voiture aéroport Casablanca Mohammed V dès 250 DH/jour | Benatna',
+    description: 'Votre voiture de location livrée gratuitement à l’aéroport Mohammed V de Casablanca, dès 250 DH/jour. Citadine, SUV ou 7 places pour vos vacances. 3 jours minimum, demande sur WhatsApp.',
+    heading: 'Location de voiture à l’aéroport Mohammed V de Casablanca dès 250 DH/jour',
+    intro: 'Vous atterrissez à Casablanca avec la famille et les valises ? Envoyez vos dates et votre vol sur WhatsApp avant de partir : un loueur basé à Casablanca vous attend à l’aéroport Mohammed V avec la voiture, sans frais de livraison. Citadine dès 250 DH par jour, SUV et 7 places dès 380 DH.',
+    priceRows: tourismPriceRows,
+    audience: tourismAudience,
+    exclusions: tourismExclusions,
     sections: [
-      { title: 'Un rendez-vous convenu avant votre arrivée', text: 'La livraison à l’aéroport desservi est gratuite. Échangez avec le loueur pour préciser votre arrivée et le lieu de rencontre avant le déplacement. En cas de changement de voyage, contactez-le pour adapter l’organisation. Le point précis de remise du véhicule et les modalités du retour sont fixés avec lui avant votre accord.' },
-      { title: 'Prix et caution pour une location à Mohammed V', text: 'Le prix journalier du catalogue sert de repère : transmettez les dates de départ et de retour pour obtenir le tarif de toute la période. La livraison aux points desservis est gratuite. La caution est distincte du prix de location : son montant, le moyen de dépôt et les conditions de restitution sont précisés par le loueur avant votre accord. Benatna ne propose pas de paiement en ligne.' },
-      { title: 'Une voiture adaptée à votre séjour', text: 'Le catalogue présente des voitures de tourisme classiques. Comparez leur capacité et le type de boîte, puis faites confirmer le modèle et les conditions pour vos dates. La location dure au minimum trois jours et au maximum six mois calendaires. Les prix journaliers restent indicatifs jusqu’à la proposition du loueur.' },
-      { title: 'Préparer la prise en charge et le retour', text: 'Le loueur vous précise les documents, la caution, les conditions contractuelles et l’organisation du retour avant votre accord. La demande WhatsApp ne remplace pas cette confirmation. Consultez le guide commun si votre arrivée se fait finalement dans une gare de Casablanca, ou si vous souhaitez demander une livraison à Rabat depuis Casablanca.' },
+      { title: 'Une voiture qui vous attend à l’arrivée', text: 'Indiquez votre date et votre heure d’arrivée dans votre demande. Le loueur convient avec vous du point de rendez-vous à l’aéroport Mohammed V. En cas de retard ou de changement de vol, prévenez-le sur WhatsApp pour adapter la remise.' },
+      { title: 'Ce qui fait le prix', text: 'Les prix de départ s’appliquent hors périodes de forte demande. En juillet-août et autour des fêtes, le tarif journalier augmente. La livraison à l’aéroport est gratuite. Le loueur confirme le prix total, la caution et les documents avant votre accord.' },
+      { title: 'Retour de la voiture', text: 'Vous rendez la voiture à l’aéroport avant votre vol retour, ou à un autre point desservi de Casablanca convenu avec le loueur. Précisez votre date et votre heure de départ dès la demande.' },
+    ],
+    faqs: [
+      { question: 'Combien coûte une voiture de location à l’aéroport de Casablanca ?', answer: 'À partir de 250 DH par jour pour une citadine ou une berline et dès 380 DH pour un SUV ou un 7 places, hors haute saison. La livraison à l’aéroport est gratuite.' },
+      { question: 'Y a-t-il un comptoir Benatna à l’aéroport ?', answer: 'Non. Le loueur vous retrouve à un point de rendez-vous convenu à l’avance : pas de file d’attente au comptoir.' },
+      { question: 'Quelle est la durée minimum ?', answer: 'Trois jours.' },
+      { question: 'Comment réserver avant mon vol ?', answer: 'Par WhatsApp : envoyez vos dates, votre heure d’arrivée et le modèle souhaité. Le loueur vous confirme la disponibilité et le prix total. Aucun paiement en ligne.' },
     ],
   },
   longStay: {
