@@ -42,7 +42,7 @@ export const rentalAudiencePages: Record<'mre' | 'faq', LongTailPageConfig> = {
         { title: 'Un séjour prolongé ou une livraison à Rabat', content: 'Pour plusieurs semaines ou mois, demandez un tarif couvrant vos dates, sans supposer un forfait mensuel. Le retour se convient à l’avance. Une livraison gratuite à Rabat peut être étudiée depuis Casablanca selon la disponibilité du loueur ; choisissez le lieu exact avant votre accord.' },
       ], faq: [questions[0], questions[1], questions[4], questions[6]],
     },
-    relatedPages: [{ title: 'Voitures automatiques à Casablanca', link: '/location-voiture-automatique-casablanca' }, { title: 'Location au mois pour votre séjour', link: '/location-longue-duree-casablanca' }],
+    relatedPages: [{ title: 'Voitures automatiques à Casablanca', link: '/location-voiture-automatique-casablanca' }, { title: 'Location au mois pour votre séjour', link: '/location-voiture-casablanca' }],
   },
   faq: {
     slug: 'louer-voiture-maroc-faq-complete', title: 'Questions avant une location à Casablanca',

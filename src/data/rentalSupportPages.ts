@@ -52,7 +52,7 @@ export const rentalSupportPages: Record<'prices' | 'deposit', LongTailPageConfig
     },
     relatedServices: [
       { title: 'Comprendre la caution', description: 'Les questions à poser au loueur avant votre accord.', link: '/caution-location-voiture-maroc' },
-      { title: 'Location au mois à Casablanca', description: 'Préparer un séjour personnel jusqu’à six mois.', link: '/location-longue-duree-casablanca' },
+      { title: 'Location de voiture à Casablanca', description: 'Préparer un séjour personnel jusqu’à six mois.', link: '/location-voiture-casablanca' },
       { title: 'Livraison : gares et aéroports', description: 'Choisir un lieu desservi et préparer la remise du véhicule.', link: '/prise-en-charge-casablanca-rabat' },
     ],
     relatedPages: [

@@ -60,7 +60,7 @@ export const reviewedRentalBlogs: Record<string, ReviewedRentalBlog> = {
       'Préparez une arrivée à [Mohammed V](/location-voiture-aeroport-casablanca), en [gare de Casablanca](/location-voiture-gare-oncf-maroc), ou consultez le [guide des lieux desservis](/prise-en-charge-casablanca-rabat).',
       '## 2. Comparer les modèles et le budget',
       'Indiquez les passagers, les bagages et votre préférence de transmission. Vous pouvez sélectionner jusqu’à trois modèles dans une demande. Comparez le tarif pour la même période et faites confirmer le véhicule, la version et les équipements utiles.',
-      'Les [repères de prix](/prix-location-voiture-maroc-2026) et la page [séjour au mois](/location-longue-duree-casablanca) vous aident à préparer les questions. Aucun forfait ou rabais uniforme n’est garanti par cet article.',
+      'Les [repères de prix](/prix-location-voiture-maroc-2026) et la page [location à Casablanca](/location-voiture-casablanca) vous aident à préparer les questions. Aucun forfait ou rabais uniforme n’est garanti par cet article.',
       '## 3. Vérifier le dossier et le contrat',
       'Demandez au loueur les critères des conducteurs et les documents requis. Vérifiez votre situation auprès des autorités compétentes lorsque des règles de permis ou de séjour vous concernent. Faites préciser le règlement, la caution, le kilométrage, les garanties, la franchise et les contacts d’assistance prévus au contrat.',
       '## 4. Préparer la remise et le retour',

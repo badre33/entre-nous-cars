@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 const base = process.env.TEST_BASE || 'http://127.0.0.1:4319';
 const output = process.env.TEST_OUTPUT_DIR || '/tmp/benatna-second-lot';
-const paths = ['/location-voiture-automatique-casablanca', '/location-longue-duree-casablanca', '/location-voiture-gare-casa-voyageurs', '/location-voiture-gare-oncf-maroc'];
+const paths = ['/location-voiture-automatique-casablanca', '/location-voiture-gare-casa-voyageurs', '/location-voiture-gare-oncf-maroc'];
 await fs.mkdir(output, {recursive:true});
 const browser = await chromium.launch({headless:true, executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 const checks = [];
