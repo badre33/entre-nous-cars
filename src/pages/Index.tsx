@@ -184,7 +184,7 @@ const Index = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 animate-fade-in [animation-delay:300ms] px-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <span className="text-sm sm:text-base">💰</span>
-              <span>Dès <strong>300 DH</strong>/jour · minimum trois jours</span>
+              <span>Dès <strong>250 DH</strong>/jour · minimum trois jours</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <span className="text-sm sm:text-base">💳</span>

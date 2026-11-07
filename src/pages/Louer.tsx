@@ -351,8 +351,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Citadine",
-    price: 300,
-    priceDisplay: "300 MAD",
+    price: 250,
+    priceDisplay: "250 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -361,8 +361,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Berline",
-    price: 300,
-    priceDisplay: "300 MAD",
+    price: 250,
+    priceDisplay: "250 MAD",
     conditions: generateConditions(21)
   },
   {
@@ -371,8 +371,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Citadine",
-    price: 300,
-    priceDisplay: "300 MAD",
+    price: 250,
+    priceDisplay: "250 MAD",
     conditions: ["Caution: 4200 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
   },
   {
