@@ -1,4 +1,4 @@
-import { requestRental } from '@/utils/rentalRequest';
+import { DIRECT_WHATSAPP_URL, openDirectWhatsApp } from '@/utils/rentalRequest';
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,11 +24,12 @@ const contactSchema = z.object({
     .max(100, { message: "Le nom ne peut pas dépasser 100 caractères" }),
   tel: z.string()
     .trim()
-    .regex(/^(\+212|0)[5-7]\d{8}$/, { message: "Numéro de téléphone marocain invalide" }),
-  email: z.string()
+    // D022 : numéros marocains et étrangers acceptés (MRE en France, Belgique, Canada…)
+    .regex(/^\+?[0-9][0-9 ().-]{7,19}$/, { message: "Numéro de téléphone invalide" }),
+  email: z.union([z.literal(""), z.string()
     .trim()
     .email({ message: "Adresse email invalide" })
-    .max(255, { message: "L'email ne peut pas dépasser 255 caractères" }),
+    .max(255, { message: "L'email ne peut pas dépasser 255 caractères" })]),
   message: z.string()
     .trim()
     .min(10, { message: "Le message doit contenir au moins 10 caractères" })
@@ -121,11 +122,11 @@ const Contact = () => {
                     try {
                       contactSchema.parse(data);
                       
-                      const whatsappMessage = `Nouveau message de contact\n\nNom: ${data.nom}\nTéléphone: ${data.tel}\nEmail: ${data.email}\n\nMessage:\n${data.message}`;
+                      const whatsappMessage = `Bonjour Benatna,\n\n${data.message.trim()}\n\nNom : ${data.nom.trim()}\nTéléphone : ${data.tel.trim()}${data.email?.trim() ? `\nEmail : ${data.email.trim()}` : ''}`;
                       
-                      requestRental({ notes: whatsappMessage });
+                      openDirectWhatsApp(whatsappMessage);
                       setIsSubmitting(false);
-                      toast({ title: "Complétez votre demande", description: "Précisez les dates, le véhicule et le lieu, puis confirmez le récapitulatif. Vos informations de contact sont conservées." });
+                      toast({ title: "WhatsApp est ouvert", description: "Envoyez le message dans WhatsApp pour nous le transmettre. Nous vous répondons rapidement." });
                     } catch (error) {
                       setIsSubmitting(false);
                       if (error instanceof z.ZodError) {
@@ -155,14 +156,13 @@ const Contact = () => {
                     <Input 
                       name="tel" 
                       type="tel" 
-                      placeholder="+212 6XX XXX XXX" 
+                      placeholder="+212 6XX XXX XXX ou +33 6 XX XX XX XX" 
                       className="rounded-lg min-h-[48px] text-base touch-target" 
                       autoComplete="tel"
                       inputMode="tel"
-                      pattern="(\+212|0)[5-7]\d{8}"
                       required 
                     />
-                    <p className="text-xs text-muted-foreground mt-1">Format: +212 6XX XXX XXX ou 06XX XXX XXX</p>
+                    <p className="text-xs text-muted-foreground mt-1">Numéro marocain ou étranger, par exemple +212 6XX XXX XXX ou +33 6 XX XX XX XX</p>
                   </div>
                   
                   <div>
@@ -174,7 +174,6 @@ const Contact = () => {
                       className="rounded-lg min-h-[48px] text-base touch-target" 
                       autoComplete="email"
                       inputMode="email"
-                      required 
                     />
                   </div>
                   
@@ -216,7 +215,8 @@ const Contact = () => {
                         {t('contactForm.contactDirectly')}
                       </p>
                       <a 
-                        href="/louer?demande=1"
+                        href={DIRECT_WHATSAPP_URL}
+                        data-whatsapp-direct="contact"
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-lg font-medium text-primary hover:text-primary/80 transition-colors"

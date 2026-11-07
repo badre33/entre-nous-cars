@@ -68,6 +68,28 @@ function isBusinessURL(url: URL) {
   return (url.hostname === 'wa.me' ? url.pathname : url.searchParams.get('phone') || '').replace(/\D/g, '') === '212699024526';
 }
 const partnerPage = () => window.location.pathname.replace(/\/$/, '') === '/partenaires';
+// D022 (7 novembre 2026) : un contact WhatsApp direct reste toujours possible.
+// Le message est prérempli avec les rubriques utiles (jamais vide) et rappelle
+// l'offre : voitures de tourisme, 3 jours minimum, Casablanca.
+export const DIRECT_WHATSAPP_TEXT = 'Bonjour Benatna, je cherche une voiture de tourisme à louer à Casablanca.\n\nDates de location (3 jours minimum) : \nModèle souhaité : \nLieu de prise en charge : ';
+export function directWhatsAppText(vehicles: string[] = []) {
+  const names = vehicles.filter(Boolean).map(normalizeVehicleName);
+  return names.length ? DIRECT_WHATSAPP_TEXT.replace('Modèle souhaité : ', `Modèle souhaité : ${names.join(' / ')}`) : DIRECT_WHATSAPP_TEXT;
+}
+export const DIRECT_WHATSAPP_URL = `https://wa.me/212699024526?text=${encodeURIComponent(DIRECT_WHATSAPP_TEXT)}`;
+function openBusinessWhatsApp(text: string): Window | null {
+  const url = `https://wa.me/212699024526?text=${encodeURIComponent(text)}`;
+  permittedURL = new URL(url).toString();
+  try {
+    const popup = window.open(url, '_blank');
+    if (popup) { try { popup.opener = null; } catch { /* cross-origin browser restriction */ } }
+    else window.location.href = url;
+    return popup;
+  } finally { permittedURL = null; }
+}
+export function openDirectWhatsApp(text: string = DIRECT_WHATSAPP_TEXT): Window | null {
+  return openBusinessWhatsApp(text.trim() ? text.slice(0, 1500) : DIRECT_WHATSAPP_TEXT);
+}
 export function openConfirmedRental(value: ConfirmedRental): Window | null {
   const url = `https://wa.me/212699024526?text=${encodeURIComponent(buildConfirmedRentalMessage(value))}`;
   permittedURL = new URL(url).toString();
@@ -90,7 +112,10 @@ export function installRentalRequestGate() {
     }
     const url = whatsAppURL(anchor.getAttribute('href') || '');
     if (!url || !isBusinessURL(url) || partnerPage()) return;
-    event.preventDefault(); event.stopImmediatePropagation(); requestRental();
+    event.preventDefault(); event.stopImmediatePropagation();
+    // D022 : les liens marqués « direct » ouvrent WhatsApp avec le message prérempli.
+    if (anchor.closest('[data-whatsapp-direct]')) { openDirectWhatsApp(url.searchParams.get('text') || DIRECT_WHATSAPP_TEXT); return; }
+    requestRental();
   }, true);
   const originalOpen = window.open.bind(window);
   window.open = ((value?: string | URL, target?: string, features?: string) => {
