@@ -5,6 +5,11 @@
   "framework": "vite",
   "redirects": [
     {
+      "source": "/location-longue-duree-casablanca",
+      "destination": "/location-voiture-casablanca",
+      "permanent": true
+    },
+    {
       "source": "/louer/sandero",
       "destination": "/vehicule/dacia-sandero",
       "permanent": true
@@ -36,7 +41,7 @@
     },
     {
       "source": "/location/casablanca-:n",
-      "destination": "/location-longue-duree-casablanca",
+      "destination": "/location-voiture-casablanca",
       "permanent": true
     },
     {

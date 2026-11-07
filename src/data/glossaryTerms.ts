@@ -74,7 +74,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     definition: "Période comprise entre les dates de départ et de retour. Sur Benatna, la location dure au minimum trois jours et au maximum six mois calendaires. Le loueur confirme le tarif pour vos dates.",
     category: 'contrat',
     relatedTerms: ['location-longue-duree', 'tarif-journalier'],
-    relatedPages: [{ label: 'Location Longue Durée', url: '/location-longue-duree-casablanca' }]
+    relatedPages: [{ label: 'Location de voiture à Casablanca', url: '/location-voiture-casablanca' }]
   },
   {
     id: 'prolongation',
@@ -305,7 +305,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     category: 'financier',
     relatedTerms: ['tarif-journalier', 'location-longue-duree'],
     relatedPages: [
-      { label: 'Location Longue Durée Casablanca', url: '/location-longue-duree-casablanca' },
+      { label: 'Location de voiture à Casablanca', url: '/location-voiture-casablanca' },
     ]
   },
   {
@@ -405,7 +405,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     category: 'contrat',
     relatedTerms: ['tarif-longue-duree', 'duree-location'],
     relatedPages: [
-      { label: 'Longue Durée Casablanca', url: '/location-longue-duree-casablanca' },
+      { label: 'Location de voiture à Casablanca', url: '/location-voiture-casablanca' },
     ]
   },
   {

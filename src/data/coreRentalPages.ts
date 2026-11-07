@@ -7,11 +7,6 @@ const rentalJourneyLinks = [
     "text": "Comparer les versions automatiques et préparer une demande pour vos dates."
   },
   {
-    "to": "/location-longue-duree-casablanca",
-    "label": "Location au mois et séjour prolongé",
-    "text": "Préparer une période de plusieurs semaines ou mois, jusqu’à six mois calendaires."
-  },
-  {
     "to": "/location-voiture-gare-oncf-maroc",
     "label": "Prise en charge dans les gares de Casablanca",
     "text": "Choisir Casa-Voyageurs, Casa-Port, Oasis ou Aïn Sebaâ avant de préparer votre demande."

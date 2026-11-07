@@ -18,7 +18,6 @@ export const serviceCategories = [
   { id: 'all', label: 'Tous les services', icon: 'Grid3x3' },
   { id: 'aeroport', label: 'Locations Aéroports', icon: 'Plane' },
   { id: 'jeune', label: 'Jeune Conducteur', icon: 'UserCheck' },
-  { id: 'longue-duree', label: 'Longue Durée', icon: 'Calendar' },
   { id: 'suv', label: 'SUV & Aventure', icon: 'Mountain' },
   { id: 'special', label: 'Véhicules Spéciaux', icon: 'Sparkles' },
 ] as const;
@@ -44,17 +43,6 @@ export const services: Service[] = [
     features: ['Dès 21 ans', '+50 DH/jour seulement', 'Assurance incluse', 'Caution réduite 3000 DH'],
     priceFrom: '250 DH',
     image: '/vehicles/benatna/renault-clio.webp',
-    popular: true,
-  },
-  {
-    id: 'longue-duree-casa',
-    title: 'Location Longue Durée Casablanca',
-    slug: '/location-longue-duree-casablanca',
-    category: 'longue-duree',
-    shortDescription: 'Tarifs mensuels tout compris. Entretien, assurance et assistance inclus. Dès 7 000 DH/mois.',
-    features: ['Dès 7 000 DH/mois', 'Entretien inclus', 'Km illimités', 'Résiliable 1 mois préavis'],
-    priceFrom: '7 000 DH/mois',
-    image: '/car-corolla.jpg',
     popular: true,
   },
   {

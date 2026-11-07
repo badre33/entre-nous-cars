@@ -95,11 +95,6 @@
     "priority": "0.7"
   },
   {
-    "path": "/location-longue-duree-casablanca",
-    "changefreq": "monthly",
-    "priority": "0.7"
-  },
-  {
     "path": "/location-voiture-electrique-casablanca",
     "changefreq": "monthly",
     "priority": "0.7"

@@ -34,7 +34,7 @@ try{
    await click(page.getByRole('link',{name:'Choisir mes véhicules et mes dates',exact:true}).first());await page.waitForURL('**/louer?city=Casablanca');await page.locator('#catalogue-results h3').first().waitFor();await click(page.locator('#catalogue-results').getByRole('button',{name:'WhatsApp',exact:true}).first());await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).count(),0);checks.push({width,path,check:'qualified-catalogue-request',passed:true});
   }
   if(width===390&&path==='/nos-services'){
-   for(const target of ['/location-voiture-casablanca','/location-voiture-aeroport-casablanca','/location-voiture-gare-casa-voyageurs','/location-voiture-gare-oncf-maroc','/location-voiture-automatique-casablanca','/location-longue-duree-casablanca']){
+   for(const target of ['/location-voiture-casablanca','/location-voiture-aeroport-casablanca','/location-voiture-gare-casa-voyageurs','/location-voiture-gare-oncf-maroc','/location-voiture-automatique-casablanca']){
     await visit(path);await click(page.getByRole('region',{name:'Choisir votre parcours de location',exact:true}).locator(`a[href="${target}"]`));await page.waitForURL(base+target);await page.getByRole('heading',{level:1}).waitFor();checks.push({width,path,target,check:'hub-destination',passed:true});
    }
   }

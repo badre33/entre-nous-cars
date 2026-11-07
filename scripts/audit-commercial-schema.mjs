@@ -5,7 +5,7 @@ const base=args.includes('--base')?option('--base'):null;const dist=args.include
 const output=args.includes('--output')?option('--output'):null;
 const read=async route=>{if(base){const r=await fetch(new URL(route,base));if(!r.ok)throw new Error(`${route}: HTTP ${r.status}`);return r.text();}return fs.readFile(path.join(dist,route==='/'?'index.html':route.replace(/^\//,'')+(route.endsWith('.xml')?'':'/index.html')),'utf8');};
 const sitemap=await read('/sitemap.xml');const vehicles=[...sitemap.matchAll(/<loc>https:\/\/benatna.ma(\/vehicule\/[^<]+)<\/loc>/g)].map(m=>m[1]);
-const paths=[...sitemap.matchAll(/<loc>https:\/\/benatna.ma([^<]*)<\/loc>/g)].map(m=>m[1]||'/');const problems=[];const pages=[];if(paths.length!==99||new Set(paths).size!==99)problems.push('Expected 99 unique indexable pages');if(vehicles.length!==26)problems.push(`Expected 26 approved vehicle pages, found ${vehicles.length}`);
+const paths=[...sitemap.matchAll(/<loc>https:\/\/benatna.ma([^<]*)<\/loc>/g)].map(m=>m[1]||'/');const problems=[];const pages=[];if(paths.length!==98||new Set(paths).size!==98)problems.push('Expected 98 unique indexable pages');if(vehicles.length!==26)problems.push(`Expected 26 approved vehicle pages, found ${vehicles.length}`);
 for(const route of paths){try{const html=await read(route);const nodes=[...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
  if(!nodes.length)problems.push(`${route}: missing JSON-LD`);
  const flattened=nodes.flatMap(n=>Array.isArray(n)?n:n['@graph']||[n]);const types=flattened.flatMap(n=>[].concat(n['@type']||[]));

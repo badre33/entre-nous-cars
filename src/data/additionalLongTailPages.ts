@@ -160,7 +160,7 @@ const createAeroportPage = (city: string, citySlug: string, airport: string): Lo
   },
   relatedServices: citySlug === 'casablanca' ? [
     { title: 'Location Jeune Conducteur Casablanca', description: 'Dès 21 ans avec supplément raisonnable. Assurance adaptée incluse.', link: '/location-jeune-conducteur-casablanca' },
-    { title: 'Location Longue Durée Casablanca', description: 'Tarifs mensuels dès 7 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location de voiture à Casablanca', description: 'Tarifs mensuels dès 7 500 DH/mois tout compris.', link: '/location-voiture-casablanca' },
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 avec recharge gratuite à nos bornes.', link: '/location-voiture-electrique-casablanca' }
   ] : citySlug === 'marrakech' ? [
     { title: 'Location Weekend Marrakech', description: 'Offre spéciale weekend : 2 jours facturés pour 3 jours de location.', link: '/location-weekend-marrakech' },
@@ -305,7 +305,7 @@ const createLongueDureePage = (city: string, citySlug: string): LongTailPageConf
     { title: 'Location Voiture Électrique Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle, recharge gratuite.', link: '/location-voiture-electrique-casablanca' },
     { title: 'Location Utilitaire Casablanca', description: 'Fiat Ducato, Mercedes Sprinter en location mensuelle.', link: '/location-utilitaire-demenagement-casablanca' }
   ] : [
-    { title: 'Location Longue Durée Casablanca', description: 'Même service à Casablanca dès 7 500 DH/mois tout compris.', link: '/location-longue-duree-casablanca' },
+    { title: 'Location de voiture à Casablanca', description: 'Même service à Casablanca dès 7 500 DH/mois tout compris.', link: '/location-voiture-casablanca' },
     { title: 'Location Jeune Conducteur Marrakech', description: 'Formules longue durée adaptées aux jeunes conducteurs.', link: '/location-jeune-conducteur-marrakech' },
     { title: 'Location SUV Atlas', description: 'SUV 4x4 en forfait mensuel pour usage régulier montagne.', link: '/location-suv-atlas' }
   ],
@@ -599,7 +599,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       buttonLink: '/louer?city=Casablanca'
     },
     relatedServices: [
-      { title: 'Location Longue Durée Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle avec recharge gratuite.', link: '/location-longue-duree-casablanca' },
+      { title: 'Location de voiture à Casablanca', description: 'VW ID.3 et ID.4 en formule mensuelle avec recharge gratuite.', link: '/location-voiture-casablanca' },
       { title: 'Location Aéroport Casablanca', description: 'Récupération de véhicules électriques au terminal Mohammed V.', link: '/location-voiture-aeroport-casablanca' },
       { title: 'Location Jeune Conducteur Casablanca', description: 'Véhicules électriques accessibles aux jeunes conducteurs.', link: '/location-jeune-conducteur-casablanca' }
     ],
@@ -636,7 +636,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     relatedServices: [
       { title: 'Location SUV Atlas', description: 'Alternative SUV 5-7 places pour familles en montagne.', link: '/location-suv-atlas' },
       { title: 'Location Utilitaire Casablanca', description: 'Mercedes Sprinter pour transports volumineux familiaux.', link: '/location-utilitaire-demenagement-casablanca' },
-      { title: 'Location Longue Durée Casablanca', description: 'Vans en formule mensuelle pour familles expatriées.', link: '/location-longue-duree-casablanca' }
+      { title: 'Location de voiture à Casablanca', description: 'Vans en formule mensuelle pour familles expatriées.', link: '/location-voiture-casablanca' }
     ],
     relatedPages: []
   },
@@ -696,7 +696,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     relatedServices: [
       { title: 'Location Van Familial 7-9 Places', description: 'Alternative vans passagers pour déménagements légers.', link: '/location-van-famille-maroc' },
-      { title: 'Location Longue Durée Casablanca', description: 'Utilitaires en formule mensuelle pour professionnels.', link: '/location-longue-duree-casablanca' },
+      { title: 'Location de voiture à Casablanca', description: 'Utilitaires en formule mensuelle pour professionnels.', link: '/location-voiture-casablanca' },
       { title: 'Location Aéroport Casablanca', description: 'Livraison d\'utilitaires au terminal pour déménagements internationaux.', link: '/location-voiture-aeroport-casablanca' }
     ],
     relatedPages: []
@@ -1273,7 +1273,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     relatedServices: [
       { title: 'Location Voiture Rabat', description: 'Service standard capitale.', link: '/location-voiture-rabat' },
       { title: 'Location Voiture Agdal Rabat', description: 'Quartier d\'affaires de Rabat.', link: '/location-voiture-agdal-rabat' },
-      { title: 'Location Longue Durée Casablanca', description: 'Forfaits mensuels (Souissi expatriés peuvent appliquer même grille).', link: '/location-longue-duree-casablanca' }
+      { title: 'Location de voiture à Casablanca', description: 'Forfaits mensuels (Souissi expatriés peuvent appliquer même grille).', link: '/location-voiture-casablanca' }
     ],
     relatedPages: [
       { title: 'Location Aéroport Rabat-Salé', link: '/location-voiture-aeroport-rabat' }
