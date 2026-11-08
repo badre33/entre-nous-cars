@@ -98,8 +98,8 @@ export const Breadcrumbs = () => {
           <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <Link to="/" className="flex items-center gap-1 hover:text-primary transition-colors text-sm">
-                <Home className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Link to="/" aria-label={t("common.home")} className="flex items-center gap-1 hover:text-primary transition-colors text-sm">
+                <Home aria-hidden="true" className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span className="hidden sm:inline">{t("common.home")}</span>
               </Link>
             </BreadcrumbLink>

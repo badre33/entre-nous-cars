@@ -202,7 +202,7 @@ export default function SwipeableCarCard({
                     onToggleComparison();
                   }}
                 >
-                  <Checkbox checked={isInComparison} className="pointer-events-none h-3.5 w-3.5" />
+                  <Checkbox checked={isInComparison} aria-hidden="true" tabIndex={-1} className="pointer-events-none h-3.5 w-3.5" />
                 </div>
               </div>
             </div>
@@ -257,7 +257,7 @@ export default function SwipeableCarCard({
                 onToggleComparison();
               }}
             >
-              <Checkbox checked={isInComparison} className="pointer-events-none h-3.5 w-3.5" />
+              <Checkbox checked={isInComparison} aria-hidden="true" tabIndex={-1} className="pointer-events-none h-3.5 w-3.5" />
             </div>
           </div>
           {car.badges && car.badges.length > 0 && (
@@ -368,6 +368,8 @@ export default function SwipeableCarCard({
           >
             <Checkbox
               checked={isInComparison}
+              aria-hidden="true"
+              tabIndex={-1}
               className="pointer-events-none h-4 w-4"
             />
             <span className="text-xs font-medium">Sélectionner</span>
