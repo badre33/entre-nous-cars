@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, useTr } from "@/contexts/LanguageContext";
 
 const languages = [
   { code: "fr", label: "Français", flag: "🇫🇷" },
@@ -16,13 +16,14 @@ const languages = [
 
 export const LanguageSelector = () => {
   const { language, setLanguage } = useLanguage();
+  const tr = useTr();
   
   const currentLanguage = languages.find(lang => lang.code === language);
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" aria-label="Choisir la langue" className="gap-2 min-h-11 min-w-11">
+        <Button variant="ghost" size="sm" aria-label={tr("Choisir la langue", "Choose language", "Elegir idioma")} className="gap-2 min-h-11 min-w-11">
           <Globe className="w-4 h-4" />
           <span className="hidden md:inline">{currentLanguage?.flag}</span>
         </Button>

@@ -5,6 +5,8 @@ import { CalendarCheck, Check } from "lucide-react";
 import { useSwipeToClose } from "@/hooks/useSwipeToClose";
 import { cn } from "@/lib/utils";
 import { vehicleImageSrcSet } from '@/utils/vehicleImages';
+import { useLanguage, useTr } from '@/contexts/LanguageContext';
+import { catalogueTerm } from '@/utils/catalogueTerms';
 
 interface CarPreviewDialogProps {
   car: {
@@ -32,6 +34,8 @@ export default function CarPreviewDialog({
   onShowAvailability,
   onWhatsAppClick,
 }: CarPreviewDialogProps) {
+  const { language } = useLanguage();
+  const tr = useTr();
   const { dragOffset, isDragging, handlers } = useSwipeToClose({
     onClose,
     threshold: 100,
@@ -58,36 +62,36 @@ export default function CarPreviewDialog({
             {car.badges && (
               <div className="absolute top-2 left-2 flex flex-col gap-1">
                 {car.badges.map((badge, idx) => (
-                  <Badge key={idx} className="text-xs">{badge}</Badge>
+                  <Badge key={idx} className="text-xs">{catalogueTerm(badge, language)}</Badge>
                 ))}
               </div>
             )}
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-sm text-muted-foreground">Marque</p>
+              <p className="text-sm text-muted-foreground">{tr("Marque", "Brand", "Marca")}</p>
               <p className="font-semibold">{car.brand}</p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground">Type</p>
-              <p className="font-semibold">{car.type}</p>
+              <p className="font-semibold">{catalogueTerm(car.type, language)}</p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Catégorie</p>
-              <p className="font-semibold">{car.category}</p>
+              <p className="text-sm text-muted-foreground">{tr("Catégorie", "Category", "Categoría")}</p>
+              <p className="font-semibold">{catalogueTerm(car.category, language)}</p>
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Ville</p>
+              <p className="text-sm text-muted-foreground">{tr("Ville", "City", "Ciudad")}</p>
               <p className="font-semibold">{car.city}</p>
             </div>
           </div>
           <div className="p-4 bg-primary/5 rounded-lg">
-            <p className="text-sm text-muted-foreground mb-1">Prix</p>
+            <p className="text-sm text-muted-foreground mb-1">{tr("Prix", "Price", "Precio")}</p>
             <p className="text-3xl font-bold text-primary">{car.priceDisplay}</p>
-            <p className="text-xs text-muted-foreground">par jour</p>
+            <p className="text-xs text-muted-foreground">{tr("par jour", "per day", "por día")}</p>
           </div>
           <div className="space-y-2">
-            <p className="text-sm font-semibold">Conditions</p>
+            <p className="text-sm font-semibold">{tr("Conditions", "Terms", "Condiciones")}</p>
             <div className="space-y-1">
               {car.conditions.map((condition, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-sm">
@@ -104,13 +108,13 @@ export default function CarPreviewDialog({
               onClick={onShowAvailability}
             >
               <CalendarCheck className="w-4 h-4 mr-2" />
-              Disponibilités
+              {tr("Disponibilités", "Availability", "Disponibilidad")}
             </Button>
             <Button 
               className="flex-1"
               onClick={onWhatsAppClick}
             >
-              Contacter
+              {tr("Contacter", "Contact", "Contactar")}
             </Button>
           </div>
         </div>

@@ -14,6 +14,8 @@ import { hapticAddToCompare, hapticRemoveFromCompare } from "@/utils/haptics";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice, getDiscountPercentage, currentDailyPrice } from "@/utils/priceCalculations";
 import { currentContextBadge } from "@/lib/pricing";
 import { generateCarImageAlt } from "@/utils/seoHelpers";
+import { useLanguage, useTr } from "@/contexts/LanguageContext";
+import { catalogueTerm } from "@/utils/catalogueTerms";
 
 
 const getVehicleSlug = (name: string): string => {
@@ -76,6 +78,9 @@ export default function SwipeableCarCard({
   const cardRef = useRef<HTMLDivElement>(null);
 
   const days = calculateDays(startDate, endDate);
+  const { language } = useLanguage();
+  const tr = useTr();
+  const term = (value: string) => catalogueTerm(value, language);
   const basePrice = parseInt(car.priceDisplay.replace(/[^\d]/g, ''));
 
   // Prix journalier affiché (moteur dynamique : saison + événement marocain).
@@ -83,7 +88,7 @@ export default function SwipeableCarCard({
   const dailyPriceNow = days > 0 && startDate
     ? calculateDailyPrice(basePrice, days, { date: startDate, city: car.city })
     : currentDailyPrice(basePrice, car.city);
-  const contextBadge = currentContextBadge();
+  const contextBadge = currentContextBadge(language);
   const discountHint = getDiscountPercentage(7); // hint "économisez X% dès 7 jours"
 
   const priceInfo = days > 0 ? {
@@ -147,7 +152,7 @@ export default function SwipeableCarCard({
               />
               {car.badges && car.badges.length > 0 && (
                 <Badge className="absolute top-1 left-1 text-xs py-0 px-1.5 bg-destructive/90">
-                  {car.badges[0].replace('🔥 ', '')}
+                  {term(car.badges[0])}
                 </Badge>
               )}
             </div>
@@ -155,21 +160,21 @@ export default function SwipeableCarCard({
               <div className="flex items-start justify-between mb-1.5">
                 <div className="flex-1 min-w-0 pr-2">
                   <h3 className="text-sm font-semibold truncate">{car.name}</h3>
-                  <p className="text-xs text-muted-foreground truncate">{car.category} • {car.type}</p>
+                  <p className="text-xs text-muted-foreground truncate">{term(car.category)} • {term(car.type)}</p>
                 </div>
                 <div className="text-right flex-shrink-0">
                   {priceInfo ? (
                     <>
                       <p className="text-base font-bold text-primary">{priceInfo.total}</p>
-                      <p className="text-xs text-muted-foreground">{priceInfo.days}j</p>
+                      <p className="text-xs text-muted-foreground">{priceInfo.days} {tr("j", "days", "días")}</p>
                       {priceInfo.discount > 0 && (
                         <p className="text-[10px] text-secondary font-medium">-{priceInfo.discount}%</p>
                       )}
                     </>
                   ) : (
                     <>
-                      <p className="text-base font-bold text-primary">{dailyPriceNow} DH</p>
-                      <p className="text-xs text-muted-foreground">/jour</p>
+                      <p className="text-base font-bold text-primary">{dailyPriceNow} {language === "fr" ? "DH" : "MAD"}</p>
+                      <p className="text-xs text-muted-foreground">{tr("/jour", "/day", "/día")}</p>
                     </>
                   )}
                 </div>
@@ -178,7 +183,7 @@ export default function SwipeableCarCard({
                 <MapPin className="w-2.5 h-2.5" />
                 <span className="truncate">{car.city}</span>
               </div>
-              <p className="text-xs text-muted-foreground mb-2">Prix indicatif selon le loueur</p>
+              <p className="text-xs text-muted-foreground mb-2">{tr("Prix indicatif selon le loueur", "Indicative price, set by the agency", "Precio orientativo según la agencia")}</p>
               <div className="flex gap-1.5">
                 <Button size="sm" variant="outline" className="h-11 text-sm flex-1" onClick={onShowAvailability}>
                   <CalendarCheck className="w-3 h-3 mr-1" />
@@ -262,15 +267,15 @@ export default function SwipeableCarCard({
           </div>
           {car.badges && car.badges.length > 0 && (
             <Badge className="absolute top-1.5 left-1.5 text-xs py-0 px-1.5 bg-destructive/90">
-              {car.badges[0].replace('🔥 ', '')}
+              {term(car.badges[0])}
             </Badge>
           )}
         </div>
         <CardContent className="p-3">
           <div className="mb-2">
             <h3 className="text-sm font-semibold truncate mb-0.5">{car.name}</h3>
-            <p className="text-xs text-muted-foreground truncate">{car.category}</p>
-            <p className="text-xs font-medium">{car.type}</p>
+            <p className="text-xs text-muted-foreground truncate">{term(car.category)}</p>
+            <p className="text-xs font-medium">{term(car.type)}</p>
           </div>
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-1 text-xs text-muted-foreground">
@@ -281,15 +286,15 @@ export default function SwipeableCarCard({
               {priceInfo ? (
                 <>
                   <p className="text-sm font-bold text-primary">{priceInfo.total}</p>
-                  <p className="text-xs text-muted-foreground">{priceInfo.days}j</p>
+                  <p className="text-xs text-muted-foreground">{priceInfo.days} {tr("j", "days", "días")}</p>
                   {priceInfo.discount > 0 && (
                     <p className="text-[10px] text-secondary font-medium">-{priceInfo.discount}%</p>
                   )}
                 </>
               ) : (
                 <>
-                  <p className="text-sm font-bold text-primary">{dailyPriceNow} DH</p>
-                  <p className="text-xs text-muted-foreground">/jour</p>
+                  <p className="text-sm font-bold text-primary">{dailyPriceNow} {language === "fr" ? "DH" : "MAD"}</p>
+                  <p className="text-xs text-muted-foreground">{tr("/jour", "/day", "/día")}</p>
                 </>
               )}
             </div>
@@ -301,11 +306,11 @@ export default function SwipeableCarCard({
               </Badge>
             </div>
           )}
-          <p className="text-xs text-muted-foreground mb-2">Prix indicatif selon le loueur</p>
+          <p className="text-xs text-muted-foreground mb-2">{tr("Prix indicatif selon le loueur", "Indicative price, set by the agency", "Precio orientativo según la agencia")}</p>
           <div className="space-y-1.5">
             <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={onShowAvailability}>
               <CalendarCheck className="w-3 h-3 mr-1" />
-              Disponibilités
+              {tr("Disponibilités", "Availability", "Disponibilidad")}
             </Button>
             <Button size="sm" className="w-full h-11 text-sm" onClick={onWhatsAppClick}>
               WhatsApp
@@ -387,7 +392,7 @@ export default function SwipeableCarCard({
                   badge.includes('Nouveau') && 'bg-accent/90'
                 )}
               >
-                {badge}
+                {term(badge)}
               </Badge>
             ))}
           </div>
@@ -397,21 +402,21 @@ export default function SwipeableCarCard({
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1 pr-2">
             <h3 className="text-lg font-barlow font-semibold mb-0.5 line-clamp-1">{car.name}</h3>
-            <p className="text-xs text-muted-foreground">{car.category} • {car.type}</p>
+            <p className="text-xs text-muted-foreground">{term(car.category)} • {term(car.type)}</p>
           </div>
           <div className="text-right flex-shrink-0">
             {priceInfo ? (
               <>
                 <p className="text-xl font-bold text-primary">{priceInfo.total}</p>
-                <p className="text-xs text-muted-foreground">{priceInfo.days} jour{priceInfo.days > 1 ? 's' : ''}</p>
+                <p className="text-xs text-muted-foreground">{priceInfo.days} {tr(priceInfo.days > 1 ? 'jours' : 'jour', priceInfo.days > 1 ? 'days' : 'day', priceInfo.days > 1 ? 'días' : 'día')}</p>
                 {priceInfo.discount > 0 && (
                   <p className="text-xs text-secondary font-medium">-{priceInfo.discount}%</p>
                 )}
               </>
             ) : (
               <>
-                <p className="text-xl font-bold text-primary">{dailyPriceNow} DH</p>
-                <p className="text-xs text-muted-foreground">par jour</p>
+                <p className="text-xl font-bold text-primary">{dailyPriceNow} {language === "fr" ? "DH" : "MAD"}</p>
+                <p className="text-xs text-muted-foreground">{tr("par jour", "per day", "por día")}</p>
                 {contextBadge && (
                   <p className="text-[10px] text-secondary font-medium mt-0.5">{contextBadge}</p>
                 )}
@@ -424,7 +429,7 @@ export default function SwipeableCarCard({
           <MapPin className="w-3 h-3 flex-shrink-0" />
           <span className="truncate">{car.city}</span>
         </div>
-        <p className="text-xs text-muted-foreground mb-3">Prix indicatif selon le loueur</p>
+        <p className="text-xs text-muted-foreground mb-3">{tr("Prix indicatif selon le loueur", "Indicative price, set by the agency", "Precio orientativo según la agencia")}</p>
 
         <div className="space-y-2 mb-4">
           <Button 
@@ -434,7 +439,7 @@ export default function SwipeableCarCard({
             onClick={onShowAvailability}
           >
             <CalendarCheck className="w-3.5 h-3.5 mr-1.5" />
-            Disponibilités
+            {tr("Disponibilités", "Availability", "Disponibilidad")}
           </Button>
           <Button 
             size="sm"

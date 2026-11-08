@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { HeroSearchForm } from "@/components/HeroSearchForm";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, useTr } from "@/contexts/LanguageContext";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { StructuredData } from "@/components/StructuredData";
@@ -58,6 +58,7 @@ const HOME_META: Record<string, { title: string; desc: string; url: string }> = 
 
 const Index = () => {
   const { t, language } = useLanguage();
+  const tr = useTr();
   const [parallaxOffset, setParallaxOffset] = useState(0);
 
   // Les métadonnées sont posées par Helmet plus bas. Elles l'étaient aussi
@@ -157,7 +158,7 @@ const Index = () => {
         {/* LCP-optimized WebP hero image from public folder for fast discovery */}
         <img
           src={heroImageWebp}
-          alt={generateHeroImageAlt()}
+          alt={tr(generateHeroImageAlt(), "Benatna - Tourist car rental in Casablanca from 250 MAD/day", "Benatna - Alquiler de coches de turismo en Casablanca desde 250 MAD/día")}
           className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
           style={{
             transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
@@ -183,25 +184,25 @@ const Index = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 animate-fade-in [animation-delay:300ms] px-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <Wallet aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span>Dès <strong>250 DH</strong>/jour · minimum trois jours</span>
+              <span>{tr("Dès", "From", "Desde")} <strong>{language === "fr" ? "250 DH" : "250 MAD"}</strong>{tr("/jour · minimum trois jours", "/day · 3 days minimum", "/día · mínimo tres días")}</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <CreditCard aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span>Sans CB bloquée</span>
+              <span>{tr("Sans CB bloquée", "No card hold", "Sin bloqueo de tarjeta")}</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <MessageCircle aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span>WhatsApp en 2 min</span>
+              <span>{tr("WhatsApp en 2 min", "WhatsApp in 2 min", "WhatsApp en 2 min")}</span>
             </span>
           </div>
 
           {/* Slogan anti-franchise : prix transparent, tous clients egaux */}
           <div className="hidden sm:flex flex-col items-center justify-center mb-4 sm:mb-6 animate-fade-in [animation-delay:350ms] px-2">
             <p className="text-base sm:text-xl md:text-2xl font-bold text-white drop-shadow-lg text-center">
-              Le prix annoncé est le prix payé.
+              {tr("Le prix annoncé est le prix payé.", "The price shown is the price you pay.", "El precio anunciado es el precio que pagas.")}
             </p>
             <p className="text-xs sm:text-sm md:text-base text-white/85 mt-1 text-center max-w-2xl">
-              Pas de surcharge jeune conducteur • Pas d'empreinte CB bloquée • Pas de frais aéroport cachés • Tout client traité de la même manière
+              {tr("Pas de surcharge jeune conducteur • Pas d’empreinte CB bloquée • Pas de frais aéroport cachés • Tout client traité de la même manière", "No young driver surcharge • No card hold • No hidden airport fees • Every customer treated the same way", "Sin recargo por conductor joven • Sin bloqueo de tarjeta • Sin gastos ocultos de aeropuerto • Mismo trato para todos los clientes")}
             </p>
           </div>
 
@@ -230,11 +231,11 @@ const Index = () => {
         <div className="container px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <Badge variant="secondary" className="mb-4 text-sm sm:text-base">
-              Simple et Rapide
+              {tr("Simple et rapide", "Simple and fast", "Simple y rápido")}
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">{t('home.howItWorks')}</h2>
             <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
-              Louez votre voiture en 3 étapes simples
+              {tr("Louez votre voiture en 3 étapes simples", "Rent your car in 3 simple steps", "Alquila tu coche en 3 pasos sencillos")}
             </p>
           </div>
 
@@ -323,11 +324,11 @@ const Index = () => {
 
           <div className="text-center mt-12">
             <p className="text-muted-foreground mb-6">
-              Prêt à démarrer votre aventure ?
+              {tr("Prêt à démarrer votre aventure ?", "Ready to start your trip?", "¿Listo para empezar tu viaje?")}
             </p>
             <Link to="/louer">
               <Button size="lg" className="rounded-full group h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
-                Trouver ma voiture
+                {tr("Trouver ma voiture", "Find my car", "Encontrar mi coche")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform w-4 h-4" />
               </Button>
             </Link>
@@ -352,11 +353,11 @@ const Index = () => {
         <div className="container relative z-10 px-4 sm:px-6">
           <div className="text-center mb-12 sm:mb-16">
             <Badge variant="secondary" className="mb-4 text-sm sm:text-base">
-              Nos Avantages
+              {tr("Nos avantages", "Our advantages", "Nuestras ventajas")}
             </Badge>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-4">{t('home.whyBenatna')}</h2>
             <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-4">
-              Ce qui nous rend différents et meilleurs
+              {tr("Ce qui nous rend différents", "What makes us different", "Lo que nos hace diferentes")}
             </p>
           </div>
 
@@ -444,8 +445,8 @@ const Index = () => {
                 <Shield className="w-6 h-6 text-primary" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-2xl">Loueurs locaux</p>
-                <p className="text-sm text-muted-foreground">Agences partenaires</p>
+                <p className="font-bold text-2xl">{tr("Loueurs locaux", "Local agencies", "Agencias locales")}</p>
+                <p className="text-sm text-muted-foreground">{tr("Agences partenaires", "Partner agencies", "Agencias asociadas")}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -453,8 +454,8 @@ const Index = () => {
                 <CheckCircle className="w-6 h-6 text-secondary" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-2xl">Sur demande</p>
-                <p className="text-sm text-muted-foreground">Disponibilité à confirmer</p>
+                <p className="font-bold text-2xl">{tr("Sur demande", "On request", "Bajo petición")}</p>
+                <p className="text-sm text-muted-foreground">{tr("Disponibilité à confirmer", "Availability to be confirmed", "Disponibilidad por confirmar")}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -491,7 +492,7 @@ const Index = () => {
                   <div className="relative h-40 sm:h-48 overflow-hidden">
                     <img
                       src={city.image}
-                      alt={generateCityImageAlt(city.name)}
+                      alt={tr(generateCityImageAlt(city.name), `Car rental in ${city.name} from 250 MAD/day - Benatna`, `Alquiler de coches en ${city.name} desde 250 MAD/día - Benatna`)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       width="800"
                       height="500"
@@ -504,7 +505,7 @@ const Index = () => {
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
                       <h3 className="text-xl sm:text-2xl font-barlow font-bold text-white mb-1">{city.name}</h3>
                       <p className="text-white/90 text-xs sm:text-sm font-medium">
-                        {city.name === "Rabat" ? "Livraison sur demande, à confirmer" : "Prise en charge en ville et à l’aéroport Mohammed V"}
+                        {city.name === "Rabat" ? tr("Livraison sur demande, à confirmer", "Delivery on request, to be confirmed", "Entrega bajo petición, por confirmar") : tr("Prise en charge en ville et à l’aéroport Mohammed V", "Pick-up in town and at Mohammed V Airport", "Recogida en la ciudad y en el aeropuerto Mohammed V")}
                       </p>
                     </div>
                   </div>
@@ -525,10 +526,10 @@ const Index = () => {
       </section>
 
       <section className="container py-16 text-center space-y-5">
-        <h2 className="text-3xl">MRE, touristes et vacanciers : votre séjour commence à Casablanca</h2>
-        <p>Voitures de tourisme à partir de trois jours. Prise en charge à Casablanca ; livraison à Rabat sur demande, livraison gratuite convenue à l’avance.</p>
-        <p>Pas de vans, minibus, utilitaires, prestations de mariage, événementielles ou locations professionnelles.</p>
-        <Link className="inline-block rounded-lg bg-primary text-primary-foreground px-6 py-3" to="/prise-en-charge-casablanca-rabat">Arriver en gare ou à l’aéroport : préparer ma prise en charge</Link>
+        <h2 className="text-3xl">{tr("MRE, touristes et vacanciers : votre séjour commence à Casablanca", "Moroccans abroad, tourists and holidaymakers: your trip starts in Casablanca", "Marroquíes en el extranjero, turistas y viajeros: tu estancia empieza en Casablanca")}</h2>
+        <p>{tr("Voitures de tourisme à partir de trois jours. Prise en charge à Casablanca ; livraison à Rabat sur demande, livraison gratuite convenue à l’avance.", "Passenger cars from three days. Pick-up in Casablanca; delivery to Rabat on request, free delivery arranged in advance.", "Coches de turismo desde tres días. Recogida en Casablanca; entrega en Rabat bajo petición, entrega gratuita acordada de antemano.")}</p>
+        <p>{tr("Pas de vans, minibus, utilitaires, prestations de mariage, événementielles ou locations professionnelles.", "No vans, minibuses, commercial vehicles, weddings, events or business rentals.", "Sin furgonetas, minibuses, vehículos comerciales, bodas, eventos ni alquileres profesionales.")}</p>
+        <Link className="inline-block rounded-lg bg-primary text-primary-foreground px-6 py-3" to="/prise-en-charge-casablanca-rabat">{tr("Arriver en gare ou à l’aéroport : préparer ma prise en charge", "Arriving by train or plane: plan my pick-up", "Llegada en tren o avión: preparar mi recogida")}</Link>
       </section>
 
       {/* Blog Preview */}
@@ -547,7 +548,7 @@ const Index = () => {
                 <div className="relative h-40 sm:h-48 overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop"
-                    alt="Conseils de conduite au Maroc"
+                    alt={tr("Conseils de conduite au Maroc", "Driving tips in Morocco", "Consejos para conducir en Marruecos")}
                     width="800"
                     height="500"
                     decoding="async"
@@ -615,7 +616,7 @@ const Index = () => {
                 <div className="relative h-48 overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=500&fit=crop"
-                    alt="Assurance voiture au Maroc"
+                    alt={tr("Assurance voiture au Maroc", "Car insurance in Morocco", "Seguro de coche en Marruecos")}
                     width="800"
                     height="500"
                     decoding="async"
@@ -625,19 +626,19 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="text-white font-medium text-sm bg-accent/90 px-3 py-1 rounded-full">
-                      Assurance
+                      {tr("Assurance", "Insurance", "Seguro")}
                     </span>
                   </div>
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-barlow font-semibold mb-3 group-hover:text-primary transition-colors">
-                    Comprendre l'assurance voiture
+                    {tr("Comprendre l’assurance voiture", "Understanding car insurance (in French)", "Entender el seguro de coche (en francés)")}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4">
-                    Tout savoir sur l'assurance, la franchise et la protection
+                    {tr("Tout savoir sur l’assurance, la franchise et la protection", "Insurance, excess and cover explained", "Seguro, franquicia y protección explicados")}
                   </p>
                   <div className="flex items-center gap-2 text-primary font-medium text-sm">
-                    <span>Lire l'article</span>
+                    <span>{t("guides.readArticle")}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </CardContent>
@@ -648,7 +649,7 @@ const Index = () => {
           <div className="text-center mt-8 sm:mt-12">
             <Link to="/blog">
               <Button size="lg" variant="outline" className="rounded-full group h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base">
-                Voir tous les articles
+                {tr("Voir tous les articles", "See all articles", "Ver todos los artículos")}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform w-4 h-4" />
               </Button>
             </Link>
@@ -682,7 +683,7 @@ const Index = () => {
         {/* Loyalty Program */}
 
         {/* SEO Links & Content */}
-        <SEOLinks />
+        {language === "fr" && <SEOLinks />}
       </Suspense>
       </main>
 

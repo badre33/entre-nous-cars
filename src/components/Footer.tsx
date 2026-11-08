@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, useTr } from "@/contexts/LanguageContext";
 import { BUSINESS_INFO, getFullAddress } from "@/constants/businessInfo";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { AD_PREFERENCES_EVENT } from '@/utils/metaMeasurement';
 
 const Footer = () => {
   const { t, language } = useLanguage();
+  const tr = useTr();
   
   return (
     <footer className="w-full border-t border-border bg-card mt-20">
@@ -90,14 +91,14 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-border text-center space-y-3">
-          <h3 className="font-semibold">Location à Casablanca</h3>
-          <p>Loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V.</p>
-          <p>Rabat : livraison sur demande, livraison gratuite, convenue à l’avance avec le loueur.</p>
+          <h3 className="font-semibold">{tr("Location à Casablanca", "Car rental in Casablanca", "Alquiler en Casablanca")}</h3>
+          <p>{tr("Loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V.", "Rental agencies based in Casablanca. Pick-up in town or at Mohammed V Airport.", "Agencias con sede en Casablanca. Recogida en la ciudad o en el aeropuerto Mohammed V.")}</p>
+          <p>{tr("Rabat : livraison sur demande, livraison gratuite, convenue à l’avance avec le loueur.", "Rabat: delivery on request, free of charge, arranged in advance with the agency.", "Rabat: entrega bajo petición, gratuita, acordada de antemano con la agencia.")}</p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Link to="/prise-en-charge-casablanca-rabat">Gares et aéroports</Link>
+            <Link to="/prise-en-charge-casablanca-rabat">{tr("Gares et aéroports", "Stations and airports (FR)", "Estaciones y aeropuertos (FR)")}</Link>
             <Link to="/location-voiture-casablanca">Casablanca</Link>
             <Link to={language === "en" ? "/en/car-rental-casablanca-airport" : language === "es" ? "/es/alquiler-coche-aeropuerto-casablanca" : "/location-voiture-aeroport-casablanca"}>{language === "en" ? "Casablanca airport car rental" : language === "es" ? "Alquiler aeropuerto Casablanca" : "Aéroport Mohammed V"}</Link>
-            <Link to="/louer?city=Rabat">Demander une livraison à Rabat</Link>
+            <Link to={language === "fr" ? "/louer?city=Rabat" : `/${language}/louer?city=Rabat`}>{tr("Demander une livraison à Rabat", "Request delivery to Rabat", "Solicitar entrega en Rabat")}</Link>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
@@ -109,7 +110,7 @@ const Footer = () => {
             <Link to="/es" className="hover:text-foreground transition-colors">Español</Link>
           </div>
           © 2026 Benatna - {t('footer.tagline')}
-          <div><button type="button" className="min-h-11 px-3 underline" onClick={() => window.dispatchEvent(new Event(AD_PREFERENCES_EVENT))}>Cookies publicitaires</button></div>
+          <div><button type="button" className="min-h-11 px-3 underline" onClick={() => window.dispatchEvent(new Event(AD_PREFERENCES_EVENT))}>{tr("Cookies publicitaires", "Advertising cookies", "Cookies publicitarias")}</button></div>
         </div>
       </div>
     </footer>

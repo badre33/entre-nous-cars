@@ -287,13 +287,13 @@ const App = () => {
           <BrowserRouter>
             <ComparisonProvider>
             <RentalRequestDialog />
-            <MetaPixel />
             <CanonicalUrl />
             <OrganizationSchema />
             <SitelinksSearchBoxSchema />
             {/* Non-critical navigation helpers are in DeferredComponents below */}
             <AnalyticsTrackerComponent />
             <LanguageProvider>
+              <MetaPixel />
               <SeoDefaults />
                 <Toaster />
                 <Sonner />
