@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { HomeModelsSection } from "@/components/HomeModelsSection";
 import { CheckCircle, Shield, MapPin, ArrowRight, Wallet, CreditCard, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect, lazy, Suspense } from "react";
@@ -143,9 +144,6 @@ const Index = () => {
       <OfferSchema />
 
 
-      {/* Schema AggregateRating pour étoiles Google */}
-
-
       {/* BreadcrumbList Schema (Homepage) */}
       <BreadcrumbListSchema items={[createBreadcrumbs.home()]} />
       </Suspense>
@@ -223,6 +221,8 @@ const Index = () => {
       </section>
 
 
+
+      <HomeModelsSection />
 
       {/* How It Works */}
       <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-secondary/20 to-background">
