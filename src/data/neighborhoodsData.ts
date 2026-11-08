@@ -37,67 +37,40 @@ export const neighborhoods: Neighborhood[] = [
     name: "Ain Diab",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location Voiture Ain Diab Casablanca | Corniche & Plages - Benatna",
-    metaDescription: "Location de voiture à Ain Diab Casablanca. Livraison corniche, plages, Morocco Mall. Prix dès 250 DH/jour. Idéal sorties balnéaires et shopping.",
-    h1: "Location de Voiture à Ain Diab - Corniche Casablanca",
-    description: "Ain Diab, le quartier balnéaire chic de Casablanca avec sa corniche de 6 km, ses plages, clubs, restaurants et le Morocco Mall. Louez une voiture pour profiter pleinement de ce quartier dynamique en bord d'Atlantique.",
+    title: "Location voiture Ain Diab Casablanca dès 250 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme à Ain Diab dès 250 DH/jour : corniche, plages, Morocco Mall. Livraison gratuite convenue à l’avance, 3 jours minimum, demande sur WhatsApp.",
+    h1: "Location de voiture à Ain Diab, sur la corniche de Casablanca",
+    description: "Ain Diab, c’est la corniche de Casablanca : plages, restaurants face à l’océan, hôtels et le Morocco Mall au bout du boulevard. Pour un séjour de vacances, une voiture permet de passer de la plage au centre-ville, à la mosquée Hassan II ou à l’aéroport sans dépendre des taxis.",
     highlights: [
-      "Corniche de 6 km avec vue océan",
-      "Morocco Mall - plus grand centre commercial d'Afrique",
-      "Plages clubs privés et publics",
-      "Restaurants fruits de mer panoramiques",
-      "Quartier résidentiel haut standing"
+      "Corniche, plages et restaurants face à l’océan",
+      "Morocco Mall et Anfa Place à proximité",
+      "Hôtels et résidences de vacances",
+      "Mosquée Hassan II accessible par la route côtière",
+      "Aéroport Mohammed V rejoint par l’autoroute"
     ],
     landmarks: [
-      "Morocco Mall (3 km)",
-      "Mosquée Hassan II (7 km)",
-      "Plage Ain Diab (0 km)",
-      "La Sqala restaurant (2 km)",
-      "Parc de la Ligue Arabe (5 km)"
+      "Boulevard de la Corniche",
+      "Plages d’Ain Diab",
+      "Morocco Mall",
+      "Mosquée Hassan II",
+      "Phare d’El Hank"
     ],
     deliveryPoints: [
-      {
-        name: "Morocco Mall",
-        address: "Boulevard de la Corniche, Ain Diab",
-        latitude: "33.5895",
-        longitude: "-7.6704",
-        description: "Livraison parking Morocco Mall, entrée principale"
-      },
-      {
-        name: "Corniche Ain Diab",
-        address: "Boulevard de l'Océan Atlantique",
-        latitude: "33.5985",
-        longitude: "-7.6704",
-        description: "Livraison le long de la corniche, proche restaurants"
-      },
-      {
-        name: "Hôtels Ain Diab",
-        address: "Zone hôtelière Ain Diab",
-        latitude: "33.5920",
-        longitude: "-7.6650",
-        description: "Livraison directe à votre hôtel/résidence"
-      }
+      { name: "Votre hôtel ou résidence", address: "Ain Diab, Casablanca", latitude: "", longitude: "", description: "Remise à l’adresse de votre séjour, à convenir à l’avance avec le loueur." },
+      { name: "Aéroport Mohammed V", address: "À votre arrivée", latitude: "", longitude: "", description: "Récupérez la voiture dès l’atterrissage, puis rejoignez la corniche." },
+      { name: "Gare Casa-Voyageurs ou Casa-Port", address: "Si vous arrivez en train", latitude: "", longitude: "", description: "Remise en gare, à convenir à l’avance avec le loueur." }
     ],
-    popularVehicles: ["Dacia Sandero", "Renault Clio", "Toyota Yaris", "Dacia Duster", "Nissan Qashqai"],
+    popularVehicles: ["Dacia Sandero", "Renault Clio", "Peugeot 208", "Dacia Duster", "Hyundai Tucson"],
     tips: [
-      "Évitez la corniche le vendredi soir (embouteillages)",
-      "Parking Morocco Mall gratuit 3h",
-      "Restaurants poisson frais le long de la corniche",
-      "Coucher de soleil spectaculaire depuis la corniche"
+      "Précisez l’adresse exacte de votre hôtel dans la demande",
+      "La corniche est très fréquentée le soir et le week-end",
+      "Une citadine se gare plus facilement près des plages",
+      "Demandez au loueur les conditions de caution et de kilométrage"
     ],
     faqs: [
-      {
-        question: "Où récupérer ma voiture à Ain Diab ?",
-        answer: "Le loueur partenaire livre gratuitement votre véhicule directement au Morocco Mall, le long de la corniche ou à votre hôtel à Ain Diab, selon sa disponibilité."
-      },
-      {
-        question: "Quel véhicule pour Ain Diab et la corniche ?",
-        answer: "Une citadine comme la Dacia Sandero ou Renault Clio est parfaite pour Ain Diab. Facilité de stationnement, économique, idéale pour les sorties corniche et Morocco Mall."
-      },
-      {
-        question: "Y a-t-il des parkings à Ain Diab ?",
-        answer: "Oui, nombreux parkings : Morocco Mall (gratuit 3h), parkings plages (10-20 DH), parking restaurants corniche. Gardiens informels le long de la corniche (5 DH pourboire)."
-      }
+      { question: "Peut-on se faire livrer la voiture à Ain Diab ?", answer: "Oui. Le loueur partenaire peut remettre la voiture à votre hôtel ou résidence à Ain Diab, gratuitement, à condition de convenir du lieu et de l’heure à l’avance. Vous pouvez aussi la récupérer à l’aéroport Mohammed V à votre arrivée." },
+      { question: "Quelle voiture choisir pour la corniche ?", answer: "Pour circuler et se garer facilement, une citadine comme la Dacia Sandero, la Renault Clio ou la Peugeot 208 suffit. Pour une famille avec bagages, un SUV comme le Dacia Duster ou le Hyundai Tucson est plus confortable." },
+      { question: "Quelle est la durée minimum ?", answer: "Trois jours minimum. Les prix commencent à 250 DH par jour hors haute saison ; le tarif final, la disponibilité et les conditions sont confirmés par le loueur sur WhatsApp." }
     ]
   },
   {
@@ -105,67 +78,40 @@ export const neighborhoods: Neighborhood[] = [
     name: "Maarif",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location Voiture Maarif Casablanca | Quartier Central - Benatna",
-    metaDescription: "Location de voiture au Maarif Casablanca. Livraison Twin Center, commerces, restaurants. Prix dès 250 DH/jour. Idéal business et shopping.",
-    h1: "Location de Voiture au Maarif - Centre Casablanca",
-    description: "Le Maarif, quartier central et dynamique de Casablanca. Centre commercial, d'affaires et résidentiel avec le Twin Center, restaurants, cinémas et commerces de luxe. Parfait pour business et loisirs.",
+    title: "Location voiture Maarif Casablanca dès 250 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme au Maarif dès 250 DH/jour : Twin Center, boulevard Zerktouni, restaurants. Livraison gratuite convenue à l’avance, 3 jours minimum.",
+    h1: "Location de voiture au Maarif, au cœur de Casablanca",
+    description: "Le Maarif est le quartier central et commerçant de Casablanca, autour du Twin Center et du boulevard Zerktouni. C’est un bon point de départ pour un séjour : le centre-ville, la corniche d’Ain Diab et la route de l’aéroport sont accessibles rapidement en voiture.",
     highlights: [
-      "Twin Center - tours emblématiques",
-      "Boulevard Zerktouni - shopping de luxe",
-      "Nombreux restaurants internationaux",
-      "Cinémas Megarama et Lynx",
-      "Quartier central bien desservi"
+      "Twin Center et boulevard Zerktouni",
+      "Boutiques, cafés et restaurants",
+      "Hôtels en plein centre",
+      "Accès direct à la corniche et au centre-ville",
+      "Départ facile vers l’autoroute de l’aéroport"
     ],
     landmarks: [
-      "Twin Center (0 km)",
-      "Megarama Casablanca (1 km)",
-      "Anfaplace Shopping Center (2 km)",
-      "Place Mohammed V (3 km)",
-      "Morocco Mall (8 km)"
+      "Twin Center",
+      "Boulevard Zerktouni",
+      "Parc de la Ligue arabe",
+      "Corniche d’Ain Diab",
+      "Place Mohammed V"
     ],
     deliveryPoints: [
-      {
-        name: "Twin Center",
-        address: "Boulevard Zerktouni, Maarif",
-        latitude: "33.5892",
-        longitude: "-7.6306",
-        description: "Livraison parking Twin Center, accès direct"
-      },
-      {
-        name: "Quartier Maarif Centre",
-        address: "Rue Ibnou Batouta, Maarif",
-        latitude: "33.5850",
-        longitude: "-7.6280",
-        description: "Livraison centre Maarif, proche commerces"
-      },
-      {
-        name: "Hôtels Maarif",
-        address: "Zone hôtelière Maarif",
-        latitude: "33.5870",
-        longitude: "-7.6300",
-        description: "Livraison directe à votre hôtel"
-      }
+      { name: "Votre hôtel au Maarif", address: "Maarif, Casablanca", latitude: "", longitude: "", description: "Remise à votre hôtel ou appartement, à convenir à l’avance avec le loueur." },
+      { name: "Aéroport Mohammed V", address: "À votre arrivée", latitude: "", longitude: "", description: "Récupérez la voiture à l’aéroport et rejoignez le Maarif par l’autoroute." },
+      { name: "Gare Casa-Voyageurs", address: "Si vous arrivez en train", latitude: "", longitude: "", description: "Remise en gare, à convenir à l’avance avec le loueur." }
     ],
-    popularVehicles: ["Renault Clio", "Toyota Yaris", "Toyota Corolla", "Volkswagen Golf", "Mercedes Classe A"],
+    popularVehicles: ["Renault Clio", "Dacia Sandero", "Hyundai Accent", "Volkswagen Golf", "Mercedes Classe A"],
     tips: [
-      "Circulation dense en journée, prévoir temps supplémentaire",
-      "Parkings payants 10-15 DH/heure en voirie",
-      "Twin Center parking sécurisé 20 DH/jour",
-      "Nombreux restaurants place Prince Moulay Abdellah"
+      "La circulation est dense en journée : prévoyez de la marge",
+      "Demandez à votre hôtel s’il dispose d’un parking",
+      "Une citadine reste le plus pratique en centre-ville",
+      "Indiquez vos dates et l’adresse exacte dans la demande"
     ],
     faqs: [
-      {
-        question: "Livraison possible au Maarif ?",
-        answer: "Oui, livraison gratuite par le loueur partenaire au Twin Center, centre Maarif ou votre hôtel/bureau, selon sa disponibilité."
-      },
-      {
-        question: "Stationnement au Maarif ?",
-        answer: "Parkings payants en voirie (gardiens 10-15 DH/h) et parkings sécurisés (Twin Center 20 DH/jour, Anfaplace gratuit avec achat). Prévoir budget parking."
-      },
-      {
-        question: "Véhicule recommandé pour business Maarif ?",
-        answer: "Toyota Corolla ou Mercedes Classe A parfaites pour déplacements professionnels au Maarif. Confort, image, climatisation, GPS inclus."
-      }
+      { question: "La livraison est-elle possible au Maarif ?", answer: "Oui. Le loueur partenaire peut remettre la voiture à votre hôtel ou appartement au Maarif, gratuitement, à condition de convenir du lieu et de l’heure à l’avance." },
+      { question: "Quelle voiture pour circuler au Maarif ?", answer: "Une citadine (Renault Clio, Dacia Sandero) ou une berline compacte (Hyundai Accent, Volkswagen Golf). Elles se garent facilement et restent confortables pour les sorties hors de Casablanca." },
+      { question: "Comment faire une demande ?", answer: "Choisissez un modèle, indiquez vos dates (trois jours minimum) et le lieu de remise, puis envoyez la demande sur WhatsApp. Le loueur confirme la disponibilité, le tarif final et les conditions." }
     ]
   },
   {
@@ -173,67 +119,40 @@ export const neighborhoods: Neighborhood[] = [
     name: "Anfa",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location Voiture Anfa Casablanca | Quartier Résidentiel Chic - Benatna",
-    metaDescription: "Location de voiture à Anfa Casablanca. Livraison quartier résidentiel haut standing, villas, ambassades. Prix dès 250 DH/jour.",
-    h1: "Location de Voiture à Anfa - Quartier Résidentiel Casablanca",
-    description: "Anfa, le quartier résidentiel le plus prestigieux de Casablanca. Villas de luxe, ambassades, Palais Royal, golfs. Cadre verdoyant et calme, proche centre-ville et corniche.",
+    title: "Location voiture Anfa Casablanca dès 250 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme à Anfa dès 250 DH/jour, livrée à votre résidence ou à l’aéroport Mohammed V. Livraison gratuite convenue à l’avance, 3 jours minimum.",
+    h1: "Location de voiture à Anfa, Casablanca",
+    description: "Anfa est le quartier résidentiel et verdoyant de Casablanca, entre le centre-ville et la corniche. Beaucoup de visiteurs et de familles de MRE y séjournent ; une voiture livrée à la résidence simplifie les trajets vers la plage, les centres commerciaux et l’aéroport.",
     highlights: [
-      "Quartier résidentiel ultra-chic",
-      "Villas de luxe et ambassades",
-      "Palais Royal de Casablanca",
-      "Golfs (Royal Golf Anfa)",
-      "Calme et verdure en ville"
+      "Quartier résidentiel calme et arboré",
+      "Entre le centre-ville et la corniche",
+      "Anfa Place et Morocco Mall à proximité",
+      "Idéal pour un séjour en famille",
+      "Remise possible à votre résidence"
     ],
     landmarks: [
-      "Palais Royal (2 km)",
-      "Royal Golf Anfa (3 km)",
-      "Parc de la Ligue Arabe (4 km)",
-      "Mosquée Hassan II (5 km)",
-      "Twin Center (6 km)"
+      "Anfa Place",
+      "Corniche d’Ain Diab",
+      "Parc de la Ligue arabe",
+      "Mosquée Hassan II",
+      "Morocco Mall"
     ],
     deliveryPoints: [
-      {
-        name: "Anfa Place Living Resort",
-        address: "Boulevard d'Anfa",
-        latitude: "33.5800",
-        longitude: "-7.6400",
-        description: "Livraison complexe résidentiel Anfa Place"
-      },
-      {
-        name: "Quartier Anfa Supérieur",
-        address: "Rue d'Alger, Anfa",
-        latitude: "33.5750",
-        longitude: "-7.6350",
-        description: "Livraison quartier résidentiel Anfa"
-      },
-      {
-        name: "Hôtels de Luxe Anfa",
-        address: "Zone hôtelière Anfa",
-        latitude: "33.5780",
-        longitude: "-7.6380",
-        description: "Livraison hôtels 4-5 étoiles Anfa"
-      }
+      { name: "Votre résidence à Anfa", address: "Anfa, Casablanca", latitude: "", longitude: "", description: "Remise à votre adresse de séjour, à convenir à l’avance avec le loueur." },
+      { name: "Aéroport Mohammed V", address: "À votre arrivée", latitude: "", longitude: "", description: "Récupérez la voiture à l’aéroport, bagages compris." },
+      { name: "Gare Casa-Voyageurs", address: "Si vous arrivez en train", latitude: "", longitude: "", description: "Remise en gare, à convenir à l’avance avec le loueur." }
     ],
-    popularVehicles: ["Mercedes Classe A", "BMW Série 3", "Audi A3", "Toyota Corolla", "Nissan Qashqai"],
+    popularVehicles: ["Dacia Duster", "Hyundai Tucson", "Dacia Jogger", "Renault Clio", "Mercedes Classe A"],
     tips: [
-      "Quartier calme, respecter tranquillité résidents",
-      "Stationnement facile et gratuit dans rues résidentielles",
-      "Accès rapide centre-ville (10 min) et corniche (15 min)",
-      "Quartier sécurisé avec gardiens"
+      "Pour une famille, pensez au Dacia Jogger 7 places",
+      "Précisez le nombre de passagers et de bagages",
+      "Demandez au loueur les conditions de caution",
+      "Réservez tôt pendant les vacances d’été et de fin d’année"
     ],
     faqs: [
-      {
-        question: "Location voiture pour séjour résidentiel Anfa ?",
-        answer: "Oui, livraison directe à votre résidence/villa à Anfa. Idéal pour expatriés, longues durées, familles. Véhicules premium disponibles (Mercedes, BMW, Audi)."
-      },
-      {
-        question: "Véhicule recommandé pour Anfa ?",
-        answer: "Berlines premium (Mercedes Classe A, BMW Série 3) ou SUV confortables (Nissan Qashqai, Audi Q3) adaptés au standing du quartier. Image et confort prioritaires."
-      },
-      {
-        question: "Stationnement sécurisé à Anfa ?",
-        answer: "Stationnement gratuit dans rues résidentielles, très sécurisé. Quartier calme avec gardiens de nuit. Parking privatif si résidence/villa."
-      }
+      { question: "Peut-on recevoir la voiture à sa résidence à Anfa ?", answer: "Oui. Le loueur partenaire peut remettre la voiture à votre adresse à Anfa, gratuitement, à condition de convenir du lieu et de l’heure à l’avance." },
+      { question: "Quelle voiture pour une famille ?", answer: "Un SUV comme le Dacia Duster ou le Hyundai Tucson pour quatre ou cinq personnes avec bagages, ou le Dacia Jogger pour sept places." },
+      { question: "Quelle durée de location ?", answer: "À partir de trois jours, pour des séjours et des vacances. Les prix commencent à 250 DH par jour hors haute saison ; le loueur confirme le tarif final." }
     ]
   },
   {
@@ -241,139 +160,84 @@ export const neighborhoods: Neighborhood[] = [
     name: "Sidi Maarouf",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location Voiture Sidi Maarouf Casablanca | Zone Industrielle - Benatna",
-    metaDescription: "Location de voiture à Sidi Maarouf Casablanca. Livraison zone industrielle, Technopark, entreprises. Prix dès 250 DH/jour. Accès rapide aéroport CMN et Morocco Mall.",
-    h1: "Location de Voiture à Sidi Maarouf - Zone Industrielle Casablanca",
-    description: "Sidi Maarouf, principale zone industrielle et d'affaires de Casablanca. Technopark, sièges sociaux, usines. Quartier en pleine expansion avec infrastructures modernes.",
+    title: "Location voiture Sidi Maarouf dès 250 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme à Sidi Maarouf dès 250 DH/jour, sur la route de l’aéroport Mohammed V. Livraison gratuite convenue à l’avance, 3 jours minimum.",
+    h1: "Location de voiture à Sidi Maarouf, sur la route de l’aéroport",
+    description: "Sidi Maarouf se trouve au sud de Casablanca, sur l’axe qui relie la ville à l’aéroport Mohammed V. Ses hôtels proches de l’autoroute en font une étape pratique à l’arrivée ou avant un vol retour : la voiture peut vous attendre à l’aéroport ou à votre hôtel.",
     highlights: [
-      "Zone industrielle majeure",
-      "Technopark - pôle technologique",
-      "Nombreux sièges sociaux",
-      "Proximité aéroport Mohammed V (15 km)",
-      "Infrastructures modernes"
+      "Sur l’axe Casablanca – aéroport Mohammed V",
+      "Hôtels proches de l’autoroute",
+      "Pratique pour une arrivée tardive ou un départ matinal",
+      "Accès rapide au centre-ville et à la corniche",
+      "Remise à l’aéroport ou à votre hôtel"
     ],
     landmarks: [
-      "Casablanca Technopark (2 km)",
-      "Zone Franche d'Exportation (3 km)",
-      "Aéroport Mohammed V (15 km)",
-      "Centre-ville Casablanca (12 km)",
-      "Morocco Mall (18 km)"
+      "Aéroport Mohammed V",
+      "Autoroute Casablanca – aéroport",
+      "Morocco Mall",
+      "Corniche d’Ain Diab",
+      "Centre-ville de Casablanca"
     ],
     deliveryPoints: [
-      {
-        name: "Technopark Casablanca",
-        address: "Route de Nouaceur, Sidi Maarouf",
-        latitude: "33.4900",
-        longitude: "-7.6150",
-        description: "Livraison parking Technopark, entrée principale"
-      },
-      {
-        name: "Zone Industrielle Sidi Maarouf",
-        address: "Route de Nouaceur",
-        latitude: "33.4850",
-        longitude: "-7.6200",
-        description: "Livraison entreprises zone industrielle"
-      },
-      {
-        name: "Hôtels Business Sidi Maarouf",
-        address: "Zone hôtelière Route Nouaceur",
-        latitude: "33.4920",
-        longitude: "-7.6180",
-        description: "Livraison hôtels d'affaires"
-      }
+      { name: "Aéroport Mohammed V", address: "À votre arrivée", latitude: "", longitude: "", description: "Récupérez la voiture dès l’atterrissage, à convenir à l’avance avec le loueur." },
+      { name: "Votre hôtel à Sidi Maarouf", address: "Sidi Maarouf, Casablanca", latitude: "", longitude: "", description: "Remise à votre hôtel, à convenir à l’avance avec le loueur." },
+      { name: "Gare de l’Oasis", address: "Si vous arrivez en train", latitude: "", longitude: "", description: "Remise en gare, à convenir à l’avance avec le loueur." }
     ],
-    popularVehicles: ["Dacia Sandero", "Renault Clio", "Toyota Corolla", "Dacia Duster", "Ford Transit (utilitaire)"],
+    popularVehicles: ["Dacia Logan", "Dacia Sandero", "Renault Clio", "Dacia Duster", "Dacia Jogger"],
     tips: [
-      "Voie express rapide vers aéroport (15 min)",
-      "Nombreux restaurants d'affaires à midi",
-      "Circulation fluide même heures pointe",
-      "Parkings gratuits entreprises et Technopark"
+      "Donnez votre numéro de vol pour une remise à l’aéroport",
+      "Prévoyez la restitution avant votre vol retour",
+      "Précisez le nombre de valises",
+      "Trois jours minimum de location"
     ],
     faqs: [
-      {
-        question: "Location voiture business Sidi Maarouf ?",
-        answer: "Oui, service dédié entreprises Sidi Maarouf. Livraison Technopark, sièges sociaux, usines. Facturation entreprise, flotte disponible. Idéal déplacements professionnels quotidiens."
-      },
-      {
-        question: "Accès aéroport depuis Sidi Maarouf ?",
-        answer: "Très rapide ! 15 km seulement vers aéroport Mohammed V via voie express (15-20 min). Idéal si vous avez des déplacements fréquents aéroport."
-      },
-      {
-        question: "Utilitaires disponibles pour Sidi Maarouf ?",
-        answer: "Oui, Ford Transit, Renault Kangoo disponibles pour transports marchandises, livraisons zone industrielle. Tarifs pros avantageux, facturation entreprise possible."
-      }
+      { question: "Peut-on récupérer la voiture à l’aéroport et loger à Sidi Maarouf ?", answer: "Oui. C’est la formule la plus simple : la voiture vous attend à l’aéroport Mohammed V, ou à votre hôtel à Sidi Maarouf. La livraison est gratuite et se convient à l’avance avec le loueur." },
+      { question: "Quelle voiture pour un séjour avec bagages ?", answer: "La Dacia Logan offre un grand coffre à petit prix ; le Dacia Duster ou le Dacia Jogger 7 places conviennent aux familles." },
+      { question: "Proposez-vous des utilitaires ou des locations professionnelles ?", answer: "Non. Benatna propose uniquement des voitures de tourisme pour des séjours et des vacances, à partir de trois jours." }
     ]
   },
   {
     slug: "location-voiture-hassan-casablanca",
-    name: "Hassan (Centre-ville)",
+    name: "Centre-ville (Hassan)",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location Voiture Quartier Hassan Casablanca | Centre Historique - Benatna",
-    metaDescription: "Location de voiture quartier Hassan Casablanca. Livraison Place Mohammed V, préfecture, centre historique. Prix dès 250 DH/jour.",
-    h1: "Location de Voiture Quartier Hassan - Centre Historique Casablanca",
-    description: "Quartier Hassan, cœur administratif et historique de Casablanca. Place Mohammed V, préfecture, ancienne médina, bâtiments art déco. Centre névralgique de la ville avec son architecture coloniale française.",
+    title: "Location voiture centre-ville Casablanca dès 250 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme au centre-ville de Casablanca dès 250 DH/jour : place Mohammed V, Casa-Port, médina. Livraison gratuite convenue à l’avance, 3 jours minimum.",
+    h1: "Location de voiture au centre-ville de Casablanca",
+    description: "Le centre-ville de Casablanca, autour de la place Mohammed V, réunit les immeubles Art déco, le Marché central, l’ancienne médina et la gare Casa-Port. La médina se visite à pied ; la voiture sert pour la mosquée Hassan II, la corniche et les excursions hors de la ville.",
     highlights: [
-      "Place Mohammed V emblématique",
-      "Architecture art déco préservée",
-      "Préfecture et administration",
-      "Ancienne Médina à proximité",
-      "Centre historique colonial"
+      "Place Mohammed V et immeubles Art déco",
+      "Ancienne médina et Marché central",
+      "Gare Casa-Port en plein centre",
+      "Mosquée Hassan II à proximité",
+      "Point de départ pour les excursions"
     ],
     landmarks: [
-      "Place Mohammed V (0 km)",
-      "Préfecture de Casablanca (0.5 km)",
-      "Ancienne Médina (1 km)",
-      "Marché Central (1.5 km)",
-      "Mosquée Hassan II (3 km)"
+      "Place Mohammed V",
+      "Ancienne médina",
+      "Marché central",
+      "Mosquée Hassan II",
+      "Quartier des Habous"
     ],
     deliveryPoints: [
-      {
-        name: "Place Mohammed V",
-        address: "Place Mohammed V",
-        latitude: "33.5950",
-        longitude: "-7.6200",
-        description: "Livraison place centrale, fontaines"
-      },
-      {
-        name: "Quartier des Habous",
-        address: "Boulevard Victor Hugo",
-        latitude: "33.5920",
-        longitude: "-7.6150",
-        description: "Livraison nouvelle médina, souks artisanaux"
-      },
-      {
-        name: "Hôtels Centre-Ville Hassan",
-        address: "Zone hôtelière centre",
-        latitude: "33.5940",
-        longitude: "-7.6180",
-        description: "Livraison hôtels historiques centre"
-      }
+      { name: "Gare Casa-Port", address: "Centre-ville", latitude: "", longitude: "", description: "Remise en gare, à convenir à l’avance avec le loueur." },
+      { name: "Votre hôtel au centre-ville", address: "Centre-ville, Casablanca", latitude: "", longitude: "", description: "Remise à votre hôtel, à convenir à l’avance avec le loueur." },
+      { name: "Aéroport Mohammed V", address: "À votre arrivée", latitude: "", longitude: "", description: "Récupérez la voiture à l’aéroport et rejoignez le centre par l’autoroute." }
     ],
-    popularVehicles: ["Dacia Sandero", "Renault Clio", "Toyota Yaris", "Citroën C3", "Dacia Duster"],
+    popularVehicles: ["Dacia Sandero", "Renault Clio", "Peugeot 208", "Hyundai i20", "Dacia Duster"],
     tips: [
-      "Circulation dense, prévoir temps parking",
-      "Médina piétonne, se garer à l'extérieur",
-      "Marché Central matin pour fraîcheur produits",
-      "Architecture art déco à photographier"
+      "La médina se visite à pied : garez-vous à l’extérieur",
+      "Circulation dense aux heures de pointe",
+      "Demandez à votre hôtel s’il dispose d’un parking",
+      "Une citadine est la plus pratique en centre-ville"
     ],
     faqs: [
-      {
-        question: "Parking dans quartier Hassan ?",
-        answer: "Parkings payants nombreux : Parking Ibn Batouta, parking préfecture (15-20 DH/jour). Médina piétonne, parkings périphériques obligatoires. Gardiens voirie 10 DH/h."
-      },
-      {
-        question: "Visiter Médina en voiture ?",
-        answer: "Non, Médina piétonne. Garer voiture parking sécurisé (Parking Ibn Batouta recommandé) puis visiter à pied. Médina petite, 1-2h visite suffisent."
-      },
-      {
-        question: "Accès Mosquée Hassan II depuis Hassan ?",
-        answer: "Très proche ! 3 km seulement (10 min en voiture). Parking Mosquée disponible (gratuit). Visites guidées quotidiennes sauf vendredi matin."
-      }
+      { question: "Peut-on récupérer la voiture à la gare Casa-Port ?", answer: "Oui. La remise en gare Casa-Port ou à votre hôtel du centre-ville est gratuite, à condition de la convenir à l’avance avec le loueur." },
+      { question: "Faut-il une voiture pour visiter le centre ?", answer: "Pas pour la médina, qui se visite à pied. La voiture devient utile pour la mosquée Hassan II, la corniche d’Ain Diab et les sorties hors de Casablanca." },
+      { question: "Quelle durée de location ?", answer: "Trois jours minimum, pour des séjours et des vacances. Les prix commencent à 250 DH par jour hors haute saison ; le loueur confirme le tarif final sur WhatsApp." }
     ]
   },
-
-  // MARRAKECH
+  // MARRAKECH (hors zone : pages en noindex)
   {
     slug: "location-voiture-gueliz-marrakech",
     name: "Guéliz",

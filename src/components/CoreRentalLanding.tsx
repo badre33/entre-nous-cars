@@ -7,6 +7,14 @@ import { pickupPoints } from '@/data/pickupPoints';
 import { vehicleDetails } from '@/data/vehicleDetails';
 import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 
+const CASABLANCA_AREAS = [
+  { to: '/location-voiture-ain-diab-casablanca', label: 'Ain Diab et la corniche' },
+  { to: '/location-voiture-maarif-casablanca', label: 'Maarif' },
+  { to: '/location-voiture-anfa-casablanca', label: 'Anfa' },
+  { to: '/location-voiture-hassan-casablanca', label: 'Centre-ville' },
+  { to: '/location-voiture-sidi-maarouf-casablanca', label: 'Sidi Maarouf, route de l’aéroport' },
+];
+
 export interface CoreRentalContent {
   path: string;
   title: string;
@@ -94,6 +102,11 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
       {content.relatedLinks && <section aria-label="Organiser votre location à Casablanca" className="space-y-4">
         <h2 className="text-2xl font-semibold">Organiser votre location à Casablanca</h2>
         <div className="grid gap-4 sm:grid-cols-2">{content.relatedLinks.filter(link => link.to !== content.path).map(link => <div key={link.to} className="rounded-lg border p-4 space-y-2"><Link className="inline-flex min-h-11 items-center text-primary font-semibold underline underline-offset-4" to={link.to}>{link.label}</Link><p>{link.text}</p></div>)}</div>
+      </section>}
+      {content.path === '/location-voiture-casablanca' && <section aria-label="Livraison par quartier" className="space-y-4">
+        <h2 className="text-2xl font-semibold">Livraison par quartier à Casablanca</h2>
+        <p>La voiture peut vous être remise à votre hôtel ou résidence, gratuitement, à un lieu convenu à l’avance avec le loueur.</p>
+        <div className="flex flex-wrap gap-3">{CASABLANCA_AREAS.map(area => <Link key={area.to} to={area.to} className="rounded-full border px-4 py-2 hover:border-primary hover:text-primary">{area.label}</Link>)}</div>
       </section>}
       <section className="space-y-4"><h2 className="text-2xl font-semibold">Questions fréquentes</h2>{faqs.map(faq => <div key={faq.question}><h3 className="font-semibold">{faq.question}</h3><p>{faq.answer}</p></div>)}</section>
       <section className="space-y-3"><h2 className="text-2xl font-semibold">Préparer votre demande</h2><p>Indiquez vos dates, le modèle souhaité, votre nombre de passagers et votre point d’arrivée. Le catalogue est indicatif : le loueur confirme le véhicule, ses documents requis, la caution et les conditions du contrat avant votre accord.</p><p>Nos loueurs sont basés à Casablanca. Rabat est une possibilité sur demande depuis Casablanca, selon leur disponibilité. Aucune prise en charge dans une autre ville n’est proposée actuellement.</p><div className="flex flex-wrap gap-5"><Link to="/location-voiture-casablanca">Location à Casablanca</Link><Link to="/prise-en-charge-casablanca-rabat">Guide des gares et aéroports desservis</Link><Link to="/location-voiture-aeroport-casablanca">Arriver à Mohammed V</Link><Link to="/location-voiture-rabat">Demander une livraison à Rabat</Link><Link to="/prix-location-voiture-maroc-2026">Comprendre le prix de votre location</Link><Link to="/caution-location-voiture-maroc">Préparer les questions sur la caution</Link><Link to="/faq">Toutes les questions</Link></div></section>
