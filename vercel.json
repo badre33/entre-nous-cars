@@ -5,6 +5,16 @@
   "framework": "vite",
   "redirects": [
     {
+      "source": "/comparatif/location-courte-duree-vs-longue-duree-maroc",
+      "destination": "/location-voiture-semaine-casablanca",
+      "permanent": true
+    },
+    {
+      "source": "/courte-vs-longue-duree-location-voiture-maroc",
+      "destination": "/location-voiture-semaine-casablanca",
+      "permanent": true
+    },
+    {
       "source": "/location-longue-duree-casablanca",
       "destination": "/location-voiture-casablanca",
       "permanent": true

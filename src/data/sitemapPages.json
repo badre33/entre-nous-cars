@@ -215,11 +215,6 @@
     "priority": "0.8"
   },
   {
-    "path": "/courte-vs-longue-duree-location-voiture-maroc",
-    "changefreq": "monthly",
-    "priority": "0.75"
-  },
-  {
     "path": "/essence-ou-diesel-location-voiture-maroc",
     "changefreq": "monthly",
     "priority": "0.75"
@@ -366,11 +361,6 @@
   },
   {
     "path": "/comparatif/location-aeroport-vs-centre-ville-maroc",
-    "changefreq": "monthly",
-    "priority": "0.6"
-  },
-  {
-    "path": "/comparatif/location-courte-duree-vs-longue-duree-maroc",
     "changefreq": "monthly",
     "priority": "0.6"
   },

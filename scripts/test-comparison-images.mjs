@@ -3,7 +3,7 @@ const base=process.env.TEST_BASE||'http://127.0.0.1:4319',output=process.env.TES
 const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 try{for(const [width,deviceScaleFactor] of [[320,2],[390,1],[1280,1]]){
  const page=await browser.newPage({viewport:{width,height:844},deviceScaleFactor,serviceWorkers:'block'});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.route('**/*',r=>new URL(r.request().url()).origin===new URL(base).origin?r.continue():r.abort());
- for(const route of ['/comparatifs','/comparatif/location-courte-duree-vs-longue-duree-maroc']){
+ for(const route of ['/comparatifs','/comparatif/renault-clio-vs-dacia-sandero-maroc']){
   await page.goto(base+route);await page.locator('main h1').waitFor();const imgs=page.locator('main img');assert(await imgs.count()>=2);
   for(const img of await imgs.all()){await img.scrollIntoViewIfNeeded();const state=await img.evaluate(async e=>{await e.decode();return {width:e.naturalWidth,src:e.currentSrc,srcset:e.srcset};});assert(state.width>0);if(state.srcset)assert(/responsive\/.*-(480|960)\.webp/.test(state.src),'responsive vehicle file selected');}
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
