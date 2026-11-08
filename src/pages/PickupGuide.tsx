@@ -16,7 +16,7 @@ export default function PickupGuide() {
       <section className="space-y-5">
         <h1 className="text-3xl md:text-5xl">Votre voiture à l’arrivée à Casablanca</h1>
         <p className="text-lg">MRE, touristes et vacanciers : préparez votre prise en charge en ville, à l’aéroport Mohammed V ou près d’une gare. Nos loueurs sont basés à Casablanca. Rabat reste une livraison sur demande depuis Casablanca.</p>
-        <p><strong>Voitures de tourisme uniquement. Minimum trois jours, maximum six mois.</strong> Livraison gratuite, convenue à l’avance avec le loueur. La présence d’un lieu dans ce guide ne signifie pas que Benatna y possède une agence ou un guichet.</p>
+        <p><strong>Voitures de tourisme uniquement. Minimum trois jours.</strong> Livraison gratuite, convenue à l’avance avec le loueur. La présence d’un lieu dans ce guide ne signifie pas que Benatna y possède une agence ou un guichet.</p>
         <p>La demande se prépare sur le site puis se transmet par WhatsApp. Aucun paiement en ligne ; la réservation doit être confirmée par le loueur.</p>
       </section>
       {['Casablanca','Rabat'].map(city=><section key={city} className="space-y-5">

@@ -11,7 +11,7 @@ const questions = [
   { question: 'Quels documents et quelles conditions vérifier ?', answer: 'Demandez au loueur les documents requis, ses critères pour les conducteurs, les conditions de kilométrage, les garanties d’assurance et la franchise du contrat. Ces modalités sont à confirmer pour le véhicule proposé avant votre accord.' },
 ];
 const rentalJourney = {
-  intro: 'Préparez une demande complète pour un séjour personnel de trois jours à six mois : dates, modèles et lieu. La livraison est gratuite aux points desservis et le rendez-vous est convenu à l’avance.',
+  intro: 'Préparez une demande complète pour un séjour personnel à partir de trois jours : dates, modèles et lieu. La livraison est gratuite aux points desservis et le rendez-vous est convenu à l’avance.',
   links: [
     { title: 'Location de voiture à Casablanca', link: '/location-voiture-casablanca' },
     { title: 'Préparer une arrivée à Mohammed V', link: '/location-voiture-aeroport-casablanca' },
@@ -36,7 +36,7 @@ export const rentalAudiencePages: Record<'mre' | 'faq', LongTailPageConfig> = {
     content: {
       intro: 'Vous rentrez au Maroc pour des vacances ou un séjour auprès de vos proches ? Benatna vous aide à préparer une demande auprès de loueurs basés à Casablanca. Comparez les modèles et leurs prix indicatifs, puis convenez du véhicule et des conditions avec le loueur avant votre arrivée.',
       sections: [
-        { title: 'Avant le départ : vos dates, vos passagers et vos valises', content: 'Choisissez les dates de départ et de retour, de trois jours à six mois calendaires. Précisez au loueur le nombre de voyageurs et les bagages prévus. Une citadine, une compacte et un SUV répondent à des besoins différents : vous pouvez réunir jusqu’à trois modèles dans une demande pour comparer les propositions.' },
+        { title: 'Avant le départ : vos dates, vos passagers et vos valises', content: 'Choisissez les dates de départ et de retour, à partir de trois jours. Précisez au loueur le nombre de voyageurs et les bagages prévus. Une citadine, une compacte et un SUV répondent à des besoins différents : vous pouvez réunir jusqu’à trois modèles dans une demande pour comparer les propositions.' },
         { title: 'Arrivée à Mohammed V ou en gare de Casablanca', content: 'Sélectionnez votre point de remise dans le guide : Mohammed V, Casa-Voyageurs, Casa-Port, Oasis ou Aïn Sebaâ. La livraison est gratuite et le rendez-vous est convenu à l’avance. Communiquez les informations utiles sur votre arrivée au loueur et prévenez-le si votre voyage change.' },
         { title: 'Prix, caution et contrat avant votre accord', content: 'Demandez le montant de toute la période, puis faites préciser séparément la caution et ses modalités de restitution. Vérifiez les documents requis, les critères pour les conducteurs, le kilométrage, l’assurance et la franchise avec le loueur. Les moyens de règlement acceptés dépendent de sa proposition ; aucun paiement en ligne n’est proposé sur Benatna.' },
         { title: 'Un séjour prolongé ou une livraison à Rabat', content: 'Pour plusieurs semaines ou mois, demandez un tarif couvrant vos dates, sans supposer un forfait mensuel. Le retour se convient à l’avance. Une livraison gratuite à Rabat peut être étudiée depuis Casablanca selon la disponibilité du loueur ; choisissez le lieu exact avant votre accord.' },

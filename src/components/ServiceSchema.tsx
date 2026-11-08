@@ -9,7 +9,7 @@ export const ServiceSchema = ({ city = 'Casablanca' }: ServiceSchemaProps) => {
     serviceType: 'Mise en relation pour une location de voiture de tourisme',
     provider: { '@id': 'https://benatna.ma#organization' },
     areaServed: { '@type': 'City', name: city },
-    description: 'De trois jours à six mois calendaires. Modèles et prix journaliers indicatifs ; disponibilité, tarif final et contrat confirmés par le loueur. Livraison gratuite convenue à l’avance aux points desservis, Rabat sur demande depuis Casablanca. Aucun paiement en ligne sur Benatna.',
+    description: 'À partir de trois jours. Modèles et prix journaliers indicatifs ; disponibilité, tarif final et contrat confirmés par le loueur. Livraison gratuite convenue à l’avance aux points desservis, Rabat sur demande depuis Casablanca. Aucun paiement en ligne sur Benatna.',
     url: city === 'Rabat' ? 'https://benatna.ma/location-voiture-rabat' : 'https://benatna.ma/location-voiture-casablanca',
   };
   return <Helmet><script type="application/ld+json">{JSON.stringify(schema)}</script></Helmet>;

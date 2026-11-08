@@ -45,7 +45,7 @@ const VehicleDetail = () => {
 
   const editorial = casablancaModelContent[vehicle.slug];
   const seoTitle = editorial?.title ?? `${vehicle.name} à Casablanca | Location voiture Benatna`;
-  const seoDescription = editorial?.description ?? `Location ${vehicle.name} à Casablanca : 3 jours à 6 mois, livraison gratuite convenue à l’avance. Rabat sur demande. Disponibilité et tarif à confirmer.`;
+  const seoDescription = editorial?.description ?? `Location ${vehicle.name} à Casablanca : 3 jours minimum, livraison gratuite convenue à l’avance. Rabat sur demande. Disponibilité et tarif à confirmer.`;
   const whatsappLink = `/louer?demande=1&modele=${encodeURIComponent(vehicle.name)}`;
 
   const FeatureRow = ({ label, value }: { label: string; value: boolean | string | undefined }) => {
@@ -153,7 +153,7 @@ const VehicleDetail = () => {
                     <p className="text-xs text-secondary font-medium mt-1">{currentContextBadge()}</p>
                   )}
                   <p className="text-xs text-muted-foreground mt-1">Prix indicatif, à confirmer avec le loueur pour vos dates.</p>
-                  <p className="text-sm mt-2">Prise en charge à Casablanca, de 3 jours à 6 mois. Livraison gratuite convenue à l’avance ; Rabat sur demande.</p>
+                  <p className="text-sm mt-2">Prise en charge à Casablanca, à partir de 3 jours. Livraison gratuite convenue à l’avance ; Rabat sur demande.</p>
                 </div>
 
                 {/* Quick specs */}
@@ -300,7 +300,7 @@ const VehicleDetail = () => {
           {editorial.sections.map(section => <section key={section.title} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title}</h2><p className="leading-relaxed">{section.text}</p></section>)}
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold">Prix, caution et livraison de votre {editorial.name}</h2>
-            <p>Le prix journalier affiché est indicatif. Choisissez une période de trois jours à six mois calendaires pour demander le tarif total. Le loueur précise séparément la caution, le moyen de dépôt accepté et ses conditions de restitution avant votre accord.</p>
+            <p>Le prix journalier affiché est indicatif. Choisissez une période à partir de trois jours pour demander le tarif total. Le loueur précise séparément la caution, le moyen de dépôt accepté et ses conditions de restitution avant votre accord.</p>
             <p>La livraison est gratuite aux points desservis de Casablanca, avec un rendez-vous convenu à l’avance. La version, les équipements et la disponibilité sont confirmés par le loueur ; les photos illustrent le modèle.</p>
             <div className="flex flex-wrap gap-4">
               <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-casablanca">Location de voiture à Casablanca</Link>

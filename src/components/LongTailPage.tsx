@@ -157,7 +157,7 @@ export const LongTailPage = ({ config }: LongTailPageProps) => {
       
       <Header />
       {config.safetyNotice && <aside role="note" aria-label={config.safetyNotice.title} className="container max-w-4xl my-6 rounded-xl border-2 p-4 space-y-2"><h2 className="text-xl font-semibold">{config.safetyNotice.title}</h2><p>{config.safetyNotice.text}</p></aside>}
-      <p className="text-center px-4 py-3 bg-primary/10">Pour les MRE, touristes et particuliers : location de 3 jours à 6 mois.</p>
+      <p className="text-center px-4 py-3 bg-primary/10">Pour les MRE, touristes et particuliers : location à partir de 3 jours.</p>
       <BreadcrumbsEnriched items={breadcrumbItems} />
       <StickyProgress sections={sections} />
 

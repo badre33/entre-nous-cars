@@ -25,7 +25,7 @@ export const reviewedRentalBlogs: Record<string, ReviewedRentalBlog> = {
       '## Organiser une arrivée à Casablanca',
       'La livraison est gratuite aux points desservis et le rendez-vous est convenu à l’avance. Préparez une arrivée à [Mohammed V](/location-voiture-aeroport-casablanca) ou choisissez une [gare de Casablanca](/location-voiture-gare-oncf-maroc). Rabat reste une livraison sur demande depuis Casablanca selon la disponibilité du loueur.',
       '## Une demande avant une confirmation',
-      'La location dure de trois jours à six mois calendaires. Vérifiez les dates, les modèles et le lieu dans le récapitulatif avant d’ouvrir WhatsApp. Le site ne propose pas de paiement en ligne et l’envoi ne vaut pas réservation : il faut la confirmation du loueur et votre accord.',
+      'La location dure au minimum trois jours. Vérifiez les dates, les modèles et le lieu dans le récapitulatif avant d’ouvrir WhatsApp. Le site ne propose pas de paiement en ligne et l’envoi ne vaut pas réservation : il faut la confirmation du loueur et votre accord.',
       'Pour commencer, comparez les [voitures pour votre séjour à Casablanca](/location-voiture-casablanca).',
     ],
   },
@@ -45,7 +45,7 @@ export const reviewedRentalBlogs: Record<string, ReviewedRentalBlog> = {
       'Demandez au loueur le moyen, les conditions et le délai de restitution de la caution pour le dépôt retenu. Conservez les documents, les confirmations et les justificatifs utiles. Aucun remboursement immédiat ou délai bancaire commun à toutes les locations n’est annoncé ici.',
       '## Préparer une remise à Casablanca',
       'La livraison est gratuite aux points desservis de Casablanca et le rendez-vous est convenu à l’avance. Rabat peut être demandé depuis Casablanca selon la disponibilité du loueur. Choisissez votre lieu dans le [guide des gares et aéroports](/prise-en-charge-casablanca-rabat).',
-      'Le site permet une demande pour trois jours à six mois calendaires et ne propose pas de paiement en ligne. Préparez vos dates, vos modèles et votre lieu dans le [catalogue](/louer?city=Casablanca), puis obtenez l’accord du loueur sur la proposition.',
+      'Le site permet une demande pour trois jours minimum et ne propose pas de paiement en ligne. Préparez vos dates, vos modèles et votre lieu dans le [catalogue](/louer?city=Casablanca), puis obtenez l’accord du loueur sur la proposition.',
     ],
   },
   'guide-complet-location-voiture-maroc-2025': {
@@ -56,7 +56,7 @@ export const reviewedRentalBlogs: Record<string, ReviewedRentalBlog> = {
     content: [
       'Une location se prépare avec une période précise, un choix de voiture et un lieu de remise. Pour votre séjour à Casablanca, utilisez ces étapes pour comparer les propositions sans supposer un prix garanti, une couverture d’assurance ou une disponibilité à partir d’une simple photo.',
       '## 1. Définir les dates et le lieu',
-      'La durée demandée va de trois jours à six mois calendaires. Sélectionnez le point desservi qui correspond à votre arrivée. La livraison est gratuite et le rendez-vous se convient à l’avance. Rabat reste une livraison sur demande depuis Casablanca selon la disponibilité du loueur.',
+      'La durée minimum est de trois jours. Sélectionnez le point desservi qui correspond à votre arrivée. La livraison est gratuite et le rendez-vous se convient à l’avance. Rabat reste une livraison sur demande depuis Casablanca selon la disponibilité du loueur.',
       'Préparez une arrivée à [Mohammed V](/location-voiture-aeroport-casablanca), en [gare de Casablanca](/location-voiture-gare-oncf-maroc), ou consultez le [guide des lieux desservis](/prise-en-charge-casablanca-rabat).',
       '## 2. Comparer les modèles et le budget',
       'Indiquez les passagers, les bagages et votre préférence de transmission. Vous pouvez sélectionner jusqu’à trois modèles dans une demande. Comparez le tarif pour la même période et faites confirmer le véhicule, la version et les équipements utiles.',

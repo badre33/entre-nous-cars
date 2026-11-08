@@ -18,17 +18,17 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const DEFAULTS: Record<string, { desc: string; locale: string }> = {
   fr: {
     desc:
-      "Voitures de tourisme à Casablanca pour vos séjours. Minimum trois jours, maximum six mois. Livraison gratuite aux points desservis ; Rabat sur demande.",
+      "Voitures de tourisme à Casablanca pour vos séjours. Minimum trois jours. Livraison gratuite aux points desservis ; Rabat sur demande.",
     locale: "fr_MA",
   },
   en: {
     desc:
-      "Tourist car rental in Casablanca, from three days to six months. Free delivery at served locations; Rabat on request.",
+      "Tourist car rental in Casablanca, from three days. Free delivery at served locations; Rabat on request.",
     locale: "en_US",
   },
   es: {
     desc:
-      "Coches turísticos en Casablanca, de tres días a seis meses. Entrega gratuita en los puntos atendidos; Rabat bajo petición.",
+      "Coches turísticos en Casablanca, desde tres días. Entrega gratuita en los puntos atendidos; Rabat bajo petición.",
     locale: "es_ES",
   },
 };

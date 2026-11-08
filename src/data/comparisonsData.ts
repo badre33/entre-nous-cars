@@ -236,7 +236,7 @@ export const comparisons: Comparison[] = [
     "metaTitle": "Location voiture : aéroport ou centre-ville à Casablanca | Benatna",
     "metaDescription": "Choisir votre prise en charge à Casablanca : Mohammed V ou point en ville convenu avec le loueur. Livraison gratuite aux points desservis, minimum 3 jours.",
     "category": "services",
-    "introduction": "Choisissez le point de prise en charge selon votre arrivée à Casablanca et l’organisation de votre séjour. Dans les deux cas, la livraison aux points desservis est gratuite et le rendez-vous est convenu à l’avance avec le loueur. La location dure de trois jours à six mois calendaires.",
+    "introduction": "Choisissez le point de prise en charge selon votre arrivée à Casablanca et l’organisation de votre séjour. Dans les deux cas, la livraison aux points desservis est gratuite et le rendez-vous est convenu à l’avance avec le loueur. La location dure au minimum trois jours.",
     "item1": {
         "name": "Arrivée à Mohammed V",
         "image": "/city-casablanca.jpg",
@@ -245,7 +245,7 @@ export const comparisons: Comparison[] = [
             "Lieu": "Aéroport Mohammed V, Casablanca",
             "Rendez-vous": "Convenu à l’avance",
             "Livraison": "Gratuite au point desservi",
-            "Durée": "3 jours à 6 mois"
+            "Durée": "3 jours minimum"
         },
         "pros": [
             "Prise en charge adaptée à une arrivée en avion",
@@ -269,7 +269,7 @@ export const comparisons: Comparison[] = [
             "Lieu": "Point desservi à Casablanca",
             "Rendez-vous": "Convenu à l’avance",
             "Livraison": "Gratuite au point desservi",
-            "Durée": "3 jours à 6 mois"
+            "Durée": "3 jours minimum"
         },
         "pros": [
             "Prise en charge adaptée à un séjour déjà commencé",
@@ -316,7 +316,7 @@ export const comparisons: Comparison[] = [
     "title": "Court séjour ou séjour prolongé à Casablanca",
     slug: "location-courte-duree-vs-longue-duree-maroc",
     "metaTitle": "Location voiture à Casablanca : court séjour ou jusqu’à 6 mois | Benatna",
-    "metaDescription": "Comparez une location pour quelques jours ou plusieurs semaines à Casablanca. De 3 jours à 6 mois, livraison gratuite aux points desservis, tarif confirmé par le loueur.",
+    "metaDescription": "Comparez une location pour quelques jours ou plusieurs semaines à Casablanca. À partir de 3 jours, livraison gratuite aux points desservis, tarif confirmé par le loueur.",
     "category": "services",
     "introduction": "La bonne durée dépend des dates de votre séjour personnel. Benatna permet de demander une voiture de trois jours minimum à six mois calendaires maximum. Comparez les prix journaliers indicatifs, puis faites confirmer le véhicule, le montant total et les conditions par le loueur.",
     "item1": {

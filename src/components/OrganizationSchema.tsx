@@ -10,7 +10,7 @@ export const OrganizationSchema = () => {
     '@id': `${BUSINESS_INFO.website}#organization`,
     name: 'Benatna',
     url: BUSINESS_INFO.website,
-    description: 'Plateforme de mise en relation avec des loueurs basés à Casablanca pour une location de voiture de tourisme de trois jours à six mois. Livraison gratuite convenue à l’avance aux points desservis ; Rabat sur demande depuis Casablanca. Modèle, tarif et conditions confirmés par le loueur.',
+    description: 'Plateforme de mise en relation avec des loueurs basés à Casablanca pour une location de voiture de tourisme à partir de trois jours. Livraison gratuite convenue à l’avance aux points desservis ; Rabat sur demande depuis Casablanca. Modèle, tarif et conditions confirmés par le loueur.',
     telephone: BUSINESS_INFO.phone,
     email: BUSINESS_INFO.email,
     areaServed: [
