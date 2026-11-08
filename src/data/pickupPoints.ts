@@ -10,7 +10,7 @@ export const pickupPoints = [
 ] as const;
 export const rentalFacts = [
   { question: 'Où Benatna propose-t-il la prise en charge ?', answer: 'Nos loueurs sont basés à Casablanca. La remise peut être demandée en ville, à l’aéroport Mohammed V ou près d’une gare de Casablanca. La livraison est gratuite et tout est convenu à l’avance avec le loueur. Rabat reste une livraison sur demande depuis Casablanca.' },
-  { question: 'Quelle est la durée minimum de location ?', answer: 'La location dure au minimum trois jours et au maximum six mois. Les dates, la disponibilité et le tarif final doivent être confirmés par le loueur.' },
+  { question: 'Quelle est la durée minimum de location ?', answer: 'La location dure au minimum trois jours. Les dates, la disponibilité et le tarif final doivent être confirmés par le loueur.' },
   { question: 'À qui s’adresse Benatna ?', answer: 'Benatna s’adresse en priorité aux Marocains résidant à l’étranger (MRE), aux touristes et aux vacanciers qui recherchent une voiture de tourisme pour leur séjour. Les demandes locales restent possibles dans la même zone et aux mêmes conditions.' },
   { question: 'Peut-on demander une voiture à Rabat ?', answer: 'Oui, une livraison à Rabat, à ses gares ou à l’aéroport Rabat-Salé peut être étudiée depuis Casablanca. Elle n’est pas garantie : le loueur confirme la disponibilité. La livraison est gratuite et convenue à l’avance.' },
   { question: 'Benatna propose-t-il des vans, mariages ou locations professionnelles ?', answer: 'Non. Benatna ne propose pas de vans, minibus, utilitaires, prestations de mariage, événementielles ou locations professionnelles. L’offre porte sur des voitures de tourisme pour des séjours et vacances, à partir de trois jours.' },

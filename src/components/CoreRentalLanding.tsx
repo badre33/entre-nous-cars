@@ -38,7 +38,7 @@ export interface CoreRentalContent {
 
 export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
   const faqs = content.faqs ?? [
-    { question: 'Quelle durée puis-je demander ?', answer: 'La location dure au minimum trois jours et au maximum six mois calendaires. Choisissez vos dates pour demander un tarif au loueur.' },
+    { question: 'Quelle durée puis-je demander ?', answer: 'La location dure au minimum trois jours. Choisissez vos dates pour demander un tarif au loueur.' },
     { question: 'La livraison est-elle gratuite ?', answer: 'Oui, aux gares et aéroports desservis de Casablanca et, sur demande, de Rabat. Le point de rendez-vous et les modalités sont convenus à l’avance avec le loueur.' },
     { question: 'La demande confirme-t-elle la réservation ?', answer: 'Non. Une demande WhatsApp permet au loueur de vérifier les dates et le modèle, puis de préciser le tarif final et ses conditions. La réservation demande sa confirmation et votre accord. Aucun paiement en ligne n’est proposé sur Benatna.' },
   ];

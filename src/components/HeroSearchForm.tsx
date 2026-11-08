@@ -27,7 +27,7 @@ export const HeroSearchForm = () => {
         <label className="min-w-0 space-y-1"><span className="block text-sm font-semibold">Date de départ</span><input required type="date" min={localToday()} className={field} value={startDate} onChange={e=>{setStartDate(e.target.value);setError('');}} /></label>
         <label className="min-w-0 space-y-1"><span className="block text-sm font-semibold">Date de retour</span><input required type="date" min={startDate||localToday()} className={field} value={endDate} onChange={e=>{setEndDate(e.target.value);setError('');}} /></label>
       </div>
-      <p className="text-sm text-gray-600">3 jours minimum, 6 mois maximum. Le rendez-vous est convenu avec le loueur.{city==='Rabat'?' Livraison à Rabat sur demande depuis Casablanca.':''}</p>
+      <p className="text-sm text-gray-600">3 jours minimum. Le rendez-vous est convenu avec le loueur.{city==='Rabat'?' Livraison à Rabat sur demande depuis Casablanca.':''}</p>
       {error&&<p role="alert" className="text-sm text-destructive">{error}</p>}
       <Button type="submit" size="lg" className="w-full min-h-12 h-auto whitespace-normal"><Search aria-hidden="true"/>Rechercher</Button>
       <Button type="button" variant="outline" aria-label="Préparer une demande de location" className="w-full min-h-12 h-auto whitespace-normal md:hidden" onClick={()=>requestRental({city:city==='Rabat'?'Rabat':'Casablanca',startDate,endDate})}>Préparer ma demande WhatsApp</Button>
