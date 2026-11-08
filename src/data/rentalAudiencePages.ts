@@ -2,7 +2,7 @@ import type { LongTailPageConfig } from './longTailPages';
 
 const questions = [
   { question: 'Où peut-on demander la remise du véhicule ?', answer: 'Les loueurs sont basés à Casablanca. Choisissez un point desservi à Casablanca, notamment Mohammed V ou une gare du guide. Rabat reste une livraison sur demande depuis Casablanca selon la disponibilité du loueur.' },
-  { question: 'Quelle durée de location peut-on demander ?', answer: 'De trois jours minimum à six mois calendaires maximum. Indiquez des dates précises, y compris pour plusieurs semaines ou mois. Une prolongation demande l’accord du loueur.' },
+  { question: 'Quelle durée de location peut-on demander ?', answer: 'Trois jours minimum. Indiquez des dates précises de départ et de retour. Une prolongation demande l’accord du loueur.' },
   { question: 'La livraison est-elle gratuite ?', answer: 'Oui, aux points desservis de Casablanca et, sur demande, de Rabat. Le rendez-vous et le lieu précis de remise et de retour sont convenus à l’avance avec le loueur.' },
   { question: 'Le prix du catalogue est-il le tarif final ?', answer: 'Les prix journaliers affichés sont indicatifs. Transmettez vos dates pour faire confirmer le tarif de toute la période, le modèle et les conditions avant votre accord.' },
   { question: 'Quel montant de caution et quel moyen de paiement prévoir ?', answer: 'Le loueur précise le montant de caution, le moyen de dépôt accepté, les conditions et le délai de restitution, ainsi que les modalités de règlement. Aucun montant unique ou moyen de paiement n’est garanti pour tous les véhicules.' },
@@ -28,7 +28,7 @@ export const rentalAudiencePages: Record<'mre' | 'faq', LongTailPageConfig> = {
   mre: {
     slug: 'location-voiture-mre-maroc', title: 'Location pour les MRE à Casablanca',
     metaTitle: 'Location voiture MRE à Casablanca pour votre séjour | Benatna',
-    metaDescription: 'MRE : préparez une voiture à Casablanca pour votre retour au pays. Minimum 3 jours, jusqu’à 6 mois, livraison gratuite aux points desservis. Rabat sur demande.',
+    metaDescription: 'MRE : préparez une voiture à Casablanca pour votre retour au pays. Dès 3 jours, livraison gratuite aux points desservis. Rabat sur demande.',
     keywords: 'location voiture mre casablanca, voiture retour au maroc, location voiture vacances casablanca',
     h1: 'MRE : préparer votre location de voiture à Casablanca',
     heroSubtitle: 'Retour au pays • Vacances • Dates et lieu préparés avant le voyage',

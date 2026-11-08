@@ -9,7 +9,6 @@ const services = [
   { key: 'airport', title: 'Arriver à Mohammed V', text: 'Préparer le véhicule et la livraison gratuite avec le loueur avant votre vol.' },
   { key: 'railway', title: 'Choisir une gare de Casablanca', text: 'Sélectionner Casa-Voyageurs, Casa-Port, Oasis ou Aïn Sebaâ dans votre demande.' },
   { key: 'automatic', title: 'Comparer les voitures automatiques', text: 'Ouvrir le catalogue filtré et faire confirmer la version pour vos dates.' },
-  { key: 'longStay', title: 'Préparer un séjour au mois', text: 'Demander un tarif pour toute la période, jusqu’à six mois calendaires.' },
   { key: 'casaVoyageurs', title: 'Arriver à Casa-Voyageurs', text: 'Préciser votre train, vos passagers et vos bagages pour préparer la remise.' },
   { key: 'casablanca', title: 'Choisir votre voiture à Casablanca', text: 'Comparer les modèles, leurs prix indicatifs et les conditions du loueur.' },
 ] as const;
@@ -27,7 +26,7 @@ export default function NosServices() {
    <section className="space-y-4">
     <h1 className="text-3xl md:text-5xl">Préparer votre location de voiture à Casablanca</h1>
     <p>MRE, touristes et vacanciers : choisissez le modèle et le lieu adaptés à votre séjour. Nos loueurs sont basés à Casablanca ; une livraison à Rabat peut être étudiée depuis Casablanca selon leur disponibilité.</p>
-    <p><strong>Trois jours minimum, six mois calendaires maximum.</strong> Livraison gratuite aux points desservis, rendez-vous convenu à l’avance.</p>
+    <p><strong>Trois jours minimum.</strong> Livraison gratuite aux points desservis, rendez-vous convenu à l’avance.</p>
     <Link className="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary text-primary-foreground px-4 py-3 font-semibold text-center" to="/louer?city=Casablanca">Choisir mes véhicules et mes dates</Link>
    </section>
    <section aria-label="Choisir votre parcours de location" className="grid gap-4 sm:grid-cols-2">

@@ -71,7 +71,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: 'duree-location',
     term: 'Durée de Location',
-    definition: "Période comprise entre les dates de départ et de retour. Sur Benatna, la location dure au minimum trois jours et au maximum six mois calendaires. Le loueur confirme le tarif pour vos dates.",
+    definition: "Période comprise entre les dates de départ et de retour. Sur Benatna, la location dure au minimum trois jours. Le loueur confirme le tarif pour vos dates.",
     category: 'contrat',
     relatedTerms: ['location-longue-duree', 'tarif-journalier'],
     relatedPages: [{ label: 'Location de voiture à Casablanca', url: '/location-voiture-casablanca' }]
@@ -301,7 +301,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: 'tarif-longue-duree',
     term: 'Tarif Longue Durée',
-    definition: "Tarif proposé pour un séjour prolongé. Sur Benatna, la durée totale reste limitée à six mois calendaires. Une éventuelle remise dépend de la proposition du loueur et n’est pas garantie par le glossaire.",
+    definition: "Tarif proposé pour un séjour prolongé. Une éventuelle remise dépend de la proposition du loueur et n’est pas garantie par le glossaire.",
     category: 'financier',
     relatedTerms: ['tarif-journalier', 'location-longue-duree'],
     relatedPages: [
@@ -401,7 +401,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: 'location-longue-duree',
     term: 'Location Longue Durée (LLD)',
-    definition: "Location pour un séjour personnel de plusieurs semaines ou mois. La durée maximale sur Benatna est de six mois calendaires. Le loueur précise le tarif et les conditions adaptées aux dates demandées.",
+    definition: "Location pour un séjour personnel de plusieurs semaines ou mois. Le loueur précise le tarif et les conditions adaptées aux dates demandées.",
     category: 'contrat',
     relatedTerms: ['tarif-longue-duree', 'duree-location'],
     relatedPages: [

@@ -148,7 +148,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
         },
         {
             "title": "Prix, caution et retour du véhicule",
-            "text": "Le tarif journalier affiché reste indicatif. Demandez le prix de la période complète, les documents requis, la caution et les conditions du contrat avant votre accord. La durée est de trois jours minimum à six mois calendaires maximum. Le lieu de restitution du véhicule se fixe à l’avance avec le loueur."
+            "text": "Le tarif journalier affiché reste indicatif. Demandez le prix de la période complète, les documents requis, la caution et les conditions du contrat avant votre accord. La durée minimum est de trois jours. Le lieu de restitution du véhicule se fixe à l’avance avec le loueur."
         },
         {
             "title": "Casa-Voyageurs ou une autre gare de Casablanca ?",

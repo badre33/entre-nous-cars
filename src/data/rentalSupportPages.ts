@@ -47,12 +47,12 @@ export const rentalSupportPages: Record<'prices' | 'deposit', LongTailPageConfig
         { question: 'Quel prix prévoir pour louer une voiture à Casablanca ?', answer: 'Comparez les prix journaliers indicatifs des modèles du catalogue, puis transmettez vos dates pour obtenir le tarif de toute la période. Le loueur confirme le véhicule, la version et le prix avant votre accord.' },
         { question: 'La livraison à Mohammed V ou en gare est-elle payante ?', answer: 'La livraison est gratuite aux points desservis de Casablanca. Le lieu précis et le rendez-vous sont convenus à l’avance avec le loueur. Rabat reste une livraison sur demande depuis Casablanca, selon sa disponibilité.' },
         { question: 'La caution fait-elle partie du prix annoncé ?', answer: 'Le prix de location et la caution sont deux éléments à faire préciser séparément. Demandez au loueur le montant de la caution, le moyen de dépôt accepté et ses conditions de restitution.' },
-        { question: 'Y a-t-il un forfait mensuel garanti ?', answer: 'Demandez un tarif pour vos dates, jusqu’à six mois calendaires. Aucun montant mensuel fixe ni réduction systématique n’est garanti par cette page.' },
+        { question: 'Y a-t-il un forfait mensuel garanti ?', answer: 'Demandez un tarif pour vos dates, à partir de trois jours. Aucun montant mensuel fixe ni réduction systématique n’est garanti par cette page.' },
       ],
     },
     relatedServices: [
       { title: 'Comprendre la caution', description: 'Les questions à poser au loueur avant votre accord.', link: '/caution-location-voiture-maroc' },
-      { title: 'Location de voiture à Casablanca', description: 'Préparer un séjour personnel jusqu’à six mois.', link: '/location-voiture-casablanca' },
+      { title: 'Location de voiture à Casablanca', description: 'Louer une voiture de tourisme pour votre séjour.', link: '/location-voiture-casablanca' },
       { title: 'Livraison : gares et aéroports', description: 'Choisir un lieu desservi et préparer la remise du véhicule.', link: '/prise-en-charge-casablanca-rabat' },
     ],
     relatedPages: [
