@@ -43,7 +43,7 @@ export default function ComparatifsList() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Helmet>
-        <title>Guides Comparatifs Location Voiture Maroc - Choisir en Toute Connaissance | Benatna</title>
+        <title>Comparatifs location voiture à Casablanca | Benatna</title>
         <meta 
           name="description" 
           content="Tous nos comparatifs location voiture Maroc : Duster vs Captur, Aéroport vs Centre-ville, Courte vs Longue durée. Guides détaillés pour choisir intelligemment." 
