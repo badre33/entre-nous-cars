@@ -6,6 +6,7 @@ import Footer from './Footer';
 import { vehicleDetails } from '@/data/vehicleDetails';
 import { airportAlternates, type IntlAirportContent } from '@/data/intlAirportPages';
 import { openDirectWhatsApp } from '@/utils/rentalRequest';
+import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 
 export function IntlAirportLanding({ content }: { content: IntlAirportContent }) {
   const url = `https://benatna.ma${content.path}`;
@@ -44,7 +45,7 @@ export function IntlAirportLanding({ content }: { content: IntlAirportContent })
       <section aria-label={content.pricesTitle} className="space-y-4">
         <h2 className="text-2xl font-semibold">{content.pricesTitle}</h2>
         <div className="grid gap-4 sm:grid-cols-2">{content.models.map(model => ({ model, v: vehicleDetails[model.slug] })).filter(({ v }) => v).map(({ model, v }) => <Link key={v.slug} to={`/vehicule/${v.slug}`} className="rounded-lg border overflow-hidden flex gap-4 items-center p-3 hover:border-primary">
-          <img src={v.photos[0]} alt={`${v.name} — Casablanca airport`} loading="lazy" width={120} height={80} className="w-28 h-20 object-cover rounded-md shrink-0" />
+          <img src={v.photos[0]} srcSet={vehicleImageSrcSet(v.photos[0])} sizes="112px" alt={`${v.name} — Casablanca airport`} loading="lazy" decoding="async" width={120} height={80} className="w-28 h-20 object-cover rounded-md shrink-0" />
           <span className="min-w-0 flex-1"><span className="block font-semibold">{v.name}</span><span className="block text-sm text-muted-foreground">{model.label} · {v.options.seats}</span></span>
           <span className="text-right whitespace-nowrap"><span className="block text-xs text-muted-foreground">{content.from}</span><span className="text-lg font-bold text-primary">{v.priceFrom} MAD</span><span className="block text-xs">{content.perDay}</span></span>
         </Link>)}</div>
