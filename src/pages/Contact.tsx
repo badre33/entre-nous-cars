@@ -38,15 +38,15 @@ const contactSchema = z.object({
 
 const PAGE_META: Record<string, { title: string; desc: string }> = {
   fr: {
-    title: "Contact Benatna — WhatsApp +212 699 024 526 | Location Voiture Casablanca",
+    title: "Contact Benatna : WhatsApp +212 699 024 526",
     desc: "Contactez Benatna par WhatsApp +212 699 024 526, formulaire ou email. Voitures de tourisme à Casablanca, à partir de trois jours. Rabat sur demande.",
   },
   en: {
-    title: "Contact Benatna — WhatsApp +212 699 024 526 | Car Rental Casablanca",
+    title: "Contact Benatna: WhatsApp +212 699 024 526",
     desc: "Reach Benatna on WhatsApp +212 699 024 526, by form or email. Tourist car rental in Casablanca, from three days. Rabat on request.",
   },
   es: {
-    title: "Contacto Benatna — WhatsApp +212 699 024 526 | Alquiler Coches Casablanca",
+    title: "Contacto Benatna: WhatsApp +212 699 024 526",
     desc: "Contacta con Benatna por WhatsApp +212 699 024 526, formulario o email. Coches turísticos en Casablanca, desde tres días. Rabat bajo petición.",
   },
 };

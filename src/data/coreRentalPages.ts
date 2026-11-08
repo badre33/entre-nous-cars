@@ -69,7 +69,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
     showModelComparison: true,
     pickupId: 'cmn',
     path: '/location-voiture-aeroport-casablanca',
-    title: 'Location voiture aéroport Casablanca Mohammed V dès 250 DH/jour | Benatna',
+    title: 'Location voiture aéroport Casablanca dès 250 DH/jour | Benatna',
     description: 'Votre voiture de location livrée gratuitement à l’aéroport Mohammed V de Casablanca, dès 250 DH/jour. Citadine, SUV ou 7 places pour vos vacances. 3 jours minimum, demande sur WhatsApp.',
     heading: 'Location de voiture à l’aéroport Mohammed V de Casablanca dès 250 DH/jour',
     intro: 'Vous atterrissez à Casablanca avec la famille et les valises ? Envoyez vos dates et votre vol sur WhatsApp avant de partir : un loueur basé à Casablanca vous attend à l’aéroport Mohammed V avec la voiture, sans frais de livraison. Citadine dès 250 DH par jour, SUV et 7 places dès 380 DH.',
@@ -304,7 +304,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
   },
   family: {
     path: '/location-voiture-7-places-casablanca',
-    title: 'Location voiture 7 places et familiale Casablanca dès 380 DH/jour | Benatna',
+    title: 'Location voiture 7 places Casablanca dès 380 DH/jour | Benatna',
     description: 'Location de voiture 7 places à Casablanca : Dacia Jogger dès 380 DH/jour. SUV familiaux Duster, Tucson et Sportage. Livraison gratuite à l’aéroport Mohammed V, 3 jours minimum.',
     heading: 'Location de voiture 7 places et familiale à Casablanca',
     intro: 'Vous arrivez à plusieurs, avec les enfants et les valises ? Le Dacia Jogger 7 places est proposé dès 380 DH par jour. Pour cinq passagers avec beaucoup de bagages, comparez aussi le Duster, le Tucson et le Sportage. La voiture vous attend à l’aéroport ou en gare, sans frais de livraison.',

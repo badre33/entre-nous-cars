@@ -7,7 +7,7 @@ import { pickupPoints, rentalFacts } from '@/data/pickupPoints';
 export default function PickupGuide() {
   return <>
     <Helmet>
-      <title>Location voiture : gares et aéroports Casablanca, Rabat sur demande | Benatna</title>
+      <title>Gares et aéroports de Casablanca : prise en charge | Benatna</title>
       <meta name="description" content="MRE et touristes : voiture de tourisme à Casablanca, aéroport Mohammed V, Casa-Voyageurs, Casa-Port, Oasis et Aïn Sebaâ. Rabat sur demande. Minimum 3 jours." />
       <script type="application/ld+json">{JSON.stringify({ '@context':'https://schema.org', '@type':'FAQPage', mainEntity:rentalFacts.map(f=>({'@type':'Question',name:f.question,acceptedAnswer:{'@type':'Answer',text:f.answer}})) })}</script>
     </Helmet>
