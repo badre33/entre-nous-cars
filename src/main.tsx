@@ -43,6 +43,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { initialLanguage, loadLanguage } from "./translations/registry";
 
 console.log("React version (runtime):", React.version);
 
@@ -51,5 +52,9 @@ if (!rootElement) {
   console.error('Root element #root not found in DOM');
   // Sentry deferred — root-missing failure logged to console only
 } else {
-  createRoot(rootElement).render(<App />);
+  // Anglais et espagnol chargés à la demande : attendre la langue initiale
+  // évite un premier affichage en français sur /en et /es.
+  loadLanguage(initialLanguage())
+    .catch(() => undefined)
+    .finally(() => createRoot(rootElement).render(<App />));
 }

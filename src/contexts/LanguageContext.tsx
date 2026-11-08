@@ -1,21 +1,11 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import frTranslations from "@/translations/fr.json";
-import enTranslations from "@/translations/en.json";
-import esTranslations from "@/translations/es.json";
-
-type Language = "fr" | "en" | "es";
+import { createContext, useContext, useState, ReactNode } from "react";
+import { getDictionary, initialLanguage, loadLanguage, type Language } from "@/translations/registry";
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
 }
-
-const translations = {
-  fr: frTranslations,
-  en: enTranslations,
-  es: esTranslations,
-};
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
@@ -32,23 +22,16 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
-  const [language, setLanguageState] = useState<Language>(() => {
-    // La langue de l'URL (/en, /es) prime : la page est rendue dans la bonne
-    // langue des le premier rendu, y compris pour le prerendu lu par Google.
-    const prefix = typeof window !== "undefined" ? window.location.pathname.split("/")[1] : "";
-    if (prefix === "en" || prefix === "es") return prefix;
-    let saved: string | null = null;
-    try { saved = localStorage.getItem("benatna-language"); } catch { /* stockage indisponible */ }
-    return saved === "en" || saved === "es" || saved === "fr" ? saved : "fr";
-  });
+  // main.tsx charge la langue initiale avant le premier rendu.
+  const [language, setLanguageState] = useState<Language>(initialLanguage);
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    localStorage.setItem("benatna-language", lang);
+    try { localStorage.setItem("benatna-language", lang); } catch { /* stockage indisponible */ }
+    loadLanguage(lang).then(() => setLanguageState(lang)).catch(() => setLanguageState("fr"));
   };
 
   const t = (key: string): string => {
-    const currentTranslations = translations[language];
+    const currentTranslations = getDictionary(language);
     const keys = key.split(".");
     let value: any = currentTranslations;
     

@@ -1,10 +1,19 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { vehicleDetails } from '@/data/vehicleDetails';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 
-const MODELS = ['dacia-sandero', 'dacia-logan', 'renault-clio', 'dacia-duster', 'dacia-jogger', 'hyundai-tucson'];
+// Liste légère : importer vehicleDetails ici l'ajouterait au code chargé par
+// toutes les pages. Prix et places identiques à src/data/vehicleDetails.ts
+// (contrôlé par scripts/test-home-models.mjs pendant le build).
+export const HOME_MODELS = [
+  { slug: 'dacia-sandero', name: 'Dacia Sandero', priceFrom: 250, seats: 5 },
+  { slug: 'dacia-logan', name: 'Dacia Logan', priceFrom: 250, seats: 5 },
+  { slug: 'renault-clio', name: 'Renault Clio', priceFrom: 400, seats: 5 },
+  { slug: 'dacia-duster', name: 'Dacia Duster', priceFrom: 380, seats: 5 },
+  { slug: 'dacia-jogger', name: 'Dacia Jogger', priceFrom: 380, seats: 7 },
+  { slug: 'hyundai-tucson', name: 'Hyundai Tucson', priceFrom: 640, seats: 5 },
+].map(m => ({ ...m, photo: `/vehicles/benatna/${m.slug}.webp` }));
 
 const COPY = {
   fr: {
@@ -48,12 +57,12 @@ export function HomeModelsSection() {
           <p className="text-muted-foreground max-w-2xl mx-auto">{copy.intro}</p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-          {MODELS.map(slug => vehicleDetails[slug]).filter(Boolean).map(v => (
+          {HOME_MODELS.map(v => (
             <Link key={v.slug} to={`/vehicule/${v.slug}`} className="group rounded-xl border bg-card overflow-hidden hover:border-primary hover:shadow-md transition">
-              <img src={v.photos[0]} srcSet={vehicleImageSrcSet(v.photos[0])} sizes="(max-width: 1023px) 50vw, 360px" alt={v.name} loading="lazy" decoding="async" width={480} height={320} className="w-full aspect-[3/2] object-cover" />
+              <img src={v.photo} srcSet={vehicleImageSrcSet(v.photo)} sizes="(max-width: 1023px) 50vw, 360px" alt={v.name} loading="lazy" decoding="async" width={480} height={320} className="w-full aspect-[3/2] object-cover" />
               <div className="p-3 sm:p-4 space-y-1">
                 <h3 className="font-semibold text-sm sm:text-base">{v.name}</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">{v.options.seats} {copy.seats}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">{v.seats} {copy.seats}</p>
                 <p><span className="text-xs text-muted-foreground">{copy.from} </span><span className="text-lg sm:text-xl font-bold text-primary">{v.priceFrom} {currency}</span><span className="text-xs">{copy.perDay}</span></p>
               </div>
             </Link>
