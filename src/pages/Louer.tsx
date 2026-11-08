@@ -38,7 +38,6 @@ import { StickyCTA } from "@/components/StickyCTA";
 import { useIsMobile } from "@/hooks/use-mobile";
 import SwipeableCarCard from "@/components/SwipeableCarCard";
 import CarPreviewDialog from "@/components/CarPreviewDialog";
-import heroImage from "@/assets/hero-rent.jpg";
 const carClio = "/vehicles/benatna/renault-clio.webp";
 import carCorolla from "@/assets/car-corolla.jpg";
 const carDuster = "/vehicles/benatna/dacia-duster.webp";
@@ -875,6 +874,7 @@ const Louer = () => {
         <meta property="og:title" content={louerMeta.title} />
         <meta property="og:description" content={louerMeta.desc} />
         <meta name="keywords" content="location voiture maroc, louer auto casablanca, rent car marrakech, voiture tourisme maroc, location véhicule rabat, agence location tanger" />
+        <link rel="preload" as="image" href="/hero-rent-768.webp" imageSrcSet="/hero-rent-768.webp 768w, /hero-rent-1536.webp 1536w" imageSizes="100vw" type="image/webp" fetchPriority="high" />
       </Helmet>
       <HreflangTags path="/louer" />
       <StructuredData type="rental" />
@@ -894,12 +894,20 @@ const Louer = () => {
       {/* Hero with Search and Parallax */}
       <section className="relative min-h-[480px] sm:min-h-[520px] md:h-[450px] flex items-center justify-center overflow-hidden py-6 md:py-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center parallax-bg"
-          style={{ 
-            backgroundImage: `url(${heroImage})`,
-            transform: `translateY(${parallaxOffset}px)`
-          }}
+          className="absolute inset-0 parallax-bg"
+          style={{ transform: `translateY(${parallaxOffset}px)` }}
         >
+          <img
+            src="/hero-rent-768.webp"
+            srcSet="/hero-rent-768.webp 768w, /hero-rent-1536.webp 1536w"
+            sizes="100vw"
+            alt=""
+            width={1536}
+            height={870}
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
         </div>
         

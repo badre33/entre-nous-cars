@@ -134,6 +134,7 @@ const Index = () => {
         <meta name="keywords" content="location voiture casablanca, aéroport Mohammed V, loueur Casablanca, livraison Rabat sur demande" />
         <meta property="og:title" content={homeMeta.title} />
         <meta property="og:description" content={homeMeta.desc} />
+        <link rel="preload" as="image" href="/hero-home-new.webp" type="image/webp" fetchPriority="high" />
       </Helmet>
       <HreflangTags path="/" />
       <StructuredData type="home" />
