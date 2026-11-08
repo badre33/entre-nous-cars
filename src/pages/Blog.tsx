@@ -16,7 +16,9 @@ import { useState, useEffect } from "react";
 
 const Blog = () => {
 
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const blogDesc = language === 'en' ? 'Guides for renting a car in Morocco from Casablanca: insurance, prices, road trips, driving rules and choosing a car.' : language === 'es' ? 'Guías para alquilar un coche en Marruecos desde Casablanca: seguro, precios, rutas, normas de conducción y elección del coche.' : 'Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna.';
+  const blogTitle = language === 'en' ? 'Car rental tips for Morocco: guides and advice | Benatna Blog' : language === 'es' ? 'Consejos para alquilar un coche en Marruecos | Blog Benatna' : 'Blog Location Voiture Maroc - Guides & Conseils | Benatna';
   const [isLoading] = useState(false);
   const heroAnimation = useScrollAnimation(0.2);
   const categoriesAnimation = useScrollAnimation(0.2);
@@ -39,12 +41,12 @@ const Blog = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Helmet>
-        <title>Blog Location Voiture Maroc - Guides &amp; Conseils | Benatna</title>
-        <meta name="description" content="Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna." />
-        <meta property="og:title" content="Blog Location Voiture Maroc - Guides & Conseils | Benatna" />
-        <meta property="og:description" content="Tous nos guides pour louer une voiture au Maroc : assurance, prix, road trip, conduite, choix du véhicule. Conseils par les experts Benatna." />
+        <title>{blogTitle}</title>
+        <meta name="description" content={blogDesc} />
+        <meta property="og:title" content={blogTitle} />
+        <meta property="og:description" content={blogDesc} />
         <meta name="keywords" content="blog location voiture maroc, guide tourisme maroc, conseils conduite maroc, itinéraires touristiques, assurance auto maroc" />
-        <meta property="og:url" content="https://benatna.ma/blog" />
+        <meta property="og:url" content={`https://benatna.ma${language === "fr" ? "" : "/" + language}/blog`} />
       </Helmet>
       <HreflangTags path="/blog" />
       <Header />
