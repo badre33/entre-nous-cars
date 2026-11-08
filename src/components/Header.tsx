@@ -61,7 +61,7 @@ const Header = () => {
           isActive('/nos-services') ? 'text-foreground bg-accent' : 'text-muted-foreground'
         }`}
       >
-        Services
+        {tr("Services", "Services", "Servicios")}
       </Link>
 
       
@@ -69,7 +69,7 @@ const Header = () => {
         <div className="space-y-1">
           <div className="text-lg py-3 px-4 font-medium text-muted-foreground flex items-center gap-2">
             <MapPin className="h-4 w-4" />
-            Villes
+            {tr("Villes", "Cities", "Ciudades")}
           </div>
           {cities.map((city) => (
             <Link 
@@ -89,7 +89,7 @@ const Header = () => {
           <DropdownMenuTrigger className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-1 ${
             isCityActive ? 'text-foreground' : 'text-muted-foreground'
           }`}>
-            Villes <ChevronDown className="h-3 w-3" />
+            {tr("Villes", "Cities", "Ciudades")} <ChevronDown className="h-3 w-3" />
           </DropdownMenuTrigger>
           <DropdownMenuContent align="start" className="w-56">
             {cities.map((city) => (

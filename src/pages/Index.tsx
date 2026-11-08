@@ -264,7 +264,7 @@ const Index = () => {
                   {t('home.step1Text')}
                 </p>
                 <div className="mt-6 pt-6 border-t">
-                  <p className="text-sm font-medium text-primary">30 secondes</p>
+                  <p className="text-sm font-medium text-primary">{tr("30 secondes", "30 seconds", "30 segundos")}</p>
                 </div>
               </CardContent>
             </Card>
@@ -316,7 +316,7 @@ const Index = () => {
                   {t('home.step3Text')}
                 </p>
                 <div className="mt-6 pt-6 border-t">
-                  <p className="text-sm font-medium text-accent">Instantané</p>
+                  <p className="text-sm font-medium text-accent">{tr("Instantané", "Instant", "Al instante")}</p>
                 </div>
               </CardContent>
             </Card>
@@ -464,7 +464,7 @@ const Index = () => {
               </div>
               <div className="text-left">
                 <p className="font-bold text-2xl">Casablanca</p>
-                <p className="text-sm text-muted-foreground">Zone principale</p>
+                <p className="text-sm text-muted-foreground">{tr("Zone principale", "Main area", "Zona principal")}</p>
               </div>
             </div>
           </div>
