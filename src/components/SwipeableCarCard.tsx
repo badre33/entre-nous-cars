@@ -178,7 +178,7 @@ export default function SwipeableCarCard({
                 <MapPin className="w-2.5 h-2.5" />
                 <span className="truncate">{car.city}</span>
               </div>
-              <p className="text-[10px] text-muted-foreground/80 mb-2">Prix indicatif selon le loueur</p>
+              <p className="text-xs text-muted-foreground mb-2">Prix indicatif selon le loueur</p>
               <div className="flex gap-1.5">
                 <Button size="sm" variant="outline" className="h-11 text-sm flex-1" onClick={onShowAvailability}>
                   <CalendarCheck className="w-3 h-3 mr-1" />
@@ -301,7 +301,7 @@ export default function SwipeableCarCard({
               </Badge>
             </div>
           )}
-          <p className="text-[10px] text-muted-foreground/80 mb-2">Prix indicatif selon le loueur</p>
+          <p className="text-xs text-muted-foreground mb-2">Prix indicatif selon le loueur</p>
           <div className="space-y-1.5">
             <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={onShowAvailability}>
               <CalendarCheck className="w-3 h-3 mr-1" />
@@ -424,7 +424,7 @@ export default function SwipeableCarCard({
           <MapPin className="w-3 h-3 flex-shrink-0" />
           <span className="truncate">{car.city}</span>
         </div>
-        <p className="text-[10px] text-muted-foreground/80 mb-3">Prix indicatif selon le loueur</p>
+        <p className="text-xs text-muted-foreground mb-3">Prix indicatif selon le loueur</p>
 
         <div className="space-y-2 mb-4">
           <Button 
