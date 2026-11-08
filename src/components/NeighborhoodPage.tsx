@@ -7,12 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, CheckCircle, Star, Navigation } from "lucide-react";
 import { CallButton } from "@/components/CallButton";
-import { 
-  MultiLocationSchema,
-  FAQSchemaEnriched,
-  OpeningHoursSchema,
-  EnhancedAggregateRatingSchema
-} from "@/components/schemas";
+import { FAQSchemaEnriched } from "@/components/schemas";
+import { vehicleDetails } from "@/data/vehicleDetails";
+import { neighborhoods } from "@/data/neighborhoodsData";
 import { VehicleProductSchemas } from "@/components/VehicleProductSchemas";
 import type { Neighborhood } from "@/data/neighborhoodsData";
 
@@ -23,7 +20,7 @@ interface NeighborhoodPageProps {
 /**
  * Page Template Générique pour Quartiers Ultra-Locaux
  * Optimisée SEO pour "location voiture [quartier]"
- * Multi-Location Schema + FAQ + Opening Hours
+ * FAQ schema ; aucune fausse adresse d’agence (Benatna livre, sans agence)
  */
 export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
   return (
@@ -37,31 +34,11 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
         <meta property="og:url" content={`https://benatna.ma/${neighborhood.slug}`} />
       </Helmet>
       
-      {/* Multi-Location Schema pour SEO hyper-local */}
-      <MultiLocationSchema locations={neighborhood.deliveryPoints.map(point => ({
-        ...point,
-        city: neighborhood.city,
-        postalCode: neighborhood.city === "Casablanca" ? "20000" : 
-                    neighborhood.city === "Marrakech" ? "40000" : "30000"
-      }))} />
-      
       {/* FAQ Schema pour Rich Snippets */}
       <FAQSchemaEnriched 
         pageName={`Location Voiture ${neighborhood.name}`}
         faqs={neighborhood.faqs}
       />
-      
-      {/* Opening Hours 24/7 */}
-      <OpeningHoursSchema 
-        city={`${neighborhood.city} - ${neighborhood.name}`}
-        entityType="LocalBusiness"
-        address={neighborhood.deliveryPoints[0].address}
-        latitude={neighborhood.deliveryPoints[0].latitude}
-        longitude={neighborhood.deliveryPoints[0].longitude}
-      />
-      
-      {/* Aggregate Rating */}
-
       
       {/* Product Schema véhicules ville */}
       <VehicleProductSchemas city={neighborhood.city} />
@@ -86,7 +63,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
             <div className="flex flex-wrap gap-4">
               <Link to={`/louer?city=${neighborhood.city}`}>
                 <Button size="lg" className="text-lg px-8">
-                  Réserver Maintenant
+                  Préparer ma demande
                 </Button>
               </Link>
               <CallButton 
@@ -107,7 +84,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
           
           {/* Points Forts */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Pourquoi Louer une Voiture à {neighborhood.name} ?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Pourquoi louer une voiture à {neighborhood.name} ?</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {neighborhood.highlights.map((highlight, index) => (
                 <Card key={index}>
@@ -124,7 +101,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* Points de Livraison */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Points de Livraison à {neighborhood.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Où récupérer la voiture ? Livraison gratuite, convenue à l’avance</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {neighborhood.deliveryPoints.map((point, index) => (
                 <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -145,7 +122,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* Lieux d'Intérêt */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Lieux d'Intérêt Proches</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">À voir autour de {neighborhood.name}</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {neighborhood.landmarks.map((landmark, index) => (
                 <div key={index} className="flex items-center gap-3 p-4 bg-card rounded-lg border">
@@ -158,19 +135,24 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* Véhicules Populaires */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Véhicules Populaires à {neighborhood.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Voitures conseillées à {neighborhood.name}</h2>
             <div className="flex flex-wrap gap-3">
-              {neighborhood.popularVehicles.map((vehicle, index) => (
-                <div key={index} className="px-6 py-3 bg-primary/10 rounded-full text-primary font-semibold">
-                  {vehicle}
-                </div>
-              ))}
+              {neighborhood.popularVehicles.map((vehicle) => {
+                const v = Object.values(vehicleDetails).find(d => d.name === vehicle);
+                return v ? (
+                  <Link key={vehicle} to={`/vehicule/${v.slug}`} className="px-5 py-3 bg-primary/10 rounded-full text-primary font-semibold hover:bg-primary/20">
+                    {vehicle} <span className="font-normal text-foreground/80">dès {v.priceFrom} DH/jour</span>
+                  </Link>
+                ) : (
+                  <span key={vehicle} className="px-5 py-3 bg-primary/10 rounded-full text-primary font-semibold">{vehicle}</span>
+                );
+              })}
             </div>
           </section>
 
           {/* Conseils */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Conseils pour {neighborhood.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Conseils pratiques</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {neighborhood.tips.map((tip, index) => (
                 <Card key={index}>
@@ -187,7 +169,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
 
           {/* FAQ */}
           <section className="mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Questions Fréquentes - {neighborhood.name}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Questions fréquentes : {neighborhood.name}</h2>
             <div className="space-y-4">
               {neighborhood.faqs.map((faq, index) => (
                 <Card key={index}>
@@ -200,21 +182,34 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
             </div>
           </section>
 
+          {/* Maillage quartiers */}
+          <nav aria-label={`Autres quartiers de ${neighborhood.city}`} className="mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6">Location dans les autres quartiers</h2>
+            <div className="flex flex-wrap gap-3">
+              {neighborhoods.filter(n => n.city === neighborhood.city && n.slug !== neighborhood.slug).map(n => (
+                <Link key={n.slug} to={`/${n.slug}`} className="rounded-full border px-4 py-2 text-sm hover:border-primary hover:text-primary">Location voiture {n.name}</Link>
+              ))}
+              {neighborhood.city === "Casablanca" && (
+                <Link to="/location-voiture-aeroport-casablanca" className="rounded-full border px-4 py-2 text-sm hover:border-primary hover:text-primary">Aéroport Mohammed V</Link>
+              )}
+            </div>
+          </nav>
+
           {/* CTA Final */}
           <section className="text-center py-12 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Prêt à Explorer {neighborhood.name} ?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Une voiture pour votre séjour à {neighborhood.name} ?</h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Demandez votre voiture sur WhatsApp et profitez de la livraison gratuite par le loueur partenaire à {neighborhood.name}
             </p>
             <div className="flex justify-center gap-4 flex-wrap">
               <Link to={`/louer?city=${neighborhood.city}`}>
                 <Button size="lg" className="text-lg px-8">
-                  Voir les Véhicules Disponibles
+                  Voir les voitures et les prix
                 </Button>
               </Link>
               <Link to={`/location-voiture-${neighborhood.citySlug}`}>
                 <Button variant="outline" size="lg" className="text-lg px-8">
-                  Autres Quartiers {neighborhood.city}
+                  Location à {neighborhood.city}
                 </Button>
               </Link>
             </div>
