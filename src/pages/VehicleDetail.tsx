@@ -44,7 +44,7 @@ const VehicleDetail = () => {
   const prevPhoto = () => setCurrentPhoto((p) => (p - 1 + vehicle.photos.length) % vehicle.photos.length);
 
   const editorial = casablancaModelContent[vehicle.slug];
-  const seoTitle = editorial?.title ?? `${vehicle.name} à Casablanca | Location voiture Benatna`;
+  const seoTitle = `Location ${vehicle.name} Casablanca dès ${vehicle.priceFrom} DH/jour | Benatna`;
   const seoDescription = editorial?.description ?? `Location ${vehicle.name} à Casablanca : 3 jours minimum, livraison gratuite convenue à l’avance. Rabat sur demande. Disponibilité et tarif à confirmer.`;
   const whatsappLink = `/louer?demande=1&modele=${encodeURIComponent(vehicle.name)}`;
 
