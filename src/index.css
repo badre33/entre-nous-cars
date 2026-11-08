@@ -18,14 +18,14 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 45 100% 33%;     /* Dark amber/gold - WCAG AA compliant on white */
+    --primary: 45 100% 27%;     /* Or foncé #8a6700 : 5,2:1 sur blanc, 5,1:1 sur crème (WCAG AA) */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 88 70% 28%;    /* Dark green - WCAG AA compliant on white */
     --secondary-foreground: 0 0% 100%;
 
     --muted: 88 70% 28%;
-    --muted-foreground: 0 0% 40%;
+    --muted-foreground: 0 0% 33%;
 
     --accent: 186 85% 25%;      /* Dark teal - WCAG AA compliant on white */
     --accent-foreground: 0 0% 100%;
