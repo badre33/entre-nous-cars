@@ -83,7 +83,11 @@ function openBusinessWhatsApp(text: string): Window | null {
   try {
     const popup = window.open(url, '_blank');
     if (popup) { try { popup.opener = null; } catch { /* cross-origin browser restriction */ } }
-    else window.location.href = url;
+    else {
+      // Onglet bloque (frequent sur mobile) : la sortie est comptee avant la redirection.
+      window.dispatchEvent(new CustomEvent(WHATSAPP_HANDOFF_EVENT));
+      window.location.href = url;
+    }
     return popup;
   } finally { permittedURL = null; }
 }
