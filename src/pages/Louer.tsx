@@ -26,7 +26,7 @@ import { StructuredData } from "@/components/StructuredData";
 import { CarProductSchema } from "@/components/CarProductSchema";
 import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { HreflangTags } from "@/utils/hreflangHelper";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, useTr } from "@/contexts/LanguageContext";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
 import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
@@ -194,7 +194,7 @@ const carModels = [
     name: "Renault Clio",
     brand: "Renault",
     type: "Automatique",
-    category: "Berline",
+    category: "Citadine",
     price: 400,
     priceDisplay: "400 MAD",
     conditions: generateConditions(23),
@@ -205,7 +205,7 @@ const carModels = [
     name: "Renault Clio",
     brand: "Renault",
     type: "Manuelle",
-    category: "Berline",
+    category: "Citadine",
     price: 400,
     priceDisplay: "400 MAD",
     conditions: generateConditions(21)
@@ -711,6 +711,7 @@ const LOUER_META: Record<string, { title: string; desc: string; url: string }> =
 
 const Louer = () => {
   const { t, language } = useLanguage();
+  const tr = useTr();
   const louerMeta = LOUER_META[language] ?? LOUER_META.fr;
 
   const [searchParams] = useSearchParams();
@@ -880,7 +881,7 @@ const Louer = () => {
       <StructuredData type="rental" />
       <CarProductSchema cars={displayedCars.slice(0, 20)} />
       {pickupPoint && pickupPoint.city === selectedCity && <p className="px-4 py-3 text-center bg-secondary/30">Point demandé : {pickupPoint.name} — livraison gratuite, convenue à l’avance.</p>}
-      <p className="bg-secondary/30 px-4 py-3 text-center" role="note">Casablanca : prise en charge en ville ou à l’aéroport Mohammed V. Rabat : livraison sur demande, livraison gratuite convenue à l’avance. Aucune autre ville desservie actuellement.</p>
+      <p className="bg-secondary/30 px-4 py-3 text-center" role="note">{tr("Casablanca : prise en charge en ville ou à l’aéroport Mohammed V. Rabat : livraison sur demande, livraison gratuite convenue à l’avance. Aucune autre ville desservie actuellement.", "Casablanca: pick-up in town or at Mohammed V Airport. Rabat: delivery on request, free of charge, arranged in advance. No other city is served at the moment.", "Casablanca: recogida en la ciudad o en el aeropuerto Mohammed V. Rabat: entrega bajo petición, gratuita y acordada de antemano. Por ahora no se atiende ninguna otra ciudad.")}</p>
       <PullToRefreshIndicator 
         isPulling={isPulling}
         isRefreshing={isRefreshing}
@@ -888,7 +889,7 @@ const Louer = () => {
         pullPercentage={pullPercentage}
       />
       <Header />
-      <p className="text-center px-4 py-3 bg-primary/10">Pour vos vacances et séjours au Maroc : location à partir de 3 jours.</p>
+      <p className="text-center px-4 py-3 bg-primary/10">{tr("Pour vos vacances et séjours au Maroc : location à partir de 3 jours.", "For your holidays and stays in Morocco: rentals from 3 days.", "Para tus vacaciones y estancias en Marruecos: alquiler desde 3 días.")}</p>
       <Breadcrumbs />
       
       {/* Hero with Search and Parallax */}
@@ -926,7 +927,7 @@ const Louer = () => {
                     {t('common.city')}
                   </label>
                   <Select value={selectedCity} onValueChange={setSelectedCity}>
-                    <SelectTrigger aria-label="Ville du catalogue" className="bg-secondary/20 border-0 min-h-12 text-base">
+                    <SelectTrigger aria-label={tr("Ville du catalogue", "Catalogue city", "Ciudad del catálogo")} className="bg-secondary/20 border-0 min-h-12 text-base">
                       <SelectValue placeholder="Ville" className="truncate" />
                     </SelectTrigger>
                     <SelectContent className="bg-background">
@@ -940,15 +941,15 @@ const Louer = () => {
 
                 <label className="block min-w-0 space-y-2">
                   <span className="text-sm text-muted-foreground flex items-center gap-2"><CalendarIcon className="w-4 h-4" />{t('common.startDate')}</span>
-                  <input aria-label="Date de départ du catalogue" type="date" min={localToday()} value={startDate ? format(startDate, 'yyyy-MM-dd') : ''} onChange={e=>setStartDate(parseLocalRentalDate(e.target.value))} className="w-full min-w-0 min-h-12 rounded-lg bg-secondary/20 px-2 py-2 text-base" />
+                  <input aria-label={tr("Date de départ", "Pick-up date", "Fecha de recogida")} type="date" min={localToday()} value={startDate ? format(startDate, 'yyyy-MM-dd') : ''} onChange={e=>setStartDate(parseLocalRentalDate(e.target.value))} className="w-full min-w-0 min-h-12 rounded-lg bg-secondary/20 px-2 py-2 text-base" />
                 </label>
                 <label className="block min-w-0 space-y-2">
                   <span className="text-sm text-muted-foreground flex items-center gap-2"><CalendarIcon className="w-4 h-4" />{t('common.endDate')}</span>
-                  <input aria-label="Date de retour du catalogue" type="date" min={startDate ? format(startDate, 'yyyy-MM-dd') : localToday()} value={endDate ? format(endDate, 'yyyy-MM-dd') : ''} onChange={e=>setEndDate(parseLocalRentalDate(e.target.value))} className="w-full min-w-0 min-h-12 rounded-lg bg-secondary/20 px-2 py-2 text-base" />
+                  <input aria-label={tr("Date de retour", "Return date", "Fecha de devolución")} type="date" min={startDate ? format(startDate, 'yyyy-MM-dd') : localToday()} value={endDate ? format(endDate, 'yyyy-MM-dd') : ''} onChange={e=>setEndDate(parseLocalRentalDate(e.target.value))} className="w-full min-w-0 min-h-12 rounded-lg bg-secondary/20 px-2 py-2 text-base" />
                 </label>
               </div>
 
-              <p className="text-sm text-muted-foreground mb-4">À partir de 3 jours. Le rendez-vous est convenu avec le loueur.</p>
+              <p className="text-sm text-muted-foreground mb-4">{tr("À partir de 3 jours. Le rendez-vous est convenu avec le loueur.", "From 3 days. The meeting point is agreed with the rental agency.", "Desde 3 días. El punto de entrega se acuerda con la agencia.")}</p>
               {startDate && endDate && !isValidRentalPeriod(format(startDate, 'yyyy-MM-dd'), format(endDate, 'yyyy-MM-dd')) && <p role="alert" className="text-sm text-destructive mb-4">{RENTAL_PERIOD_MESSAGE}</p>}
               <div className="grid md:grid-cols-3 gap-4">
                 {/* Mobile: Bottom Sheets */}
@@ -1261,8 +1262,8 @@ const Louer = () => {
 
       <section className="py-10 border-t" aria-labelledby="catalogue-model-links">
         <div className="container">
-          <h2 id="catalogue-model-links" className="text-xl font-semibold mb-4">Découvrez nos modèles à Casablanca</h2>
-          <nav aria-label="Fiches des modèles de location">
+          <h2 id="catalogue-model-links" className="text-xl font-semibold mb-4">{tr("Découvrez nos modèles à Casablanca", "Our models in Casablanca", "Nuestros modelos en Casablanca")}</h2>
+          <nav aria-label={tr("Fiches des modèles de location", "Rental model pages", "Fichas de los modelos")}>
             <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {Object.entries(rentalVehicleSlugs).map(([slug, name]) => (
                 <li key={slug}><Link to={`/vehicule/${slug}`} className="text-sm underline underline-offset-4 hover:text-primary focus-visible:outline focus-visible:outline-2">{name}</Link></li>
@@ -1276,7 +1277,7 @@ const Louer = () => {
       <section className="py-12 bg-secondary/30">
         <div className="container text-center">
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tous les véhicules proviennent d'agences professionnelles vérifiées, pas de particuliers.
+            {tr("Tous les véhicules proviennent d’agences professionnelles vérifiées, pas de particuliers.", "All cars come from verified professional rental agencies, not private individuals.", "Todos los coches proceden de agencias profesionales verificadas, no de particulares.")}
           </p>
         </div>
       </section>
@@ -1296,7 +1297,7 @@ const Louer = () => {
       {/* Sticky WhatsApp CTA on Mobile */}
       <StickyCTA
         show={selectedCars.length === 0}
-        label="Contacter via WhatsApp"
+        label={tr("Contacter via WhatsApp", "Contact us on WhatsApp", "Contactar por WhatsApp")}
         onClick={() => requestFromCatalogue([])}
         icon={MessageCircle}
       />

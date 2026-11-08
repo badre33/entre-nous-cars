@@ -11,7 +11,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { PartnerTestimonials } from "@/components/PartnerTestimonials";
 import { RevenueCalculator } from "@/components/RevenueCalculator";
 import { StructuredData } from "@/components/StructuredData";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, useTr } from "@/contexts/LanguageContext";
 import { HreflangTags } from "@/utils/hreflangHelper";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
@@ -35,6 +35,7 @@ const PAGE_META: Record<string, { title: string; desc: string }> = {
 
 const Partenaires = () => {
   const { t, language } = useLanguage();
+  const tr = useTr();
   const pageMeta = PAGE_META[language] ?? PAGE_META.fr;
   const { toast } = useToast();
   const [parallaxOffset, setParallaxOffset] = useState(0);
@@ -246,7 +247,7 @@ const Partenaires = () => {
               >
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('partners.agencyName')}</label>
-                  <Input name="agence" placeholder="Votre agence de location" className="rounded-lg" required />
+                  <Input name="agence" placeholder={tr("Votre agence de location", "Your rental agency", "Tu agencia de alquiler")} className="rounded-lg" required />
                 </div>
                 
                 <div>
@@ -256,7 +257,7 @@ const Partenaires = () => {
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('partners.fleetSize')}</label>
-                  <Input name="flotte" type="number" placeholder="Nombre de véhicules" className="rounded-lg" required />
+                  <Input name="flotte" type="number" placeholder={tr("Nombre de véhicules", "Number of vehicles", "Número de vehículos")} className="rounded-lg" required />
                 </div>
                 
                 <div>
@@ -266,14 +267,14 @@ const Partenaires = () => {
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('partners.email')}</label>
-                  <Input name="email" type="email" placeholder="contact@votre-agence.ma" className="rounded-lg" required />
+                  <Input name="email" type="email" placeholder={tr("contact@votre-agence.ma", "contact@your-agency.ma", "contacto@tu-agencia.ma")} className="rounded-lg" required />
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium mb-2">{t('partners.message')}</label>
                   <Textarea 
                     name="message"
-                    placeholder="Parlez-nous de votre agence..." 
+                    placeholder={tr("Parlez-nous de votre agence…", "Tell us about your agency…", "Háblanos de tu agencia…")} 
                     className="rounded-lg min-h-[120px]"
                   />
                 </div>

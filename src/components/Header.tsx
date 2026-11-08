@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, useTr } from "@/contexts/LanguageContext";
 import { LanguageSelector } from "@/components/LanguageSelector";
 import { Menu, X, ChevronDown, MapPin } from "lucide-react";
 import { useState } from "react";
@@ -22,6 +22,7 @@ import logo from "@/assets/logo-black.webp";
 const Header = () => {
   const location = useLocation();
   const { t } = useLanguage();
+  const tr = useTr();
   const [isOpen, setIsOpen] = useState(false);
   
   const isActive = (path: string) => location.pathname === path;
@@ -131,7 +132,7 @@ const Header = () => {
           isActive('/notre-histoire') ? 'text-foreground bg-accent' : 'text-muted-foreground'
         }`}
       >
-        Notre histoire
+        {tr("Notre histoire", "Our story", "Nuestra historia")}
       </Link>
       <Link
         to="/blog"
@@ -183,7 +184,7 @@ const Header = () => {
           <LanguageSelector />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Ouvrir le menu" className="lg:hidden min-w-[48px] min-h-[48px] touch-target touch-feedback">
+              <Button variant="ghost" size="icon" aria-label={tr("Ouvrir le menu", "Open menu", "Abrir el menú")} className="lg:hidden min-w-[48px] min-h-[48px] touch-target touch-feedback">
                 <Menu className="h-7 w-7" />
               </Button>
             </SheetTrigger>

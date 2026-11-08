@@ -8,7 +8,7 @@ import { Mail, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, useTr } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { BUSINESS_INFO } from "@/constants/businessInfo";
@@ -54,6 +54,7 @@ const PAGE_META: Record<string, { title: string; desc: string }> = {
 const Contact = () => {
 
   const { t, language } = useLanguage();
+  const tr = useTr();
   const pageMeta = PAGE_META[language] ?? PAGE_META.fr;
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -162,7 +163,7 @@ const Contact = () => {
                       inputMode="tel"
                       required 
                     />
-                    <p className="text-xs text-muted-foreground mt-1">Numéro marocain ou étranger, par exemple +212 6XX XXX XXX ou +33 6 XX XX XX XX</p>
+                    <p className="text-xs text-muted-foreground mt-1">{tr("Numéro marocain ou étranger, par exemple +212 6XX XXX XXX ou +33 6 XX XX XX XX", "Moroccan or foreign number, e.g. +212 6XX XXX XXX or +44 7XXX XXX XXX", "Número marroquí o extranjero, por ejemplo +212 6XX XXX XXX o +34 6XX XXX XXX")}</p>
                   </div>
                   
                   <div>

@@ -66,6 +66,7 @@ const Blog = () => {
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed animate-fade-in [animation-delay:200ms] px-2">
             {t('blog.subtitle')}
           </p>
+          {language !== 'fr' && <p className="mt-4 inline-block rounded-full bg-white/90 px-4 py-1.5 text-sm font-semibold text-primary">{language === 'en' ? 'Our articles are written in French.' : 'Nuestros artículos están escritos en francés.'}</p>}
         </div>
       </section>
 

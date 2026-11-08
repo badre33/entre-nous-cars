@@ -48,3 +48,9 @@ export const LanguageProvider = ({ children }: LanguageProviderProps) => {
     </LanguageContext.Provider>
   );
 };
+
+/** Texte d'interface court en trois langues : tr("Bonjour", "Hello", "Hola"). */
+export const useTr = () => {
+  const language = useContext(LanguageContext)?.language ?? "fr";
+  return (fr: string, en: string, es: string) => (language === "en" ? en : language === "es" ? es : fr);
+};

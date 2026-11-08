@@ -359,9 +359,33 @@ export function currentDailyPrice(basePrice: number, city?: string): number {
   return computePrice(basePrice, { date: new Date(), duration: 1, city }).dailyPrice;
 }
 
+const BADGE_LABELS: Record<string, { en: string; es: string }> = {
+  'Prix Ramadan': { en: 'Ramadan prices', es: 'Precios de Ramadán' },
+  'Prix Aïd al-Fitr': { en: 'Eid al-Fitr prices', es: 'Precios de Aid al-Fitr' },
+  'Prix Aïd al-Adha': { en: 'Eid al-Adha prices', es: 'Precios de Aid al-Adha' },
+  'Fête du Trône': { en: 'Throne Day', es: 'Fiesta del Trono' },
+  "Ponts d'août": { en: 'August holidays', es: 'Puentes de agosto' },
+  'Mawlid': { en: 'Mawlid', es: 'Mawlid' },
+  'Fêtes nationales': { en: 'National holidays', es: 'Fiestas nacionales' },
+  "Fêtes de fin d'année": { en: 'Year-end holidays', es: 'Fiestas de fin de año' },
+  'Yennayer': { en: 'Yennayer', es: 'Yennayer' },
+  'Prix été': { en: 'Summer prices', es: 'Precios de verano' },
+};
+
+/** Libellé affichable : sans émoji (règle de contenu) et traduit en EN/ES. */
+export function badgeLabel(badge: string | null, language: string = 'fr'): string | null {
+  if (!badge) return null;
+  const clean = badge.replace(/^[^\p{L}]+/u, '').trim();
+  const soon = clean.startsWith('Bientôt ');
+  const core = soon ? clean.slice(8).replace(/^[^\p{L}]+/u, '').trim() : clean;
+  if (language !== 'en' && language !== 'es') return soon ? `Bientôt\u00a0: ${core}` : core;
+  const label = BADGE_LABELS[core]?.[language] ?? core;
+  return soon ? `${language === 'en' ? 'Soon' : 'Pronto'}: ${label}` : label;
+}
+
 /** Contexte badge courant (pour cards catalogue) */
-export function currentContextBadge(): string | null {
-  return computePrice(1000, { date: new Date(), duration: 1 }).badge;
+export function currentContextBadge(language: string = 'fr'): string | null {
+  return badgeLabel(computePrice(1000, { date: new Date(), duration: 1 }).badge, language);
 }
 
 /** Détecte si on est actuellement en événement spécial (pour bandeau info) */

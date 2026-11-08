@@ -1,10 +1,11 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { Home, Car, Handshake, Phone } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage, useTr } from '@/contexts/LanguageContext';
 import { cn } from '@/lib/utils';
 
 export const BottomNavigation = () => {
   const { t } = useLanguage();
+  const tr = useTr();
   const location = useLocation();
 
   const navItems = [
@@ -12,26 +13,26 @@ export const BottomNavigation = () => {
       path: '/',
       icon: Home,
       label: t('common.home'),
-      ariaLabel: 'Accueil'
+      ariaLabel: t('common.home')
     },
     {
       path: '/louer',
       icon: Car,
       label: t('common.rent'),
-      ariaLabel: 'Louer une voiture',
+      ariaLabel: t('common.rent'),
       highlight: true // CTA principal
     },
     {
       path: '/partenaires',
       icon: Handshake,
       label: t('common.partners'),
-      ariaLabel: 'Devenir partenaire'
+      ariaLabel: t('common.partners')
     },
     {
       path: '/contact',
       icon: Phone,
       label: t('common.contact'),
-      ariaLabel: 'Contact'
+      ariaLabel: t('common.contact')
     }
   ];
 
@@ -46,7 +47,7 @@ export const BottomNavigation = () => {
     <nav 
       className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-background/98 backdrop-blur-xl border-t border-border/50 shadow-[0_-4px_20px_rgba(0,0,0,0.1)]"
       role="navigation"
-      aria-label="Navigation mobile principale"
+      aria-label={tr('Navigation mobile principale', 'Main mobile navigation', 'Navegación móvil principal')}
       style={{ 
         paddingBottom: 'env(safe-area-inset-bottom, 8px)',
       }}
