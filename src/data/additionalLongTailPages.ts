@@ -1565,7 +1565,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     rentalJourney: {
       afterSection: 0,
-      intro: 'Vous préparez un trajet au départ de Casablanca ? Benatna vous permet de demander une location de 3 jours à 6 mois. La livraison est gratuite aux aéroports et gares desservis, avec les modalités convenues à l’avance. Une livraison à Rabat peut être demandée depuis Casablanca. Vos déplacements restent soumis aux conditions du loueur.',
+      intro: 'Vous préparez un trajet au départ de Casablanca ? Benatna vous permet de demander une location à partir de 3 jours. La livraison est gratuite aux aéroports et gares desservis, avec les modalités convenues à l’avance. Une livraison à Rabat peut être demandée depuis Casablanca. Vos déplacements restent soumis aux conditions du loueur.',
       links: [
         { title: 'Estimer le prix de la location', link: '/prix-location-voiture-maroc-2026' },
         { title: 'Prévoir la caution avec le loueur', link: '/caution-location-voiture-maroc' },
@@ -1642,7 +1642,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
     },
     rentalJourney: {
       afterSection: 0,
-      intro: 'Vous préparez un trajet au départ de Casablanca ? Benatna vous permet de demander une location de 3 jours à 6 mois. La livraison est gratuite aux aéroports et gares desservis, avec les modalités convenues à l’avance. Une livraison à Rabat peut être demandée depuis Casablanca. Vos déplacements restent soumis aux conditions du loueur.',
+      intro: 'Vous préparez un trajet au départ de Casablanca ? Benatna vous permet de demander une location à partir de 3 jours. La livraison est gratuite aux aéroports et gares desservis, avec les modalités convenues à l’avance. Une livraison à Rabat peut être demandée depuis Casablanca. Vos déplacements restent soumis aux conditions du loueur.',
       links: [
         { title: 'Estimer le prix de la location', link: '/prix-location-voiture-maroc-2026' },
         { title: 'Prévoir la caution avec le loueur', link: '/caution-location-voiture-maroc' },
@@ -1880,7 +1880,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
       },
       {
         "title": "Préparer votre arrivée",
-        "content": "Casablanca est la zone prioritaire. Rabat est proposé sur demande depuis Casablanca. La livraison aux gares et aéroports desservis est gratuite et convenue à l’avance. La durée de location va de trois jours à six mois calendaires."
+        "content": "Casablanca est la zone prioritaire. Rabat est proposé sur demande depuis Casablanca. La livraison aux gares et aéroports desservis est gratuite et convenue à l’avance. La location dure au minimum trois jours."
       }
     ],
     "faq": []

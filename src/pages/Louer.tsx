@@ -199,7 +199,7 @@ const carModels = [
     price: 400,
     priceDisplay: "400 MAD",
     conditions: generateConditions(23),
-    badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
+    badges: ["Populaire", "Disponible immédiatement"]
   },
   {
     image: carClio,
@@ -220,7 +220,7 @@ const carModels = [
     price: 380,
     priceDisplay: "380 MAD",
     conditions: generateConditions(23),
-    badges: ["🔥 Populaire", "⚡ Disponible immédiatement"]
+    badges: ["Populaire", "Disponible immédiatement"]
   },
   {
     image: carDuster,
@@ -241,7 +241,7 @@ const carModels = [
     price: 650,
     priceDisplay: "650 MAD",
     conditions: generateConditions(23),
-    badges: ["🔥 Populaire"]
+    badges: ["Populaire"]
   },
   {
     image: carVwGolf,
@@ -272,7 +272,7 @@ const carModels = [
     price: 640,
     priceDisplay: "640 MAD",
     conditions: generateConditions(25),
-    badges: ["⚡ Disponible immédiatement"]
+    badges: ["Disponible immédiatement"]
   },
   {
     image: carKiaSportage,
@@ -293,7 +293,7 @@ const carModels = [
     price: 1060,
     priceDisplay: "1060 MAD",
     conditions: generateConditions(28),
-    badges: ["💎 Luxe"]
+    badges: ["Luxe"]
   },
   {
     image: carAudiA4,
@@ -574,7 +574,7 @@ const carModels = [
     price: 3500,
     priceDisplay: "3500 MAD",
     conditions: ["Âge minimum: 30 ans"],
-    badges: ["🌟 Nouveau", "💎 Luxe"]
+    badges: ["Nouveau", "Luxe"]
   },
   {
     image: carAudiQ8,
@@ -585,7 +585,7 @@ const carModels = [
     price: 1880,
     priceDisplay: "1880 MAD",
     conditions: ["Âge minimum: 28 ans"],
-    badges: ["🌟 Nouveau", "💎 Luxe"]
+    badges: ["Nouveau", "Luxe"]
   },
   {
     image: carPorscheCayenne,
@@ -596,7 +596,7 @@ const carModels = [
     price: 2400,
     priceDisplay: "2400 MAD",
     conditions: ["Âge minimum: 30 ans"],
-    badges: ["🌟 Nouveau", "💎 Luxe"]
+    badges: ["Nouveau", "Luxe"]
   },
   {
     image: carRangeRoverSport,
@@ -607,7 +607,7 @@ const carModels = [
     price: 2300,
     priceDisplay: "2300 MAD",
     conditions: ["Âge minimum: 28 ans"],
-    badges: ["🌟 Nouveau", "💎 Luxe"]
+    badges: ["Nouveau", "Luxe"]
   },
   {
     image: carVwGolf,
@@ -618,7 +618,7 @@ const carModels = [
     price: 650,
     priceDisplay: "650 MAD",
     conditions: generateConditions(23),
-    badges: ["🔥 Populaire"]
+    badges: ["Populaire"]
   },
   {
     image: carCupraFormentor,
@@ -629,7 +629,7 @@ const carModels = [
     price: 940,
     priceDisplay: "940 MAD",
     conditions: generateConditions(25),
-    badges: ["⭐ Premium SUV", "🔥 Nouveau"]
+    badges: ["⭐ Premium SUV", "Nouveau"]
   },
   {
     image: carHyundaiStaria,
@@ -640,7 +640,7 @@ const carModels = [
     price: 1450,
     priceDisplay: "1450 MAD",
     conditions: generateConditions(28),
-    badges: ["👨‍👩‍👧‍👦 9 places", "✨ Van premium"]
+    badges: ["9 places", "Van premium"]
   },
   {
     image: carOpelCorsa,
@@ -651,7 +651,7 @@ const carModels = [
     price: 400,
     priceDisplay: "400 MAD",
     conditions: generateConditions(21),
-    badges: ["💰 Économique"]
+    badges: ["Économique"]
   },
   {
     image: carPeugeot208,
@@ -662,22 +662,22 @@ const carModels = [
     price: 400,
     priceDisplay: "400 MAD",
     conditions: generateConditions(21),
-    badges: ["💰 Économique"]
+    badges: ["Économique"]
   },
   {
     id: 320, image: carHyundaiI20, name: "Hyundai i20", brand: "Hyundai", type: "Manuelle",
     category: "Citadine", city: "Casablanca", price: 400, priceDisplay: "400 MAD",
-    conditions: generateConditions(21), badges: ["💰 Économique"]
+    conditions: generateConditions(21), badges: ["Économique"]
   },
   {
     id: 322, image: carVwTRoc, name: "Volkswagen T-Roc", brand: "Volkswagen", type: "Automatique",
     category: "SUV Compact", city: "Casablanca", price: 650, priceDisplay: "650 MAD",
-    conditions: generateConditions(23), badges: ["⚡ Disponible immédiatement"]
+    conditions: generateConditions(23), badges: ["Disponible immédiatement"]
   },
   {
     id: 324, image: carHyundaiSantaFe, name: "Hyundai Santa Fe", brand: "Hyundai", type: "Automatique",
     category: "SUV 7 places", city: "Casablanca", price: 1450, priceDisplay: "1450 MAD",
-    conditions: generateConditions(25), badges: ["👨‍👩‍👧‍👦 7 places", "🔥 Premium familial"]
+    conditions: generateConditions(25), badges: ["7 places", "Premium familial"]
   },
 ];
 
@@ -695,17 +695,17 @@ const cars = CATALOG_CITIES.flatMap(city => [
 const LOUER_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
     title: "Catalogue de voitures de tourisme à Casablanca | Benatna",
-    desc: "Location avec des loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, livraison gratuite convenue à l’avance. Minimum trois jours, maximum six mois.",
+    desc: "Location avec des loueurs basés à Casablanca. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, livraison gratuite convenue à l’avance. Minimum trois jours.",
     url: "https://benatna.ma/louer",
   },
   en: {
     title: "Tourist car catalogue in Casablanca | Benatna",
-    desc: "Rent from Casablanca-based agencies. City or Mohammed V Airport pickup. Rabat delivery on request, free delivery arranged in advance. Minimum three days, maximum six months.",
+    desc: "Rent from Casablanca-based agencies. City or Mohammed V Airport pickup. Rabat delivery on request, free delivery arranged in advance. Minimum three days.",
     url: "https://benatna.ma/en/louer",
   },
   es: {
     title: "Catálogo de coches turísticos en Casablanca | Benatna",
-    desc: "Agencias de alquiler en Casablanca. Recogida en la ciudad o aeropuerto Mohammed V. Rabat bajo petición; entrega gratuita acordada de antemano. Mínimo tres días, máximo seis meses.",
+    desc: "Agencias de alquiler en Casablanca. Recogida en la ciudad o aeropuerto Mohammed V. Rabat bajo petición; entrega gratuita acordada de antemano. Mínimo tres días.",
     url: "https://benatna.ma/es/louer",
   },
 };
@@ -888,7 +888,7 @@ const Louer = () => {
         pullPercentage={pullPercentage}
       />
       <Header />
-      <p className="text-center px-4 py-3 bg-primary/10">Pour vos vacances et séjours au Maroc : location de 3 jours à 6 mois.</p>
+      <p className="text-center px-4 py-3 bg-primary/10">Pour vos vacances et séjours au Maroc : location à partir de 3 jours.</p>
       <Breadcrumbs />
       
       {/* Hero with Search and Parallax */}
@@ -940,7 +940,7 @@ const Louer = () => {
                 </label>
               </div>
 
-              <p className="text-sm text-muted-foreground mb-4">De 3 jours à 6 mois. Le rendez-vous est convenu avec le loueur.</p>
+              <p className="text-sm text-muted-foreground mb-4">À partir de 3 jours. Le rendez-vous est convenu avec le loueur.</p>
               {startDate && endDate && !isValidRentalPeriod(format(startDate, 'yyyy-MM-dd'), format(endDate, 'yyyy-MM-dd')) && <p role="alert" className="text-sm text-destructive mb-4">{RENTAL_PERIOD_MESSAGE}</p>}
               <div className="grid md:grid-cols-3 gap-4">
                 {/* Mobile: Bottom Sheets */}

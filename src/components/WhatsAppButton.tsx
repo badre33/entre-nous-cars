@@ -8,7 +8,7 @@ import { DIRECT_WHATSAPP_URL, openDirectWhatsApp } from '@/utils/rentalRequest';
 // les boutons « Préparer ma demande ».
 export default function WhatsAppButton() {
   const location = useLocation();
-  if (['/partenaires', '/auth', '/analytics', '/demandes'].includes(location.pathname)) return null;
+  if (['/louer', '/en/louer', '/es/louer', '/partenaires', '/auth', '/analytics', '/demandes'].includes(location.pathname.replace(/\/$/, '') || '/')) return null;
   return (
     <a
       href={DIRECT_WHATSAPP_URL}

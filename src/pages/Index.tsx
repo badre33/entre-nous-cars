@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Shield, MapPin, ArrowRight } from "lucide-react";
+import { CheckCircle, Shield, MapPin, ArrowRight, Wallet, CreditCard, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useState, useEffect, lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
@@ -40,17 +40,17 @@ const heroImageWebp = "/hero-home-new.webp";
 const HOME_META: Record<string, { title: string; desc: string; url: string }> = {
   fr: {
     title: "Benatna | Louer une voiture de tourisme à Casablanca",
-    desc: "Des loueurs basés à Casablanca pour vos séjours et vacances. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, à confirmer. Minimum trois jours, maximum six mois.",
+    desc: "Des loueurs basés à Casablanca pour vos séjours et vacances. Prise en charge en ville ou à l’aéroport Mohammed V. Rabat sur demande, à confirmer. Minimum trois jours.",
     url: "https://benatna.ma/",
   },
   en: {
     title: "Benatna | Rent a tourist car in Casablanca",
-    desc: "Casablanca-based agencies for your holidays and stays. City or Mohammed V Airport pickup. Rabat delivery on request, subject to confirmation. Minimum three days, maximum six months.",
+    desc: "Casablanca-based agencies for your holidays and stays. City or Mohammed V Airport pickup. Rabat delivery on request, subject to confirmation. Minimum three days.",
     url: "https://benatna.ma/en",
   },
   es: {
     title: "Benatna | Alquila un coche turístico en Casablanca",
-    desc: "Agencias en Casablanca para vacaciones y estancias. Recogida en ciudad o aeropuerto Mohammed V. Rabat bajo petición y confirmación. Mínimo tres días, máximo seis meses.",
+    desc: "Agencias en Casablanca para vacaciones y estancias. Recogida en ciudad o aeropuerto Mohammed V. Rabat bajo petición y confirmación. Mínimo tres días.",
     url: "https://benatna.ma/es",
   },
 };
@@ -183,15 +183,15 @@ const Index = () => {
           {/* USP badges — angle anti-franchise : tout inclus, pas de frais cachés */}
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 animate-fade-in [animation-delay:300ms] px-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
-              <span className="text-sm sm:text-base">💰</span>
+              <Wallet aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
               <span>Dès <strong>250 DH</strong>/jour · minimum trois jours</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
-              <span className="text-sm sm:text-base">💳</span>
+              <CreditCard aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
               <span>Sans CB bloquée</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
-              <span className="text-sm sm:text-base">📱</span>
+              <MessageCircle aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
               <span>WhatsApp en 2 min</span>
             </span>
           </div>
@@ -199,7 +199,7 @@ const Index = () => {
           {/* Slogan anti-franchise : prix transparent, tous clients egaux */}
           <div className="hidden sm:flex flex-col items-center justify-center mb-4 sm:mb-6 animate-fade-in [animation-delay:350ms] px-2">
             <p className="text-base sm:text-xl md:text-2xl font-bold text-white drop-shadow-lg text-center">
-              ✨ Le prix annoncé est le prix payé.
+              Le prix annoncé est le prix payé.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-white/85 mt-1 text-center max-w-2xl">
               Pas de surcharge jeune conducteur • Pas d'empreinte CB bloquée • Pas de frais aéroport cachés • Tout client traité de la même manière

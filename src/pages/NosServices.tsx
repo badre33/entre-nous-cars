@@ -17,7 +17,7 @@ export default function NosServices() {
  return <>
   <Helmet>
    <title>Préparer votre location de voiture à Casablanca | Benatna</title>
-   <meta name="description" content="Préparez une voiture à Casablanca : Mohammed V, gares, automatique ou séjour au mois. Livraison gratuite aux points desservis, 3 jours à 6 mois. Rabat sur demande." />
+   <meta name="description" content="Préparez une voiture à Casablanca : Mohammed V, gares, automatique ou séjour au mois. Livraison gratuite aux points desservis, 3 jours minimum. Rabat sur demande." />
    <meta property="og:title" content="Préparer votre location de voiture à Casablanca | Benatna" />
    <meta property="og:description" content="Choisissez le modèle, les dates et le lieu. Disponibilité, tarif et conditions confirmés par le loueur." />
    <meta property="og:url" content="https://benatna.ma/nos-services" />

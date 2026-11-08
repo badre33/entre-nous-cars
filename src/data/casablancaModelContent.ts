@@ -45,7 +45,7 @@ export const casablancaModelContent: Record<string, CasablancaModelContent> = {
     name: 'Hyundai Tucson',
     summary: 'Un SUV à comparer au Duster pour préparer un séjour avec plusieurs passagers et des bagages.',
     title: 'Location Hyundai Tucson à Casablanca | Benatna',
-    description: 'Demandez un Hyundai Tucson à Casablanca, de 3 jours à 6 mois : prix indicatif, caution à confirmer et livraison gratuite à l’aéroport Mohammed V ou en gare.',
+    description: 'Demandez un Hyundai Tucson à Casablanca, à partir de 3 jours : prix indicatif, caution à confirmer et livraison gratuite à l’aéroport Mohammed V ou en gare.',
     sections: [
       { title: 'Un Tucson pour vos vacances depuis Casablanca', text: 'Le Hyundai Tucson est un choix SUV à étudier pour un séjour avec plusieurs passagers et des bagages. Indiquez le nombre de voyageurs et les valises prévues à l’arrivée. Le loueur vérifie avec vous l’adéquation de la version proposée avant votre accord.' },
       { title: 'Tucson ou Duster : comparer une proposition complète', text: 'Vous pouvez sélectionner le Tucson et le Duster dans une même demande pour comparer deux SUV. Demandez le tarif pour toute la période, la transmission, les équipements utiles et les conditions de caution. Précisez les équipements qui comptent pour votre séjour afin de faire confirmer la bonne version.' },

@@ -9,7 +9,7 @@ export const SitelinksSearchBoxSchema = () => {
     "@id": `${BUSINESS_INFO.website}#website`,
     "url": BUSINESS_INFO.website,
     "name": BUSINESS_INFO.name,
-    "description": "Location de voiture de tourisme depuis Casablanca, de trois jours à six mois ; Rabat sur demande.",
+    "description": "Location de voiture de tourisme depuis Casablanca, à partir de trois jours ; Rabat sur demande.",
     "publisher": {
       "@id": `${BUSINESS_INFO.website}#organization`
     },

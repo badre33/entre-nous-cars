@@ -190,7 +190,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
         },
         {
             "title": "Comparer le prix et la caution sur les mêmes dates",
-            "text": "Les prix journaliers sont indicatifs. Préparez une période de trois jours à six mois calendaires et demandez le tarif total pour les modèles retenus. Le loueur précise la caution, son moyen de dépôt, ses conditions de restitution et le contrat. Le choix automatique ne permet pas de déduire un montant de caution ni un supplément fixe."
+            "text": "Les prix journaliers sont indicatifs. Préparez une période à partir de trois jours et demandez le tarif total pour les modèles retenus. Le loueur précise la caution, son moyen de dépôt, ses conditions de restitution et le contrat. Le choix automatique ne permet pas de déduire un montant de caution ni un supplément fixe."
         },
         {
             "title": "Une automatique à Mohammed V ou en gare",
@@ -204,7 +204,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
         },
         {
             "question": "Peut-on demander une automatique pour plusieurs semaines ?",
-            "answer": "Oui, la demande peut couvrir trois jours à six mois calendaires. Précisez vos dates pour faire confirmer le modèle, la version automatique et le tarif de toute la période."
+            "answer": "Oui, à partir de trois jours et pour plusieurs semaines. Précisez vos dates pour faire confirmer le modèle, la version automatique et le tarif de toute la période."
         },
         {
             "question": "Quand ma location est-elle confirmée ?",
@@ -236,7 +236,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
         },
         {
             "title": "Préparer le prix, la caution et le retour",
-            "text": "Le prix par jour du catalogue est indicatif. Demandez le montant de toute la période, la caution, les documents requis et les conditions d’assurance et de kilométrage. La location dure de trois jours à six mois calendaires. Le retour du véhicule se convient à l’avance avec le loueur."
+            "text": "Le prix par jour du catalogue est indicatif. Demandez le montant de toute la période, la caution, les documents requis et les conditions d’assurance et de kilométrage. La location dure au minimum trois jours. Le retour du véhicule se convient à l’avance avec le loueur."
         },
         {
             "title": "Une arrivée à Rabat ou à l’aéroport ?",

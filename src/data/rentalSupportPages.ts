@@ -9,7 +9,7 @@ const indicativePrices = ['renault-clio', 'dacia-duster', 'vw-golf', 'hyundai-tu
   return `${vehicle.name} : ${currentDailyPrice(vehicle.priceFrom)} DH/jour`;
 }).join(' ; ');
 const rentalJourney = {
-  intro: 'Choisissez vos dates, jusqu’à trois modèles et votre lieu de prise en charge. La location dure de trois jours à six mois calendaires. Le loueur confirme disponibilité, tarif et conditions avant votre accord.',
+  intro: 'Choisissez vos dates, jusqu’à trois modèles et votre lieu de prise en charge. La location dure au minimum trois jours. Le loueur confirme disponibilité, tarif et conditions avant votre accord.',
   links: [
     { title: 'Comparer les voitures à Casablanca', link: '/location-voiture-casablanca' },
     { title: 'Arriver à l’aéroport Mohammed V', link: '/location-voiture-aeroport-casablanca' },
@@ -41,7 +41,7 @@ export const rentalSupportPages: Record<'prices' | 'deposit', LongTailPageConfig
         { title: 'Comparer le prix total sur les mêmes dates', content: 'Pour comparer deux propositions, indiquez une date de départ et une date de retour identiques, le lieu de remise et vos besoins en passagers et bagages. Demandez au loueur le montant de toute la période et ce que prévoit le contrat : kilométrage, assurance, franchise et modalités de règlement. Un prix journalier isolé ne permet pas de déduire toutes les conditions.' },
         { title: 'La caution est distincte du prix de location', content: 'Faites préciser séparément le prix à régler et la caution demandée. Le montant de la caution, son moyen de dépôt et les conditions de restitution dépendent du loueur et du véhicule confirmé. Demandez ces informations avant votre accord plutôt que de supposer un montant uniforme ou une absence de caution.' },
         { title: 'Livraison gratuite à Casablanca, Rabat sur demande', content: 'La livraison est gratuite aux points desservis de Casablanca, notamment Mohammed V et les gares du guide. Le rendez-vous est convenu à l’avance avec le loueur. Une livraison à Rabat peut être étudiée depuis Casablanca selon sa disponibilité. Choisissez le lieu précis dans votre demande pour organiser la remise et le retour.' },
-        { title: 'Une semaine, un mois ou un séjour prolongé', content: 'La durée va de trois jours à six mois calendaires. Pour plusieurs semaines ou mois, demandez une proposition couvrant toute la période. Le catalogue sert de repère ; le tarif final reste à confirmer par le loueur. La location n’est pas confirmée par le simple envoi d’une demande WhatsApp et Benatna ne propose pas de paiement en ligne.' },
+        { title: 'Une semaine, un mois ou un séjour prolongé', content: 'La durée minimum est de trois jours. Pour plusieurs semaines ou mois, demandez une proposition couvrant toute la période. Le catalogue sert de repère ; le tarif final reste à confirmer par le loueur. La location n’est pas confirmée par le simple envoi d’une demande WhatsApp et Benatna ne propose pas de paiement en ligne.' },
       ],
       faq: [
         { question: 'Quel prix prévoir pour louer une voiture à Casablanca ?', answer: 'Comparez les prix journaliers indicatifs des modèles du catalogue, puis transmettez vos dates pour obtenir le tarif de toute la période. Le loueur confirme le véhicule, la version et le prix avant votre accord.' },
@@ -85,7 +85,7 @@ export const rentalSupportPages: Record<'prices' | 'deposit', LongTailPageConfig
         { question: 'Quel est le montant de la caution chez Benatna ?', answer: 'Le loueur confirme le montant pour le véhicule et les dates demandés. Aucun montant unique n’est fixé par cette page pour tous les modèles.' },
         { question: 'Peut-on louer sans caution ou sans carte de crédit ?', answer: 'Demandez au loueur les modalités acceptées pour votre dossier avant votre accord. L’absence de caution ou de carte de crédit ne peut pas être garantie pour tous les véhicules.' },
         { question: 'La caution est-elle rendue immédiatement ?', answer: 'Le mode, les conditions et le délai de restitution sont à confirmer avec le loueur pour le moyen de dépôt retenu. Cette page ne promet pas de délai uniforme.' },
-        { question: 'Peut-on comparer plusieurs modèles avant de décider ?', answer: 'Oui. Sélectionnez jusqu’à trois modèles, vos dates et le lieu. Demandez ensuite au loueur de préciser pour les véhicules proposés le prix total, la caution et les conditions du contrat. La durée va de trois jours à six mois calendaires.' },
+        { question: 'Peut-on comparer plusieurs modèles avant de décider ?', answer: 'Oui. Sélectionnez jusqu’à trois modèles, vos dates et le lieu. Demandez ensuite au loueur de préciser pour les véhicules proposés le prix total, la caution et les conditions du contrat. La durée minimum est de trois jours.' },
       ],
     },
     relatedServices: [
