@@ -4,6 +4,8 @@ export interface CasablancaModelContent {
   title: string;
   description: string;
   sections: { title: string; text: string }[];
+  /** false : texte de fiche uniquement, absent du bloc de comparaison des pages commerciales */
+  compare?: boolean;
 }
 
 // Editorial guidance for comparison, independent of stock and supplier-specific terms.
@@ -103,6 +105,75 @@ export const casablancaModelContent: Record<string, CasablancaModelContent> = {
       { title: 'Un Tucson pour vos vacances depuis Casablanca', text: 'Le Hyundai Tucson est un choix SUV à étudier pour un séjour avec plusieurs passagers et des bagages. Indiquez le nombre de voyageurs et les valises prévues à l’arrivée. Le loueur vérifie avec vous l’adéquation de la version proposée avant votre accord.' },
       { title: 'Tucson ou Duster : comparer une proposition complète', text: 'Vous pouvez sélectionner le Tucson et le Duster dans une même demande pour comparer deux SUV. Demandez le tarif pour toute la période, la transmission, les équipements utiles et les conditions de caution. Précisez les équipements qui comptent pour votre séjour afin de faire confirmer la bonne version.' },
       { title: 'Organiser la remise du Tucson à Mohammed V ou en gare', text: 'Préparez votre lieu précis de prise en charge à Casablanca avant le voyage. La livraison est gratuite aux points desservis et le rendez-vous est convenu à l’avance avec le loueur. Pour Rabat, précisez votre besoin : la livraison est étudiée depuis Casablanca selon sa disponibilité.' },
+    ],
+  },
+  'peugeot-208': {
+    name: 'Peugeot 208',
+    summary: 'Une citadine récente et bien équipée, proposée en manuelle ou en automatique selon les versions.',
+    title: 'Location Peugeot 208 Casablanca dès 400 DH/jour | Benatna',
+    description: 'Louez une Peugeot 208 à Casablanca dès 400 DH/jour hors haute saison : livraison gratuite à l’aéroport Mohammed V ou en gare, 3 jours minimum, demande sur WhatsApp.',
+    compare: false,
+    sections: [
+      { title: 'Une citadine moderne pour Casablanca', text: 'La Peugeot 208 est une citadine cinq portes au style récent. Elle se faufile facilement en ville, se gare sans difficulté et reste confortable sur l’autoroute pour rejoindre l’aéroport ou sortir de Casablanca.' },
+      { title: 'Manuelle ou automatique : à préciser', text: 'Selon les versions, la 208 existe en boîte manuelle ou automatique. Si l’automatique compte pour vous, indiquez-le clairement dans votre demande : le loueur confirme la version disponible pour vos dates.' },
+      { title: '208, Clio ou Sandero ?', text: 'La 208 et la Clio sont dans la même gamme de prix, avec plus d’équipements qu’une Sandero. Si le budget prime, la Sandero démarre à 250 DH par jour. Vous pouvez demander jusqu’à trois modèles et comparer les propositions.' },
+    ],
+  },
+  'seat-ibiza': {
+    name: 'Seat Ibiza',
+    summary: 'Une citadine au coffre généreux pour sa catégorie, agréable sur la route.',
+    title: 'Location Seat Ibiza Casablanca dès 400 DH/jour | Benatna',
+    description: 'Louez une Seat Ibiza à Casablanca dès 400 DH/jour hors haute saison : livraison gratuite à l’aéroport Mohammed V ou en gare, 3 jours minimum, demande sur WhatsApp.',
+    compare: false,
+    sections: [
+      { title: 'Une citadine dynamique et pratique', text: 'La Seat Ibiza est une citadine cinq portes appréciée pour sa tenue de route et un coffre plutôt généreux pour sa taille. Elle convient aux couples et aux petites familles qui alternent ville et autoroute.' },
+      { title: 'Pour quel séjour ?', text: 'L’Ibiza est un bon compromis si vous prévoyez des trajets hors de Casablanca pendant votre séjour, sans passer à un SUV. Indiquez vos bagages et votre préférence de boîte de vitesses dans la demande.' },
+      { title: 'Ibiza, 208 ou Corsa ?', text: 'Ces trois citadines sont au même prix de départ. Le choix dépend surtout de la disponibilité et de la boîte de vitesses : demandez-en plusieurs dans la même demande pour obtenir la meilleure proposition.' },
+    ],
+  },
+  'opel-corsa': {
+    name: 'Opel Corsa',
+    summary: 'Une citadine simple et compacte, facile à vivre en ville.',
+    title: 'Location Opel Corsa Casablanca dès 400 DH/jour | Benatna',
+    description: 'Louez une Opel Corsa à Casablanca dès 400 DH/jour hors haute saison : livraison gratuite à l’aéroport Mohammed V ou en gare, 3 jours minimum, demande sur WhatsApp.',
+    compare: false,
+    sections: [
+      { title: 'Une citadine facile en ville', text: 'L’Opel Corsa est une citadine cinq portes compacte. Elle est facile à garer dans les rues de Casablanca et suffisante pour deux adultes ou une petite famille avec des bagages raisonnables.' },
+      { title: 'À qui s’adresse-t-elle ?', text: 'La Corsa convient aux séjours centrés sur la ville et la corniche. Si vous arrivez avec plusieurs grandes valises, comparez-la avec la Dacia Logan, au coffre plus grand et au prix de départ plus bas.' },
+    ],
+  },
+  'hyundai-i20': {
+    name: 'Hyundai i20',
+    summary: 'Une citadine récente et bien équipée, en manuelle ou en automatique selon les versions.',
+    title: 'Location Hyundai i20 Casablanca dès 400 DH/jour | Benatna',
+    description: 'Louez une Hyundai i20 à Casablanca dès 400 DH/jour hors haute saison : livraison gratuite à l’aéroport Mohammed V ou en gare, 3 jours minimum, demande sur WhatsApp.',
+    compare: false,
+    sections: [
+      { title: 'Une citadine récente et bien équipée', text: 'La Hyundai i20 est une citadine cinq portes récente, avec un équipement souvent complet pour sa catégorie. Elle convient aux trajets en ville comme aux sorties sur autoroute pendant votre séjour.' },
+      { title: 'Boîte manuelle ou automatique', text: 'Selon les versions, l’i20 existe en manuelle ou en automatique. Précisez votre préférence dans la demande pour que le loueur confirme la bonne version.' },
+      { title: 'i20 ou Accent ?', text: 'L’i20 est une citadine compacte ; la Hyundai Accent est une berline, plus longue et plus spacieuse à l’arrière. Pour plus de place et la boîte automatique, comparez avec l’Accent.' },
+    ],
+  },
+  'kia-sportage': {
+    name: 'Kia Sportage',
+    summary: 'Un SUV familial automatique et bien équipé, pour un séjour confortable avec bagages.',
+    title: 'Location Kia Sportage Casablanca dès 640 DH/jour | Benatna',
+    description: 'Louez un Kia Sportage automatique à Casablanca dès 640 DH/jour hors haute saison : SUV familial, livraison gratuite à l’aéroport Mohammed V ou en gare, 3 jours minimum.',
+    compare: false,
+    sections: [
+      { title: 'Un SUV familial confortable', text: 'Le Kia Sportage est un SUV familial proposé en boîte automatique, avec un équipement complet. Il offre de la place pour cinq personnes et leurs bagages, et reste confortable sur les longs trajets.' },
+      { title: 'Sportage, Tucson ou Duster ?', text: 'Le Duster est le SUV le plus économique du catalogue. Le Sportage et le Tucson se situent un cran au-dessus en confort et en équipement. Demandez deux ou trois SUV sur les mêmes dates pour comparer le tarif total et la caution.' },
+    ],
+  },
+  'vw-t-roc': {
+    name: 'Volkswagen T-Roc',
+    summary: 'Un SUV compact automatique, plus facile à garer qu’un grand SUV.',
+    title: 'Location Volkswagen T-Roc Casablanca dès 650 DH/jour | Benatna',
+    description: 'Louez un Volkswagen T-Roc automatique à Casablanca dès 650 DH/jour hors haute saison : SUV compact, livraison gratuite à l’aéroport Mohammed V ou en gare, 3 jours minimum.',
+    compare: false,
+    sections: [
+      { title: 'Un SUV compact pour la ville et la route', text: 'Le Volkswagen T-Roc est un SUV compact proposé en boîte automatique. Il offre la position de conduite haute d’un SUV avec un gabarit plus facile à garer qu’un grand modèle, pratique dans Casablanca.' },
+      { title: 'Pour qui ?', text: 'Le T-Roc convient aux couples et aux familles de quatre qui veulent un SUV bien équipé sans passer au format familial. Pour cinq personnes avec beaucoup de bagages, comparez avec le Kia Sportage ou le Hyundai Tucson.' },
     ],
   },
 };
