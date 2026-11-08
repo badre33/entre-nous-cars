@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { CalendarCheck, Check } from "lucide-react";
 import { useSwipeToClose } from "@/hooks/useSwipeToClose";
 import { cn } from "@/lib/utils";
+import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 
 interface CarPreviewDialogProps {
   car: {
@@ -53,7 +54,7 @@ export default function CarPreviewDialog({
         </DialogHeader>
         <div className="space-y-4">
           <div className="relative h-64 rounded-lg overflow-hidden">
-            <img src={car.image} alt={car.name} className="w-full h-full object-contain" />
+            <img src={car.image} srcSet={vehicleImageSrcSet(car.image)} sizes="(max-width: 640px) 100vw, 512px" alt={car.name} decoding="async" className="w-full h-full object-contain" />
             {car.badges && (
               <div className="absolute top-2 left-2 flex flex-col gap-1">
                 {car.badges.map((badge, idx) => (

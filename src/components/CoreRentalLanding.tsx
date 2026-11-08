@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { RentalModelLinks } from './RentalModelLinks';
 import { pickupPoints } from '@/data/pickupPoints';
 import { vehicleDetails } from '@/data/vehicleDetails';
+import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 
 export interface CoreRentalContent {
   path: string;
@@ -72,7 +73,7 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
       {content.models && <section aria-label="Modèles et prix" className="space-y-4">
         <h2 className="text-2xl font-semibold">{content.weekly ? 'Prix pour 7 jours par modèle' : 'Modèles et prix de départ'}</h2>
         <div className="grid gap-4 sm:grid-cols-2">{content.models.map(slug => vehicleDetails[slug]).filter(Boolean).map(v => <Link key={v.slug} to={`/vehicule/${v.slug}`} className="rounded-lg border overflow-hidden flex gap-4 items-center p-3 hover:border-primary">
-          <img src={v.photos[0]} alt={`${v.name} en location à Casablanca`} loading="lazy" width={120} height={80} className="w-28 h-20 object-cover rounded-md shrink-0" />
+          <img src={v.photos[0]} srcSet={vehicleImageSrcSet(v.photos[0])} sizes="112px" alt={`${v.name} en location à Casablanca`} loading="lazy" decoding="async" width={120} height={80} className="w-28 h-20 object-cover rounded-md shrink-0" />
           <span className="min-w-0 flex-1"><span className="block font-semibold">{v.name}</span><span className="block text-sm text-muted-foreground">{v.category} · {v.options.seats} places · {v.options.transmission}</span></span>
           <span className="text-right whitespace-nowrap"><span className="block text-xs text-muted-foreground">dès</span><span className="text-lg font-bold text-primary">{(content.weekly ? v.priceFrom * 7 : v.priceFrom).toLocaleString('fr-FR')} DH</span><span className="block text-xs">{content.weekly ? 'les 7 jours' : '/jour'}</span></span>
         </Link>)}</div>

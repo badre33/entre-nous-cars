@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { vehicleDetails } from '@/data/vehicleDetails';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 
 const MODELS = ['dacia-sandero', 'dacia-logan', 'renault-clio', 'dacia-duster', 'dacia-jogger', 'hyundai-tucson'];
 
@@ -49,7 +50,7 @@ export function HomeModelsSection() {
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {MODELS.map(slug => vehicleDetails[slug]).filter(Boolean).map(v => (
             <Link key={v.slug} to={`/vehicule/${v.slug}`} className="group rounded-xl border bg-card overflow-hidden hover:border-primary hover:shadow-md transition">
-              <img src={v.photos[0]} alt={v.name} loading="lazy" width={400} height={260} className="w-full aspect-[3/2] object-cover" />
+              <img src={v.photos[0]} srcSet={vehicleImageSrcSet(v.photos[0])} sizes="(max-width: 1023px) 50vw, 360px" alt={v.name} loading="lazy" decoding="async" width={480} height={320} className="w-full aspect-[3/2] object-cover" />
               <div className="p-3 sm:p-4 space-y-1">
                 <h3 className="font-semibold text-sm sm:text-base">{v.name}</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground">{v.options.seats} {copy.seats}</p>
