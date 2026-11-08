@@ -33,8 +33,13 @@ interface LanguageProviderProps {
 
 export const LanguageProvider = ({ children }: LanguageProviderProps) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    const saved = localStorage.getItem("benatna-language");
-    return (saved as Language) || "fr";
+    // La langue de l'URL (/en, /es) prime : la page est rendue dans la bonne
+    // langue des le premier rendu, y compris pour le prerendu lu par Google.
+    const prefix = typeof window !== "undefined" ? window.location.pathname.split("/")[1] : "";
+    if (prefix === "en" || prefix === "es") return prefix;
+    let saved: string | null = null;
+    try { saved = localStorage.getItem("benatna-language"); } catch { /* stockage indisponible */ }
+    return saved === "en" || saved === "es" || saved === "fr" ? saved : "fr";
   });
 
   const setLanguage = (lang: Language) => {
