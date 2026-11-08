@@ -33,13 +33,13 @@ export default defineConfig(({ mode }) => ({
     VitePWA({
       registerType: "autoUpdate",
       injectRegister: null, // Manual registration for better LCP control
-      includeAssets: ["favicon.ico", "apple-touch-icon.png", "robots.txt"],
+      includeAssets: ["favicon.ico", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "robots.txt"],
       manifest: {
-        name: "Benatna – Location de Voiture au Maroc",
+        name: "Benatna – Location de voiture à Casablanca",
         short_name: "Benatna",
         description: "Location de voiture à Casablanca et à l’aéroport Mohammed V. Livraison à Rabat sur demande, livraison gratuite convenue à l’avance.",
         theme_color: "#ffda00",
-        background_color: "#f5ffe4",
+        background_color: "#000000",
         display: "standalone",
         scope: "/",
         start_url: "/",
@@ -47,46 +47,33 @@ export default defineConfig(({ mode }) => ({
         categories: ["travel", "business"],
         lang: "fr",
         dir: "ltr",
+        id: "/",
         icons: [
-          {
-            src: "/favicon.ico",
-            sizes: "64x64 32x32 24x24 16x16",
-            type: "image/x-icon",
-          },
-          {
-            src: "/apple-touch-icon.png",
-            sizes: "180x180",
-            type: "image/png",
-            purpose: "any maskable",
-          },
-          {
-            src: "/og-image.png",
-            sizes: "1200x630",
-            type: "image/png",
-            purpose: "any",
-          },
+          { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+          { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+          { src: "/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
         ],
         shortcuts: [
           {
             name: "Louer une voiture",
             short_name: "Louer",
-            description: "Voir tous les véhicules disponibles",
+            description: "Voir les voitures et les prix",
             url: "/louer",
-            icons: [{ src: "/favicon.ico", sizes: "64x64" }]
+            icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }]
           },
           {
-            name: "Nos Services",
-            short_name: "Services",
-            description: "Découvrir nos services",
-            url: "/nos-services",
-            icons: [{ src: "/favicon.ico", sizes: "64x64" }]
+            name: "Aéroport Mohammed V",
+            short_name: "Aéroport",
+            description: "Location de voiture livrée à l’aéroport de Casablanca",
+            url: "/location-voiture-aeroport-casablanca",
+            icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }]
           },
           {
             name: "Contact",
             short_name: "Contact",
             description: "Nous contacter",
             url: "/contact",
-            icons: [{ src: "/favicon.ico", sizes: "64x64" }]
+            icons: [{ src: "/icon-192.png", sizes: "192x192", type: "image/png" }]
           }
         ]
       },
