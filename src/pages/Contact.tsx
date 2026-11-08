@@ -187,7 +187,7 @@ const Contact = () => {
                       maxLength={1000}
                       required
                     />
-                    <p className="text-xs text-muted-foreground mt-1">Maximum 1000 caractères</p>
+                    <p className="text-xs text-muted-foreground mt-1">{tr("Maximum 1000 caractères", "Maximum 1,000 characters", "Máximo 1000 caracteres")}</p>
                   </div>
                   
                   <Button 

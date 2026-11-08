@@ -109,7 +109,7 @@ export const intlAirportPages: Record<IntlLang, IntlAirportContent> = {
     ],
     faqTitle: 'Preguntas frecuentes',
     faqs: [
-      { question: '¿Cuánto cuesta alquilar un coche en el aeropuerto de Casablanca?', answer: 'Desde 250 MAD al día para un utilitario o una berlina y desde 380 MAD para un SUV o un 7 plazas, fuera de temporada alta, con un mínimo de tres días. La entrega en el aeropuerto es gratuita.' },
+      { question: '¿Cuánto cuesta alquilar un coche en el aeropuerto de Casablanca?', answer: 'Desde 250 MAD al día para un utilitario o una berlina y desde 380 MAD para un SUV o un coche de 7 plazas, fuera de temporada alta, con un mínimo de tres días. La entrega en el aeropuerto es gratuita.' },
       { question: '¿Hay un mostrador de Benatna en el aeropuerto?', answer: 'No. La agencia te recibe en un punto de encuentro acordado de antemano, sin colas en un mostrador.' },
       { question: '¿Cuál es la duración mínima?', answer: 'Tres días. No se alquila por un solo día.' },
       { question: '¿Cómo reservo?', answer: 'Por WhatsApp: envía tus fechas, tu hora de llegada y el coche deseado. La agencia confirma la disponibilidad y el precio total. Sin pago en línea.' },
