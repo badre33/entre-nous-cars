@@ -40,6 +40,7 @@ export function rentalDefaults(url = new URL(window.location.href)): RentalDraft
     startDate: query.get('startDate') || '', endDate: query.get('endDate') || '',
     city: query.get('city') === 'Rabat' || url.pathname.includes('-rabat') ? 'Rabat' : 'Casablanca',
     vehicles: query.getAll('modele'),
+    pickupId: pickupPoints.some(p => p.id === query.get('pickup')) ? query.get('pickup') || '' : '',
   };
 }
 export function requestRental(draft: RentalDraft = {}) {

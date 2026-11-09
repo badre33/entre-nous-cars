@@ -1,4 +1,6 @@
 import { vehicleImageSrcSet } from "@/utils/vehicleImages";
+import { VehicleBookingPanel } from "@/components/VehicleBookingPanel";
+import { rentalVehicleSlugs } from "@/data/rentalVehicleNames";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -46,7 +48,6 @@ const VehicleDetail = () => {
   const editorial = casablancaModelContent[vehicle.slug];
   const seoTitle = `Location ${vehicle.name} Casablanca dès ${vehicle.priceFrom} DH/jour | Benatna`;
   const seoDescription = editorial?.description ?? `Location ${vehicle.name} à Casablanca : 3 jours minimum, livraison gratuite convenue à l’avance. Rabat sur demande. Disponibilité et tarif à confirmer.`;
-  const whatsappLink = `/louer?demande=1&modele=${encodeURIComponent(vehicle.name)}`;
 
   const FeatureRow = ({ label, value }: { label: string; value: boolean | string | undefined }) => {
     if (value === undefined) return null;
@@ -152,7 +153,7 @@ const VehicleDetail = () => {
                   {currentContextBadge() && (
                     <p className="text-xs text-secondary font-medium mt-1">{currentContextBadge()}</p>
                   )}
-                  <p className="text-xs text-muted-foreground mt-1">Prix indicatif, à confirmer avec le loueur pour vos dates.</p>
+                  <p className="text-xs text-muted-foreground mt-1">Prix total calculé ci-dessous pour vos dates, confirmé sous 1 heure.</p>
                   <p className="text-sm mt-2">Prise en charge à Casablanca, à partir de 3 jours. Livraison gratuite convenue à l’avance ; Rabat sur demande.</p>
                 </div>
 
@@ -173,25 +174,18 @@ const VehicleDetail = () => {
                 </div>
 
                 {/* CTAs */}
-                <div className="space-y-2">
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-green-600 hover:bg-green-700">
-                      <MessageCircle className="h-4 w-4 mr-2" />
-                      Réserver
-                    </Button>
-                  </a>
-                  <a href="tel:+212699024526">
-                    <Button variant="outline" className="w-full">
-                      <Phone className="h-4 w-4 mr-2" />
-                      Appeler
-                    </Button>
-                  </a>
-                </div>
+                <VehicleBookingPanel vehicleName={rentalVehicleSlugs[vehicle.slug] ?? vehicle.name} />
+                <a href="tel:+212699024526" className="block">
+                  <Button variant="outline" className="w-full">
+                    <Phone className="h-4 w-4 mr-2" />
+                    Appeler
+                  </Button>
+                </a>
 
                 <div className="pt-3 border-t border-border space-y-2 text-xs text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Caution et règlement confirmés par le loueur</span>
+                    <span>Annulation gratuite jusqu’à 48 h avant le départ</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
@@ -199,7 +193,7 @@ const VehicleDetail = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Conditions d’annulation précisées avant accord</span>
+                    <span>Acompte de 30 % par virement pour garantir la réservation</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />

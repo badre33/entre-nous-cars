@@ -9,7 +9,8 @@ import { useTr } from '@/contexts/LanguageContext';
 export default function WhatsAppButton() {
   const location = useLocation();
   const tr = useTr();
-  if (['/louer', '/en/louer', '/es/louer', '/partenaires', '/auth', '/analytics', '/demandes'].includes(location.pathname.replace(/\/$/, '') || '/')) return null;
+  // Masqué là où un bouton « Réserver » est déjà présent (catalogue, fiches voitures).
+  if (location.pathname.startsWith('/vehicule/') || ['/louer', '/en/louer', '/es/louer', '/partenaires', '/auth', '/analytics', '/demandes'].includes(location.pathname.replace(/\/$/, '') || '/')) return null;
   return (
     <button
       type="button"
