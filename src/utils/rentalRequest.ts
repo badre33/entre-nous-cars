@@ -2,6 +2,8 @@ import { appendCampaignCode } from './analyticsPrivacy';
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from './rentalPeriod';
 import { rentalVehicleNames } from '@/data/rentalVehicleNames';
 import { pickupPoints } from '@/data/pickupPoints';
+import { rentalVehiclePrices } from '@/data/rentalVehiclePrices';
+import { calculateDays, calculateTotalPrice } from './priceCalculations';
 
 export const RENTAL_REQUEST_EVENT = 'benatna:rental-request';
 export const WHATSAPP_HANDOFF_EVENT = 'benatna:whatsapp-handoff';
@@ -57,9 +59,27 @@ export function validateRental(value: ConfirmedRental): string | null {
   return null;
 }
 const dateLabel = (date: string) => date.split('-').reverse().join('/');
+const dh = (amount: number) => `${amount.toLocaleString('fr-FR').replace(/\u202f|\u00a0/g, ' ')} DH`;
+/** Prix total estimé d'un modèle pour la période (moteur de prix du catalogue). */
+export function rentalEstimate(name: string, startDate: string, endDate: string, city: string): { days: number; total: number } | null {
+  const base = rentalVehiclePrices[normalizeVehicleName(name)];
+  const start = new Date(`${startDate}T12:00:00`); const end = new Date(`${endDate}T12:00:00`);
+  const days = calculateDays(start, end);
+  if (!base || !days) return null;
+  return { days, total: calculateTotalPrice(base, days, { date: start, city }) };
+}
+// D026 (9 novembre 2026) : chaque réservation contient dates, durée, lieu, 1 à 3 voitures
+// par ordre de préférence (la première disponible est confirmée) et le prix total estimé.
 export function buildConfirmedRentalMessage(value: ConfirmedRental): string {
   const error = validateRental(value); if (error) throw new Error(error);
-  return `Bonjour Benatna, je souhaite réserver une voiture.\n\nVéhicule(s) : ${value.vehicles.map(normalizeVehicleName).join(' / ')}\nDépart : ${dateLabel(value.startDate)}\nRetour : ${dateLabel(value.endDate)}\nLieu de prise en charge : ${rentalPlace(value)}${value.city === 'Rabat' ? '\nLivraison à Rabat depuis Casablanca.' : ''}\n\nMerci de me confirmer la réservation, le prix total et les coordonnées du virement pour l’acompte de 30 %.${value.notes?.trim() ? '\n\nPrécisions :\n' + value.notes.trim().slice(0, 1200) : ''}`;
+  const first = rentalEstimate(value.vehicles[0], value.startDate, value.endDate, value.city);
+  const days = first?.days ?? calculateDays(new Date(`${value.startDate}T12:00:00`), new Date(`${value.endDate}T12:00:00`));
+  const cars = value.vehicles.map((name, index) => {
+    const estimate = rentalEstimate(name, value.startDate, value.endDate, value.city);
+    return `${index + 1}. ${normalizeVehicleName(name)}${estimate ? ` : environ ${dh(estimate.total)} au total` : ''}`;
+  }).join('\n');
+  const choice = value.vehicles.length > 1 ? 'Voitures, par ordre de préférence (la première disponible) :' : 'Voiture :';
+  return `Bonjour Benatna, je souhaite réserver une voiture.\n\nDates : du ${dateLabel(value.startDate)} au ${dateLabel(value.endDate)} (${days} jours)\nLieu de prise en charge : ${rentalPlace(value)}${value.city === 'Rabat' ? ' (livraison depuis Casablanca)' : ''}\n\n${choice}\n${cars}\n\nMerci de me confirmer la réservation, le prix total et les coordonnées du virement pour l’acompte de 30 %.${value.notes?.trim() ? '\n\nPrécisions :\n' + value.notes.trim().slice(0, 1200) : ''}`;
 }
 function whatsAppURL(value: string | URL | undefined): URL | null {
   try { const url = new URL(String(value), window.location.origin); return url.protocol === 'https:' && ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? url : null; } catch { return null; }

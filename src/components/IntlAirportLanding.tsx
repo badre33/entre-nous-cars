@@ -5,17 +5,16 @@ import Header from './Header';
 import Footer from './Footer';
 import { vehicleDetails } from '@/data/vehicleDetails';
 import { airportAlternates, type IntlAirportContent } from '@/data/intlAirportPages';
-import { openDirectWhatsApp } from '@/utils/rentalRequest';
+import { requestRental } from '@/utils/rentalRequest';
 import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 
 export function IntlAirportLanding({ content }: { content: IntlAirportContent }) {
   const url = `https://benatna.ma${content.path}`;
-  const waHref = `https://wa.me/212699024526?text=${encodeURIComponent(content.whatsAppText)}`;
   const catalogueHref = `/${content.lang}/louer?city=Casablanca&pickup=cmn`;
-  const whatsAppButton = <a href={waHref} data-whatsapp-direct="intl-airport" target="_blank" rel="noopener noreferrer"
-    onClick={event => { event.preventDefault(); openDirectWhatsApp(content.whatsAppText); }}
+  const whatsAppButton = <button type="button"
+    onClick={() => requestRental({ city: 'Casablanca', pickupId: 'cmn' })}
     className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#25D366] hover:bg-[#128C7E] text-white px-4 py-3 font-semibold">
-    <MessageCircle className="w-5 h-5" />{content.ctaWhatsApp}</a>;
+    <MessageCircle className="w-5 h-5" />{content.ctaWhatsApp}</button>;
   return <>
     <Helmet htmlAttributes={{ lang: content.lang }}>
       <title>{content.title}</title>

@@ -4,11 +4,21 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from '@/components/ui/button';
 import { pickupPoints } from '@/data/pickupPoints';
 import { rentalVehicleNames, rentalVehicleSlugs } from '@/data/rentalVehicleNames';
-import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, normalizeVehicleName, validateRental, rentalPlace, openConfirmedRental, openDirectWhatsApp, directWhatsAppText, type RentalDraft, type ConfirmedRental } from '@/utils/rentalRequest';
+import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, normalizeVehicleName, validateRental, rentalPlace, openConfirmedRental, rentalEstimate, type RentalDraft, type ConfirmedRental } from '@/utils/rentalRequest';
+import { RENTAL_PERIOD_MESSAGE } from '@/utils/rentalPeriod';
+import { useTr } from '@/contexts/LanguageContext';
 const empty = (): ConfirmedRental => ({ vehicles: [], startDate: '', endDate: '', city: 'Casablanca', pickupId: '', otherPlace: '' });
 const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-background px-3 py-2 text-base';
+const dh = (amount: number) => `${Math.round(amount).toLocaleString('fr-FR')} DH`;
 export default function RentalRequestDialog() {
   const { selectedCars } = useComparison();
+  const tr = useTr();
+  const errorText = (message: string) => ({
+    'Choisissez un véhicule avant de continuer.': tr(message, 'Choose a car to continue.', 'Elige un coche para continuar.'),
+    [RENTAL_PERIOD_MESSAGE]: tr(message, 'Rentals last at least 3 days. Check your dates.', 'El alquiler dura al menos 3 días. Revisa tus fechas.'),
+    'La date de départ ne peut pas être passée.': tr(message, 'The pick-up date cannot be in the past.', 'La fecha de recogida no puede ser pasada.'),
+    'Précisez le lieu de prise en charge.': tr(message, 'Choose the pick-up place.', 'Indica el lugar de recogida.'),
+  } as Record<string, string>)[message] ?? message;
   const selectionRef = useRef<string[]>([]);
   useEffect(() => { selectionRef.current = [...new Set(selectedCars.map(car => normalizeVehicleName(car.name)))]; }, [selectedCars]);
   const [open, setOpen] = useState(false);
@@ -41,48 +51,52 @@ export default function RentalRequestDialog() {
   const change = (patch: Partial<ConfirmedRental>) => { setValue(v => ({ ...v, ...patch })); setError(null); setReview(false); setConfirmed(false); };
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
-    const issue = validateRental(value); if (issue) { setError({ message: issue }); return; }
+    const issue = validateRental(value); if (issue) { setError({ message: errorText(issue) }); return; }
     if (!review) { setReview(true); return; }
-    if (!confirmed) { setError({ message: 'Confirmez les informations du récapitulatif.' }); return; }
+    if (!confirmed) { setError({ message: tr('Confirmez les informations du récapitulatif.', 'Please confirm the summary.', 'Confirma el resumen.') }); return; }
     if (openConfirmedRental(value)) { setOpen(false); setValue(empty()); }
-    else setError({ message: 'WhatsApp n’a pas pu s’ouvrir. Autorisez les fenêtres puis réessayez. Votre réservation est conservée.' });
+    else setError({ message: tr('WhatsApp n’a pas pu s’ouvrir. Autorisez les fenêtres puis réessayez. Votre réservation est conservée.', 'WhatsApp could not open. Allow pop-ups and try again. Your booking is kept.', 'WhatsApp no se pudo abrir. Permite las ventanas emergentes e inténtalo de nuevo. Tu reserva se conserva.') });
   };
   const vehicleFields = value.vehicles.length ? value.vehicles : [''];
+  const firstEstimate = review && value.vehicles[0] ? rentalEstimate(value.vehicles[0], value.startDate, value.endDate, value.city) : null;
   return <Dialog open={open} onOpenChange={next => { setOpen(next); if (!next) { setValue(empty()); setError(null); } }}>
     <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto overscroll-contain [&_button]:whitespace-normal [&_button]:h-auto [&_button]:min-h-11">
-      <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1}>{review ? 'Vérifiez votre réservation' : 'Réserver ma voiture'}</DialogTitle><DialogDescription>Choisissez la voiture, les dates et le lieu de prise en charge. Benatna vous confirme la réservation sous 1 heure sur WhatsApp, avec le prix total et les coordonnées du virement.</DialogDescription></DialogHeader>
-      {!review && <div className="rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 p-3 text-sm">
-        <p className="mb-2">Pas encore de dates précises ou une simple question ?</p>
-        <Button type="button" className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={() => { openDirectWhatsApp(directWhatsAppText(value.vehicles)); setOpen(false); setValue(empty()); }}>Écrire directement sur WhatsApp</Button>
-      </div>}
+      <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1}>{review ? tr('Vérifiez votre réservation', 'Check your booking', 'Revisa tu reserva') : tr('Réserver ma voiture', 'Book my car', 'Reservar mi coche')}</DialogTitle><DialogDescription>{tr('Dates, voiture et lieu de prise en charge. Benatna vous confirme la réservation sous 1 heure sur WhatsApp, avec le prix total et les coordonnées du virement.', 'Dates, car and pick-up place. Benatna confirms your booking within 1 hour on WhatsApp, with the total price and bank transfer details.', 'Fechas, coche y lugar de recogida. Benatna confirma tu reserva en 1 hora por WhatsApp, con el precio total y los datos de la transferencia.')}</DialogDescription></DialogHeader>
       <form onSubmit={submit} className="min-w-0 space-y-4">
         {error && <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-destructive">{error.message}</p>}
         {!review ? <>
           <fieldset className="space-y-3">
-            <legend className="font-medium">Véhicules souhaités — 3 maximum</legend>
+            <legend className="font-medium">{tr("Voitures souhaitées, par ordre de préférence", "Preferred cars, in order", "Coches deseados, por orden de preferencia")}</legend>
+            <p className="text-sm text-muted-foreground">{tr("Jusqu’à 3 voitures : nous confirmons la première disponible.", "Up to 3 cars: we confirm the first one available.", "Hasta 3 coches: confirmamos el primero disponible.")}</p>
             {vehicleFields.map((vehicle, index) => <div key={index} className="flex items-end gap-2">
-              <label className="block flex-1 min-w-0 space-y-1"><span>Véhicule {index + 1}</span>
+              <label className="block flex-1 min-w-0 space-y-1"><span>{tr('Choix', 'Choice', 'Opción')} {index + 1}</span>
                 <select required aria-label={index === 0 ? 'Véhicule souhaité' : `Véhicule souhaité ${index + 1}`} className={field} value={vehicle} onChange={e => { const vehicles = [...value.vehicles]; vehicles[index] = e.target.value; change({ vehicles }); }}>
-                  <option value="">Choisir un modèle</option>
+                  <option value="">{tr("Choisir un modèle", "Choose a model", "Elegir un modelo")}</option>
                   {rentalVehicleNames.map(name => <option key={name} value={name} disabled={name !== vehicle && value.vehicles.includes(name)}>{name}</option>)}
                 </select>
               </label>
-              {vehicleFields.length > 1 && <Button type="button" variant="outline" aria-label={`Retirer le véhicule ${index + 1}`} onClick={() => change({ vehicles: value.vehicles.filter((_, i) => i !== index) })}>Retirer</Button>}
+              {vehicleFields.length > 1 && <Button type="button" variant="outline" aria-label={`Retirer le véhicule ${index + 1}`} onClick={() => change({ vehicles: value.vehicles.filter((_, i) => i !== index) })}>{tr('Retirer', 'Remove', 'Quitar')}</Button>}
             </div>)}
-            {vehicleFields.length < 3 && <Button type="button" variant="outline" disabled={!value.vehicles.length || value.vehicles.some(v => !v)} onClick={() => change({ vehicles: [...value.vehicles, ''] })}>Ajouter un véhicule (3 maximum)</Button>}
+            {vehicleFields.length < 3 && <Button type="button" variant="outline" disabled={!value.vehicles.length || value.vehicles.some(v => !v)} onClick={() => change({ vehicles: [...value.vehicles, ''] })}>{tr('Ajouter un autre choix', 'Add another choice', 'Añadir otra opción')}</Button>}
           </fieldset>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"><label className="block space-y-1"><span>Date de départ</span><input required type="date" aria-label="Date de départ de la demande" min={localToday()} className={field} value={value.startDate} onChange={e => change({ startDate: e.target.value })} /></label><label className="block space-y-1"><span>Date de retour</span><input required type="date" aria-label="Date de retour de la demande" min={value.startDate || localToday()} className={field} value={value.endDate} onChange={e => change({ endDate: e.target.value })} /></label></div>
-          <p className="text-sm text-muted-foreground">3 jours minimum.</p>
-          <label className="block space-y-1"><span>Ville de prise en charge</span><select required aria-label="Ville de prise en charge" className={field} value={value.city} onChange={e => change({ city: e.target.value as ConfirmedRental['city'], pickupId: '', otherPlace: '' })}><option>Casablanca</option><option>Rabat</option></select></label>
-          <label className="block space-y-1"><span>Lieu de prise en charge</span><select required aria-label="Lieu de prise en charge" className={field} value={value.pickupId} onChange={e => change({ pickupId: e.target.value, otherPlace: '' })}><option value="">Choisir le lieu précis</option>{pickupPoints.filter(p => p.city === value.city).map(p => <option key={p.id} value={p.id}>{p.name}</option>)}<option value="other">Autre adresse dans cette ville — à préciser</option></select></label>
-          {value.pickupId === 'other' && <label className="block space-y-1"><span>Adresse ou point de rendez-vous précis</span><input required minLength={5} maxLength={200} aria-label="Adresse précise de prise en charge" className={field} value={value.otherPlace} onChange={e => change({ otherPlace: e.target.value })} /></label>}
-          {value.city === 'Rabat' && <p className="text-sm">Livraison à Rabat demandée depuis Casablanca, à confirmer avec le loueur.</p>}
-          <Button type="submit" className="w-full">Vérifier ma réservation</Button>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"><label className="block space-y-1"><span>{tr('Date de départ', 'Pick-up date', 'Fecha de recogida')}</span><input required type="date" aria-label="Date de départ de la demande" min={localToday()} className={field} value={value.startDate} onChange={e => change({ startDate: e.target.value })} /></label><label className="block space-y-1"><span>{tr('Date de retour', 'Return date', 'Fecha de devolución')}</span><input required type="date" aria-label="Date de retour de la demande" min={value.startDate || localToday()} className={field} value={value.endDate} onChange={e => change({ endDate: e.target.value })} /></label></div>
+          <p className="text-sm text-muted-foreground">{tr("3 jours minimum.", "3 days minimum.", "Mínimo 3 días.")}</p>
+          <label className="block space-y-1"><span>{tr('Ville de prise en charge', 'Pick-up city', 'Ciudad de recogida')}</span><select required aria-label="Ville de prise en charge" className={field} value={value.city} onChange={e => change({ city: e.target.value as ConfirmedRental['city'], pickupId: '', otherPlace: '' })}><option>Casablanca</option><option>Rabat</option></select></label>
+          <label className="block space-y-1"><span>{tr('Lieu de prise en charge', 'Pick-up place', 'Lugar de recogida')}</span><select required aria-label="Lieu de prise en charge" className={field} value={value.pickupId} onChange={e => change({ pickupId: e.target.value, otherPlace: '' })}><option value="">{tr("Aéroport, gare ou adresse", "Airport, station or address", "Aeropuerto, estación o dirección")}</option>{pickupPoints.filter(p => p.city === value.city).map(p => <option key={p.id} value={p.id}>{p.name}</option>)}<option value="other">{tr("Hôtel ou autre adresse dans cette ville", "Hotel or other address in this city", "Hotel u otra dirección en esta ciudad")}</option></select></label>
+          {value.pickupId === 'other' && <label className="block space-y-1"><span>{tr('Adresse précise', 'Exact address', 'Dirección exacta')}</span><input required minLength={5} maxLength={200} aria-label="Adresse précise de prise en charge" className={field} value={value.otherPlace} onChange={e => change({ otherPlace: e.target.value })} /></label>}
+          {value.city === 'Rabat' && <p className="text-sm">{tr("Livraison à Rabat depuis Casablanca.", "Delivery to Rabat from Casablanca.", "Entrega en Rabat desde Casablanca.")}</p>}
+          <Button type="submit" className="w-full">{tr("Vérifier ma réservation", "Check my booking", "Revisar mi reserva")}</Button>
         </> : <>
-          <dl className="min-w-0 space-y-3 rounded-lg bg-muted p-4 text-sm [overflow-wrap:anywhere]"><div><dt className="font-semibold">Véhicule(s)</dt><dd>{value.vehicles.join(' / ')}</dd></div><div><dt className="font-semibold">Dates</dt><dd>{value.startDate.split('-').reverse().join('/')} → {value.endDate.split('-').reverse().join('/')}</dd></div><div><dt className="font-semibold">Lieu de prise en charge</dt><dd>{rentalPlace(value)}</dd></div>{value.notes && <div><dt className="font-semibold">Précisions</dt><dd className="whitespace-pre-wrap">{value.notes}</dd></div>}</dl>
-          <p className="text-sm">Réponse sous 1 heure avec la confirmation de la voiture, le prix total et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte de 30 % par virement. Livraison gratuite, convenue à l’avance.</p>
-          <label className="flex gap-3 items-start text-sm"><input type="checkbox" className="mt-1 h-5 w-5 shrink-0" checked={confirmed} onChange={e => setConfirmed(e.target.checked)} /><span>Je confirme mes dates, ma voiture et mon lieu de prise en charge.</span></label>
-          <Button type="submit" disabled={!confirmed} className="w-full">Réserver sur WhatsApp</Button><Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>Modifier ma réservation</Button>
+          <dl className="min-w-0 space-y-3 rounded-lg bg-muted p-4 text-sm [overflow-wrap:anywhere]">
+            <div><dt className="font-semibold">{tr('Dates', 'Dates', 'Fechas')}</dt><dd>{value.startDate.split('-').reverse().join('/')} → {value.endDate.split('-').reverse().join('/')}{firstEstimate ? ` (${firstEstimate.days} ${tr('jours', 'days', 'días')})` : ''}</dd></div>
+            <div><dt className="font-semibold">{tr('Lieu de prise en charge', 'Pick-up place', 'Lugar de recogida')}</dt><dd>{rentalPlace(value)}</dd></div>
+            <div><dt className="font-semibold">{value.vehicles.length > 1 ? tr('Voitures, par ordre de préférence', 'Cars, in order of preference', 'Coches, por orden de preferencia') : tr('Voiture', 'Car', 'Coche')}</dt><dd><ol className="space-y-1">{value.vehicles.map((name, index) => { const estimate = rentalEstimate(name, value.startDate, value.endDate, value.city); return <li key={name}>{value.vehicles.length > 1 ? `${index + 1}. ` : ''}{name}{estimate ? <span className="font-semibold"> · {tr('environ', 'about', 'aprox.')} {dh(estimate.total)}</span> : null}</li>; })}</ol></dd></div>
+            {firstEstimate && <div><dt className="font-semibold">{tr('Acompte à la confirmation (30 %)', 'Deposit on confirmation (30%)', 'Anticipo al confirmar (30 %)')}</dt><dd>{tr('environ', 'about', 'aprox.')} {dh(firstEstimate.total * 0.3)}{value.vehicles.length > 1 ? tr(' pour le premier choix', ' for the first choice', ' para la primera opción') : ''}, {tr('par virement', 'by bank transfer', 'por transferencia')}</dd></div>}
+            {value.notes && <div><dt className="font-semibold">{tr('Précisions', 'Notes', 'Precisiones')}</dt><dd className="whitespace-pre-wrap">{value.notes}</dd></div>}
+          </dl>
+          <p className="text-sm">{tr('Prix estimés selon nos tarifs pour vos dates. Benatna vous répond sous 1 heure avec la voiture confirmée, le prix total exact et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte. Livraison gratuite, convenue à l’avance.', 'Prices estimated from our rates for your dates. Benatna replies within 1 hour with the confirmed car, the exact total price and bank transfer details. Your booking is guaranteed once the deposit is received. Free delivery, arranged in advance.', 'Precios estimados según nuestras tarifas para tus fechas. Benatna responde en 1 hora con el coche confirmado, el precio total exacto y los datos de la transferencia. Tu reserva queda garantizada al recibir el anticipo. Entrega gratuita, acordada de antemano.')}</p>
+          <label className="flex gap-3 items-start text-sm"><input type="checkbox" className="mt-1 h-5 w-5 shrink-0" checked={confirmed} onChange={e => setConfirmed(e.target.checked)} /><span>{tr('Je confirme mes dates, ma voiture et mon lieu de prise en charge.', 'I confirm my dates, car and pick-up place.', 'Confirmo mis fechas, el coche y el lugar de recogida.')}</span></label>
+          <Button type="submit" disabled={!confirmed} className="w-full">{tr('Réserver sur WhatsApp', 'Book on WhatsApp', 'Reservar por WhatsApp')}</Button><Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>{tr('Modifier ma réservation', 'Edit my booking', 'Modificar mi reserva')}</Button>
         </>}
       </form>
     </DialogContent>
