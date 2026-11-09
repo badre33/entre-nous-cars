@@ -42,8 +42,10 @@ export default function RentalRequestDialog() {
       const slug = window.location.pathname.match(/^\/vehicule\/([^/]+)$/)?.[1];
       const inferred = slug ? rentalVehicleSlugs[slug] : undefined;
       const vehicles = (selectionRef.current.length ? selectionRef.current : draft.vehicles?.length ? draft.vehicles : inferred ? [inferred] : []).map(normalizeVehicleName).filter(n => rentalVehicleNames.includes(n as typeof rentalVehicleNames[number]));
-      setValue({ ...empty(), ...draft, vehicles, startDate: draft.startDate || '', endDate: draft.endDate || '', pickupId: draft.pickupId || '', otherPlace: '' });
-      setError(null); setReview(false); setConfirmed(false); setSent(null); setOpen(true);
+      const next = { ...empty(), ...draft, vehicles, startDate: draft.startDate || '', endDate: draft.endDate || '', pickupId: draft.pickupId || '', otherPlace: '' };
+      setValue(next);
+      // Moins de friction : tout est déjà rempli (fiche voiture, catalogue avec dates et lieu) -> récapitulatif direct.
+      setError(null); setReview(!validateRental(next)); setConfirmed(false); setSent(null); setOpen(true);
     };
     const listener = () => { const draft = takePendingRental(); if (draft) show(draft); };
     window.addEventListener(RENTAL_REQUEST_EVENT, listener);
@@ -56,7 +58,6 @@ export default function RentalRequestDialog() {
     event.preventDefault();
     const issue = validateRental(value); if (issue) { setError({ message: errorText(issue) }); return; }
     if (!review) { setReview(true); return; }
-    if (!confirmed) { setError({ message: tr('Confirmez les informations du récapitulatif.', 'Please confirm the summary.', 'Confirma el resumen.') }); return; }
     const booking = { ...value, reference: value.reference || newBookingReference() };
     if (openConfirmedRental(booking)) {
       // Trace côté Benatna : numéro, voitures, lieu, durée et prix estimé (tableau /analytics).
@@ -115,8 +116,7 @@ export default function RentalRequestDialog() {
             {value.notes && <div><dt className="font-semibold">{tr('Précisions', 'Notes', 'Precisiones')}</dt><dd className="whitespace-pre-wrap">{value.notes}</dd></div>}
           </dl>
           <p className="text-sm">{tr('Prix estimés selon nos tarifs pour vos dates. Benatna vous répond sous 1 heure avec la voiture confirmée, le prix total exact et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte, remboursé à 100 % en cas d’annulation jusqu’à 48 h avant le départ, à 50 % ensuite. Livraison gratuite, convenue à l’avance.', 'Prices estimated from our rates for your dates. Benatna replies within 1 hour with the confirmed car, the exact total price and bank transfer details. Your booking is guaranteed once the deposit is received; fully refunded if you cancel up to 48 hours before pick-up, 50% after that. Free delivery, arranged in advance.', 'Precios estimados según nuestras tarifas para tus fechas. Benatna responde en 1 hora con el coche confirmado, el precio total exacto y los datos de la transferencia. Tu reserva queda garantizada al recibir el anticipo, reembolsado al 100 % si cancelas hasta 48 horas antes de la recogida, al 50 % después. Entrega gratuita, acordada de antemano.')}</p>
-          <label className="flex gap-3 items-start text-sm"><input type="checkbox" className="mt-1 h-5 w-5 shrink-0" checked={confirmed} onChange={e => setConfirmed(e.target.checked)} /><span>{tr('Je confirme mes dates, ma voiture et mon lieu de prise en charge.', 'I confirm my dates, car and pick-up place.', 'Confirmo mis fechas, el coche y el lugar de recogida.')}</span></label>
-          <Button type="submit" disabled={!confirmed} className="w-full">{tr('Réserver sur WhatsApp', 'Book on WhatsApp', 'Reservar por WhatsApp')}</Button><Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>{tr('Modifier ma réservation', 'Edit my booking', 'Modificar mi reserva')}</Button>
+          <Button type="submit" className="w-full">{tr('Réserver sur WhatsApp', 'Book on WhatsApp', 'Reservar por WhatsApp')}</Button><Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>{tr('Modifier ma réservation', 'Edit my booking', 'Modificar mi reserva')}</Button>
         </>}
       </form>
       </>}
