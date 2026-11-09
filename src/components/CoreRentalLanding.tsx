@@ -40,7 +40,7 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
   const faqs = content.faqs ?? [
     { question: 'Quelle durée puis-je demander ?', answer: 'La location dure au minimum trois jours. Choisissez vos dates pour demander un tarif au loueur.' },
     { question: 'La livraison est-elle gratuite ?', answer: 'Oui, aux gares et aéroports desservis de Casablanca et, sur demande, de Rabat. Le point de rendez-vous et les modalités sont convenus à l’avance avec le loueur.' },
-    { question: 'Comment ma réservation est-elle confirmée ?', answer: 'Envoyez votre réservation sur WhatsApp avec vos dates, la voiture et le lieu de prise en charge. Benatna vous répond sous 1 heure avec la confirmation, le prix total et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte de 30 % par virement.' },
+    { question: 'Comment ma réservation est-elle confirmée ?', answer: 'Envoyez votre réservation sur WhatsApp avec vos dates, la voiture et le lieu de prise en charge. Benatna vous répond sous 1 heure avec la confirmation, le prix total et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte de 30 % par virement. Annulation gratuite jusqu’à 7 jours avant le départ : l’acompte est remboursé.' },
   ];
   const catalogueParams = new URLSearchParams({ city: 'Casablanca' });
   if (content.pickupId) catalogueParams.set('pickup', content.pickupId);

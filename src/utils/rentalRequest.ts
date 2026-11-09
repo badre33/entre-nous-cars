@@ -23,6 +23,8 @@ export interface ConfirmedRental {
   pickupId: string;
   otherPlace: string;
   notes?: string;
+  /** Numéro de réservation affiché au client et repris dans le message WhatsApp. */
+  reference?: string;
 }
 let pendingDraft: RentalDraft | null = null;
 let permittedURL: string | null = null;
@@ -61,6 +63,13 @@ export function validateRental(value: ConfirmedRental): string | null {
 const dateLabel = (date: string) => date.split('-').reverse().join('/');
 const dh = (amount: number) => `${amount.toLocaleString('fr-FR').replace(/\u202f|\u00a0/g, ' ')} DH`;
 /** Prix total estimé d'un modèle pour la période (moteur de prix du catalogue). */
+/** Numéro de réservation court et lisible, ex. BN-7KQ4MX (sans 0/O ni 1/I). */
+export function newBookingReference(): string {
+  const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const bytes = new Uint8Array(6);
+  try { crypto.getRandomValues(bytes); } catch { for (let i = 0; i < 6; i++) bytes[i] = Math.floor(Math.random() * 256); }
+  return 'BN-' + Array.from(bytes, b => alphabet[b % alphabet.length]).join('');
+}
 export function rentalEstimate(name: string, startDate: string, endDate: string, city: string): { days: number; total: number } | null {
   const base = rentalVehiclePrices[normalizeVehicleName(name)];
   const start = new Date(`${startDate}T12:00:00`); const end = new Date(`${endDate}T12:00:00`);
@@ -76,10 +85,10 @@ export function buildConfirmedRentalMessage(value: ConfirmedRental): string {
   const days = first?.days ?? calculateDays(new Date(`${value.startDate}T12:00:00`), new Date(`${value.endDate}T12:00:00`));
   const cars = value.vehicles.map((name, index) => {
     const estimate = rentalEstimate(name, value.startDate, value.endDate, value.city);
-    return `${index + 1}. ${normalizeVehicleName(name)}${estimate ? ` : environ ${dh(estimate.total)} au total` : ''}`;
+    return `${value.vehicles.length > 1 ? `${index + 1}. ` : ''}${normalizeVehicleName(name)}${estimate ? ` : environ ${dh(estimate.total)} au total` : ''}`;
   }).join('\n');
   const choice = value.vehicles.length > 1 ? 'Voitures, par ordre de préférence (la première disponible) :' : 'Voiture :';
-  return `Bonjour Benatna, je souhaite réserver une voiture.\n\nDates : du ${dateLabel(value.startDate)} au ${dateLabel(value.endDate)} (${days} jours)\nLieu de prise en charge : ${rentalPlace(value)}${value.city === 'Rabat' ? ' (livraison depuis Casablanca)' : ''}\n\n${choice}\n${cars}\n\nMerci de me confirmer la réservation, le prix total et les coordonnées du virement pour l’acompte de 30 %.${value.notes?.trim() ? '\n\nPrécisions :\n' + value.notes.trim().slice(0, 1200) : ''}`;
+  return `Bonjour Benatna, je souhaite réserver une voiture.${value.reference ? `\nRéservation n° ${value.reference}` : ''}\n\nDates : du ${dateLabel(value.startDate)} au ${dateLabel(value.endDate)} (${days} jours)\nLieu de prise en charge : ${rentalPlace(value)}${value.city === 'Rabat' ? ' (livraison depuis Casablanca)' : ''}\n\n${choice}\n${cars}\n\nMerci de me confirmer la réservation, le prix total et les coordonnées du virement pour l’acompte de 30 %.${value.notes?.trim() ? '\n\nPrécisions :\n' + value.notes.trim().slice(0, 1200) : ''}`;
 }
 function whatsAppURL(value: string | URL | undefined): URL | null {
   try { const url = new URL(String(value), window.location.origin); return url.protocol === 'https:' && ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? url : null; } catch { return null; }
