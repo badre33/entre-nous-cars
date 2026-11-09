@@ -123,7 +123,7 @@ const Contact = () => {
                     try {
                       contactSchema.parse(data);
                       
-                      const whatsappMessage = `Bonjour Benatna,\n\n${data.message.trim()}\n\nNom : ${data.nom.trim()}\nTéléphone : ${data.tel.trim()}${data.email?.trim() ? `\nEmail : ${data.email.trim()}` : ''}`;
+                      const whatsappMessage = `Bonjour Benatna, j’ai une question (pas une réservation).\n\n${data.message.trim()}\n\nNom : ${data.nom.trim()}\nTéléphone : ${data.tel.trim()}${data.email?.trim() ? `\nEmail : ${data.email.trim()}` : ''}`;
                       
                       openDirectWhatsApp(whatsappMessage);
                       setIsSubmitting(false);
@@ -217,7 +217,6 @@ const Contact = () => {
                       </p>
                       <a 
                         href={DIRECT_WHATSAPP_URL}
-                        data-whatsapp-direct="contact"
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-lg font-medium text-primary hover:text-primary/80 transition-colors"

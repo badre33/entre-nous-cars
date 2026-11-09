@@ -286,7 +286,6 @@ const App = () => {
           <TooltipProvider>
           <BrowserRouter>
             <ComparisonProvider>
-            <RentalRequestDialog />
             <CanonicalUrl />
             <OrganizationSchema />
             <SitelinksSearchBoxSchema />
@@ -294,6 +293,7 @@ const App = () => {
             <AnalyticsTrackerComponent />
             <LanguageProvider>
               <MetaPixel />
+              <RentalRequestDialog />
               <SeoDefaults />
                 <Toaster />
                 <Sonner />
