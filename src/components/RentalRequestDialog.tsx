@@ -4,9 +4,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from '@/components/ui/button';
 import { pickupPoints } from '@/data/pickupPoints';
 import { rentalVehicleNames, rentalVehicleSlugs } from '@/data/rentalVehicleNames';
-import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, normalizeVehicleName, validateRental, rentalPlace, openConfirmedRental, rentalEstimate, type RentalDraft, type ConfirmedRental } from '@/utils/rentalRequest';
+import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, normalizeVehicleName, validateRental, rentalPlace, openConfirmedRental, rentalEstimate, newBookingReference, type RentalDraft, type ConfirmedRental } from '@/utils/rentalRequest';
 import { RENTAL_PERIOD_MESSAGE } from '@/utils/rentalPeriod';
 import { useTr } from '@/contexts/LanguageContext';
+import { analyticsTracker } from '@/utils/analyticsTracker';
+import { CheckCircle2 } from 'lucide-react';
 const empty = (): ConfirmedRental => ({ vehicles: [], startDate: '', endDate: '', city: 'Casablanca', pickupId: '', otherPlace: '' });
 const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-background px-3 py-2 text-base';
 const dh = (amount: number) => `${Math.round(amount).toLocaleString('fr-FR')} DH`;
@@ -26,6 +28,7 @@ export default function RentalRequestDialog() {
   const [review, setReview] = useState(false);
   const [confirmed, setConfirmed] = useState(false);
   const [error, setError] = useState<{ message: string } | null>(null);
+  const [sent, setSent] = useState<ConfirmedRental | null>(null);
   const errorRef = useRef<HTMLParagraphElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
@@ -40,7 +43,7 @@ export default function RentalRequestDialog() {
       const inferred = slug ? rentalVehicleSlugs[slug] : undefined;
       const vehicles = (selectionRef.current.length ? selectionRef.current : draft.vehicles?.length ? draft.vehicles : inferred ? [inferred] : []).map(normalizeVehicleName).filter(n => rentalVehicleNames.includes(n as typeof rentalVehicleNames[number]));
       setValue({ ...empty(), ...draft, vehicles, startDate: draft.startDate || '', endDate: draft.endDate || '', pickupId: draft.pickupId || '', otherPlace: '' });
-      setError(null); setReview(false); setConfirmed(false); setOpen(true);
+      setError(null); setReview(false); setConfirmed(false); setSent(null); setOpen(true);
     };
     const listener = () => { const draft = takePendingRental(); if (draft) show(draft); };
     window.addEventListener(RENTAL_REQUEST_EVENT, listener);
@@ -54,13 +57,30 @@ export default function RentalRequestDialog() {
     const issue = validateRental(value); if (issue) { setError({ message: errorText(issue) }); return; }
     if (!review) { setReview(true); return; }
     if (!confirmed) { setError({ message: tr('Confirmez les informations du récapitulatif.', 'Please confirm the summary.', 'Confirma el resumen.') }); return; }
-    if (openConfirmedRental(value)) { setOpen(false); setValue(empty()); }
+    const booking = { ...value, reference: value.reference || newBookingReference() };
+    if (openConfirmedRental(booking)) {
+      // Trace côté Benatna : numéro, voitures, lieu, durée et prix estimé (tableau /analytics).
+      const estimate = rentalEstimate(booking.vehicles[0], booking.startDate, booking.endDate, booking.city);
+      void analyticsTracker.trackEvent({ eventType: 'conversion', eventName: 'booking_submitted', properties: { content_id: booking.reference, vehicle_name: booking.vehicles.join(' / ').slice(0, 100), city: booking.city, pickup_point: booking.pickupId, ...(estimate ? { price: estimate.total, days: estimate.days } : {}) } });
+      setSent(booking); setValue(empty()); setReview(false); setConfirmed(false);
+    }
     else setError({ message: tr('WhatsApp n’a pas pu s’ouvrir. Autorisez les fenêtres puis réessayez. Votre réservation est conservée.', 'WhatsApp could not open. Allow pop-ups and try again. Your booking is kept.', 'WhatsApp no se pudo abrir. Permite las ventanas emergentes e inténtalo de nuevo. Tu reserva se conserva.') });
   };
   const vehicleFields = value.vehicles.length ? value.vehicles : [''];
   const firstEstimate = review && value.vehicles[0] ? rentalEstimate(value.vehicles[0], value.startDate, value.endDate, value.city) : null;
-  return <Dialog open={open} onOpenChange={next => { setOpen(next); if (!next) { setValue(empty()); setError(null); } }}>
+  return <Dialog open={open} onOpenChange={next => { setOpen(next); if (!next) { setValue(empty()); setError(null); setSent(null); } }}>
     <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto overscroll-contain [&_button]:whitespace-normal [&_button]:h-auto [&_button]:min-h-11">
+      {sent ? <>
+        <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1} className="flex items-center gap-2"><CheckCircle2 className="h-6 w-6 text-primary" aria-hidden="true" />{tr('Réservation enregistrée', 'Booking registered', 'Reserva registrada')}</DialogTitle><DialogDescription>{tr('Votre numéro de réservation', 'Your booking number', 'Tu número de reserva')} : <strong className="text-foreground">{sent.reference}</strong></DialogDescription></DialogHeader>
+        <ol className="space-y-3 text-sm">
+          <li><strong>1. {tr('Confirmation sous 1 heure', 'Confirmation within 1 hour', 'Confirmación en 1 hora')}</strong><br />{tr('Benatna vous répond sur WhatsApp avec la voiture confirmée, le prix total et les coordonnées du virement.', 'Benatna replies on WhatsApp with the confirmed car, the total price and bank transfer details.', 'Benatna te responde por WhatsApp con el coche confirmado, el precio total y los datos de la transferencia.')}</li>
+          <li><strong>2. {tr('Acompte de 30 % par virement', '30% deposit by bank transfer', 'Anticipo del 30 % por transferencia')}</strong><br />{tr('Dès réception, votre réservation est garantie. Annulation gratuite jusqu’à 7 jours avant le départ : l’acompte est remboursé.', 'Once received, your booking is guaranteed. Free cancellation up to 7 days before pick-up: the deposit is refunded.', 'Al recibirlo, tu reserva queda garantizada. Cancelación gratuita hasta 7 días antes de la recogida: se reembolsa el anticipo.')}</li>
+          <li><strong>3. {tr('Remise de la voiture', 'Car handover', 'Entrega del coche')}</strong><br />{tr('Au lieu et à l’heure convenus, livraison gratuite.', 'At the agreed place and time, free delivery.', 'En el lugar y la hora acordados, entrega gratuita.')}</li>
+        </ol>
+        <p className="text-sm text-muted-foreground">{tr('Gardez ce numéro : il figure dans votre message WhatsApp et sert à suivre votre réservation.', 'Keep this number: it is in your WhatsApp message and is used to track your booking.', 'Guarda este número: aparece en tu mensaje de WhatsApp y sirve para seguir tu reserva.')}</p>
+        <Button type="button" variant="outline" className="w-full" onClick={() => { if (sent) openConfirmedRental(sent); }}>{tr('Rouvrir WhatsApp', 'Open WhatsApp again', 'Abrir WhatsApp de nuevo')}</Button>
+        <Button type="button" className="w-full" onClick={() => { setOpen(false); setSent(null); }}>{tr('Terminer', 'Done', 'Terminar')}</Button>
+      </> : <>
       <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1}>{review ? tr('Vérifiez votre réservation', 'Check your booking', 'Revisa tu reserva') : tr('Réserver ma voiture', 'Book my car', 'Reservar mi coche')}</DialogTitle><DialogDescription>{tr('Dates, voiture et lieu de prise en charge. Benatna vous confirme la réservation sous 1 heure sur WhatsApp, avec le prix total et les coordonnées du virement.', 'Dates, car and pick-up place. Benatna confirms your booking within 1 hour on WhatsApp, with the total price and bank transfer details.', 'Fechas, coche y lugar de recogida. Benatna confirma tu reserva en 1 hora por WhatsApp, con el precio total y los datos de la transferencia.')}</DialogDescription></DialogHeader>
       <form onSubmit={submit} className="min-w-0 space-y-4">
         {error && <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-destructive">{error.message}</p>}
@@ -94,11 +114,12 @@ export default function RentalRequestDialog() {
             {firstEstimate && <div><dt className="font-semibold">{tr('Acompte à la confirmation (30 %)', 'Deposit on confirmation (30%)', 'Anticipo al confirmar (30 %)')}</dt><dd>{tr('environ', 'about', 'aprox.')} {dh(firstEstimate.total * 0.3)}{value.vehicles.length > 1 ? tr(' pour le premier choix', ' for the first choice', ' para la primera opción') : ''}, {tr('par virement', 'by bank transfer', 'por transferencia')}</dd></div>}
             {value.notes && <div><dt className="font-semibold">{tr('Précisions', 'Notes', 'Precisiones')}</dt><dd className="whitespace-pre-wrap">{value.notes}</dd></div>}
           </dl>
-          <p className="text-sm">{tr('Prix estimés selon nos tarifs pour vos dates. Benatna vous répond sous 1 heure avec la voiture confirmée, le prix total exact et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte. Livraison gratuite, convenue à l’avance.', 'Prices estimated from our rates for your dates. Benatna replies within 1 hour with the confirmed car, the exact total price and bank transfer details. Your booking is guaranteed once the deposit is received. Free delivery, arranged in advance.', 'Precios estimados según nuestras tarifas para tus fechas. Benatna responde en 1 hora con el coche confirmado, el precio total exacto y los datos de la transferencia. Tu reserva queda garantizada al recibir el anticipo. Entrega gratuita, acordada de antemano.')}</p>
+          <p className="text-sm">{tr('Prix estimés selon nos tarifs pour vos dates. Benatna vous répond sous 1 heure avec la voiture confirmée, le prix total exact et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte, remboursé en cas d’annulation jusqu’à 7 jours avant le départ. Livraison gratuite, convenue à l’avance.', 'Prices estimated from our rates for your dates. Benatna replies within 1 hour with the confirmed car, the exact total price and bank transfer details. Your booking is guaranteed once the deposit is received; it is refunded if you cancel up to 7 days before pick-up. Free delivery, arranged in advance.', 'Precios estimados según nuestras tarifas para tus fechas. Benatna responde en 1 hora con el coche confirmado, el precio total exacto y los datos de la transferencia. Tu reserva queda garantizada al recibir el anticipo, que se reembolsa si cancelas hasta 7 días antes de la recogida. Entrega gratuita, acordada de antemano.')}</p>
           <label className="flex gap-3 items-start text-sm"><input type="checkbox" className="mt-1 h-5 w-5 shrink-0" checked={confirmed} onChange={e => setConfirmed(e.target.checked)} /><span>{tr('Je confirme mes dates, ma voiture et mon lieu de prise en charge.', 'I confirm my dates, car and pick-up place.', 'Confirmo mis fechas, el coche y el lugar de recogida.')}</span></label>
           <Button type="submit" disabled={!confirmed} className="w-full">{tr('Réserver sur WhatsApp', 'Book on WhatsApp', 'Reservar por WhatsApp')}</Button><Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>{tr('Modifier ma réservation', 'Edit my booking', 'Modificar mi reserva')}</Button>
         </>}
       </form>
+      </>}
     </DialogContent>
   </Dialog>;
 }
