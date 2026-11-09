@@ -827,7 +827,7 @@ export const additionalLongTailPages: LongTailPageConfig[] = [
         },
         {
           question: 'Et si je dois annuler à cause d\'un imprévu (vol annulé, maladie) ?',
-          answer: 'Annulation gratuite jusqu\'à 7 jours avant la date de location (été 2026 inclus). Au-delà, frais variables selon la situation — toujours discutables avec notre équipe via WhatsApp.'
+          answer: 'L\'acompte de 30 % est remboursé à 100 % en cas d\'annulation jusqu\'à 48 h avant le départ, à 50 % moins de 48 h avant, et n\'est plus remboursé après le début de la location.'
         },
         {
           question: 'Acceptez-vous les chèques bancaires marocains pour le paiement ?',
