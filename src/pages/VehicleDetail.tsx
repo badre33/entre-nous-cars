@@ -177,7 +177,7 @@ const VehicleDetail = () => {
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                     <Button className="w-full bg-green-600 hover:bg-green-700">
                       <MessageCircle className="h-4 w-4 mr-2" />
-                      Préparer ma demande
+                      Réserver
                     </Button>
                   </a>
                   <a href="tel:+212699024526">

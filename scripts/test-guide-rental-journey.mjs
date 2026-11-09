@@ -35,8 +35,8 @@ for(const width of [320,390,1280]) for(const slug of ['prix-essence-gasoil-maroc
  await page.getByRole('heading',{level:1}).waitFor();assert.equal(await page.locator('main').count()>0,true);
  await page.locator('#catalogue-results h3').first().waitFor();
  await page.locator('#catalogue-results').getByRole('button',{name:'WhatsApp',exact:true}).first().click();
- await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
- assert.equal(await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).count(),0,'missing dates and pickup must block WhatsApp');
+ await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
+ assert.equal(await page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).count(),0,'missing dates and pickup must block WhatsApp');
  assert.deepEqual(errors,[]);checks.push({slug,width,passed:true});await context.close();
 }
 await fs.writeFile(`${out}/verification.json`,JSON.stringify({base,checks,realWhatsAppMessages:0},null,2));console.log(JSON.stringify({passed:true,checks:checks.length}));

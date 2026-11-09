@@ -59,7 +59,7 @@ export function validateRental(value: ConfirmedRental): string | null {
 const dateLabel = (date: string) => date.split('-').reverse().join('/');
 export function buildConfirmedRentalMessage(value: ConfirmedRental): string {
   const error = validateRental(value); if (error) throw new Error(error);
-  return `Bonjour Benatna, je souhaite demander une location.\n\nVéhicule(s) souhaité(s) : ${value.vehicles.map(normalizeVehicleName).join(' / ')}\nDépart : ${dateLabel(value.startDate)}\nRetour : ${dateLabel(value.endDate)}\nLieu de prise en charge : ${rentalPlace(value)}\n\nJ’ai vérifié et confirmé ces informations.${value.city === 'Rabat' ? '\nLivraison à Rabat demandée depuis Casablanca, sous réserve de confirmation du loueur.' : ''}\nLivraison gratuite, convenue à l’avance. Merci de confirmer la disponibilité, le tarif final et les conditions.${value.notes?.trim() ? '\n\nPrécisions :\n' + value.notes.trim().slice(0, 1200) : ''}`;
+  return `Bonjour Benatna, je souhaite réserver une voiture.\n\nVéhicule(s) : ${value.vehicles.map(normalizeVehicleName).join(' / ')}\nDépart : ${dateLabel(value.startDate)}\nRetour : ${dateLabel(value.endDate)}\nLieu de prise en charge : ${rentalPlace(value)}${value.city === 'Rabat' ? '\nLivraison à Rabat depuis Casablanca.' : ''}\n\nMerci de me confirmer la réservation, le prix total et les coordonnées du virement pour l’acompte de 30 %.${value.notes?.trim() ? '\n\nPrécisions :\n' + value.notes.trim().slice(0, 1200) : ''}`;
 }
 function whatsAppURL(value: string | URL | undefined): URL | null {
   try { const url = new URL(String(value), window.location.origin); return url.protocol === 'https:' && ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? url : null; } catch { return null; }
@@ -68,10 +68,11 @@ function isBusinessURL(url: URL) {
   return (url.hostname === 'wa.me' ? url.pathname : url.searchParams.get('phone') || '').replace(/\D/g, '') === '212699024526';
 }
 const partnerPage = () => window.location.pathname.replace(/\/$/, '') === '/partenaires';
-// D022 (7 novembre 2026) : un contact WhatsApp direct reste toujours possible.
+// D025 (9 novembre 2026) : réservation confirmée sous 1 heure, garantie à réception
+// d’un acompte de 30 % par virement. D022 : contact WhatsApp direct toujours possible.
 // Le message est prérempli avec les rubriques utiles (jamais vide) et rappelle
 // l'offre : voitures de tourisme, 3 jours minimum, Casablanca.
-export const DIRECT_WHATSAPP_TEXT = 'Bonjour Benatna, je cherche une voiture de tourisme à louer à Casablanca.\n\nDates de location (3 jours minimum) : \nModèle souhaité : \nLieu de prise en charge : ';
+export const DIRECT_WHATSAPP_TEXT = 'Bonjour Benatna, je souhaite réserver une voiture de tourisme à Casablanca.\n\nDates de location (3 jours minimum) : \nModèle souhaité : \nLieu de prise en charge : ';
 export function directWhatsAppText(vehicles: string[] = []) {
   const names = vehicles.filter(Boolean).map(normalizeVehicleName);
   return names.length ? DIRECT_WHATSAPP_TEXT.replace('Modèle souhaité : ', `Modèle souhaité : ${names.join(' / ')}`) : DIRECT_WHATSAPP_TEXT;

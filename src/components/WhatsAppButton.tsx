@@ -6,7 +6,7 @@ import { useTr } from '@/contexts/LanguageContext';
 
 // D022 (7 novembre 2026) : bouton flottant = contact WhatsApp direct, sur toutes
 // les pages publiques, mobile compris. Le formulaire détaillé reste proposé par
-// les boutons « Préparer ma demande ».
+// les boutons « Réserver ».
 export default function WhatsAppButton() {
   const location = useLocation();
   const tr = useTr();

@@ -21,7 +21,7 @@ try {
   await page.route('**/*',r=>new URL(r.request().url()).origin===new URL(base).origin?r.continue():r.abort());
   await page.addInitScript(()=>{window.__blocked=true;window.__outbound=[];window.open=url=>{if(window.__blocked)return null;window.__outbound.push(String(url));return {opener:null};};});
   await page.goto(base+'/');
-  await page.getByRole('button',{name:'Préparer une demande de location',exact:true}).click();
+  await page.getByRole('button',{name:'Réserver une voiture',exact:true}).click();
   const dialog=page.getByRole('dialog');
   await dialog.getByLabel('Véhicule souhaité',{exact:true}).selectOption('Renault Clio');
   await dialog.getByRole('button',{name:'Ajouter un véhicule (3 maximum)',exact:true}).click();
@@ -32,32 +32,32 @@ try {
   await dialog.getByLabel('Date de retour de la demande',{exact:true}).fill(`${year}-01-03`);
   await dialog.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('other');
   await dialog.getByLabel('Adresse précise de prise en charge').fill(address);
-  await dialog.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
+  await dialog.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
   await focusedAndVisible(page,dialog.getByRole('alert'));
   await page.screenshot({path:`${output}/erreur-${width}.png`});
   await dialog.getByLabel('Date de retour de la demande',{exact:true}).fill(end);
-  await dialog.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
+  await dialog.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
   await focusedAndVisible(page,dialog.getByRole('heading',{name:'Vérifiez votre demande',exact:true}));
   assert(await dialog.evaluate(e=>e.scrollWidth<=e.clientWidth),'long address does not overflow');
   await page.screenshot({path:`${output}/recapitulatif-${width}.png`});
   await dialog.getByRole('checkbox',{name:/Je confirme mes dates/}).check();
   for(let attempt=0;attempt<2;attempt++){
-   await dialog.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).click();
+   await dialog.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).click();
    await focusedAndVisible(page,dialog.getByRole('alert'));
    assert((await dialog.locator('dl').innerText()).includes(address),'blocked opening retains address');
    assert.equal(await page.evaluate(()=>window.__outbound.length),0);
   }
   await dialog.getByRole('button',{name:'Modifier ma demande',exact:true}).click();
-  await focusedAndVisible(page,dialog.getByRole('heading',{name:'Préparer ma demande de location',exact:true}));
+  await focusedAndVisible(page,dialog.getByRole('heading',{name:'Réserver ma voiture',exact:true}));
   assert.equal(await dialog.getByLabel('Date de départ de la demande',{exact:true}).inputValue(),start);
   assert.equal(await dialog.getByLabel('Adresse précise de prise en charge').inputValue(),address);
   await dialog.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('cmn');
-  await dialog.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
+  await dialog.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
   assert.equal(await dialog.getByRole('checkbox',{name:/Je confirme mes dates/}).isChecked(),false);
-  assert(await dialog.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).isDisabled());
+  assert(await dialog.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).isDisabled());
   await dialog.getByRole('checkbox',{name:/Je confirme mes dates/}).check();
   await page.evaluate(()=>{window.__blocked=false;});
-  await dialog.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).click();
+  await dialog.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).click();
   const urls=await page.evaluate(()=>window.__outbound);assert.equal(urls.length,1);
   const url=new URL(urls[0]),text=url.searchParams.get('text');assert.equal(url.pathname,'/212699024526');
   for(const model of ['Renault Clio','Dacia Duster','Volkswagen Golf'])assert(text.includes(model));

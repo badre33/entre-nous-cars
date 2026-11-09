@@ -28,7 +28,7 @@ for(const width of [320,390,1280]){
  await p.reload({waitUntil:'networkidle'});assert.equal(hits.length,0);assert.equal(await banner.count(),0);
  await p.getByRole('button',{name:'Cookies publicitaires',exact:true}).click();await banner.getByRole('button',{name:'Accepter',exact:true}).click();
  await p.waitForTimeout(150);assert.equal(hits.length,1);assert.equal(new URL(hits[0].url).searchParams.get('ev'),'PageView');
- await p.getByRole('button',{name:'Préparer une demande de location',exact:true}).click();
+ await p.getByRole('button',{name:'Réserver une voiture',exact:true}).click();
  await p.getByLabel('Véhicule souhaité',{exact:true}).selectOption('Renault Clio');
  const year=new Date().getFullYear()+1;
  await p.getByLabel('Date de départ de la demande',{exact:true}).fill(`${year}-01-01`);
@@ -36,10 +36,10 @@ for(const width of [320,390,1280]){
  await p.getByRole('dialog').getByLabel('Ville de prise en charge',{exact:true}).selectOption('Casablanca');
  await p.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('other');
  await p.getByLabel('Adresse précise de prise en charge',{exact:true}).fill(canary);
- await p.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
+ await p.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
  assert.equal(hits.length,1);
- await p.getByRole('checkbox',{name:'Je confirme mes dates, mon véhicule et mon lieu de prise en charge.',exact:true}).check();
- await p.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).click();await p.waitForTimeout(150);
+ await p.getByRole('checkbox',{name:'Je confirme mes dates, ma voiture et mon lieu de prise en charge.',exact:true}).check();
+ await p.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).click();await p.waitForTimeout(150);
  assert.equal(hits.filter(h=>new URL(h.url).searchParams.get('ev')==='WhatsAppOpened').length,1);
  for(const h of hits){const u=new URL(h.url);assert.equal(u.searchParams.get('id'),'302125897604671');assert.equal(u.searchParams.get('dl'),'https://benatna.ma/');assert(!JSON.stringify(h).includes(canary));assert(!h.headers.referer);assert.deepEqual([...u.searchParams.keys()].sort(),['dl','ev','id','noscript','ts']);}
  const before=hits.length;await p.goto(base+'/auth?email='+canary,{waitUntil:'networkidle'});await p.waitForTimeout(150);assert.equal(hits.length,before);assert.equal(await banner.count(),0);

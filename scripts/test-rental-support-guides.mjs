@@ -36,8 +36,8 @@ try {
   for(const path of paths.slice(0,2)) {
    await visit(path);await click(page.getByRole('link',{name:'Choisir mes véhicules et mes dates',exact:true}).first());await page.waitForURL('**/louer?city=Casablanca');
    await page.locator('#catalogue-results h3').first().waitFor();await click(page.locator('#catalogue-results').getByRole('button',{name:'WhatsApp',exact:true}).first());
-   await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
-   assert.equal(await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).count(),0);
+   await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
+   assert.equal(await page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).count(),0);
    checks.push({path,width,check:'guide-to-qualified-request',passed:true});
   }
   for(const [city,pickup] of [['Casablanca','cmn'],['Rabat','rabat-agdal']]){

@@ -63,7 +63,7 @@ export const NeighborhoodPage = ({ neighborhood }: NeighborhoodPageProps) => {
             <div className="flex flex-wrap gap-4">
               <Link to={`/louer?city=${neighborhood.city}`}>
                 <Button size="lg" className="text-lg px-8">
-                  Préparer ma demande
+                  Réserver
                 </Button>
               </Link>
               <CallButton 
