@@ -193,7 +193,7 @@ const VehicleDetail = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />
-                    <span>Acompte de 30 % par virement pour garantir la réservation</span>
+                    <span>Sans caution : 100 % avant la location, ou 30 % + 500 DH</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="h-3 w-3 text-green-600 flex-shrink-0" />

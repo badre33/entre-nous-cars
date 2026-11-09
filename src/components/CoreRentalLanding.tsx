@@ -40,6 +40,7 @@ export function CoreRentalLanding({ content }: { content: CoreRentalContent }) {
   // D025 à D028 : confirmation et annulation figurent sur toutes les pages commerciales.
   const bookingFaqs = [
     { question: 'Comment ma réservation est-elle confirmée ?', answer: 'Envoyez votre réservation sur WhatsApp avec vos dates, la voiture et le lieu de prise en charge. Benatna vous répond sous 1 heure avec la confirmation, le prix total et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte de 30 % par virement.' },
+    { question: 'Faut-il laisser une caution ?', answer: 'Non. Vous avez deux options sans caution : régler 100 % du prix avant la location, sans supplément, ou verser un acompte de 30 % plus 500 DH à la réservation.' },
     { question: 'Puis-je annuler ma réservation ?', answer: 'Oui. L’acompte est remboursé à 100 % en cas d’annulation jusqu’à 48 h avant le départ, à 50 % moins de 48 h avant, et n’est plus remboursé après le début de la location.' },
   ];
   const faqs = [...(content.faqs ?? [

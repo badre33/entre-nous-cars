@@ -30,8 +30,8 @@ export const HeroSearchForm = () => {
   };
   return <div className="w-full max-w-4xl mx-auto">
     <form aria-label={tr("Rechercher une voiture", "Search for a car", "Buscar un coche")} onSubmit={handleSearch} className="rounded-2xl bg-white text-gray-900 shadow-xl p-4 sm:p-5 text-left space-y-3">
-      <div className="grid grid-cols-1 min-[360px]:grid-cols-2 lg:grid-cols-3 gap-3 items-end">
-        <label className="min-w-0 min-[360px]:col-span-2 lg:col-span-1 space-y-1"><span className="block text-sm font-semibold">{tr("Où ?", "Where?", "¿Dónde?")}</span><select aria-label={tr("Lieu de prise en charge", "Pick-up place", "Lugar de recogida")} className={field} value={place} onChange={e=>{setPlace(e.target.value);setError('');}}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 items-end">
+        <label className="min-w-0 sm:col-span-2 lg:col-span-1 space-y-1"><span className="block text-sm font-semibold">{tr("Où ?", "Where?", "¿Dónde?")}</span><select aria-label={tr("Lieu de prise en charge", "Pick-up place", "Lugar de recogida")} className={field} value={place} onChange={e=>{setPlace(e.target.value);setError('');}}>
           <optgroup label="Casablanca">{pickupPoints.filter(p=>p.city==='Casablanca').map(p=><option key={p.id} value={p.id}>{p.name}</option>)}<option value="casablanca">{tr("Casablanca, en ville ou à l’hôtel", "Casablanca, in town or at your hotel", "Casablanca, en la ciudad o en el hotel")}</option></optgroup>
           <optgroup label={tr("Rabat (livraison sur demande)", "Rabat (delivery on request)", "Rabat (entrega bajo petición)")}>{pickupPoints.filter(p=>p.city==='Rabat').map(p=><option key={p.id} value={p.id}>{p.name}</option>)}<option value="rabat">{tr("Rabat, en ville ou à l’hôtel", "Rabat, in town or at your hotel", "Rabat, en la ciudad o en el hotel")}</option></optgroup>
         </select></label>
