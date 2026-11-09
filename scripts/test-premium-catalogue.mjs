@@ -18,10 +18,10 @@ try{for(const width of [1280,390]){
   const photo=page.locator(`img[src="${model.image}"]`).first();await photo.waitFor();
   await page.waitForFunction(url=>Array.from(document.images).some(i=>new URL(i.src).pathname===url&&i.complete&&i.naturalWidth>0),model.image);
   assert.equal(await page.locator('link[rel=canonical]').last().getAttribute('href'),'https://benatna.ma/vehicule/'+model.slug);
-  await page.getByRole('button',{name:'Préparer ma demande',exact:true}).click();
+  await page.getByRole('button',{name:'Réserver',exact:true}).click();
   assert.equal(await page.getByLabel('Véhicule souhaité',{exact:true}).inputValue(),model.name);
   assert.equal(await page.getByLabel('Date de départ de la demande',{exact:true}).inputValue(),'');
-  await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();assert(await page.getByLabel('Véhicule souhaité',{exact:true}).isVisible());
+  await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();assert(await page.getByLabel('Véhicule souhaité',{exact:true}).isVisible());
   await page.goto(base+'/louer');await page.getByRole('button',{name:'Afficher plus de véhicules',exact:true}).click();
  }
  assert.deepEqual(errors,[]);if(process.env.TEST_OUTPUT_DIR){await fs.mkdir(process.env.TEST_OUTPUT_DIR,{recursive:true});await page.screenshot({path:process.env.TEST_OUTPUT_DIR+`/premium-${width}.png`});}

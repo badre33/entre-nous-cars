@@ -26,12 +26,12 @@ try{
   if(path==='/'){
    const form=page.getByRole('form',{name:'Rechercher une voiture',exact:true});const year=new Date().getFullYear()+1;
    await form.getByLabel('Date de départ',{exact:true}).fill(`${year}-01-01`);await form.getByLabel('Date de retour',{exact:true}).fill(`${year}-01-08`);
-   if(width<768){await form.getByRole('button',{name:'Préparer une demande de location',exact:true}).click();assert.equal(await page.getByLabel('Date de départ de la demande',{exact:true}).inputValue(),`${year}-01-01`);await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).count(),0);}
+   if(width<768){await form.getByRole('button',{name:'Réserver une voiture',exact:true}).click();assert.equal(await page.getByLabel('Date de départ de la demande',{exact:true}).inputValue(),`${year}-01-01`);await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).count(),0);}
    else{await form.getByRole('button',{name:'Rechercher',exact:true}).click();await page.waitForURL('**/louer?**');assert.equal(new URL(page.url()).searchParams.get('startDate'),`${year}-01-01`);}
    checks.push({width,path,check:'home-dates-handoff',passed:true});
   }
   if(['/nos-services','/location-voiture-mre-maroc','/louer-voiture-maroc-faq-complete'].includes(path)){
-   await click(page.getByRole('link',{name:'Choisir mes véhicules et mes dates',exact:true}).first());await page.waitForURL('**/louer?city=Casablanca');await page.locator('#catalogue-results h3').first().waitFor();await click(page.locator('#catalogue-results').getByRole('button',{name:'WhatsApp',exact:true}).first());await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).count(),0);checks.push({width,path,check:'qualified-catalogue-request',passed:true});
+   await click(page.getByRole('link',{name:'Choisir mes véhicules et mes dates',exact:true}).first());await page.waitForURL('**/louer?city=Casablanca');await page.locator('#catalogue-results h3').first().waitFor();await click(page.locator('#catalogue-results').getByRole('button',{name:'WhatsApp',exact:true}).first());await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).count(),0);checks.push({width,path,check:'qualified-catalogue-request',passed:true});
   }
   if(width===390&&path==='/nos-services'){
    for(const target of ['/location-voiture-casablanca','/location-voiture-aeroport-casablanca','/location-voiture-gare-casa-voyageurs','/location-voiture-gare-oncf-maroc','/location-voiture-automatique-casablanca']){

@@ -30,9 +30,9 @@ try {
     await page.getByLabel('Date de départ de la demande',{exact:true}).fill('2027-01-01');
     await page.getByLabel('Date de retour de la demande',{exact:true}).fill('2027-01-04');
     await page.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('cmn');
-    await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
+    await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
     for(const name of ['Renault Clio','Dacia Duster','Volkswagen Golf'])assert((await dialog.innerText()).includes(name));
-    const confirm=page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true});assert(await confirm.isDisabled());
+    const confirm=page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true});assert(await confirm.isDisabled());
     await page.getByRole('checkbox',{name:/Je confirme mes dates/}).check();
     await confirm.scrollIntoViewIfNeeded();
     assert(await dialog.evaluate(e=>e.scrollWidth<=e.clientWidth),'no dialog overflow');

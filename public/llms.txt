@@ -1,6 +1,6 @@
 # Benatna — location de voiture à Casablanca
 
-Benatna est une plateforme de mise en relation avec des loueurs basés à Casablanca pour préparer une location de voiture de tourisme. L’offre vise notamment les MRE, touristes et vacanciers ; les demandes locales sont également possibles.
+Benatna est une plateforme de réservation de voitures de tourisme auprès de loueurs basés à Casablanca. L’offre vise notamment les MRE, touristes et vacanciers ; les demandes locales sont également possibles.
 
 ## Offre et conditions
 
@@ -9,9 +9,9 @@ Benatna est une plateforme de mise en relation avec des loueurs basés à Casabl
 - Rabat : livraison sur demande depuis Casablanca, à confirmer avec le loueur.
 - Durée : à partir de trois jours (voitures de tourisme pour séjours et vacances).
 - Catalogue de modèles et prix journaliers indicatifs. Une photo ou une fiche ne garantit pas la disponibilité d’un véhicule pour une date donnée.
-- Demande préparée avec dates, un à trois modèles souhaités et lieu précis, puis transmise à WhatsApp après confirmation du visiteur.
-- Le loueur confirme la disponibilité, le modèle, le tarif final, les documents, la caution et les conditions contractuelles.
-- Aucun paiement en ligne sur Benatna. Une sortie vers WhatsApp n’est ni une réservation confirmée ni la preuve d’un message envoyé.
+- Réservation sur WhatsApp avec dates, un à trois modèles souhaités et lieu précis.
+- Benatna confirme la réservation sous 1 heure : voiture, prix total, documents, caution et coordonnées du virement.
+- La réservation est garantie à réception d’un acompte de 30 % du total par virement. Aucun paiement par carte sur le site.
 - Pas d’offre de van, mariage ou flotte professionnelle.
 - Les destinations de voyage après la prise en charge sont à convenir dans le contrat du loueur ; la zone de prise en charge ne constitue pas une interdiction de voyager dans les autres villes.
 
@@ -42,4 +42,4 @@ Benatna est une plateforme de mise en relation avec des loueurs basés à Casabl
 
 Ce résumé décrit l’offre publiée. Il ne constitue pas un stock de véhicules, un devis, une garantie de délai de réponse ou une promesse de conditions identiques chez tous les loueurs. Les pages et la proposition du loueur précisent le service demandé.
 
-Mise à jour éditoriale : 29 octobre 2026.
+Mise à jour éditoriale : 9 novembre 2026.

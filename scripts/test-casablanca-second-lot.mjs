@@ -42,8 +42,8 @@ try {
   assert(!(await results.innerText()).includes('Manuelle'));
   await results.getByRole('button',{name:'WhatsApp',exact:true}).first().click();
   assert((await page.getByLabel('Véhicule souhaité',{exact:true}).inputValue()).length>0);
-  await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
-  assert.equal(await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).count(),0);
+  await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
+  assert.equal(await page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).count(),0);
   checks.push({width,check:'automatic-filter-and-incomplete-request',passed:true});
   await visit(paths[3]);
   for(const pickup of ['casa-voyageurs','casa-port','oasis','ain-sebaa']) {
@@ -61,8 +61,8 @@ try {
   await page.getByLabel('Date de départ de la demande',{exact:true}).fill(`${year}-01-01`);
   await page.getByLabel('Date de retour de la demande',{exact:true}).fill(`${year}-04-01`);
   await page.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('cmn');
-  await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
-  assert(await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).isDisabled());
+  await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
+  assert(await page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).isDisabled());
   checks.push({width,check:'three-month-request-still-requires-confirmation',passed:true});
   assert.deepEqual(errors,[]);await context.close();console.log(`${width}px: lot SEO, filtre automatique, quatre gares et séjour trois mois validés.`);
  }

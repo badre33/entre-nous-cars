@@ -45,12 +45,12 @@ export default function RentalRequestDialog() {
     if (!review) { setReview(true); return; }
     if (!confirmed) { setError({ message: 'Confirmez les informations du récapitulatif.' }); return; }
     if (openConfirmedRental(value)) { setOpen(false); setValue(empty()); }
-    else setError({ message: 'WhatsApp n’a pas pu s’ouvrir. Autorisez les fenêtres puis réessayez. Votre demande est conservée.' });
+    else setError({ message: 'WhatsApp n’a pas pu s’ouvrir. Autorisez les fenêtres puis réessayez. Votre réservation est conservée.' });
   };
   const vehicleFields = value.vehicles.length ? value.vehicles : [''];
   return <Dialog open={open} onOpenChange={next => { setOpen(next); if (!next) { setValue(empty()); setError(null); } }}>
     <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto overscroll-contain [&_button]:whitespace-normal [&_button]:h-auto [&_button]:min-h-11">
-      <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1}>{review ? 'Vérifiez votre demande' : 'Préparer ma demande de location'}</DialogTitle><DialogDescription>Renseignez les dates, le véhicule et le lieu de prise en charge avant d’ouvrir WhatsApp. Le loueur confirmera ensuite la disponibilité et le tarif.</DialogDescription></DialogHeader>
+      <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1}>{review ? 'Vérifiez votre réservation' : 'Réserver ma voiture'}</DialogTitle><DialogDescription>Choisissez la voiture, les dates et le lieu de prise en charge. Benatna vous confirme la réservation sous 1 heure sur WhatsApp, avec le prix total et les coordonnées du virement.</DialogDescription></DialogHeader>
       {!review && <div className="rounded-lg border border-[#25D366]/40 bg-[#25D366]/10 p-3 text-sm">
         <p className="mb-2">Pas encore de dates précises ou une simple question ?</p>
         <Button type="button" className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white" onClick={() => { openDirectWhatsApp(directWhatsAppText(value.vehicles)); setOpen(false); setValue(empty()); }}>Écrire directement sur WhatsApp</Button>
@@ -77,12 +77,12 @@ export default function RentalRequestDialog() {
           <label className="block space-y-1"><span>Lieu de prise en charge</span><select required aria-label="Lieu de prise en charge" className={field} value={value.pickupId} onChange={e => change({ pickupId: e.target.value, otherPlace: '' })}><option value="">Choisir le lieu précis</option>{pickupPoints.filter(p => p.city === value.city).map(p => <option key={p.id} value={p.id}>{p.name}</option>)}<option value="other">Autre adresse dans cette ville — à préciser</option></select></label>
           {value.pickupId === 'other' && <label className="block space-y-1"><span>Adresse ou point de rendez-vous précis</span><input required minLength={5} maxLength={200} aria-label="Adresse précise de prise en charge" className={field} value={value.otherPlace} onChange={e => change({ otherPlace: e.target.value })} /></label>}
           {value.city === 'Rabat' && <p className="text-sm">Livraison à Rabat demandée depuis Casablanca, à confirmer avec le loueur.</p>}
-          <Button type="submit" className="w-full">Vérifier ma demande</Button>
+          <Button type="submit" className="w-full">Vérifier ma réservation</Button>
         </> : <>
           <dl className="min-w-0 space-y-3 rounded-lg bg-muted p-4 text-sm [overflow-wrap:anywhere]"><div><dt className="font-semibold">Véhicule(s)</dt><dd>{value.vehicles.join(' / ')}</dd></div><div><dt className="font-semibold">Dates</dt><dd>{value.startDate.split('-').reverse().join('/')} → {value.endDate.split('-').reverse().join('/')}</dd></div><div><dt className="font-semibold">Lieu de prise en charge</dt><dd>{rentalPlace(value)}</dd></div>{value.notes && <div><dt className="font-semibold">Précisions</dt><dd className="whitespace-pre-wrap">{value.notes}</dd></div>}</dl>
-          <p className="text-sm">La livraison est gratuite et convenue à l’avance. Cette demande n’est pas une réservation confirmée.</p>
-          <label className="flex gap-3 items-start text-sm"><input type="checkbox" className="mt-1 h-5 w-5 shrink-0" checked={confirmed} onChange={e => setConfirmed(e.target.checked)} /><span>Je confirme mes dates, mon véhicule et mon lieu de prise en charge.</span></label>
-          <Button type="submit" disabled={!confirmed} className="w-full">Confirmer et ouvrir WhatsApp</Button><Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>Modifier ma demande</Button>
+          <p className="text-sm">Réponse sous 1 heure avec la confirmation de la voiture, le prix total et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte de 30 % par virement. Livraison gratuite, convenue à l’avance.</p>
+          <label className="flex gap-3 items-start text-sm"><input type="checkbox" className="mt-1 h-5 w-5 shrink-0" checked={confirmed} onChange={e => setConfirmed(e.target.checked)} /><span>Je confirme mes dates, ma voiture et mon lieu de prise en charge.</span></label>
+          <Button type="submit" disabled={!confirmed} className="w-full">Réserver sur WhatsApp</Button><Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>Modifier ma réservation</Button>
         </>}
       </form>
     </DialogContent>

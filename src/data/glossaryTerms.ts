@@ -421,7 +421,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     id: 'reservation',
     term: 'Réservation',
-    definition: "Accord de location après confirmation du loueur et acceptation de ses conditions. Préparer une demande ou ouvrir WhatsApp ne confirme pas automatiquement une réservation ; aucun paiement en ligne n’est proposé sur Benatna.",
+    definition: "Sur Benatna, la réservation se fait sur WhatsApp. Benatna la confirme sous 1 heure avec le prix total et les coordonnées du virement ; elle est garantie à réception d’un acompte de 30 % par virement.",
     category: 'contrat',
     relatedTerms: ['annulation', 'modification-reservation'],
   },

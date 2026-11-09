@@ -34,11 +34,11 @@ try {
       if (path.startsWith('/vehicule/')) {
         assert(await page.getByRole('heading', { name: /^Prix, caution et livraison/ }).isVisible());
         assert(await page.locator('a[href="/location-voiture-aeroport-casablanca"]').count() > 0);
-        await page.getByRole('button', { name: 'Préparer ma demande', exact: true }).click();
-        await page.getByRole('heading', { name: 'Préparer ma demande de location', exact: true }).waitFor();
+        await page.getByRole('button', { name: 'Réserver', exact: true }).click();
+        await page.getByRole('heading', { name: 'Réserver ma voiture', exact: true }).waitFor();
         assert((await page.getByLabel('Véhicule souhaité', { exact: true }).inputValue()).length > 0);
-        await page.getByRole('button', { name: 'Vérifier ma demande', exact: true }).click();
-        assert.equal(await page.getByRole('button', { name: 'Confirmer et ouvrir WhatsApp', exact: true }).count(), 0, 'incomplete request cannot reach WhatsApp confirmation');
+        await page.getByRole('button', { name: 'Vérifier ma réservation', exact: true }).click();
+        assert.equal(await page.getByRole('button', { name: 'Réserver sur WhatsApp', exact: true }).count(), 0, 'incomplete request cannot reach WhatsApp confirmation');
       } else {
         const cta = page.getByRole('link', { name: 'Voir les modèles et prix journaliers indicatifs', exact: true });
         const href = await cta.getAttribute('href');

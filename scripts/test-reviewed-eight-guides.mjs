@@ -32,7 +32,7 @@ try{
   checks.push({width,path,check:'content-canonical-schema-mobile',passed:true});
   const cta=path.startsWith('/blog/')?page.getByRole('link',{name:'Voir les véhicules',exact:true}):page.getByRole('link',{name:'Choisir mes véhicules et mes dates',exact:true}).first();
   await cta.evaluate(e=>e.scrollIntoView({block:'center'}));await cta.click();await page.waitForURL('**/louer**');await page.locator('#catalogue-results h3').first().waitFor();
-  const request=page.locator('#catalogue-results').getByRole('button',{name:'WhatsApp',exact:true}).first();await request.evaluate(e=>e.scrollIntoView({block:'center'}));await request.click();await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).count(),0);
+  const request=page.locator('#catalogue-results').getByRole('button',{name:'WhatsApp',exact:true}).first();await request.evaluate(e=>e.scrollIntoView({block:'center'}));await request.click();await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();assert.equal(await page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).count(),0);
   checks.push({width,path,check:'qualified-request',passed:true});assert.deepEqual(errors,[]);await context.close();console.log(`${width}px ${path}: validé`);
  }
  await fs.writeFile(`${out}/verification.json`,JSON.stringify({base,checks,realMessagesSent:0},null,2));console.log(JSON.stringify({passed:true,checks:checks.length,realMessagesSent:0}));

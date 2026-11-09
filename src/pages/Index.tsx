@@ -454,8 +454,8 @@ const Index = () => {
                 <CheckCircle className="w-6 h-6 text-secondary" />
               </div>
               <div className="text-left">
-                <p className="font-bold text-2xl">{tr("Sur demande", "On request", "Bajo petición")}</p>
-                <p className="text-sm text-muted-foreground">{tr("Disponibilité à confirmer", "Availability to be confirmed", "Disponibilidad por confirmar")}</p>
+                <p className="font-bold text-2xl">{tr("Sous 1 heure", "Within 1 hour", "En 1 hora")}</p>
+                <p className="text-sm text-muted-foreground">{tr("Réservation confirmée", "Booking confirmed", "Reserva confirmada")}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">

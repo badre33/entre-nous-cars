@@ -43,14 +43,14 @@ async function qualify(page) {
  await page.getByLabel('Date de retour de la demande',{exact:true}).fill('2027-01-04');
  await page.getByRole('dialog').getByLabel('Ville de prise en charge',{exact:true}).selectOption('Casablanca');
  await page.getByLabel('Lieu de prise en charge',{exact:true}).selectOption('cmn');
- await page.getByRole('button',{name:'Vérifier ma demande',exact:true}).click();
- await page.getByRole('checkbox',{name:'Je confirme mes dates, mon véhicule et mon lieu de prise en charge.',exact:true}).check();
- await Promise.all([page.waitForResponse(r=>r.url().includes('/rpc/insert_analytics_event')&&r.request().postDataJSON().p_event_name==='whatsapp_handoff'),page.getByRole('button',{name:'Confirmer et ouvrir WhatsApp',exact:true}).click()]);
+ await page.getByRole('button',{name:'Vérifier ma réservation',exact:true}).click();
+ await page.getByRole('checkbox',{name:'Je confirme mes dates, ma voiture et mon lieu de prise en charge.',exact:true}).check();
+ await Promise.all([page.waitForResponse(r=>r.url().includes('/rpc/insert_analytics_event')&&r.request().postDataJSON().p_event_name==='whatsapp_handoff'),page.getByRole('button',{name:'Réserver sur WhatsApp',exact:true}).click()]);
 }
 try{
  const publicTest=await contextFor();const {page,events}=publicTest;
  await page.goto(base+'/location-voiture-casablanca?utm_source=instagram&utm_medium=organic_social&utm_campaign=casa_arrivee_2026q4&utm_content=carrousel_etapes_v1&email='+canary,{waitUntil:'networkidle'});
- await page.getByRole('button',{name:'Préparer une demande de location',exact:true}).click();
+ await page.getByRole('button',{name:'Réserver une voiture',exact:true}).click();
  assert.equal(events.filter(e=>e.p_event_name==='whatsapp_handoff').length,0);pass('opening_widget_is_not_a_handoff');
  await qualify(page);
  assert.equal(events.filter(e=>e.p_event_name==='whatsapp_handoff').length,1);assert.equal(await page.evaluate(()=>window.__openCalls.length),1);assert((await page.evaluate(()=>new URL(window.__openCalls[0]).searchParams.get('text'))).includes('[C01]'));pass('one_widget_gesture_one_handoff_with_campaign_code');
