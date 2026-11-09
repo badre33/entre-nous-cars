@@ -10,9 +10,9 @@ Benatna est une plateforme de réservation de voitures de tourisme auprès de lo
 - Durée : à partir de trois jours (voitures de tourisme pour séjours et vacances).
 - Catalogue de modèles et prix journaliers indicatifs. Une photo ou une fiche ne garantit pas la disponibilité d’un véhicule pour une date donnée.
 - Réservation sur WhatsApp avec dates, un à trois modèles souhaités et lieu précis.
-- Benatna confirme la réservation sous 1 heure : voiture, prix total, documents, caution et coordonnées du virement.
+- Benatna confirme la réservation sous 1 heure : voiture, prix total, documents et coordonnées du virement.
 - La réservation est garantie à réception d’un acompte de 30 % du total par virement. Aucun paiement par carte sur le site.
-- Annulation gratuite jusqu’à 7 jours avant le départ : l’acompte est remboursé.
+- Annulation : acompte remboursé à 100 % jusqu’à 48 h avant le départ, à 50 % moins de 48 h avant, non remboursé après le début de la location.
 - Chaque réservation reçoit un numéro (format BN-XXXXXX).
 - Pas d’offre de van, mariage ou flotte professionnelle.
 - Les destinations de voyage après la prise en charge sont à convenir dans le contrat du loueur ; la zone de prise en charge ne constitue pas une interdiction de voyager dans les autres villes.
