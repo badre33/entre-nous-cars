@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { pickupPoints } from '@/data/pickupPoints';
-import { localToday, rentalEstimate, requestRental } from '@/utils/rentalRequest';
+import { localToday, rentalEstimate, requestRental, NO_DEPOSIT_FEE } from '@/utils/rentalRequest';
 import { isValidRentalPeriod } from '@/utils/rentalPeriod';
 
 const field = 'min-h-11 w-full min-w-0 rounded-md border border-input bg-background px-2 py-2 text-base';
@@ -19,7 +19,7 @@ export function VehicleBookingPanel({ vehicleName }: { vehicleName: string }) {
   const estimate = valid ? rentalEstimate(vehicleName, startDate, endDate, city) : null;
   const book = () => requestRental({ vehicles: [vehicleName], startDate, endDate, city, pickupId: point ? place : place === 'rabat' || place === 'casablanca' ? 'other' : '' });
   return <div className="space-y-3">
-    <div className="grid grid-cols-2 gap-2">
+    <div className="grid grid-cols-1 gap-2">
       <label className="space-y-1 text-sm min-w-0"><span className="font-medium">Départ</span><input type="date" aria-label="Date de départ" className={field} min={localToday()} value={startDate} onChange={e => setStartDate(e.target.value)} /></label>
       <label className="space-y-1 text-sm min-w-0"><span className="font-medium">Retour</span><input type="date" aria-label="Date de retour" className={field} min={startDate || localToday()} value={endDate} onChange={e => setEndDate(e.target.value)} /></label>
     </div>
@@ -31,9 +31,10 @@ export function VehicleBookingPanel({ vehicleName }: { vehicleName: string }) {
     </label>
     {estimate ? <div className="rounded-lg bg-primary/10 p-3 text-sm" aria-live="polite">
       <p className="flex justify-between font-semibold"><span>Prix total, {estimate.days} jours</span><span>{dh(estimate.total)}</span></p>
-      <p className="flex justify-between text-muted-foreground"><span>Acompte à la confirmation (30 %)</span><span>{dh(estimate.total * 0.3)}</span></p>
+      <p className="flex justify-between text-muted-foreground"><span>Acompte 30 % + 500 DH</span><span>{dh(estimate.total * 0.3 + NO_DEPOSIT_FEE)}</span></p>
+      <p className="text-muted-foreground">Sans caution. Ou tout payer avant la location, sans supplément.</p>
     </div> : <p className="text-sm text-muted-foreground" aria-live="polite">{startDate && endDate ? '3 jours minimum : vérifiez vos dates.' : 'Choisissez vos dates pour voir le prix total.'}</p>}
     <Button type="button" className="w-full bg-green-600 hover:bg-green-700" onClick={book}><MessageCircle className="h-4 w-4 mr-2" />Réserver</Button>
-    <p className="text-xs text-muted-foreground">Confirmation sous 1 heure sur WhatsApp. Annulation gratuite jusqu’à 48 h avant le départ.</p>
+    <p className="text-xs text-muted-foreground">Sans caution. Confirmation sous 1 heure sur WhatsApp. Annulation gratuite jusqu’à 48 h avant le départ.</p>
   </div>;
 }
