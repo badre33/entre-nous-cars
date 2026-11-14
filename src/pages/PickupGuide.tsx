@@ -30,10 +30,10 @@ export default function PickupGuide() {
       <section className="space-y-4"><h2 className="text-2xl">Une autre gare à Casablanca ou Rabat ?</h2><p>Cette liste présente les principaux points d’arrivée, pas un inventaire exhaustif des gares. Précisez le nom de votre gare sur WhatsApp : la livraison est gratuite et convenue à l’avance avec le loueur. Aucune remise dans une autre ville n’est proposée.</p><Link className="underline" to="/louer">Préparer mes dates</Link></section>
       <section aria-label="Prix, caution et choix du véhicule" className="rounded-xl border p-4 md:p-6 space-y-4">
         <h2 className="text-2xl">Préparer le prix et les conditions avant votre arrivée</h2>
-        <p>Comparez les modèles sur les mêmes dates. Faites confirmer le tarif total, la caution et les conditions du contrat avant votre accord, puis convenez du lieu précis de remise et de retour.</p>
+        <p>Comparez les modèles sur les mêmes dates. Benatna confirme le tarif total sous 1 heure, sans caution, puis convenez du lieu précis de remise et de retour.</p>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link className="inline-flex min-h-11 items-center underline" to="/prix-location-voiture-maroc-2026">Prix de location à Casablanca</Link>
-          <Link className="inline-flex min-h-11 items-center underline" to="/caution-location-voiture-maroc">Questions à poser sur la caution</Link>
+          <Link className="inline-flex min-h-11 items-center underline" to="/caution-location-voiture-maroc">Louer sans caution</Link>
           <Link className="inline-flex min-h-11 items-center underline" to="/location-voiture-aeroport-casablanca">Préparer une arrivée à Mohammed V</Link>
           <Link className="inline-flex min-h-11 items-center underline" to="/location-voiture-gare-oncf-maroc">Choisir une gare de Casablanca</Link>
         </div>

@@ -36,9 +36,9 @@ export default function NosServices() {
     </article>)}
    </section>
    <section className="space-y-4">
-    <h2 className="text-2xl">Prix, caution et contrat avant votre accord</h2>
-    <p>Le catalogue présente des modèles et des prix journaliers indicatifs. Demandez au loueur le tarif total, la version proposée et les conditions de caution, d’assurance et de kilométrage. Une demande WhatsApp ne confirme pas automatiquement une location. Aucun paiement en ligne n’est proposé sur Benatna.</p>
-    <div className="flex flex-wrap gap-4"><Link className="inline-flex min-h-11 items-center underline" to="/prix-location-voiture-maroc-2026">Comprendre les prix</Link><Link className="inline-flex min-h-11 items-center underline" to="/caution-location-voiture-maroc">Préparer les questions sur la caution</Link><Link className="inline-flex min-h-11 items-center underline" to="/louer-voiture-maroc-faq-complete">Questions pratiques</Link></div>
+    <h2 className="text-2xl">Prix, paiement sans caution et contrat</h2>
+    <p>Le catalogue présente des modèles et des prix journaliers indicatifs. Benatna vous confirme sous 1 heure le tarif total, la version proposée et les conditions d’assurance et de kilométrage. Aucune caution : vous réglez par virement 100 % avant la location ou un acompte de 30 % plus 500 DH. Aucun paiement en ligne n’est proposé sur Benatna.</p>
+    <div className="flex flex-wrap gap-4"><Link className="inline-flex min-h-11 items-center underline" to="/prix-location-voiture-maroc-2026">Comprendre les prix</Link><Link className="inline-flex min-h-11 items-center underline" to="/caution-location-voiture-maroc">Louer sans caution</Link><Link className="inline-flex min-h-11 items-center underline" to="/louer-voiture-maroc-faq-complete">Questions pratiques</Link></div>
    </section>
   </main><Footer />
  </>;

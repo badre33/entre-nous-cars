@@ -51,10 +51,10 @@
     "prepareIntro": "Compara modelos para las mismas fechas y habla con el arrendador antes de aceptar.",
     "comparePriceTitle": "Compara precios para tus fechas",
     "comparePriceText": "Los precios diarios del catálogo son orientativos. Solicita el importe de todo el período para los modelos elegidos.",
-    "confirmTermsTitle": "Confirma las condiciones del arrendador",
-    "confirmTermsText": "Comprueba la versión, la fianza, el pago, el seguro y el kilometraje antes de aceptar.",
+    "confirmTermsTitle": "Sin fianza, confirmado en 1 hora",
+    "confirmTermsText": "Paga el 100 % antes del alquiler o un anticipo del 30 % más 500 MAD. La versión, el seguro y el kilometraje se confirman con el precio total.",
     "comparePriceLink": "Comprender los precios",
-    "confirmTermsLink": "Preparar preguntas sobre la fianza",
+    "confirmTermsLink": "Alquilar sin fianza",
     "confirmedTerms": "Confirmación en 1 hora",
     "requestInfo": "Fechas, modelos y lugar",
     "localRenters": "Arrendadores ubicados en Casablanca"

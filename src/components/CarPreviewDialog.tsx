@@ -19,7 +19,6 @@ interface CarPreviewDialogProps {
     city: string;
     priceDisplay: string;
     badges?: string[];
-    conditions: string[];
   } | null;
   isOpen: boolean;
   onClose: () => void;
@@ -93,7 +92,12 @@ export default function CarPreviewDialog({
           <div className="space-y-2">
             <p className="text-sm font-semibold">{tr("Conditions", "Terms", "Condiciones")}</p>
             <div className="space-y-1">
-              {car.conditions.map((condition, idx) => (
+              {[
+                tr("Sans caution : 100 % avant la location, ou 30 % + 500 DH", "No deposit: 100% before the rental, or 30% + 500 MAD", "Sin fianza: 100 % antes del alquiler, o 30 % + 500 MAD"),
+                tr("À partir de 3 jours", "From 3 days", "Desde 3 días"),
+                tr("Livraison gratuite aux points desservis", "Free delivery to served locations", "Entrega gratuita en los puntos atendidos"),
+                tr("Confirmation sous 1 heure", "Confirmed within 1 hour", "Confirmación en 1 hora"),
+              ].map((condition, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-sm">
                   <Check className="w-4 h-4 text-primary" />
                   <span>{condition}</span>

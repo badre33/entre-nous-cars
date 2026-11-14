@@ -181,14 +181,9 @@ import carAudiEtronGT from "@/assets/car-audi-etron-gt.jpg";
 const carCupraFormentor = "/vehicles/benatna/cupra-formentor.webp";
 import carHyundaiStaria from "@/assets/car-hyundai-staria.jpg";
 
-// Helper function to generate conditions for all cars
-const generateConditions = (minAge: number): string[] => {
-  return ["Kilométrage illimité", `Âge minimum: ${minAge} ans`];
-};
-
 // Modèles uniques du catalogue (le champ ville est généré ci-dessous)
 const carModels = [
-  { image: "/vehicles/benatna/audi-q3-sportback.webp", name: "Audi Q3 Sportback", brand: "Audi", type: "Automatique", category: "SUV Premium", price: 1020, priceDisplay: "1020 MAD", conditions: ["Conditions à confirmer avec le loueur"] },
+  { image: "/vehicles/benatna/audi-q3-sportback.webp", name: "Audi Q3 Sportback", brand: "Audi", type: "Automatique", category: "SUV Premium", price: 1020, priceDisplay: "1020 MAD" },
   {
     image: carClio,
     name: "Renault Clio",
@@ -197,7 +192,6 @@ const carModels = [
     category: "Citadine",
     price: 400,
     priceDisplay: "400 MAD",
-    conditions: generateConditions(23),
     badges: ["Populaire", "Disponible immédiatement"]
   },
   {
@@ -207,8 +201,7 @@ const carModels = [
     type: "Manuelle",
     category: "Citadine",
     price: 400,
-    priceDisplay: "400 MAD",
-    conditions: generateConditions(21)
+    priceDisplay: "400 MAD"
   },
   {
     image: carDuster,
@@ -218,7 +211,6 @@ const carModels = [
     category: "SUV",
     price: 380,
     priceDisplay: "380 MAD",
-    conditions: generateConditions(23),
     badges: ["Populaire", "Disponible immédiatement"]
   },
   {
@@ -228,8 +220,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 380,
-    priceDisplay: "380 MAD",
-    conditions: generateConditions(25)
+    priceDisplay: "380 MAD"
   },
   {
     image: carVwGolf,
@@ -239,7 +230,6 @@ const carModels = [
     category: "Berline",
     price: 650,
     priceDisplay: "650 MAD",
-    conditions: generateConditions(23),
     badges: ["Populaire"]
   },
   {
@@ -249,8 +239,7 @@ const carModels = [
     type: "Manuelle",
     category: "Berline",
     price: 650,
-    priceDisplay: "650 MAD",
-    conditions: generateConditions(23)
+    priceDisplay: "650 MAD"
   },
   {
     image: carHyundaiTucson,
@@ -259,8 +248,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 640,
-    priceDisplay: "640 MAD",
-    conditions: generateConditions(25)
+    priceDisplay: "640 MAD"
   },
   {
     image: carKiaSportage,
@@ -270,7 +258,6 @@ const carModels = [
     category: "SUV",
     price: 640,
     priceDisplay: "640 MAD",
-    conditions: generateConditions(25),
     badges: ["Disponible immédiatement"]
   },
   {
@@ -280,8 +267,7 @@ const carModels = [
     type: "Manuelle",
     category: "SUV",
     price: 640,
-    priceDisplay: "640 MAD",
-    conditions: generateConditions(23)
+    priceDisplay: "640 MAD"
   },
   {
     image: carMercedesC,
@@ -291,7 +277,6 @@ const carModels = [
     category: "Berline",
     price: 1060,
     priceDisplay: "1060 MAD",
-    conditions: generateConditions(28),
     badges: ["Luxe"]
   },
   {
@@ -301,8 +286,7 @@ const carModels = [
     type: "Automatique",
     category: "Berline",
     price: 1060,
-    priceDisplay: "1060 MAD",
-    conditions: generateConditions(27)
+    priceDisplay: "1060 MAD"
   },
   {
     image: carSeatIbiza,
@@ -311,8 +295,7 @@ const carModels = [
     type: "Manuelle",
     category: "Citadine",
     price: 400,
-    priceDisplay: "400 MAD",
-    conditions: generateConditions(21)
+    priceDisplay: "400 MAD"
   },
   {
     image: carSeatIbiza,
@@ -321,8 +304,7 @@ const carModels = [
     type: "Automatique",
     category: "Citadine",
     price: 400,
-    priceDisplay: "400 MAD",
-    conditions: generateConditions(21)
+    priceDisplay: "400 MAD"
   },
   {
     image: carHyundaiAccent,
@@ -331,8 +313,7 @@ const carModels = [
     type: "Automatique",
     category: "Berline",
     price: 440,
-    priceDisplay: "440 MAD",
-    conditions: generateConditions(22)
+    priceDisplay: "440 MAD"
   },
   {
     image: carHyundaiAccent,
@@ -341,8 +322,7 @@ const carModels = [
     type: "Manuelle",
     category: "Berline",
     price: 440,
-    priceDisplay: "440 MAD",
-    conditions: generateConditions(22)
+    priceDisplay: "440 MAD"
   },
   {
     image: carDaciaSandero,
@@ -351,8 +331,7 @@ const carModels = [
     type: "Manuelle",
     category: "Citadine",
     price: 250,
-    priceDisplay: "250 MAD",
-    conditions: generateConditions(21)
+    priceDisplay: "250 MAD"
   },
   {
     image: carDaciaLogan,
@@ -361,8 +340,7 @@ const carModels = [
     type: "Manuelle",
     category: "Berline",
     price: 250,
-    priceDisplay: "250 MAD",
-    conditions: generateConditions(21)
+    priceDisplay: "250 MAD"
   },
   {
     image: carSanderoStepway,
@@ -371,8 +349,7 @@ const carModels = [
     type: "Manuelle",
     category: "Citadine",
     price: 250,
-    priceDisplay: "250 MAD",
-    conditions: ["Caution: 4200 MAD", "260 km/jour inclus", "Âge minimum: 21 ans"]
+    priceDisplay: "250 MAD"
   },
   {
     image: carBmw5,
@@ -381,8 +358,7 @@ const carModels = [
     type: "Automatique",
     category: "Berline",
     price: 1190,
-    priceDisplay: "1190 MAD",
-    conditions: ["Caution: 11000 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+    priceDisplay: "1190 MAD"
   },
   {
     image: carBmwX5,
@@ -391,8 +367,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1250,
-    priceDisplay: "1250 MAD",
-    conditions: ["Caution: 13000 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
+    priceDisplay: "1250 MAD"
   },
   {
     image: carAudiA3,
@@ -401,8 +376,7 @@ const carModels = [
     type: "Automatique",
     category: "Berline",
     price: 900,
-    priceDisplay: "900 MAD",
-    conditions: ["Caution: 8600 MAD", "400 km/jour inclus", "Âge minimum: 27 ans"]
+    priceDisplay: "900 MAD"
   },
   {
     image: carAudiA6,
@@ -411,8 +385,7 @@ const carModels = [
     type: "Automatique",
     category: "Berline",
     price: 1190,
-    priceDisplay: "1190 MAD",
-    conditions: ["Caution: 11500 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+    priceDisplay: "1190 MAD"
   },
   {
     image: carAudiQ3,
@@ -421,8 +394,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1020,
-    priceDisplay: "1020 MAD",
-    conditions: ["Caution: 9000 MAD", "410 km/jour inclus", "Âge minimum: 27 ans"]
+    priceDisplay: "1020 MAD"
   },
   {
     image: carAudiQ5,
@@ -431,8 +403,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1250,
-    priceDisplay: "1250 MAD",
-    conditions: ["Caution: 11500 MAD", "450 km/jour inclus", "Âge minimum: 28 ans"]
+    priceDisplay: "1250 MAD"
   },
   {
     image: carAudiQ7,
@@ -441,8 +412,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1450,
-    priceDisplay: "1450 MAD",
-    conditions: ["Caution: 13500 MAD", "500 km/jour inclus", "Âge minimum: 30 ans"]
+    priceDisplay: "1450 MAD"
   },
   {
     image: carMercedesA,
@@ -451,8 +421,7 @@ const carModels = [
     type: "Automatique",
     category: "Citadine",
     price: 900,
-    priceDisplay: "900 MAD",
-    conditions: ["Caution: 8300 MAD", "390 km/jour inclus", "Âge minimum: 27 ans"]
+    priceDisplay: "900 MAD"
   },
   {
     image: carMercedesE,
@@ -461,8 +430,7 @@ const carModels = [
     type: "Automatique",
     category: "Berline",
     price: 1190,
-    priceDisplay: "1190 MAD",
-    conditions: ["Caution: 12000 MAD", "500 km/jour inclus", "Âge minimum: 29 ans"]
+    priceDisplay: "1190 MAD"
   },
   {
     image: carMercedesGLA,
@@ -471,8 +439,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1020,
-    priceDisplay: "1020 MAD",
-    conditions: ["Caution: 9300 MAD", "420 km/jour inclus", "Âge minimum: 27 ans"]
+    priceDisplay: "1020 MAD"
   },
   {
     image: carMercedesGLC,
@@ -481,8 +448,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1250,
-    priceDisplay: "1250 MAD",
-    conditions: ["Caution: 12200 MAD", "480 km/jour inclus", "Âge minimum: 29 ans"]
+    priceDisplay: "1250 MAD"
   },
   {
     image: carMercedesGLE,
@@ -491,8 +457,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1880,
-    priceDisplay: "1880 MAD",
-    conditions: ["Caution: 14000 MAD", "550 km/jour inclus", "Âge minimum: 30 ans"]
+    priceDisplay: "1880 MAD"
   },
   {
     image: carMercedesCLA,
@@ -501,8 +466,7 @@ const carModels = [
     type: "Automatique",
     category: "Berline",
     price: 1060,
-    priceDisplay: "1060 MAD",
-    conditions: ["Caution: 10500 MAD", "440 km/jour inclus", "Âge minimum: 28 ans"]
+    priceDisplay: "1060 MAD"
   },
   {
     image: carMercedesGLB,
@@ -511,8 +475,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1020,
-    priceDisplay: "1020 MAD",
-    conditions: ["Caution: 9700 MAD", "430 km/jour inclus", "Âge minimum: 28 ans"]
+    priceDisplay: "1020 MAD"
   },
   {
     image: carVwTouareg,
@@ -521,8 +484,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1250,
-    priceDisplay: "1250 MAD",
-    conditions: ["Caution: 11500 MAD", "480 km/jour inclus", "Âge minimum: 28 ans"]
+    priceDisplay: "1250 MAD"
   },
   {
     image: carDaciaJogger,
@@ -531,8 +493,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 380,
-    priceDisplay: "380 MAD",
-    conditions: ["Caution: 8400 MAD", "460 km/jour inclus", "Âge minimum: 26 ans"]
+    priceDisplay: "380 MAD"
   },
   {
     image: carDaciaJogger,
@@ -541,8 +502,7 @@ const carModels = [
     type: "Manuelle",
     category: "Monospace",
     price: 380,
-    priceDisplay: "380 MAD",
-    conditions: ["Caution: 5200 MAD", "340 km/jour inclus", "Âge minimum: 23 ans"]
+    priceDisplay: "380 MAD"
   },
   {
     image: carPorscheMacan,
@@ -551,8 +511,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 2300,
-    priceDisplay: "2300 MAD",
-    conditions: ["Caution: 28000 MAD", "550 km/jour inclus", "Âge minimum: 30 ans"]
+    priceDisplay: "2300 MAD"
   },
   {
     image: carRangeRoverEvoque,
@@ -561,8 +520,7 @@ const carModels = [
     type: "Automatique",
     category: "SUV",
     price: 1880,
-    priceDisplay: "1880 MAD",
-    conditions: ["Caution: 24000 MAD", "550 km/jour inclus", "Âge minimum: 28 ans"]
+    priceDisplay: "1880 MAD"
   },
   {
     image: carMercedesG,
@@ -572,7 +530,6 @@ const carModels = [
     category: "SUV",
     price: 3500,
     priceDisplay: "3500 MAD",
-    conditions: ["Âge minimum: 30 ans"],
     badges: ["Nouveau", "Luxe"]
   },
   {
@@ -583,7 +540,6 @@ const carModels = [
     category: "SUV",
     price: 1880,
     priceDisplay: "1880 MAD",
-    conditions: ["Âge minimum: 28 ans"],
     badges: ["Nouveau", "Luxe"]
   },
   {
@@ -594,7 +550,6 @@ const carModels = [
     category: "SUV",
     price: 2400,
     priceDisplay: "2400 MAD",
-    conditions: ["Âge minimum: 30 ans"],
     badges: ["Nouveau", "Luxe"]
   },
   {
@@ -605,7 +560,6 @@ const carModels = [
     category: "SUV",
     price: 2300,
     priceDisplay: "2300 MAD",
-    conditions: ["Âge minimum: 28 ans"],
     badges: ["Nouveau", "Luxe"]
   },
   {
@@ -616,7 +570,6 @@ const carModels = [
     category: "Berline",
     price: 650,
     priceDisplay: "650 MAD",
-    conditions: generateConditions(23),
     badges: ["Populaire"]
   },
   {
@@ -627,7 +580,6 @@ const carModels = [
     category: "SUV",
     price: 940,
     priceDisplay: "940 MAD",
-    conditions: generateConditions(25),
     badges: ["⭐ Premium SUV", "Nouveau"]
   },
   {
@@ -638,7 +590,6 @@ const carModels = [
     category: "Van 9 places",
     price: 1450,
     priceDisplay: "1450 MAD",
-    conditions: generateConditions(28),
     badges: ["9 places", "Van premium"]
   },
   {
@@ -649,7 +600,6 @@ const carModels = [
     category: "Citadine",
     price: 400,
     priceDisplay: "400 MAD",
-    conditions: generateConditions(21),
     badges: ["Économique"]
   },
   {
@@ -660,23 +610,19 @@ const carModels = [
     category: "Citadine",
     price: 400,
     priceDisplay: "400 MAD",
-    conditions: generateConditions(21),
     badges: ["Économique"]
   },
   {
     id: 320, image: carHyundaiI20, name: "Hyundai i20", brand: "Hyundai", type: "Manuelle",
-    category: "Citadine", city: "Casablanca", price: 400, priceDisplay: "400 MAD",
-    conditions: generateConditions(21), badges: ["Économique"]
+    category: "Citadine", city: "Casablanca", price: 400, priceDisplay: "400 MAD", badges: ["Économique"]
   },
   {
     id: 322, image: carVwTRoc, name: "Volkswagen T-Roc", brand: "Volkswagen", type: "Automatique",
-    category: "SUV Compact", city: "Casablanca", price: 650, priceDisplay: "650 MAD",
-    conditions: generateConditions(23), badges: ["Disponible immédiatement"]
+    category: "SUV Compact", city: "Casablanca", price: 650, priceDisplay: "650 MAD", badges: ["Disponible immédiatement"]
   },
   {
     id: 324, image: carHyundaiSantaFe, name: "Hyundai Santa Fe", brand: "Hyundai", type: "Automatique",
-    category: "SUV 7 places", city: "Casablanca", price: 1450, priceDisplay: "1450 MAD",
-    conditions: generateConditions(25), badges: ["7 places", "Premium familial"]
+    category: "SUV 7 places", city: "Casablanca", price: 1450, priceDisplay: "1450 MAD", badges: ["7 places", "Premium familial"]
   },
 ];
 
