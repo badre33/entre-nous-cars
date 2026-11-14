@@ -9,7 +9,7 @@ const indicativePrices = ['renault-clio', 'dacia-duster', 'vw-golf', 'hyundai-tu
   return `${vehicle.name} : ${currentDailyPrice(vehicle.priceFrom)} DH/jour`;
 }).join(' ; ');
 const rentalJourney = {
-  intro: 'Choisissez vos dates, jusqu’à trois modèles et votre lieu de prise en charge. La location dure au minimum trois jours. Le loueur confirme disponibilité, tarif et conditions avant votre accord.',
+  intro: 'Choisissez vos dates, jusqu’à trois modèles et votre lieu de prise en charge. La location dure au minimum trois jours. Benatna vous confirme la voiture, le prix total et les documents sous 1 heure. Sans caution.',
   links: [
     { title: 'Comparer les voitures à Casablanca', link: '/location-voiture-casablanca' },
     { title: 'Arriver à l’aéroport Mohammed V', link: '/location-voiture-aeroport-casablanca' },
@@ -18,7 +18,7 @@ const rentalJourney = {
 };
 const cta = {
   title: 'Préparer votre location à Casablanca',
-  subtitle: 'Dates, modèles et lieu avant envoi • Tarif et conditions confirmés par le loueur',
+  subtitle: 'Dates, modèles et lieu • Confirmation sous 1 heure • Sans caution',
   buttonText: 'Choisir mes véhicules et mes dates',
   buttonLink: '/louer?city=Casablanca',
 };
@@ -28,7 +28,7 @@ export const rentalSupportPages: Record<'prices' | 'deposit', LongTailPageConfig
     slug: 'prix-location-voiture-maroc-2026',
     title: 'Prix de location à Casablanca',
     metaTitle: 'Prix location voiture à Casablanca : repères et devis | Benatna',
-    metaDescription: 'Comparez les prix journaliers indicatifs à Casablanca : Clio, Duster, Golf et Tucson. Tarif total et caution confirmés par le loueur, livraison gratuite aux points desservis.',
+    metaDescription: 'Comparez les prix journaliers indicatifs à Casablanca : Clio, Duster, Golf et Tucson. Sans caution, tarif total confirmé sous 1 heure, livraison gratuite aux points desservis.',
     keywords: 'prix location voiture casablanca, tarif location voiture casablanca, prix clio duster golf tucson',
     h1: 'Prix de location de voiture à Casablanca : préparer votre budget',
     heroSubtitle: 'Prix journaliers indicatifs • Tarif pour vos dates • Livraison gratuite aux points desservis',
@@ -39,19 +39,19 @@ export const rentalSupportPages: Record<'prices' | 'deposit', LongTailPageConfig
       sections: [
         { title: 'Repères journaliers pour quatre modèles du catalogue', content: `${indicativePrices}. Ces repères reprennent les prix indicatifs des fiches véhicules. Ils ne constituent ni un stock confirmé ni un tarif garanti pour vos dates. Consultez le catalogue pour les autres modèles et faites préciser la version et la transmission proposées.` },
         { title: 'Comparer le prix total sur les mêmes dates', content: 'Pour comparer deux propositions, indiquez une date de départ et une date de retour identiques, le lieu de remise et vos besoins en passagers et bagages. Demandez au loueur le montant de toute la période et ce que prévoit le contrat : kilométrage, assurance, franchise et modalités de règlement. Un prix journalier isolé ne permet pas de déduire toutes les conditions.' },
-        { title: 'La caution est distincte du prix de location', content: 'Faites préciser séparément le prix à régler et la caution demandée. Le montant de la caution, son moyen de dépôt et les conditions de restitution dépendent du loueur et du véhicule confirmé. Demandez ces informations avant votre accord plutôt que de supposer un montant uniforme ou une absence de caution.' },
+        { title: 'Sans caution : deux façons de régler', content: 'Vous ne laissez pas de caution. Deux options au choix : régler 100 % du prix par virement avant la location, sans supplément, ou verser à la réservation un acompte de 30 % plus 500 DH. Votre choix figure dans le récapitulatif et dans le message de réservation.' },
         { title: 'Livraison gratuite à Casablanca, Rabat sur demande', content: 'La livraison est gratuite aux points desservis de Casablanca, notamment Mohammed V et les gares du guide. Le rendez-vous est convenu à l’avance avec le loueur. Une livraison à Rabat peut être étudiée depuis Casablanca selon sa disponibilité. Choisissez le lieu précis dans votre demande pour organiser la remise et le retour.' },
         { title: 'Une semaine, un mois ou un séjour prolongé', content: 'La durée minimum est de trois jours. Pour plusieurs semaines ou mois, demandez une proposition couvrant toute la période. Le catalogue sert de repère ; le tarif final reste à confirmer par le loueur. La location n’est pas confirmée par le simple envoi d’une demande WhatsApp et Benatna ne propose pas de paiement en ligne.' },
       ],
       faq: [
         { question: 'Quel prix prévoir pour louer une voiture à Casablanca ?', answer: 'Comparez les prix journaliers indicatifs des modèles du catalogue, puis transmettez vos dates pour obtenir le tarif de toute la période. Le loueur confirme le véhicule, la version et le prix avant votre accord.' },
         { question: 'La livraison à Mohammed V ou en gare est-elle payante ?', answer: 'La livraison est gratuite aux points desservis de Casablanca. Le lieu précis et le rendez-vous sont convenus à l’avance avec le loueur. Rabat reste une livraison sur demande depuis Casablanca, selon sa disponibilité.' },
-        { question: 'La caution fait-elle partie du prix annoncé ?', answer: 'Le prix de location et la caution sont deux éléments à faire préciser séparément. Demandez au loueur le montant de la caution, le moyen de dépôt accepté et ses conditions de restitution.' },
+        { question: 'Faut-il prévoir une caution en plus du prix ?', answer: 'Non. Vous réglez 100 % du prix avant la location, sans supplément, ou un acompte de 30 % plus 500 DH à la réservation. Aucune caution n’est demandée.' },
         { question: 'Y a-t-il un forfait mensuel garanti ?', answer: 'Demandez un tarif pour vos dates, à partir de trois jours. Aucun montant mensuel fixe ni réduction systématique n’est garanti par cette page.' },
       ],
     },
     relatedServices: [
-      { title: 'Comprendre la caution', description: 'Les questions à poser au loueur avant votre accord.', link: '/caution-location-voiture-maroc' },
+      { title: 'Louer sans caution', description: 'Les deux options de paiement et ce que précise le contrat.', link: '/caution-location-voiture-maroc' },
       { title: 'Location de voiture à Casablanca', description: 'Louer une voiture de tourisme pour votre séjour.', link: '/location-voiture-casablanca' },
       { title: 'Livraison : gares et aéroports', description: 'Choisir un lieu desservi et préparer la remise du véhicule.', link: '/prise-en-charge-casablanca-rabat' },
     ],
@@ -65,27 +65,27 @@ export const rentalSupportPages: Record<'prices' | 'deposit', LongTailPageConfig
   deposit: {
     slug: 'caution-location-voiture-maroc',
     title: 'Caution de location à Casablanca',
-    metaTitle: 'Caution location voiture à Casablanca : quoi vérifier | Benatna',
-    metaDescription: 'Préparez votre location à Casablanca : montant de caution, moyen de dépôt, restitution et franchise à confirmer avec le loueur avant votre accord.',
+    metaTitle: 'Caution location voiture Casablanca : louer sans caution | Benatna',
+    metaDescription: 'Louez une voiture à Casablanca sans caution : 100 % du prix avant la location ou acompte de 30 % plus 500 DH. Assurance et franchise précisées à la confirmation.',
     keywords: 'caution location voiture casablanca, dépôt garantie voiture casablanca, caution location voiture maroc',
-    h1: 'Caution de location de voiture : préparer votre demande à Casablanca',
-    heroSubtitle: 'Montant • Moyen de dépôt • Conditions de restitution • Accord avec le loueur',
+    h1: 'Caution de location de voiture : louer sans caution à Casablanca',
+    heroSubtitle: 'Sans caution • Deux options de paiement • Confirmation sous 1 heure • Annulation 48 h',
     category: { label: 'Location à Casablanca', href: '/location-voiture-casablanca' },
     rentalJourney, cta,
     content: {
-      intro: 'La caution est l’une des questions qui reviennent dans les demandes Benatna, avec le prix et la livraison. Pour votre location à Casablanca, faites préciser ses modalités par le loueur avant votre accord. Cette page vous aide à préparer les questions ; elle ne fixe pas un montant commun à tous les véhicules ou à tous les loueurs.',
+      intro: 'La caution est l’une des questions qui reviennent le plus, avec le prix et la livraison. Chez Benatna, vous n’en laissez pas : vous choisissez de régler 100 % du prix avant la location, sans supplément, ou de verser un acompte de 30 % plus 500 DH à la réservation. Cette page détaille ces deux options et ce que le contrat précise encore.',
       sections: [
-        { title: 'Quel montant demander au loueur ?', content: 'Indiquez vos dates et les modèles souhaités, puis demandez le montant exact de la caution pour le véhicule proposé. Si vous comparez plusieurs voitures, vérifiez la caution de chacune en plus du prix total. Le nom d’une catégorie ou la photo d’un modèle ne suffit pas à connaître les conditions du loueur.' },
-        { title: 'Quel moyen de dépôt est accepté ?', content: 'Demandez au loueur quels moyens sont acceptés pour votre dossier et les documents à présenter. Vérifiez les modalités avant votre arrivée. Une caution en espèces, un virement, une carte bancaire ou une absence de caution ne doivent pas être supposés possibles pour tous les véhicules. Benatna ne demande pas de paiement en ligne sur le site.' },
-        { title: 'Quand et comment la caution est-elle restituée ?', content: 'Faites confirmer le mode de restitution, les conditions à respecter et le délai annoncé par le loueur pour le moyen de dépôt retenu. Conservez les documents et échanges utiles. Cette page ne promet pas de restitution immédiate ni de délai bancaire uniforme.' },
-        { title: 'Caution, assurance et franchise : poser trois questions distinctes', content: 'Demandez les conditions de caution, les garanties d’assurance et la franchise prévues au contrat. Une caution et une franchise ne désignent pas la même chose : la franchise concerne la part restant à votre charge dans les cas prévus au contrat. Faites préciser les garanties, les exclusions et les modalités applicables au véhicule plutôt que de déduire la couverture du seul montant de caution.' },
+        { title: 'Option 1 : tout régler avant la location', content: 'Vous payez 100 % du prix de la période par virement avant la remise du véhicule, sans supplément. Aucune caution n’est demandée. Le montant exact figure dans la confirmation que Benatna vous envoie sur WhatsApp sous 1 heure.' },
+        { title: 'Option 2 : acompte de 30 % plus 500 DH', content: 'Vous versez à la réservation, par virement, un acompte de 30 % du prix de la période plus 500 DH. Aucune caution n’est demandée. Aucune carte bancaire n’est nécessaire pour réserver : Benatna ne prend aucun paiement en ligne sur le site.' },
+        { title: 'Annulation et remboursement', content: 'L’acompte est remboursé à 100 % en cas d’annulation jusqu’à 48 h avant le départ, à 50 % moins de 48 h avant, et n’est plus remboursé après le début de la location.' },
+        { title: 'Sans caution ne veut pas dire sans assurance', content: 'Les garanties d’assurance, la franchise et les exclusions prévues au contrat sont précisées pour le véhicule confirmé. Une caution et une franchise ne désignent pas la même chose : la franchise concerne la part restant à votre charge dans les cas prévus au contrat. Lisez ces conditions avant la remise du véhicule.' },
         { title: 'Préparer la remise et le retour du véhicule', content: 'Convenez du lieu de remise et de restitution avant votre accord, puis vérifiez avec le loueur l’état du véhicule et les éléments portés aux documents de location. Vous pouvez conserver vos propres photos et les échanges utiles. La livraison est gratuite aux points desservis de Casablanca ; Rabat peut être demandé depuis Casablanca selon la disponibilité du loueur.' },
       ],
       faq: [
-        { question: 'Quel est le montant de la caution chez Benatna ?', answer: 'Le loueur confirme le montant pour le véhicule et les dates demandés. Aucun montant unique n’est fixé par cette page pour tous les modèles.' },
-        { question: 'Peut-on louer sans caution ou sans carte de crédit ?', answer: 'Demandez au loueur les modalités acceptées pour votre dossier avant votre accord. L’absence de caution ou de carte de crédit ne peut pas être garantie pour tous les véhicules.' },
-        { question: 'La caution est-elle rendue immédiatement ?', answer: 'Le mode, les conditions et le délai de restitution sont à confirmer avec le loueur pour le moyen de dépôt retenu. Cette page ne promet pas de délai uniforme.' },
-        { question: 'Peut-on comparer plusieurs modèles avant de décider ?', answer: 'Oui. Sélectionnez jusqu’à trois modèles, vos dates et le lieu. Demandez ensuite au loueur de préciser pour les véhicules proposés le prix total, la caution et les conditions du contrat. La durée minimum est de trois jours.' },
+        { question: 'Quel est le montant de la caution chez Benatna ?', answer: 'Aucun. Vous louez sans caution, en réglant 100 % du prix avant la location ou un acompte de 30 % plus 500 DH à la réservation.' },
+        { question: 'Peut-on louer sans caution ou sans carte de crédit ?', answer: 'Oui. Aucune caution n’est demandée et le paiement se fait par virement : aucune carte de crédit n’est nécessaire pour réserver.' },
+        { question: 'Que se passe-t-il si j’annule ?', answer: 'L’acompte est remboursé à 100 % jusqu’à 48 h avant le départ, à 50 % moins de 48 h avant, et n’est plus remboursé après le début de la location.' },
+        { question: 'Peut-on comparer plusieurs modèles avant de décider ?', answer: 'Oui. Sélectionnez jusqu’à trois modèles, vos dates et le lieu. Benatna vous confirme sous 1 heure la voiture disponible, le prix total et les documents requis. La durée minimum est de trois jours.' },
       ],
     },
     relatedServices: [

@@ -14,7 +14,7 @@ const rentalJourney = {
 const cta = { title: 'Préparer votre location à Casablanca', subtitle: 'Dates, modèles et lieu • Conditions confirmées par le loueur', buttonText: 'Choisir mes véhicules et mes dates', buttonLink: '/louer?city=Casablanca' };
 const relatedServices = [
   { title: 'Prix de location à Casablanca', description: 'Repères indicatifs et tarif pour votre période.', link: '/prix-location-voiture-maroc-2026' },
-  { title: 'Questions sur la caution', description: 'Montant, moyen de dépôt et restitution à confirmer.', link: '/caution-location-voiture-maroc' },
+  { title: 'Louer sans caution', description: 'Les deux options de paiement sans caution.', link: '/caution-location-voiture-maroc' },
   { title: 'Gares et aéroports desservis', description: 'Préparer la remise et le retour avec le loueur.', link: '/prise-en-charge-casablanca-rabat' },
 ];
 const category = { label: 'Location à Casablanca', href: '/location-voiture-casablanca' };
@@ -22,7 +22,7 @@ export const reviewedRentalGuides: Record<'young' | 'planning' | 'checks' | 'acc
   young: {
     slug: 'location-jeune-conducteur-casablanca', title: 'Jeune conducteur : préparer sa demande',
     metaTitle: 'Location jeune conducteur à Casablanca : conditions | Benatna',
-    metaDescription: 'Jeune conducteur à Casablanca : faites confirmer vos critères d’accès, documents, caution, assurance et tarif avant votre accord. Minimum 3 jours.',
+    metaDescription: 'Jeune conducteur à Casablanca : faites confirmer vos critères d’accès, documents, assurance et tarif. Sans caution. Minimum 3 jours.',
     keywords: 'location jeune conducteur casablanca, conditions permis location casablanca',
     h1: 'Jeune conducteur à Casablanca : vérifier les conditions avant de louer',
     heroSubtitle: 'Dossier • Modèle • Caution • Conditions du contrat', category, rentalJourney, cta, relatedServices,
@@ -30,21 +30,21 @@ export const reviewedRentalGuides: Record<'young' | 'planning' | 'checks' | 'acc
       intro: 'Vous avez un permis récent ou souhaitez louer pour la première fois à Casablanca ? Préparez votre demande avant le voyage pour faire vérifier votre dossier par le loueur. Cette page ne fixe pas un âge, une ancienneté de permis ou un supplément identiques pour tous les véhicules.',
       sections: [
         { title: 'Présenter votre situation au loueur', content: 'Indiquez vos dates, le modèle souhaité et les informations utiles sur votre permis et les conducteurs prévus. Demandez les critères applicables au véhicule proposé et la liste des documents requis avant votre accord. La validation d’un dossier par un loueur ne prouve pas que tous les autres appliquent les mêmes conditions.' },
-        { title: 'Comparer une proposition complète', content: 'Demandez le montant de toute la période, les éventuelles conditions liées au conducteur et le montant de la caution. Faites préciser séparément les garanties d’assurance, la franchise et le kilométrage. Les prix journaliers du catalogue sont indicatifs ; ils ne garantissent ni l’acceptation du dossier ni une assurance particulière.' },
+        { title: 'Comparer une proposition complète', content: 'Demandez le montant de toute la période et les éventuelles conditions liées au conducteur. Aucune caution n’est demandée. Faites préciser séparément les garanties d’assurance, la franchise et le kilométrage. Les prix journaliers du catalogue sont indicatifs ; ils ne garantissent ni l’acceptation du dossier ni une assurance particulière.' },
         { title: 'Choisir une voiture adaptée à votre séjour', content: 'Comparez une citadine, une compacte ou un SUV selon vos passagers, vos bagages et votre préférence de transmission. Faites confirmer la version proposée pour vos dates. Prenez le temps de repérer les commandes du véhicule avant de partir et demandez au loueur les explications nécessaires.' },
         { title: 'Préparer la remise à Casablanca', content: 'La location dure au minimum trois jours. Sélectionnez un point desservi à Casablanca ; la livraison est gratuite et le rendez-vous est convenu à l’avance. Rabat reste une livraison sur demande depuis Casablanca selon la disponibilité du loueur. La demande WhatsApp nécessite ensuite son accord et le vôtre.' },
       ],
       faq: [
         { question: 'Un permis récent est-il accepté ?', answer: 'Le loueur vérifie votre situation et les critères du véhicule proposé. Faites confirmer l’acceptation de votre dossier et les documents nécessaires avant votre accord.' },
         { question: 'Y a-t-il un supplément jeune conducteur fixe ?', answer: 'Aucun supplément uniforme n’est annoncé sur cette page. Demandez au loueur le tarif complet et les conditions applicables pour vos dates et votre dossier.' },
-        { question: 'L’assurance ou la caution sont-elles identiques pour tous ?', answer: 'Non. Les garanties, la franchise, le montant de caution et ses modalités sont à confirmer avec le loueur pour le véhicule proposé.' },
+        { question: 'L’assurance est-elle identique pour tous ?', answer: 'Non. Les garanties et la franchise sont précisées pour le véhicule proposé. Aucune caution n’est demandée.' },
       ],
     },
   },
   planning: {
     slug: 'guide-maroc', title: 'Préparer sa location à Casablanca',
     metaTitle: 'Guide location voiture à Casablanca : préparer son séjour | Benatna',
-    metaDescription: 'Un parcours pour préparer votre location à Casablanca : dates, modèles, prix, caution, lieu et confirmation. Liens vers les guides utiles à votre séjour.',
+    metaDescription: 'Un parcours pour préparer votre location à Casablanca : dates, modèles, prix, paiement sans caution, lieu et confirmation. Liens vers les guides utiles à votre séjour.',
     keywords: 'guide location voiture casablanca, préparer location voiture maroc',
     h1: 'Préparer votre location de voiture à Casablanca',
     heroSubtitle: 'Choisir • Comparer • Vérifier • Confirmer', category, rentalJourney, cta, relatedServices,
@@ -53,7 +53,7 @@ export const reviewedRentalGuides: Record<'young' | 'planning' | 'checks' | 'acc
       sections: [
         { title: 'Définir votre période et votre lieu', content: 'Choisissez une date de départ et de retour, à partir de trois jours. Précisez votre arrivée : ville, aéroport Mohammed V ou gare desservie de Casablanca. Une livraison gratuite à Rabat peut être étudiée depuis Casablanca selon la disponibilité du loueur. Le point précis de rencontre et le retour se conviennent à l’avance.' },
         { title: 'Comparer les modèles sur les mêmes dates', content: 'Indiquez vos voyageurs, vos bagages et votre préférence de boîte. Retenez jusqu’à trois modèles pour comparer des propositions sur une période identique. Les photos illustrent les modèles ; la version, les équipements et la disponibilité sont confirmés par le loueur.' },
-        { title: 'Vérifier le budget et les conditions', content: 'Demandez le prix de toute la période, puis faites préciser la caution, les moyens de dépôt et de règlement acceptés, les garanties d’assurance, la franchise et le kilométrage. Le carburant, les péages et le stationnement dépendent de votre itinéraire et de votre usage ; vérifiez les informations auprès des opérateurs ou points de vente concernés.' },
+        { title: 'Vérifier le budget et les conditions', content: 'Demandez le prix de toute la période. Aucune caution n’est demandée : vous réglez par virement 100 % avant la location ou un acompte de 30 % plus 500 DH. Faites préciser les garanties d’assurance, la franchise et le kilométrage. Le carburant, les péages et le stationnement dépendent de votre itinéraire et de votre usage ; vérifiez les informations auprès des opérateurs ou points de vente concernés.' },
         { title: 'Préparer la remise et garder les informations utiles', content: 'Faites confirmer la liste des documents et les critères des conducteurs. À la remise, examinez le véhicule avec le loueur et conservez les documents, l’état des lieux et vos photos utiles. Repérez les contacts de location et d’assistance prévus au contrat avant de partir.' },
         { title: 'Envoyer une demande puis obtenir un accord', content: 'Vérifiez les dates, les modèles et le lieu dans le récapitulatif avant d’ouvrir WhatsApp. La demande ne confirme pas une réservation. Aucun paiement en ligne n’est proposé sur Benatna : le loueur vérifie la proposition et les conditions avant votre accord.' },
       ],
@@ -71,8 +71,8 @@ export const reviewedRentalGuides: Record<'young' | 'planning' | 'checks' | 'acc
   },
   checks: {
     slug: 'eviter-arnaques-location-voiture-maroc', title: 'Vérifications avant de louer',
-    metaTitle: 'Location voiture : vérifier prix, caution et contrat | Benatna',
-    metaDescription: 'Avant de louer à Casablanca, vérifiez le prix total, la caution, les documents et l’état des lieux. Conservez les échanges et faites préciser les conditions du loueur.',
+    metaTitle: 'Location voiture : vérifier prix, assurance et contrat | Benatna',
+    metaDescription: 'Avant de louer à Casablanca, vérifiez le prix total, l’assurance, les documents et l’état des lieux. Conservez les échanges et faites préciser les conditions du loueur.',
     keywords: 'vérifier location voiture maroc, caution contrat location casablanca, éviter malentendus location',
     h1: 'Location de voiture : les vérifications avant votre accord',
     heroSubtitle: 'Proposition écrite • Conditions • État des lieux • Documents conservés', category, rentalJourney, cta, relatedServices,
@@ -80,13 +80,13 @@ export const reviewedRentalGuides: Record<'young' | 'planning' | 'checks' | 'acc
       intro: 'Un prix attractif ne suffit pas à comparer deux locations. Pour limiter les malentendus à Casablanca, préparez une demande complète et vérifiez la proposition avec le loueur. Ce guide fournit des points de contrôle ; il ne promet pas l’absence de litige ni un résultat de recours.',
       sections: [
         { title: 'Avant de donner votre accord', content: 'Faites préciser le véhicule ou la version proposée, les dates, le lieu de remise et de retour, le montant total et les modalités de règlement. Demandez les documents et coordonnées du loueur nécessaires à votre échange. Conservez la proposition et les confirmations au lieu de vous appuyer uniquement sur une photo ou un prix journalier.' },
-        { title: 'Séparer prix, caution et assurance', content: 'Demandez le montant de caution, le moyen de dépôt accepté, ses conditions et son délai de restitution. Vérifiez également les garanties d’assurance, la franchise et le kilométrage du contrat. Aucune caution supprimée, restitution immédiate ou assurance uniforme n’est garantie par Benatna pour tous les véhicules.' },
+        { title: 'Séparer prix, paiement et assurance', content: 'Chez Benatna, aucune caution n’est demandée : vous réglez 100 % avant la location ou un acompte de 30 % plus 500 DH. Vérifiez les garanties d’assurance, la franchise et le kilométrage du contrat. Aucune assurance uniforme n’est garantie pour tous les véhicules.' },
         { title: 'Lors de la remise du véhicule', content: 'Prenez le temps d’examiner le véhicule avec le loueur et de comprendre les documents avant de signer. Vérifiez les éléments consignés sur l’état des lieux et conservez vos propres photos et échanges utiles. Si une différence apparaît avec la proposition, demandez une clarification avant d’accepter les nouvelles conditions.' },
         { title: 'Au retour ou en cas de désaccord', content: 'Convenez du lieu de retour à l’avance. Conservez l’état des lieux de restitution et les justificatifs qui vous sont remis. Si un montant ou une retenue vous paraît différent de ce qui était convenu, demandez une explication et les éléments correspondants au loueur. Les démarches dépendent de la situation ; ce guide ne fixe pas une conclusion juridique.' },
       ],
       faq: [
-        { question: 'Comment comparer deux propositions ?', answer: 'Utilisez les mêmes dates et le même lieu, puis comparez le prix total, la version, la caution et les conditions du contrat. Le seul prix par jour ne suffit pas.' },
-        { question: 'Benatna garantit-il une restitution immédiate de caution ?', answer: 'Non. Demandez au loueur les conditions, le moyen et le délai de restitution pour le dépôt retenu avant votre accord.' },
+        { question: 'Comment comparer deux propositions ?', answer: 'Utilisez les mêmes dates et le même lieu, puis comparez le prix total, la version et les conditions du contrat. Le seul prix par jour ne suffit pas.' },
+        { question: 'Faut-il laisser une caution ?', answer: 'Non. Vous réglez 100 % du prix avant la location, sans supplément, ou un acompte de 30 % plus 500 DH à la réservation.' },
         { question: 'Que conserver pendant la location ?', answer: 'Gardez la proposition, les confirmations, les documents de location, les états des lieux, vos photos utiles et les justificatifs de règlement qui vous sont remis.' },
       ],
     },

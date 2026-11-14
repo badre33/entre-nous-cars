@@ -65,7 +65,7 @@ export const neighborhoods: Neighborhood[] = [
       "Précisez l’adresse exacte de votre hôtel dans la demande",
       "La corniche est très fréquentée le soir et le week-end",
       "Une citadine se gare plus facilement près des plages",
-      "Demandez au loueur les conditions de caution et de kilométrage"
+      "Location sans caution ; faites préciser le kilométrage"
     ],
     faqs: [
       { question: "Peut-on se faire livrer la voiture à Ain Diab ?", answer: "Oui. Le loueur partenaire peut remettre la voiture à votre hôtel ou résidence à Ain Diab, gratuitement, à condition de convenir du lieu et de l’heure à l’avance. Vous pouvez aussi la récupérer à l’aéroport Mohammed V à votre arrivée." },
@@ -146,7 +146,7 @@ export const neighborhoods: Neighborhood[] = [
     tips: [
       "Pour une famille, pensez au Dacia Jogger 7 places",
       "Précisez le nombre de passagers et de bagages",
-      "Demandez au loueur les conditions de caution",
+      "Location sans caution, paiement par virement",
       "Réservez tôt pendant les vacances d’été et de fin d’année"
     ],
     faqs: [

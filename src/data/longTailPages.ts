@@ -131,59 +131,59 @@ export const longTailPages: LongTailPageConfig[] = [
   
   {
     slug: "location-voiture-sans-carte-credit-casablanca",
-    title: "Location Voiture Sans Carte Crédit Casablanca",
+    title: "Location voiture sans carte de crédit à Casablanca",
     metaTitle: "Location voiture sans carte de crédit Casablanca | Benatna",
-    metaDescription: "Louer une voiture à Casablanca sans carte bancaire. Paiement en espèces ou virement. Aéroport Mohammed V, centre-ville. Dès 250 DH/jour sans caution CB.",
-    keywords: "location voiture sans carte crédit casablanca, louer auto sans cb casa, location véhicule espèces casablanca",
-    h1: "Location de Voiture Sans Carte de Crédit à Casablanca",
-    heroSubtitle: "Aéroport Mohammed V • Centre-ville • Paiement flexible • Dès 250 DH/jour",
+    metaDescription: "Louez une voiture à Casablanca sans carte de crédit et sans caution : paiement par virement, livraison gratuite à Mohammed V et en gare. Dès 3 jours.",
+    keywords: "location voiture sans carte crédit casablanca, louer voiture sans cb casablanca, location voiture sans caution casablanca",
+    h1: "Location de voiture sans carte de crédit à Casablanca",
+    heroSubtitle: "Sans caution • Paiement par virement • Livraison gratuite • Dès 3 jours",
     category: {
-      label: "Formules Flexibles",
-      href: "/nos-services"
+      label: "Location à Casablanca",
+      href: "/location-voiture-casablanca"
     },
     content: {
-      intro: "Casablanca, capitale économique du Maroc, est une ville dynamique où la mobilité est essentielle. Que vous soyez en déplacement professionnel, en visite touristique ou Casablancais ayant besoin d'un véhicule temporaire, Benatna vous permet de louer une voiture sans carte de crédit. Nos loueurs partenaires acceptent le paiement en espèces, par virement ou par d'autres moyens, rendant la location accessible à tous sans les contraintes des blocages de caution bancaire imposés par les loueurs traditionnels.",
+      intro: "Beaucoup d’agences demandent une carte de crédit pour bloquer une caution au départ. Chez Benatna, vous réservez une voiture de tourisme à Casablanca sans carte de crédit et sans caution : le paiement se fait par virement, et Benatna vous confirme la voiture, le prix total et les documents requis sous 1 heure sur WhatsApp.",
       sections: [
         {
-          title: "Location Sans Carte de Crédit à l'Aéroport Mohammed V",
-          content: "L'aéroport international Mohammed V de Casablanca est la principale porte d'entrée du Maroc avec plus de 10 millions de passagers par an. Avec Benatna, le loueur partenaire vous livre gratuitement votre véhicule directement au terminal des arrivées, sans besoin de carte de crédit. Après avoir récupéré vos bagages, vous le contactez sur WhatsApp et son agent vous retrouve dans le hall avec votre véhicule réservé. Le paiement s'effectue en espèces (dirhams marocains ou euros) ou si vous avez effectué un virement bancaire avant votre arrivée, vous recevez simplement les clés et les documents du véhicule. Cette solution est particulièrement appréciée des voyageurs d'affaires qui arrivent tard le soir ou tôt le matin et ne veulent pas perdre de temps dans les files d'attente des agences de location traditionnelles de l'aéroport. De plus, les tarifs de nos loueurs partenaires sont plus compétitifs que ceux pratiqués dans les kiosques des terminaux : à partir de 300 DH/jour pour une citadine contre 400-500 DH dans les agences d'aéroport. La procédure est rapide (15 minutes maximum) et vous pouvez immédiatement prendre la route vers votre destination à Casablanca, que ce soit le quartier d'affaires de Sidi Maarouf, les hôtels de la corniche Ain Diab, le centre-ville ou les zones industrielles."
+          title: "Deux façons de payer, aucune caution",
+          content: "Option 1 : vous réglez 100 % du prix de la période par virement avant la location, sans supplément. Option 2 : vous versez à la réservation un acompte de 30 % plus 500 DH. Dans les deux cas, aucune caution n’est demandée et aucune carte bancaire n’est nécessaire pour réserver. Votre choix figure dans le récapitulatif et dans le message de réservation."
         },
         {
-          title: "Pourquoi Casablanca Nécessite une Voiture de Location",
-          content: "Casablanca s'étend sur plus de 220 km² avec une population de près de 4 millions d'habitants. La ville est structurée en quartiers éloignés les uns des autres : le centre-ville historique avec la place Mohammed V, le quartier des Habous, l'ancienne Médina côtoient les quartiers modernes comme Maarif (centre commercial et restaurants), Ain Diab (corniche et plages), Sidi Maarouf et Bouskoura (zones d'affaires et sièges sociaux), Anfa (quartier résidentiel chic), et les zones industrielles périphériques. Se déplacer uniquement en petit taxi peut vite devenir coûteux (10-30 DH par trajet selon la distance) et chronophage aux heures de pointe. Le tramway, bien que moderne, ne dessert qu'un axe limité. Avec votre propre voiture de location, vous gagnez en flexibilité horaire, en confort (climatisation essentielle en été quand il fait 35°C+) et en productivité si vous êtes en déplacement professionnel avec plusieurs rendez-vous dans la journée. De plus, Casablanca est idéalement située pour des excursions d'une journée vers Rabat (90 km, 1h par autoroute), El Jadida (100 km, 1h15, plages et ville portugaise), ou même Marrakech (240 km, 2h30 d'autoroute). Le réseau routier casablancais est bien développé avec des boulevards larges, des ronds-points clairement signalisés et l'autoroute urbaine qui facilite les déplacements rapides entre quartiers."
+          title: "Réserver en quelques minutes",
+          content: "Choisissez jusqu’à trois voitures par ordre de préférence, vos dates (trois jours minimum) et votre lieu de prise en charge. Le récapitulatif affiche le prix total estimé. Vous envoyez la réservation sur WhatsApp avec son numéro BN, et Benatna vous répond sous 1 heure avec la voiture confirmée et les coordonnées du virement."
         },
         {
-          title: "Options de Paiement Flexibles pour Professionnels et Touristes",
-          content: "Benatna comprend les besoins variés de sa clientèle casablancaise diversifiée. Pour les professionnels en déplacement : les loueurs partenaires acceptent les virements bancaires d'entreprise, ce qui permet à votre service comptabilité de gérer le paiement directement sans que vous ayez à avancer les frais personnellement. Des comptes clients peuvent être établis pour les entreprises qui louent régulièrement (commerciaux, consultants, équipes de chantier). Pour les touristes internationaux : le paiement en espèces évite les tracas des taux de change défavorables et des commissions bancaires internationales appliquées sur les cartes de crédit étrangères. Si vous arrivez d'Europe, du Moyen-Orient ou d'Afrique subsaharienne, vous pouvez payer en euros et le loueur applique un taux équitable. Pour les résidents marocains : nombreux sont ceux qui préfèrent gérer leur budget en cash plutôt qu'en carte bancaire, ou qui n'ont qu'une carte de débit (non acceptée comme caution par les loueurs traditionnels). Notre approche sans carte de crédit rend la location accessible aux jeunes actifs, aux étudiants (dès 21 ans avec 1 an de permis), aux familles qui veulent une deuxième voiture temporairement, ou aux personnes dont le véhicule personnel est en réparation. Pour les locations longue durée (1 mois ou plus), les loueurs partenaires proposent également des facilités de paiement échelonné : vous payez une partie à la récupération du véhicule, le reste à mi-parcours et en fin de location. Cette flexibilité financière fait de Benatna le partenaire idéal pour tous vos besoins de mobilité à Casablanca."
+          title: "Livraison gratuite à l’aéroport et en gare",
+          content: "La voiture vous est remise gratuitement aux points desservis de Casablanca, notamment à l’aéroport Mohammed V, à Casa-Voyageurs et à Casa-Port. Le rendez-vous est convenu à l’avance. Une livraison à Rabat peut être étudiée sur demande depuis Casablanca."
         },
         {
-          title: "Véhicules Adaptés à Chaque Usage à Casablanca",
-          content: "La flotte de nos loueurs partenaires à Casablanca, plus de 50 véhicules, couvre tous les besoins. Citadines compactes (Clio, Sandero, 208) à 150-180 DH/jour : parfaites pour un usage urbain, faciles à garer dans les rues étroites du centre-ville ou les parkings exigus des centres commerciaux (Morocco Mall, Anfaplace), consommation économique (5-6L/100km). Idéales pour 1-2 personnes avec bagages légers. Berlines confortables (Corolla, Jetta, Octavia) à 400-500 DH/jour : confort supérieur avec climatisation efficace, coffre spacieux pour familles ou professionnels avec matériel, tenue de route stable sur autoroute pour vos déplacements vers Rabat ou Marrakech. Capacité 4-5 personnes avec bagages. SUV polyvalents (Duster, Qashqai, Tiguan) à 550-800 DH/jour : position de conduite surélevée appréciée dans le trafic casablancais dense, espace généreux pour familles avec enfants ou groupes, possibilité d'excursions hors Casablanca (Oualidia, Azemmour) grâce à leur robustesse. Véhicules premium (Mercedes C, BMW 3, Audi A4) à 1200-1800 DH/jour : image professionnelle pour rendez-vous clients importants, tout le confort technologique (GPS, sièges cuir, système audio premium), prestige et élégance pour occasions spéciales. Tous ces véhicules ont moins de 3 ans, sont rigoureusement entretenus, assurés tous risques et bénéficient du kilométrage illimité - essentiel à Casablanca où on peut facilement parcourir 50-100 km/jour entre domicile, bureau et rendez-vous professionnels."
+          title: "Ce que le contrat précise encore",
+          content: "Sans caution ne veut pas dire sans conditions : les documents requis, les garanties d’assurance, la franchise et le kilométrage sont précisés pour le véhicule confirmé. Lisez-les avant la remise de la voiture. En cas d’annulation, l’acompte est remboursé à 100 % jusqu’à 48 h avant le départ et à 50 % moins de 48 h avant."
         }
       ],
       faq: [
         {
-          question: "Puis-je récupérer ma voiture directement à l'aéroport Mohammed V sans carte de crédit ?",
-          answer: "Oui ! Le loueur partenaire livre votre véhicule gratuitement au terminal des arrivées. Vous payez en espèces (dirhams ou euros) ou montrez votre preuve de virement. C'est rapide et sans files d'attente."
+          question: "Peut-on louer une voiture à Casablanca sans carte de crédit ?",
+          answer: "Oui. Le paiement se fait par virement : 100 % avant la location, ou un acompte de 30 % plus 500 DH à la réservation. Aucune carte de crédit n’est nécessaire pour réserver."
         },
         {
-          question: "Acceptez-vous les virements bancaires d'entreprise ?",
-          answer: "Absolument. Nos loueurs partenaires travaillent régulièrement avec des entreprises casablancaises. Votre service comptabilité peut effectuer un virement et le loueur vous remet une facture détaillée pour votre note de frais."
+          question: "Faut-il laisser une caution ?",
+          answer: "Non. Les deux options de paiement remplacent la caution : aucun montant n’est bloqué ni déposé au départ."
         },
         {
-          question: "Quelle est la caution sans carte de crédit ?",
-          answer: "La caution varie selon le véhicule : 2 000 DH (citadine), 3 500 DH (berline/SUV), 5 000 DH (premium). C'est un simple document signé, aucun argent bloqué. Restitution immédiate au retour du véhicule."
+          question: "Puis-je récupérer la voiture à l’aéroport Mohammed V ?",
+          answer: "Oui. La livraison est gratuite à l’aéroport Mohammed V et aux autres points desservis de Casablanca, avec un rendez-vous convenu à l’avance."
         },
         {
-          question: "Puis-je louer pour mes déplacements professionnels à Casablanca ?",
-          answer: "Oui, nos loueurs partenaires sont habitués à la location professionnelle. Facturation conforme par le loueur, possibilité de compte client entreprise, véhicules récents et bien entretenus pour votre image professionnelle."
+          question: "Quelle est la durée minimum ?",
+          answer: "Trois jours. Indiquez vos dates exactes dans la réservation pour obtenir le prix total."
         }
       ]
     },
     cta: {
-      title: "Louez Votre Voiture à Casablanca Sans Carte de Crédit",
-      subtitle: "Aéroport Mohammed V • Livraison gratuite • Paiement flexible",
-      buttonText: "Réserver Maintenant",
+      title: "Réserver sans carte de crédit à Casablanca",
+      subtitle: "Sans caution • Confirmation sous 1 heure • Livraison gratuite",
+      buttonText: "Choisir ma voiture et mes dates",
       buttonLink: "/louer?city=Casablanca"
     }
   },

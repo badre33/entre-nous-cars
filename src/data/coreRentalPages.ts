@@ -51,8 +51,8 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
     audience: tourismAudience,
     exclusions: tourismExclusions,
     sections: [
-      { title: 'Comment se passe votre location', text: 'Choisissez un ou plusieurs modèles et vos dates dans le catalogue, puis envoyez votre demande sur WhatsApp. Le loueur vous confirme le modèle, le prix total, la caution et les documents à prévoir. Vous recevez la voiture au point convenu : aéroport Mohammed V, gare Casa-Voyageurs, Casa-Port ou un autre point desservi, sans frais de livraison.' },
-      { title: 'Ce qui fait le prix', text: 'Les prix de départ s’appliquent hors périodes de forte demande. En juillet-août et autour des fêtes (Aïd, fin d’année), le tarif journalier augmente ; à partir de 15 jours, il baisse légèrement. Le loueur confirme le montant total de votre période avant tout accord. La caution est séparée du prix de location et vous est précisée à l’avance.' },
+      { title: 'Comment se passe votre location', text: 'Choisissez un ou plusieurs modèles et vos dates dans le catalogue, puis envoyez votre demande sur WhatsApp. Benatna vous confirme sous 1 heure le modèle, le prix total et les documents à prévoir. Aucune caution n’est demandée. Vous recevez la voiture au point convenu : aéroport Mohammed V, gare Casa-Voyageurs, Casa-Port ou un autre point desservi, sans frais de livraison.' },
+      { title: 'Ce qui fait le prix', text: 'Les prix de départ s’appliquent hors périodes de forte demande. En juillet-août et autour des fêtes (Aïd, fin d’année), le tarif journalier augmente ; à partir de 15 jours, il baisse légèrement. Le loueur confirme le montant total de votre période avant tout accord. Aucune caution : vous réglez 100 % avant la location ou un acompte de 30 % plus 500 DH.' },
       { title: 'En famille : SUV et 7 places', text: 'Pour une famille avec bagages, comparez le Dacia Duster et le Dacia Jogger 7 places, dès 380 DH par jour. Indiquez le nombre de passagers et de valises dans votre demande : le loueur vous oriente vers le modèle adapté.' },
     ],
     faqs: [
@@ -78,7 +78,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
     exclusions: tourismExclusions,
     sections: [
       { title: 'Une voiture qui vous attend à l’arrivée', text: 'Indiquez votre date et votre heure d’arrivée dans votre demande. Le loueur convient avec vous du point de rendez-vous à l’aéroport Mohammed V. En cas de retard ou de changement de vol, prévenez-le sur WhatsApp pour adapter la remise.' },
-      { title: 'Ce qui fait le prix', text: 'Les prix de départ s’appliquent hors périodes de forte demande. En juillet-août et autour des fêtes, le tarif journalier augmente. La livraison à l’aéroport est gratuite. Le loueur confirme le prix total, la caution et les documents avant votre accord.' },
+      { title: 'Ce qui fait le prix', text: 'Les prix de départ s’appliquent hors périodes de forte demande. En juillet-août et autour des fêtes, le tarif journalier augmente. La livraison à l’aéroport est gratuite. Le prix total et les documents vous sont confirmés sous 1 heure, sans caution.' },
       { title: 'Retour de la voiture', text: 'Vous rendez la voiture à l’aéroport avant votre vol retour, ou à un autre point desservi de Casablanca convenu avec le loueur. Précisez votre date et votre heure de départ dès la demande.' },
     ],
     faqs: [
@@ -91,7 +91,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
   longStay: {
     "path": "/location-longue-duree-casablanca",
     "title": "Location voiture au mois à Casablanca, jusqu’à 6 mois | Benatna",
-    "description": "Location de voiture au mois à Casablanca pour votre séjour personnel. Jusqu’à 6 mois, prix et caution confirmés par le loueur, livraison gratuite aux points desservis.",
+    "description": "Location de voiture au mois à Casablanca pour votre séjour personnel. À partir de 3 jours, sans caution, livraison gratuite aux points desservis.",
     "heading": "Location de voiture au mois à Casablanca",
     "intro": "Vous revenez au pays pour plusieurs semaines ou prévoyez un séjour prolongé ? Comparez les voitures de tourisme du catalogue, puis demandez au loueur un tarif pour toute votre période à Casablanca. La durée se définit avec vos dates, jusqu’à six mois calendaires.",
     "showModelComparison": true,
@@ -109,8 +109,8 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
             "text": "Une citadine comme la Clio 5 peut être comparée pour des déplacements en ville ; une Golf permet d’étudier une compacte. Pour un séjour en famille avec des valises, ajoutez un Duster ou un Tucson à votre comparaison et précisez les passagers et bagages. La transmission, la version et les équipements sont confirmés par le loueur."
         },
         {
-            "title": "Prévoir la caution, la remise et le retour",
-            "text": "La caution est distincte du prix de location : faites confirmer son montant, le moyen de dépôt accepté et les conditions de restitution. La livraison est gratuite aux points desservis de Casablanca, notamment Mohammed V et les gares indiquées dans le guide. Convenez du lieu de retour avant votre accord. Une livraison à Rabat peut être étudiée depuis Casablanca selon la disponibilité du loueur."
+            "title": "Sans caution : la remise et le retour",
+            "text": "Aucune caution n’est demandée : vous réglez 100 % avant la location ou un acompte de 30 % plus 500 DH. La livraison est gratuite aux points desservis de Casablanca, notamment Mohammed V et les gares indiquées dans le guide. Convenez du lieu de retour avant votre accord. Une livraison à Rabat peut être étudiée depuis Casablanca selon la disponibilité du loueur."
         }
     ],
     "faqs": [
@@ -147,8 +147,8 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
             "text": "Pour un séjour avec peu de bagages, comparez la Clio 5 et la Golf. Si vous voyagez en famille avec plusieurs valises, indiquez-le avant de comparer un Duster et un Tucson. Vous pouvez retenir jusqu’à trois modèles dans une demande ; le loueur confirme la version et la transmission adaptées à vos dates."
         },
         {
-            "title": "Prix, caution et retour du véhicule",
-            "text": "Le tarif journalier affiché reste indicatif. Demandez le prix de la période complète, les documents requis, la caution et les conditions du contrat avant votre accord. La durée minimum est de trois jours. Le lieu de restitution du véhicule se fixe à l’avance avec le loueur."
+            "title": "Prix, paiement sans caution et retour",
+            "text": "Le tarif journalier affiché reste indicatif. Le prix de la période complète et les documents requis vous sont confirmés sous 1 heure, sans caution. La durée minimum est de trois jours. Le lieu de restitution du véhicule se fixe à l’avance avec le loueur."
         },
         {
             "title": "Casa-Voyageurs ou une autre gare de Casablanca ?",
@@ -189,8 +189,8 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
             "text": "Un même modèle peut exister en boîte manuelle et automatique. Le filtre permet de distinguer les variantes du catalogue ; indiquez aussi votre préférence au loueur. La photo illustre le modèle et ne garantit pas une finition, une motorisation ou des équipements précis. Faites confirmer la version avant votre accord."
         },
         {
-            "title": "Comparer le prix et la caution sur les mêmes dates",
-            "text": "Les prix journaliers sont indicatifs. Préparez une période à partir de trois jours et demandez le tarif total pour les modèles retenus. Le loueur précise la caution, son moyen de dépôt, ses conditions de restitution et le contrat. Le choix automatique ne permet pas de déduire un montant de caution ni un supplément fixe."
+            "title": "Comparer le prix sur les mêmes dates",
+            "text": "Les prix journaliers sont indicatifs. Préparez une période à partir de trois jours et demandez le tarif total pour les modèles retenus. Aucune caution n’est demandée. Le choix automatique ne permet pas de déduire un supplément fixe : le tarif total est confirmé sous 1 heure."
         },
         {
             "title": "Une automatique à Mohammed V ou en gare",
@@ -235,8 +235,8 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
             "text": "Choisissez vos dates et jusqu’à trois modèles, puis précisez vos voyageurs et bagages au loueur. Une citadine, une compacte ou un SUV peuvent répondre à des besoins différents : faites confirmer la version et l’espace adapté à votre séjour. Signalez un changement de train pour adapter le rendez-vous."
         },
         {
-            "title": "Préparer le prix, la caution et le retour",
-            "text": "Le prix par jour du catalogue est indicatif. Demandez le montant de toute la période, la caution, les documents requis et les conditions d’assurance et de kilométrage. La location dure au minimum trois jours. Le retour du véhicule se convient à l’avance avec le loueur."
+            "title": "Préparer le prix, le paiement et le retour",
+            "text": "Le prix par jour du catalogue est indicatif. Le montant de toute la période vous est confirmé sous 1 heure, sans caution ; faites préciser les documents requis et les conditions d’assurance et de kilométrage. La location dure au minimum trois jours. Le retour du véhicule se convient à l’avance avec le loueur."
         },
         {
             "title": "Une arrivée à Rabat ou à l’aéroport ?",
@@ -334,7 +334,7 @@ export const coreRentalPages: Record<'casablanca' | 'airport' | 'longStay' | 'ca
     exclusions: tourismExclusions,
     relatedLinks: rentalJourneyLinks,
     sections: [
-      { title: 'Ce que comprend le prix à la semaine', text: 'Le prix affiché correspond à sept jours au tarif de départ, hors juillet-août et hors périodes de fêtes. La livraison à l’aéroport Mohammed V et dans les gares desservies est gratuite. La caution est séparée du prix et vous est précisée par le loueur avant votre accord.' },
+      { title: 'Ce que comprend le prix à la semaine', text: 'Le prix affiché correspond à sept jours au tarif de départ, hors juillet-août et hors périodes de fêtes. La livraison à l’aéroport Mohammed V et dans les gares desservies est gratuite. Aucune caution n’est demandée.' },
       { title: 'Prolonger ou raccourcir', text: 'Vous pouvez demander de trois jours à plusieurs semaines. À partir de 15 jours, le tarif journalier baisse légèrement. Pour prolonger pendant le séjour, prévenez le loueur à l’avance afin qu’il confirme la disponibilité de la voiture.' },
     ],
     faqs: [

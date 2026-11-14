@@ -282,10 +282,10 @@ const VehicleDetail = () => {
               <TabsContent value="conditions" className="space-y-3 mt-4 text-sm">
                 <p><strong>Âge et permis :</strong> Les critères et les documents requis sont confirmés par le loueur pour la version demandée.</p>
                 <p><strong>Kilométrage et assurance :</strong> Demandez les limites éventuelles, les garanties et la franchise prévues au contrat.</p>
-                <p><strong>Caution :</strong> Faites préciser son montant, le moyen de dépôt accepté et les conditions de restitution avant votre accord.</p>
+                <p><strong>Caution :</strong> Aucune. Vous réglez 100 % du prix avant la location, sans supplément, ou un acompte de 30 % plus 500 DH à la réservation.</p>
                 <p><strong>Livraison :</strong> Gratuite et convenue à l’avance à Casablanca, notamment à l’aéroport Mohammed V et aux gares desservies. Rabat sur demande depuis Casablanca, à confirmer avec le loueur.</p>
                 <p><strong>Restitution :</strong> Lieu convenu à l’avance avec le loueur.</p>
-                <p><strong>Annulation :</strong> Conditions à convenir avec le loueur avant confirmation ; contactez-le si vos dates changent</p>
+                <p><strong>Annulation :</strong> Acompte remboursé à 100 % jusqu’à 48 h avant le départ, à 50 % moins de 48 h avant, non remboursé après le début de la location.</p>
               </TabsContent>
             </Tabs>
           </div>
@@ -294,14 +294,14 @@ const VehicleDetail = () => {
           {editorial.sections.map(section => <section key={section.title} className="space-y-3"><h2 className="text-2xl font-semibold">{section.title}</h2><p className="leading-relaxed">{section.text}</p></section>)}
           <section className="space-y-3">
             <h2 className="text-2xl font-semibold">Prix, caution et livraison de votre {editorial.name}</h2>
-            <p>Le prix journalier affiché est indicatif. Choisissez une période à partir de trois jours pour demander le tarif total. Le loueur précise séparément la caution, le moyen de dépôt accepté et ses conditions de restitution avant votre accord.</p>
+            <p>Le prix journalier affiché est indicatif. Choisissez une période à partir de trois jours : le prix total s’affiche et Benatna vous le confirme sous 1 heure. Aucune caution n’est demandée.</p>
             <p>La livraison est gratuite aux points desservis de Casablanca, avec un rendez-vous convenu à l’avance. La version, les équipements et la disponibilité sont confirmés par le loueur ; les photos illustrent le modèle.</p>
             <div className="flex flex-wrap gap-4">
               <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-casablanca">Location de voiture à Casablanca</Link>
               <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-aeroport-casablanca">Livraison à l’aéroport Mohammed V</Link>
               <Link className="inline-flex min-h-11 items-center text-primary underline" to="/location-voiture-gare-casa-voyageurs">Prise en charge à Casa-Voyageurs</Link>
               <Link className="inline-flex min-h-11 items-center text-primary underline" to="/prix-location-voiture-maroc-2026">Comprendre le prix de votre location</Link>
-              <Link className="inline-flex min-h-11 items-center text-primary underline" to="/caution-location-voiture-maroc">Préparer les questions sur la caution</Link>
+              <Link className="inline-flex min-h-11 items-center text-primary underline" to="/caution-location-voiture-maroc">Louer sans caution</Link>
             </div>
           </section>
           <RentalModelLinks exclude={vehicle.slug} />
