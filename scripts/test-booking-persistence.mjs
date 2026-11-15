@@ -73,13 +73,42 @@ await scenario(browser, 'conflit d’idempotence', { respond: (route, n) => n ==
   check('conflit : nouvelle clé seulement après le choix explicite', calls.length === 2 && calls[0].p_idempotency_key !== calls[1].p_idempotency_key);
   check('conflit : succès après la nouvelle demande', (await dialog.innerText()).includes('BN-CFL234'));
 });
-await scenario(browser, 'réponse perdue puis modification du paiement', { respond: (route, n) => n === 1 ? route.abort('connectionreset') : route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify([{ reference: 'BN-OLD234', created: false }]) }) }, async ({ page, calls, dialog, events }) => {
-  await dialog.getByRole('radio').nth(1).check(); // passe au paiement total
-  await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1200);
-  check('réponse perdue : la tentative précédente est rejouée d’abord (même clé, ancien paiement)', calls.length === 2 && calls[1].p_idempotency_key === calls[0].p_idempotency_key && calls[1].p_payment === 'deposit');
+const abortFirst = later => (route, n) => n === 1 ? route.abort('connectionreset') : later(route, n);
+const json = (status, body) => route => route.fulfill({ status, contentType: 'application/json', body: typeof body === 'string' ? body : JSON.stringify(body) });
+const switchToFull = async (page, dialog) => { await dialog.getByRole('radio').nth(1).check(); await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1200); };
+await scenario(browser, 'coupure après insertion puis modification', { respond: abortFirst(json(200, [{ reference: 'BN-OLD234', created: false }])) }, async ({ page, calls, dialog, events }) => {
+  await switchToFull(page, dialog);
+  check('après insertion : rejeu de la tentative précédente (même clé, ancien paiement)', calls.length === 2 && calls[1].p_idempotency_key === calls[0].p_idempotency_key && calls[1].p_payment === 'deposit');
   const text = await dialog.innerText();
-  check('réponse perdue : la première réservation est retrouvée, sans doublon', text.includes('BN-OLD234') && /première réservation avait bien été enregistrée/.test(text));
-  check('réponse perdue : booking_submitted une fois', events.filter(e => e.name === 'booking_submitted').length === 1);
+  check('après insertion : premier envoi présenté comme déjà enregistré, infos sauvegardées affichées', text.includes('BN-OLD234') && /premier envoi avait déjà été enregistré/.test(text) && /Enregistré : du/.test(text));
+  check('après insertion : paiement affiché = celui enregistré', /Acompte de 30 %/.test(text));
+  check('après insertion : booking_submitted une fois', events.filter(e => e.name === 'booking_submitted').length === 1);
+});
+await scenario(browser, 'coupure avant insertion puis modification', { respond: abortFirst(json(200, [{ reference: 'BN-NEW234', created: true }])) }, async ({ page, calls, dialog, popups }) => {
+  await switchToFull(page, dialog);
+  const text = await dialog.innerText();
+  check('avant insertion : message exact (créée avec le premier envoi)', /enregistré votre réservation avec les informations de votre premier envoi/.test(text) && !/déjà été enregistré/.test(text));
+  check('avant insertion : modifications signalées comme non enregistrées', /modifications ne sont pas enregistrées/.test(text));
+  await dialog.getByRole('button', { name: /Continuer sur WhatsApp/ }).click(); await page.waitForTimeout(800);
+  check('avant insertion : modifications transmises dans le message WhatsApp', popups.length === 1 && /Modifications souhaitées/.test(popups[0]) && /100 % avant la location/.test(popups[0]) && popups[0].includes('BN-NEW234'));
+});
+await scenario(browser, 'conflit pendant la reprise', { respond: (route, n) => n === 1 ? route.abort('connectionreset') : n === 2 ? json(409, { code: '23505', message: 'idempotency_conflict' })(route) : json(200, [{ reference: 'BN-RCF234', created: true }])(route) }, async ({ page, calls, dialog }) => {
+  await switchToFull(page, dialog);
+  check('conflit en reprise : arrêt, aucun troisième appel', calls.length === 2 && /pas encore vérifier/.test(await dialog.innerText()));
+  await dialog.getByRole('button', { name: /Enregistrer comme nouvelle demande/ }).click(); await page.waitForTimeout(1000);
+  check('conflit en reprise : nouvelle clé seulement après le choix explicite, avec le contenu actuel', calls.length === 3 && calls[2].p_idempotency_key !== calls[0].p_idempotency_key && calls[2].p_payment === 'full');
+});
+await scenario(browser, 'reprise indisponible', { respond: (route, n) => n === 1 ? route.abort('connectionreset') : json(503, { message: 'upstream' })(route) }, async ({ page, calls, dialog }) => {
+  await switchToFull(page, dialog);
+  check('reprise indisponible : arrêt sans nouvel envoi', calls.length === 2 && calls[1].p_idempotency_key === calls[0].p_idempotency_key);
+  await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
+  check('reprise indisponible : un nouvel essai rejoue encore l’ancienne tentative', calls.length === 3 && calls[2].p_idempotency_key === calls[0].p_idempotency_key && calls[2].p_payment === 'deposit');
+});
+await scenario(browser, 'réponse 200 tronquée', { respond: (route, n) => n === 1 ? json(200, '[{"refer')(route) : json(200, [{ reference: 'BN-TRC234', created: false }])(route) }, async ({ page, calls, dialog, events }) => {
+  check('200 tronquée : pas de succès affiché', !/Réservation enregistrée/.test(await dialog.innerText()));
+  await switchToFull(page, dialog);
+  check('200 tronquée : rejeu de la clé initiale avec l’ancien contenu', calls.length === 2 && calls[1].p_idempotency_key === calls[0].p_idempotency_key && calls[1].p_payment === 'deposit');
+  check('200 tronquée : une seule demande retrouvée', (await dialog.innerText()).includes('BN-TRC234') && events.filter(e => e.name === 'booking_submitted').length === 1);
 });
 await scenario(browser, 'téléphone ou paiement modifiés après un refus', { respond: (route, n) => n === 1 ? route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ code: '22023', message: 'invalid_phone' }) }) : ok('BN-PHN234')(route) }, async ({ page, calls, dialog }) => {
   check('refus du téléphone : message sur le téléphone', /indicatif du pays/.test(await dialog.innerText()));

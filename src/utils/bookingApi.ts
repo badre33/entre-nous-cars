@@ -1,7 +1,7 @@
 // Enregistrement durable d'une réservation (contrat commun Claude / Codex, 15 novembre 2026).
 // Activé seulement si VITE_BOOKING_PERSISTENCE=on, une fois la fonction submit_booking
 // validée et appliquée sur la base cible. Sinon le parcours actuel reste inchangé.
-import { normalizeVehicleName, rentalEstimate, type ConfirmedRental } from '@/utils/rentalRequest';
+import { normalizeVehicleName, rentalEstimate, rentalPlace, type ConfirmedRental } from '@/utils/rentalRequest';
 import { isTestMode } from '@/utils/testMode';
 
 export const bookingPersistenceEnabled = () => import.meta.env.VITE_BOOKING_PERSISTENCE === 'on';
@@ -15,7 +15,12 @@ export function normalizePhone(input: string): string | null {
 
 export type SubmitBookingResult =
   | { ok: true; reference: string; created: boolean }
-  | { ok: false; reason: 'validation' | 'phone' | 'conflict' | 'rate_limited' | 'network' | 'unavailable'; message?: string };
+  | { ok: false; reason: 'validation' | 'phone' | 'conflict' | 'rate_limited' | 'network' | 'unknown' | 'unavailable'; message?: string };
+
+/** Appel envoyé dont le résultat n'est pas connu : la demande a pu être enregistrée. */
+export const outcomeUnknown = (reason: string) => reason === 'network' || reason === 'unknown';
+/** Seul un refus de validation (transaction annulée côté serveur) garantit qu'aucune demande n'a été créée. */
+export const definitelyNotSaved = (reason: string) => reason === 'validation' || reason === 'phone';
 
 export interface SubmitBookingInput { booking: ConfirmedRental; phone: string; language: string; idempotencyKey: string; sessionId: string }
 
@@ -64,7 +69,8 @@ export async function submitBooking(input: SubmitBookingInput): Promise<SubmitBo
     const row = Array.isArray(body) ? body[0] : body;
     const reference = row && typeof row === 'object' ? (row as { reference?: unknown }).reference : undefined;
     if (typeof reference === 'string' && /^BN-[A-Z0-9]{6}$/.test(reference)) return { ok: true, reference, created: (row as { created?: unknown }).created !== false };
-    return { ok: false, reason: 'unavailable' };
+    // 2xx illisible ou incomplet : l'enregistrement a pu avoir lieu.
+    return { ok: false, reason: 'unknown' };
   }
   const code = body && typeof body === 'object' ? String((body as { code?: unknown }).code ?? '') : '';
   const message = body && typeof body === 'object' ? String((body as { message?: unknown }).message ?? '') : '';
@@ -73,6 +79,18 @@ export async function submitBooking(input: SubmitBookingInput): Promise<SubmitBo
   if (message.includes('booking_rate_limited')) return { ok: false, reason: 'rate_limited' };
   if (message.includes('invalid_phone')) return { ok: false, reason: 'phone' };
   if (code === '22023' || code === '22007' || code === '22P02' || response.status === 400) return { ok: false, reason: 'validation', message };
-  if (response.status >= 500 || response.status === 0) return { ok: false, reason: 'network' };
-  return { ok: false, reason: 'unavailable' };
+  // Erreur de passerelle ou réponse inattendue après envoi : résultat inconnu.
+  return { ok: false, reason: 'unknown' };
+}
+
+/** Écart entre la réservation enregistrée et la saisie actuelle, à transmettre sur WhatsApp. */
+export function bookingChanges(saved: ConfirmedRental, current: ConfirmedRental, savedPhone: string, currentPhone: string): string {
+  const lines: string[] = [];
+  const label = (d: string) => d.split('-').reverse().join('/');
+  if (saved.startDate !== current.startDate || saved.endDate !== current.endDate) lines.push(`Dates : du ${label(current.startDate)} au ${label(current.endDate)}`);
+  if (saved.vehicles.join('|') !== current.vehicles.join('|')) lines.push(`Voitures : ${current.vehicles.map(normalizeVehicleName).join(' / ')}`);
+  if (rentalPlace(saved) !== rentalPlace(current)) lines.push(`Lieu : ${rentalPlace(current)}`);
+  if ((saved.payment ?? 'deposit') !== (current.payment ?? 'deposit')) lines.push(`Paiement : ${current.payment === 'full' ? '100 % avant la location' : 'acompte de 30 % + 500 DH'}`);
+  if (savedPhone !== currentPhone) lines.push(`Téléphone : ${currentPhone}`);
+  return lines.length ? `Modifications souhaitées après l'enregistrement :\n${lines.join('\n')}` : '';
 }
