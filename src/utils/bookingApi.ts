@@ -15,9 +15,15 @@ export function normalizePhone(input: string): string | null {
 
 export type SubmitBookingResult =
   | { ok: true; reference: string; created: boolean }
-  | { ok: false; reason: 'validation' | 'conflict' | 'network' | 'unavailable'; message?: string };
+  | { ok: false; reason: 'validation' | 'phone' | 'conflict' | 'rate_limited' | 'network' | 'unavailable'; message?: string };
 
 export interface SubmitBookingInput { booking: ConfirmedRental; phone: string; language: string; idempotencyKey: string; sessionId: string }
+
+/** Contenu métier normalisé d'une tentative (sans session ni indication de test) : une clé d'idempotence par contenu. */
+export function bookingSignature(input: Omit<SubmitBookingInput, 'idempotencyKey' | 'sessionId'>): string {
+  const { p_idempotency_key: _key, p_session_id: _session, p_test_hint: _test, ...business } = submitBookingPayload({ ...input, idempotencyKey: '', sessionId: '' });
+  return JSON.stringify(business);
+}
 
 export function submitBookingPayload({ booking, phone, language, idempotencyKey, sessionId }: SubmitBookingInput) {
   const vehicles = booking.vehicles.map(normalizeVehicleName);
@@ -64,6 +70,8 @@ export async function submitBooking(input: SubmitBookingInput): Promise<SubmitBo
   const message = body && typeof body === 'object' ? String((body as { message?: unknown }).message ?? '') : '';
   // Codes convenus : 22023 = données refusées, 23505 / idempotency_conflict = même clé, autres données.
   if (code === '23505' || message.includes('idempotency_conflict')) return { ok: false, reason: 'conflict' };
+  if (message.includes('booking_rate_limited')) return { ok: false, reason: 'rate_limited' };
+  if (message.includes('invalid_phone')) return { ok: false, reason: 'phone' };
   if (code === '22023' || code === '22007' || code === '22P02' || response.status === 400) return { ok: false, reason: 'validation', message };
   if (response.status >= 500 || response.status === 0) return { ok: false, reason: 'network' };
   return { ok: false, reason: 'unavailable' };

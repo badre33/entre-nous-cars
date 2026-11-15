@@ -32,9 +32,13 @@ export interface ConfirmedRental {
 let pendingDraft: RentalDraft | null = null;
 let permittedURL: string | null = null;
 let installed = false;
-export const localToday = () => {
-  const d = new Date();
-  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+// Date du jour à Casablanca (même règle que submit_booking), quel que soit le fuseau du visiteur.
+export const localToday = (now: Date = new Date()) => {
+  try {
+    return new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Casablanca', year: 'numeric', month: '2-digit', day: '2-digit' }).format(now);
+  } catch {
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  }
 };
 export function normalizeVehicleName(name: string) { return name.replace(/^VW /, 'Volkswagen '); }
 export function rentalDefaults(url = new URL(window.location.href)): RentalDraft {

@@ -7,9 +7,10 @@ const executablePath = process.env.CHROME_PATH || undefined;
 const failures = [];
 const check = (name, ok, detail = '') => { console.log(`${ok ? 'OK ' : 'ÉCHEC'} ${name}${detail ? ` (${detail})` : ''}`); if (!ok) failures.push(name); };
 const day = n => new Date(Date.now() + n * 864e5).toISOString().slice(0, 10);
+// Réservation simulée par défaut
 
-async function scenario(browser, name, { respond, blockWhatsApp = false, phone = '+33 6 12 34 56 78', clicks = 1, retry = false }, verify) {
-  const context = await browser.newContext({ ...devices['iPhone 13'] });
+async function scenario(browser, name, { respond, blockWhatsApp = false, phone = '+33 6 12 34 56 78', clicks = 1, retry = false, before, timezoneId }, verify) {
+  const context = await browser.newContext({ ...devices['iPhone 13'], ...(timezoneId ? { timezoneId } : {}) });
   const calls = []; const events = []; const popups = [];
   await context.route('**/fake.supabase.co/**', async route => {
     const request = route.request(); const url = request.url();
@@ -27,7 +28,9 @@ async function scenario(browser, name, { respond, blockWhatsApp = false, phone =
   await page.getByRole('button', { name: /^Réserver$/ }).first().click();
   const dialog = page.getByRole('dialog');
   await dialog.getByLabel('Numéro WhatsApp').fill(phone);
+  if (before) await before({ page, dialog });
   const save = dialog.getByRole('button', { name: /Enregistrer ma réservation/ });
+  if (clicks === 0) { await verify({ page, dialog, calls, events, popups }); await context.close(); return; }
   if (clicks === 2) await save.dblclick(); else await save.click();
   await page.waitForTimeout(1200);
   if (retry) { await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1200); }
@@ -64,9 +67,41 @@ await scenario(browser, 'coupure réseau après insertion', { retry: true, respo
 await scenario(browser, 'double clic', { clicks: 2, respond: async (route) => { await new Promise(r => setTimeout(r, 700)); return ok('BN-DBL234')(route); } }, async ({ calls }) => {
   check('double clic : un seul appel', calls.length === 1, `${calls.length} appel(s)`);
 });
-await scenario(browser, 'conflit d’idempotence', { retry: true, respond: (route, n) => n === 1 ? route.fulfill({ status: 409, contentType: 'application/json', body: JSON.stringify({ code: '23505', message: 'idempotency_conflict' }) }) : ok('BN-CFL234')(route) }, async ({ calls, dialog }) => {
-  check('conflit : nouvelle clé pour la tentative suivante', calls.length === 2 && calls[0].p_idempotency_key !== calls[1].p_idempotency_key);
-  check('conflit : succès seulement après la seconde réponse', (await dialog.innerText()).includes('BN-CFL234'));
+await scenario(browser, 'conflit d’idempotence', { respond: (route, n) => n === 1 ? route.fulfill({ status: 409, contentType: 'application/json', body: JSON.stringify({ code: '23505', message: 'idempotency_conflict' }) }) : ok('BN-CFL234')(route) }, async ({ page, calls, dialog }) => {
+  check('conflit : pas de nouvelle clé automatique', calls.length === 1 && /nouvelle demande/.test(await dialog.innerText()) && !/Réservation enregistrée/.test(await dialog.innerText()));
+  await dialog.getByRole('button', { name: /Enregistrer comme nouvelle demande/ }).click(); await page.waitForTimeout(1000);
+  check('conflit : nouvelle clé seulement après le choix explicite', calls.length === 2 && calls[0].p_idempotency_key !== calls[1].p_idempotency_key);
+  check('conflit : succès après la nouvelle demande', (await dialog.innerText()).includes('BN-CFL234'));
+});
+await scenario(browser, 'réponse perdue puis modification du paiement', { respond: (route, n) => n === 1 ? route.abort('connectionreset') : route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify([{ reference: 'BN-OLD234', created: false }]) }) }, async ({ page, calls, dialog, events }) => {
+  await dialog.getByRole('radio').nth(1).check(); // passe au paiement total
+  await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1200);
+  check('réponse perdue : la tentative précédente est rejouée d’abord (même clé, ancien paiement)', calls.length === 2 && calls[1].p_idempotency_key === calls[0].p_idempotency_key && calls[1].p_payment === 'deposit');
+  const text = await dialog.innerText();
+  check('réponse perdue : la première réservation est retrouvée, sans doublon', text.includes('BN-OLD234') && /première réservation avait bien été enregistrée/.test(text));
+  check('réponse perdue : booking_submitted une fois', events.filter(e => e.name === 'booking_submitted').length === 1);
+});
+await scenario(browser, 'téléphone ou paiement modifiés après un refus', { respond: (route, n) => n === 1 ? route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ code: '22023', message: 'invalid_phone' }) }) : ok('BN-PHN234')(route) }, async ({ page, calls, dialog }) => {
+  check('refus du téléphone : message sur le téléphone', /indicatif du pays/.test(await dialog.innerText()));
+  await dialog.getByLabel('Numéro WhatsApp').fill('+44 7700 900123');
+  await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
+  check('contenu modifié : nouvelle clé', calls.length === 2 && calls[0].p_idempotency_key !== calls[1].p_idempotency_key && calls[1].p_phone === '+447700900123');
+});
+await scenario(browser, 'fermeture pendant l’enregistrement', { respond: async (route, n) => { if (n === 1) { await new Promise(r => setTimeout(r, 1500)); return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify([{ reference: 'BN-CLO234', created: true }]) }); } return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify([{ reference: 'BN-CLO234', created: false }]) }); }, clicks: 1, before: async ({ dialog }) => {} }, async ({ page, calls, events }) => {
+  await page.keyboard.press('Escape'); await page.waitForTimeout(2000); // la réponse arrive après fermeture
+  check('fermeture : aucun écran de succès ouvert tout seul', await page.getByRole('dialog').count() === 0);
+  await page.getByRole('button', { name: /^Réserver$/ }).first().click();
+  const dialog = page.getByRole('dialog');
+  await dialog.getByLabel('Numéro WhatsApp').fill('+33 6 12 34 56 78');
+  await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
+  check('fermeture : même contenu, même clé à la réouverture', calls.length === 2 && calls[0].p_idempotency_key === calls[1].p_idempotency_key);
+  check('fermeture : référence retrouvée', (await dialog.innerText()).includes('BN-CLO234'));
+  check('fermeture : booking_submitted une fois', events.filter(e => e.name === 'booking_submitted').length === 1);
+});
+await scenario(browser, 'fuseau du visiteur', { clicks: 0, timezoneId: 'Pacific/Kiritimati', respond: ok('BN-TZZ234') }, async ({ page }) => {
+  const casablanca = new Intl.DateTimeFormat('en-CA', { timeZone: 'Africa/Casablanca', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  const min = await page.locator('input[type=date]').first().getAttribute('min');
+  check('fuseau : date minimale = aujourd’hui à Casablanca', min === casablanca, `${min} / ${casablanca}`);
 });
 await scenario(browser, 'téléphone invalide', { phone: '0612', respond: ok('BN-XXX234') }, async ({ calls, dialog, events }) => {
   check('téléphone : aucun appel serveur', calls.length === 0);
