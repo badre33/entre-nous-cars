@@ -12,7 +12,7 @@ interface Car {
   city: string;
   price: number;
   priceDisplay: string;
-  conditions: string[];
+  conditions?: string[];
   badges?: string[];
 }
 

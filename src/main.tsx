@@ -1,9 +1,12 @@
 import { installRentalRequestGate } from './utils/rentalRequest';
+import { isTestMode } from './utils/testMode';
 // IMPORTANT: chunk error handler imported FIRST to intercept loading errors
 import './utils/chunkErrorHandler';
 import './utils/versionCheck';
 
 installRentalRequestGate();
+// Enregistre ?test=1 / ?test=0 dès l'arrivée, avant toute mesure.
+isTestMode();
 
 // Sentry — DEFERRED dynamic import to reduce initial bundle TBT (~260KB savings).
 // Replay integration removed (~80KB saved). Errors that happen in the first ~500ms

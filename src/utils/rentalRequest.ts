@@ -1,3 +1,4 @@
+import { isTestMode } from '@/utils/testMode';
 import { appendCampaignCode } from './analyticsPrivacy';
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from './rentalPeriod';
 import { rentalVehicleNames } from '@/data/rentalVehicleNames';
@@ -93,7 +94,7 @@ export function buildConfirmedRentalMessage(value: ConfirmedRental): string {
     return `${value.vehicles.length > 1 ? `${index + 1}. ` : ''}${normalizeVehicleName(name)}${estimate ? ` : environ ${dh(estimate.total)} au total` : ''}`;
   }).join('\n');
   const choice = value.vehicles.length > 1 ? 'Voitures, par ordre de préférence (la première disponible) :' : 'Voiture :';
-  return `Bonjour Benatna, je souhaite réserver une voiture.${value.reference ? `\nRéservation n° ${value.reference}` : ''}\n\nDates : du ${dateLabel(value.startDate)} au ${dateLabel(value.endDate)} (${days} jours)\nLieu de prise en charge : ${rentalPlace(value)}${value.city === 'Rabat' ? ' (livraison depuis Casablanca)' : ''}\n\n${choice}\n${cars}\n\nPaiement sans caution : ${value.payment === 'full' ? 'je règle 100 % du prix avant la location' : 'acompte de 30 % + 500 DH'}.\n\nMerci de me confirmer la réservation, le prix total et les coordonnées du virement.${value.notes?.trim() ? '\n\nPrécisions :\n' + value.notes.trim().slice(0, 1200) : ''}`;
+  return `${isTestMode() ? '[TEST] ' : ''}Bonjour Benatna, je souhaite réserver une voiture.${value.reference ? `\nRéservation n° ${value.reference}` : ''}\n\nDates : du ${dateLabel(value.startDate)} au ${dateLabel(value.endDate)} (${days} jours)\nLieu de prise en charge : ${rentalPlace(value)}${value.city === 'Rabat' ? ' (livraison depuis Casablanca)' : ''}\n\n${choice}\n${cars}\n\nPaiement sans caution : ${value.payment === 'full' ? 'je règle 100 % du prix avant la location' : 'acompte de 30 % + 500 DH'}.\n\nMerci de me confirmer la réservation, le prix total et les coordonnées du virement.${value.notes?.trim() ? '\n\nPrécisions :\n' + value.notes.trim().slice(0, 1200) : ''}`;
 }
 function whatsAppURL(value: string | URL | undefined): URL | null {
   try { const url = new URL(String(value), window.location.origin); return url.protocol === 'https:' && ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? url : null; } catch { return null; }
