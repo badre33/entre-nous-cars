@@ -27,7 +27,7 @@ async function scenario(browser, name, { respond, blockWhatsApp = false, phone =
   await dates.nth(0).fill(day(20)); await dates.nth(1).fill(day(25));
   await page.getByRole('button', { name: /^Réserver$/ }).first().click();
   const dialog = page.getByRole('dialog');
-  await dialog.getByLabel('Numéro WhatsApp').fill(phone);
+  await dialog.getByLabel('Numéro de téléphone').fill(phone);
   if (before) await before({ page, dialog });
   const save = dialog.getByRole('button', { name: /Enregistrer ma réservation/ });
   if (clicks === 0) { await verify({ page, dialog, calls, events, popups }); await context.close(); return; }
@@ -55,7 +55,7 @@ await scenario(browser, 'réussite', { respond: ok('BN-ABC234') }, async ({ dial
 await scenario(browser, 'validation refusée', { respond: route => route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ code: '22023', message: 'Rental period too short' }) }) }, async ({ dialog, events, popups }) => {
   const text = await dialog.innerText();
   check('validation : message d’erreur, pas d’écran de succès', /pas pu être validées/.test(text) && !/Réservation enregistrée/.test(text));
-  check('validation : saisie conservée (récapitulatif et téléphone)', (await dialog.getByLabel('Numéro WhatsApp').inputValue()) === '+33 6 12 34 56 78');
+  check('validation : saisie conservée (récapitulatif et téléphone)', (await dialog.getByLabel('Numéro de téléphone').inputValue()) === '+33 6 12 34 56 78');
   check('validation : aucun booking_submitted ni WhatsApp', !events.some(e => e.name === 'booking_submitted') && popups.length === 0);
   check('validation : secours WhatsApp proposé', /sans numéro de réservation/.test(text));
 });
@@ -104,6 +104,17 @@ await scenario(browser, 'reprise indisponible', { respond: (route, n) => n === 1
   await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
   check('reprise indisponible : un nouvel essai rejoue encore l’ancienne tentative', calls.length === 3 && calls[2].p_idempotency_key === calls[0].p_idempotency_key && calls[2].p_payment === 'deposit');
 });
+await scenario(browser, 'reprise en HTTP 400 non reconnu', { respond: (route, n) => n === 1 ? route.abort('connectionreset') : n === 2 ? json(400, '<html>Bad Request')(route) : json(200, [{ reference: 'BN-UNK234', created: true }])(route) }, async ({ page, calls, dialog }) => {
+  await switchToFull(page, dialog);
+  check('400 non reconnu en reprise : arrêt, aucun nouvel enregistrement', calls.length === 2 && /pas encore vérifier/.test(await dialog.innerText()));
+  await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
+  check('400 non reconnu en reprise : le réessai rejoue l’ancienne clé', calls.length === 3 && calls[2].p_idempotency_key === calls[0].p_idempotency_key && calls[2].p_payment === 'deposit');
+});
+await scenario(browser, 'premier appel en HTTP 400 non reconnu', { respond: (route, n) => n === 1 ? json(400, '') (route) : json(200, [{ reference: 'BN-UN2234', created: false }])(route) }, async ({ page, calls, dialog }) => {
+  check('400 non reconnu : pas présenté comme refus de validation', !/pas pu être validées/.test(await dialog.innerText()));
+  await switchToFull(page, dialog);
+  check('400 non reconnu : tentative conservée et rejouée avant le nouveau contenu', calls.length === 2 && calls[1].p_idempotency_key === calls[0].p_idempotency_key && calls[1].p_payment === 'deposit');
+});
 await scenario(browser, 'réponse 200 tronquée', { respond: (route, n) => n === 1 ? json(200, '[{"refer')(route) : json(200, [{ reference: 'BN-TRC234', created: false }])(route) }, async ({ page, calls, dialog, events }) => {
   check('200 tronquée : pas de succès affiché', !/Réservation enregistrée/.test(await dialog.innerText()));
   await switchToFull(page, dialog);
@@ -112,7 +123,7 @@ await scenario(browser, 'réponse 200 tronquée', { respond: (route, n) => n ===
 });
 await scenario(browser, 'téléphone ou paiement modifiés après un refus', { respond: (route, n) => n === 1 ? route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ code: '22023', message: 'invalid_phone' }) }) : ok('BN-PHN234')(route) }, async ({ page, calls, dialog }) => {
   check('refus du téléphone : message sur le téléphone', /indicatif du pays/.test(await dialog.innerText()));
-  await dialog.getByLabel('Numéro WhatsApp').fill('+44 7700 900123');
+  await dialog.getByLabel('Numéro de téléphone').fill('+44 7700 900123');
   await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
   check('contenu modifié : nouvelle clé', calls.length === 2 && calls[0].p_idempotency_key !== calls[1].p_idempotency_key && calls[1].p_phone === '+447700900123');
 });
@@ -121,7 +132,7 @@ await scenario(browser, 'fermeture pendant l’enregistrement', { respond: async
   check('fermeture : aucun écran de succès ouvert tout seul', await page.getByRole('dialog').count() === 0);
   await page.getByRole('button', { name: /^Réserver$/ }).first().click();
   const dialog = page.getByRole('dialog');
-  await dialog.getByLabel('Numéro WhatsApp').fill('+33 6 12 34 56 78');
+  await dialog.getByLabel('Numéro de téléphone').fill('+33 6 12 34 56 78');
   await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
   check('fermeture : même contenu, même clé à la réouverture', calls.length === 2 && calls[0].p_idempotency_key === calls[1].p_idempotency_key);
   check('fermeture : référence retrouvée', (await dialog.innerText()).includes('BN-CLO234'));

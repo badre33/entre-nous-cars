@@ -78,7 +78,8 @@ export async function submitBooking(input: SubmitBookingInput): Promise<SubmitBo
   if (code === '23505' || message.includes('idempotency_conflict')) return { ok: false, reason: 'conflict' };
   if (message.includes('booking_rate_limited')) return { ok: false, reason: 'rate_limited' };
   if (message.includes('invalid_phone')) return { ok: false, reason: 'phone' };
-  if (code === '22023' || code === '22007' || code === '22P02' || response.status === 400) return { ok: false, reason: 'validation', message };
+  // Refus de validation : uniquement sur une erreur structurée reconnue (transaction annulée côté serveur).
+  if (code === '22023' || code === '22007' || code === '22P02') return { ok: false, reason: 'validation', message };
   // Erreur de passerelle ou réponse inattendue après envoi : résultat inconnu.
   return { ok: false, reason: 'unknown' };
 }
