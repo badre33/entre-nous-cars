@@ -61,6 +61,7 @@ const Analytics = () => {
   const [dateRange, setDateRange] = useState("7");
   const [eventTypeFilter, setEventTypeFilter] = useState("all");
   const [pageFilter, setPageFilter] = useState("all");
+  const [dataScope, setDataScope] = useState<"real" | "test">("real");
   const access = useAdminAccess();
   const queryClient = useQueryClient();
   const isAuthenticated = access === 'loading' ? null : access === 'admin';
@@ -119,9 +120,10 @@ const Analytics = () => {
 
   // Sessions de test : événements is_test (mode ?test=1) et réservations de test connues, exclues entièrement.
   const testSessionIds = new Set(rawEvents?.filter(event => event.properties?.is_test === true || TEST_BOOKING_REFERENCES.includes(String(event.properties?.content_id ?? ''))).map(event => event.session_id));
-  const events = rawEvents?.filter(event => !testSessionIds.has(event.session_id) && !['/auth','/analytics','/demandes'].includes(event.page_path));
+  // « Réelles » exclut les sessions de test ; « Tests » n'affiche qu'elles, pour vérifier la mesure.
+  const events = rawEvents?.filter(event => (dataScope === 'test' ? testSessionIds.has(event.session_id) : !testSessionIds.has(event.session_id)) && !['/auth','/analytics','/demandes'].includes(event.page_path));
   const realSessionIds = new Set(events?.map(event => event.session_id));
-  const sessions = rawSessions?.filter(session => !testSessionIds.has(session.session_id) || realSessionIds.has(session.session_id));
+  const sessions = rawSessions?.filter(session => dataScope === 'test' ? testSessionIds.has(session.session_id) : (!testSessionIds.has(session.session_id) || realSessionIds.has(session.session_id)));
 
   // Calculate KPIs
   const totalPageViews = events?.filter(e => e.event_name === 'page_view').length || 0;
@@ -196,8 +198,8 @@ const Analytics = () => {
     let filename = '';
 
     if (type === 'events') {
-      filename = `analytics-events-${format(new Date(), 'yyyy-MM-dd')}.csv`;
-      const headers = ['Date', 'Type', 'Événement', 'Page', 'Source', 'Appareil', 'Session ID', 'Visitor ID'];
+      filename = `analytics-events${dataScope === 'test' ? '-tests' : ''}-${format(new Date(), 'yyyy-MM-dd')}.csv`;
+      const headers = ['Date', 'Type', 'Événement', 'Page', 'Source', 'Appareil', 'Session ID', 'Visitor ID', 'Propriétés'];
       csvContent = headers.join(',') + '\n';
       events?.forEach(e => {
         csvContent += [
@@ -208,11 +210,12 @@ const Analytics = () => {
           e.source,
           e.device_type,
           e.session_id,
-          e.visitor_id
-        ].map(v => `"${v || ''}"`).join(',') + '\n';
+          e.visitor_id,
+          JSON.stringify(e.properties ?? {})
+        ].map(v => `"${String(v || '').replace(/"/g, '""')}"`).join(',') + '\n';
       });
     } else if (type === 'sessions') {
-      filename = `analytics-sessions-${format(new Date(), 'yyyy-MM-dd')}.csv`;
+      filename = `analytics-sessions${dataScope === 'test' ? '-tests' : ''}-${format(new Date(), 'yyyy-MM-dd')}.csv`;
       const headers = ['Date début', 'Date fin', 'Pages vues', 'Page entrée', 'Page sortie', 'Source', 'Appareil'];
       csvContent = headers.join(',') + '\n';
       sessions?.forEach(s => {
@@ -227,7 +230,7 @@ const Analytics = () => {
         ].map(v => `"${v || ''}"`).join(',') + '\n';
       });
     } else {
-      filename = `analytics-kpis-${format(new Date(), 'yyyy-MM-dd')}.csv`;
+      filename = `analytics-kpis${dataScope === 'test' ? '-tests' : ''}-${format(new Date(), 'yyyy-MM-dd')}.csv`;
       csvContent = `KPI,Valeur\n`;
       csvContent += `"Pages vues","${totalPageViews}"\n`;
       csvContent += `"Visiteurs uniques","${uniqueVisitors}"\n`;
@@ -339,6 +342,19 @@ const Analytics = () => {
                 </Select>
               </div>
               
+              <div className="flex-1 min-w-[150px]">
+                <label className="text-sm font-medium mb-2 block">Données</label>
+                <Select value={dataScope} onValueChange={value => setDataScope(value as "real" | "test")}>
+                  <SelectTrigger aria-label="Données affichées">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="real">Réelles (tests exclus)</SelectItem>
+                    <SelectItem value="test">Tests uniquement</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
               <div className="flex-1 min-w-[150px]">
                 <label className="text-sm font-medium mb-2 block">Type d'événement</label>
                 <Select value={eventTypeFilter} onValueChange={setEventTypeFilter}>
@@ -513,7 +529,7 @@ const Analytics = () => {
             <dl className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
               {bookingFunnel.map(item => <div key={item.label}><dt className="text-sm text-muted-foreground">{item.label}</dt><dd className="text-2xl font-bold">{isLoading ? '…' : item.value}</dd></div>)}
             </dl>
-            <p className="mt-3 text-xs text-muted-foreground">Une réservation envoyée ouvre WhatsApp ; elle ne prouve pas un message reçu. Appareils de test (?test=1) et réservations BN-7GG7UH, BN-D27R26 exclus.</p>
+            <p className="mt-3 text-xs text-muted-foreground">Une réservation envoyée ouvre WhatsApp ; elle ne prouve pas un message reçu. {dataScope === 'test' ? 'Affichage des tests uniquement : appareils ?test=1 et réservations BN-7GG7UH, BN-D27R26.' : 'Appareils de test (?test=1) et réservations BN-7GG7UH, BN-D27R26 exclus.'}</p>
           </CardContent>
         </Card>
 
