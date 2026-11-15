@@ -254,3 +254,7 @@ input[type="date"] {
 input[type="date"]::-webkit-date-and-time-value {
   text-align: left;
 }
+
+/* La bannière cookies ne doit jamais masquer un formulaire ouvert (réservation, aperçu) :
+   elle s'efface tant qu'une fenêtre modale est ouverte et revient ensuite. */
+body:has([role="dialog"][data-state="open"]) .consent-banner { display: none; }
