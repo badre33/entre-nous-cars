@@ -7,13 +7,26 @@ import { rentalVehicleNames, rentalVehicleSlugs } from '@/data/rentalVehicleName
 import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, normalizeVehicleName, validateRental, rentalPlace, openConfirmedRental, rentalEstimate, newBookingReference, NO_DEPOSIT_FEE, type RentalDraft, type ConfirmedRental } from '@/utils/rentalRequest';
 import { RENTAL_PERIOD_MESSAGE } from '@/utils/rentalPeriod';
 import { useTr } from '@/contexts/LanguageContext';
-import { analyticsTracker } from '@/utils/analyticsTracker';
+import { analyticsTracker, sessionId } from '@/utils/analyticsTracker';
+import { bookingPersistenceEnabled, normalizePhone, submitBooking, type SubmitBookingResult } from '@/utils/bookingApi';
+import { analyticsEventId } from '@/utils/analyticsPrivacy';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { CheckCircle2 } from 'lucide-react';
 const empty = (): ConfirmedRental => ({ vehicles: [], startDate: '', endDate: '', city: 'Casablanca', pickupId: '', otherPlace: '' });
 const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-background px-3 py-2 text-base';
 const dh = (amount: number) => `${Math.round(amount).toLocaleString('fr-FR')} DH`;
 export default function RentalRequestDialog() {
   const { selectedCars } = useComparison();
+  const { language } = useLanguage();
+  // Enregistrement serveur (VITE_BOOKING_PERSISTENCE=on) : téléphone, clé d'idempotence, état d'envoi.
+  const persist = bookingPersistenceEnabled();
+  const [phone, setPhone] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [saveFailed, setSaveFailed] = useState(false);
+  const [whatsAppBlocked, setWhatsAppBlocked] = useState(false);
+  const idempotencyRef = useRef<string>('');
+  const savingRef = useRef(false);
+  const trackedReferences = useRef(new Set<string>());
   const tr = useTr();
   const errorText = (message: string) => ({
     'Choisissez un véhicule avant de continuer.': tr(message, 'Choose a car to continue.', 'Elige un coche para continuar.'),
@@ -50,6 +63,7 @@ export default function RentalRequestDialog() {
       // Moins de friction : tout est déjà rempli (fiche voiture, catalogue avec dates et lieu) -> récapitulatif direct.
       setError(null); setReview(!validateRental(next)); setConfirmed(false); setSent(null); setOpen(true);
       stepRef.current = { started: false, reviewed: '', sent: false };
+      idempotencyRef.current = analyticsEventId(); setSaveFailed(false); setWhatsAppBlocked(false);
       step('booking_form_open', { element_type: validateRental(next) ? 'formulaire' : 'recapitulatif_direct', quantity: vehicles.length, ...(next.pickupId ? { pickup_point: next.pickupId } : {}) });
     };
     const listener = () => { const draft = takePendingRental(); if (draft) show(draft); };
@@ -61,6 +75,41 @@ export default function RentalRequestDialog() {
   const change = (patch: Partial<ConfirmedRental>) => {
     if (!stepRef.current.started) { stepRef.current.started = true; step('booking_form_start', { element_type: Object.keys(patch)[0] || 'champ' }); }
     setValue(v => ({ ...v, ...patch })); setError(null); setReview(false); setConfirmed(false);
+    // Données modifiées : nouvelle clé, pour ne jamais rejouer une clé avec un autre contenu.
+    idempotencyRef.current = analyticsEventId(); setSaveFailed(false);
+  };
+  const trackSubmitted = (booking: ConfirmedRental) => {
+    if (!booking.reference || trackedReferences.current.has(booking.reference)) return;
+    trackedReferences.current.add(booking.reference);
+    const estimate = rentalEstimate(booking.vehicles[0], booking.startDate, booking.endDate, booking.city);
+    void analyticsTracker.trackEvent({ eventType: 'conversion', eventName: 'booking_submitted', properties: { content_id: booking.reference, vehicle_name: booking.vehicles.join(' / ').slice(0, 100), city: booking.city, pickup_point: booking.pickupId, element_type: booking.payment === 'full' ? 'paiement_total' : 'acompte_30_plus_500', quantity: booking.vehicles.length, ...(estimate ? { price: estimate.total, days: estimate.days } : {}) } });
+  };
+  const continueOnWhatsApp = (booking: ConfirmedRental) => {
+    const popup = openConfirmedRental(booking);
+    setWhatsAppBlocked(!popup);
+    if (!popup) step('booking_whatsapp_blocked');
+  };
+  const save = async () => {
+    if (savingRef.current) return; // double appui : un seul appel en cours
+    const normalized = normalizePhone(phone);
+    if (!normalized) { step('booking_validation_error', { element_type: 'telephone' }); setError({ message: tr('Indiquez votre numéro WhatsApp avec l’indicatif du pays, par exemple +33 6 12 34 56 78.', 'Enter your WhatsApp number with the country code, for example +44 7700 900123.', 'Indica tu número de WhatsApp con el prefijo del país, por ejemplo +34 612 34 56 78.') }); return; }
+    savingRef.current = true; setSaving(true); setError(null);
+    const result = await submitBooking({ booking: value, phone: normalized, language, idempotencyKey: idempotencyRef.current, sessionId: sessionId() });
+    savingRef.current = false; setSaving(false);
+    if (result.ok) {
+      const booking = { ...value, reference: (result as Extract<SubmitBookingResult, { ok: true }>).reference };
+      trackSubmitted(booking);
+      stepRef.current.sent = true;
+      setSent(booking); setValue(empty()); setPhone(''); setReview(false); setConfirmed(false); setSaveFailed(false); setWhatsAppBlocked(false);
+      return;
+    }
+    const failure = result as Extract<SubmitBookingResult, { ok: false }>;
+    setSaveFailed(true);
+    step('booking_save_failed', { element_type: failure.reason });
+    if (failure.reason === 'conflict') idempotencyRef.current = analyticsEventId();
+    setError({ message: failure.reason === 'validation'
+      ? tr('Ces informations n’ont pas pu être validées. Vérifiez les dates, la voiture et le lieu, puis réessayez.', 'These details could not be validated. Check the dates, car and place, then try again.', 'No se pudieron validar estos datos. Revisa las fechas, el coche y el lugar, y vuelve a intentarlo.')
+      : tr('Votre réservation n’a pas pu être enregistrée. Vos informations sont conservées : réessayez, ou écrivez-nous sur WhatsApp.', 'Your booking could not be saved. Your details are kept: try again, or message us on WhatsApp.', 'No se pudo registrar tu reserva. Tus datos se conservan: vuelve a intentarlo o escríbenos por WhatsApp.') });
   };
   const issueCode = (issue: string) => issue.startsWith('Choisissez') ? 'voiture' : issue === RENTAL_PERIOD_MESSAGE ? 'duree' : issue.startsWith('La date') ? 'date_passee' : issue.startsWith('Précisez') ? 'lieu' : 'autre';
   useEffect(() => {
@@ -76,11 +125,10 @@ export default function RentalRequestDialog() {
     event.preventDefault();
     const issue = validateRental(value); if (issue) { step('booking_validation_error', { element_type: issueCode(issue) }); setError({ message: errorText(issue) }); return; }
     if (!review) { setReview(true); return; }
+    if (persist) { void save(); return; }
     const booking = { ...value, reference: value.reference || newBookingReference() };
     if (openConfirmedRental(booking)) {
-      // Trace côté Benatna : numéro, voitures, lieu, durée et prix estimé (tableau /analytics).
-      const estimate = rentalEstimate(booking.vehicles[0], booking.startDate, booking.endDate, booking.city);
-      void analyticsTracker.trackEvent({ eventType: 'conversion', eventName: 'booking_submitted', properties: { content_id: booking.reference, vehicle_name: booking.vehicles.join(' / ').slice(0, 100), city: booking.city, pickup_point: booking.pickupId, element_type: booking.payment === 'full' ? 'paiement_total' : 'acompte_30_plus_500', quantity: booking.vehicles.length, ...(estimate ? { price: estimate.total, days: estimate.days } : {}) } });
+      trackSubmitted(booking);
       stepRef.current.sent = true;
       setSent(booking); setValue(empty()); setReview(false); setConfirmed(false);
     }
@@ -98,7 +146,10 @@ export default function RentalRequestDialog() {
           <li><strong>3. {tr('Remise de la voiture', 'Car handover', 'Entrega del coche')}</strong><br />{tr('Au lieu et à l’heure convenus, livraison gratuite.', 'At the agreed place and time, free delivery.', 'En el lugar y la hora acordados, entrega gratuita.')}</li>
         </ol>
         <p className="text-sm text-muted-foreground">{tr('Gardez ce numéro : il figure dans votre message WhatsApp et sert à suivre votre réservation.', 'Keep this number: it is in your WhatsApp message and is used to track your booking.', 'Guarda este número: aparece en tu mensaje de WhatsApp y sirve para seguir tu reserva.')}</p>
-        <Button type="button" variant="outline" className="w-full" onClick={() => { if (sent) openConfirmedRental(sent); }}>{tr('Rouvrir WhatsApp', 'Open WhatsApp again', 'Abrir WhatsApp de nuevo')}</Button>
+        {persist ? <>
+          {whatsAppBlocked && <p role="alert" className="text-sm text-destructive">{tr('WhatsApp ne s’est pas ouvert. Votre réservation est bien enregistrée : réessayez.', 'WhatsApp did not open. Your booking is saved: try again.', 'WhatsApp no se abrió. Tu reserva está registrada: inténtalo de nuevo.')}</p>}
+          <Button type="button" className="w-full" onClick={() => { if (sent) continueOnWhatsApp(sent); }}>{whatsAppBlocked ? tr('Réessayer WhatsApp', 'Try WhatsApp again', 'Reintentar WhatsApp') : tr('Continuer sur WhatsApp', 'Continue on WhatsApp', 'Continuar en WhatsApp')}</Button>
+        </> : <Button type="button" variant="outline" className="w-full" onClick={() => { if (sent) openConfirmedRental(sent); }}>{tr('Rouvrir WhatsApp', 'Open WhatsApp again', 'Abrir WhatsApp de nuevo')}</Button>}
         <Button type="button" className="w-full" onClick={() => { setOpen(false); setSent(null); }}>{tr('Terminer', 'Done', 'Terminar')}</Button>
       </> : <>
       <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1}>{review ? tr('Vérifiez votre réservation', 'Check your booking', 'Revisa tu reserva') : tr('Réserver ma voiture', 'Book my car', 'Reservar mi coche')}</DialogTitle><DialogDescription>{tr('Dates, voiture et lieu de prise en charge. Benatna vous confirme la réservation sous 1 heure sur WhatsApp, avec le prix total et les coordonnées du virement.', 'Dates, car and pick-up place. Benatna confirms your booking within 1 hour on WhatsApp, with the total price and bank transfer details.', 'Fechas, coche y lugar de recogida. Benatna confirma tu reserva en 1 hora por WhatsApp, con el precio total y los datos de la transferencia.')}</DialogDescription></DialogHeader>
@@ -139,7 +190,9 @@ export default function RentalRequestDialog() {
             {value.notes && <div><dt className="font-semibold">{tr('Précisions', 'Notes', 'Precisiones')}</dt><dd className="whitespace-pre-wrap">{value.notes}</dd></div>}
           </dl>
           <p className="text-sm">{tr('Prix estimés selon nos tarifs pour vos dates. Benatna vous répond sous 1 heure avec la voiture confirmée, le prix total exact et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte, remboursé à 100 % en cas d’annulation jusqu’à 48 h avant le départ, à 50 % ensuite. Livraison gratuite, convenue à l’avance.', 'Prices estimated from our rates for your dates. Benatna replies within 1 hour with the confirmed car, the exact total price and bank transfer details. Your booking is guaranteed once the deposit is received; fully refunded if you cancel up to 48 hours before pick-up, 50% after that. Free delivery, arranged in advance.', 'Precios estimados según nuestras tarifas para tus fechas. Benatna responde en 1 hora con el coche confirmado, el precio total exacto y los datos de la transferencia. Tu reserva queda garantizada al recibir el anticipo, reembolsado al 100 % si cancelas hasta 48 horas antes de la recogida, al 50 % después. Entrega gratuita, acordada de antemano.')}</p>
-          <Button type="submit" className="w-full">{tr('Réserver sur WhatsApp', 'Book on WhatsApp', 'Reservar por WhatsApp')}</Button><Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>{tr('Modifier ma réservation', 'Edit my booking', 'Modificar mi reserva')}</Button>
+          {persist && <label className="block space-y-1"><span className="font-medium">{tr('Votre numéro WhatsApp', 'Your WhatsApp number', 'Tu número de WhatsApp')}</span><input required type="tel" inputMode="tel" autoComplete="tel" aria-label="Numéro WhatsApp" placeholder="+33 6 12 34 56 78" className={field} value={phone} onChange={e => { setPhone(e.target.value); setError(null); }} /><span className="block text-xs text-muted-foreground">{tr('Avec l’indicatif du pays. Il sert uniquement à vous confirmer la réservation.', 'With the country code. Used only to confirm your booking.', 'Con el prefijo del país. Solo sirve para confirmarte la reserva.')}</span></label>}
+          <Button type="submit" className="w-full" disabled={saving} aria-busy={saving}>{persist ? (saving ? tr('Enregistrement…', 'Saving…', 'Guardando…') : tr('Enregistrer ma réservation', 'Save my booking', 'Registrar mi reserva')) : tr('Réserver sur WhatsApp', 'Book on WhatsApp', 'Reservar por WhatsApp')}</Button>
+          {persist && saveFailed && <Button type="button" variant="outline" className="w-full" onClick={() => { const popup = openConfirmedRental({ ...value, reference: undefined }); if (!popup) step('booking_whatsapp_blocked'); }}>{tr('Écrire sur WhatsApp (sans numéro de réservation)', 'Message us on WhatsApp (no booking number)', 'Escribir por WhatsApp (sin número de reserva)')}</Button>}<Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>{tr('Modifier ma réservation', 'Edit my booking', 'Modificar mi reserva')}</Button>
         </>}
       </form>
       </>}

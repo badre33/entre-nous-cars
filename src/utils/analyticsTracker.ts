@@ -12,7 +12,7 @@ function visitorId(): string {
   try { let id = localStorage.getItem('benatna_visitor_id'); if (!id || !/^v_[a-z0-9-]{8,80}$/i.test(id)) { id = visitorFallback; localStorage.setItem('benatna_visitor_id', id); } return id; }
   catch { return visitorFallback; }
 }
-function sessionId(): string {
+export function sessionId(): string {
   const now = Date.now();
   try {
     const stored = JSON.parse(localStorage.getItem('benatna_session') || 'null');
