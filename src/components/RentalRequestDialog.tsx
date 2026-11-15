@@ -159,7 +159,7 @@ export default function RentalRequestDialog() {
       : reason === 'rate_limited' ? tr('Trop de réservations envoyées en peu de temps. Réessayez dans quelques minutes ou écrivez-nous sur WhatsApp.', 'Too many bookings sent in a short time. Try again in a few minutes or message us on WhatsApp.', 'Demasiadas reservas en poco tiempo. Inténtalo en unos minutos o escríbenos por WhatsApp.')
       : tr('Votre réservation n’a pas pu être enregistrée. Vos informations sont conservées : réessayez, ou écrivez-nous sur WhatsApp.', 'Your booking could not be saved. Your details are kept: try again, or message us on WhatsApp.', 'No se pudo registrar tu reserva. Tus datos se conservan: vuelve a intentarlo o escríbenos por WhatsApp.') });
   };
-  const phoneMessage = () => tr('Indiquez votre numéro WhatsApp avec l’indicatif du pays, par exemple +33 6 12 34 56 78.', 'Enter your WhatsApp number with the country code, for example +44 7700 900123.', 'Indica tu número de WhatsApp con el prefijo del país, por ejemplo +34 612 34 56 78.');
+  const phoneMessage = () => tr('Indiquez votre numéro de téléphone avec l’indicatif du pays, par exemple +33 6 12 34 56 78. WhatsApp de préférence.', 'Enter your phone number with the country code, for example +44 7700 900123. WhatsApp preferred.', 'Indica tu número de teléfono con el prefijo del país, por ejemplo +34 612 34 56 78. Preferiblemente WhatsApp.');
   const issueCode = (issue: string) => issue.startsWith('Choisissez') ? 'voiture' : issue === RENTAL_PERIOD_MESSAGE ? 'duree' : issue.startsWith('La date') ? 'date_passee' : issue.startsWith('Précisez') ? 'lieu' : 'autre';
   useEffect(() => {
     if (!open || !review || sent) return;

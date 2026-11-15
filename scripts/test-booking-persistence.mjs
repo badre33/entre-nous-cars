@@ -115,6 +115,15 @@ await scenario(browser, 'premier appel en HTTP 400 non reconnu', { respond: (rou
   await switchToFull(page, dialog);
   check('400 non reconnu : tentative conservée et rejouée avant le nouveau contenu', calls.length === 2 && calls[1].p_idempotency_key === calls[0].p_idempotency_key && calls[1].p_payment === 'deposit');
 });
+await scenario(browser, 'reprise avec message invalid_phone sans code', { respond: (route, n) => n === 1 ? route.abort('connectionreset') : n === 2 ? json(400, { message: 'invalid_phone' })(route) : json(200, [{ reference: 'BN-PHX234', created: true }])(route) }, async ({ page, calls, dialog }) => {
+  await switchToFull(page, dialog);
+  check('message seul sans code : reste incertain, aucun nouvel enregistrement', calls.length === 2 && /pas encore vérifier/.test(await dialog.innerText()));
+});
+await scenario(browser, 'conflit annoncé sans code', { respond: (route, n) => n === 1 ? json(409, { message: 'idempotency_conflict' })(route) : json(200, [{ reference: 'BN-CNC234', created: false }])(route) }, async ({ page, calls, dialog }) => {
+  const t = await dialog.innerText(); check('conflit sans code : traité comme résultat inconnu, pas comme conflit', /pas pu être enregistrée/.test(t) && !/avec d’autres informations/.test(t));
+  await switchToFull(page, dialog);
+  check('conflit sans code : tentative conservée et rejouée', calls.length === 2 && calls[1].p_idempotency_key === calls[0].p_idempotency_key);
+});
 await scenario(browser, 'réponse 200 tronquée', { respond: (route, n) => n === 1 ? json(200, '[{"refer')(route) : json(200, [{ reference: 'BN-TRC234', created: false }])(route) }, async ({ page, calls, dialog, events }) => {
   check('200 tronquée : pas de succès affiché', !/Réservation enregistrée/.test(await dialog.innerText()));
   await switchToFull(page, dialog);
@@ -122,7 +131,7 @@ await scenario(browser, 'réponse 200 tronquée', { respond: (route, n) => n ===
   check('200 tronquée : une seule demande retrouvée', (await dialog.innerText()).includes('BN-TRC234') && events.filter(e => e.name === 'booking_submitted').length === 1);
 });
 await scenario(browser, 'téléphone ou paiement modifiés après un refus', { respond: (route, n) => n === 1 ? route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ code: '22023', message: 'invalid_phone' }) }) : ok('BN-PHN234')(route) }, async ({ page, calls, dialog }) => {
-  check('refus du téléphone : message sur le téléphone', /indicatif du pays/.test(await dialog.innerText()));
+  check('refus du téléphone : message sur le téléphone', /numéro de téléphone avec l’indicatif/.test(await dialog.innerText()));
   await dialog.getByLabel('Numéro de téléphone').fill('+44 7700 900123');
   await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
   check('contenu modifié : nouvelle clé', calls.length === 2 && calls[0].p_idempotency_key !== calls[1].p_idempotency_key && calls[1].p_phone === '+447700900123');

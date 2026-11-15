@@ -74,10 +74,10 @@ export async function submitBooking(input: SubmitBookingInput): Promise<SubmitBo
   }
   const code = body && typeof body === 'object' ? String((body as { code?: unknown }).code ?? '') : '';
   const message = body && typeof body === 'object' ? String((body as { message?: unknown }).message ?? '') : '';
-  // Codes convenus : 22023 = données refusées, 23505 / idempotency_conflict = même clé, autres données.
-  if (code === '23505' || message.includes('idempotency_conflict')) return { ok: false, reason: 'conflict' };
-  if (message.includes('booking_rate_limited')) return { ok: false, reason: 'rate_limited' };
-  if (message.includes('invalid_phone')) return { ok: false, reason: 'phone' };
+  // Erreurs reconnues uniquement sur le couple code SQL + message de submit_booking ; un message seul ne prouve rien.
+  if (code === '23505' && message === 'idempotency_conflict') return { ok: false, reason: 'conflict' };
+  if (code === 'P0001' && message === 'booking_rate_limited') return { ok: false, reason: 'rate_limited' };
+  if (code === '22023' && message === 'invalid_phone') return { ok: false, reason: 'phone' };
   // Refus de validation : uniquement sur une erreur structurée reconnue (transaction annulée côté serveur).
   if (code === '22023' || code === '22007' || code === '22P02') return { ok: false, reason: 'validation', message };
   // Erreur de passerelle ou réponse inattendue après envoi : résultat inconnu.
