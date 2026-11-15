@@ -1,3 +1,4 @@
+import { isTestMode } from '@/utils/testMode';
 import { WHATSAPP_HANDOFF_EVENT } from './rentalRequest';
 import { trackMetaWhatsApp } from './metaMeasurement';
 import { publicAnalyticsRpc } from './publicAnalyticsRpc';
@@ -86,7 +87,7 @@ class AnalyticsTracker {
   async trackEvent({ eventType, eventName, properties = {} }: TrackEventOptions): Promise<void> {
     if (!/^[a-z][a-z0-9_]{0,63}$/.test(eventName) || ['whatsapp_message_sent', 'lead_received', 'lead_qualified', 'offer_sent', 'rental_confirmed', 'rental_completed', 'lead_lost'].includes(eventName)) return;
     if (['/auth', '/analytics', '/demandes'].includes(safeAnalyticsPath(window.location.pathname))) return;
-    const safe = sanitizeAnalyticsProperties(properties);
+    const safe = sanitizeAnalyticsProperties(isTestMode() ? { ...properties, is_test: true } : properties);
     try {
       const { error } = await publicAnalyticsRpc('insert_analytics_event', {
         p_event_type: eventType, p_event_name: eventName, p_page_path: safeAnalyticsPath(window.location.pathname), p_referrer: null,

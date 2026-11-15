@@ -30,6 +30,9 @@ export default function RentalRequestDialog() {
   const [error, setError] = useState<{ message: string } | null>(null);
   const [sent, setSent] = useState<ConfirmedRental | null>(null);
   const errorRef = useRef<HTMLParagraphElement>(null);
+  // Suivi des étapes (une fois par ouverture) : ouverture, début de saisie, erreur, récapitulatif, envoi, fermeture.
+  const stepRef = useRef<{ started: boolean; reviewed: string; sent: boolean; invalid?: string[] }>({ started: false, reviewed: '', sent: false });
+  const step = (eventName: string, properties: Record<string, string | number> = {}) => { void analyticsTracker.trackEvent({ eventType: 'engagement', eventName, properties: { form_name: 'reservation', ...properties } }); };
   const titleRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     if (!open) return;
@@ -46,6 +49,8 @@ export default function RentalRequestDialog() {
       setValue(next);
       // Moins de friction : tout est déjà rempli (fiche voiture, catalogue avec dates et lieu) -> récapitulatif direct.
       setError(null); setReview(!validateRental(next)); setConfirmed(false); setSent(null); setOpen(true);
+      stepRef.current = { started: false, reviewed: '', sent: false };
+      step('booking_form_open', { element_type: validateRental(next) ? 'formulaire' : 'recapitulatif_direct', quantity: vehicles.length, ...(next.pickupId ? { pickup_point: next.pickupId } : {}) });
     };
     const listener = () => { const draft = takePendingRental(); if (draft) show(draft); };
     window.addEventListener(RENTAL_REQUEST_EVENT, listener);
@@ -53,23 +58,37 @@ export default function RentalRequestDialog() {
     if (pending) show(pending); else if (new URLSearchParams(window.location.search).get('demande') === '1') show(rentalDefaults());
     return () => window.removeEventListener(RENTAL_REQUEST_EVENT, listener);
   }, []);
-  const change = (patch: Partial<ConfirmedRental>) => { setValue(v => ({ ...v, ...patch })); setError(null); setReview(false); setConfirmed(false); };
+  const change = (patch: Partial<ConfirmedRental>) => {
+    if (!stepRef.current.started) { stepRef.current.started = true; step('booking_form_start', { element_type: Object.keys(patch)[0] || 'champ' }); }
+    setValue(v => ({ ...v, ...patch })); setError(null); setReview(false); setConfirmed(false);
+  };
+  const issueCode = (issue: string) => issue.startsWith('Choisissez') ? 'voiture' : issue === RENTAL_PERIOD_MESSAGE ? 'duree' : issue.startsWith('La date') ? 'date_passee' : issue.startsWith('Précisez') ? 'lieu' : 'autre';
+  useEffect(() => {
+    if (!open || !review || sent) return;
+    const key = `${value.vehicles.join('/')}|${value.startDate}|${value.endDate}|${value.pickupId}`;
+    if (stepRef.current.reviewed === key) return;
+    stepRef.current.reviewed = key;
+    const estimate = value.vehicles[0] ? rentalEstimate(value.vehicles[0], value.startDate, value.endDate, value.city) : null;
+    // « Formulaires préparés » du tableau /analytics = récapitulatif affiché.
+    step('form_prepared', { city: value.city, quantity: value.vehicles.length, ...(value.pickupId ? { pickup_point: value.pickupId } : {}), ...(estimate ? { price: estimate.total, days: estimate.days } : {}) });
+  }, [open, review, sent, value]);
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
-    const issue = validateRental(value); if (issue) { setError({ message: errorText(issue) }); return; }
+    const issue = validateRental(value); if (issue) { step('booking_validation_error', { element_type: issueCode(issue) }); setError({ message: errorText(issue) }); return; }
     if (!review) { setReview(true); return; }
     const booking = { ...value, reference: value.reference || newBookingReference() };
     if (openConfirmedRental(booking)) {
       // Trace côté Benatna : numéro, voitures, lieu, durée et prix estimé (tableau /analytics).
       const estimate = rentalEstimate(booking.vehicles[0], booking.startDate, booking.endDate, booking.city);
-      void analyticsTracker.trackEvent({ eventType: 'conversion', eventName: 'booking_submitted', properties: { content_id: booking.reference, vehicle_name: booking.vehicles.join(' / ').slice(0, 100), city: booking.city, pickup_point: booking.pickupId, element_type: booking.payment === 'full' ? 'paiement_total' : 'acompte_30_plus_500', ...(estimate ? { price: estimate.total, days: estimate.days } : {}) } });
+      void analyticsTracker.trackEvent({ eventType: 'conversion', eventName: 'booking_submitted', properties: { content_id: booking.reference, vehicle_name: booking.vehicles.join(' / ').slice(0, 100), city: booking.city, pickup_point: booking.pickupId, element_type: booking.payment === 'full' ? 'paiement_total' : 'acompte_30_plus_500', quantity: booking.vehicles.length, ...(estimate ? { price: estimate.total, days: estimate.days } : {}) } });
+      stepRef.current.sent = true;
       setSent(booking); setValue(empty()); setReview(false); setConfirmed(false);
     }
-    else setError({ message: tr('WhatsApp n’a pas pu s’ouvrir. Autorisez les fenêtres puis réessayez. Votre réservation est conservée.', 'WhatsApp could not open. Allow pop-ups and try again. Your booking is kept.', 'WhatsApp no se pudo abrir. Permite las ventanas emergentes e inténtalo de nuevo. Tu reserva se conserva.') });
+    else { step('booking_whatsapp_blocked'); setError({ message: tr('WhatsApp n’a pas pu s’ouvrir. Autorisez les fenêtres puis réessayez. Votre réservation est conservée.', 'WhatsApp could not open. Allow pop-ups and try again. Your booking is kept.', 'WhatsApp no se pudo abrir. Permite las ventanas emergentes e inténtalo de nuevo. Tu reserva se conserva.') }); }
   };
   const vehicleFields = value.vehicles.length ? value.vehicles : [''];
   const firstEstimate = review && value.vehicles[0] ? rentalEstimate(value.vehicles[0], value.startDate, value.endDate, value.city) : null;
-  return <Dialog open={open} onOpenChange={next => { setOpen(next); if (!next) { setValue(empty()); setError(null); setSent(null); } }}>
+  return <Dialog open={open} onOpenChange={next => { if (!next && !stepRef.current.sent && !sent) step('booking_form_close', { element_type: review ? 'recapitulatif' : 'saisie' }); setOpen(next); if (!next) { setValue(empty()); setError(null); setSent(null); } }}>
     <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto overscroll-contain [&_button]:whitespace-normal [&_button]:h-auto [&_button]:min-h-11">
       {sent ? <>
         <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1} className="flex items-center gap-2"><CheckCircle2 className="h-6 w-6 text-primary" aria-hidden="true" />{tr('Réservation enregistrée', 'Booking registered', 'Reserva registrada')}</DialogTitle><DialogDescription>{tr('Votre numéro de réservation', 'Your booking number', 'Tu número de reserva')} : <strong className="text-foreground">{sent.reference}</strong></DialogDescription></DialogHeader>
@@ -83,7 +102,7 @@ export default function RentalRequestDialog() {
         <Button type="button" className="w-full" onClick={() => { setOpen(false); setSent(null); }}>{tr('Terminer', 'Done', 'Terminar')}</Button>
       </> : <>
       <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1}>{review ? tr('Vérifiez votre réservation', 'Check your booking', 'Revisa tu reserva') : tr('Réserver ma voiture', 'Book my car', 'Reservar mi coche')}</DialogTitle><DialogDescription>{tr('Dates, voiture et lieu de prise en charge. Benatna vous confirme la réservation sous 1 heure sur WhatsApp, avec le prix total et les coordonnées du virement.', 'Dates, car and pick-up place. Benatna confirms your booking within 1 hour on WhatsApp, with the total price and bank transfer details.', 'Fechas, coche y lugar de recogida. Benatna confirma tu reserva en 1 hora por WhatsApp, con el precio total y los datos de la transferencia.')}</DialogDescription></DialogHeader>
-      <form onSubmit={submit} className="min-w-0 space-y-4">
+      <form onSubmit={submit} onInvalidCapture={event => { const target = event.target as HTMLInputElement; const name = (target.type === 'date' ? 'date' : target.tagName === 'SELECT' ? (target.getAttribute('aria-label') || '').startsWith('Véhicule') ? 'voiture' : 'lieu' : 'adresse'); if (!stepRef.current.invalid?.includes(name)) { stepRef.current.invalid = [...(stepRef.current.invalid || []), name]; step('booking_validation_error', { element_type: name }); } }} className="min-w-0 space-y-4">
         {error && <p ref={errorRef} tabIndex={-1} role="alert" className="text-sm text-destructive">{error.message}</p>}
         {!review ? <>
           <fieldset className="space-y-3">

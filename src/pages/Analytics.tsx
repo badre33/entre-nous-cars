@@ -1,3 +1,4 @@
+import { TEST_BOOKING_REFERENCES } from '@/utils/testMode';
 import { useAdminAccess } from '@/hooks/useAdminAccess';
 import { getAnalyticsDateRange, buildAnalyticsTimeSeries, fetchAnalyticsPages } from "@/utils/analyticsData";
 import { useState, useEffect } from "react";
@@ -116,9 +117,10 @@ const Analytics = () => {
     enabled: isAuthenticated === true,
   });
 
-  const events = rawEvents?.filter(event => event.properties?.is_test !== true && !['/auth','/analytics','/demandes'].includes(event.page_path));
+  // Sessions de test : événements is_test (mode ?test=1) et réservations de test connues, exclues entièrement.
+  const testSessionIds = new Set(rawEvents?.filter(event => event.properties?.is_test === true || TEST_BOOKING_REFERENCES.includes(String(event.properties?.content_id ?? ''))).map(event => event.session_id));
+  const events = rawEvents?.filter(event => !testSessionIds.has(event.session_id) && !['/auth','/analytics','/demandes'].includes(event.page_path));
   const realSessionIds = new Set(events?.map(event => event.session_id));
-  const testSessionIds = new Set(rawEvents?.filter(event => event.properties?.is_test === true).map(event => event.session_id));
   const sessions = rawSessions?.filter(session => !testSessionIds.has(session.session_id) || realSessionIds.has(session.session_id));
 
   // Calculate KPIs
@@ -143,6 +145,16 @@ const Analytics = () => {
   const whatsappHandoffs = events?.filter(e => e.event_name === 'whatsapp_handoff').length || 0;
   const legacyWhatsAppClicks = events?.filter(e => e.event_name === 'whatsapp_click').length || 0;
   const formSubmits = events?.filter(e => e.event_name === 'form_prepared').length || 0;
+  const countEvent = (name: string) => events?.filter(e => e.event_name === name).length || 0;
+  const bookingFunnel = [
+    { label: 'Formulaire ouvert', value: countEvent('booking_form_open') },
+    { label: 'Saisie commencée', value: countEvent('booking_form_start') },
+    { label: 'Erreur de saisie', value: countEvent('booking_validation_error') },
+    { label: 'Récapitulatif affiché', value: formSubmits },
+    { label: 'Réservation envoyée', value: countEvent('booking_submitted') },
+    { label: 'Fermé sans envoi', value: countEvent('booking_form_close') },
+    { label: 'WhatsApp bloqué', value: countEvent('booking_whatsapp_blocked') },
+  ];
 
   // Time series data
   const timeSeriesData = buildAnalyticsTimeSeries(events ?? []);
@@ -494,6 +506,16 @@ const Analytics = () => {
             </CardContent>
           </Card>
         </div>
+
+        <Card className="mb-8">
+          <CardHeader><CardTitle className="text-base">Parcours de réservation</CardTitle></CardHeader>
+          <CardContent>
+            <dl className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
+              {bookingFunnel.map(item => <div key={item.label}><dt className="text-sm text-muted-foreground">{item.label}</dt><dd className="text-2xl font-bold">{isLoading ? '…' : item.value}</dd></div>)}
+            </dl>
+            <p className="mt-3 text-xs text-muted-foreground">Une réservation envoyée ouvre WhatsApp ; elle ne prouve pas un message reçu. Appareils de test (?test=1) et réservations BN-7GG7UH, BN-D27R26 exclus.</p>
+          </CardContent>
+        </Card>
 
         {/* Charts */}
         <Tabs defaultValue="traffic" className="space-y-6">
