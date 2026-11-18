@@ -13,6 +13,21 @@ export function normalizePhone(input: string): string | null {
   return /^\+[1-9]\d{7,14}$/.test(withPlus) ? withPlus : null;
 }
 
+/** Indicatifs proposés à côté du champ téléphone (Maroc par défaut). */
+export const PHONE_COUNTRY_CODES = ['+212', '+33', '+34', '+32', '+31', '+49', '+44', '+39', '+41', '+1', '+971', '+966'] as const;
+
+/**
+ * Numéro saisi ou rempli automatiquement par le téléphone : s'il contient déjà un indicatif
+ * (+… ou 00…), il est gardé tel quel ; sinon l'indicatif choisi est ajouté et le 0 initial retiré
+ * (06 99 02 45 26 avec +212 → +212699024526).
+ */
+export function composePhone(countryCode: string, input: string): string | null {
+  const compact = input.trim().replace(/[\s.()-]/g, '');
+  if (!compact) return null;
+  if (compact.startsWith('+') || compact.startsWith('00')) return normalizePhone(compact);
+  return normalizePhone(countryCode + compact.replace(/^0+/, ''));
+}
+
 export type SubmitBookingResult =
   | { ok: true; reference: string; created: boolean }
   | { ok: false; reason: 'validation' | 'phone' | 'conflict' | 'rate_limited' | 'network' | 'unknown' | 'unavailable'; message?: string };

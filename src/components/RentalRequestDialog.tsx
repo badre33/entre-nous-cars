@@ -8,7 +8,7 @@ import { RENTAL_REQUEST_EVENT, takePendingRental, rentalDefaults, localToday, no
 import { RENTAL_PERIOD_MESSAGE } from '@/utils/rentalPeriod';
 import { useTr } from '@/contexts/LanguageContext';
 import { analyticsTracker, sessionId } from '@/utils/analyticsTracker';
-import { bookingChanges, bookingPersistenceEnabled, bookingSignature, definitelyNotSaved, normalizePhone, outcomeUnknown, submitBooking, type SubmitBookingResult } from '@/utils/bookingApi';
+import { bookingChanges, bookingPersistenceEnabled, bookingSignature, definitelyNotSaved, composePhone, PHONE_COUNTRY_CODES, outcomeUnknown, submitBooking, type SubmitBookingResult } from '@/utils/bookingApi';
 import { analyticsEventId } from '@/utils/analyticsPrivacy';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CheckCircle2 } from 'lucide-react';
@@ -24,6 +24,7 @@ export default function RentalRequestDialog() {
   // Enregistrement serveur (VITE_BOOKING_PERSISTENCE=on) : téléphone, clé d'idempotence, état d'envoi.
   const persist = bookingPersistenceEnabled();
   const [phone, setPhone] = useState('');
+  const [phoneCountry, setPhoneCountry] = useState<string>('+212');
   const [saving, setSaving] = useState(false);
   const [saveFailed, setSaveFailed] = useState(false);
   const [whatsAppBlocked, setWhatsAppBlocked] = useState(false);
@@ -97,7 +98,7 @@ export default function RentalRequestDialog() {
   // conservée entre deux ouvertures du formulaire : un réessai du même contenu retrouve la même demande.
   const save = async (options: { forceNewKey?: boolean } = {}) => {
     if (savingRef.current) return; // double appui : un seul appel en cours
-    const normalized = normalizePhone(phone);
+    const normalized = composePhone(phoneCountry, phone);
     if (!normalized) { step('booking_validation_error', { element_type: 'telephone' }); setError({ message: phoneMessage() }); return; }
     const input = { booking: value, phone: normalized, language };
     const signature = bookingSignature(input);
@@ -145,7 +146,7 @@ export default function RentalRequestDialog() {
     if (openId !== openIdRef.current) return;
     stepRef.current.sent = true;
     setSavedOrigin(origin);
-    setSent(booking); setValue(empty()); setPhone(''); setReview(false); setConfirmed(false); setSaveFailed(false); setWhatsAppBlocked(false);
+    setSent(booking); setValue(empty()); setPhone(''); setPhoneCountry('+212'); setReview(false); setConfirmed(false); setSaveFailed(false); setWhatsAppBlocked(false);
   };
   const showFailure = (reason: string, openId: number) => {
     step('booking_save_failed', { element_type: reason });
@@ -159,7 +160,7 @@ export default function RentalRequestDialog() {
       : reason === 'rate_limited' ? tr('Trop de réservations envoyées en peu de temps. Réessayez dans quelques minutes ou écrivez-nous sur WhatsApp.', 'Too many bookings sent in a short time. Try again in a few minutes or message us on WhatsApp.', 'Demasiadas reservas en poco tiempo. Inténtalo en unos minutos o escríbenos por WhatsApp.')
       : tr('Votre réservation n’a pas pu être enregistrée. Vos informations sont conservées : réessayez, ou écrivez-nous sur WhatsApp.', 'Your booking could not be saved. Your details are kept: try again, or message us on WhatsApp.', 'No se pudo registrar tu reserva. Tus datos se conservan: vuelve a intentarlo o escríbenos por WhatsApp.') });
   };
-  const phoneMessage = () => tr('Indiquez votre numéro de téléphone avec l’indicatif du pays, par exemple +33 6 12 34 56 78. WhatsApp de préférence.', 'Enter your phone number with the country code, for example +44 7700 900123. WhatsApp preferred.', 'Indica tu número de teléfono con el prefijo del país, por ejemplo +34 612 34 56 78. Preferiblemente WhatsApp.');
+  const phoneMessage = () => tr('Vérifiez votre numéro et son indicatif, par exemple +212 puis 6 12 34 56 78. WhatsApp de préférence.', 'Check your number and its country code, for example +44 then 7700 900123. WhatsApp preferred.', 'Revisa tu número y su prefijo, por ejemplo +34 y luego 612 34 56 78. Preferiblemente WhatsApp.');
   const issueCode = (issue: string) => issue.startsWith('Choisissez') ? 'voiture' : issue === RENTAL_PERIOD_MESSAGE ? 'duree' : issue.startsWith('La date') ? 'date_passee' : issue.startsWith('Précisez') ? 'lieu' : 'autre';
   useEffect(() => {
     if (!open || !review || sent) return;
@@ -185,8 +186,8 @@ export default function RentalRequestDialog() {
   };
   const vehicleFields = value.vehicles.length ? value.vehicles : [''];
   const firstEstimate = review && value.vehicles[0] ? rentalEstimate(value.vehicles[0], value.startDate, value.endDate, value.city) : null;
-  return <Dialog open={open} onOpenChange={next => { if (!next && !stepRef.current.sent && !sent) step('booking_form_close', { element_type: review ? 'recapitulatif' : 'saisie' }); setOpen(next); if (!next) { openIdRef.current += 1; setPhone(''); setValue(empty()); setError(null); setSent(null); } }}>
-    <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto overscroll-contain [&_button]:whitespace-normal [&_button]:h-auto [&_button]:min-h-11">
+  return <Dialog open={open} onOpenChange={next => { if (!next && !stepRef.current.sent && !sent) step('booking_form_close', { element_type: review ? 'recapitulatif' : 'saisie' }); setOpen(next); if (!next) { openIdRef.current += 1; setPhone(''); setPhoneCountry('+212'); setValue(empty()); setError(null); setSent(null); } }}>
+    <DialogContent className="max-w-lg max-h-[90dvh] overflow-y-auto overscroll-contain max-sm:top-0 max-sm:translate-y-0 max-sm:h-[100dvh] max-sm:max-h-[100dvh] max-sm:rounded-none max-sm:data-[state=open]:slide-in-from-top-0 [&_button]:whitespace-normal [&_button]:h-auto [&_button]:min-h-11">
       {sent ? <>
         <DialogHeader className="pr-8"><DialogTitle ref={titleRef} tabIndex={-1} className="flex items-center gap-2"><CheckCircle2 className="h-6 w-6 text-primary" aria-hidden="true" />{tr('Réservation enregistrée', 'Booking registered', 'Reserva registrada')}</DialogTitle><DialogDescription>{tr('Votre numéro de réservation', 'Your booking number', 'Tu número de reserva')} : <strong className="text-foreground">{sent.reference}</strong></DialogDescription></DialogHeader>
         <ol className="space-y-3 text-sm">
@@ -246,7 +247,7 @@ export default function RentalRequestDialog() {
             {value.notes && <div><dt className="font-semibold">{tr('Précisions', 'Notes', 'Precisiones')}</dt><dd className="whitespace-pre-wrap">{value.notes}</dd></div>}
           </dl>
           <p className="text-sm">{tr('Prix estimés selon nos tarifs pour vos dates. Benatna vous répond sous 1 heure avec la voiture confirmée, le prix total exact et les coordonnées du virement. Votre réservation est garantie dès réception de l’acompte, remboursé à 100 % en cas d’annulation jusqu’à 48 h avant le départ, à 50 % ensuite. Livraison gratuite, convenue à l’avance.', 'Prices estimated from our rates for your dates. Benatna replies within 1 hour with the confirmed car, the exact total price and bank transfer details. Your booking is guaranteed once the deposit is received; fully refunded if you cancel up to 48 hours before pick-up, 50% after that. Free delivery, arranged in advance.', 'Precios estimados según nuestras tarifas para tus fechas. Benatna responde en 1 hora con el coche confirmado, el precio total exacto y los datos de la transferencia. Tu reserva queda garantizada al recibir el anticipo, reembolsado al 100 % si cancelas hasta 48 horas antes de la recogida, al 50 % después. Entrega gratuita, acordada de antemano.')}</p>
-          {persist && <label className="block space-y-1"><span className="font-medium">{tr('Votre numéro de téléphone (WhatsApp de préférence)', 'Your phone number (WhatsApp preferred)', 'Tu número de teléfono (WhatsApp preferiblemente)')}</span><input required type="tel" inputMode="tel" autoComplete="tel" aria-label="Numéro de téléphone" placeholder="+33 6 12 34 56 78" className={field} value={phone} onChange={e => { setPhone(e.target.value); setError(null); }} /><span className="block text-xs text-muted-foreground">{tr('Avec l’indicatif du pays. Il sert uniquement à vous confirmer la réservation.', 'With the country code. Used only to confirm your booking.', 'Con el prefijo del país. Solo sirve para confirmarte la reserva.')}</span></label>}
+          {persist && <label className="block space-y-1"><span className="font-medium">{tr('Votre numéro de téléphone (WhatsApp de préférence)', 'Your phone number (WhatsApp preferred)', 'Tu número de teléfono (WhatsApp preferiblemente)')}</span><span className="flex gap-2"><select aria-label="Indicatif du pays" autoComplete="tel-country-code" className="min-h-11 w-[6.5rem] shrink-0 rounded-md border border-input bg-white px-2 py-2 text-base" value={phoneCountry} onChange={e => { setPhoneCountry(e.target.value); setError(null); }}>{PHONE_COUNTRY_CODES.map(code => <option key={code} value={code}>{code}</option>)}</select><input required type="tel" inputMode="tel" autoComplete="tel" aria-label="Numéro de téléphone" placeholder="6 12 34 56 78" className={`${field} flex-1`} value={phone} onChange={e => { setPhone(e.target.value); setError(null); }} /></span><span className="block text-xs text-muted-foreground">{tr('Choisissez l’indicatif, puis votre numéro. Il sert uniquement à vous confirmer la réservation.', 'Choose the country code, then your number. Used only to confirm your booking.', 'Elige el prefijo y luego tu número. Solo sirve para confirmarte la reserva.')}</span></label>}
           <Button type="submit" className="w-full" disabled={saving} aria-busy={saving}>{persist ? (saving ? tr('Enregistrement…', 'Saving…', 'Guardando…') : tr('Enregistrer ma réservation', 'Save my booking', 'Registrar mi reserva')) : tr('Réserver sur WhatsApp', 'Book on WhatsApp', 'Reservar por WhatsApp')}</Button>
           {persist && conflict && <Button type="button" variant="outline" className="w-full" disabled={saving} onClick={() => { void save({ forceNewKey: true }); }}>{tr('Enregistrer comme nouvelle demande', 'Save as a new request', 'Registrar como nueva solicitud')}</Button>}
           {persist && saveFailed && <Button type="button" variant="outline" className="w-full" onClick={() => { const popup = openConfirmedRental({ ...value, reference: undefined }); if (!popup) step('booking_whatsapp_blocked'); }}>{tr('Écrire sur WhatsApp (sans numéro de réservation)', 'Message us on WhatsApp (no booking number)', 'Escribir por WhatsApp (sin número de reserva)')}</Button>}<Button type="button" variant="outline" className="w-full" onClick={() => { setReview(false); setConfirmed(false); setError(null); titleRef.current?.focus(); titleRef.current?.scrollIntoView({ block: 'nearest' }); }}>{tr('Modifier ma réservation', 'Edit my booking', 'Modificar mi reserva')}</Button>

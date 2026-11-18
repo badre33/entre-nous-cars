@@ -143,7 +143,7 @@ await scenario(browser, 'réponse 200 tronquée', { respond: (route, n) => n ===
   check('200 tronquée : une seule demande retrouvée', (await dialog.innerText()).includes('BN-TRC234') && events.filter(e => e.name === 'booking_submitted').length === 1);
 });
 await scenario(browser, 'téléphone ou paiement modifiés après un refus', { respond: (route, n) => n === 1 ? route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ code: '22023', message: 'invalid_phone' }) }) : ok('BN-PHN234')(route) }, async ({ page, calls, dialog }) => {
-  check('refus du téléphone : message sur le téléphone', /numéro de téléphone avec l’indicatif/.test(await dialog.innerText()));
+  check('refus du téléphone : message sur le téléphone', /numéro et son indicatif/.test(await dialog.innerText()));
   await dialog.getByLabel('Numéro de téléphone').fill('+44 7700 900123');
   await dialog.getByRole('button', { name: /Enregistrer ma réservation/ }).click(); await page.waitForTimeout(1000);
   check('contenu modifié : nouvelle clé', calls.length === 2 && calls[0].p_idempotency_key !== calls[1].p_idempotency_key && calls[1].p_phone === '+447700900123');
@@ -166,8 +166,11 @@ await scenario(browser, 'fuseau du visiteur', { clicks: 0, timezoneId: 'Pacific/
 });
 await scenario(browser, 'téléphone invalide', { phone: '0612', respond: ok('BN-XXX234') }, async ({ calls, dialog, events }) => {
   check('téléphone : aucun appel serveur', calls.length === 0);
-  check('téléphone : message avec indicatif', /indicatif du pays/.test(await dialog.innerText()));
+  check('téléphone : message avec indicatif', /numéro et son indicatif/.test(await dialog.innerText()));
   check('téléphone : erreur mesurée', events.some(e => e.name === 'booking_validation_error' && e.properties.element_type === 'telephone'));
+});
+await scenario(browser, 'téléphone national avec indicatif par défaut', { phone: '06 99 02 45 26', respond: ok('BN-NAT234') }, async ({ calls }) => {
+  check('téléphone national : +212 ajouté, 0 retiré', calls.length === 1 && calls[0].p_phone === '+212699024526', calls[0]?.p_phone);
 });
 await scenario(browser, 'WhatsApp impossible', { blockWhatsApp: true, respond: ok('BN-WAB234') }, async ({ page, dialog, events }) => {
   await dialog.getByRole('button', { name: /Continuer sur WhatsApp/ }).click(); await page.waitForTimeout(500);
