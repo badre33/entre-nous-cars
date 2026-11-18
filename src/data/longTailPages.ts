@@ -61,11 +61,11 @@ export const longTailPages: LongTailPageConfig[] = [
   {
     slug: "location-voiture-sans-carte-credit-marrakech",
     title: "Location Voiture Sans Carte Crédit Marrakech",
-    metaTitle: "Location Voiture Sans Carte de Crédit Marrakech - Cash Accepté dès 250 DH/jour | Benatna",
-    metaDescription: "Louez une voiture à Marrakech sans carte de crédit avec Benatna. Paiement flexible en espèces ou virement. Prix dès 250 DH/jour. Réservation simple et rapide.",
+    metaTitle: "Location Voiture Sans Carte de Crédit Marrakech - Cash Accepté dès 300 DH/jour | Benatna",
+    metaDescription: "Louez une voiture à Marrakech sans carte de crédit avec Benatna. Paiement flexible en espèces ou virement. Prix dès 300 DH/jour. Réservation simple et rapide.",
     keywords: "location voiture sans carte crédit marrakech, louer auto sans cb marrakech, location véhicule espèces marrakech",
     h1: "Location de Voiture Sans Carte de Crédit à Marrakech",
-    heroSubtitle: "Louez votre véhicule facilement • Paiement en espèces accepté • Dès 250 DH/jour",
+    heroSubtitle: "Louez votre véhicule facilement • Paiement en espèces accepté • Dès 300 DH/jour",
     category: {
       label: "Formules Flexibles",
       href: "/nos-services"
@@ -83,7 +83,7 @@ export const longTailPages: LongTailPageConfig[] = [
         },
         {
           title: "Véhicules Disponibles en Location Sans Carte de Crédit à Marrakech",
-          content: "Tous les véhicules de nos loueurs partenaires sont disponibles en location sans carte de crédit. Leur flotte à Marrakech comprend plus de 50 voitures récentes et bien entretenues. Pour les petits budgets et la conduite urbaine, vous trouverez des citadines économiques comme la Renault Clio, Dacia Sandero, Toyota Yaris ou Hyundai i10 à partir de 300 DH/jour. Ces véhicules sont parfaits pour circuler dans Marrakech, se garer facilement près de la Médina et consomment peu de carburant. Pour les familles ou groupes, les berlines spacieuses (Toyota Corolla, Volkswagen Jetta, Volkswagen Golf) offrent confort et espace bagages à partir de 250 DH/jour. Si vous prévoyez des excursions vers l'Atlas, Paradise Valley ou le désert d'Agafay, les SUV (Dacia Duster, Nissan Qashqai, Dacia Duster) sont recommandés à partir de 350 DH/jour grâce à leur garde au sol élevée et leur robustesse sur pistes. Pour les occasions spéciales (mariages, événements professionnels, voyage de luxe), vous trouverez aussi des véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à partir de 800 DH/jour. Tous les véhicules sont climatisés, assurés tous risques et bénéficient d'un kilométrage illimité. L'âge minimum pour louer est de 21 ans avec au moins 1 an de permis."
+          content: "Tous les véhicules de nos loueurs partenaires sont disponibles en location sans carte de crédit. Leur flotte à Marrakech comprend plus de 50 voitures récentes et bien entretenues. Pour les petits budgets et la conduite urbaine, vous trouverez des citadines économiques comme la Renault Clio, Dacia Sandero, Toyota Yaris ou Hyundai i10 à partir de 300 DH/jour. Ces véhicules sont parfaits pour circuler dans Marrakech, se garer facilement près de la Médina et consomment peu de carburant. Pour les familles ou groupes, les berlines spacieuses (Toyota Corolla, Volkswagen Jetta, Volkswagen Golf) offrent confort et espace bagages à partir de 300 DH/jour. Si vous prévoyez des excursions vers l'Atlas, Paradise Valley ou le désert d'Agafay, les SUV (Dacia Duster, Nissan Qashqai, Dacia Duster) sont recommandés à partir de 350 DH/jour grâce à leur garde au sol élevée et leur robustesse sur pistes. Pour les occasions spéciales (mariages, événements professionnels, voyage de luxe), vous trouverez aussi des véhicules premium (Mercedes Classe C, BMW Série 3, Audi A4) à partir de 800 DH/jour. Tous les véhicules sont climatisés, assurés tous risques et bénéficient d'un kilométrage illimité. L'âge minimum pour louer est de 21 ans avec au moins 1 an de permis."
         },
         {
           title: "Avantages de Louer Sans Carte de Crédit à Marrakech",

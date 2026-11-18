@@ -37,8 +37,8 @@ export const neighborhoods: Neighborhood[] = [
     name: "Ain Diab",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location voiture Ain Diab Casablanca dès 250 DH/jour | Benatna",
-    metaDescription: "Louez une voiture de tourisme à Ain Diab dès 250 DH/jour : corniche, plages, Morocco Mall. Livraison gratuite convenue à l’avance, 3 jours minimum, demande sur WhatsApp.",
+    title: "Location voiture Ain Diab Casablanca dès 300 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme à Ain Diab dès 300 DH/jour : corniche, plages, Morocco Mall. Livraison gratuite convenue à l’avance, 3 jours minimum, demande sur WhatsApp.",
     h1: "Location de voiture à Ain Diab, sur la corniche de Casablanca",
     description: "Ain Diab, c’est la corniche de Casablanca : plages, restaurants face à l’océan, hôtels et le Morocco Mall au bout du boulevard. Pour un séjour de vacances, une voiture permet de passer de la plage au centre-ville, à la mosquée Hassan II ou à l’aéroport sans dépendre des taxis.",
     highlights: [
@@ -70,7 +70,7 @@ export const neighborhoods: Neighborhood[] = [
     faqs: [
       { question: "Peut-on se faire livrer la voiture à Ain Diab ?", answer: "Oui. Le loueur partenaire peut remettre la voiture à votre hôtel ou résidence à Ain Diab, gratuitement, à condition de convenir du lieu et de l’heure à l’avance. Vous pouvez aussi la récupérer à l’aéroport Mohammed V à votre arrivée." },
       { question: "Quelle voiture choisir pour la corniche ?", answer: "Pour circuler et se garer facilement, une citadine comme la Dacia Sandero, la Renault Clio ou la Peugeot 208 suffit. Pour une famille avec bagages, un SUV comme le Dacia Duster ou le Hyundai Tucson est plus confortable." },
-      { question: "Quelle est la durée minimum ?", answer: "Trois jours minimum. Les prix commencent à 250 DH par jour hors haute saison ; le tarif final, la disponibilité et les conditions sont confirmés par le loueur sur WhatsApp." }
+      { question: "Quelle est la durée minimum ?", answer: "Trois jours minimum. Les prix commencent à 300 DH par jour hors haute saison ; le tarif final, la disponibilité et les conditions sont confirmés par le loueur sur WhatsApp." }
     ]
   },
   {
@@ -78,8 +78,8 @@ export const neighborhoods: Neighborhood[] = [
     name: "Maarif",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location voiture Maarif Casablanca dès 250 DH/jour | Benatna",
-    metaDescription: "Louez une voiture de tourisme au Maarif dès 250 DH/jour : Twin Center, boulevard Zerktouni, restaurants. Livraison gratuite convenue à l’avance, 3 jours minimum.",
+    title: "Location voiture Maarif Casablanca dès 300 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme au Maarif dès 300 DH/jour : Twin Center, boulevard Zerktouni, restaurants. Livraison gratuite convenue à l’avance, 3 jours minimum.",
     h1: "Location de voiture au Maarif, au cœur de Casablanca",
     description: "Le Maarif est le quartier central et commerçant de Casablanca, autour du Twin Center et du boulevard Zerktouni. C’est un bon point de départ pour un séjour : le centre-ville, la corniche d’Ain Diab et la route de l’aéroport sont accessibles rapidement en voiture.",
     highlights: [
@@ -119,8 +119,8 @@ export const neighborhoods: Neighborhood[] = [
     name: "Anfa",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location voiture Anfa Casablanca dès 250 DH/jour | Benatna",
-    metaDescription: "Louez une voiture de tourisme à Anfa dès 250 DH/jour, livrée à votre résidence ou à l’aéroport Mohammed V. Livraison gratuite convenue à l’avance, 3 jours minimum.",
+    title: "Location voiture Anfa Casablanca dès 300 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme à Anfa dès 300 DH/jour, livrée à votre résidence ou à l’aéroport Mohammed V. Livraison gratuite convenue à l’avance, 3 jours minimum.",
     h1: "Location de voiture à Anfa, Casablanca",
     description: "Anfa est le quartier résidentiel et verdoyant de Casablanca, entre le centre-ville et la corniche. Beaucoup de visiteurs et de familles de MRE y séjournent ; une voiture livrée à la résidence simplifie les trajets vers la plage, les centres commerciaux et l’aéroport.",
     highlights: [
@@ -152,7 +152,7 @@ export const neighborhoods: Neighborhood[] = [
     faqs: [
       { question: "Peut-on recevoir la voiture à sa résidence à Anfa ?", answer: "Oui. Le loueur partenaire peut remettre la voiture à votre adresse à Anfa, gratuitement, à condition de convenir du lieu et de l’heure à l’avance." },
       { question: "Quelle voiture pour une famille ?", answer: "Un SUV comme le Dacia Duster ou le Hyundai Tucson pour quatre ou cinq personnes avec bagages, ou le Dacia Jogger pour sept places." },
-      { question: "Quelle durée de location ?", answer: "À partir de trois jours, pour des séjours et des vacances. Les prix commencent à 250 DH par jour hors haute saison ; le loueur confirme le tarif final." }
+      { question: "Quelle durée de location ?", answer: "À partir de trois jours, pour des séjours et des vacances. Les prix commencent à 300 DH par jour hors haute saison ; le loueur confirme le tarif final." }
     ]
   },
   {
@@ -160,8 +160,8 @@ export const neighborhoods: Neighborhood[] = [
     name: "Sidi Maarouf",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location voiture Sidi Maarouf dès 250 DH/jour | Benatna",
-    metaDescription: "Louez une voiture de tourisme à Sidi Maarouf dès 250 DH/jour, sur la route de l’aéroport Mohammed V. Livraison gratuite convenue à l’avance, 3 jours minimum.",
+    title: "Location voiture Sidi Maarouf dès 300 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme à Sidi Maarouf dès 300 DH/jour, sur la route de l’aéroport Mohammed V. Livraison gratuite convenue à l’avance, 3 jours minimum.",
     h1: "Location de voiture à Sidi Maarouf, sur la route de l’aéroport",
     description: "Sidi Maarouf se trouve au sud de Casablanca, sur l’axe qui relie la ville à l’aéroport Mohammed V. Ses hôtels proches de l’autoroute en font une étape pratique à l’arrivée ou avant un vol retour : la voiture peut vous attendre à l’aéroport ou à votre hôtel.",
     highlights: [
@@ -201,8 +201,8 @@ export const neighborhoods: Neighborhood[] = [
     name: "Centre-ville (Hassan)",
     city: "Casablanca",
     citySlug: "casablanca",
-    title: "Location voiture centre-ville Casablanca dès 250 DH/jour | Benatna",
-    metaDescription: "Louez une voiture de tourisme au centre-ville de Casablanca dès 250 DH/jour : place Mohammed V, Casa-Port, médina. Livraison gratuite convenue à l’avance, 3 jours minimum.",
+    title: "Location voiture centre-ville Casablanca dès 300 DH/jour | Benatna",
+    metaDescription: "Louez une voiture de tourisme au centre-ville de Casablanca dès 300 DH/jour : place Mohammed V, Casa-Port, médina. Livraison gratuite convenue à l’avance, 3 jours minimum.",
     h1: "Location de voiture au centre-ville de Casablanca",
     description: "Le centre-ville de Casablanca, autour de la place Mohammed V, réunit les immeubles Art déco, le Marché central, l’ancienne médina et la gare Casa-Port. La médina se visite à pied ; la voiture sert pour la mosquée Hassan II, la corniche et les excursions hors de la ville.",
     highlights: [
@@ -234,7 +234,7 @@ export const neighborhoods: Neighborhood[] = [
     faqs: [
       { question: "Peut-on récupérer la voiture à la gare Casa-Port ?", answer: "Oui. La remise en gare Casa-Port ou à votre hôtel du centre-ville est gratuite, à condition de la convenir à l’avance avec le loueur." },
       { question: "Faut-il une voiture pour visiter le centre ?", answer: "Pas pour la médina, qui se visite à pied. La voiture devient utile pour la mosquée Hassan II, la corniche d’Ain Diab et les sorties hors de Casablanca." },
-      { question: "Quelle durée de location ?", answer: "Trois jours minimum, pour des séjours et des vacances. Les prix commencent à 250 DH par jour hors haute saison ; le loueur confirme le tarif final sur WhatsApp." }
+      { question: "Quelle durée de location ?", answer: "Trois jours minimum, pour des séjours et des vacances. Les prix commencent à 300 DH par jour hors haute saison ; le loueur confirme le tarif final sur WhatsApp." }
     ]
   },
   // MARRAKECH (hors zone : pages en noindex)
@@ -244,7 +244,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Guéliz Marrakech | Ville Nouvelle - Benatna",
-    metaDescription: "Location de voiture à Guéliz Marrakech. Livraison Avenue Mohammed V, Carré Eden, commerces. Prix dès 250 DH/jour. Idéal ville moderne.",
+    metaDescription: "Location de voiture à Guéliz Marrakech. Livraison Avenue Mohammed V, Carré Eden, commerces. Prix dès 300 DH/jour. Idéal ville moderne.",
     h1: "Location de Voiture à Guéliz - Ville Nouvelle Marrakech",
     description: "Guéliz, la ville nouvelle européenne de Marrakech. Quartier moderne avec cafés, restaurants internationaux, boutiques de luxe, galeries d'art. Le Marrakech contemporain et cosmopolite.",
     highlights: [
@@ -312,7 +312,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Hivernage Marrakech | Quartier Hôtelier Luxe - Benatna",
-    metaDescription: "Location de voiture à Hivernage Marrakech. Livraison hôtels 5 étoiles, Palais des Congrès, casinos. Prix dès 250 DH/jour.",
+    metaDescription: "Location de voiture à Hivernage Marrakech. Livraison hôtels 5 étoiles, Palais des Congrès, casinos. Prix dès 300 DH/jour.",
     h1: "Location de Voiture à Hivernage - Quartier Hôtelier Marrakech",
     description: "Hivernage, le quartier hôtelier de luxe de Marrakech. Hôtels 5 étoiles, riads de prestige, Palais des Congrès, casinos, restaurants gastronomiques. Le Marrakech chic et touristique.",
     highlights: [
@@ -380,7 +380,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Médina Marrakech | Jemaa el-Fna - Benatna",
-    metaDescription: "Location de voiture près Médina Marrakech. Livraison Jemaa el-Fna, remparts, riads. Prix dès 250 DH/jour. Parking sécurisé.",
+    metaDescription: "Location de voiture près Médina Marrakech. Livraison Jemaa el-Fna, remparts, riads. Prix dès 300 DH/jour. Parking sécurisé.",
     h1: "Location de Voiture près de la Médina - Jemaa el-Fna Marrakech",
     description: "La Médina de Marrakech, cœur historique classé UNESCO. Souks labyrinthiques, Place Jemaa el-Fna, palais, riads. Bien que piétonne, une voiture est utile pour accéder et explorer alentours.",
     highlights: [
@@ -448,7 +448,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Palmeraie Marrakech | Oasis Luxury - Benatna",
-    metaDescription: "Location de voiture à la Palmeraie Marrakech. Livraison resorts 5*, golfs, villas. Prix dès 250 DH/jour. Idéal séjour luxe.",
+    metaDescription: "Location de voiture à la Palmeraie Marrakech. Livraison resorts 5*, golfs, villas. Prix dès 300 DH/jour. Idéal séjour luxe.",
     h1: "Location de Voiture à la Palmeraie - Oasis de Luxe Marrakech",
     description: "La Palmeraie, oasis de 15 000 palmiers au nord de Marrakech. Resorts ultra-luxe, golfs prestigieux, villas de stars. Cadre unique mêlant nature et grand luxe.",
     highlights: [
@@ -516,7 +516,7 @@ export const neighborhoods: Neighborhood[] = [
     city: "Marrakech",
     citySlug: "marrakech",
     title: "Location Voiture Route Ourika Marrakech | Vallée Atlas - Benatna",
-    metaDescription: "Location de voiture Route Ourika Marrakech. Livraison route vallée, villages berbères. Prix dès 250 DH/jour. Idéal escapades nature vers l'Atlas.",
+    metaDescription: "Location de voiture Route Ourika Marrakech. Livraison route vallée, villages berbères. Prix dès 300 DH/jour. Idéal escapades nature vers l'Atlas.",
     h1: "Location de Voiture Route de l'Ourika - Vallée de l'Atlas",
     description: "Route de l'Ourika, porte d'entrée vers la vallée verdoyante de l'Atlas. Villages berbères, restaurants au bord de l'oued, artisanat, point de départ randonnées. Échappée nature à 30 min de Marrakech.",
     highlights: [

@@ -1,7 +1,7 @@
 // Enregistrement durable d'une réservation (contrat commun Claude / Codex, 15 novembre 2026).
 // Activé seulement si VITE_BOOKING_PERSISTENCE=on, une fois la fonction submit_booking
 // validée et appliquée sur la base cible. Sinon le parcours actuel reste inchangé.
-import { normalizeVehicleName, rentalEstimate, rentalPlace, type ConfirmedRental } from '@/utils/rentalRequest';
+import { isOtherVehicle, normalizeVehicleName, OTHER_VEHICLE, otherVehicleText, rentalEstimate, rentalPlace, type ConfirmedRental } from '@/utils/rentalRequest';
 import { isTestMode } from '@/utils/testMode';
 
 export const bookingPersistenceEnabled = () => import.meta.env.VITE_BOOKING_PERSISTENCE === 'on';
@@ -31,12 +31,16 @@ export function bookingSignature(input: Omit<SubmitBookingInput, 'idempotencyKey
 }
 
 export function submitBookingPayload({ booking, phone, language, idempotencyKey, sessionId }: SubmitBookingInput) {
-  const vehicles = booking.vehicles.map(normalizeVehicleName);
+  // « Autre modèle » (#118) : la position est gardée dans p_vehicles avec la valeur OTHER_VEHICLE,
+  // le nom saisi part dans p_other_vehicle (texte libre, 2 à 60 caractères, sans estimation).
+  const vehicles = booking.vehicles.map(name => isOtherVehicle(name) ? OTHER_VEHICLE : normalizeVehicleName(name));
+  const other = booking.vehicles.find(isOtherVehicle);
   return {
     p_idempotency_key: idempotencyKey,
     p_vehicles: vehicles, // ordre = préférences du client
+    p_other_vehicle: other ? otherVehicleText(other).trim() : null,
     // Prix total estimé du séjour en MAD par voiture, même ordre ; non vérifié, informatif.
-    p_estimates_client: vehicles.map(name => rentalEstimate(name, booking.startDate, booking.endDate, booking.city)?.total ?? null),
+    p_estimates_client: vehicles.map(name => name === OTHER_VEHICLE ? null : rentalEstimate(name, booking.startDate, booking.endDate, booking.city)?.total ?? null),
     p_start_date: booking.startDate,
     p_end_date: booking.endDate,
     p_city: booking.city,
@@ -89,7 +93,7 @@ export function bookingChanges(saved: ConfirmedRental, current: ConfirmedRental,
   const lines: string[] = [];
   const label = (d: string) => d.split('-').reverse().join('/');
   if (saved.startDate !== current.startDate || saved.endDate !== current.endDate) lines.push(`Dates : du ${label(current.startDate)} au ${label(current.endDate)}`);
-  if (saved.vehicles.join('|') !== current.vehicles.join('|')) lines.push(`Voitures : ${current.vehicles.map(normalizeVehicleName).join(' / ')}`);
+  if (saved.vehicles.join('|') !== current.vehicles.join('|')) lines.push(`Voitures : ${current.vehicles.map(v => isOtherVehicle(v) ? `Autre modèle : ${otherVehicleText(v).trim()}` : normalizeVehicleName(v)).join(' / ')}`);
   if (rentalPlace(saved) !== rentalPlace(current)) lines.push(`Lieu : ${rentalPlace(current)}`);
   if ((saved.payment ?? 'deposit') !== (current.payment ?? 'deposit')) lines.push(`Paiement : ${current.payment === 'full' ? '100 % avant la location' : 'acompte de 30 % + 500 DH'}`);
   if (savedPhone !== currentPhone) lines.push(`Téléphone : ${currentPhone}`);

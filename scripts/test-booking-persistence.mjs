@@ -42,7 +42,7 @@ const ok = ref => (route, n, body) => route.fulfill({ status: 200, contentType: 
 const browser = await chromium.launch({ executablePath });
 await scenario(browser, 'réussite', { respond: ok('BN-ABC234') }, async ({ dialog, calls, events, popups, page }) => {
   check('réussite : un seul appel', calls.length === 1);
-  check('réussite : ordre des voitures et estimation par voiture', JSON.stringify(calls[0].p_vehicles) === '["Dacia Duster"]' && calls[0].p_estimates_client.length === 1);
+  check('réussite : ordre des voitures et estimation par voiture', JSON.stringify(calls[0].p_vehicles) === '["Dacia Duster"]' && calls[0].p_estimates_client.length === 1 && calls[0].p_other_vehicle === null);
   check('réussite : téléphone E.164', calls[0].p_phone === '+33612345678', calls[0].p_phone);
   check('réussite : écran Réservation enregistrée avec la référence serveur', (await dialog.innerText()).includes('BN-ABC234'));
   check('réussite : pas de WhatsApp avant le clic', popups.length === 0);
@@ -51,6 +51,18 @@ await scenario(browser, 'réussite', { respond: ok('BN-ABC234') }, async ({ dial
   await dialog.getByRole('button', { name: /Continuer sur WhatsApp/ }).click(); await page.waitForTimeout(800);
   check('réussite : WhatsApp ouvert avec BN-ABC234', popups.length === 1 && popups[0].includes('BN-ABC234'));
   check('réussite : whatsapp_handoff après le clic', events.some(e => e.name === 'whatsapp_handoff'));
+});
+await scenario(browser, 'autre modèle sur demande', { respond: ok('BN-OTH234'), before: async ({ dialog }) => {
+  await dialog.getByRole('button', { name: /Modifier ma réservation/ }).click();
+  await dialog.getByRole('button', { name: /Ajouter un autre choix/ }).click();
+  await dialog.getByLabel('Véhicule souhaité 2').selectOption({ label: 'Autre modèle, sur demande' });
+  await dialog.getByLabel('Modèle souhaité, choix 2').fill('Toyota Yaris');
+  await dialog.getByRole('button', { name: /Vérifier ma réservation/ }).click();
+  await dialog.getByLabel('Numéro de téléphone').fill('+33 6 12 34 56 78');
+} }, async ({ calls, events }) => {
+  check('autre modèle : position conservée et texte séparé', calls.length === 1 && JSON.stringify(calls[0].p_vehicles) === '["Dacia Duster","Autre modèle"]' && calls[0].p_other_vehicle === 'Toyota Yaris');
+  check('autre modèle : pas d’estimation pour le modèle hors catalogue', calls[0].p_estimates_client[1] === null && typeof calls[0].p_estimates_client[0] === 'number');
+  check('autre modèle : texte saisi absent de la mesure', !JSON.stringify(events).includes('Yaris'));
 });
 await scenario(browser, 'validation refusée', { respond: route => route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ code: '22023', message: 'Rental period too short' }) }) }, async ({ dialog, events, popups }) => {
   const text = await dialog.innerText();

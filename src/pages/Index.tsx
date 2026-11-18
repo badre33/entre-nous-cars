@@ -158,7 +158,7 @@ const Index = () => {
         {/* LCP-optimized WebP hero image from public folder for fast discovery */}
         <img
           src={heroImageWebp}
-          alt={tr(generateHeroImageAlt(), "Benatna - Tourist car rental in Casablanca from 250 MAD/day", "Benatna - Alquiler de coches de turismo en Casablanca desde 250 MAD/día")}
+          alt={tr(generateHeroImageAlt(), "Benatna - Tourist car rental in Casablanca from 300 MAD/day", "Benatna - Alquiler de coches de turismo en Casablanca desde 300 MAD/día")}
           className="absolute inset-0 w-full h-full object-cover parallax-bg transition-transform duration-300"
           style={{
             transform: isDesktop ? `translateY(${parallaxOffset}px)` : 'none'
@@ -184,7 +184,7 @@ const Index = () => {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 animate-fade-in [animation-delay:300ms] px-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <Wallet aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
-              <span>{tr("Dès", "From", "Desde")} <strong>{language === "fr" ? "250 DH" : "250 MAD"}</strong>{tr("/jour · minimum trois jours", "/day · 3 days minimum", "/día · mínimo tres días")}</span>
+              <span>{tr("Dès", "From", "Desde")} <strong>{language === "fr" ? "300 DH" : "300 MAD"}</strong>{tr("/jour · minimum trois jours", "/day · 3 days minimum", "/día · mínimo tres días")}</span>
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-white/95 text-primary rounded-full text-xs sm:text-sm font-semibold shadow-md backdrop-blur-sm whitespace-nowrap">
               <CreditCard aria-hidden="true" className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -492,7 +492,7 @@ const Index = () => {
                   <div className="relative h-40 sm:h-48 overflow-hidden">
                     <img
                       src={city.image}
-                      alt={tr(generateCityImageAlt(city.name), `Car rental in ${city.name} from 250 MAD/day - Benatna`, `Alquiler de coches en ${city.name} desde 250 MAD/día - Benatna`)}
+                      alt={tr(generateCityImageAlt(city.name), `Car rental in ${city.name} from 300 MAD/day - Benatna`, `Alquiler de coches en ${city.name} desde 300 MAD/día - Benatna`)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       width="800"
                       height="500"

@@ -1,5 +1,5 @@
 import { parseLocalRentalDate } from '@/utils/rentalDate';
-import { localToday, requestRental } from '@/utils/rentalRequest';
+import { localToday, OTHER_VEHICLE_PREFIX, requestRental } from '@/utils/rentalRequest';
 import { isClassicTourismCar, isPremiumTourismCar } from "@/utils/cataloguePolicy";
 import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
@@ -76,6 +76,7 @@ const carDaciaLogan = "/vehicles/benatna/dacia-logan.webp";
 import carVwTiguan from "@/assets/car-vw-tiguan.jpg";
 import carVwPolo from "@/assets/car-vw-polo.jpg";
 const carHyundaiI20 = "/vehicles/benatna/hyundai-i20.webp";
+const carHyundaiI10 = "/vehicles/benatna/hyundai-i10.webp";
 const carVwTRoc = "/vehicles/benatna/volkswagen-troc.webp";
 import carHyundaiSantaFe from "@/assets/car-hyundai-santa-fe.jpg";
 import carHyundaiElantra from "@/assets/car-hyundai-elantra.jpg";
@@ -190,8 +191,8 @@ const carModels = [
     brand: "Renault",
     type: "Automatique",
     category: "Citadine",
-    price: 400,
-    priceDisplay: "400 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     badges: ["Populaire", "Disponible immédiatement"]
   },
   {
@@ -200,8 +201,8 @@ const carModels = [
     brand: "Renault",
     type: "Manuelle",
     category: "Citadine",
-    price: 400,
-    priceDisplay: "400 MAD"
+    price: 350,
+    priceDisplay: "350 MAD"
   },
   {
     image: carDuster,
@@ -209,8 +210,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "SUV",
-    price: 380,
-    priceDisplay: "380 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     badges: ["Populaire", "Disponible immédiatement"]
   },
   {
@@ -219,8 +220,8 @@ const carModels = [
     brand: "Dacia",
     type: "Automatique",
     category: "SUV",
-    price: 380,
-    priceDisplay: "380 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carVwGolf,
@@ -312,8 +313,8 @@ const carModels = [
     brand: "Fiat",
     type: "Automatique",
     category: "Berline",
-    price: 440,
-    priceDisplay: "440 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carHyundaiAccent,
@@ -321,8 +322,8 @@ const carModels = [
     brand: "Fiat",
     type: "Manuelle",
     category: "Berline",
-    price: 440,
-    priceDisplay: "440 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carDaciaSandero,
@@ -330,8 +331,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Citadine",
-    price: 250,
-    priceDisplay: "250 MAD"
+    price: 300,
+    priceDisplay: "300 MAD"
   },
   {
     image: carDaciaLogan,
@@ -339,8 +340,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Berline",
-    price: 250,
-    priceDisplay: "250 MAD"
+    price: 300,
+    priceDisplay: "300 MAD"
   },
   {
     image: carSanderoStepway,
@@ -348,8 +349,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Citadine",
-    price: 250,
-    priceDisplay: "250 MAD"
+    price: 300,
+    priceDisplay: "300 MAD"
   },
   {
     image: carBmw5,
@@ -492,8 +493,8 @@ const carModels = [
     brand: "Peugeot",
     type: "Automatique",
     category: "SUV",
-    price: 380,
-    priceDisplay: "380 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carDaciaJogger,
@@ -501,8 +502,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Monospace",
-    price: 380,
-    priceDisplay: "380 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carPorscheMacan,
@@ -615,6 +616,10 @@ const carModels = [
   {
     id: 320, image: carHyundaiI20, name: "Hyundai i20", brand: "Hyundai", type: "Manuelle",
     category: "Citadine", city: "Casablanca", price: 400, priceDisplay: "400 MAD", badges: ["Économique"]
+  },
+  {
+    id: 321, image: carHyundaiI10, name: "Hyundai i10", brand: "Hyundai", type: "Manuelle",
+    category: "Citadine", city: "Casablanca", price: 300, priceDisplay: "300 MAD", badges: ["Économique"]
   },
   {
     id: 322, image: carVwTRoc, name: "Volkswagen T-Roc", brand: "Volkswagen", type: "Automatique",
@@ -1190,6 +1195,11 @@ const Louer = () => {
               />
             ))}
           </div>}
+          <div className="mt-8 rounded-lg border border-dashed p-5 text-center">
+            <h3 className="font-semibold">{tr("Vous ne trouvez pas votre modèle ?", "Can't find your model?", "¿No encuentras tu modelo?")}</h3>
+            <p className="mt-1 text-sm text-muted-foreground">{tr("D’autres voitures de tourisme peuvent être proposées sur demande. Indiquez le modèle et vos dates : disponibilité et prix confirmés par Benatna.", "Other passenger cars may be available on request. Tell us the model and your dates: availability and price confirmed by Benatna.", "Otros turismos pueden estar disponibles bajo pedido. Indica el modelo y tus fechas: disponibilidad y precio confirmados por Benatna.")}</p>
+            <Button type="button" variant="outline" className="mt-3" onClick={() => { const dateValue = (value?: Date) => value && Number.isFinite(value.getTime()) ? format(value, 'yyyy-MM-dd') : ''; requestRental({ vehicles: [OTHER_VEHICLE_PREFIX], startDate: dateValue(startDate), endDate: dateValue(endDate), city: selectedCity === 'Rabat' ? 'Rabat' : 'Casablanca', pickupId: pickupPoint?.city === selectedCity ? pickupPoint.id : '' }); }}>{tr("Demander un autre modèle", "Request another model", "Pedir otro modelo")}</Button>
+          </div>
           <div className="mt-8 text-center" aria-live="polite">
             <p className="text-sm text-muted-foreground mb-4">
               {displayedCars.length === 0 ? catalogueLabel.empty : catalogueLabel.count}
