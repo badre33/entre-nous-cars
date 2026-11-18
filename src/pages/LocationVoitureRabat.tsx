@@ -78,10 +78,10 @@ const LocationVoitureRabat = () => {
     <div className="min-h-screen flex flex-col bg-background">
       {/* SEO Meta Tags */}
       <Helmet>
-        <title>Location Voiture Rabat dès 250 DH/jour | Livraison Aéroport &amp; Hôtel - Benatna</title>
-        <meta name="description" content="Location de voiture à Rabat dès 250 DH/jour. Agences locales vérifiées, livraison aéroport Rabat-Salé, sans carte de crédit." />
-        <meta property="og:title" content="Location Voiture Rabat dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna" />
-        <meta property="og:description" content="Location de voiture à Rabat dès 250 DH/jour. Agences locales vérifiées, livraison aéroport Rabat-Salé, sans carte de crédit." />
+        <title>Location Voiture Rabat dès 300 DH/jour | Livraison Aéroport &amp; Hôtel - Benatna</title>
+        <meta name="description" content="Location de voiture à Rabat dès 300 DH/jour. Agences locales vérifiées, livraison aéroport Rabat-Salé, sans carte de crédit." />
+        <meta property="og:title" content="Location Voiture Rabat dès 300 DH/jour | Livraison Aéroport & Hôtel - Benatna" />
+        <meta property="og:description" content="Location de voiture à Rabat dès 300 DH/jour. Agences locales vérifiées, livraison aéroport Rabat-Salé, sans carte de crédit." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-rabat" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://benatna.ma/og-image.png" />
@@ -109,7 +109,7 @@ const LocationVoitureRabat = () => {
 
 
       <PriceRangeOfferSchema 
-        minPrice="250"
+        minPrice="300"
         maxPrice="800"
         city="Rabat"
         discount={{ percentage: 15, minDays: 30 }}
@@ -414,7 +414,7 @@ const LocationVoitureRabat = () => {
                       Confort et prestance pour vos déplacements professionnels. 
                       Idéales pour les rendez-vous clients et les trajets Rabat-Casablanca.
                     </p>
-                    <p className="text-primary font-medium mt-2">À partir de 250 DH/jour</p>
+                    <p className="text-primary font-medium mt-2">À partir de 300 DH/jour</p>
                   </div>
                 </div>
               </div>

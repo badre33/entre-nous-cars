@@ -190,8 +190,8 @@ const carModels = [
     brand: "Renault",
     type: "Automatique",
     category: "Citadine",
-    price: 400,
-    priceDisplay: "400 MAD",
+    price: 350,
+    priceDisplay: "350 MAD",
     badges: ["Populaire", "Disponible immédiatement"]
   },
   {
@@ -200,8 +200,8 @@ const carModels = [
     brand: "Renault",
     type: "Manuelle",
     category: "Citadine",
-    price: 400,
-    priceDisplay: "400 MAD"
+    price: 350,
+    priceDisplay: "350 MAD"
   },
   {
     image: carDuster,
@@ -209,8 +209,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "SUV",
-    price: 380,
-    priceDisplay: "380 MAD",
+    price: 400,
+    priceDisplay: "400 MAD",
     badges: ["Populaire", "Disponible immédiatement"]
   },
   {
@@ -219,8 +219,8 @@ const carModels = [
     brand: "Dacia",
     type: "Automatique",
     category: "SUV",
-    price: 380,
-    priceDisplay: "380 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carVwGolf,
@@ -312,8 +312,8 @@ const carModels = [
     brand: "Fiat",
     type: "Automatique",
     category: "Berline",
-    price: 440,
-    priceDisplay: "440 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carHyundaiAccent,
@@ -321,8 +321,8 @@ const carModels = [
     brand: "Fiat",
     type: "Manuelle",
     category: "Berline",
-    price: 440,
-    priceDisplay: "440 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carDaciaSandero,
@@ -330,8 +330,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Citadine",
-    price: 250,
-    priceDisplay: "250 MAD"
+    price: 300,
+    priceDisplay: "300 MAD"
   },
   {
     image: carDaciaLogan,
@@ -339,8 +339,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Berline",
-    price: 250,
-    priceDisplay: "250 MAD"
+    price: 300,
+    priceDisplay: "300 MAD"
   },
   {
     image: carSanderoStepway,
@@ -348,8 +348,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Citadine",
-    price: 250,
-    priceDisplay: "250 MAD"
+    price: 300,
+    priceDisplay: "300 MAD"
   },
   {
     image: carBmw5,
@@ -492,8 +492,8 @@ const carModels = [
     brand: "Peugeot",
     type: "Automatique",
     category: "SUV",
-    price: 380,
-    priceDisplay: "380 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carDaciaJogger,
@@ -501,8 +501,8 @@ const carModels = [
     brand: "Dacia",
     type: "Manuelle",
     category: "Monospace",
-    price: 380,
-    priceDisplay: "380 MAD"
+    price: 400,
+    priceDisplay: "400 MAD"
   },
   {
     image: carPorscheMacan,

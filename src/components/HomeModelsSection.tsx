@@ -7,11 +7,11 @@ import { vehicleImageSrcSet } from '@/utils/vehicleImages';
 // toutes les pages. Prix et places identiques à src/data/vehicleDetails.ts
 // (contrôlé par scripts/test-home-models.mjs pendant le build).
 export const HOME_MODELS = [
-  { slug: 'dacia-sandero', name: 'Dacia Sandero', priceFrom: 250, seats: 5 },
-  { slug: 'dacia-logan', name: 'Dacia Logan', priceFrom: 250, seats: 5 },
-  { slug: 'renault-clio', name: 'Renault Clio', priceFrom: 400, seats: 5 },
-  { slug: 'dacia-duster', name: 'Dacia Duster', priceFrom: 380, seats: 5 },
-  { slug: 'dacia-jogger', name: 'Dacia Jogger', priceFrom: 380, seats: 7 },
+  { slug: 'dacia-sandero', name: 'Dacia Sandero', priceFrom: 300, seats: 5 },
+  { slug: 'dacia-logan', name: 'Dacia Logan', priceFrom: 300, seats: 5 },
+  { slug: 'renault-clio', name: 'Renault Clio', priceFrom: 350, seats: 5 },
+  { slug: 'dacia-duster', name: 'Dacia Duster', priceFrom: 400, seats: 5 },
+  { slug: 'dacia-jogger', name: 'Dacia Jogger', priceFrom: 400, seats: 7 },
   { slug: 'hyundai-tucson', name: 'Hyundai Tucson', priceFrom: 640, seats: 5 },
 ].map(m => ({ ...m, photo: `/vehicles/benatna/${m.slug}.webp` }));
 
@@ -21,8 +21,8 @@ const COPY = {
     intro: 'Des voitures de tourisme livrées gratuitement à l’aéroport Mohammed V et en gare. Prix de départ hors haute saison, trois jours minimum.',
     from: 'dès', perDay: '/jour', seats: 'places', all: 'Voir tout le catalogue',
     categories: [
-      { to: '/location-voiture-pas-cher-casablanca', label: 'Pas chères dès 250 DH' },
-      { to: '/location-suv-casablanca', label: 'SUV dès 380 DH' },
+      { to: '/location-voiture-pas-cher-casablanca', label: 'Pas chères dès 300 DH' },
+      { to: '/location-suv-casablanca', label: 'SUV dès 400 DH' },
       { to: '/location-voiture-7-places-casablanca', label: '7 places et familiales' },
       { to: '/location-voiture-semaine-casablanca', label: 'Prix à la semaine' },
       { to: '/location-voiture-aeroport-casablanca', label: 'Aéroport Mohammed V' },

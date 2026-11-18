@@ -321,8 +321,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Dacia Duster",
     brand: "Dacia",
     category: "SUV Économique",
-    priceFrom: 380,
-    priceDisplay: "380 MAD/jour",
+    priceFrom: 400,
+    priceDisplay: "400 MAD/jour",
     photos: [carDuster],
     description: "Le Dacia Duster est le SUV le plus apprécié au Maroc. Robuste, économique, polyvalent — idéal pour découvrir tous les paysages marocains. Le meilleur rapport qualité-prix du marché.",
     options: {
@@ -354,8 +354,8 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     name: "Renault Clio",
     brand: "Renault",
     category: "Citadine",
-    priceFrom: 400,
-    priceDisplay: "400 MAD/jour",
+    priceFrom: 350,
+    priceDisplay: "350 MAD/jour",
     photos: [carClio],
     description: "La Renault Clio 5 est la citadine référence en France et au Maroc. Confortable, économique, facile à garer dans les médinas et les centres-villes.",
     options: {
@@ -384,7 +384,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "dacia-sandero": {
     slug: "dacia-sandero", name: "Dacia Sandero", brand: "Dacia",
-    category: "Citadine Économique", priceFrom: 250, priceDisplay: "250 MAD/jour",
+    category: "Citadine Économique", priceFrom: 300, priceDisplay: "300 MAD/jour",
     photos: [carSandero],
     description: "La Dacia Sandero est la citadine la plus vendue en Europe et au Maroc. Confortable, fiable, économique. Le choix #1 des familles MRE budget-conscious.",
     options: { transmission: "Manuelle 5", seats: 5, doors: 5, luggage: "320L", fuel: "Essence", consumption: "5.8L/100km", enginePower: "90 ch", airConditioning: true, bluetooth: true, gps: false, cruiseControl: true, parkingSensors: false, rearCamera: false, sunroof: false, leatherSeats: false, keyless: false, androidAuto: true, appleCarPlay: true, isofix: true },
@@ -392,7 +392,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "dacia-logan": {
     slug: "dacia-logan", name: "Dacia Logan", brand: "Dacia",
-    category: "Berline Économique", priceFrom: 250, priceDisplay: "250 MAD/jour",
+    category: "Berline Économique", priceFrom: 300, priceDisplay: "300 MAD/jour",
     photos: [carLogan],
     description: "La Dacia Logan offre l'espace d'une berline pour le prix d'une citadine. Idéale pour les longs trajets et les familles MRE.",
     options: { transmission: "Manuelle 5", seats: 5, doors: 4, luggage: "510L", fuel: "Essence", consumption: "5.5L/100km", airConditioning: true, bluetooth: true, isofix: true, androidAuto: true, appleCarPlay: true },
@@ -400,7 +400,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "dacia-sandero-stepway": {
     slug: "dacia-sandero-stepway", name: "Dacia Sandero Stepway", brand: "Dacia",
-    category: "Crossover Économique", priceFrom: 250, priceDisplay: "250 MAD/jour",
+    category: "Crossover Économique", priceFrom: 300, priceDisplay: "300 MAD/jour",
     photos: [carStepway],
     description: "La Sandero Stepway combine l'esprit baroudeur d'un crossover avec le budget d'une citadine.",
     options: { transmission: "Manuelle 5", seats: 5, doors: 5, luggage: "328L", fuel: "Essence", airConditioning: true, bluetooth: true, isofix: true, androidAuto: true, appleCarPlay: true },
@@ -408,7 +408,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "dacia-jogger": {
     slug: "dacia-jogger", name: "Dacia Jogger", brand: "Dacia",
-    category: "Monospace 7 Places", priceFrom: 380, priceDisplay: "380 MAD/jour",
+    category: "Monospace 7 Places", priceFrom: 400, priceDisplay: "400 MAD/jour",
     photos: [carJogger],
     description: "Le Dacia Jogger est le monospace 7 places le plus abordable du marché. Espace, économie et flexibilité.",
     options: { transmission: "Manuelle 6", seats: 7, doors: 5, luggage: "699L (3 places)", fuel: "Essence", airConditioning: true, bluetooth: true, isofix: true, androidAuto: true, appleCarPlay: true },
@@ -416,7 +416,7 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
   },
   "hyundai-accent": {
     slug: "hyundai-accent", name: "Hyundai Accent", brand: "Hyundai",
-    category: "Berline Confort", priceFrom: 440, priceDisplay: "440 MAD/jour",
+    category: "Berline Confort", priceFrom: 400, priceDisplay: "400 MAD/jour",
     photos: [carAccent],
     description: "La Hyundai Accent offre le meilleur rapport confort/prix de sa catégorie. Berline moderne avec garantie 5 ans.",
     options: { transmission: "Automatique", seats: 5, doors: 4, luggage: "460L", fuel: "Essence", consumption: "6.0L/100km", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true, keyless: true },
