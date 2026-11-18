@@ -1,5 +1,5 @@
 import { parseLocalRentalDate } from '@/utils/rentalDate';
-import { localToday, requestRental } from '@/utils/rentalRequest';
+import { localToday, OTHER_VEHICLE_PREFIX, requestRental } from '@/utils/rentalRequest';
 import { isClassicTourismCar, isPremiumTourismCar } from "@/utils/cataloguePolicy";
 import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
@@ -1190,6 +1190,11 @@ const Louer = () => {
               />
             ))}
           </div>}
+          <div className="mt-8 rounded-lg border border-dashed p-5 text-center">
+            <h3 className="font-semibold">{tr("Vous ne trouvez pas votre modèle ?", "Can't find your model?", "¿No encuentras tu modelo?")}</h3>
+            <p className="mt-1 text-sm text-muted-foreground">{tr("D’autres voitures de tourisme peuvent être proposées sur demande. Indiquez le modèle et vos dates : disponibilité et prix confirmés par Benatna.", "Other passenger cars may be available on request. Tell us the model and your dates: availability and price confirmed by Benatna.", "Otros turismos pueden estar disponibles bajo pedido. Indica el modelo y tus fechas: disponibilidad y precio confirmados por Benatna.")}</p>
+            <Button type="button" variant="outline" className="mt-3" onClick={() => { const dateValue = (value?: Date) => value && Number.isFinite(value.getTime()) ? format(value, 'yyyy-MM-dd') : ''; requestRental({ vehicles: [OTHER_VEHICLE_PREFIX], startDate: dateValue(startDate), endDate: dateValue(endDate), city: selectedCity === 'Rabat' ? 'Rabat' : 'Casablanca', pickupId: pickupPoint?.city === selectedCity ? pickupPoint.id : '' }); }}>{tr("Demander un autre modèle", "Request another model", "Pedir otro modelo")}</Button>
+          </div>
           <div className="mt-8 text-center" aria-live="polite">
             <p className="text-sm text-muted-foreground mb-4">
               {displayedCars.length === 0 ? catalogueLabel.empty : catalogueLabel.count}
