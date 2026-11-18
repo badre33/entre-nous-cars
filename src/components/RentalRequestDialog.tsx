@@ -13,7 +13,7 @@ import { analyticsEventId } from '@/utils/analyticsPrivacy';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CheckCircle2 } from 'lucide-react';
 const empty = (): ConfirmedRental => ({ vehicles: [], startDate: '', endDate: '', city: 'Casablanca', pickupId: '', otherPlace: '' });
-const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-background px-3 py-2 text-base';
+const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-white px-3 py-2 text-base';
 // Tentatives d'enregistrement de la session de navigation, par contenu normalisé.
 const bookingAttempts = new Map<string, { key: string; reference?: string }>();
 let uncertainAttempt: { signature: string; key: string; input: { booking: ConfirmedRental; phone: string; language: string } } | null = null;

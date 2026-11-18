@@ -5,7 +5,7 @@ import { pickupPoints } from '@/data/pickupPoints';
 import { localToday, rentalEstimate, requestRental, NO_DEPOSIT_FEE } from '@/utils/rentalRequest';
 import { isValidRentalPeriod } from '@/utils/rentalPeriod';
 
-const field = 'min-h-11 w-full min-w-0 rounded-md border border-input bg-background px-2 py-2 text-base';
+const field = 'min-h-11 w-full min-w-0 rounded-md border border-input bg-white px-2 py-2 text-base';
 const dh = (amount: number) => `${Math.round(amount).toLocaleString('fr-FR')} DH`;
 
 /** Bloc de réservation façon Getaround : dates et lieu -> prix total et acompte immédiats -> Réserver. */
