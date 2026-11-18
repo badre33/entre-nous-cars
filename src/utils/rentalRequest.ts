@@ -37,6 +37,12 @@ export const localToday = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 };
 export function normalizeVehicleName(name: string) { return name.replace(/^VW /, 'Volkswagen '); }
+// Modèle hors catalogue, proposé sur demande : « Autre modèle : <nom saisi> », prix confirmé par Benatna.
+export const OTHER_VEHICLE = 'Autre modèle';
+export const OTHER_VEHICLE_PREFIX = `${OTHER_VEHICLE} : `;
+export const isOtherVehicle = (name: string) => name.startsWith(OTHER_VEHICLE_PREFIX) || name === OTHER_VEHICLE;
+export const otherVehicleText = (name: string) => name.startsWith(OTHER_VEHICLE_PREFIX) ? name.slice(OTHER_VEHICLE_PREFIX.length) : '';
+const validOtherVehicle = (name: string) => { const text = otherVehicleText(name).trim(); return text.length >= 2 && text.length <= 60; };
 export function rentalDefaults(url = new URL(window.location.href)): RentalDraft {
   const query = url.searchParams;
   return {
@@ -57,7 +63,8 @@ export function rentalPlace(value: ConfirmedRental): string {
   return point ? `${point.city} — ${point.name}` : '';
 }
 export function validateRental(value: ConfirmedRental): string | null {
-  if (!value.vehicles.length || value.vehicles.length > 3 || value.vehicles.some(v => !rentalVehicleNames.includes(normalizeVehicleName(v) as typeof rentalVehicleNames[number]))) return 'Choisissez un véhicule avant de continuer.';
+  if (!value.vehicles.length || value.vehicles.length > 3 || value.vehicles.some(v => isOtherVehicle(v) ? !validOtherVehicle(v) : !rentalVehicleNames.includes(normalizeVehicleName(v) as typeof rentalVehicleNames[number]))) return 'Choisissez un véhicule avant de continuer.';
+  if (value.vehicles.filter(isOtherVehicle).length > 1) return 'Choisissez un véhicule avant de continuer.';
   if (!isValidRentalPeriod(value.startDate, value.endDate)) return RENTAL_PERIOD_MESSAGE;
   if (value.startDate < localToday()) return 'La date de départ ne peut pas être passée.';
   if (!['Casablanca', 'Rabat'].includes(value.city)) return 'Choisissez Casablanca ou Rabat.';
@@ -91,6 +98,7 @@ export function buildConfirmedRentalMessage(value: ConfirmedRental): string {
   const days = first?.days ?? calculateDays(new Date(`${value.startDate}T12:00:00`), new Date(`${value.endDate}T12:00:00`));
   const cars = value.vehicles.map((name, index) => {
     const estimate = rentalEstimate(name, value.startDate, value.endDate, value.city);
+    if (isOtherVehicle(name)) return `${value.vehicles.length > 1 ? `${index + 1}. ` : ''}Autre modèle, sur demande : ${otherVehicleText(name).trim()} (prix à confirmer)`;
     return `${value.vehicles.length > 1 ? `${index + 1}. ` : ''}${normalizeVehicleName(name)}${estimate ? ` : environ ${dh(estimate.total)} au total` : ''}`;
   }).join('\n');
   const choice = value.vehicles.length > 1 ? 'Voitures, par ordre de préférence (la première disponible) :' : 'Voiture :';
