@@ -8,8 +8,6 @@ import { MapPin, CalendarCheck, Eye } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { cn } from "@/lib/utils";
 import LazyCarImage from "@/components/LazyCarImage";
-import { useSwipeGesture } from "@/hooks/useSwipeGesture";
-import { useLongPress } from "@/hooks/useLongPress";
 import { hapticAddToCompare, hapticRemoveFromCompare } from "@/utils/haptics";
 import { calculateDays, calculateTotalPrice, calculateDailyPrice, formatPrice, getDiscountPercentage, currentDailyPrice } from "@/utils/priceCalculations";
 import { currentContextBadge } from "@/lib/pricing";
@@ -100,33 +98,6 @@ export default function SwipeableCarCard({
 
   const imageAlt = generateCarImageAlt(car.name, car.city, car.category, car.priceDisplay);
 
-  // Gestion du swipe horizontal
-  const swipeHandlers = useSwipeGesture({
-    onSwipeLeft: () => {
-      // Swipe left = ajouter/retirer de la sélection
-      if (isInComparison) {
-        hapticRemoveFromCompare();
-      } else {
-        hapticAddToCompare();
-      }
-      onToggleComparison();
-      setShowQuickActions(true);
-      setTimeout(() => setShowQuickActions(false), 2000);
-    },
-    onSwipeRight: () => {
-      // Swipe right = ouvrir disponibilités
-      onShowAvailability();
-    },
-    threshold: 80
-  });
-
-  // Gestion du long press pour preview
-  const longPressHandlers = useLongPress({
-    onLongPress: () => {
-      if (onPreview) onPreview();
-    },
-    delay: 600
-  });
 
   // Vue Liste (compacte)
   if (viewMode === 'list') {
@@ -138,8 +109,6 @@ export default function SwipeableCarCard({
           "overflow-hidden hover:shadow-md transition-all duration-200 border mb-3 cursor-pointer",
           showQuickActions && "ring-2 ring-primary"
         )}
-        {...swipeHandlers}
-        {...longPressHandlers}
       >
         <CardContent className="p-3">
           <div className="flex gap-3">
@@ -234,8 +203,6 @@ export default function SwipeableCarCard({
           "overflow-hidden hover:shadow-md transition-all duration-200 border h-full cursor-pointer",
           showQuickActions && "ring-2 ring-primary"
         )}
-        {...swipeHandlers}
-        {...longPressHandlers}
       >
         <div className="relative bg-muted">
           <AspectRatio ratio={16 / 9}>
@@ -336,8 +303,6 @@ export default function SwipeableCarCard({
         "overflow-hidden hover:shadow-lg transition-all duration-300 border h-full relative cursor-pointer",
         showQuickActions && "ring-2 ring-primary"
       )}
-      {...swipeHandlers}
-      {...longPressHandlers}
     >
       <div className="relative h-48 overflow-hidden bg-muted">
         <LazyCarImage 
@@ -346,12 +311,6 @@ export default function SwipeableCarCard({
                 sizes={viewMode === "list" ? "96px" : viewMode === "grid" ? "(max-width: 767px) calc((100vw - 44px) / 2), (max-width: 1023px) 50vw, 33vw" : "(max-width: 767px) 85vw, 33vw"}
           className="w-full h-full object-cover"
         />
-        
-        {/* Instructions de swipe au premier affichage */}
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 text-xs text-white/80 backdrop-blur-sm bg-black/30 px-2 py-1 rounded">
-          <span>← Sélectionner</span>
-          <span>Dispo →</span>
-        </div>
         
         <div className="absolute top-2 right-2 z-10">
           <div

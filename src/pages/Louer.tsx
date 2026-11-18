@@ -1,5 +1,5 @@
 import { parseLocalRentalDate } from '@/utils/rentalDate';
-import { localToday, OTHER_VEHICLE_PREFIX, requestRental } from '@/utils/rentalRequest';
+import { localToday, requestRental } from '@/utils/rentalRequest';
 import { isClassicTourismCar, isPremiumTourismCar } from "@/utils/cataloguePolicy";
 import { pickupPoints } from "@/data/pickupPoints";
 import { isValidRentalPeriod, RENTAL_PERIOD_MESSAGE } from "@/utils/rentalPeriod";
@@ -759,11 +759,17 @@ const Louer = () => {
   const cities = ["Casablanca", "Rabat"];
   
   // Marques et catégories dérivées du catalogue réel (pas de filtre mort)
-  const brands = [...new Set(cars.map(c => c.brand))].sort();
+  // Filtres liés : chaque liste ne propose que les valeurs qui donnent au moins une voiture
+  // avec les autres filtres déjà choisis (pas de « Monospace » chez Audi, pas de résultat vide).
+  const matchesFilters = (car: typeof cars[number], skip: 'brand' | 'category' | 'type') =>
+    (skip === 'brand' || selectedBrand === "all" || car.brand === selectedBrand) &&
+    (skip === 'category' || selectedCategory === "all" || car.category === selectedCategory) &&
+    (skip === 'type' || selectedType === "all" || car.type === selectedType);
+  const brands = [...new Set(cars.filter(c => matchesFilters(c, 'brand')).map(c => c.brand))].sort();
 
-  const categories = [...new Set(cars.map(c => c.category))].sort();
+  const categories = [...new Set(cars.filter(c => matchesFilters(c, 'category')).map(c => c.category))].sort();
   
-  const types = ["Automatique", "Manuelle"];
+  const types = ["Automatique", "Manuelle"].filter(type => cars.some(c => c.type === type && matchesFilters(c, 'type')));
 
   // Fonction pour mélanger les véhicules de manière variée
   const shuffleArray = <T,>(array: T[]): T[] => {
@@ -799,6 +805,14 @@ const Louer = () => {
     });
     return result;
   }, [selectedCity, selectedType, selectedBrand, selectedCategory]);
+
+  // Aucun résultat : proposer tout de suite d'autres modèles (même catégorie, sinon même marque, sinon tout le catalogue)
+  const suggestedCars = useMemo(() => {
+    if (displayedCars.length) return [];
+    const byCategory = selectedCategory !== "all" ? cars.filter(c => c.category === selectedCategory) : [];
+    const byBrand = selectedBrand !== "all" ? cars.filter(c => c.brand === selectedBrand) : [];
+    return (byCategory.length ? byCategory : byBrand.length ? byBrand : cars).slice(0, 6);
+  }, [displayedCars.length, selectedBrand, selectedCategory]);
 
   const filterKey = JSON.stringify([selectedCity, selectedType, selectedBrand, selectedCategory]);
   useEffect(() => {
@@ -1111,11 +1125,6 @@ const Louer = () => {
                       <CarouselPrevious className="left-2 h-10 w-10" />
                       <CarouselNext className="right-2 h-10 w-10" />
                     </Carousel>
-                    <div className="mt-4 p-3 bg-muted/30 rounded-lg border border-dashed">
-                      <p className="text-xs text-center text-muted-foreground">
-                        👆 Glissez pour voir • 👇 Swipe vers le bas pour fermer • 👈 Swipe pour sélectionner • 🤚 Maintenez pour preview
-                      </p>
-                    </div>
                   </>
                 )}
 
@@ -1195,10 +1204,29 @@ const Louer = () => {
               />
             ))}
           </div>}
+          {suggestedCars.length > 0 && <div className="mb-8" aria-live="polite">
+            <h3 className="mb-4 font-semibold">{tr("Aucune voiture pour cette combinaison. Voici d’autres modèles disponibles :", "No car for this combination. Here are other available models:", "Ningún coche para esta combinación. Otros modelos disponibles:")}</h3>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+              {suggestedCars.map((car) => (
+                <SwipeableCarCard
+                  key={car.id}
+                  car={car}
+                  viewMode="grid"
+                  startDate={startDate}
+                  endDate={endDate}
+                  isInComparison={isInComparison(car.id)}
+                  onToggleComparison={() => { if (isInComparison(car.id)) { removeFromComparison(car.id); } else { addToComparison(car); } }}
+                  onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
+                  onWhatsAppClick={() => handleWhatsAppClick(car.name)}
+                />
+              ))}
+            </div>
+            <Button type="button" variant="outline" className="mt-4" onClick={() => { setSelectedBrand("all"); setSelectedCategory("all"); setSelectedType("all"); }}>{tr("Voir tout le catalogue", "See the whole catalogue", "Ver todo el catálogo")}</Button>
+          </div>}
           <div className="mt-8 rounded-lg border border-dashed p-5 text-center">
             <h3 className="font-semibold">{tr("Vous ne trouvez pas votre modèle ?", "Can't find your model?", "¿No encuentras tu modelo?")}</h3>
             <p className="mt-1 text-sm text-muted-foreground">{tr("D’autres voitures de tourisme peuvent être proposées sur demande. Indiquez le modèle et vos dates : disponibilité et prix confirmés par Benatna.", "Other passenger cars may be available on request. Tell us the model and your dates: availability and price confirmed by Benatna.", "Otros turismos pueden estar disponibles bajo pedido. Indica el modelo y tus fechas: disponibilidad y precio confirmados por Benatna.")}</p>
-            <Button type="button" variant="outline" className="mt-3" onClick={() => { const dateValue = (value?: Date) => value && Number.isFinite(value.getTime()) ? format(value, 'yyyy-MM-dd') : ''; requestRental({ vehicles: [OTHER_VEHICLE_PREFIX], startDate: dateValue(startDate), endDate: dateValue(endDate), city: selectedCity === 'Rabat' ? 'Rabat' : 'Casablanca', pickupId: pickupPoint?.city === selectedCity ? pickupPoint.id : '' }); }}>{tr("Demander un autre modèle", "Request another model", "Pedir otro modelo")}</Button>
+            <Button type="button" variant="outline" className="mt-3" onClick={() => { const dateValue = (value?: Date) => value && Number.isFinite(value.getTime()) ? format(value, 'yyyy-MM-dd') : ''; requestRental({ vehicles: [], startDate: dateValue(startDate), endDate: dateValue(endDate), city: selectedCity === 'Rabat' ? 'Rabat' : 'Casablanca', pickupId: pickupPoint?.city === selectedCity ? pickupPoint.id : '' }); }}>{tr("Demander un autre modèle", "Request another model", "Pedir otro modelo")}</Button>
           </div>
           <div className="mt-8 text-center" aria-live="polite">
             <p className="text-sm text-muted-foreground mb-4">
