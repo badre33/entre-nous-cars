@@ -15,7 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 
 type Lead = Tables<'rental_requests'>;
 const PAGE_SIZE = 25;
-const selectClass = 'border border-input rounded-md bg-background p-2 min-h-10';
+const selectClass = 'border border-input rounded-md bg-white p-2 min-h-10';
 const labelClass = 'grid gap-2';
 function receivedNow() { const date = new Date(); return new Date(date.getTime() - date.getTimezoneOffset() * 60000).toISOString().slice(0, 16); }
 function LeadEditor({ lead, saved }: { lead: Lead; saved: () => Promise<unknown> }) {

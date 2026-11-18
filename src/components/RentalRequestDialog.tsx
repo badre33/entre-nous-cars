@@ -10,7 +10,7 @@ import { useTr } from '@/contexts/LanguageContext';
 import { analyticsTracker } from '@/utils/analyticsTracker';
 import { CheckCircle2 } from 'lucide-react';
 const empty = (): ConfirmedRental => ({ vehicles: [], startDate: '', endDate: '', city: 'Casablanca', pickupId: '', otherPlace: '' });
-const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-background px-3 py-2 text-base';
+const field = 'min-h-11 min-w-0 w-full rounded-md border border-input bg-white px-3 py-2 text-base';
 const dh = (amount: number) => `${Math.round(amount).toLocaleString('fr-FR')} DH`;
 export default function RentalRequestDialog() {
   const { selectedCars } = useComparison();
