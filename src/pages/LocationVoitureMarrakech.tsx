@@ -80,10 +80,10 @@ const LocationVoitureMarrakech = () => {
     <div className="min-h-screen flex flex-col bg-background">
       {/* SEO Meta Tags */}
       <Helmet>
-        <title>Location Voiture Marrakech dès 250 DH/jour | Livraison Aéroport &amp; Hôtel - Benatna</title>
-        <meta name="description" content="Location de voiture à Marrakech dès 250 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté." />
-        <meta property="og:title" content="Location Voiture Marrakech dès 250 DH/jour | Livraison Aéroport & Hôtel - Benatna" />
-        <meta property="og:description" content="Location de voiture à Marrakech dès 250 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté." />
+        <title>Location Voiture Marrakech dès 300 DH/jour | Livraison Aéroport &amp; Hôtel - Benatna</title>
+        <meta name="description" content="Location de voiture à Marrakech dès 300 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté." />
+        <meta property="og:title" content="Location Voiture Marrakech dès 300 DH/jour | Livraison Aéroport & Hôtel - Benatna" />
+        <meta property="og:description" content="Location de voiture à Marrakech dès 300 DH/jour. Agences locales, livraison aéroport Menara, sans carte de crédit, paiement cash accepté." />
         <meta property="og:url" content="https://benatna.ma/location-voiture-marrakech" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://benatna.ma/og-image.png" />
@@ -111,7 +111,7 @@ const LocationVoitureMarrakech = () => {
 
 
       <PriceRangeOfferSchema 
-        minPrice="250"
+        minPrice="300"
         maxPrice="900"
         city="Marrakech"
         discount={{ percentage: 15, minDays: 30 }}
@@ -438,7 +438,7 @@ const LocationVoitureMarrakech = () => {
                       Confort et espace pour les longs trajets vers Essaouira, Ouarzazate ou Agadir. 
                       Climatisation performante, coffre spacieux pour les bagages.
                     </p>
-                    <p className="text-primary font-medium mt-2">À partir de 250 DH/jour</p>
+                    <p className="text-primary font-medium mt-2">À partir de 300 DH/jour</p>
                   </div>
                 </div>
               </div>
