@@ -45,6 +45,7 @@ import carMercedesGLB from "@/assets/car-mercedes-glb.jpg";
 import carMercedesGLC from "@/assets/car-mercedes-glc.jpg";
 import carMercedesGLE from "@/assets/car-mercedes-gle.jpg";
 const carHyundaiI20 = "/vehicles/benatna/hyundai-i20.webp";
+const carHyundaiI10 = "/vehicles/benatna/hyundai-i10.webp";
 const carVwTRoc = "/vehicles/benatna/volkswagen-troc.webp";
 import carHyundaiSantaFe from "@/assets/car-hyundai-santa-fe.jpg";
 
@@ -622,6 +623,14 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     description: "La Hyundai i20 nouvelle generation est la citadine moderne et stylee. Design audacieux, equipement complet, conso modeste.",
     options: { transmission: "Manuelle/Auto", seats: 5, doors: 5, luggage: "352L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, rearCamera: true, androidAuto: true, appleCarPlay: true, isofix: true },
     highlights: ["Design moderne", "Garantie 5 ans", "Citadine accessible"], perfectFor: ["Couples", "Visites urbaines", "Premier voyage"]
+  },
+  "hyundai-i10": {
+    slug: "hyundai-i10", name: "Hyundai i10", brand: "Hyundai",
+    category: "Citadine Économique", priceFrom: 300, priceDisplay: "300 MAD/jour",
+    photos: [carHyundaiI10],
+    description: "La Hyundai i10 est une petite citadine cinq portes, économique et facile à garer, très répandue chez les loueurs au Maroc.",
+    options: { transmission: "Manuelle", seats: 5, doors: 5, luggage: "252L", fuel: "Essence", airConditioning: true, bluetooth: true },
+    highlights: ["Petite citadine", "Facile à garer", "Prix d’entrée"], perfectFor: ["Couples", "Visites urbaines", "Petits budgets"]
   },
   "vw-t-roc": {
     slug: "vw-t-roc", name: "Volkswagen T-Roc", brand: "Volkswagen",

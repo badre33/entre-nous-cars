@@ -76,6 +76,7 @@ const carDaciaLogan = "/vehicles/benatna/dacia-logan.webp";
 import carVwTiguan from "@/assets/car-vw-tiguan.jpg";
 import carVwPolo from "@/assets/car-vw-polo.jpg";
 const carHyundaiI20 = "/vehicles/benatna/hyundai-i20.webp";
+const carHyundaiI10 = "/vehicles/benatna/hyundai-i10.webp";
 const carVwTRoc = "/vehicles/benatna/volkswagen-troc.webp";
 import carHyundaiSantaFe from "@/assets/car-hyundai-santa-fe.jpg";
 import carHyundaiElantra from "@/assets/car-hyundai-elantra.jpg";
@@ -615,6 +616,10 @@ const carModels = [
   {
     id: 320, image: carHyundaiI20, name: "Hyundai i20", brand: "Hyundai", type: "Manuelle",
     category: "Citadine", city: "Casablanca", price: 400, priceDisplay: "400 MAD", badges: ["Économique"]
+  },
+  {
+    id: 321, image: carHyundaiI10, name: "Hyundai i10", brand: "Hyundai", type: "Manuelle",
+    category: "Citadine", city: "Casablanca", price: 300, priceDisplay: "300 MAD", badges: ["Économique"]
   },
   {
     id: 322, image: carVwTRoc, name: "Volkswagen T-Roc", brand: "Volkswagen", type: "Automatique",

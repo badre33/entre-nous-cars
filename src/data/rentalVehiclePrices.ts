@@ -42,6 +42,7 @@ export const rentalVehiclePrices: Record<string, number> = {
   "Opel Corsa": 400,
   "Peugeot 208": 400,
   "Hyundai i20": 400,
+  "Hyundai i10": 300,
   "Volkswagen T-Roc": 650,
   "Hyundai Santa Fe": 1450,
 };
