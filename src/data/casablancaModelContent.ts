@@ -154,6 +154,18 @@ export const casablancaModelContent: Record<string, CasablancaModelContent> = {
       { title: 'i20 ou Accent ?', text: 'L’i20 est une citadine compacte ; la Hyundai Accent est une berline, plus longue et plus spacieuse à l’arrière. Pour plus de place et la boîte automatique, comparez avec l’Accent.' },
     ],
   },
+  'hyundai-i10': {
+    name: 'Hyundai i10',
+    summary: 'Une petite citadine cinq portes, économique et facile à garer, au prix d’entrée du catalogue.',
+    title: 'Location Hyundai i10 Casablanca dès 300 DH/jour | Benatna',
+    description: 'Louez une Hyundai i10 à Casablanca dès 300 DH/jour hors haute saison, sans caution : livraison gratuite à l’aéroport Mohammed V ou en gare, 3 jours minimum.',
+    compare: false,
+    sections: [
+      { title: 'Une petite citadine pour la ville', text: 'La Hyundai i10 est une petite citadine cinq portes, facile à garer dans les rues de Casablanca et économique en carburant. C’est l’une des voitures les plus courantes chez les loueurs au Maroc.' },
+      { title: 'Pour qui ?', text: 'Elle convient à une ou deux personnes avec des bagages raisonnables, pour les trajets en ville et les sorties à la journée. Pour quatre adultes et de grandes valises, préférez une Sandero, une Logan ou une Clio.' },
+      { title: 'i10, Sandero ou Clio ?', text: 'L’i10 et la Sandero démarrent au même prix ; la Sandero est un peu plus grande, avec un coffre plus spacieux. La Clio, un cran au-dessus, offre plus d’équipements. Vous pouvez demander jusqu’à trois modèles par ordre de préférence.' },
+    ],
+  },
   'kia-sportage': {
     name: 'Kia Sportage',
     summary: 'Un SUV familial automatique et bien équipé, pour un séjour confortable avec bagages.',
