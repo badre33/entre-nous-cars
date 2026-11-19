@@ -607,15 +607,6 @@ export const vehicleDetails: Record<string, VehicleDetail> = {
     options: { transmission: "Manuelle/Auto EAT8", seats: 5, doors: 5, luggage: "311L", fuel: "Essence/Diesel", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
     highlights: ["Design audacieux", "i-Cockpit 3D", "Économique"], perfectFor: ["Couples", "Tourisme urbain", "Jeunes"]
   },
-  "seat-ibiza": {
-    slug: "seat-ibiza", name: "Seat Ibiza", brand: "Seat",
-    category: "Citadine Sport", priceFrom: 400, priceDisplay: "400 MAD/jour",
-    photos: ["/vehicles/benatna/seat-ibiza.webp"],
-    description: "La Seat Ibiza combine design espagnol et fiabilité Volkswagen Group. Citadine sport accessible.",
-    options: { transmission: "Manuelle/DSG", seats: 5, doors: 5, luggage: "355L", fuel: "Essence", airConditioning: true, bluetooth: true, cruiseControl: true, parkingSensors: true, androidAuto: true, appleCarPlay: true, isofix: true },
-    highlights: ["Design espagnol", "Base VW", "Sport accessible"], perfectFor: ["Jeunes", "Couples", "Tourisme"]
-  }
-,
   "hyundai-i20": {
     slug: "hyundai-i20", name: "Hyundai i20", brand: "Hyundai",
     category: "Citadine Moderne", priceFrom: 400, priceDisplay: "400 MAD/jour",

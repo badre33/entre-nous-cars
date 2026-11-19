@@ -173,7 +173,6 @@ export const analyticsPaths = new Set([
   "/vehicule/range-rover-evoque",
   "/vehicule/range-rover-sport",
   "/vehicule/renault-clio",
-  "/vehicule/seat-ibiza",
   "/vehicule/vw-golf",
   "/vehicule/vw-t-roc",
   "/vehicule/vw-touareg"

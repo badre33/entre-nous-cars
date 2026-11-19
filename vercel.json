@@ -5,6 +5,11 @@
   "framework": "vite",
   "redirects": [
     {
+      "source": "/vehicule/seat-ibiza",
+      "destination": "/louer",
+      "permanent": true
+    },
+    {
       "source": "/comparatif/location-courte-duree-vs-longue-duree-maroc",
       "destination": "/location-voiture-semaine-casablanca",
       "permanent": true
