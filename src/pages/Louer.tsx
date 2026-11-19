@@ -51,7 +51,6 @@ import carBmwX3 from "@/assets/car-bmw-x3.jpg";
 import carCitroenC3 from "@/assets/car-citroen-c3.jpg";
 import carFordFocus from "@/assets/car-ford-focus.jpg";
 import carNissanQashqai from "@/assets/car-nissan-qashqai.jpg";
-const carSeatIbiza = "/vehicles/benatna/seat-ibiza.webp";
 import carFiatTipo from "@/assets/car-fiat-tipo.jpg";
 const carOpelCorsa = "/vehicles/benatna/opel-corsa.webp";
 import carOpelAstra from "@/assets/car-opel-astra.jpg";
@@ -290,27 +289,9 @@ const carModels = [
     priceDisplay: "1060 MAD"
   },
   {
-    image: carSeatIbiza,
-    name: "Seat Ibiza",
-    brand: "Seat",
-    type: "Manuelle",
-    category: "Citadine",
-    price: 400,
-    priceDisplay: "400 MAD"
-  },
-  {
-    image: carSeatIbiza,
-    name: "Seat Ibiza",
-    brand: "Seat",
-    type: "Automatique",
-    category: "Citadine",
-    price: 400,
-    priceDisplay: "400 MAD"
-  },
-  {
     image: carHyundaiAccent,
     name: "Hyundai Accent",
-    brand: "Fiat",
+    brand: "Hyundai",
     type: "Automatique",
     category: "Berline",
     price: 400,
@@ -319,7 +300,7 @@ const carModels = [
   {
     image: carHyundaiAccent,
     name: "Hyundai Accent",
-    brand: "Fiat",
+    brand: "Hyundai",
     type: "Manuelle",
     category: "Berline",
     price: 400,
@@ -490,7 +471,7 @@ const carModels = [
   {
     image: carDaciaJogger,
     name: "Dacia Jogger",
-    brand: "Peugeot",
+    brand: "Dacia",
     type: "Automatique",
     category: "SUV",
     price: 400,

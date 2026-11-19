@@ -404,11 +404,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://benatna.ma/vehicule/seat-ibiza</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://benatna.ma/vehicule/hyundai-accent</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
