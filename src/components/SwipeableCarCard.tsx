@@ -45,7 +45,8 @@ interface SwipeableCarCardProps {
   endDate?: Date;
   isInComparison: boolean;
   onToggleComparison: () => void;
-  onShowAvailability: () => void;
+  /** Conservé pour compatibilité : le bouton « Disponibilités » est remplacé par « Réserver ». */
+  onShowAvailability?: () => void;
   onWhatsAppClick: () => void;
   onPreview?: () => void;
 }
@@ -57,7 +58,6 @@ export default function SwipeableCarCard({
   endDate,
   isInComparison,
   onToggleComparison,
-  onShowAvailability,
   onWhatsAppClick,
   onPreview
 }: SwipeableCarCardProps) {
@@ -154,12 +154,9 @@ export default function SwipeableCarCard({
               </div>
               <p className="text-xs text-muted-foreground mb-2">{tr("Prix indicatif selon le loueur", "Indicative price, set by the agency", "Precio orientativo según la agencia")}</p>
               <div className="flex gap-1.5">
-                <Button size="sm" variant="outline" className="h-11 text-sm flex-1" onClick={onShowAvailability}>
-                  <CalendarCheck className="w-3 h-3 mr-1" />
-                  Dispo
-                </Button>
                 <Button size="sm" className="h-11 text-sm flex-1" onClick={onWhatsAppClick}>
-                  WhatsApp
+                  <CalendarCheck className="w-3 h-3 mr-1" />
+                  {tr("Réserver", "Book", "Reservar")}
                 </Button>
                 <div
                   className={cn(
@@ -275,12 +272,9 @@ export default function SwipeableCarCard({
           )}
           <p className="text-xs text-muted-foreground mb-2">{tr("Prix indicatif selon le loueur", "Indicative price, set by the agency", "Precio orientativo según la agencia")}</p>
           <div className="space-y-1.5">
-            <Button size="sm" variant="outline" className="w-full h-11 text-sm" onClick={onShowAvailability}>
-              <CalendarCheck className="w-3 h-3 mr-1" />
-              {tr("Disponibilités", "Availability", "Disponibilidad")}
-            </Button>
             <Button size="sm" className="w-full h-11 text-sm" onClick={onWhatsAppClick}>
-              WhatsApp
+              <CalendarCheck className="w-3 h-3 mr-1" />
+              {tr("Réserver", "Book", "Reservar")}
             </Button>
           </div>
         </CardContent>
@@ -392,20 +386,12 @@ export default function SwipeableCarCard({
 
         <div className="space-y-2 mb-4">
           <Button 
-            variant="outline"
-            size="sm"
-            className="w-full rounded-full touch-target text-xs" 
-            onClick={onShowAvailability}
-          >
-            <CalendarCheck className="w-3.5 h-3.5 mr-1.5" />
-            {tr("Disponibilités", "Availability", "Disponibilidad")}
-          </Button>
-          <Button 
             size="sm"
             className="w-full rounded-full touch-target text-xs" 
             onClick={onWhatsAppClick}
           >
-            Contacter WhatsApp
+            <CalendarCheck className="w-3.5 h-3.5 mr-1.5" />
+            {tr("Réserver", "Book", "Reservar")}
           </Button>
         </div>
       </CardContent>

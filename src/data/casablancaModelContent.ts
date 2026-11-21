@@ -119,18 +119,6 @@ export const casablancaModelContent: Record<string, CasablancaModelContent> = {
       { title: '208, Clio ou Sandero ?', text: 'La 208 et la Clio sont dans la même gamme de prix, avec plus d’équipements qu’une Sandero. Si le budget prime, la Sandero démarre à 300 DH par jour. Vous pouvez demander jusqu’à trois modèles et comparer les propositions.' },
     ],
   },
-  'seat-ibiza': {
-    name: 'Seat Ibiza',
-    summary: 'Une citadine au coffre généreux pour sa catégorie, agréable sur la route.',
-    title: 'Location Seat Ibiza Casablanca dès 400 DH/jour | Benatna',
-    description: 'Louez une Seat Ibiza à Casablanca dès 400 DH/jour hors haute saison : livraison gratuite à l’aéroport Mohammed V ou en gare, 3 jours minimum, demande sur WhatsApp.',
-    compare: false,
-    sections: [
-      { title: 'Une citadine dynamique et pratique', text: 'La Seat Ibiza est une citadine cinq portes appréciée pour sa tenue de route et un coffre plutôt généreux pour sa taille. Elle convient aux couples et aux petites familles qui alternent ville et autoroute.' },
-      { title: 'Pour quel séjour ?', text: 'L’Ibiza est un bon compromis si vous prévoyez des trajets hors de Casablanca pendant votre séjour, sans passer à un SUV. Indiquez vos bagages et votre préférence de boîte de vitesses dans la demande.' },
-      { title: 'Ibiza, 208 ou Corsa ?', text: 'Ces trois citadines sont au même prix de départ. Le choix dépend surtout de la disponibilité et de la boîte de vitesses : demandez-en plusieurs dans la même demande pour obtenir la meilleure proposition.' },
-    ],
-  },
   'opel-corsa': {
     name: 'Opel Corsa',
     summary: 'Une citadine simple et compacte, facile à vivre en ville.',

@@ -24,7 +24,6 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import LazyCarImage from "@/components/LazyCarImage";
 import { StructuredData } from "@/components/StructuredData";
 import { CarProductSchema } from "@/components/CarProductSchema";
-import AvailabilityCalendar from "@/components/AvailabilityCalendar";
 import { HreflangTags } from "@/utils/hreflangHelper";
 import { useLanguage, useTr } from "@/contexts/LanguageContext";
 import { useIntelligentPreloader } from "@/hooks/useIntelligentPreloader";
@@ -51,7 +50,6 @@ import carBmwX3 from "@/assets/car-bmw-x3.jpg";
 import carCitroenC3 from "@/assets/car-citroen-c3.jpg";
 import carFordFocus from "@/assets/car-ford-focus.jpg";
 import carNissanQashqai from "@/assets/car-nissan-qashqai.jpg";
-const carSeatIbiza = "/vehicles/benatna/seat-ibiza.webp";
 import carFiatTipo from "@/assets/car-fiat-tipo.jpg";
 const carOpelCorsa = "/vehicles/benatna/opel-corsa.webp";
 import carOpelAstra from "@/assets/car-opel-astra.jpg";
@@ -290,27 +288,9 @@ const carModels = [
     priceDisplay: "1060 MAD"
   },
   {
-    image: carSeatIbiza,
-    name: "Seat Ibiza",
-    brand: "Seat",
-    type: "Manuelle",
-    category: "Citadine",
-    price: 400,
-    priceDisplay: "400 MAD"
-  },
-  {
-    image: carSeatIbiza,
-    name: "Seat Ibiza",
-    brand: "Seat",
-    type: "Automatique",
-    category: "Citadine",
-    price: 400,
-    priceDisplay: "400 MAD"
-  },
-  {
     image: carHyundaiAccent,
     name: "Hyundai Accent",
-    brand: "Fiat",
+    brand: "Hyundai",
     type: "Automatique",
     category: "Berline",
     price: 400,
@@ -319,7 +299,7 @@ const carModels = [
   {
     image: carHyundaiAccent,
     name: "Hyundai Accent",
-    brand: "Fiat",
+    brand: "Hyundai",
     type: "Manuelle",
     category: "Berline",
     price: 400,
@@ -490,7 +470,7 @@ const carModels = [
   {
     image: carDaciaJogger,
     name: "Dacia Jogger",
-    brand: "Peugeot",
+    brand: "Dacia",
     type: "Automatique",
     category: "SUV",
     price: 400,
@@ -675,8 +655,6 @@ const Louer = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [parallaxOffset, setParallaxOffset] = useState(0);
   const [isLoading] = useState(false);
-  const [showAvailability, setShowAvailability] = useState(false);
-  const [selectedCar, setSelectedCar] = useState<{ name: string; city: string; price: string } | null>(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const [cataloguePage, setCataloguePage] = useState({ filterKey: "", count: 24 });
   const [viewMode, setViewMode] = useState<'carousel' | 'grid' | 'list'>('grid');
@@ -737,23 +715,6 @@ const Louer = () => {
   };
   const handleSendSelection = () => {
     if (selectedCars.length) requestFromCatalogue([...new Set(selectedCars.map(car => car.name))]);
-  };
-
-  const handleShowAvailability = (carName: string, city: string, priceDisplay: string) => {
-    setSelectedCar({ name: carName, city, price: priceDisplay });
-    setShowAvailability(true);
-  };
-
-  const handleSelectDates = (start: Date, end: Date) => {
-    if (!isValidRentalPeriod(format(start, "yyyy-MM-dd"), format(end, "yyyy-MM-dd"))) {
-      toast({ title: "Dates de location invalides", description: RENTAL_PERIOD_MESSAGE, variant: "destructive" });
-      return;
-    }
-    setStartDate(start);
-    setEndDate(end);
-    setShowAvailability(false);
-    
-    if (selectedCar) requestFromCatalogue([selectedCar.name], start, end);
   };
 
   const cities = ["Casablanca", "Rabat"];
@@ -1115,7 +1076,6 @@ const Louer = () => {
                                   addToComparison(car);
                                 }
                               }}
-                              onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                               onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                               onPreview={() => setPreviewCar(car)}
                             />
@@ -1145,7 +1105,6 @@ const Louer = () => {
                             addToComparison(car);
                           }
                         }}
-                        onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                         onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                         onPreview={() => setPreviewCar(car)}
                       />
@@ -1170,7 +1129,6 @@ const Louer = () => {
                             addToComparison(car);
                           }
                         }}
-                        onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                         onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                         onPreview={() => setPreviewCar(car)}
                       />
@@ -1198,7 +1156,6 @@ const Louer = () => {
                     addToComparison(car);
                   }
                 }}
-                onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                 onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                 onPreview={() => setPreviewCar(car)}
               />
@@ -1216,7 +1173,6 @@ const Louer = () => {
                   endDate={endDate}
                   isInComparison={isInComparison(car.id)}
                   onToggleComparison={() => { if (isInComparison(car.id)) { removeFromComparison(car.id); } else { addToComparison(car); } }}
-                  onShowAvailability={() => handleShowAvailability(car.name, car.city, car.priceDisplay)}
                   onWhatsAppClick={() => handleWhatsAppClick(car.name)}
                 />
               ))}
@@ -1266,15 +1222,6 @@ const Louer = () => {
         </div>
       </section>
 
-      {/* Availability Calendar Modal */}
-      {selectedCar && (
-        <AvailabilityCalendar
-          carName={selectedCar.name}
-          isOpen={showAvailability}
-          onClose={() => setShowAvailability(false)}
-          onSelectDates={handleSelectDates}
-        />
-      )}
 
       <Footer />
       
@@ -1294,7 +1241,7 @@ const Louer = () => {
         car={previewCar}
         isOpen={!!previewCar}
         onClose={() => setPreviewCar(null)}
-        onShowAvailability={() => previewCar && handleShowAvailability(previewCar.name, previewCar.city, previewCar.priceDisplay)}
+        onShowAvailability={() => previewCar && handleWhatsAppClick(previewCar.name)}
         onWhatsAppClick={() => previewCar && handleWhatsAppClick(previewCar.name)}
       />
 

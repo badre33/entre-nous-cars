@@ -9,7 +9,6 @@ export const rentalVehiclePrices: Record<string, number> = {
   "Kia Sportage": 640,
   "Mercedes Classe C": 1060,
   "Audi A4": 1060,
-  "Seat Ibiza": 400,
   "Hyundai Accent": 400,
   "Dacia Sandero": 300,
   "Dacia Logan": 300,
