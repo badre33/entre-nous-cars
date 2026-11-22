@@ -151,6 +151,26 @@ export function openConfirmedRental(value: ConfirmedRental): Window | null {
     return popup;
   } finally { permittedURL = null; }
 }
+// Réservation enregistrée puis WhatsApp en un seul geste (retour de Badre, 22/11) :
+// un onglet vide est réservé pendant le clic puis reçoit WhatsApp après l'enregistrement (sinon le
+// navigateur bloque l'ouverture après l'attente). Onglet refusé : WhatsApp s'ouvre dans la même page.
+// Plus de message « WhatsApp ne s'est pas ouvert » : Safari le déclenchait alors que WhatsApp s'ouvrait.
+export function reserveWhatsAppWindow(): Window | null {
+  try { return window.open('', '_blank'); } catch { return null; }
+}
+export function sendConfirmedRental(value: ConfirmedRental, reserved: Window | null): void {
+  const url = `https://wa.me/212699024526?text=${encodeURIComponent(appendCampaignCode(buildConfirmedRentalMessage(value)))}`;
+  window.dispatchEvent(new CustomEvent(WHATSAPP_HANDOFF_EVENT));
+  if (reserved && !reserved.closed) {
+    try { reserved.opener = null; } catch { /* restriction du navigateur */ }
+    reserved.location.href = url;
+    return;
+  }
+  window.location.href = url;
+}
+export function releaseWhatsAppWindow(reserved: Window | null): void {
+  try { if (reserved && !reserved.closed) reserved.close(); } catch { /* déjà fermé */ }
+}
 // Installed before React. Old links and delayed callbacks cannot bypass the form.
 export function installRentalRequestGate() {
   if (installed) return; installed = true;

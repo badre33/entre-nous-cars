@@ -42,7 +42,7 @@ export default function ComparisonButton({ onClick }: ComparisonButtonProps) {
         )}
       >
         <MessageCircle className="mr-2 h-6 w-6 md:h-5 md:w-5" />
-        <span className="font-semibold text-sm whitespace-normal md:whitespace-nowrap">Envoyer sur WhatsApp</span>
+        <span className="font-semibold text-sm whitespace-normal md:whitespace-nowrap">Réserver la sélection</span>
         <Badge
           variant="secondary"
           className={cn(
