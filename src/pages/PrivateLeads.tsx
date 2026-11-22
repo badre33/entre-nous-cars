@@ -101,8 +101,8 @@ export default function PrivateLeads() {
       <h1 className="text-3xl font-semibold">Suivi privé des demandes</h1>
       <p><Link to="/analytics">Retour aux statistiques</Link></p>
       {access === 'loading' ? <p>Vérification de l’accès administrateur…</p> : access !== 'admin' ? <section><h2 className="text-xl font-semibold">Accès réservé à l’administrateur</h2><p>{access === 'error' ? 'La vérification des droits a échoué. Rechargez la page pour réessayer.' : 'Connectez-vous avec le compte administrateur pour consulter les demandes.'}</p><Link to="/auth">Se connecter</Link></section> : <>
-        <p>Enregistrez uniquement un contact réellement reçu. Un clic ou une sortie vers WhatsApp ne crée aucune demande dans ce suivi. Les états de qualification, de réservation et de réalisation sont renseignés par vous.</p>
-        <details className="border rounded-xl p-5" open><summary className="font-semibold cursor-pointer">Enregistrer une demande reçue</summary>
+        <p>Les réservations faites sur le site s’enregistrent ici automatiquement, avec leur référence BN, même si le client n’envoie pas le message WhatsApp. Ajoutez à la main uniquement un contact reçu par un autre canal (appel, message direct). Les états de qualification, de réservation et de réalisation sont renseignés par vous.</p>
+        <details className="border rounded-xl p-5"><summary className="font-semibold cursor-pointer">Enregistrer une demande reçue</summary>
           <form onSubmit={event => { void create(event); }} className="grid gap-4 mt-5 md:grid-cols-2">
             <label className={labelClass}>Nom ou repère du contact<Input name="full_name" maxLength={120} required autoComplete="off" /></label>
             <label className={labelClass}>Téléphone du contact<Input name="phone" type="tel" maxLength={40} required autoComplete="off" /></label>
