@@ -136,9 +136,10 @@ export default function RentalRequestDialog() {
         if (openId === openIdRef.current) { handedOff = true; sendConfirmedRental(booking, reserved); }
         return;
       }
-      const reason = (result as Extract<SubmitBookingResult, { ok: false }>).reason;
+      const failure = result as Extract<SubmitBookingResult, { ok: false }>;
+      const reason = failure.reason;
       if (outcomeUnknown(reason)) uncertainAttempt = { signature, key: attempt.key, input };
-      showFailure(reason, openId);
+      showFailure(reason, openId, failure.rejectionCode);
     } finally { if (!handedOff) releaseWhatsAppWindow(reserved); savingRef.current = false; setSaving(false); }
   };
   // Réponse arrivée après fermeture ou réouverture du formulaire : enregistrée, mais l'écran affiché n'est pas modifié.
@@ -149,8 +150,10 @@ export default function RentalRequestDialog() {
     setSavedOrigin(origin);
     setSent(booking); setValue(empty()); setPhone(''); setPhoneCountry('+212'); setReview(false); setConfirmed(false); setSaveFailed(false);
   };
-  const showFailure = (reason: string, openId: number) => {
-    step('booking_save_failed', { element_type: reason });
+  const showFailure = (reason: string, openId: number, rejection?: string) => {
+    // element_type : catégorie inchangée ; element_id : code technique du refus (liste fermée, sinon « unknown »),
+    // propriété déjà acceptée par le filtre serveur des événements (pas de migration).
+    step('booking_save_failed', { element_type: reason, element_id: rejection ?? 'unknown' });
     if (openId !== openIdRef.current) return;
     setSaveFailed(true);
     setConflict(reason === 'conflict' || reason === 'uncertain');
