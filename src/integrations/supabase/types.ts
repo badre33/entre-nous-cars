@@ -107,6 +107,63 @@ export type Database = {
         }
         Relationships: []
       }
+      partner_agencies: {
+        Row: {
+          id: string
+          created_at: string
+          updated_at: string
+          agency_name: string
+          city: string
+          phone: string | null
+          email: string | null
+          fleet_size: number | null
+          message: string | null
+          language: string
+          status: string
+          registre_commerce: string | null
+          ice: string | null
+          bank_account: string | null
+          admin_notes: string | null
+          verified_at: string | null
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          updated_at?: string
+          agency_name?: string
+          city?: string
+          phone?: string | null
+          email?: string | null
+          fleet_size?: number | null
+          message?: string | null
+          language?: string
+          status?: string
+          registre_commerce?: string | null
+          ice?: string | null
+          bank_account?: string | null
+          admin_notes?: string | null
+          verified_at?: string | null
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          updated_at?: string
+          agency_name?: string
+          city?: string
+          phone?: string | null
+          email?: string | null
+          fleet_size?: number | null
+          message?: string | null
+          language?: string
+          status?: string
+          registre_commerce?: string | null
+          ice?: string | null
+          bank_account?: string | null
+          admin_notes?: string | null
+          verified_at?: string | null
+        }
+        Relationships: []
+      }
       rental_requests: {
         Row: {
           received_at: string | null

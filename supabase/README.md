@@ -39,6 +39,8 @@ Le test complet de la chaîne actuelle utilise des identités synthétiques et v
 PGLITE_ROOT=/tmp/benatna-schema-check npm run test:measurement-schema
 ```
 
+La huitième migration, `20261126000000_partner_agencies.sql`, prépare l'étape 1 des loueurs partenaires (décisions du 18/11/2026). Elle crée `public.partner_agencies` (lecture et mise à jour par l'administrateur seulement, ni insertion directe ni suppression), le registre privé `partner_intake_private.submissions` et la fonction `public.register_partner` (SECURITY DEFINER, EXECUTE pour anon et authenticated : agence, Casablanca ou Rabat, téléphone ou e-mail, clé d'idempotence, trois inscriptions par contact sur 24 h). La colonne `bank_account` ne reçoit que des numéros bancaires, jamais le nom du titulaire. Contrôle local : `PGLITE_ROOT=/tmp/benatna-schema-check node scripts/test-partner-agencies.mjs`. Application en préproduction d'abord ; en production seulement avec l'accord explicite de Badre, puis `VITE_PARTNER_PERSISTENCE=on`.
+
 `operations/20261016_sanitize_historical_analytics.sql` est une opération facultative distincte : elle enlève définitivement les champs libres et paramètres d’URL historiques tout en conservant événements, dates et décomptes. Elle n’est pas exécutée automatiquement et exige un accord explicite. Le relevé agrégé initial contient 437 événements, dont 21 avec des champs libres d’URL et 3 avec un paramètre texte WhatsApp ; aucun contenu de message n’a été exporté.
 
 Après activation, `operations/20261016_verify_private_measurement_rollback.sql` vérifie les vraies règles PostgreSQL avec des fixtures synthétiques. Tous les inserts de test sont annulés par ROLLBACK. Il utilise l’administrateur existant sans exposer son UUID et ne crée aucun compte Auth.
