@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import type { Tables } from '@/integrations/supabase/types';
-import { partnerStatuses } from '@/utils/partnerApi';
+import { formatRib, normalizeRib, partnerStatuses } from '@/utils/partnerApi';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -17,19 +17,22 @@ function PartnerEditor({ partner, saved }: { partner: Partner; saved: () => Prom
   const [status, setStatus] = useState(partner.status);
   const [rc, setRc] = useState(partner.registre_commerce || '');
   const [ice, setIce] = useState(partner.ice || '');
-  const [bank, setBank] = useState(partner.bank_account || '');
+  const [bank, setBank] = useState(partner.bank_account ? formatRib(partner.bank_account) : '');
   const [notes, setNotes] = useState(partner.admin_notes || '');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   async function save() {
     if (status === 'verifie' && (!rc.trim() || !ice.trim())) { setError('Pour marquer l’agence vérifiée, renseignez le registre de commerce et l’ICE.'); return; }
+    const rib = bank.trim() ? normalizeRib(bank) : null;
+    if (bank.trim() && !rib) { setError('Le RIB doit contenir exactement 24 chiffres, sans nom du titulaire ni autre texte.'); return; }
     setBusy(true); setError('');
     try {
       const verifiedAt = status === 'verifie' ? (partner.verified_at || new Date().toISOString()) : null;
       const { data, error: failure } = await supabase.from('partner_agencies').update({
-        status, registre_commerce: rc.trim() || null, ice: ice.trim() || null, bank_account: bank.trim() || null,
+        status, registre_commerce: rc.trim() || null, ice: ice.trim() || null, bank_account: rib,
         admin_notes: notes.trim() || null, verified_at: verifiedAt,
       }).eq('id', partner.id).select('id');
+      if (failure?.code === '23514') { setError('Refusé par la base : statut vérifié sans RC, ICE ou date, ou RIB qui n’est pas composé de 24 chiffres.'); return; }
       if (failure || data?.length !== 1) throw new Error('not saved');
       await saved();
     } catch { setError('Enregistrement non confirmé. Actualisez la liste avant de réessayer.'); }
@@ -44,7 +47,7 @@ function PartnerEditor({ partner, saved }: { partner: Partner; saved: () => Prom
       <label className={labelClass}>Statut<select aria-label="Statut du loueur" value={status} onChange={e => setStatus(e.target.value)} className={selectClass}>{Object.entries(partnerStatuses).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
       <label className={labelClass}>Registre de commerce<Input value={rc} maxLength={60} onChange={e => setRc(e.target.value)} /></label>
       <label className={labelClass}>ICE<Input value={ice} maxLength={30} inputMode="numeric" onChange={e => setIce(e.target.value)} /></label>
-      <label className={labelClass}>Numéros bancaires (RIB, sans nom du titulaire)<Input value={bank} maxLength={60} autoComplete="off" onChange={e => setBank(e.target.value)} /></label>
+      <label className={labelClass}>RIB (24 chiffres, sans nom du titulaire)<Input value={bank} maxLength={40} inputMode="numeric" autoComplete="off" placeholder="000 000 0000000000000000 00" onChange={e => setBank(e.target.value)} /></label>
     </div>
     <label className={labelClass}>Notes privées (appel de vérification, documents reçus)<Textarea value={notes} maxLength={4000} onChange={e => setNotes(e.target.value)} /></label>
     {error && <p role="alert">{error}</p>}
@@ -68,7 +71,7 @@ export default function PrivatePartners() {
   const refresh = () => queryClient.invalidateQueries({ queryKey: ['private-partner-agencies'] });
   return <section className="space-y-5" aria-labelledby="partners-title">
     <h2 id="partners-title" className="text-2xl font-semibold">Loueurs partenaires</h2>
-    <p>Agences inscrites depuis la page Partenaires. Les demandes leur sont transmises à la main sur WhatsApp, sans les coordonnées du client. La vérification (appel, registre de commerce, ICE) se fait après une première demande acceptée.</p>
+    <p>Agences inscrites depuis la page Partenaires. Les demandes leur sont transmises à la main sur WhatsApp. La vérification (appel, registre de commerce, ICE) se fait après une première demande acceptée.</p>
     <label className={labelClass}>Filtrer les loueurs<select aria-label="Filtrer les loueurs" value={filter} onChange={e => setFilter(e.target.value)} className={selectClass}><option value="all">Tous les statuts</option>{Object.entries(partnerStatuses).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
     {query.isPending ? <p>Chargement des loueurs…</p> : query.isError ? <div role="alert"><p>Lecture des loueurs impossible. La table des partenaires n’est peut-être pas encore activée dans cette base.</p><Button onClick={() => { void query.refetch(); }}>Réessayer</Button></div> : <>
       <p>{query.data.length} loueur(s) affiché(s).</p>

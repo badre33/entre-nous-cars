@@ -18,7 +18,7 @@ import { useToast } from "@/hooks/use-toast";
 import { StickyCTA } from "@/components/StickyCTA";
 import heroImage from "@/assets/hero-partners.jpg";
 import { PHONE_COUNTRY_CODES } from "@/utils/bookingApi";
-import { checkPartner, PARTNER_CITIES, type PartnerCheck, type RegisterPartnerResult, partnerPersistenceEnabled, partnerWhatsAppText, registerPartner } from "@/utils/partnerApi";
+import { checkPartner, isUncertainFailure, PARTNER_CITIES, PENDING_PARTNER_KEY, partnerRecap, readPendingPartner, type PartnerCheck, type PartnerInput, type RegisterPartnerResult, partnerPersistenceEnabled, partnerWhatsAppText, registerPartner } from "@/utils/partnerApi";
 
 const PAGE_META: Record<string, { title: string; desc: string }> = {
   fr: {
@@ -78,25 +78,70 @@ const Partenaires = () => {
     };
   }, []);
   
-  const [partnerDone, setPartnerDone] = useState(false);
+  const [partnerDone, setPartnerDone] = useState<string[] | null>(null);
   const [partnerError, setPartnerError] = useState('');
   const [partnerFallback, setPartnerFallback] = useState('');
+  // Tentative dont la réponse a été perdue : elle est renvoyée telle quelle, avec la même clé, jamais modifiée.
+  const [partnerPending, setPartnerPending] = useState<PartnerInput | null>(() => readPendingPartner());
   const partnerKey = useRef<string>(crypto.randomUUID());
 
   const openPartnerWhatsApp = (text: string) => {
     window.open(`https://wa.me/212699024526?text=${encodeURIComponent(text)}`, '_blank');
   };
+  const keepPending = (input: PartnerInput | null) => {
+    setPartnerPending(input);
+    try {
+      if (input) sessionStorage.setItem(PENDING_PARTNER_KEY, JSON.stringify(input));
+      else sessionStorage.removeItem(PENDING_PARTNER_KEY);
+    } catch { /* stockage indisponible : la tentative reste en mémoire pour cette page */ }
+  };
+
+  const sendPartner = async (input: PartnerInput) => {
+    setPartnerError(''); setPartnerFallback('');
+    setIsSubmitting(true);
+    const result = await registerPartner(input);
+    setIsSubmitting(false);
+    if (result.ok) {
+      keepPending(null);
+      partnerKey.current = crypto.randomUUID();
+      setPartnerDone(partnerRecap(input));
+      return;
+    }
+    const reason = (result as Extract<RegisterPartnerResult, { ok: false }>).reason;
+    if (isUncertainFailure(reason)) {
+      keepPending(input);
+      setPartnerError(tr("Nous n'avons pas reçu de confirmation : votre inscription a peut-être été enregistrée. Renvoyez-la telle quelle, ou envoyez-la sur WhatsApp. Pour la modifier, écrivez-nous sur WhatsApp.",
+        "We did not receive a confirmation: your registration may have been saved. Send it again as is, or send it on WhatsApp. To change it, message us on WhatsApp.",
+        "No recibimos confirmación: es posible que tu inscripción se haya guardado. Reenvíala tal cual o envíala por WhatsApp. Para modificarla, escríbenos por WhatsApp."));
+      setPartnerFallback(partnerWhatsAppText(input));
+      return;
+    }
+    keepPending(null);
+    partnerKey.current = crypto.randomUUID();
+    if (reason === 'conflict') {
+      setPartnerError(tr("Une inscription avec d'autres informations a déjà été enregistrée pour cet envoi. Elle n'a pas été modifiée. Pour la corriger, écrivez-nous sur WhatsApp.",
+        "A registration with different details was already saved for this attempt. It was not changed. To correct it, message us on WhatsApp.",
+        "Ya se guardó una inscripción con otros datos para este envío. No se modificó. Para corregirla, escríbenos por WhatsApp."));
+      setPartnerFallback(partnerWhatsAppText(input));
+    } else if (reason === 'rate_limited') {
+      setPartnerError(tr("Plusieurs inscriptions ont déjà été reçues avec ce contact aujourd'hui. Nous revenons vers vous.", "Several registrations were already received with this contact today. We will get back to you.", "Ya recibimos varias inscripciones con este contacto hoy. Te contactaremos."));
+    } else {
+      setPartnerError(tr("L'inscription n'a pas été enregistrée. Vérifiez les informations, ou envoyez-la sur WhatsApp.", "Your registration was not saved. Check the details, or send it on WhatsApp.", "Tu inscripción no se guardó. Revisa los datos o envíala por WhatsApp."));
+      setPartnerFallback(partnerWhatsAppText(input));
+    }
+  };
 
   const submitPartner = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (partnerPending) { await sendPartner(partnerPending); return; }
     const values = new FormData(e.currentTarget);
     const text = (name: string) => String(values.get(name) ?? '');
     const city = text('ville') === 'Rabat' ? 'Rabat' : 'Casablanca';
-    const input = {
+    const input: PartnerInput = {
       agencyName: text('agence'), city, countryCode: text('indicatif') || '+212', phone: text('tel'),
       email: text('email'), fleetSize: text('flotte'), message: text('message'), language,
       idempotencyKey: partnerKey.current,
-    } as const;
+    };
     const checked = checkPartner(input);
     setPartnerFallback('');
     if (!checked.ok) {
@@ -111,20 +156,7 @@ const Partenaires = () => {
     }
     setPartnerError('');
     if (!partnerPersistenceEnabled()) { openPartnerWhatsApp(partnerWhatsAppText(input)); return; }
-    setIsSubmitting(true);
-    const result = await registerPartner(input);
-    setIsSubmitting(false);
-    if (result.ok) {
-      partnerKey.current = crypto.randomUUID();
-      setPartnerDone(true);
-      return;
-    }
-    if ((result as Extract<RegisterPartnerResult, { ok: false }>).reason === 'rate_limited') {
-      setPartnerError(tr("Plusieurs inscriptions ont déjà été reçues avec ce contact aujourd'hui. Nous revenons vers vous.", "Several registrations were already received with this contact today. We will get back to you.", "Ya recibimos varias inscripciones con este contacto hoy. Te contactaremos."));
-      return;
-    }
-    setPartnerError(tr("L'inscription n'a pas pu être confirmée. Vous pouvez réessayer ou nous l'envoyer sur WhatsApp.", "Your registration could not be confirmed. You can try again or send it to us on WhatsApp.", "No se pudo confirmar tu inscripción. Puedes reintentar o enviárnosla por WhatsApp."));
-    setPartnerFallback(partnerWhatsAppText(input));
+    await sendPartner(input);
   };
 
   const scrollToForm = () => {
@@ -280,10 +312,18 @@ const Partenaires = () => {
               {partnerDone ? (
                 <div role="status" className="text-center space-y-3">
                   <p className="text-xl font-semibold">{tr("Inscription reçue, merci.", "Registration received, thank you.", "Inscripción recibida, gracias.")}</p>
+                  <p>{tr("Enregistré :", "Saved:", "Guardado:")} {partnerDone.join(' · ')}</p>
                   <p className="text-muted-foreground">{tr("Nous vous contactons dès qu'une demande correspond à votre ville.", "We will contact you as soon as a request matches your city.", "Te contactaremos en cuanto una solicitud corresponda a tu ciudad.")}</p>
                 </div>
               ) : (
               <form className="space-y-6" noValidate onSubmit={(e) => { void submitPartner(e); }}>
+                {partnerPending && (
+                  <div className="rounded-lg border border-input bg-white p-4 text-sm" data-testid="partner-pending">
+                    <p className="font-medium">{tr("Envoi en attente de confirmation :", "Awaiting confirmation:", "Envío pendiente de confirmación:")}</p>
+                    <p>{partnerRecap(partnerPending).join(' · ')}</p>
+                  </div>
+                )}
+                <fieldset disabled={!!partnerPending} className="space-y-6 disabled:opacity-60">
                 <div>
                   <label htmlFor="partner-agency" className="block text-sm font-medium mb-2">{t('partners.agencyName')}</label>
                   <Input id="partner-agency" name="agence" maxLength={80} autoComplete="organization" placeholder={tr("Votre agence de location", "Your rental agency", "Tu agencia de alquiler")} className="rounded-lg" required />
@@ -321,6 +361,7 @@ const Partenaires = () => {
                     className="rounded-lg min-h-[120px]"
                   />
                 </div>
+                </fieldset>
                 {partnerError && <p role="alert" className="text-sm font-medium text-destructive">{partnerError}</p>}
                 {partnerFallback && (
                   <Button type="button" variant="outline" size="lg" className="w-full rounded-full" onClick={() => openPartnerWhatsApp(partnerFallback)}>
@@ -328,7 +369,7 @@ const Partenaires = () => {
                   </Button>
                 )}
                 <Button type="submit" size="lg" className="w-full rounded-full" disabled={isSubmitting}>
-                  {isSubmitting ? tr("Envoi…", "Sending…", "Enviando…") : partnerPersistenceEnabled() ? tr("M'inscrire comme loueur partenaire", "Sign up as a partner agency", "Inscribirme como agencia asociada") : t('partners.sendWhatsApp')}
+                  {isSubmitting ? tr("Envoi…", "Sending…", "Enviando…") : partnerPending ? tr("Renvoyer la même inscription", "Send the same registration again", "Reenviar la misma inscripción") : partnerPersistenceEnabled() ? tr("M'inscrire comme loueur partenaire", "Sign up as a partner agency", "Inscribirme como agencia asociada") : t('partners.sendWhatsApp')}
                 </Button>
               </form>
               )}

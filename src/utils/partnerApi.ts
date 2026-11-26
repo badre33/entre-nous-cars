@@ -44,7 +44,10 @@ export function checkPartner(input: Pick<PartnerInput, 'agencyName' | 'countryCo
 
 export type RegisterPartnerResult =
   | { ok: true; created: boolean }
-  | { ok: false; reason: 'validation' | 'rate_limited' | 'network' | 'unknown' | 'unavailable' };
+  | { ok: false; reason: 'validation' | 'rate_limited' | 'conflict' | 'network' | 'unknown' | 'unavailable' };
+
+/** Réponse perdue ou illisible : l'inscription a peut-être été enregistrée. Il faut la renvoyer à l'identique. */
+export const isUncertainFailure = (reason: string) => reason === 'network' || reason === 'unknown';
 
 export async function registerPartner(input: PartnerInput): Promise<RegisterPartnerResult> {
   const checked = checkPartner(input);
@@ -82,6 +85,7 @@ export async function registerPartner(input: PartnerInput): Promise<RegisterPart
   const message = body && typeof body === 'object' ? String((body as { message?: unknown }).message ?? '') : '';
   if (code === 'P0001' && message === 'partner_rate_limited') return { ok: false, reason: 'rate_limited' };
   if (code === '22023') return { ok: false, reason: 'validation' };
+  if (code === '23505' && message === 'partner_idempotency_conflict') return { ok: false, reason: 'conflict' };
   return { ok: false, reason: 'unknown' };
 }
 
@@ -98,4 +102,32 @@ export function partnerWhatsAppText(input: Pick<PartnerInput, 'agencyName' | 'ci
   if (input.fleetSize.trim()) lines.push(`Flotte : ${input.fleetSize.trim()} véhicules`);
   if (input.message.trim()) lines.push('', `Message : ${input.message.trim()}`);
   return lines.join('\n');
+}
+
+/** RIB marocain : 24 chiffres. Espaces, tirets et points sont retirés ; tout autre caractère (nom du titulaire) est refusé. */
+export function normalizeRib(value: string): string | null {
+  const compact = value.replace(/[\s.-]/g, '');
+  return /^[0-9]{24}$/.test(compact) ? compact : null;
+}
+export const formatRib = (rib: string) => rib.replace(/^(\d{3})(\d{3})(\d{16})(\d{2})$/, '$1 $2 $3 $4');
+
+/** Résumé affiché : agence, ville et contact tels qu'ils sont envoyés. */
+export function partnerRecap(input: PartnerInput): string[] {
+  const checked = checkPartner(input);
+  const valid = checked.ok ? (checked as Extract<PartnerCheck, { ok: true }>) : null;
+  return [input.agencyName.trim(), input.city, valid?.phone, valid?.email].filter((x): x is string => !!x);
+}
+
+export const PENDING_PARTNER_KEY = 'benatna.partnerPending';
+/** Tentative incertaine conservée pour la session : renvoyée à l'identique, même après rechargement. */
+export function readPendingPartner(): PartnerInput | null {
+  try {
+    const raw = sessionStorage.getItem(PENDING_PARTNER_KEY);
+    if (!raw) return null;
+    const value = JSON.parse(raw) as Partial<PartnerInput>;
+    const fields = ['agencyName', 'city', 'countryCode', 'phone', 'email', 'fleetSize', 'message', 'language', 'idempotencyKey'] as const;
+    if (!value || fields.some(f => typeof value[f] !== 'string') || !PARTNER_CITIES.includes(value.city as PartnerCity)
+        || !/^[0-9a-f-]{36}$/i.test(value.idempotencyKey as string)) return null;
+    return value as PartnerInput;
+  } catch { return null; }
 }
