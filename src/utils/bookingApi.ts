@@ -30,7 +30,23 @@ export function composePhone(countryCode: string, input: string): string | null 
 
 export type SubmitBookingResult =
   | { ok: true; reference: string; created: boolean }
-  | { ok: false; reason: 'validation' | 'phone' | 'conflict' | 'rate_limited' | 'network' | 'unknown' | 'unavailable'; message?: string };
+  | { ok: false; reason: 'validation' | 'phone' | 'conflict' | 'rate_limited' | 'network' | 'unknown' | 'unavailable'; message?: string; rejectionCode?: RejectionCode };
+
+/**
+ * Motifs techniques de refus de submit_booking, reconnus seulement avec leur code SQL attendu.
+ * Mesure uniquement : jamais le message brut du serveur, le contenu du formulaire ni les coordonnées.
+ */
+const REJECTION_CODES = {
+  '22023': ['invalid_booking_payload', 'invalid_phone', 'invalid_estimate', 'invalid_other_vehicle', 'invalid_other_vehicle_estimate',
+    'invalid_rental_period', 'invalid_booking_option', 'invalid_pickup_address', 'invalid_pickup_city', 'invalid_vehicle'],
+  '23505': ['idempotency_conflict'],
+  P0001: ['booking_rate_limited', 'reference_generation_failed'],
+} as const;
+export type RejectionCode = (typeof REJECTION_CODES)[keyof typeof REJECTION_CODES][number] | 'unknown';
+export function rejectionCode(code: string, message: string): RejectionCode {
+  const known = (REJECTION_CODES as Record<string, readonly string[]>)[code];
+  return known && known.includes(message) ? message as RejectionCode : 'unknown';
+}
 
 /** Appel envoyé dont le résultat n'est pas connu : la demande a pu être enregistrée. */
 export const outcomeUnknown = (reason: string) => reason === 'network' || reason === 'unknown';
@@ -93,14 +109,15 @@ export async function submitBooking(input: SubmitBookingInput): Promise<SubmitBo
   }
   const code = body && typeof body === 'object' ? String((body as { code?: unknown }).code ?? '') : '';
   const message = body && typeof body === 'object' ? String((body as { message?: unknown }).message ?? '') : '';
+  const refused = rejectionCode(code, message);
   // Erreurs reconnues uniquement sur le couple code SQL + message de submit_booking ; un message seul ne prouve rien.
-  if (code === '23505' && message === 'idempotency_conflict') return { ok: false, reason: 'conflict' };
-  if (code === 'P0001' && message === 'booking_rate_limited') return { ok: false, reason: 'rate_limited' };
-  if (code === '22023' && message === 'invalid_phone') return { ok: false, reason: 'phone' };
+  if (code === '23505' && message === 'idempotency_conflict') return { ok: false, reason: 'conflict', rejectionCode: refused };
+  if (code === 'P0001' && message === 'booking_rate_limited') return { ok: false, reason: 'rate_limited', rejectionCode: refused };
+  if (code === '22023' && message === 'invalid_phone') return { ok: false, reason: 'phone', rejectionCode: refused };
   // Refus de validation : uniquement sur une erreur structurée reconnue (transaction annulée côté serveur).
-  if (code === '22023' || code === '22007' || code === '22P02') return { ok: false, reason: 'validation', message };
+  if (code === '22023' || code === '22007' || code === '22P02') return { ok: false, reason: 'validation', message, rejectionCode: refused };
   // Erreur de passerelle ou réponse inattendue après envoi : résultat inconnu.
-  return { ok: false, reason: 'unknown' };
+  return { ok: false, reason: 'unknown', rejectionCode: 'unknown' };
 }
 
 /** Écart entre la réservation enregistrée et la saisie actuelle, à transmettre sur WhatsApp. */

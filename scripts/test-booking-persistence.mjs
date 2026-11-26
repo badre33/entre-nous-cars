@@ -71,6 +71,9 @@ await scenario(browser, 'validation refusée', { respond: route => route.fulfill
   check('validation : saisie conservée (récapitulatif et téléphone)', (await dialog.getByLabel('Numéro de téléphone').inputValue()) === '+33 6 12 34 56 78');
   check('validation : aucun booking_submitted ni WhatsApp', !events.some(e => e.name === 'booking_submitted') && popups.length === 0);
   check('validation : secours WhatsApp proposé', /sans numéro de réservation/.test(text));
+  const failed = events.filter(e => e.name === 'booking_save_failed');
+  check('validation : message serveur inconnu → code « unknown », catégorie conservée', failed.length === 1 && failed[0].properties.element_type === 'validation' && failed[0].properties.element_id === 'unknown', JSON.stringify(failed[0]?.properties));
+  check('validation : message brut du serveur absent de la mesure', !JSON.stringify(events).includes('Rental period too short'));
 });
 await scenario(browser, 'coupure réseau après insertion', { retry: true, respond: (route, n) => n === 1 ? route.abort('connectionreset') : route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify([{ reference: 'BN-NET234', created: false }]) }) }, async ({ dialog, calls, events }) => {
   check('réseau : même clé aux deux tentatives', calls.length === 2 && calls[0].p_idempotency_key === calls[1].p_idempotency_key);
@@ -88,6 +91,17 @@ await scenario(browser, 'conflit d’idempotence', { respond: (route, n) => n ==
 });
 const abortFirst = later => (route, n) => n === 1 ? route.abort('connectionreset') : later(route, n);
 const json = (status, body) => route => route.fulfill({ status, contentType: 'application/json', body: typeof body === 'string' ? body : JSON.stringify(body) });
+await scenario(browser, 'refus de période reconnu', { respond: json(400, { code: '22023', message: 'invalid_rental_period', details: 'secret' }) }, async ({ events }) => {
+  const failed = events.filter(e => e.name === 'booking_save_failed');
+  check('refus reconnu : rejection code invalid_rental_period', failed.length === 1 && failed[0].properties.element_type === 'validation' && failed[0].properties.element_id === 'invalid_rental_period', JSON.stringify(failed[0]?.properties));
+  const all = JSON.stringify(events);
+  check('refus reconnu : ni téléphone ni détails serveur dans la mesure', !all.includes('612345678') && !all.includes('secret'));
+  check('refus reconnu : seules catégorie et code dans l’événement', Object.keys(failed[0]?.properties || {}).every(k => ['form_name', 'element_type', 'element_id', 'is_test', 'event_id'].includes(k) || k.startsWith('utm_') || k.startsWith('first_') || k === 'landing_path'), JSON.stringify(Object.keys(failed[0]?.properties || {})));
+});
+await scenario(browser, 'code connu avec mauvais code SQL', { respond: json(400, { code: '23505', message: 'invalid_vehicle' }) }, async ({ events }) => {
+  const failed = events.filter(e => e.name === 'booking_save_failed');
+  check('code incohérent : « unknown »', failed.length === 1 && failed[0].properties.element_id === 'unknown', JSON.stringify(failed[0]?.properties));
+});
 const switchToFull = async (page, dialog) => { await dialog.getByRole('radio').nth(1).check(); await dialog.getByRole('button', { name: /Envoyer ma réservation sur WhatsApp/ }).click(); await page.waitForTimeout(1200); };
 await scenario(browser, 'coupure après insertion puis modification', { respond: abortFirst(json(200, [{ reference: 'BN-OLD234', created: false }])) }, async ({ page, calls, dialog, events }) => {
   await switchToFull(page, dialog);
