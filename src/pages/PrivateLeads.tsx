@@ -12,6 +12,8 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import PrivatePartners from '@/components/PrivatePartners';
+import { partnerPersistenceEnabled } from '@/utils/partnerApi';
 
 type Lead = Tables<'rental_requests'>;
 const PAGE_SIZE = 25;
@@ -126,6 +128,7 @@ export default function PrivateLeads() {
           {query.data.rows.map(lead => <LeadEditor key={`${lead.id}:${lead.updated_at}`} lead={lead} saved={refresh} />)}
           <div className="flex gap-4"><Button disabled={page === 0} onClick={() => setPage(p => p - 1)}>Précédentes</Button><Button disabled={(page + 1) * PAGE_SIZE >= query.data.total} onClick={() => setPage(p => p + 1)}>Suivantes</Button></div>
         </>}
+        {partnerPersistenceEnabled() && <PrivatePartners />}
       </>}
     </main>
     <Footer />

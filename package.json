@@ -16,6 +16,8 @@
     "test:catalogue": "node scripts/test-catalogue.mjs",
     "test:schema-baseline": "node scripts/test-schema-rebuild.mjs",
     "test:measurement-schema": "node scripts/test-measurement-schema.mjs",
+    "test:partner-agencies": "node scripts/test-partner-agencies.mjs",
+    "test:partner-signup": "node scripts/test-partner-signup.mjs",
     "test:measurement-browser": "node scripts/test-measurement-browser.mjs",
     "sitemap": "node scripts/generate-sitemap.js"
   },

@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Helmet } from "react-helmet-async";
 import { TrendingUp, Eye, FileText, Zap, MessageCircle } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, type FormEvent } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
@@ -17,6 +17,8 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useToast } from "@/hooks/use-toast";
 import { StickyCTA } from "@/components/StickyCTA";
 import heroImage from "@/assets/hero-partners.jpg";
+import { PHONE_COUNTRY_CODES } from "@/utils/bookingApi";
+import { checkPartner, isUncertainFailure, PARTNER_CITIES, PENDING_PARTNER_KEY, partnerRecap, readPendingPartner, type PartnerCheck, type PartnerInput, type RegisterPartnerResult, partnerPersistenceEnabled, partnerWhatsAppText, registerPartner } from "@/utils/partnerApi";
 
 const PAGE_META: Record<string, { title: string; desc: string }> = {
   fr: {
@@ -76,6 +78,87 @@ const Partenaires = () => {
     };
   }, []);
   
+  const [partnerDone, setPartnerDone] = useState<string[] | null>(null);
+  const [partnerError, setPartnerError] = useState('');
+  const [partnerFallback, setPartnerFallback] = useState('');
+  // Tentative dont la réponse a été perdue : elle est renvoyée telle quelle, avec la même clé, jamais modifiée.
+  const [partnerPending, setPartnerPending] = useState<PartnerInput | null>(() => readPendingPartner());
+  const partnerKey = useRef<string>(crypto.randomUUID());
+
+  const openPartnerWhatsApp = (text: string) => {
+    window.open(`https://wa.me/212699024526?text=${encodeURIComponent(text)}`, '_blank');
+  };
+  const keepPending = (input: PartnerInput | null) => {
+    setPartnerPending(input);
+    try {
+      if (input) sessionStorage.setItem(PENDING_PARTNER_KEY, JSON.stringify(input));
+      else sessionStorage.removeItem(PENDING_PARTNER_KEY);
+    } catch { /* stockage indisponible : la tentative reste en mémoire pour cette page */ }
+  };
+
+  const sendPartner = async (input: PartnerInput) => {
+    setPartnerError(''); setPartnerFallback('');
+    setIsSubmitting(true);
+    const result = await registerPartner(input);
+    setIsSubmitting(false);
+    if (result.ok) {
+      keepPending(null);
+      partnerKey.current = crypto.randomUUID();
+      setPartnerDone(partnerRecap(input));
+      return;
+    }
+    const reason = (result as Extract<RegisterPartnerResult, { ok: false }>).reason;
+    if (isUncertainFailure(reason)) {
+      keepPending(input);
+      setPartnerError(tr("Nous n'avons pas reçu de confirmation : votre inscription a peut-être été enregistrée. Renvoyez-la telle quelle, ou envoyez-la sur WhatsApp. Pour la modifier, écrivez-nous sur WhatsApp.",
+        "We did not receive a confirmation: your registration may have been saved. Send it again as is, or send it on WhatsApp. To change it, message us on WhatsApp.",
+        "No recibimos confirmación: es posible que tu inscripción se haya guardado. Reenvíala tal cual o envíala por WhatsApp. Para modificarla, escríbenos por WhatsApp."));
+      setPartnerFallback(partnerWhatsAppText(input));
+      return;
+    }
+    keepPending(null);
+    partnerKey.current = crypto.randomUUID();
+    if (reason === 'conflict') {
+      setPartnerError(tr("Une inscription avec d'autres informations a déjà été enregistrée pour cet envoi. Elle n'a pas été modifiée. Pour la corriger, écrivez-nous sur WhatsApp.",
+        "A registration with different details was already saved for this attempt. It was not changed. To correct it, message us on WhatsApp.",
+        "Ya se guardó una inscripción con otros datos para este envío. No se modificó. Para corregirla, escríbenos por WhatsApp."));
+      setPartnerFallback(partnerWhatsAppText(input));
+    } else if (reason === 'rate_limited') {
+      setPartnerError(tr("Plusieurs inscriptions ont déjà été reçues avec ce contact aujourd'hui. Nous revenons vers vous.", "Several registrations were already received with this contact today. We will get back to you.", "Ya recibimos varias inscripciones con este contacto hoy. Te contactaremos."));
+    } else {
+      setPartnerError(tr("L'inscription n'a pas été enregistrée. Vérifiez les informations, ou envoyez-la sur WhatsApp.", "Your registration was not saved. Check the details, or send it on WhatsApp.", "Tu inscripción no se guardó. Revisa los datos o envíala por WhatsApp."));
+      setPartnerFallback(partnerWhatsAppText(input));
+    }
+  };
+
+  const submitPartner = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (partnerPending) { await sendPartner(partnerPending); return; }
+    const values = new FormData(e.currentTarget);
+    const text = (name: string) => String(values.get(name) ?? '');
+    const city = text('ville') === 'Rabat' ? 'Rabat' : 'Casablanca';
+    const input: PartnerInput = {
+      agencyName: text('agence'), city, countryCode: text('indicatif') || '+212', phone: text('tel'),
+      email: text('email'), fleetSize: text('flotte'), message: text('message'), language,
+      idempotencyKey: partnerKey.current,
+    };
+    const checked = checkPartner(input);
+    setPartnerFallback('');
+    if (!checked.ok) {
+      setPartnerError({
+        agency: tr("Indiquez le nom de votre agence.", "Enter your agency name.", "Indica el nombre de tu agencia."),
+        contact: tr("Indiquez un téléphone ou un e-mail.", "Enter a phone number or an email.", "Indica un teléfono o un e-mail."),
+        phone: tr("Ce numéro de téléphone n'est pas valide.", "This phone number is not valid.", "Este número de teléfono no es válido."),
+        email: tr("Cette adresse e-mail n'est pas valide.", "This email address is not valid.", "Esta dirección de e-mail no es válida."),
+        fleet: tr("Le nombre de voitures doit être un nombre entier.", "The number of cars must be a whole number.", "El número de coches debe ser un número entero."),
+      }[(checked as Extract<PartnerCheck, { ok: false }>).field]);
+      return;
+    }
+    setPartnerError('');
+    if (!partnerPersistenceEnabled()) { openPartnerWhatsApp(partnerWhatsAppText(input)); return; }
+    await sendPartner(input);
+  };
+
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
@@ -220,69 +303,76 @@ const Partenaires = () => {
         <div className="container max-w-2xl px-4 sm:px-6">
           <Card className="border-2 rounded-2xl shadow-lg">
             <CardContent className="p-6 sm:p-8 md:p-12">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-6 sm:mb-8">{t('partners.joinForm')}</h2>
-              <form 
-                className="space-y-6"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const formData = new FormData(e.currentTarget);
-                  const agence = formData.get('agence') as string;
-                  const villes = formData.get('villes') as string;
-                  const flotte = formData.get('flotte') as string;
-                  const tel = formData.get('tel') as string;
-                  const email = formData.get('email') as string;
-                  const message = formData.get('message') as string;
-                  
-                  let whatsappMessage = `Nouvelle candidature partenaire\n\nNom de l'agence: ${agence}\nVille(s): ${villes}\nTaille de la flotte: ${flotte} véhicules\nTéléphone: ${tel}\nEmail: ${email}`;
-                  
-                  if (message) {
-                    whatsappMessage += `\n\nMessage:\n${message}`;
-                  }
-                  
-                  window.open(
-                    `https://wa.me/212699024526?text=${encodeURIComponent(whatsappMessage)}`,
-                    '_blank'
-                  );
-                }}
-              >
-                <div>
-                  <label className="block text-sm font-medium mb-2">{t('partners.agencyName')}</label>
-                  <Input name="agence" placeholder={tr("Votre agence de location", "Your rental agency", "Tu agencia de alquiler")} className="rounded-lg" required />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl text-center mb-3">{t('partners.joinForm')}</h2>
+              <p className="text-center text-muted-foreground mb-6 sm:mb-8">
+                {tr("Trois informations suffisent : votre agence, votre ville et un moyen de vous joindre. Nous vérifions votre agence (appel, registre de commerce, ICE) seulement quand une première demande vous est attribuée.",
+                  "Three details are enough: your agency, your city and a way to reach you. We verify your agency (call, trade register, ICE) only when a first request is assigned to you.",
+                  "Bastan tres datos: tu agencia, tu ciudad y una forma de contactarte. Verificamos tu agencia (llamada, registro mercantil, ICE) solo cuando se te asigna una primera solicitud.")}
+              </p>
+              {partnerDone ? (
+                <div role="status" className="text-center space-y-3">
+                  <p className="text-xl font-semibold">{tr("Inscription reçue, merci.", "Registration received, thank you.", "Inscripción recibida, gracias.")}</p>
+                  <p>{tr("Enregistré :", "Saved:", "Guardado:")} {partnerDone.join(' · ')}</p>
+                  <p className="text-muted-foreground">{tr("Nous vous contactons dès qu'une demande correspond à votre ville.", "We will contact you as soon as a request matches your city.", "Te contactaremos en cuanto una solicitud corresponda a tu ciudad.")}</p>
                 </div>
-                
+              ) : (
+              <form className="space-y-6" noValidate onSubmit={(e) => { void submitPartner(e); }}>
+                {partnerPending && (
+                  <div className="rounded-lg border border-input bg-white p-4 text-sm" data-testid="partner-pending">
+                    <p className="font-medium">{tr("Envoi en attente de confirmation :", "Awaiting confirmation:", "Envío pendiente de confirmación:")}</p>
+                    <p>{partnerRecap(partnerPending).join(' · ')}</p>
+                  </div>
+                )}
+                <fieldset disabled={!!partnerPending} className="space-y-6 disabled:opacity-60">
                 <div>
-                  <label className="block text-sm font-medium mb-2">{t('partners.cities')}</label>
-                  <Input name="villes" placeholder="Casablanca, Marrakech..." className="rounded-lg" required />
+                  <label htmlFor="partner-agency" className="block text-sm font-medium mb-2">{t('partners.agencyName')}</label>
+                  <Input id="partner-agency" name="agence" maxLength={80} autoComplete="organization" placeholder={tr("Votre agence de location", "Your rental agency", "Tu agencia de alquiler")} className="rounded-lg" required />
                 </div>
-                
                 <div>
-                  <label className="block text-sm font-medium mb-2">{t('partners.fleetSize')}</label>
-                  <Input name="flotte" type="number" placeholder={tr("Nombre de véhicules", "Number of vehicles", "Número de vehículos")} className="rounded-lg" required />
+                  <label htmlFor="partner-city" className="block text-sm font-medium mb-2">{tr("Ville", "City", "Ciudad")}</label>
+                  <select id="partner-city" name="ville" defaultValue="Casablanca" className="w-full border border-input rounded-lg bg-white p-2 min-h-10">
+                    {PARTNER_CITIES.map(city => <option key={city} value={city}>{city}</option>)}
+                  </select>
                 </div>
-                
+                <fieldset className="space-y-4">
+                  <legend className="text-sm font-medium">{tr("Pour vous joindre : téléphone ou e-mail (l'un des deux suffit)", "How to reach you: phone or email (either is enough)", "Para contactarte: teléfono o e-mail (basta con uno)")}</legend>
+                  <div>
+                    <label htmlFor="partner-phone" className="block text-sm mb-2">{t('partners.phone')}</label>
+                    <div className="flex gap-2">
+                      <select aria-label={tr("Indicatif", "Country code", "Prefijo")} name="indicatif" defaultValue="+212" className="border border-input rounded-lg bg-white p-2 min-h-10">
+                        {PHONE_COUNTRY_CODES.map(code => <option key={code} value={code}>{code}</option>)}
+                      </select>
+                      <Input id="partner-phone" name="tel" type="tel" inputMode="tel" autoComplete="tel-national" maxLength={40} placeholder="06 12 34 56 78" className="rounded-lg flex-1" />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="partner-email" className="block text-sm mb-2">{t('partners.email')}</label>
+                    <Input id="partner-email" name="email" type="email" autoComplete="email" maxLength={120} placeholder={tr("contact@votre-agence.ma", "contact@your-agency.ma", "contacto@tu-agencia.ma")} className="rounded-lg" />
+                  </div>
+                </fieldset>
                 <div>
-                  <label className="block text-sm font-medium mb-2">{t('partners.phone')}</label>
-                  <Input name="tel" type="tel" placeholder="+212 ..." className="rounded-lg" required />
+                  <label htmlFor="partner-fleet" className="block text-sm font-medium mb-2">{tr("Nombre de voitures (facultatif)", "Number of cars (optional)", "Número de coches (opcional)")}</label>
+                  <Input id="partner-fleet" name="flotte" type="number" inputMode="numeric" min={1} max={5000} className="rounded-lg" />
                 </div>
-                
                 <div>
-                  <label className="block text-sm font-medium mb-2">{t('partners.email')}</label>
-                  <Input name="email" type="email" placeholder={tr("contact@votre-agence.ma", "contact@your-agency.ma", "contacto@tu-agencia.ma")} className="rounded-lg" required />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium mb-2">{t('partners.message')}</label>
-                  <Textarea 
-                    name="message"
-                    placeholder={tr("Parlez-nous de votre agence…", "Tell us about your agency…", "Háblanos de tu agencia…")} 
+                  <label htmlFor="partner-message" className="block text-sm font-medium mb-2">{t('partners.message')}</label>
+                  <Textarea id="partner-message" name="message" maxLength={1000}
+                    placeholder={tr("Parlez-nous de votre agence…", "Tell us about your agency…", "Háblanos de tu agencia…")}
                     className="rounded-lg min-h-[120px]"
                   />
                 </div>
-                
-                <Button type="submit" size="lg" className="w-full rounded-full">
-                  {t('partners.sendWhatsApp')}
+                </fieldset>
+                {partnerError && <p role="alert" className="text-sm font-medium text-destructive">{partnerError}</p>}
+                {partnerFallback && (
+                  <Button type="button" variant="outline" size="lg" className="w-full rounded-full" onClick={() => openPartnerWhatsApp(partnerFallback)}>
+                    {t('partners.sendWhatsApp')}
+                  </Button>
+                )}
+                <Button type="submit" size="lg" className="w-full rounded-full" disabled={isSubmitting}>
+                  {isSubmitting ? tr("Envoi…", "Sending…", "Enviando…") : partnerPending ? tr("Renvoyer la même inscription", "Send the same registration again", "Reenviar la misma inscripción") : partnerPersistenceEnabled() ? tr("M'inscrire comme loueur partenaire", "Sign up as a partner agency", "Inscribirme como agencia asociada") : t('partners.sendWhatsApp')}
                 </Button>
               </form>
+              )}
             </CardContent>
           </Card>
         </div>
